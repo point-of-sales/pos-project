@@ -9,18 +9,18 @@ A. Desciption:
 
 B. Members: 
 
-  1. Le Cao Tri - 50903135.
-  2. Le Bao Triet - 080105T.
+    1. Le Cao Tri - 50903135.
+    2. Le Bao Triet - 080105T.
 
 C. Supporter:
 
-  Mr. Phan Tien Khoi - Lecturer of Ton Duc Thang University. 
+    Mr. Phan Tien Khoi - Lecturer of Ton Duc Thang University. 
 
 D. Language and technology:
 
-  Languages : PHP, MYSQL, Javascript, CSS, HTML.
-  Technologies are used in project: 
-  Yii Framework, JQuery, Ajax ... 
+    Languages : PHP, MYSQL, Javascript, CSS, HTML.
+    Technologies are used in project: 
+    Yii Framework, JQuery, Ajax ... 
 
 
   
