@@ -5,7 +5,7 @@ Point Of Sale Project
 
 A. Desciption:
 
-  Building  model Point Of Sale for super market system which help everyone can work easily and effectively.  
+    Building  model Point Of Sale for super market system which help everyone can work easily and effectively.  
 
 B. Members: 
 
