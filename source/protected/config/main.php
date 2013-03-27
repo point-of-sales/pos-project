@@ -31,6 +31,7 @@ return array(
                                 'ext.giix-core', // giix generators
                         ),
 		),
+            'quanlysanpham'
                     
 	),
 
