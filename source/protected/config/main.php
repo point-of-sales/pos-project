@@ -34,7 +34,9 @@ return array(
         'qlcn'=>array(
             'defaultController'=>'chinhanh',
         ),
-
+        'quanlynhanvien'=>array(
+            'defaultController'=>'nhanvien',
+        ),
                     
 	),
 
@@ -67,7 +69,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=pos2_db',
+			'connectionString' => 'mysql:host=localhost;dbname=pos_db',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

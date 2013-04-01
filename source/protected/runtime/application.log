@@ -7953,3 +7953,46 @@ Stack trace:
 REQUEST_URI=/qlcn/chinhanh
 HTTP_REFERER=http://pos.local/
 ---
+2013/04/01 03:55:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "quanlynhanvien/nhanvien/admin".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/admin
+---
+2013/04/01 03:56:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "quanlynhanvien".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/
+---
+2013/04/01 04:15:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/asia/css/styles/default/images/ui-bg_glass_65_ffffff_1x400.png".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/asia/css...')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/themes/asia/css/styles/default/images/ui-bg_glass_65_ffffff_1x400.png
+HTTP_REFERER=http://localhost/pos-project/source/themes/asia/css/styles/default/ui.css
+---
+2013/04/01 04:17:16 [warning] [application] Failed to set unsafe attribute "chungTus" of "NhanVien".
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (17)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/01 04:17:16 [warning] [application] Failed to set unsafe attribute "tblQuyens" of "NhanVien".
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (17)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/01 04:19:23 [warning] [application] Failed to set unsafe attribute "chungTus" of "NhanVien".
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (17)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/01 04:19:23 [warning] [application] Failed to set unsafe attribute "tblQuyens" of "NhanVien".
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (17)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/01 04:19:28 [warning] [application] Failed to set unsafe attribute "chungTus" of "NhanVien".
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (17)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/01 04:19:28 [warning] [application] Failed to set unsafe attribute "tblQuyens" of "NhanVien".
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (17)
+in C:\wamp\www\pos-project\source\index.php (13)
