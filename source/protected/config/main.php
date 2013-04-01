@@ -7,8 +7,8 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
-
+	'name'=>'Point Of Sales System',
+    'theme'=>'asia',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -31,7 +31,10 @@ return array(
                                 'ext.giix-core', // giix generators
                         ),
 		),
-            'quanlysanpham'
+        'qlcn'=>array(
+            'defaultController'=>'chinhanh',
+        ),
+
                     
 	),
 
@@ -41,24 +44,30 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+        // Yii Booster config
+        'bootstrap' => array(
+            'class' => 'ext.bootstrap.components.Bootstrap',
+            'responsiveCss' => true,
+        ),
 		// uncomment the following to enable URLs in path-format
-		/*
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+            'showScriptName'=>false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		*/
+	
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=pos_db',
+			'connectionString' => 'mysql:host=localhost;dbname=pos2_db',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

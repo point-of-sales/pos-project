@@ -25,14 +25,14 @@
  * @property ChiNhanh $trucThuoc
  * @property ChiNhanh[] $chiNhanhs
  * @property KhuVuc $khuVuc
- * @property HoaDonBanHang[] $hoaDonBanHangs
- * @property HoaDonTraHang[] $hoaDonTraHangs
+ * @property ChungTu[] $chungTus
  * @property KhuyenMai[] $khuyenMais
+ * @property KhuyenMai[] $tblKhuyenMais
  * @property NhanVien[] $nhanViens
  * @property PhieuNhap[] $phieuNhaps
  * @property PhieuXuat[] $phieuXuats
- * @property ThongTinSanPham[] $tblThongTinSanPhams
- * @property SanPhamTang[] $sanPhamTangs
+ * @property SanPham[] $tblSanPhams
+ * @property SanPhamTang[] $tblSanPhamTangs
  */
 abstract class BaseChiNhanh extends GxActiveRecord {
 
@@ -45,7 +45,7 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'ChiNhanh|ChiNhanhs', $n);
+		return Yii::t('app', 'Chi nhánh|Các chi nhánh', $n);
 	}
 
 	public static function representingColumn() {
@@ -54,12 +54,12 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_chi_nhanh, truc_thuoc_id, khu_vuc_id, loai_chi_nhanh_id', 'required'),
+			array('ma_chi_nhanh, ten_chi_nhanh, trang_thai, khu_vuc_id, loai_chi_nhanh_id', 'required'),
 			array('trang_thai, truc_thuoc_id, khu_vuc_id, loai_chi_nhanh_id', 'numerical', 'integerOnly'=>true),
 			array('ma_chi_nhanh, dien_thoai, fax', 'length', 'max'=>15),
 			array('ten_chi_nhanh, dia_chi', 'length', 'max'=>100),
 			array('mo_ta', 'safe'),
-			array('ten_chi_nhanh, dia_chi, dien_thoai, fax, mo_ta, trang_thai', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('dia_chi, dien_thoai, fax, mo_ta, truc_thuoc_id', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, ma_chi_nhanh, ten_chi_nhanh, dia_chi, dien_thoai, fax, mo_ta, trang_thai, truc_thuoc_id, khu_vuc_id, loai_chi_nhanh_id', 'safe', 'on'=>'search'),
 		);
 	}
@@ -70,20 +70,22 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 			'trucThuoc' => array(self::BELONGS_TO, 'ChiNhanh', 'truc_thuoc_id'),
 			'chiNhanhs' => array(self::HAS_MANY, 'ChiNhanh', 'truc_thuoc_id'),
 			'khuVuc' => array(self::BELONGS_TO, 'KhuVuc', 'khu_vuc_id'),
-			'hoaDonBanHangs' => array(self::HAS_MANY, 'HoaDonBanHang', 'chi_nhanh_id'),
-			'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'chi_nhanh_id'),
+			'chungTus' => array(self::HAS_MANY, 'ChungTu', 'chi_nhanh_id'),
 			'khuyenMais' => array(self::HAS_MANY, 'KhuyenMai', 'chi_nhanh_id'),
+			'tblKhuyenMais' => array(self::MANY_MANY, 'KhuyenMai', 'tbl_KhuyenMaiChiNhanh(chi_nhanh_id, khuyen_mai_id)'),
 			'nhanViens' => array(self::HAS_MANY, 'NhanVien', 'chi_nhanh_id'),
 			'phieuNhaps' => array(self::HAS_MANY, 'PhieuNhap', 'chi_nhanh_xuat_id'),
 			'phieuXuats' => array(self::HAS_MANY, 'PhieuXuat', 'chi_nhanh_nhap_id'),
-			'tblThongTinSanPhams' => array(self::MANY_MANY, 'ThongTinSanPham', 'tbl_SanPham(chi_nhanh_id, san_pham_id)'),
-			'sanPhamTangs' => array(self::HAS_MANY, 'SanPhamTang', 'chi_nhanh_id'),
+			'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_SanPhamChiNhanh(chi_nhanh_id, san_pham_id)'),
+			'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_SanPhamTangChiNhanh(chi_nhanh_id, san_pham_tang_id)'),
 		);
 	}
 
 	public function pivotModels() {
 		return array(
-			'tblThongTinSanPhams' => 'SanPham',
+			'tblKhuyenMais' => 'KhuyenMaiChiNhanh',
+			'tblSanPhams' => 'SanPhamChiNhanh',
+			'tblSanPhamTangs' => 'SanPhamTangChiNhanh',
 		);
 	}
 
@@ -104,14 +106,14 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 			'trucThuoc' => null,
 			'chiNhanhs' => null,
 			'khuVuc' => null,
-			'hoaDonBanHangs' => null,
-			'hoaDonTraHangs' => null,
+			'chungTus' => null,
 			'khuyenMais' => null,
+			'tblKhuyenMais' => null,
 			'nhanViens' => null,
 			'phieuNhaps' => null,
 			'phieuXuats' => null,
-			'tblThongTinSanPhams' => null,
-			'sanPhamTangs' => null,
+			'tblSanPhams' => null,
+			'tblSanPhamTangs' => null,
 		);
 	}
 

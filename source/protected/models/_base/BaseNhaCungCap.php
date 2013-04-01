@@ -18,7 +18,7 @@
  * @property string $fax
  * @property integer $trang_thai
  *
- * @property ThongTinSanPham[] $thongTinSanPhams
+ * @property SanPham[] $sanPhams
  */
 abstract class BaseNhaCungCap extends GxActiveRecord {
 
@@ -40,19 +40,19 @@ abstract class BaseNhaCungCap extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_nha_cung_cap', 'required'),
+			array('ma_nha_cung_cap, trang_thai', 'required'),
 			array('trang_thai', 'numerical', 'integerOnly'=>true),
 			array('ma_nha_cung_cap, dien_thoai, fax', 'length', 'max'=>15),
 			array('ten_nha_cung_cap, email', 'length', 'max'=>100),
 			array('mo_ta', 'safe'),
-			array('ten_nha_cung_cap, mo_ta, dien_thoai, email, fax, trang_thai', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('ten_nha_cung_cap, mo_ta, dien_thoai, email, fax', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, ma_nha_cung_cap, ten_nha_cung_cap, mo_ta, dien_thoai, email, fax, trang_thai', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
-			'thongTinSanPhams' => array(self::HAS_MANY, 'ThongTinSanPham', 'nha_cung_cap_id'),
+			'sanPhams' => array(self::HAS_MANY, 'SanPham', 'nha_cung_cap_id'),
 		);
 	}
 
@@ -71,7 +71,7 @@ abstract class BaseNhaCungCap extends GxActiveRecord {
 			'email' => Yii::t('app', 'Email'),
 			'fax' => Yii::t('app', 'Fax'),
 			'trang_thai' => Yii::t('app', 'Trang Thai'),
-			'thongTinSanPhams' => null,
+			'sanPhams' => null,
 		);
 	}
 

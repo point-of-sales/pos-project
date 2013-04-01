@@ -13,7 +13,7 @@
  * @property string $ma_loai
  * @property string $ten_loai
  *
- * @property ThongTinSanPham[] $thongTinSanPhams
+ * @property SanPham[] $sanPhams
  */
 abstract class BaseLoaiSanPham extends GxActiveRecord {
 
@@ -45,7 +45,7 @@ abstract class BaseLoaiSanPham extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'thongTinSanPhams' => array(self::HAS_MANY, 'ThongTinSanPham', 'loai_san_pham_id'),
+			'sanPhams' => array(self::HAS_MANY, 'SanPham', 'loai_san_pham_id'),
 		);
 	}
 
@@ -59,7 +59,7 @@ abstract class BaseLoaiSanPham extends GxActiveRecord {
 			'id' => Yii::t('app', 'ID'),
 			'ma_loai' => Yii::t('app', 'Ma Loai'),
 			'ten_loai' => Yii::t('app', 'Ten Loai'),
-			'thongTinSanPhams' => null,
+			'sanPhams' => null,
 		);
 	}
 
