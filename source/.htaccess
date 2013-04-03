@@ -1,5 +1,6 @@
 # Turning on the rewrite engine is necessary for the following rules and features.
 # FollowSymLinks must be enabled for this to work.
+
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
   RewriteEngine On
@@ -11,3 +12,4 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . index.php
 </IfModule>
+

@@ -31,9 +31,10 @@ return array(
                                 'ext.giix-core', // giix generators
                         ),
 		),
-        'qlcn'=>array(
+        'quanlychinhanh'=>array(
             'defaultController'=>'chinhanh',
         ),
+
         'quanlynhanvien'=>array(
             'defaultController'=>'nhanvien',
         ),
@@ -56,6 +57,7 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
             'showScriptName'=>false,
+
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

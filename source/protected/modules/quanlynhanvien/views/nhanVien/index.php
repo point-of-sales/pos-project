@@ -1,5 +1,4 @@
 <?php
-
 $this->breadcrumbs = array(
 	NhanVien::label(2),
 	Yii::t('app', 'Index'),
@@ -10,6 +9,8 @@ $this->menu = array(
 	array('label'=>Yii::t('app', 'Manage') . ' ' . NhanVien::label(2), 'url' => array('admin')),
 );
 ?>
+
+
 
 <h1><?php echo GxHtml::encode(NhanVien::label(2)); ?></h1>
 

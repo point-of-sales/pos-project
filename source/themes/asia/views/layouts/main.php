@@ -22,6 +22,8 @@
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/forms.css');
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/tables.css');
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/messages.css');
+    // <!--Custome css -->
+        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/custom.css');
     //<!--Register core script -->
         Yii::app()->clientScript->registerCoreScript('jquery');
         Yii::app()->clientScript->registerCoreScript('jquery.ui');
@@ -71,9 +73,9 @@
         <?php echo $content?>
     </div>    
 	<div class="clearfix"></div>
-	<div id="footer">
-		<?php $this->renderPartial('webroot.themes.asia.views.partials._main_footer');?>
-	</div>
+	<!--<div id="footer">
+		<?php /*$this->renderPartial('webroot.themes.asia.views.partials._main_footer');*/?>
+	</div>-->
 </body>
 
 </html>

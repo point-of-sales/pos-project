@@ -1,6 +1,6 @@
 <?php
 
-class QlcnModule extends CWebModule
+class QuanlychinhanhModule extends CWebModule
 {
 	public function init()
 	{
@@ -9,8 +9,8 @@ class QlcnModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'qlcn.models.*',
-			'qlcn.components.*',
+			'quanlychinhanh.models.*',
+			'quanlychinhanh.components.*',
 		));
 	}
 

@@ -1,12 +1,15 @@
 <?php
 
-class ChinhanhController extends GxController
+class ChiNhanhController extends GxController
 {
-    public function actionView($id) {
-        $this->render('view', array(
+    public $defaultAction = 'danhsach';
+
+    public function actionChiTiet($id) {
+        $this->render('chitiet', array(
             'model' => $this->loadModel($id, 'ChiNhanh'),
         ));
     }
+
 
     public function filters()
     {
@@ -20,7 +23,7 @@ class ChinhanhController extends GxController
         return array(
             array(
                 'allow',
-                'actions'=>array('index','view','them','update','delete','admin'),
+                'actions'=>array('danhsach','chitiet','them','capnhat','xoa'),
                 'users'=>array('@'),
             ),
             array('deny',
@@ -39,66 +42,66 @@ class ChinhanhController extends GxController
                 //'tblSanPhamTangs' => $_POST['ChiNhanh']['tblSanPhamTangs'] === '' ? null : $_POST['ChiNhanh']['tblSanPhamTangs'],
             );
 
-            if ($model->saveWithRelated($relatedData)) {
+            if ($model->save()) {
                 if (Yii::app()->getRequest()->getIsAjaxRequest())
                     Yii::app()->end();
                 else
-                    $this->redirect(array('view', 'id' => $model->id));
+                    $this->redirect(array('chitiet', 'id' => $model->id));
             }
         }
 
         $this->render('them', array( 'model' => $model));
     }
 
-    public function actionUpdate($id) {
+    public function actionCapNhat($id) {
         $model = $this->loadModel($id, 'ChiNhanh');
-
-
         if (isset($_POST['ChiNhanh'])) {
             $model->setAttributes($_POST['ChiNhanh']);
             $relatedData = array(
-                'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
-                'tblSanPhams' => $_POST['ChiNhanh']['tblSanPhams'] === '' ? null : $_POST['ChiNhanh']['tblSanPhams'],
-                'tblSanPhamTangs' => $_POST['ChiNhanh']['tblSanPhamTangs'] === '' ? null : $_POST['ChiNhanh']['tblSanPhamTangs'],
+                //'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
+                //'tblSanPhams' => $_POST['ChiNhanh']['tblSanPhams'] === '' ? null : $_POST['ChiNhanh']['tblSanPhams'],
+                //'tblSanPhamTangs' => $_POST['ChiNhanh']['tblSanPhamTangs'] === '' ? null : $_POST['ChiNhanh']['tblSanPhamTangs'],
             );
 
-            if ($model->saveWithRelated($relatedData)) {
-                $this->redirect(array('view', 'id' => $model->id));
+            if ($model->save()) {
+                $this->redirect(array('chitiet', 'id' => $model->id));
             }
         }
 
-        $this->render('update', array(
+        $this->render('capnhat', array(
             'model' => $model,
         ));
     }
 
-    public function actionDelete($id) {
+    public function actionXoa($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $this->loadModel($id, 'ChiNhanh')->delete();
 
-            if (!Yii::app()->getRequest()->getIsAjaxRequest())
-                $this->redirect(array('admin'));
+            $delModel = $this->loadModel($id, 'ChiNhanh');
+            if(!$delModel->hasChildBranchs()) {
+
+                //$delModel->delete();
+            } else {
+                echo "xxxx";
+                Yii::app()->user->setFlash('del-error','Không thể xóa chi nhánh này vì chi nhánh này đang có nhiều chi nhánh con!');
+            }
+
+           /* if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('admin'));*/
         } else
             throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
     }
 
-    public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('ChiNhanh');
-        $this->render('index', array(
-            'dataProvider' => $dataProvider,
-        ));
-    }
+    public function actionDanhSach() {
 
-    public function actionAdmin() {
         $model = new ChiNhanh('search');
-        //print_r($model);exit;
         $model->unsetAttributes();
         if (isset($_GET['ChiNhanh']))
             $model->setAttributes($_GET['ChiNhanh']);
 
-        $this->render('admin', array(
+        $this->render('danhsach', array(
             'model' => $model,
         ));
+
     }
 
 }

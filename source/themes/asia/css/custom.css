@@ -1,0 +1,97 @@
+.search-box-form {
+    overflow:hidden;
+}
+
+.search-box  {
+    overflow:hidden;
+}
+
+.search-box li {
+    width:180px;
+    float:left;
+    clear:none;
+    padding-right:15px;
+}
+
+.search-box li select {
+    width:180px;
+}
+
+.btn-search {
+    width:80px;
+    float:right;
+}
+
+/*default btn line*/
+
+.btn {
+    border-top:2px solid; 
+    border-bottom:2px solid;
+    background-color:#BBDEF7;
+    height:50px;
+}
+
+.btn input[type="submit"] {
+    
+    padding:2px 20px 2px 20px; 
+    float:right;
+    margin-right:40px;
+    margin-top:12px;
+}
+
+/*end default btn line */
+
+/*Them chi nhanh */ 
+
+.form-add-content {
+    width:700px;
+    margin:0 auto;
+}
+
+.form-add-content .row {
+    padding-top:10px;
+}
+
+.form-add-content .row {
+    padding-top:10px;
+}
+
+.form-add-content .row input {
+    width:180px;
+}
+
+.form-add-content .row textarea {
+    width:400px;
+    height:100px;
+}
+
+.form-add-content .row select {
+    width:185px;
+}
+
+.form-add-content .row label {
+    float:left;
+    width:120px;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+/*End them chi nhanh */
+
+/*start radio list */
+.radio-list  {
+    float:left;
+    width:520px;
+    padding-bottom:10px;
+}
+
+.radio-list span label {
+    font-weight:normal;
+}
+
+.radio-list span input[type='radio'] {
+    margin-top:7px;
+}
+/*end radio list */
+
+

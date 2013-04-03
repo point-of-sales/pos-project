@@ -53,5 +53,64 @@ class ChiNhanh extends BaseChiNhanh
             'tblSanPhamTangs' => null,
         );
     }
+    public function getStatusOptions() {
+        return array('Chưa kích hoạt', 'Kích hoạt');
+    }
+
+
+    public function getUnderOptions() {
+        $chiNhanhs = Yii::app()->db->createCommand()
+                ->select('id, ten_chi_nhanh')
+                ->from('tbl_ChiNhanh')
+                ->queryAll();
+        $danhSachChiNhanh['']='Không trực thuộc';
+        foreach($chiNhanhs as $chiNhanh) {
+            if($chiNhanh['ten_chi_nhanh']!=$this->ten_chi_nhanh) {
+                $danhSachChiNhanh[$chiNhanh['id']] = $chiNhanh['ten_chi_nhanh'];
+            }
+        }
+        return $danhSachChiNhanh;
+    }
+
+    public function getAreaOptions() {
+        $khuVucs = Yii::app()->db->createCommand()
+            ->select('id, ten_khu_vuc')
+            ->from('tbl_KhuVuc')
+            ->queryAll();
+        foreach($khuVucs as $khuVuc) {
+                $danhSachKhuVuc[$khuVuc['id']] = $khuVuc['ten_khu_vuc'];
+        }
+        return $danhSachKhuVuc;
+    }
+
+    public function getTypeOptions() {
+        $loais = Yii::app()->db->createCommand()
+            ->select('id, ten_loai_chi_nhanh')
+            ->from('tbl_LoaiChiNhanh')
+            ->queryAll();
+        foreach($loais as $loai) {
+            $danhSachLoai[$loai['id']] = $loai['ten_loai_chi_nhanh'];
+        }
+        return $danhSachLoai;
+
+    }
+
+    public function getStatusText() {
+        $statusOptions = $this->getStatusOptions();
+        return $statusOptions[$this->trang_thai];
+
+    }
+
+    public function getUnderText() {
+        $underOptions = $this->getUnderOptions();
+        if($this->truc_thuoc_id!='')
+            return $underOptions[$this->truc_thuoc_id];
+        else
+            return 'Không trực thuộc';
+    }
+
+    public function hasChildBranchs() {
+        return ChiNhanh::model()->exists('truc_thuoc_id=:truc_thuoc_id',array(':truc_thuoc_id'=>$this->id));
+    }
 
 }
