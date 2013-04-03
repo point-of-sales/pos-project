@@ -24,20 +24,15 @@ $('.search-form form').submit(function(){
 
 <h1><?php echo GxHtml::encode(ChiNhanh::label(2)); ?></h1>
 
-<div class="error">
-    <?php
-        if(Yii::app()->user->hasFlash('del-error')) {
-            echo Yii::app()->user->getFlash('del-error');
-        }
-    ?>
-</div>
-
 <div class="search-form">
     <?php $this->renderPartial('_search', array(
         'model' => $model,
     )); ?>
 
 </div><!-- search-form -->
+
+
+
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'id'=>'chi-nhanh-grid',
@@ -71,7 +66,27 @@ $('.search-form form').submit(function(){
                 ),
                 'delete'=>array(
                     'url'=>'Yii::app()->createUrl("/quanlychinhanh/chiNhanh/xoa",array("id"=>$data->id))',
-                    'label'=>'Xóa'
+                    'label'=>'Xóa',
+                    'click' => "js:function(){
+                                    var url = $(this).attr('href');
+                                    $.fn.yiiGridView.update('chi-nhanh-grid', {  //change my-grid to your grid's name
+                                        type:'POST',
+                                        url:$(this).attr('href'),
+                                        success:function(data) {
+                                        if(jQuery.type(data) == 'string') {
+                                            $('.search-form').after(
+                                               '<div class=error>'+data+'</div>'
+                                            );
+                                        }
+                                        $('.error').addClass('response-msg');
+                                        $('.error').addClass('ui-corner-all')
+                                        $('.error').fadeOut(5000);
+                                        $.fn.yiiGridView.update('chi-nhanh-grid'); //change my-grid to your grid's name
+}
+                                    })
+                                    return false;
+                                  }
+                                ",
 
                 ),
 

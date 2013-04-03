@@ -109,8 +109,22 @@ class ChiNhanh extends BaseChiNhanh
             return 'Không trực thuộc';
     }
 
-    public function hasChildBranchs() {
-        return ChiNhanh::model()->exists('truc_thuoc_id=:truc_thuoc_id',array(':truc_thuoc_id'=>$this->id));
+    public static function hasChildBranchs($id_parent) {
+
+        return ChiNhanh::model()->exists('truc_thuoc_id=:truc_thuoc_id',array(':truc_thuoc_id'=>$id_parent));
+    }
+
+    public static function  checkNoneRelative($id) {
+        $model = ChiNhanh::model()->findByPk($id);
+        // cac du lieu lien quan
+        $nhanVien = $model->getRelated('nhanViens');
+        $chungTu = $model->getRelated('chungTus');
+        $phieuXuat = $model->getRelated('phieuXuats');
+        $phieuNhap = $model->getRelated('phieuNhaps');
+        $sanPham = $model->getRelated('tblSanPhams');
+        $sanPhamTang = $model->getRelated('tblSanPhamTangs');
+
+        return $nhanVien == null && $chungTu == null && $phieuNhap == null && $phieuXuat == null && $sanPham == null && $sanPhamTang == null;
     }
 
 }

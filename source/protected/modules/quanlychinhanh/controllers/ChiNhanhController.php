@@ -75,14 +75,18 @@ class ChiNhanhController extends GxController
 
     public function actionXoa($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-
             $delModel = $this->loadModel($id, 'ChiNhanh');
-            if(!$delModel->hasChildBranchs()) {
+            $idDel = $delModel->getAttribute('id');
+            // kiem tra chi nhanh co chi nhanh con hay khong va chi nhanh do co nhan vien hay khong ?
+            if(!ChiNhanh::hasChildBranchs($idDel)) {
+                if(ChiNhanh::checkNoneRelative($idDel)) {
+                    $delModel->delete();
+                } else  {
+                    echo 'Không thể xóa chi nhánh này vì chi nhánh đang chứa dữ liệu liên quan!';
+                }
 
-                //$delModel->delete();
             } else {
-                echo "xxxx";
-                Yii::app()->user->setFlash('del-error','Không thể xóa chi nhánh này vì chi nhánh này đang có nhiều chi nhánh con!');
+                echo 'Không thể xóa chi nhánh này vì chi nhánh này đang có nhiều chi nhánh con!';
             }
 
            /* if (!Yii::app()->getRequest()->getIsAjaxRequest())
