@@ -1,37 +1,47 @@
+.search-form {
+    overflow:hidden;
+    -moz-box-shadow: 0 0 2px #00546b;
+    -webkit-box-shadow: 0 0 2px #00546b;
+    box-shadow: 0 0 2px #00546b;
+}
+
 .search-box-form {
-    overflow:hidden;
+    font-weight:bold;
 }
 
-.search-box  {
-    overflow:hidden;
-}
-
-.search-box li {
+.search-box-form .cus-row {
     width:180px;
     float:left;
     clear:none;
     padding-right:15px;
 }
 
-.search-box li select {
-    width:180px;
+.search-box-form .radio-list {
+    
+    width:160px;
+}
+
+.search-box-form .cus-row select {
+    width:160px;
 }
 
 .btn-search {
     width:80px;
     float:right;
+    margin-top:20px;
+    margin-right:10px;
 }
 
 /*default btn line*/
 
-.btn {
+.btn-save {
     border-top:2px solid; 
     border-bottom:2px solid;
     background-color:#BBDEF7;
     height:50px;
 }
 
-.btn input[type="submit"] {
+.btn-save input[type="submit"] {
     
     padding:2px 20px 2px 20px; 
     float:right;
@@ -40,43 +50,6 @@
 }
 
 /*end default btn line */
-
-/*Them chi nhanh */ 
-
-.form-add-content {
-    width:700px;
-    margin:0 auto;
-}
-
-.form-add-content .row {
-    padding-top:10px;
-}
-
-.form-add-content .row {
-    padding-top:10px;
-}
-
-.form-add-content .row input {
-    width:180px;
-}
-
-.form-add-content .row textarea {
-    width:400px;
-    height:100px;
-}
-
-.form-add-content .row select {
-    width:185px;
-}
-
-.form-add-content .row label {
-    float:left;
-    width:120px;
-    margin-right:10px;
-    margin-top:10px;
-}
-
-/*End them chi nhanh */
 
 /*start radio list */
 .radio-list  {
@@ -94,4 +67,66 @@
 }
 /*end radio list */
 
+/*detail view */
 
+h1 {
+    padding-bottom:20px;
+    font-size:20px;
+}
+
+.detail-view {
+    margin-top:100px;
+}
+
+.detail-view tr {
+   
+    height:30px;
+}
+
+.detail-view tr th {
+    font-size:1.1em;
+    line-height:25px;
+    font-weight:bold;
+}
+.detail-view tr td {
+    font-size:1.1em;
+    line-height:25px;
+}
+
+
+/*end detail view */
+
+/*start form style */
+
+.form {
+    width:700px;
+    margin:0 auto;
+}
+
+.form .cus-row {
+    padding-top:10px;
+}
+
+
+.form .cus-row input {
+    width:180px;
+
+}
+
+.form .cus-row textarea {
+    width:400px;
+    height:100px;
+}
+
+.form .cus-row select {
+    width:185px;
+}
+
+.form .cus-row label {
+    float:left;
+    width:120px;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+/*end form style */

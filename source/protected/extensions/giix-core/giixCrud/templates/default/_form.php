@@ -6,6 +6,13 @@
 ?>
 <div class="form">
 
+    <?php  if(Yii::app()->user->hasFlash('dup-error')) { ?>
+        <div class="response-msg error ui-corner-all">
+            <?php echo Yii::app()->user->getFlash('dup-error');?>
+        </div>
+
+    <?php } ?>
+
 <?php $ajax = ($this->enable_ajax_validation) ? 'true' : 'false'; ?>
 
 <?php echo '<?php '; ?>
@@ -24,7 +31,7 @@ $form = $this->beginWidget('GxActiveForm', array(
 
 <?php foreach ($this->tableSchema->columns as $column): ?>
 <?php if (!$column->autoIncrement): ?>
-		<div class="row">
+		<div class="row cus-row">
 		<?php echo "<?php echo " . $this->generateActiveLabel($this->modelClass, $column) . "; ?>\n"; ?>
 		<?php echo "<?php " . $this->generateActiveField($this->modelClass, $column) . "; ?>\n"; ?>
 		<?php echo "<?php echo \$form->error(\$model,'{$column->name}'); ?>\n"; ?>
@@ -39,8 +46,10 @@ $form = $this->beginWidget('GxActiveForm', array(
 <?php endif; ?>
 <?php endforeach; ?>
 
-<?php echo "<?php
-echo GxHtml::submitButton(Yii::t('app', 'Save'));
-\$this->endWidget();
-?>\n"; ?>
+        <div class="btn-save">
+            <?php echo "<?php
+            echo GxHtml::submitButton(Yii::t('viLib', 'Save'));
+            \$this->endWidget();
+            ?>\n"; ?>
+        </div>
 </div><!-- form -->

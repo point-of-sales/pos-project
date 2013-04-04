@@ -8,7 +8,7 @@
 echo "<?php\n
 \$this->breadcrumbs = array(
 	\$model->label(2) => array('index'),
-	Yii::t('app', 'Manage'),
+	Yii::t('viLib', 'Manage'),
 );\n";
 ?>
 

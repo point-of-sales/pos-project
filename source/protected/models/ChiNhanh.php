@@ -28,19 +28,19 @@ class ChiNhanh extends BaseChiNhanh
 
     public function attributeLabels() {
         return array(
-            'id' => Yii::t('app', 'ID'),
-            'ma_chi_nhanh' => Yii::t('app','Mã chi nhánh'),
-            'ten_chi_nhanh' => Yii::t('app','Tên chi nhánh'),
-            'dia_chi' => Yii::t('app','Địa chỉ'),
-            'dien_thoai' => Yii::t('app','Điện thoại'),
-            'fax' => Yii::t('app','Fax'),
-            'mo_ta' => Yii::t('app','Mô tả'),
-            'trang_thai' => Yii::t('app','Trạng thái'),
-            'truc_thuoc_id' => Yii::t('app','Trực thuộc'),
-            'khu_vuc_id' => Yii::t('app','Khu vực'),
-            'loai_chi_nhanh_id' => Yii::t('app','Loại chi nhánh'),
-            'loaiChiNhanh' => Yii::t('app','Loại chi nhánh'),
-            'trucThuoc' => Yii::t('app','Trực thuộc'),
+            'id' => Yii::t('viLib', 'ID'),
+            'ma_chi_nhanh' => Yii::t('viLib','Branch Id'),
+            'ten_chi_nhanh' => Yii::t('viLib','Branch name'),
+            'dia_chi' => Yii::t('viLib','Address'),
+            'dien_thoai' => Yii::t('viLib','Phone'),
+            'fax' => Yii::t('viLib','Fax'),
+            'mo_ta' => Yii::t('viLib','Description'),
+            'trang_thai' => Yii::t('viLib','Status'),
+            'truc_thuoc_id' => Yii::t('viLib','Under Id'),
+            'khu_vuc_id' => Yii::t('viLib','Area'),
+            'loai_chi_nhanh_id' => Yii::t('viLib','Branch Type Id'),
+            'loaiChiNhanh' => Yii::t('viLib','Branch Type'),
+            'trucThuoc' => Yii::t('viLib','Under'),
             'chiNhanhs' => null,
             'khuVuc' => null,
             'chungTus' => null,
@@ -107,6 +107,16 @@ class ChiNhanh extends BaseChiNhanh
             return $underOptions[$this->truc_thuoc_id];
         else
             return 'Không trực thuộc';
+    }
+
+    public function getTypeText() {
+        $typeOptions = $this->getTypeOptions();
+        return $typeOptions[$this->loai_chi_nhanh_id];
+    }
+
+    public function getAreaText() {
+        $areaOptions = $this->getAreaOptions();
+        return $areaOptions[$this->khu_vuc_id];
     }
 
     public static function hasChildBranchs($id_parent) {

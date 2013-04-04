@@ -785,13 +785,11 @@ button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em 
 	/* Sidebar */
 
 #page-wrapper #sidebar {
-	float:left;
-	margin:0 0 0 -241px;
-	width:220px;
-	padding:10px;
-	border-left-width:1px;
-	border-bottom-width:1px;
-	border-style:solid;
+    border: 1px solid;
+    float: left;
+    margin: 57px 0 0 -241px;
+    padding: 10px;
+    width: 218px;
 }
 
 #page-wrapper #sidebar .side-col .portlet {

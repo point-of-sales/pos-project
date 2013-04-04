@@ -14,13 +14,13 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	Yii::app()->controller->renderPartial($authpath . $this->authtype);
 ?>
 
-	public function actionView($id) {
-		$this->render('view', array(
+	public function actionChiTiet($id) {
+		$this->render('chitiet', array(
 			'model' => $this->loadModel($id, '<?php echo $this->modelClass; ?>'),
 		));
 	}
 
-	public function actionCreate() {
+	public function actionThem() {
 		$model = new <?php echo $this->modelClass; ?>;
 
 <?php if ($this->enable_ajax_validation): ?>
@@ -41,14 +41,14 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model-><?php echo $this->tableSchema->primaryKey; ?>));
+					$this->redirect(array('chitiet', 'id' => $model-><?php echo $this->tableSchema->primaryKey; ?>));
 			}
 		}
 
-		$this->render('create', array( 'model' => $model));
+		$this->render('them', array( 'model' => $model));
 	}
 
-	public function actionUpdate($id) {
+	public function actionCapNhat($id) {
 		$model = $this->loadModel($id, '<?php echo $this->modelClass; ?>');
 
 <?php if ($this->enable_ajax_validation): ?>
@@ -66,30 +66,36 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 <?php else: ?>
 			if ($model->save()) {
 <?php endif; ?>
-				$this->redirect(array('view', 'id' => $model-><?php echo $this->tableSchema->primaryKey; ?>));
+				$this->redirect(array('chitiet', 'id' => $model-><?php echo $this->tableSchema->primaryKey; ?>));
 			}
 		}
 
-		$this->render('update', array(
+		$this->render('capnhat', array(
 				'model' => $model,
 				));
 	}
 
-	public function actionDelete($id) {
+	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
 			$this->loadModel($id, '<?php echo $this->modelClass; ?>')->delete();
 
 			if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('admin'));
+				$this->redirect(array('danhsach'));
 		} else
 			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
 	}
 
-	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('<?php echo $this->modelClass; ?>');
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));
+	public function actionDanhSach() {
+
+        $model = new <?php echo $this->modelClass; ?>('search');
+        $model->unsetAttributes();
+
+        if (isset($_GET['<?php echo $this->modelClass; ?>']))
+        $model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
+
+        $this->render('danhsach', array(
+        'model' => $model,
+        ));
 	}
 
 	public function actionAdmin() {

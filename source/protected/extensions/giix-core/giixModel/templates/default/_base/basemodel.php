@@ -64,7 +64,11 @@ abstract class <?php echo $this->baseModelClass; ?> extends <?php echo $this->ba
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', '<?php echo $modelClass; ?>|<?php echo $this->pluralize($modelClass); ?>', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', '<?php echo $modelClass; ?>');
+        } else {
+		    return Yii::t('viLib', '<?php echo $this->pluralize($modelClass); ?>');
+        }
 	}
 
 	public static function representingColumn() {

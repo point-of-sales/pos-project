@@ -33,6 +33,7 @@
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/tablesorter.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/tablesorter-pager.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/cookie.js');
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/anime.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/custom.js');
     ?>
 

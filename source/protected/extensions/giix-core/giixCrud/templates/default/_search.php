@@ -4,29 +4,29 @@
  * - $this: the CrudCode object
  */
 ?>
-<div class="wide form">
+<div class="wide search-box-form">
 
-<?php echo "<?php \$form = \$this->beginWidget('GxActiveForm', array(
+    <?php echo "<?php \$form = \$this->beginWidget('GxActiveForm', array(
 	'action' => Yii::app()->createUrl(\$this->route),
 	'method' => 'get',
 )); ?>\n"; ?>
 
-<?php foreach($this->tableSchema->columns as $column): ?>
-<?php
-	$field = $this->generateInputField($this->modelClass, $column);
-	if (strpos($field, 'password') !== false)
-		continue;
-?>
-	<div class="row">
-		<?php echo "<?php echo \$form->label(\$model, '{$column->name}'); ?>\n"; ?>
-		<?php echo "<?php " . $this->generateSearchField($this->modelClass, $column)."; ?>\n"; ?>
-	</div>
+    <?php foreach ($this->tableSchema->columns as $column): ?>
+        <?php
+        $field = $this->generateInputField($this->modelClass, $column);
+        if (strpos($field, 'password') !== false)
+            continue;
+        ?>
+        <div class="row cus-row">
+            <?php echo "<?php echo \$form->label(\$model, '{$column->name}'); ?>\n"; ?>
+            <?php echo "<?php " . $this->generateSearchField($this->modelClass, $column) . "; ?>\n"; ?>
+        </div>
 
-<?php endforeach; ?>
-	<div class="row buttons">
-		<?php echo "<?php echo GxHtml::submitButton(Yii::t('app', 'Search')); ?>\n"; ?>
-	</div>
+    <?php endforeach; ?>
+    <div class="row buttons btn-search">
+        <?php echo "<?php echo GxHtml::submitButton(Yii::t('viLib', 'Search')); ?>\n"; ?>
+    </div>
 
-<?php echo "<?php \$this->endWidget(); ?>\n"; ?>
+    <?php echo "<?php \$this->endWidget(); ?>\n"; ?>
 
 </div><!-- search-form -->

@@ -9,6 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Point Of Sales System',
     'theme'=>'asia',
+    'language'=>'vi',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -38,6 +39,8 @@ return array(
         'quanlynhanvien'=>array(
             'defaultController'=>'nhanvien',
         ),
+
+        'quanlynhacungcap',
                     
 	),
 

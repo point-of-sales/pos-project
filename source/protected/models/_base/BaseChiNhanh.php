@@ -45,7 +45,12 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'Chi nhánh|Các chi nhánh', $n);
+        if($n<=1) {
+            return Yii::t('viLib', 'Branch');
+        } else {
+            return Yii::t('viLib', 'Branchs');
+        }
+
 	}
 
 	public static function representingColumn() {
