@@ -2,14 +2,14 @@
 
 class NhanVienController extends GxController {
 
-
-	public function actionView($id) {
-		$this->render('view', array(
+    public $defaultAction = 'DanhSach';
+	public function actionChiTiet($id) {
+		$this->render('chitiet', array(
 			'model' => $this->loadModel($id, 'NhanVien'),
 		));
 	}
 
-	public function actionCreate() {
+	public function actionThem() {
 		$model = new NhanVien;
 
 
@@ -23,14 +23,14 @@ class NhanVienController extends GxController {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->id));
+					$this->redirect(array('chitiet', 'id' => $model->id));
 			}
 		}
 
-		$this->render('create', array( 'model' => $model));
+		$this->render('them', array( 'model' => $model));
 	}
 
-	public function actionUpdate($id) {
+	public function actionCapNhat($id) {
 		$model = $this->loadModel($id, 'NhanVien');
 
 
@@ -41,21 +41,21 @@ class NhanVienController extends GxController {
 				);
 
 			if ($model->saveWithRelated($relatedData)) {
-				$this->redirect(array('view', 'id' => $model->id));
+				$this->redirect(array('chitiet', 'id' => $model->id));
 			}
 		}
 
-		$this->render('update', array(
+		$this->render('capnhat', array(
 				'model' => $model,
 				));
 	}
 
-	public function actionDelete($id) {
+	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
 			$this->loadModel($id, 'NhanVien')->delete();
 
 			if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('admin'));
+				$this->redirect(array('DanhSach'));
 		} else
 			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
 	}
@@ -67,16 +67,21 @@ class NhanVienController extends GxController {
 		));
 	}
 
-	public function actionAdmin() {
+	public function actionDanhSach() {
 		$model = new NhanVien('search');
 		$model->unsetAttributes();
 
 		if (isset($_GET['NhanVien']))
 			$model->setAttributes($_GET['NhanVien']);
 
-		$this->render('admin', array(
+		$this->render('danhsach', array(
 			'model' => $model,
 		));
 	}
-
+    public function actionAjaxActive($id){
+        $model = $this->loadModel($id,'NhanVien');
+        $model->trang_thai = ($model->trang_thai==0)?1:0;
+        $model->save();
+        echo $model->trang_thai;
+    }
 }
