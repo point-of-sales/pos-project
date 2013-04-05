@@ -9,15 +9,15 @@ echo "<?php\n
 \$this->breadcrumbs = array(
 	\$model->label(2) => array('index'),
 	GxHtml::valueEx(\$model) => array('view', 'id' => GxActiveRecord::extractPkValue(\$model, true)),
-	Yii::t('app', 'Update'),
+	Yii::t('viLib', 'Update'),
 );\n";
 ?>
 
 $this->menu = array(
-	array('label' => Yii::t('app', 'List') . ' ' . $model->label(2), 'url'=>array('index')),
-	array('label' => Yii::t('app', 'Create') . ' ' . $model->label(), 'url'=>array('create')),
-	array('label' => Yii::t('app', 'View') . ' ' . $model->label(), 'url'=>array('view', 'id' => GxActiveRecord::extractPkValue($model, true))),
-	array('label' => Yii::t('app', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
+	array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url'=>array('danhsach')),
+	array('label' => Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
+	array('label' => Yii::t('viLib', 'View') . ' ' . $model->label(), 'url'=>array('chitiet', 'id' => GxActiveRecord::extractPkValue($model, true))),
+	array('label' => Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
 );
 ?>
 

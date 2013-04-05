@@ -1,19 +1,27 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
+	$model->label(1) => array('danhsach'),
 	GxHtml::valueEx($model),
 );
 
 $this->menu=array(
-	array('label'=>Yii::t('app', 'Danh sách') . ' ' . $model->label(2), 'url'=>array('danhsach')),
-	array('label'=>Yii::t('app', 'Thêm') . ' ' . $model->label(), 'url'=>array('them')),
-	array('label'=>Yii::t('app', 'Cập nhật') . ' ' . $model->label(), 'url'=>array('capnhat', 'id' => $model->id)),
-	array('label'=>Yii::t('app', 'Xóa') . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm'=>'Bạn có muốn xóa chi nhánh này không ?')),
+	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url'=>array('danhsach')),
+	array('label'=>Yii::t('viLib', 'Add') . ' ' . $model->label(), 'url'=>array('them')),
+	array('label'=>Yii::t('viLib', 'Update') . ' ' . $model->label(), 'url'=>array('capnhat', 'id' => $model->id)),
+	array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm'=>Yii::t('viLib','Are you sure you want to delete this item?'))),
 );
 ?>
 
-<h1><?php echo Yii::t('app', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'View') . ' ' . GxHtml::encode($model->ten_chi_nhanh) ?></h1>
+
+<?php  if(Yii::app()->user->hasFlash('del-error')) { ?>
+    <div class="response-msg error ui-corner-all">
+        <?php echo Yii::app()->user->getFlash('del-error');?>
+    </div>
+
+<?php } ?>
+
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data' => $model,
@@ -25,21 +33,24 @@ $this->menu=array(
 'dien_thoai',
 'fax',
 'mo_ta',
-'trang_thai',
+'trang_thai'=>array(
+    'name'=> Yii::t('viLib','Status'),
+    'value'=>$model->getStatusText(),
+),
 array(
-			'name' => 'trucThuoc',
+			'name' => Yii::t('viLib','Under'),
 			'type' => 'raw',
-			'value' => $model->trucThuoc !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->trucThuoc)), array('mChiNhanh/view', 'id' => GxActiveRecord::extractPkValue($model->trucThuoc, true))) : null,
+			'value' => $model->getUnderText(),
 			),
 array(
-			'name' => 'khuVuc',
+			'name' => Yii::t('viLib','Area'),
 			'type' => 'raw',
-			'value' => $model->khuVuc !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->khuVuc)), array('khuVuc/view', 'id' => GxActiveRecord::extractPkValue($model->khuVuc, true))) : null,
+			'value' => $model->getAreaText(),
 			),
 array(
-			'name' => 'loaiChiNhanh',
+			'name' => Yii::t('viLib','Branch Type'),
 			'type' => 'raw',
-			'value' => $model->loaiChiNhanh !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->loaiChiNhanh)), array('loaiChiNhanh/view', 'id' => GxActiveRecord::extractPkValue($model->loaiChiNhanh, true))) : null,
+			'value' => $model->getTypeText(),
 			),
 	),
 )); ?>
@@ -126,3 +137,4 @@ array(
 	}
 	echo GxHtml::closeTag('ul');*/
 ?>
+

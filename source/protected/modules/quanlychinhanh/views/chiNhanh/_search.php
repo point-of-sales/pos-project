@@ -5,37 +5,36 @@
 	'method' => 'get',
 )); ?>
 
-<ul class="search-box">
-
-	<li>
+	<div class="row cus-row">
 		<?php echo $form->label($model, 'ma_chi_nhanh'); ?>
 		<?php echo $form->textField($model, 'ma_chi_nhanh', array('maxlength' => 15)); ?>
-	</li>
+    </div>
 
-	<li>
+	<div class="row cus-row">
 		<?php echo $form->label($model, 'ten_chi_nhanh'); ?>
 		<?php echo $form->textField($model, 'ten_chi_nhanh', array('maxlength' => 100)); ?>
-	</li>
+	</div>
 
-	<li>
+    <div class="row cus-row">
 		<?php echo $form->label($model, 'trang_thai'); ?>
-		<?php echo $form->radioButtonList($model, 'trang_thai',$model->getStatusOptions()); ?>
-	</li>
+        <div class="radio-list">
+		    <?php echo $form->radioButtonList($model, 'trang_thai',$model->getStatusOptions()); ?>
+        </div>
+	</div>
 
-	<li>
+    <div class="row cus-row">
 		<?php echo $form->label($model, 'khu_vuc_id'); ?>
 		<?php echo $form->dropDownList($model, 'khu_vuc_id', $model->getAreaOptions(),array('prompt' => Yii::t('app', 'Tất cả'))); ?>
-	</li>
+	</div>
 
-	<li>
+    <div class="row cus-row">
 		<?php echo $form->label($model, 'loai_chi_nhanh_id'); ?>
 		<?php echo $form->dropDownList($model, 'loai_chi_nhanh_id', $model->getAreaOptions(), array('prompt' => Yii::t('app', 'Tất cả'))); ?>
-	</li>
-</ul>
+	</div>
 
 
 	<div class="row buttons btn-search">
-		<?php echo GxHtml::submitButton(Yii::t('app', 'Tìm')); ?>
+		<?php echo GxHtml::submitButton(Yii::t('viLib', 'Search')); ?>
 	</div>
 
 

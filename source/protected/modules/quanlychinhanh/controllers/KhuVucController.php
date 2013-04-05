@@ -7,22 +7,21 @@ class KhuVucController extends GxController
             'model' => $this->loadModel($id, 'KhuVuc'),
         ));
     }
-
-    public function actionCreate() {
+    public function actionThem() {
 
         $khuVuc = new KhuVuc;
         if(isset($_POST['KhuVuc'])) {
             $khuVuc->setAttributes($_POST['KhuVuc']);
-            $exist = KhuVuc::model()->exists('ma_khu_vuc=:ma_khu_vuc',array(':ma_khu_vuc'=>$_POST['KhuVuc']['ma_khu_vuc']));
+            $exist = KhuVuc::model()->exists('ma_khu_vuc=:ma_khu_vuc',array(':ma_khu_vuc'=>$khuVuc->ma_khu_vuc));
             if(!$exist) {
                 if($khuVuc->save()) {
-                    Yii::app()->user->setFlash('success','Thêm mới thành công!');
+                    $this->redirect(Yii::app()->user->returnUrl);
                 }
             } else {
-                Yii::app()->user->setFlash('error-duplicate','Khu vực này đã tồn tại trong hệ thống. Xin vui lòng chọn một khu vực khác!');
+                Yii::app()->user->setFlash('dup-error','Khu vực này đã tồn tại trong hệ thống. Xin vui lòng chọn một khu vực khác!');
             }
         }
-        $this->render('create',array(
+        $this->render('them',array(
             'model'=>$khuVuc,
         ));
 

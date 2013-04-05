@@ -3,7 +3,7 @@ return array (
   'template' => 'default',
   'connectionId' => 'db',
   'tablePrefix' => 'tbl_',
-  'modelPath' => 'application.modules.qlcn.models',
-  'baseClass' => 'LoaiChiNhanh',
+  'modelPath' => 'application.models',
+  'baseClass' => 'ChiNhanh',
   'buildRelations' => true,
 );

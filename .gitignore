@@ -18,3 +18,8 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+source/.idea
+source/protected/runtime
+source/protected/assets
+
+
