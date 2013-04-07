@@ -17,7 +17,7 @@
  * @property ChungTu $id0
  * @property HoaDonTraHang[] $hoaDonTraHangs
  */
-abstract class BaseHoaDonBanHang extends ChungTu {
+abstract class BaseHoaDonBanHang extends GxActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -28,7 +28,11 @@ abstract class BaseHoaDonBanHang extends ChungTu {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'HoaDonBanHang|HoaDonBanHangs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'HoaDonBanHang');
+        } else {
+		    return Yii::t('viLib', 'HoaDonBanHangs');
+        }
 	}
 
 	public static function representingColumn() {

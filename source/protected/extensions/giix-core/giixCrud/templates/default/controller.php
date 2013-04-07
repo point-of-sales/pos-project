@@ -26,25 +26,25 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 <?php if ($this->enable_ajax_validation): ?>
 		$this->performAjaxValidation($model, '<?php echo $this->class2id($this->modelClass)?>-form');
 <?php endif; ?>
-
 		if (isset($_POST['<?php echo $this->modelClass; ?>'])) {
-			$model->setAttributes($_POST['<?php echo $this->modelClass; ?>']);
-<?php if ($this->hasManyManyRelation($this->modelClass)): ?>
-			$relatedData = <?php echo $this->generateGetPostRelatedData($this->modelClass, 4); ?>;
-<?php endif; ?>
-
-<?php if ($this->hasManyManyRelation($this->modelClass)): ?>
-			if ($model->saveWithRelated($relatedData)) {
-<?php else: ?>
-			if ($model->save()) {
-<?php endif; ?>
-				if (Yii::app()->getRequest()->getIsAjaxRequest())
-					Yii::app()->end();
-				else
-					$this->redirect(array('chitiet', 'id' => $model-><?php echo $this->tableSchema->primaryKey; ?>));
-			}
+            $result = $model->them($_POST['<?php echo $this->modelClass; ?>']);
+            switch($result) {
+                case 'ok': {
+                    if (Yii::app()->getRequest()->getIsAjaxRequest())
+                        Yii::app()->end();
+                    else
+                        $this->redirect(array('chitiet', 'id' => $model->id));
+                    break;
+                }
+            case 'dup-error': {
+                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
+                    break;
+            }
+            case 'fail': {
+                    // co the lam them canh bao cho nguoi dung
+                    }
+            }
 		}
-
 		$this->render('them', array( 'model' => $model));
 	}
 
@@ -56,33 +56,81 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 <?php endif; ?>
 
 		if (isset($_POST['<?php echo $this->modelClass; ?>'])) {
-			$model->setAttributes($_POST['<?php echo $this->modelClass; ?>']);
-<?php if ($this->hasManyManyRelation($this->modelClass)): ?>
-			$relatedData = <?php echo $this->generateGetPostRelatedData($this->modelClass, 4); ?>;
-<?php endif; ?>
-
-<?php if ($this->hasManyManyRelation($this->modelClass)): ?>
-			if ($model->saveWithRelated($relatedData)) {
-<?php else: ?>
-			if ($model->save()) {
-<?php endif; ?>
-				$this->redirect(array('chitiet', 'id' => $model-><?php echo $this->tableSchema->primaryKey; ?>));
-			}
+            $result = $model->capNhat($_POST['<?php echo $this->modelClass; ?>']);
+            switch($result) {
+                case 'ok': {
+                    $this->redirect(array('chitiet', 'id' => $id));
+                    break;
+                }
+                case 'dup-error': {
+                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
+                    break;
+                }
+                case 'fail': {
+                    // co the lam them canh bao cho nguoi dung
+                    break;
+                }
+            }
 		}
-
-		$this->render('capnhat', array(
-				'model' => $model,
-				));
+		$this->render('capnhat', array( 'model' => $model));
 	}
+
+    public function actionXoaGrid($id) {
+        if (Yii::app()->getRequest()->getIsPostRequest()) {
+            $delModel = $this->loadModel($id, '<?php echo $this->modelClass; ?>');
+            $result = $delModel->xoa();
+            switch($result) {
+                case 'ok': {
+                    break;
+                }
+                case 'rel-error': {
+                    echo Yii::t('viLib','Can not delete this item because it contains relative data');
+                    break;
+                }
+                case 'fail': {
+                    echo Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                    break;
+                }
+            }
+            if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('danhsach'));
+        } else
+        throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, '<?php echo $this->modelClass; ?>')->delete();
-
-			if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('danhsach'));
+            $delModel = $this->loadModel($id, '<?php echo $this->modelClass; ?>');
+            $message = '';
+            $canDelete = true;
+            $result = $delModel->xoa();
+                switch($result) {
+                    case 'ok': {
+                        break;
+                    }
+                    case 'rel-error': {
+                        $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
+                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
+                        break;
+                    }
+                    case 'fail': {
+                        $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                        break;
+                    }
+                }
+            if($canDelete) {
+                if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('danhsach'));
+            } else  {
+                Yii::app()->user->setFlash('info-board',$message);
+                $this->render('chitiet', array(
+                    'model' => $this->loadModel($id, 'ChiNhanh'),
+                ));
+            }
+			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
+				$this->redirect(array('danhsach'));*/
 		} else
-			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
+			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
 	public function actionDanhSach() {

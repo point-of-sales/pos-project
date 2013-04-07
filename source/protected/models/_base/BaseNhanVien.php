@@ -29,8 +29,8 @@
  *
  * @property ChungTu[] $chungTus
  * @property Quyen[] $tblQuyens
- * @property ChiNhanh $chiNhanh
  * @property LoaiNhanVien $loaiNhanVien
+ * @property ChiNhanh $chiNhanh
  */
 abstract class BaseNhanVien extends GxActiveRecord {
 
@@ -43,7 +43,11 @@ abstract class BaseNhanVien extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'NhanVien|NhanViens', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'NhanVien');
+        } else {
+		    return Yii::t('viLib', 'NhanViens');
+        }
 	}
 
 	public static function representingColumn() {
@@ -69,8 +73,8 @@ abstract class BaseNhanVien extends GxActiveRecord {
 		return array(
 			'chungTus' => array(self::HAS_MANY, 'ChungTu', 'nhan_vien_id'),
 			'tblQuyens' => array(self::MANY_MANY, 'Quyen', 'tbl_GanQuyen(nhan_vien_id, quyen_id)'),
-			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 			'loaiNhanVien' => array(self::BELONGS_TO, 'LoaiNhanVien', 'loai_nhan_vien_id'),
+			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 		);
 	}
 
@@ -101,8 +105,8 @@ abstract class BaseNhanVien extends GxActiveRecord {
 			'chi_nhanh_id' => null,
 			'chungTus' => null,
 			'tblQuyens' => null,
-			'chiNhanh' => null,
 			'loaiNhanVien' => null,
+			'chiNhanh' => null,
 		);
 	}
 

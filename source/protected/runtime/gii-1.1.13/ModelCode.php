@@ -3,7 +3,7 @@ return array (
   'template' => 'default',
   'connectionId' => 'db',
   'tablePrefix' => 'tbl_',
-  'modelPath' => 'application.modules.quanlychinhanh.models',
-  'baseClass' => 'ChiNhanh',
+  'modelPath' => 'application.models',
+  'baseClass' => 'GxActiveRecord',
   'buildRelations' => '1',
 );

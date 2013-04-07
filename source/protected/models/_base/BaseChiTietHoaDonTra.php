@@ -26,7 +26,11 @@ abstract class BaseChiTietHoaDonTra extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'ChiTietHoaDonTra|ChiTietHoaDonTras', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'ChiTietHoaDonTra');
+        } else {
+		    return Yii::t('viLib', 'ChiTietHoaDonTras');
+        }
 	}
 
 	public static function representingColumn() {

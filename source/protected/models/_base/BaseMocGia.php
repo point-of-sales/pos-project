@@ -16,7 +16,7 @@
  * @property integer $chi_nhanh_id
  * @property integer $san_pham_id
  *
- * @property SanPhamChiNhanh $chiNhanh
+ * @property ChiNhanh $chiNhanh
  * @property SanPhamChiNhanh $sanPham
  */
 abstract class BaseMocGia extends GxActiveRecord {
@@ -30,7 +30,11 @@ abstract class BaseMocGia extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'MocGia|MocGias', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'MocGia');
+        } else {
+		    return Yii::t('viLib', 'MocGias');
+        }
 	}
 
 	public static function representingColumn() {
@@ -48,7 +52,7 @@ abstract class BaseMocGia extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'chiNhanh' => array(self::BELONGS_TO, 'SanPhamChiNhanh', 'chi_nhanh_id'),
+			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 			'sanPham' => array(self::BELONGS_TO, 'SanPhamChiNhanh', 'san_pham_id'),
 		);
 	}

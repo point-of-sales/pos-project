@@ -41,6 +41,8 @@ return array(
         ),
 
         'quanlynhacungcap',
+        'quanlysanpham',
+        'quanlysanphamtang',
                     
 	),
 

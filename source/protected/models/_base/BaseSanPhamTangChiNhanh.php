@@ -28,7 +28,11 @@ abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'SanPhamTangChiNhanh|SanPhamTangChiNhanhs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'SanPhamTangChiNhanh');
+        } else {
+		    return Yii::t('viLib', 'SanPhamTangChiNhanhs');
+        }
 	}
 
 	public static function representingColumn() {
@@ -40,9 +44,11 @@ abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('san_pham_tang_id, chi_nhanh_id, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, so_ton', 'required'),
+			array('san_pham_tang_id, chi_nhanh_id', 'required'),
 			array('san_pham_tang_id, chi_nhanh_id, so_ton', 'numerical', 'integerOnly'=>true),
 			array('gia_tang', 'numerical'),
+			array('thoi_gian_bat_dau, thoi_gian_ket_thuc', 'safe'),
+			array('gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, so_ton', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('san_pham_tang_id, chi_nhanh_id, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, so_ton', 'safe', 'on'=>'search'),
 		);
 	}

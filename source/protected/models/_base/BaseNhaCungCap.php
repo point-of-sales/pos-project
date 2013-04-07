@@ -31,7 +31,11 @@ abstract class BaseNhaCungCap extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'NhaCungCap|NhaCungCaps', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'NhaCungCap');
+        } else {
+		    return Yii::t('viLib', 'NhaCungCaps');
+        }
 	}
 
 	public static function representingColumn() {

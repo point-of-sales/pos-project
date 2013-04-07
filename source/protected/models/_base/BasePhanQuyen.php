@@ -26,7 +26,11 @@ abstract class BasePhanQuyen extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'PhanQuyen|PhanQuyens', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'PhanQuyen');
+        } else {
+		    return Yii::t('viLib', 'PhanQuyens');
+        }
 	}
 
 	public static function representingColumn() {

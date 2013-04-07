@@ -26,7 +26,11 @@ abstract class BaseLoaiKhachHang extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'LoaiKhachHang|LoaiKhachHangs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'LoaiKhachHang');
+        } else {
+		    return Yii::t('viLib', 'LoaiKhachHangs');
+        }
 	}
 
 	public static function representingColumn() {

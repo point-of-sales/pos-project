@@ -27,7 +27,11 @@ abstract class BaseKhuVuc extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'KhuVuc|KhuVucs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'KhuVuc');
+        } else {
+		    return Yii::t('viLib', 'KhuVucs');
+        }
 	}
 
 	public static function representingColumn() {

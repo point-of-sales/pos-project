@@ -4,6 +4,6 @@ return array (
   'connectionId' => 'db',
   'tablePrefix' => 'tbl_',
   'modelPath' => 'application.models',
-  'baseClass' => 'ChiNhanh',
+  'baseClass' => 'GxActiveRecord',
   'buildRelations' => true,
 );

@@ -28,7 +28,11 @@ abstract class BaseThongTinCongTy extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'ThongTinCongTy|ThongTinCongTies', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'ThongTinCongTy');
+        } else {
+		    return Yii::t('viLib', 'ThongTinCongTies');
+        }
 	}
 
 	public static function representingColumn() {

@@ -21,13 +21,14 @@
  * @property integer $khu_vuc_id
  * @property integer $loai_chi_nhanh_id
  *
- * @property LoaiChiNhanh $loaiChiNhanh
  * @property ChiNhanh $trucThuoc
  * @property ChiNhanh[] $chiNhanhs
  * @property KhuVuc $khuVuc
+ * @property LoaiChiNhanh $loaiChiNhanh
  * @property ChungTu[] $chungTus
  * @property KhuyenMai[] $khuyenMais
  * @property KhuyenMai[] $tblKhuyenMais
+ * @property MocGia[] $mocGias
  * @property NhanVien[] $nhanViens
  * @property PhieuNhap[] $phieuNhaps
  * @property PhieuXuat[] $phieuXuats
@@ -45,12 +46,11 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-        if($n<=1) {
-            return Yii::t('viLib', 'Branch');
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'ChiNhanh');
         } else {
-            return Yii::t('viLib', 'Branchs');
+		    return Yii::t('viLib', 'ChiNhanhs');
         }
-
 	}
 
 	public static function representingColumn() {
@@ -71,13 +71,14 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'loaiChiNhanh' => array(self::BELONGS_TO, 'LoaiChiNhanh', 'loai_chi_nhanh_id'),
 			'trucThuoc' => array(self::BELONGS_TO, 'ChiNhanh', 'truc_thuoc_id'),
 			'chiNhanhs' => array(self::HAS_MANY, 'ChiNhanh', 'truc_thuoc_id'),
 			'khuVuc' => array(self::BELONGS_TO, 'KhuVuc', 'khu_vuc_id'),
+			'loaiChiNhanh' => array(self::BELONGS_TO, 'LoaiChiNhanh', 'loai_chi_nhanh_id'),
 			'chungTus' => array(self::HAS_MANY, 'ChungTu', 'chi_nhanh_id'),
 			'khuyenMais' => array(self::HAS_MANY, 'KhuyenMai', 'chi_nhanh_id'),
 			'tblKhuyenMais' => array(self::MANY_MANY, 'KhuyenMai', 'tbl_KhuyenMaiChiNhanh(chi_nhanh_id, khuyen_mai_id)'),
+			'mocGias' => array(self::HAS_MANY, 'MocGia', 'chi_nhanh_id'),
 			'nhanViens' => array(self::HAS_MANY, 'NhanVien', 'chi_nhanh_id'),
 			'phieuNhaps' => array(self::HAS_MANY, 'PhieuNhap', 'chi_nhanh_xuat_id'),
 			'phieuXuats' => array(self::HAS_MANY, 'PhieuXuat', 'chi_nhanh_nhap_id'),
@@ -107,13 +108,14 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 			'truc_thuoc_id' => null,
 			'khu_vuc_id' => null,
 			'loai_chi_nhanh_id' => null,
-			'loaiChiNhanh' => null,
 			'trucThuoc' => null,
 			'chiNhanhs' => null,
 			'khuVuc' => null,
+			'loaiChiNhanh' => null,
 			'chungTus' => null,
 			'khuyenMais' => null,
 			'tblKhuyenMais' => null,
+			'mocGias' => null,
 			'nhanViens' => null,
 			'phieuNhaps' => null,
 			'phieuXuats' => null,

@@ -31,7 +31,11 @@ abstract class BaseQuyen extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'Quyen|Quyens', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'Quyen');
+        } else {
+		    return Yii::t('viLib', 'Quyens');
+        }
 	}
 
 	public static function representingColumn() {

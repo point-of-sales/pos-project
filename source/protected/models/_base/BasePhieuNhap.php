@@ -17,11 +17,10 @@
  * @property ChungTu $id0
  * @property ChiNhanh $chiNhanhXuat
  */
-abstract class BasePhieuNhap extends ChungTu {
+abstract class BasePhieuNhap extends GxActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
-
 	}
 
 	public function tableName() {
@@ -29,7 +28,11 @@ abstract class BasePhieuNhap extends ChungTu {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'PhieuNhap|PhieuNhaps', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'PhieuNhap');
+        } else {
+		    return Yii::t('viLib', 'PhieuNhaps');
+        }
 	}
 
 	public static function representingColumn() {

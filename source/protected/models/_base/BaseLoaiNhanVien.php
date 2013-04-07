@@ -11,7 +11,7 @@
  *
  * @property integer $id
  * @property string $ma_loai_nhan_vien
- * @property integer $ten_loai
+ * @property string $ten_loai
  *
  * @property NhanVien[] $nhanViens
  */
@@ -26,7 +26,11 @@ abstract class BaseLoaiNhanVien extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'LoaiNhanVien|LoaiNhanViens', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'LoaiNhanVien');
+        } else {
+		    return Yii::t('viLib', 'LoaiNhanViens');
+        }
 	}
 
 	public static function representingColumn() {
@@ -36,8 +40,8 @@ abstract class BaseLoaiNhanVien extends GxActiveRecord {
 	public function rules() {
 		return array(
 			array('ma_loai_nhan_vien', 'required'),
-			array('ten_loai', 'numerical', 'integerOnly'=>true),
 			array('ma_loai_nhan_vien', 'length', 'max'=>15),
+			array('ten_loai', 'length', 'max'=>100),
 			array('ten_loai', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, ma_loai_nhan_vien, ten_loai', 'safe', 'on'=>'search'),
 		);
@@ -68,7 +72,7 @@ abstract class BaseLoaiNhanVien extends GxActiveRecord {
 
 		$criteria->compare('id', $this->id);
 		$criteria->compare('ma_loai_nhan_vien', $this->ma_loai_nhan_vien, true);
-		$criteria->compare('ten_loai', $this->ten_loai);
+		$criteria->compare('ten_loai', $this->ten_loai, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

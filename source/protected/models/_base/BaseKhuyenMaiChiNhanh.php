@@ -24,7 +24,11 @@ abstract class BaseKhuyenMaiChiNhanh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'KhuyenMaiChiNhanh|KhuyenMaiChiNhanhs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'KhuyenMaiChiNhanh');
+        } else {
+		    return Yii::t('viLib', 'KhuyenMaiChiNhanhs');
+        }
 	}
 
 	public static function representingColumn() {

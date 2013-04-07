@@ -34,7 +34,11 @@ abstract class BaseKhachHang extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'KhachHang|KhachHangs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'KhachHang');
+        } else {
+		    return Yii::t('viLib', 'KhachHangs');
+        }
 	}
 
 	public static function representingColumn() {

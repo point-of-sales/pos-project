@@ -33,14 +33,31 @@ return false;
 'dataProvider' => $model->search(),
 'columns' => array(
 		'id',
-		'ma_nha_cung_cap',
-		'ten_nha_cung_cap',
-		'mo_ta',
-		'dien_thoai',
+		'ma_nhan_vien',
+		'ho_ten',
 		'email',
+		'dien_thoai',
+		'dia_chi',
 		/*
-		'fax',
+		'gioi_tinh',
+		'ngay_sinh',
+		'trinh_do',
+		'luong_co_ban',
+		'chuyen_mon',
 		'trang_thai',
+		'mat_khau',
+		'ngay_vao_lam',
+		'lan_dang_nhap_cuoi',
+		array(
+				'name'=>'loai_nhan_vien_id',
+				'value'=>'GxHtml::valueEx($data->loaiNhanVien)',
+				'filter'=>GxHtml::listDataEx(LoaiNhanVien::model()->findAllAttributes(null, true)),
+				),
+		array(
+				'name'=>'chi_nhanh_id',
+				'value'=>'GxHtml::valueEx($data->chiNhanh)',
+				'filter'=>GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),
+				),
 		*/
 array(
     'class' => 'CButtonColumn',
@@ -55,7 +72,7 @@ array(
             'label'=>Yii::t('viLib','Update'),
             ),
             'delete'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id .DIRECTORY_SEPARATOR. Yii::app()->controller->id .DIRECTORY_SEPARATOR. "xoa",array("id"=>$data->id))',
+            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id .DIRECTORY_SEPARATOR. Yii::app()->controller->id .DIRECTORY_SEPARATOR. "xoagrid",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Delete'),
             'click' => "js:function(){
 

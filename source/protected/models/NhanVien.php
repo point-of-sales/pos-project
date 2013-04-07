@@ -7,29 +7,137 @@ class NhanVien extends BaseNhanVien
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
-    public function attributeLabels() {
-		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_nhan_vien' => Yii::t('app', 'Mã nhân viên'),
-			'ho_ten' => Yii::t('app', 'Họ tên'),
-			'email' => Yii::t('app', 'Email'),
-			'dien_thoai' => Yii::t('app', 'Điện thoại'),
-			'dia_chi' => Yii::t('app', 'Địa chỉ'),
-			'gioi_tinh' => Yii::t('app', 'Giới tính'),
-			'ngay_sinh' => Yii::t('app', 'Ngày sinh'),
-			'trinh_do' => Yii::t('app', 'Trình độ'),
-			'luong_co_ban' => Yii::t('app', 'Lương cơ bản'),
-			'chuyen_mon' => Yii::t('app', 'Chuyên môn'),
-			'trang_thai' => Yii::t('app', 'Trạng thái'),
-			'mat_khau' => Yii::t('app', 'Mật khẩu'),
-			'ngay_vao_lam' => Yii::t('app', 'Ngày vào làm'),
-			'lan_dang_nhap_cuoi' => Yii::t('app', 'Lần đăng nhập cuối'),
-			'loai_nhan_vien_id' => null,
-			'chi_nhanh_id' => null,
-			'chungTus' => null,
-			'tblQuyens' => null,
-			'chiNhanh' => null,
-			'loaiNhanVien' => null,
-		);
-	}
+
+
+    public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
+        $criteria = new CDbCriteria();
+        if($primaryKey > 0) {
+            return NhanVien::model()->findByPk($primaryKey);
+        }
+
+        if(!empty($params)) {
+            if(is_array($params) ) {
+                foreach($params as $cond=>$value) {
+                if($criteria->condition=='') {
+                if(is_string($value)) {
+                    $value = stripcslashes($value);
+                    $value = addslashes($value);
+                }
+                    $criteria->condition = $cond .'='."'$value'" . ' AND ';
+                } else {
+                    $criteria->condition = $criteria->condition . ' ' .  $cond .'='."'$value'" . ' AND ';
+                }
+            }
+
+                $criteria->condition = substr($criteria->condition,0,strlen($criteria->condition)-5);
+
+                if($operator=='OR') {
+                    //replace AND with OR
+                    $criteria->condition = str_replace(' AND ',' OR ', $criteria->condition);
+                }
+
+            } else {
+                $criteria->condition = $params;
+            }
+
+            if($limit > 0) {
+                $criteria->limit = $limit;
+            }
+
+            if($order!='') {
+                $criteria->order = $order .' ' .$orderType;
+            }
+                return NhanVien::model()->findAll($criteria);
+            } else {
+
+                return NhanVien::model()->findAll();
+            }
+        }
+
+    public function kiemTraQuanHe() {
+        $rels = $this->relations();
+        foreach($rels as $relLabel=>$value) {
+            if($value[0]!=parent::BELONGS_TO) {
+                $tmp = $this->getRelated($relLabel);
+                if(!empty($tmp)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private  function timKhoaUnique($schema) {
+        foreach($schema as $k=>$v) {
+            if(substr($k,0,3)=='ma_') {
+                return $k;
+            }
+        }
+    }
+    public function them($params) {
+        // kiem tra du lieu con bi trung hay chua
+        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
+        if(!$exist) {
+            //neu khoa chua ton tai
+            $this->setAttributes($params);
+                    $relatedData = array(
+				'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
+				);
+                            if ($this->saveWithRelated($relatedData))
+                        return 'ok';
+            else
+                return 'fail';
+        } else
+                return 'dup-error';
+    }
+
+    public function capNhat($params) {
+        // kiem tra du lieu con bi trung hay chua
+        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        // lay ma_ cu
+        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
+        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
+                    $relatedData = array(
+				'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
+				);
+                if(!$exist) {
+            $this->setAttributes($params);
+                            if ($this->saveWithRelated($relatedData))
+                                return 'ok';
+                else
+                    return 'fail';
+        } else {
+
+        // so sanh ma cu == ma moi
+        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+            $this->setAttributes($params);
+                            if ($this->saveWithRelated($relatedData))
+                                return 'ok';
+                else
+                    return 'fail';
+        } else
+                return 'dup-error';
+
+        }
+    }
+
+    public function xoa() {
+        $relation = $this->kiemTraQuanHe($this->id);
+        if(!$relation) {
+            if($this->delete())
+                return 'ok';
+            else
+                return 'fail';
+        } else {
+            return 'rel-error';
+        }
+    }
+
+
+
+
+
+
+
+
 }

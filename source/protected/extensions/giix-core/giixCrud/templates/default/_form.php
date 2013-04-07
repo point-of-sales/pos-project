@@ -6,12 +6,11 @@
 ?>
 <div class="form">
 
-    <?php  if(Yii::app()->user->hasFlash('dup-error')) { ?>
-        <div class="response-msg error ui-corner-all">
-            <?php echo Yii::app()->user->getFlash('dup-error');?>
-        </div>
-
-    <?php } ?>
+<?php echo '<?php  if(Yii::app()->user->hasFlash(\'info-board\')) {?>'; ?>
+    <?php echo '<div class="response-msg error ui-corner-all info-board">'; ?>
+        <?php echo '<?php echo Yii::app()->user->getFlash(\'info-board\');?>'; ?>
+    <?php echo '</div>'; ?>
+<?php echo '<?php } ?>';?>
 
 <?php $ajax = ($this->enable_ajax_validation) ? 'true' : 'false'; ?>
 

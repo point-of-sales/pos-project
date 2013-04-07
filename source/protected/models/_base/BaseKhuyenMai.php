@@ -33,7 +33,11 @@ abstract class BaseKhuyenMai extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'KhuyenMai|KhuyenMais', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'KhuyenMai');
+        } else {
+		    return Yii::t('viLib', 'KhuyenMais');
+        }
 	}
 
 	public static function representingColumn() {

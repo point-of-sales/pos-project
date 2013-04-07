@@ -26,7 +26,11 @@ abstract class BaseCauHinh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'CauHinh|CauHinhs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'CauHinh');
+        } else {
+		    return Yii::t('viLib', 'CauHinhs');
+        }
 	}
 
 	public static function representingColumn() {

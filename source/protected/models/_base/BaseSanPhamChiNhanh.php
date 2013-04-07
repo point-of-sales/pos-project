@@ -16,7 +16,6 @@
  * @property integer $trang_thai
  *
  * @property MocGia[] $mocGias
- * @property MocGia[] $mocGias1
  */
 abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
 
@@ -29,7 +28,11 @@ abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'SanPhamChiNhanh|SanPhamChiNhanhs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'SanPhamChiNhanh');
+        } else {
+		    return Yii::t('viLib', 'SanPhamChiNhanhs');
+        }
 	}
 
 	public static function representingColumn() {
@@ -41,17 +44,15 @@ abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('chi_nhanh_id, san_pham_id, so_ton, trang_thai', 'required'),
 			array('chi_nhanh_id, san_pham_id, khuyen_mai_id, so_ton, trang_thai', 'numerical', 'integerOnly'=>true),
-			array('khuyen_mai_id', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('chi_nhanh_id, san_pham_id, khuyen_mai_id, so_ton, trang_thai', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('chi_nhanh_id, san_pham_id, khuyen_mai_id, so_ton, trang_thai', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
-			'mocGias' => array(self::HAS_MANY, 'MocGia', 'chi_nhanh_id'),
-			'mocGias1' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
+			'mocGias' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
 		);
 	}
 
@@ -68,7 +69,6 @@ abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
 			'so_ton' => Yii::t('app', 'So Ton'),
 			'trang_thai' => Yii::t('app', 'Trang Thai'),
 			'mocGias' => null,
-			'mocGias1' => null,
 		);
 	}
 

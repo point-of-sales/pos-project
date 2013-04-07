@@ -17,8 +17,8 @@
  * @property integer $nhan_vien_id
  * @property integer $chi_nhanh_id
  *
- * @property ChiNhanh $chiNhanh
  * @property NhanVien $nhanVien
+ * @property ChiNhanh $chiNhanh
  * @property HoaDonBanHang $hoaDonBanHang
  * @property HoaDonTraHang $hoaDonTraHang
  * @property PhieuNhap $phieuNhap
@@ -35,7 +35,11 @@ abstract class BaseChungTu extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'ChungTu|ChungTus', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'ChungTu');
+        } else {
+		    return Yii::t('viLib', 'ChungTus');
+        }
 	}
 
 	public static function representingColumn() {
@@ -44,7 +48,7 @@ abstract class BaseChungTu extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_chung_tu, ngay_lap, tri_gia, ghi_chu, nhan_vien_id, chi_nhanh_id', 'required'),
+			array('ma_chung_tu, ngay_lap, tri_gia, nhan_vien_id, chi_nhanh_id', 'required'),
 			array('nhan_vien_id, chi_nhanh_id', 'numerical', 'integerOnly'=>true),
 			array('tri_gia', 'numerical'),
 			array('ma_chung_tu', 'length', 'max'=>15),
@@ -54,8 +58,8 @@ abstract class BaseChungTu extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 			'nhanVien' => array(self::BELONGS_TO, 'NhanVien', 'nhan_vien_id'),
+			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 			'hoaDonBanHang' => array(self::HAS_ONE, 'HoaDonBanHang', 'id'),
 			'hoaDonTraHang' => array(self::HAS_ONE, 'HoaDonTraHang', 'id'),
 			'phieuNhap' => array(self::HAS_ONE, 'PhieuNhap', 'id'),
@@ -77,8 +81,8 @@ abstract class BaseChungTu extends GxActiveRecord {
 			'ghi_chu' => Yii::t('app', 'Ghi Chu'),
 			'nhan_vien_id' => null,
 			'chi_nhanh_id' => null,
-			'chiNhanh' => null,
 			'nhanVien' => null,
+			'chiNhanh' => null,
 			'hoaDonBanHang' => null,
 			'hoaDonTraHang' => null,
 			'phieuNhap' => null,

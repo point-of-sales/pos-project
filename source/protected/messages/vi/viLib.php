@@ -79,8 +79,12 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
  small or average bussiness.' => 'Point Of Sales System Management - POSSM là một hệ thống chuyên nghiệp đuôc thiết kế cho mục đích quản lý bán hàng. Dữ
  liệu của hệ thống được lưu trữ trong điện toán đám mây và có thể mở rộng dễ dàng. Hệ thống rất phù hợp với các doanh nghiệp vừa và nhỏ',
     'Welcome to Point Of Sales System Management'=>'Xin chào mừng đến với hệ thống quản lý Point Of Sales - POSSM',
-    'Fields with'=>'Cá trường với ',
+    'Fields with'=>'Các trường với ',
     'are required'=>'được yêu cầu',
+    'Can not delete this item because it contains relative data'=>'Không thể xóa dữ liệu này vì có dữ liệu liên quan!',
+    'Can not delete this branch because it contains sub-branchs'=>'Không thể xóa chi nhánh này vì chi nhánh này đang có nhiều chi nhánh con!',
+    'Your request is invalid.'=>'Truy vấn không hợp lệ!',
+    'Some errors occur in delete process. Please checks your DBMS!'=>'Có lỗi trong quá trình xóa. Vui lòng kiểm tra hệ quản trị CSDL!',
 
 
 );

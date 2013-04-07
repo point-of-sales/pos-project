@@ -2,17 +2,16 @@
 
 $this->breadcrumbs = array(
 	$model->label(2) => array('danhsach'),
-	Yii::t('viLib', 'Add branch'),
+	Yii::t('viLib', 'Create'),
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('viLib', 'Branchs List'), 'url' => array('danhsach')),
-    array('label'=>Yii::t('viLib','Add Area'),'url'=>array('khuVuc/them'))
-
+	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
+	array('label'=>Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url' => array('admin')),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Add') . ' ' . GxHtml::encode($model->label()); ?></h1>
+<h1><?php echo Yii::t('app', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

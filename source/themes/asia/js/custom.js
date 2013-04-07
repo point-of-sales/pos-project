@@ -9,6 +9,6 @@
 
 
 $(document).ready(function(){
-    $('.error').fadeOut(5000);
+    $('.gone-out').fadeOut(5000);
 });
 

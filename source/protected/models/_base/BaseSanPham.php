@@ -26,8 +26,8 @@
  * @property HoaDonTraHang[] $tblHoaDonTraHangs
  * @property PhieuNhap[] $tblPhieuNhaps
  * @property PhieuXuat[] $tblPhieuXuats
- * @property LoaiSanPham $loaiSanPham
  * @property NhaCungCap $nhaCungCap
+ * @property LoaiSanPham $loaiSanPham
  * @property ChiNhanh[] $tblChiNhanhs
  */
 abstract class BaseSanPham extends GxActiveRecord {
@@ -41,7 +41,11 @@ abstract class BaseSanPham extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'SanPham|SanPhams', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'SanPham');
+        } else {
+		    return Yii::t('viLib', 'SanPhams');
+        }
 	}
 
 	public static function representingColumn() {
@@ -67,8 +71,8 @@ abstract class BaseSanPham extends GxActiveRecord {
 			'tblHoaDonTraHangs' => array(self::MANY_MANY, 'HoaDonTraHang', 'tbl_ChiTietHoaDonTra(san_pham_id, hoa_don_tra_id)'),
 			'tblPhieuNhaps' => array(self::MANY_MANY, 'PhieuNhap', 'tbl_ChiTietPhieuNhap(san_pham_id, phieu_nhap_id)'),
 			'tblPhieuXuats' => array(self::MANY_MANY, 'PhieuXuat', 'tbl_ChiTietPhieuXuat(san_pham_id, phieu_xuat_id)'),
-			'loaiSanPham' => array(self::BELONGS_TO, 'LoaiSanPham', 'loai_san_pham_id'),
 			'nhaCungCap' => array(self::BELONGS_TO, 'NhaCungCap', 'nha_cung_cap_id'),
+			'loaiSanPham' => array(self::BELONGS_TO, 'LoaiSanPham', 'loai_san_pham_id'),
 			'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamChiNhanh(san_pham_id, chi_nhanh_id)'),
 		);
 	}
@@ -101,8 +105,8 @@ abstract class BaseSanPham extends GxActiveRecord {
 			'tblHoaDonTraHangs' => null,
 			'tblPhieuNhaps' => null,
 			'tblPhieuXuats' => null,
-			'loaiSanPham' => null,
 			'nhaCungCap' => null,
+			'loaiSanPham' => null,
 			'tblChiNhanhs' => null,
 		);
 	}

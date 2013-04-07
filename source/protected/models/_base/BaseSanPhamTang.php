@@ -27,7 +27,11 @@ abstract class BaseSanPhamTang extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'SanPhamTang|SanPhamTangs', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'SanPhamTang');
+        } else {
+		    return Yii::t('viLib', 'SanPhamTangs');
+        }
 	}
 
 	public static function representingColumn() {

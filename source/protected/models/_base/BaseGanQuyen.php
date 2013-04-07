@@ -26,7 +26,11 @@ abstract class BaseGanQuyen extends GxActiveRecord {
 	}
 
 	public static function label($n = 1) {
-		return Yii::t('app', 'GanQuyen|GanQuyens', $n);
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'GanQuyen');
+        } else {
+		    return Yii::t('viLib', 'GanQuyens');
+        }
 	}
 
 	public static function representingColumn() {

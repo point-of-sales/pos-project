@@ -2,7 +2,7 @@
 
 $this->breadcrumbs = array(
 	$model->label(2) => array('index'),
-	Yii::t('app', 'Manage'),
+	Yii::t('viLib', 'Manage'),
 );
 
 $this->menu = array(
@@ -16,7 +16,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('mloai-chi-nhanh-grid', {
+	$.fn.yiiGridView.update('chi-nhanh-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -38,13 +38,35 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id' => 'mloai-chi-nhanh-grid',
+	'id' => 'chi-nhanh-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
 	'columns' => array(
 		'id',
-		'ma_loai_chi_nhanh',
-		'ten_loai_chi_nhanh',
+		'ma_chi_nhanh',
+		'ten_chi_nhanh',
+		'dia_chi',
+		'dien_thoai',
+		'fax',
+		/*
+		'mo_ta',
+		'trang_thai',
+		array(
+				'name'=>'truc_thuoc_id',
+				'value'=>'GxHtml::valueEx($data->trucThuoc)',
+				'filter'=>GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),
+				),
+		array(
+				'name'=>'khu_vuc_id',
+				'value'=>'GxHtml::valueEx($data->khuVuc)',
+				'filter'=>GxHtml::listDataEx(KhuVuc::model()->findAllAttributes(null, true)),
+				),
+		array(
+				'name'=>'loai_chi_nhanh_id',
+				'value'=>'GxHtml::valueEx($data->loaiChiNhanh)',
+				'filter'=>GxHtml::listDataEx(LoaiChiNhanh::model()->findAllAttributes(null, true)),
+				),
+		*/
 		array(
 			'class' => 'CButtonColumn',
 		),
