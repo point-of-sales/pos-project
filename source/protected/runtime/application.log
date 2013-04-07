@@ -6343,9 +6343,572 @@ in /var/www/pos-project/source/index.php (13)
 in /var/www/pos-project/source/protected/models/ChiNhanh.php (82)
 in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (16)
 in /var/www/pos-project/source/index.php (13)
+<<<<<<< HEAD
 2013/04/07 20:18:30 [warning] [application] Failed to set unsafe attribute "phieuXuats" of "ChiNhanh".
 in /var/www/pos-project/source/protected/models/ChiNhanh.php (82)
 in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (16)
+=======
+2013/04/03 09:43:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pos_db`.`tbl_NhanVien`, CONSTRAINT `FKtbl_NhanVi835155` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`)). The SQL statement executed was: DELETE FROM `tbl_ChiNhanh` WHERE `tbl_ChiNhanh`.`id`=1' in /var/www/yii13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(1745): CDbCommand->execute()
+#1 /var/www/yii13/framework/db/ar/CActiveRecord.php(1168): CActiveRecord->deleteByPk('1')
+#2 /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php(81): CActiveRecord->delete()
+#3 [internal function]: ChiNhanhController->actionXoa('1')
+#4 /var/www/yii13/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ChiNhanhController), Array)
+#5 /var/www/yii13/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ChiNhanhController), Object(ReflectionMethod), Array)
+#6 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/yii13/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/yii13/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/yii13/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /var/www/yii13/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/yii13/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/yii13/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('xoa')
+#15 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlychinhanh/...')
+#16 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#17 /var/www/pos-project/source/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/quanlychinhanh/chiNhanh/xoa/id/1?ajax=chi-nhanh-grid
+HTTP_REFERER=http://www.pos.local/quanlychinhanh/chiNhanh
+---
+<<<<<<< HEAD
+2013/04/03 03:46:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/asia/css/styles/default/images/ui-bg_glass_65_ffffff_1x400.png".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/asia/css...')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/themes/asia/css/styles/default/images/ui-bg_glass_65_ffffff_1x400.png
+HTTP_REFERER=http://localhost/pos-project/source/themes/asia/css/styles/default/ui.css
+---
+2013/04/03 04:02:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "quanlynhanvien/chiNhanh/view/id/1".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/chiNhanh/view/id/1
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/view/id/1
+---
+2013/04/03 04:09:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/create
+---
+2013/04/03 04:09:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/admin
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/index
+---
+2013/04/03 04:10:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('create')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('create')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/create
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien
+---
+2013/04/03 05:40:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "update".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('update')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('update')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/update/id/1
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/danhsach
+---
+2013/04/03 05:40:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('view')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('view')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/view/id/1
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/index
+---
+2013/04/03 06:06:33 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.label" is not defined.' in C:\wamp\www\yii13\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\yii13\framework\YiiBase.php(220): CComponent->__set('label', '')
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(363): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(334): CGridView->initColumns()
+#3 C:\wamp\www\yii13\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\wamp\www\yii13\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(88): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require('C:\wamp\www\pos...')
+#7 C:\wamp\www\yii13\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\pos...', Array, true)
+#8 C:\wamp\www\yii13\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\pos...', Array, true)
+#9 C:\wamp\www\yii13\framework\web\CController.php(782): CController->renderPartial('danhsach', Array, true)
+#10 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): CController->render('danhsach', Array)
+#11 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#12 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('danhsach')
+#16 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#17 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/danhsach/id/1
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/index
+---
+2013/04/03 06:15:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "path/to/icon.png".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('path/to/icon.pn...')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/path/to/icon.png
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/danhsach/id/1
+---
+2013/04/03 06:15:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "path/to/icon.png".' in C:\wamp\www\yii13\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('path/to/icon.pn...')
+#1 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pos-project/source/path/to/icon.png
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/danhsach/id/1
+---
+2013/04/03 06:42:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "delete".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('delete')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('delete')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/delete/id/1?ajax=nhan-vien-grid
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/danhsach/id/1
+---
+2013/04/03 06:45:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "delete".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('delete')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('delete')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/delete/id/1?ajax=nhan-vien-grid
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanVien/danhsach/id/1
+---
+2013/04/03 07:04:16 [error] [php] Use of undefined constant trang_thai - assumed 'trang_thai' (C:\wamp\www\yii13\framework\base\CComponent.php(606) : eval()'d code:1)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent()
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(589): CDataColumn->renderDataCell()
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow()
+#3 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#4 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#5 unknown(0): CGridView->renderSection()
+#6 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#7 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(128): CGridView->renderContent()
+#8 C:\wamp\www\yii13\framework\web\CBaseController.php(173): CGridView->run()
+#9 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(108): NhanVienController->widget()
+#10 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\yii13\framework\web\CBaseController.php(95): NhanVienController->renderInternal()
+#12 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#13 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#14 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#15 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#16 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#18 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#19 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#20 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (108)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 07:05:06 [error] [php] Use of undefined constant trang_thai - assumed 'trang_thai' (C:\wamp\www\yii13\framework\base\CComponent.php(606) : eval()'d code:1)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent()
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(589): CDataColumn->renderDataCell()
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow()
+#3 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#4 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#5 unknown(0): CGridView->renderSection()
+#6 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#7 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(128): CGridView->renderContent()
+#8 C:\wamp\www\yii13\framework\web\CBaseController.php(173): CGridView->run()
+#9 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(108): NhanVienController->widget()
+#10 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\yii13\framework\web\CBaseController.php(95): NhanVienController->renderInternal()
+#12 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#13 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#14 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#15 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#16 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#18 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#19 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#20 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (108)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 07:08:06 [error] [php] Use of undefined constant trang_thai - assumed 'trang_thai' (C:\wamp\www\yii13\framework\base\CComponent.php(606) : eval()'d code:1)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent()
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(589): CDataColumn->renderDataCell()
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow()
+#3 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#4 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#5 unknown(0): CGridView->renderSection()
+#6 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#7 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(128): CGridView->renderContent()
+#8 C:\wamp\www\yii13\framework\web\CBaseController.php(173): CGridView->run()
+#9 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(110): NhanVienController->widget()
+#10 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\yii13\framework\web\CBaseController.php(95): NhanVienController->renderInternal()
+#12 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#13 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#14 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#15 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#16 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#18 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#19 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#20 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (110)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 07:08:29 [error] [php] Use of undefined constant a - assumed 'a' (C:\wamp\www\yii13\framework\base\CComponent.php(606) : eval()'d code:1)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent()
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(589): CDataColumn->renderDataCell()
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow()
+#3 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#4 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#5 unknown(0): CGridView->renderSection()
+#6 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#7 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(128): CGridView->renderContent()
+#8 C:\wamp\www\yii13\framework\web\CBaseController.php(173): CGridView->run()
+#9 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(109): NhanVienController->widget()
+#10 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\yii13\framework\web\CBaseController.php(95): NhanVienController->renderInternal()
+#12 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#13 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#14 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#15 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#16 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#18 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#19 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#20 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (109)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 07:08:36 [error] [php] Use of undefined constant trang_thai - assumed 'trang_thai' (C:\wamp\www\yii13\framework\base\CComponent.php(606) : eval()'d code:1)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent()
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(589): CDataColumn->renderDataCell()
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow()
+#3 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#4 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#5 unknown(0): CGridView->renderSection()
+#6 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#7 C:\wamp\www\yii13\framework\zii\widgets\CBaseListView.php(128): CGridView->renderContent()
+#8 C:\wamp\www\yii13\framework\web\CBaseController.php(173): CGridView->run()
+#9 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(109): NhanVienController->widget()
+#10 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\yii13\framework\web\CBaseController.php(95): NhanVienController->renderInternal()
+#12 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#13 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#14 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#15 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#16 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#18 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#19 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#20 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanVien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (109)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 07:33:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ajaxActive".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('ajaxActive')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/1
+---
+2013/04/03 07:34:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ajaxActive".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('ajaxActive')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/1
+---
+2013/04/03 07:36:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ajaxActive".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('ajaxActive')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/1
+---
+2013/04/03 07:37:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ajaxActive".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('ajaxActive')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/1
+---
+2013/04/03 07:37:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ajaxActive".' in C:\wamp\www\yii13\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(270): CController->missingAction('ajaxActive')
+#1 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#2 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#3 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/1
+---
+2013/04/03 07:37:38 [error] [php] Undefined variable: data (C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php:2)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#1 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#2 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#3 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#4 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#6 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#7 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#8 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (2)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 07:40:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\pos-project\source\protected\extensions\giix-components\GxController.php:144
+Stack trace:
+#0 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(82): GxController->loadModel('0', 'NhanVien')
+#1 [internal function]: NhanVienController->actionAjaxActive('0')
+#2 C:\wamp\www\yii13\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(NhanVienController), Array)
+#3 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(NhanVienController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#8 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#9 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/0
+---
+2013/04/03 07:41:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\pos-project\source\protected\extensions\giix-components\GxController.php:144
+Stack trace:
+#0 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(82): GxController->loadModel('0', 'NhanVien')
+#1 [internal function]: NhanVienController->actionAjaxActive('0')
+#2 C:\wamp\www\yii13\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(NhanVienController), Array)
+#3 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(NhanVienController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('ajaxActive')
+#8 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#9 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/ajaxActive/id/0
+---
+2013/04/03 08:01:38 [error] [php] Undefined variable: data (C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php:87)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#1 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#2 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#3 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#4 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#6 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#7 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#8 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (87)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 08:01:58 [error] [php] Undefined variable: data (C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php:87)
+Stack trace:
+#0 C:\wamp\www\yii13\framework\web\CController.php(869): NhanVienController->renderFile()
+#1 C:\wamp\www\yii13\framework\web\CController.php(782): NhanVienController->renderPartial()
+#2 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): NhanVienController->render()
+#3 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#4 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\wamp\www\yii13\framework\web\CController.php(286): NhanVienController->runAction()
+#6 C:\wamp\www\yii13\framework\web\CController.php(265): NhanVienController->runActionWithFilters()
+#7 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): NhanVienController->run()
+#8 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\wamp\www\pos-project\source\index.php(13): CWebApplication->run()
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php (87)
+in C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php (79)
+in C:\wamp\www\pos-project\source\index.php (13)
+2013/04/03 08:23:06 [error] [exception.CException] exception 'CException' with message 'Property "CButtonColumn.label" is not defined.' in C:\wamp\www\yii13\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\yii13\framework\YiiBase.php(220): CComponent->__set('label', 'Tr???ng th??i')
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(363): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(334): CGridView->initColumns()
+#3 C:\wamp\www\yii13\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\wamp\www\yii13\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(113): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require('C:\wamp\www\pos...')
+#7 C:\wamp\www\yii13\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\pos...', Array, true)
+#8 C:\wamp\www\yii13\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\pos...', Array, true)
+#9 C:\wamp\www\yii13\framework\web\CController.php(782): CController->renderPartial('danhsach', Array, true)
+#10 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): CController->render('danhsach', Array)
+#11 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#12 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('danhsach')
+#16 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#17 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanvien/capnhat/id/1/
+---
+2013/04/03 08:24:15 [error] [exception.CException] exception 'CException' with message 'Property "CButtonColumn.active" is not defined.' in C:\wamp\www\yii13\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\yii13\framework\YiiBase.php(220): CComponent->__set('active', Array)
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(363): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(334): CGridView->initColumns()
+#3 C:\wamp\www\yii13\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\wamp\www\yii13\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(112): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require('C:\wamp\www\pos...')
+#7 C:\wamp\www\yii13\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\pos...', Array, true)
+#8 C:\wamp\www\yii13\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\pos...', Array, true)
+#9 C:\wamp\www\yii13\framework\web\CController.php(782): CController->renderPartial('danhsach', Array, true)
+#10 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): CController->render('danhsach', Array)
+#11 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#12 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('danhsach')
+#16 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#17 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanvien/capnhat/id/1/
+---
+2013/04/03 08:24:36 [error] [exception.CException] exception 'CException' with message 'Property "CButtonColumn.active" is not defined.' in C:\wamp\www\yii13\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\yii13\framework\YiiBase.php(220): CComponent->__set('active', Array)
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(363): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(334): CGridView->initColumns()
+#3 C:\wamp\www\yii13\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\wamp\www\yii13\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(112): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require('C:\wamp\www\pos...')
+#7 C:\wamp\www\yii13\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\pos...', Array, true)
+#8 C:\wamp\www\yii13\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\pos...', Array, true)
+#9 C:\wamp\www\yii13\framework\web\CController.php(782): CController->renderPartial('danhsach', Array, true)
+#10 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): CController->render('danhsach', Array)
+#11 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#12 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('danhsach')
+#16 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#17 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanvien/capnhat/id/1/
+---
+2013/04/03 08:24:36 [error] [exception.CException] exception 'CException' with message 'Property "CButtonColumn.active" is not defined.' in C:\wamp\www\yii13\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\yii13\framework\YiiBase.php(220): CComponent->__set('active', Array)
+#1 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(363): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\yii13\framework\zii\widgets\grid\CGridView.php(334): CGridView->initColumns()
+#3 C:\wamp\www\yii13\framework\web\CBaseController.php(147): CGridView->init()
+#4 C:\wamp\www\yii13\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\views\nhanVien\danhsach.php(112): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\yii13\framework\web\CBaseController.php(126): require('C:\wamp\www\pos...')
+#7 C:\wamp\www\yii13\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\pos...', Array, true)
+#8 C:\wamp\www\yii13\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\pos...', Array, true)
+#9 C:\wamp\www\yii13\framework\web\CController.php(782): CController->renderPartial('danhsach', Array, true)
+#10 C:\wamp\www\pos-project\source\protected\modules\quanlynhanvien\controllers\NhanVienController.php(79): CController->render('danhsach', Array)
+#11 C:\wamp\www\yii13\framework\web\actions\CInlineAction.php(49): NhanVienController->actionDanhSach()
+#12 C:\wamp\www\yii13\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\yii13\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\yii13\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\yii13\framework\web\CWebApplication.php(282): CController->run('danhsach')
+#16 C:\wamp\www\yii13\framework\web\CWebApplication.php(141): CWebApplication->runController('quanlynhanvien/...')
+#17 C:\wamp\www\yii13\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\pos-project\source\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/pos-project/source/quanlynhanvien/nhanvien/danhsach
+HTTP_REFERER=http://localhost/pos-project/source/quanlynhanvien/nhanvien/capnhat/id/1/
+---
+=======
+2013/04/03 12:22:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/03 12:22:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/03 12:47:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pos_db`.`tbl_NhanVien`, CONSTRAINT `FKtbl_NhanVi835155` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`)). The SQL statement executed was: DELETE FROM `tbl_ChiNhanh` WHERE `tbl_ChiNhanh`.`id`=1.
+in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (86)
+>>>>>>> cc04ae6b14d1e9954bc50c540b31af7101184802
 in /var/www/pos-project/source/index.php (13)
 2013/04/07 20:18:30 [warning] [application] Failed to set unsafe attribute "tblSanPhams" of "ChiNhanh".
 in /var/www/pos-project/source/protected/models/ChiNhanh.php (82)
@@ -6957,6 +7520,7 @@ in /var/www/pos-project/source/index.php (13)
 in /var/www/pos-project/source/protected/models/ChiNhanh.php (117)
 in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (42)
 in /var/www/pos-project/source/index.php (13)
+<<<<<<< HEAD
 2013/04/07 21:16:39 [warning] [application] Failed to set unsafe attribute "nhanViens" of "ChiNhanh".
 in /var/www/pos-project/source/protected/models/ChiNhanh.php (117)
 in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (42)
@@ -7062,3 +7626,6 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/quanlychinhanh/chiNhanh/xoa/id/10
 ---
+=======
+>>>>>>> refs/remotes/origin/develop
+>>>>>>> cc04ae6b14d1e9954bc50c540b31af7101184802

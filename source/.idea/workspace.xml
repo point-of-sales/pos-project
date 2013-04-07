@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/components/Helpers.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/detailview/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/delete.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/down.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/jquery.yiigridview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/up.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/update.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/gridview/view.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/listview/down.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/listview/jquery.yiilistview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/listview/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/listview/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/3ba7115/listview/up.gif" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/asia/images/icons/active.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/themes/asia/images/icons/deactive.png" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/4fd675ce/detailview/styles.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/4fd675ce/gridview/bg.gif" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/4fd675ce/gridview/delete.png" afterPath="" />
@@ -36,7 +22,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/4fd675ce/listview/loading.gif" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/4fd675ce/listview/styles.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/4fd675ce/listview/up.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/816a34ec/pager.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bdffb719/autocomplete/indicator.gif" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bdffb719/autocomplete/jquery.autocomplete.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bdffb719/jquery.ajaxqueue.js" afterPath="" />
@@ -114,35 +99,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bdffb719/treeview/jquery.treeview.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bdffb719/yiitab/jquery.yiitab.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c07d8c0d/pager.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/css/ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/css/print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/css/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/blank.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_loading.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_nav_left.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_nav_right.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_e.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_n.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_ne.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_nw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_s.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_se.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_sw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_shadow_w.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_title_left.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_title_main.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_title_over.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancy_title_right.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancybox-x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancybox-y.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/fancybox.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/jquery.fancybox-1.3.1.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/fancybox/jquery.fancybox-1.3.1.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/jquery.tooltip-1.2.6.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/c53977c/js/main.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/d0299362/css/ie.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/d0299362/css/main.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/d0299362/css/print.css" afterPath="" />
@@ -172,201 +128,21 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/d0299362/js/fancybox/jquery.fancybox-1.3.1.pack.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/d0299362/js/jquery.tooltip-1.2.6.min.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/d0299362/js/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/autocomplete/indicator.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/autocomplete/jquery.autocomplete.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.ajaxqueue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.autocomplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.ba-bbq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.ba-bbq.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.bgiframe.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.history.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.maskedinput.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.maskedinput.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.metadata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.multifile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.rating.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.treeview.async.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.treeview.edit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.treeview.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.yii.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.yiiactiveform.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jquery.yiitab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-icons_2e83ff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-icons_888888_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/images/ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.accordion.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.autocomplete.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.button.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.core.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.datepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.menu.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.progressbar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.resizable.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.selectable.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.slider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.spinner.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/css/base/jquery.ui.tooltip.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/js/jquery-ui-i18n.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/jui/js/jquery-ui.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/punycode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/punycode.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/rating/delete.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/rating/jquery.rating.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/rating/star.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/ajax-loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/file.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/folder-closed.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/folder.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/minus.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/plus.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-black-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-black.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-default-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-default.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-famfamfam-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-famfamfam.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-gray-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-gray.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-red-line.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/images/treeview-red.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/treeview/jquery.treeview.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/e057d307/yiitab/jquery.yiitab.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiNhanh222.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/them.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/create.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/update.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/QuanlynhacungcapModule.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/controllers/DefaultController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/controllers/NhaCungCapController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/default/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/capnhat.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/chitiet.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/danhsach.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/them.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseCauHinh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseCauHinh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiTietHoaDonBan.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChiTietHoaDonBan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiTietHoaDonTra.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChiTietHoaDonTra.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiTietPhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChiTietPhieuNhap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiTietPhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChiTietPhieuXuat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChungTu.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChungTu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseGanQuyen.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseGanQuyen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonTraHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonTraHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhuVuc.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhuVuc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhuyenMai.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhuyenMai.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhuyenMaiChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhuyenMaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiNhanVien.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiNhanVien.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseMocGia.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseMocGia.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseNhaCungCap.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseNhaCungCap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseNhanVien.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseNhanVien.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BasePhanQuyen.php" afterPath="$PROJECT_DIR$/protected/models/_base/BasePhanQuyen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BasePhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/_base/BasePhieuNhap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BasePhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/_base/BasePhieuXuat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseQuyen.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseQuyen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseSanPham.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseSanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseSanPhamChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseSanPhamChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseSanPhamTang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseSanPhamTang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseSanPhamTangChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseSanPhamTangChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseThongTinCongTy.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseThongTinCongTy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/CauHinh.php" afterPath="$PROJECT_DIR$/protected/models/CauHinh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/ChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietHoaDonBan.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietHoaDonBan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietHoaDonTra.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietHoaDonTra.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietPhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietPhieuNhap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChungTu.php" afterPath="$PROJECT_DIR$/protected/models/ChungTu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ContactForm.php" afterPath="$PROJECT_DIR$/protected/models/ContactForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/GanQuyen.php" afterPath="$PROJECT_DIR$/protected/models/GanQuyen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/gii-1.1.13/GiixModelCode.php" afterPath="$PROJECT_DIR$/protected/runtime/gii-1.1.13/GiixModelCode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-components/GxActiveRecord.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-components/GxActiveRecord.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/HoaDonBanHang.php" afterPath="$PROJECT_DIR$/protected/models/HoaDonBanHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/HoaDonTraHang.php" afterPath="$PROJECT_DIR$/protected/models/HoaDonTraHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhachHang.php" afterPath="$PROJECT_DIR$/protected/models/KhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhuVuc.php" afterPath="$PROJECT_DIR$/protected/models/KhuVuc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhuyenMai.php" afterPath="$PROJECT_DIR$/protected/models/KhuyenMai.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhuyenMaiChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/KhuyenMaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/LoaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/LoaiKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiNhanVien.php" afterPath="$PROJECT_DIR$/protected/models/LoaiNhanVien.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiSanPham.php" afterPath="$PROJECT_DIR$/protected/models/LoaiSanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoginForm.php" afterPath="$PROJECT_DIR$/protected/models/LoginForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/MocGia.php" afterPath="$PROJECT_DIR$/protected/models/MocGia.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/gii-1.1.13/ModelCode.php" afterPath="$PROJECT_DIR$/protected/runtime/gii-1.1.13/ModelCode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/NhaCungCap.php" afterPath="$PROJECT_DIR$/protected/models/NhaCungCap.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/create.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/nhanVien.rar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/update.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/view.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/chitiet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/NhanVien.php" afterPath="$PROJECT_DIR$/protected/models/NhanVien.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/controllers/NhanVienController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/controllers/NhanVienController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhanQuyen.php" afterPath="$PROJECT_DIR$/protected/models/PhanQuyen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/PhieuNhap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/PhieuXuat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/QuanlychinhanhModule.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/QuanlychinhanhModule.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Quyen.php" afterPath="$PROJECT_DIR$/protected/models/Quyen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SanPham.php" afterPath="$PROJECT_DIR$/protected/models/SanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SanPhamChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/SanPhamChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SanPhamTang.php" afterPath="$PROJECT_DIR$/protected/models/SanPhamTang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SanPhamTangChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/SanPhamTangChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ThongTinCongTy.php" afterPath="$PROJECT_DIR$/protected/models/ThongTinCongTy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/_form.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/_form.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/_form.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/_search.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/_search.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/_search.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/_view.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/admin.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/asia/js/anime.js" afterPath="$PROJECT_DIR$/themes/asia/js/anime.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/application.log" afterPath="$PROJECT_DIR$/protected/runtime/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/auth/auth_custom.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/auth/auth_custom.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/controller.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/asia/css/custom.css" afterPath="$PROJECT_DIR$/themes/asia/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/asia/js/custom.js" afterPath="$PROJECT_DIR$/themes/asia/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/danhsach.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/protected/messages/vi/viLib.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/capnhat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/capnhat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/index.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/them.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="source.iws" />

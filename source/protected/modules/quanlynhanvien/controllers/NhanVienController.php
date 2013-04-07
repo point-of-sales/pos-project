@@ -2,7 +2,11 @@
 
 class NhanVienController extends GxController {
 
+<<<<<<< HEAD
 
+=======
+    public $defaultAction = 'DanhSach';
+>>>>>>> cc04ae6b14d1e9954bc50c540b31af7101184802
 	public function actionChiTiet($id) {
 		$this->render('chitiet', array(
 			'model' => $this->loadModel($id, 'NhanVien'),
@@ -13,6 +17,7 @@ class NhanVienController extends GxController {
 		$model = new NhanVien;
 
 		if (isset($_POST['NhanVien'])) {
+<<<<<<< HEAD
             $result = $model->them($_POST['NhanVien']);
             switch($result) {
                 case 'ok': {
@@ -31,6 +36,21 @@ class NhanVienController extends GxController {
                     }
             }
 		}
+=======
+			$model->setAttributes($_POST['NhanVien']);
+			$relatedData = array(
+				'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
+				);
+
+			if ($model->saveWithRelated($relatedData)) {
+				if (Yii::app()->getRequest()->getIsAjaxRequest())
+					Yii::app()->end();
+				else
+					$this->redirect(array('chitiet', 'id' => $model->id));
+			}
+		}
+
+>>>>>>> cc04ae6b14d1e9954bc50c540b31af7101184802
 		$this->render('them', array( 'model' => $model));
 	}
 
@@ -39,6 +59,7 @@ class NhanVienController extends GxController {
 
 
 		if (isset($_POST['NhanVien'])) {
+<<<<<<< HEAD
             $result = $model->capNhat($_POST['NhanVien']);
             switch($result) {
                 case 'ok': {
@@ -113,6 +134,29 @@ class NhanVienController extends GxController {
             }
 			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('danhsach'));*/
+=======
+			$model->setAttributes($_POST['NhanVien']);
+			$relatedData = array(
+				'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
+				);
+
+			if ($model->saveWithRelated($relatedData)) {
+				$this->redirect(array('chitiet', 'id' => $model->id));
+			}
+		}
+
+		$this->render('capnhat', array(
+				'model' => $model,
+				));
+	}
+
+	public function actionXoa($id) {
+		if (Yii::app()->getRequest()->getIsPostRequest()) {
+			$this->loadModel($id, 'NhanVien')->delete();
+
+			if (!Yii::app()->getRequest()->getIsAjaxRequest())
+				$this->redirect(array('DanhSach'));
+>>>>>>> cc04ae6b14d1e9954bc50c540b31af7101184802
 		} else
 			throw new CHttpException(400, Yii::t('app', 'Your request is invalid.'));
 	}
@@ -130,16 +174,21 @@ class NhanVienController extends GxController {
         ));
 	}
 
-	public function actionAdmin() {
+	public function actionDanhSach() {
 		$model = new NhanVien('search');
 		$model->unsetAttributes();
 
 		if (isset($_GET['NhanVien']))
 			$model->setAttributes($_GET['NhanVien']);
 
-		$this->render('admin', array(
+		$this->render('danhsach', array(
 			'model' => $model,
 		));
 	}
-
+    public function actionAjaxActive($id){
+        $model = $this->loadModel($id,'NhanVien');
+        $model->trang_thai = ($model->trang_thai==0)?1:0;
+        $model->save();
+        echo $model->trang_thai;
+    }
 }
