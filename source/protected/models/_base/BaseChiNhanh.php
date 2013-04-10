@@ -127,17 +127,17 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 	public function search() {
 		$criteria = new CDbCriteria;
 
-		$criteria->compare('id', $this->id);
-		$criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
-		$criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
-		$criteria->compare('dia_chi', $this->dia_chi, true);
-		$criteria->compare('dien_thoai', $this->dien_thoai, true);
-		$criteria->compare('fax', $this->fax, true);
-		$criteria->compare('mo_ta', $this->mo_ta, true);
-		$criteria->compare('trang_thai', $this->trang_thai);
-		$criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
-		$criteria->compare('khu_vuc_id', $this->khu_vuc_id);
-		$criteria->compare('loai_chi_nhanh_id', $this->loai_chi_nhanh_id);
+		$criteria->compare('id', trim($this->id));
+		$criteria->compare('ma_chi_nhanh', trim($this->ma_chi_nhanh), true);
+		$criteria->compare('ten_chi_nhanh', trim($this->ten_chi_nhanh), true);
+		$criteria->compare('dia_chi', trim($this->dia_chi), true);
+		$criteria->compare('dien_thoai', trim($this->dien_thoai), true);
+		$criteria->compare('fax', trim($this->fax), true);
+		$criteria->compare('mo_ta', trim($this->mo_ta), true);
+		$criteria->compare('trang_thai', trim($this->trang_thai));
+		$criteria->compare('truc_thuoc_id', trim($this->truc_thuoc_id));
+		$criteria->compare('khu_vuc_id', trim($this->khu_vuc_id));
+		$criteria->compare('loai_chi_nhanh_id', trim($this->loai_chi_nhanh_id));
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

@@ -85,6 +85,9 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Can not delete this branch because it contains sub-branchs'=>'Không thể xóa chi nhánh này vì chi nhánh này đang có nhiều chi nhánh con!',
     'Your request is invalid.'=>'Truy vấn không hợp lệ!',
     'Some errors occur in delete process. Please checks your DBMS!'=>'Có lỗi trong quá trình xóa. Vui lòng kiểm tra hệ quản trị CSDL!',
-
+    'Area Id'=>'Mã khu vực',
+    'Area Name'=>'Tên khu vực',
+    'Areas'=>'Các khu vực',
+    'Export'=>'Xuất'
 
 );

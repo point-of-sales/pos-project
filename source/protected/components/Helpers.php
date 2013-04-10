@@ -7,9 +7,68 @@
  */
 
 class Helpers {
-    // cast from an $object to another object belong to class name
+    /*
+     * cast from an $object to another object belong to class name
+     */
     public static  function cast($object, $className)
     {
         return unserialize(preg_replace('/^O:\d+:"[^"]++"/', 'O:' . strlen($className) . ':"' . $className . '"', serialize($object)));
     }
+
+    /*
+     * return short url with this form : <controller>/<action>
+     */
+    public static  function getShortURL($longUrl) {
+
+        //find the id param
+        $hasIdParams = strrpos($longUrl,'id');
+        if(!$hasIdParams) {
+            //normal url style with form : http://abc.com/<module>/<controller>/<action>
+            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $action = substr($longUrl,$lastPos+1,strlen($longUrl));
+            $longUrl = substr($longUrl,0,$lastPos);
+            //do again to get controller
+            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $controller = substr($longUrl,$lastPos+1,strlen($longUrl));
+            return array($controller . DIRECTORY_SEPARATOR . $action);
+
+        } else {
+            //url with id param form : http://abc.com/<module>/<controller>/<action>/<id>
+
+            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            //get id first
+            $id = substr($longUrl,$lastPos+1,strlen($longUrl));
+            $longUrl = substr($longUrl,0,$lastPos-3);
+            //get action. ignore id
+            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $action = substr($longUrl,$lastPos+1,strlen($longUrl));
+            $longUrl = substr($longUrl,0,$lastPos);
+            //get controller
+            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $controller = substr($longUrl,$lastPos+1,strlen($longUrl));
+
+            return array($controller . DIRECTORY_SEPARATOR . $action, 'id'=>$id);
+        }
+
+    }
+
+    public static function getControllerFromShortUrl($shortUrl) {
+
+        if(!empty($shortUrl)) {
+            $lastPos  = strrpos($shortUrl,DIRECTORY_SEPARATOR);
+            return substr($shortUrl,0,$lastPos);
+        }
+    }
+
+
+    public static function isEmptyArray($array) {
+           foreach($array as $key=>$value) {
+               if($value!=null) {
+                   return false;
+               }
+           }
+
+        return true;
+    }
+
 }

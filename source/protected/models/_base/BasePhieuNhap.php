@@ -17,7 +17,7 @@
  * @property ChungTu $id0
  * @property ChiNhanh $chiNhanhXuat
  */
-abstract class BasePhieuNhap extends GxActiveRecord {
+abstract class BasePhieuNhap extends ChungTu {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

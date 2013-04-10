@@ -1,144 +1,169 @@
 <?php
 
-class ChiNhanhController extends GxController {
+class ChiNhanhController extends GxController
+{
 
 
-	public function actionChiTiet($id) {
-		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'ChiNhanh'),
-		));
-	}
+    public function actionChiTiet($id)
+    {
+        $this->render('chitiet', array(
+            'model' => $this->loadModel($id, 'ChiNhanh'),
+        ));
+    }
 
-	public function actionThem() {
-		$model = new ChiNhanh;
+    public function actionThem()
+    {
+        $model = new ChiNhanh;
 
-		if (isset($_POST['ChiNhanh'])) {
+        if (isset($_POST['ChiNhanh'])) {
             $result = $model->them($_POST['ChiNhanh']);
-            switch($result) {
-                case 'ok': {
+            switch ($result) {
+                case 'ok':
+                {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else
                         $this->redirect(array('chitiet', 'id' => $model->id));
                     break;
                 }
-            case 'dup-error': {
-                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
+                case 'dup-error':
+                {
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Data existed in sytem. Please try another one!'));
                     break;
-            }
-            case 'fail': {
+                }
+                case 'fail':
+                {
                     // co the lam them canh bao cho nguoi dung
-                    }
+                    break;
+                }
             }
-		}
-		$this->render('them', array( 'model' => $model));
-	}
+        }
+        $this->render('them', array('model' => $model));
+    }
 
-	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'ChiNhanh');
-
-
-		if (isset($_POST['ChiNhanh'])) {
+    public function actionCapNhat($id)
+    {
+        if(!isset($id) || !is_numeric($id) || $id<1) {
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+            exit;
+        }
+        $model = $this->loadModel($id, 'ChiNhanh');
+        if (isset($_POST['ChiNhanh'])) {
             $result = $model->capNhat($_POST['ChiNhanh']);
-            switch($result) {
-                case 'ok': {
+            switch ($result) {
+                case 'ok':
+                {
                     $this->redirect(array('chitiet', 'id' => $id));
                     break;
                 }
-                case 'dup-error': {
-                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
+                case 'dup-error':
+                {
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Data existed in sytem. Please try another one!'));
                     break;
                 }
-                case 'fail': {
+                case 'fail':
+                {
                     // co the lam them canh bao cho nguoi dung
                     break;
                 }
             }
-		}
-		$this->render('capnhat', array( 'model' => $model));
-	}
+        }
+        $this->render('capnhat', array('model' => $model));
+    }
 
-    public function actionXoaGrid($id) {
+    public function actionXoaGrid($id)
+    {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
             $delModel = $this->loadModel($id, 'ChiNhanh');
-            $result = $delModel->xoa();
-            switch($result) {
-                case 'ok': {
-                    break;
+            if (!$delModel->coChiNhanhCon()) {
+                $result = $delModel->xoa();
+                switch ($result) {
+                    case 'ok':
+                    {
+                        break;
+                    }
+                    case 'rel-error':
+                    {
+                        echo Yii::t('viLib', 'Can not delete this item because it contains relative data');
+                        break;
+                    }
+                    case 'fail':
+                    {
+                        echo Yii::t('viLib', 'Some errors occur in delete process. Please check your DBMS!');
+                        break;
+                    }
                 }
-                case 'rel-error': {
-                    echo Yii::t('viLib','Can not delete this item because it contains relative data');
-                    break;
-                }
-                case 'fail': {
-                    echo Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
-                    break;
-                }
-            }
+            } else
+                echo Yii::t('viLib', 'Can not delete this branch because it contains sub-branchs');
             if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));
         } else
-        throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
-	public function actionXoa($id) {
-		if (Yii::app()->getRequest()->getIsPostRequest()) {
+    public function actionXoa($id)
+    {
+        if (Yii::app()->getRequest()->getIsPostRequest()) {
             $delModel = $this->loadModel($id, 'ChiNhanh');
             $message = '';
             $canDelete = true;
-            $result = $delModel->xoa();
-                switch($result) {
-                    case 'ok': {
+            if (!$delModel->coChiNhanhCon()) {
+                $result = $delModel->xoa();
+                switch ($result) {
+                    case 'ok':
+                    {
                         break;
                     }
-                    case 'rel-error': {
-                        $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
+                    case 'rel-error':
+                    {
+                        $message = Yii::t('viLib', 'Can not delete this item because it contains relative data');
+                        $canDelete = false;
+                        $this->loadModel($id, 'ChiNhanh');
                         break;
                     }
-                    case 'fail': {
-                        $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                    case 'fail':
+                    {
+                        $message = Yii::t('viLib', 'Some errors occur in delete process. Please check your DBMS!');
                         break;
                     }
                 }
-            if($canDelete) {
+            } else {
+                $message = Yii::t('viLib', 'Can not delete Can not delete this branch because it contains sub-branchs');
+                $canDelete = false;
+            }
+            if ($canDelete) {
                 if (!Yii::app()->getRequest()->getIsAjaxRequest())
-                $this->redirect(array('danhsach'));
-            } else  {
-                Yii::app()->user->setFlash('info-board',$message);
+                    $this->redirect(array('danhsach'));
+            } else {
+                Yii::app()->user->setFlash('info-board', $message);
                 $this->render('chitiet', array(
                     'model' => $this->loadModel($id, 'ChiNhanh'),
                 ));
             }
-			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('danhsach'));*/
-		} else
-			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
-	}
+            /*if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('danhsach'));*/
+        } else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 
-	public function actionDanhSach() {
-
+    public function actionDanhSach()
+    {
         $model = new ChiNhanh('search');
         $model->unsetAttributes();
 
         if (isset($_GET['ChiNhanh']))
-        $model->setAttributes($_GET['ChiNhanh']);
+            $model->setAttributes($_GET['ChiNhanh']);
 
         $this->render('danhsach', array(
-        'model' => $model,
+            'model' => $model,
         ));
-	}
+    }
 
-	public function actionAdmin() {
-		$model = new ChiNhanh('search');
-		$model->unsetAttributes();
 
-		if (isset($_GET['ChiNhanh']))
-			$model->setAttributes($_GET['ChiNhanh']);
+    public function  actionXuat() {
+        $dataProvider = ChiNhanh::xuat($_POST);
+        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    }
 
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
 
 }

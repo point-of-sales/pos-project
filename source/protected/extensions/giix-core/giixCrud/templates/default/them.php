@@ -18,7 +18,7 @@ $this->menu = array(
 );
 ?>
 
-<h1><?php echo '<?php'; ?> echo Yii::t('app', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
+<h1><?php echo '<?php'; ?> echo Yii::t('viLib', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
 
 <?php echo "<?php\n"; ?>
 $this->renderPartial('_form', array(

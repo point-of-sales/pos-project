@@ -163,7 +163,22 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseModelClass."\n"; 
         }
     }
 
+    public static function xuat($conditions) {
 
+        if(!Helpers::isEmptyArray($conditions)) {
+            $criteria = new CDbCriteria;
+            foreach($conditions as $key=>$value) {
+                $criteria->compare($key,trim($value),true);
+            }
+            $dataProvider =  new CActiveDataProvider('<?php echo $modelClass; ?>', array(
+                                                    'criteria' => $criteria,
+                                            ));
+        }  else {
+            $dataProvider = new CActiveDataProvider('<?php echo $modelClass; ?>');
+        }
+        return $dataProvider;
+
+    }
 
 
 

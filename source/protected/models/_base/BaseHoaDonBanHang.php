@@ -17,7 +17,7 @@
  * @property ChungTu $id0
  * @property HoaDonTraHang[] $hoaDonTraHangs
  */
-abstract class BaseHoaDonBanHang extends GxActiveRecord {
+abstract class BaseHoaDonBanHang extends ChungTu {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

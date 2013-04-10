@@ -28,9 +28,9 @@ abstract class BaseKhuVuc extends GxActiveRecord {
 
 	public static function label($n = 1) {
         if($n <= 1 ) {
-            return Yii::t('viLib', 'KhuVuc');
+            return Yii::t('viLib', 'Area');
         } else {
-		    return Yii::t('viLib', 'KhuVucs');
+		    return Yii::t('viLib', 'Areas');
         }
 	}
 
@@ -40,7 +40,7 @@ abstract class BaseKhuVuc extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_khu_vuc', 'required'),
+			array('ma_khu_vuc,ten_khu_vuc', 'required'),
 			array('ma_khu_vuc', 'length', 'max'=>15),
 			array('ten_khu_vuc', 'length', 'max'=>100),
 			array('mo_ta', 'safe'),

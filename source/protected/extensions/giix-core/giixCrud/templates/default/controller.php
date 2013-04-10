@@ -42,6 +42,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
             }
             case 'fail': {
                     // co the lam them canh bao cho nguoi dung
+                    break;
                     }
             }
 		}
@@ -157,5 +158,10 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			'model' => $model,
 		));
 	}
+
+    public function  actionXuat() {
+        $dataProvider = <?php echo $this->modelClass; ?>::xuat($_POST);
+        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    }
 
 }

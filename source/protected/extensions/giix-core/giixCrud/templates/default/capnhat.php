@@ -21,7 +21,7 @@ $this->menu = array(
 );
 ?>
 
-<h1><?php echo '<?php'; ?> echo Yii::t('app', 'Update') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo '<?php'; ?> echo Yii::t('viLib', 'Update') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
 
 <?php echo "<?php\n"; ?>
 $this->renderPartial('_form', array(

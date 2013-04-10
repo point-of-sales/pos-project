@@ -8,32 +8,6 @@ class HoaDonTraHang extends BaseHoaDonTraHang
 		return parent::model($className);
 	}
 
-    public function rules() {
-        return array(
-                    array('id, hoa_don_ban_id', 'required'),
-                    array('id, hoa_don_ban_id', 'numerical', 'integerOnly'=>true),
-                    array('ly_do_tra_hang', 'safe'),
-                    array('ly_do_tra_hang', 'default', 'setOnEmpty' => true, 'value' => null),
-                array('id, ly_do_tra_hang, hoa_don_ban_id', 'safe', 'on'=>'search'),
-        );
-    }
-
-    public function pivotModels() {
-        return array(
-                    'tblSanPhams' => 'ChiTietHoaDonTra',
-                );
-    }
-
-    public function attributeLabels() {
-        return array(
-                                    'id' => null,
-                                                'ly_do_tra_hang' => Yii::t('app', 'Ly Do Tra Hang'),
-                                                'hoa_don_ban_id' => null,
-                                                'tblSanPhams' => null,
-                                                'id0' => null,
-                                                'hoaDonBan' => null,
-                            );
-    }
 
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();

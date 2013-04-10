@@ -17,7 +17,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-                'ext.giix-components.*', // giix components
+        'ext.phpexcel.Classes.PHPExcel',
+        'ext.giix-components.*', // giix components
+        'ext.eexcelview.*',
 	),
 
 	'modules'=>array(
@@ -33,21 +35,24 @@ return array(
                         ),
 		),
         'quanlychinhanh'=>array(
-            'defaultController'=>'chinhanh',
+            'defaultController'=>'danhsach',
         ),
 
         'quanlynhanvien'=>array(
-            'defaultController'=>'nhanvien',
+            'defaultController'=>'danhsach',
         ),
 
-        'quanlynhacungcap',
         'quanlysanpham',
-        'quanlysanphamtang',
+
                     
 	),
 
 	// application components
 	'components'=>array(
+        'session'=>array(
+            'autoStart'=>true,
+        ),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

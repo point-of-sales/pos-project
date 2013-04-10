@@ -8,6 +8,16 @@ class KhuVuc extends BaseKhuVuc
 		return parent::model($className);
 	}
 
+    public function attributeLabels() {
+        return array(
+            'id' => Yii::t('viLib', 'ID'),
+            'ma_khu_vuc' => Yii::t('viLib', 'Area Id'),
+            'ten_khu_vuc' => Yii::t('viLib', 'Area Name'),
+            'mo_ta' => Yii::t('viLib', 'Description'),
+            'chiNhanhs' => null,
+        );
+    }
+
 
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();

@@ -45,94 +45,94 @@ array(
 	),
 )); ?>
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('chiNhanhs')); ?></h2>
+<h2><?php //echo GxHtml::encode($model->getRelationLabel('chiNhanhs')); ?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->chiNhanhs as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('chiNhanh/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('chungTus')); ?></h2>
+*/?><!--<h2><?php /*echo GxHtml::encode($model->getRelationLabel('chungTus')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->chungTus as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('chungTu/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('khuyenMais')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('khuyenMais')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->khuyenMais as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('khuyenMai/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('tblKhuyenMais')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblKhuyenMais')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->tblKhuyenMais as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('khuyenMai/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('mocGias')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('mocGias')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->mocGias as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('mocGia/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('nhanViens')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('nhanViens')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->nhanViens as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('nhanVien/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('phieuNhaps')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('phieuNhaps')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->phieuNhaps as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('phieuNhap/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('phieuXuats')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('phieuXuats')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->phieuXuats as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('phieuXuat/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('tblSanPhams')); ?></h2>
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblSanPhams')); */?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+/*	echo GxHtml::openTag('ul');
 	foreach($model->tblSanPhams as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('sanPham/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?><h2><?php echo GxHtml::encode($model->getRelationLabel('tblSanPhamTangs')); ?></h2>
-<?php
-	echo GxHtml::openTag('ul');
+*/?><h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblSanPhamTangs')); */?></h2>
+--><?php
+/*	echo GxHtml::openTag('ul');
 	foreach($model->tblSanPhamTangs as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('sanPhamTang/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
 	echo GxHtml::closeTag('ul');
-?>
+*/?>
