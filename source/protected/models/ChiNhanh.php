@@ -255,23 +255,5 @@ class ChiNhanh extends BaseChiNhanh
         return ChiNhanh::model()->exists('truc_thuoc_id=:truc_thuoc_id',array(':truc_thuoc_id'=>$this->id));
     }
 
-    public static function xuat($conditions) {
-
-        if(!Helpers::isEmptyArray($conditions)) {
-            $criteria = new CDbCriteria;
-            foreach($conditions as $key=>$value) {
-                $criteria->compare($key,trim($value),true);
-            }
-            $dataProvider =  new CActiveDataProvider('ChiNhanh', array(
-                'criteria' => $criteria,
-            ));
-
-        }  else {
-            $dataProvider = new CActiveDataProvider('ChiNhanh');
-        }
-
-        return $dataProvider;
-
-    }
 
 }

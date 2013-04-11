@@ -124,11 +124,12 @@ class ChiNhanhController extends GxController
                     case 'fail':
                     {
                         $message = Yii::t('viLib', 'Some errors occur in delete process. Please check your DBMS!');
+                        $canDelete = false;
                         break;
                     }
                 }
             } else {
-                $message = Yii::t('viLib', 'Can not delete Can not delete this branch because it contains sub-branchs');
+                $message = Yii::t('viLib', 'Can not delete this branch because it contains sub-branchs');
                 $canDelete = false;
             }
             if ($canDelete) {
@@ -136,9 +137,7 @@ class ChiNhanhController extends GxController
                     $this->redirect(array('danhsach'));
             } else {
                 Yii::app()->user->setFlash('info-board', $message);
-                $this->render('chitiet', array(
-                    'model' => $this->loadModel($id, 'ChiNhanh'),
-                ));
+                $this->redirect(array('chitiet', 'id' => $id));
             }
             /*if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));*/
@@ -161,7 +160,12 @@ class ChiNhanhController extends GxController
 
 
     public function  actionXuat() {
-        $dataProvider = ChiNhanh::xuat($_POST);
+        $model = new ChiNhanh('search');
+        $model->unsetAttributes();
+        if(isset($_GET['ChiNhanh'])) {
+            $model->setAttributes($_GET['ChiNhanh']);
+            $dataProvider = $model->search();
+        }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
     }
 

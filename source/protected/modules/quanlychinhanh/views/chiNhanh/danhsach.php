@@ -1,14 +1,17 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(1),
-	Yii::t('viLib', 'List'),
+    Yii::t('viLib','Branch management')=>array('chiNhanh/danhsach'),
+    Yii::t('viLib','Branch')=>array('chiNhanh/danhsach'),
+    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch'),
 );
 
 $this->menu = array(
+array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Areas') . ' ', 'url'=>array('khuVuc/danhsach')),
+array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch Type') . ' ', 'url'=>array('loaiChiNhanh/danhsach')),
 array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib',$model->label(1)), 'url'=>array('them')),
-//array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','list') . ' ' . $model->label(), 'url'=>array('xuat')),
-
+array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Area') . ' ', 'url'=>array('khuVuc/them')),
+array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Branch Type') . ' ', 'url'=>array('loaiChiNhanh/them')),
 
 );
 
@@ -33,12 +36,12 @@ return false;
 )); ?>
 </div><!-- search-form -->
 
-<form action="xuat" method="post" id="hidden-form">
-    <input type="hidden"  id="ma_chi_nhanh" name="ma_chi_nhanh">
-    <input type="hidden"  id="ten_chi_nhanh" name="ten_chi_nhanh">
-    <input type="hidden"  id="trang_thai" name="trang_thai">
-    <input type="hidden"  id="truc_thuoc_id" name="truc_thuoc_id">
-    <input type="hidden"  id="khu_vuc_id" name="khu_vuc_id">
+<form action="xuat" method="get" id="hidden-form">
+    <input type="hidden"  id="ma_chi_nhanh" name="ChiNhanh[ma_chi_nhanh]">
+    <input type="hidden"  id="ten_chi_nhanh" name="ChiNhanh[ten_chi_nhanh]">
+    <input type="hidden"  id="trang_thai" name="ChiNhanh[trang_thai]">
+    <input type="hidden"  id="truc_thuoc_id" name="ChiNhanh[truc_thuoc_id]">
+    <input type="hidden"  id="khu_vuc_id" name="ChiNhanh[khu_vuc_id]">
     <input type="submit"  class="button-no-style" value="Xuất sang Excel">
 </form>
 
@@ -47,7 +50,6 @@ return false;
 'id' => 'grid',
 'dataProvider' => $model->search(),
 'columns' => array(
-		'id',
 		'ma_chi_nhanh',
 		'ten_chi_nhanh',
 		'dia_chi',

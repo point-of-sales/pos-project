@@ -20,6 +20,7 @@ return array(
         'ext.phpexcel.Classes.PHPExcel',
         'ext.giix-components.*', // giix components
         'ext.eexcelview.*',
+        'ext.ebreadcrumbs.*'
 	),
 
 	'modules'=>array(
@@ -56,7 +57,10 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-		),
+           // 'class'=>'CWebUser',
+           // 'autoUpdateFlash' => false, // add this line to disable the flash counter
+
+        ),
         // Yii Booster config
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',

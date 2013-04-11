@@ -9,6 +9,15 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
 	}
 
 
+    public function attributeLabels() {
+        return array(
+            'id' => Yii::t('viLib', 'ID'),
+            'ma_loai_chi_nhanh' => Yii::t('viLib', 'Branch type Id'),
+            'ten_loai_chi_nhanh' => Yii::t('viLib', 'Branch type name'),
+            'chiNhanhs' => null,
+        );
+    }
+
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();
         if($primaryKey > 0) {
@@ -126,12 +135,5 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
             return 'rel-error';
         }
     }
-
-
-
-
-
-
-
 
 }

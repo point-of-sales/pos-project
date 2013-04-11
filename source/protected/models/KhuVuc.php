@@ -8,6 +8,7 @@ class KhuVuc extends BaseKhuVuc
 		return parent::model($className);
 	}
 
+
     public function attributeLabels() {
         return array(
             'id' => Yii::t('viLib', 'ID'),
@@ -17,7 +18,6 @@ class KhuVuc extends BaseKhuVuc
             'chiNhanhs' => null,
         );
     }
-
 
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();
@@ -136,12 +136,5 @@ class KhuVuc extends BaseKhuVuc
             return 'rel-error';
         }
     }
-
-
-
-
-
-
-
 
 }

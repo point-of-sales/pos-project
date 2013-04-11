@@ -27,9 +27,9 @@ abstract class BaseLoaiChiNhanh extends GxActiveRecord {
 
 	public static function label($n = 1) {
         if($n <= 1 ) {
-            return Yii::t('viLib', 'LoaiChiNhanh');
+            return Yii::t('viLib', 'Branch type');
         } else {
-		    return Yii::t('viLib', 'LoaiChiNhanhs');
+		    return Yii::t('viLib', 'Branch types');
         }
 	}
 
@@ -69,8 +69,7 @@ abstract class BaseLoaiChiNhanh extends GxActiveRecord {
 
 	public function search() {
 		$criteria = new CDbCriteria;
-
-		$criteria->compare('id', $this->id);
+		//$criteria->compare('id', $this->id);
 		$criteria->compare('ma_loai_chi_nhanh', $this->ma_loai_chi_nhanh, true);
 		$criteria->compare('ten_loai_chi_nhanh', $this->ten_loai_chi_nhanh, true);
 

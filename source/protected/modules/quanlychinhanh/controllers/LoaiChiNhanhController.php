@@ -1,41 +1,25 @@
 <?php
 
-class KhuVucController extends GxController {
+class LoaiChiNhanhController extends GxController {
 
 
 	public function actionChiTiet($id) {
 		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'KhuVuc'),
+			'model' => $this->loadModel($id, 'LoaiChiNhanh'),
 		));
 	}
 
 	public function actionThem() {
+		$model = new LoaiChiNhanh;
 
-        if(empty(Yii::app()->session['url'])) {
-            $longUrl = Yii::app()->request->urlReferrer;
-            $shortUrl = Helpers::getShortURL($longUrl);
-            Yii::app()->session['url'] = $shortUrl;
-        }
-		$model = new KhuVuc;
-		if (isset($_POST['KhuVuc'])) {
-            $result = $model->them($_POST['KhuVuc']);
+		if (isset($_POST['LoaiChiNhanh'])) {
+            $result = $model->them($_POST['LoaiChiNhanh']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
-                    else {
-                        $url = array();
-                        if(isset(Yii::app()->session['url'])) {
-                            $url = Yii::app()->session['url'];
-                            unset(Yii::app()->session['url']);
-                        }
-                        if(Helpers::getControllerFromShortUrl($url[0])=='chiNhanh') {
-                            $this->redirect($url);
-                        }
-                        else {
-                            $this->redirect(array('chitiet', 'id' => $model->id));
-                        }
-                    }
+                    else
+                        $this->redirect(array('chitiet', 'id' => $model->id));
                     break;
                 }
             case 'dup-error': {
@@ -52,12 +36,14 @@ class KhuVucController extends GxController {
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'KhuVuc');
-		if (isset($_POST['KhuVuc'])) {
-            $result = $model->capNhat($_POST['KhuVuc']);
+		$model = $this->loadModel($id, 'LoaiChiNhanh');
+
+
+		if (isset($_POST['LoaiChiNhanh'])) {
+            $result = $model->capNhat($_POST['LoaiChiNhanh']);
             switch($result) {
                 case 'ok': {
-                    $this->redirect(array('chitiet', 'id' => $model->id));
+                    $this->redirect(array('chitiet', 'id' => $id));
                     break;
                 }
                 case 'dup-error': {
@@ -75,7 +61,7 @@ class KhuVucController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'KhuVuc');
+            $delModel = $this->loadModel($id, 'LoaiChiNhanh');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -98,7 +84,7 @@ class KhuVucController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'KhuVuc');
+            $delModel = $this->loadModel($id, 'LoaiChiNhanh');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -108,7 +94,7 @@ class KhuVucController extends GxController {
                     }
                     case 'rel-error': {
                         $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;
+                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
                         break;
                     }
                     case 'fail': {
@@ -119,9 +105,8 @@ class KhuVucController extends GxController {
                 }
             if($canDelete) {
                 if (!Yii::app()->getRequest()->getIsAjaxRequest())
-                    $this->redirect(array('danhsach'));
+                $this->redirect(array('danhsach'));
             } else  {
-
                 Yii::app()->user->setFlash('info-board',$message);
                 $this->redirect(array('chitiet', 'id' => $id));
             }
@@ -133,11 +118,11 @@ class KhuVucController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new KhuVuc('search');
+        $model = new LoaiChiNhanh('search');
         $model->unsetAttributes();
 
-        if (isset($_GET['KhuVuc']))
-        $model->setAttributes($_GET['KhuVuc']);
+        if (isset($_GET['LoaiChiNhanh']))
+        $model->setAttributes($_GET['LoaiChiNhanh']);
 
         $this->render('danhsach', array(
         'model' => $model,
@@ -145,11 +130,11 @@ class KhuVucController extends GxController {
 	}
 
 	public function actionAdmin() {
-		$model = new KhuVuc('search');
+		$model = new LoaiChiNhanh('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['KhuVuc']))
-			$model->setAttributes($_GET['KhuVuc']);
+		if (isset($_GET['LoaiChiNhanh']))
+			$model->setAttributes($_GET['LoaiChiNhanh']);
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -157,10 +142,11 @@ class KhuVucController extends GxController {
 	}
 
     public function  actionXuat() {
-        $model = new KhuVuc('search');
+
+        $model = new LoaiChiNhanh('search');
         $model->unsetAttributes();
-        if(isset($_GET['KhuVuc'])) {
-            $model->setAttributes($_GET['KhuVuc']);
+        if(isset($_GET['LoaiChiNhanh'])) {
+            $model->setAttributes($_GET['LoaiChiNhanh']);
             $dataProvider = $model->search();
         }
         $this->render('xuat',array('dataProvider'=>$dataProvider));

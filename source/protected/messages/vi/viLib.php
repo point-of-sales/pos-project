@@ -62,10 +62,13 @@ return array(
     'Type'=>'Loại',
     'type'=>'loại',
     'Branch Type'=>'Loại chi nhánh',
-    'branch type'=>'Loại chi nhánh',
+    'Branch type'=>'Loại chi nhánh',
+    'Branch types'=>'Các loại chi nhánh',
+    'Branch type Id'=>'Mã loại chi nhánh',
+    'Branch type name'=>'Tên loại chi nhánh',
     'Branch Id'=>'Mã chi nhánh',
-    'branch id'=>'mã chi nhánh',
-    'Branchs List'=>'Danh sách các chi nhánh',
+    'Branch id'=>'mã chi nhánh',
+    'Branchs list'=>'Danh sách các chi nhánh',
     'Add branch'=>'Thêm chi nhánh',
     'View'=>'Chi tiết',
     'Save'=>'Lưu',
@@ -88,6 +91,9 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Area Id'=>'Mã khu vực',
     'Area Name'=>'Tên khu vực',
     'Areas'=>'Các khu vực',
-    'Export'=>'Xuất'
+    'Export'=>'Xuất',
+    'Detail'=>'Chi tiết',
+    'Branch management'=>'Quản lý chi nhánh',
+
 
 );

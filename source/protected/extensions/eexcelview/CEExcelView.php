@@ -30,6 +30,9 @@ class CEExcelView extends EExcelView
     public $template = null;
 
 
+    const NORMAL_LIST   =   'NORMAL_LIST';
+
+
     public function init()
     {
         if (!isset($this->title))
@@ -166,35 +169,40 @@ class CEExcelView extends EExcelView
     }
 
     // Main consuming function, apply every optimization you could think of
-    public function renderBody()
+    public function renderBody($startColumn = null, $row = 11)
     {
+
         if ($this->disablePaging) //if needed disable paging to export all data
             $this->enablePagination = false;
 
         self::$data = $this->dataProvider->getData();
         $n = count(self::$data);
 
+
         if ($n > 0)
-            for ($row = 0; $row < $n; ++$row) {
-                $this->renderRow($row);
+            for ($rowNo = 0; $rowNo < $n; ++$rowNo) {
+                $this->renderRow($rowNo, $startColumn, $row);
 
             }
     }
 
-    public function renderRow($row)
+    public function renderRow($rowNo,$startColumn,$row)
     {
-        $i = 0;
+        if (isset($startColumn)) {
+            $i = $this->columnIndex($startColumn);
+        } else {
+            $i = 0;
+        }
 
         foreach ($this->columns as $n => $column):
 
             if ($column->value !== null) {
 
-                $value = $this->evaluateExpression($column->value, array('row' => $row, 'data' => self::$data[$row]));
+                $value = $this->evaluateExpression($column->value, array('row' => $rowNo, 'data' => self::$data[$rowNo]));
             } else if ($column->name !== null) {
                 //edited by francis to support relational dB tables
                 $condition = explode(";", $column->name);
                 $value = $column->name;
-
 
                 // I don't understand this piece of code (the conditions and all that stuff), when these conditions will meet?
                 // Francis, if you see this code ever again, please comment
@@ -203,20 +211,20 @@ class CEExcelView extends EExcelView
                 if ($countCondition == 6 || $countCondition == 5):
                     switch ($countCondition):
                         case 6:
-                            $cond1 = $this->dataProcess($condition[0], $row);
+                            $cond1 = $this->dataProcess($condition[0], $rowNo);
                             if ($condition[3] == 'true')
                                 $cond2 = $condition[2];
                             else
-                                $cond2 = $this->dataProcess($condition[2], $row);
+                                $cond2 = $this->dataProcess($condition[2], $rowNo);
 
-                            $cond3 = $this->dataProcess($condition[4], $row);
-                            $cond4 = $this->dataProcess($condition[5], $row);
+                            $cond3 = $this->dataProcess($condition[4], $rowNo);
+                            $cond4 = $this->dataProcess($condition[5], $rowNo);
                             break;
                         case 5:
-                            $cond1 = $this->dataProcess($condition[0], $row);
-                            $cond2 = $this->dataProcess($condition[2], $row);
-                            $cond3 = $this->dataProcess($condition[3], $row);
-                            $cond4 = $this->dataProcess($condition[4], $row);
+                            $cond1 = $this->dataProcess($condition[0], $rowNo);
+                            $cond2 = $this->dataProcess($condition[2], $rowNo);
+                            $cond3 = $this->dataProcess($condition[3], $rowNo);
+                            $cond4 = $this->dataProcess($condition[4], $rowNo);
                             break;
                         default:
                             break;
@@ -242,7 +250,7 @@ class CEExcelView extends EExcelView
                             break;
                     endswitch; elseif ($countCondition != 1):
                     $value = ''; else:
-                    $value = $this->dataProcess($column->name, $row);
+                    $value = $this->dataProcess($column->name, $rowNo);
                 endif;
             }
 
@@ -258,13 +266,13 @@ class CEExcelView extends EExcelView
 
             // Write to the cell (and advance to the next)
             if($column->name=='id')
-                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row + 11), ($row+1));
+                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), ($rowNo+1));
             else
-                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row + 11), $value);
+                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), $value);
         endforeach;
 
         // As we are done with this row we DONT need this specific record
-        unset(self::$data[$row]);
+        unset(self::$data[$rowNo]);
     }
 
     public function dataProcess($name, $row)
@@ -376,7 +384,7 @@ class CEExcelView extends EExcelView
     }
 
 
-    public function renderDanhSachChiNhanh()
+    public function renderNormalList()
     {
         $this->setDefaultStyle();
         $this->renderCompanyInfoHeader();
@@ -393,9 +401,9 @@ class CEExcelView extends EExcelView
     {
 
         switch ($this->template) {
-            case ExcelTemplate::DANH_SACH_CHI_NHANH:
+            case self::NORMAL_LIST:
             {
-                $this->renderDanhSachChiNhanh();
+                $this->renderNormalList();
                 break;
             }
             case ExcelTemplate::DANH_SACH_SAN_PHAM:

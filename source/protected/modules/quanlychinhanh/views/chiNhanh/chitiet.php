@@ -1,8 +1,18 @@
+<?php  if(Yii::app()->user->hasFlash('info-board')) {?>
+    <div class="response-msg error ui-corner-all info-board">
+        <?php echo Yii::app()->user->getFlash('info-board');?>
+    </div>
+<?php } ?>
+
+
+
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('danhsach'),
-	GxHtml::valueEx($model),
+    Yii::t('viLib','Branch management')=>array('chiNhanh/danhsach'),
+    Yii::t('viLib','Branch')=>array('chiNhanh/danhsach'),
+	Yii::t('viLib','Detail')=>array(),
+    GxHtml::valueEx($model),
 );
 
 $this->menu=array(

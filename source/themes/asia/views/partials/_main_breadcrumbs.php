@@ -6,7 +6,7 @@
  * Email: crist.azn@gmail.com | Phone : 0963-500-980 
  */
 if(isset($this->breadcrumbs)):?>
-    <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+    <?php $this->widget('ext.ebreadcrumbs.EXBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 <?php endif?>

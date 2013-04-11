@@ -9,8 +9,8 @@
 
 $this->breadcrumbs = array(
     Yii::t('viLib','Branch management')=>array('chiNhanh/danhsach'),
-    Yii::t('viLib','Area')=>array('khuVuc/danhsach'),
-    Yii::t('viLib', 'Detail')=>array(),
+    Yii::t('viLib','Branch type')=>array('khuVuc/danhsach'),
+    Yii::t('viLib','Detail')=>array(),
 	GxHtml::valueEx($model),
 );
 
@@ -29,9 +29,8 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 	'data' => $model,
 	'attributes' => array(
 'id',
-'ma_khu_vuc',
-'ten_khu_vuc',
-'mo_ta',
+'ma_loai_chi_nhanh',
+'ten_loai_chi_nhanh',
 	),
 )); ?>
 

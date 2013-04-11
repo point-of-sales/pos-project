@@ -1,7 +1,8 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('danhsach'),
+    Yii::t('viLib','Branch management')=>array('chiNhanh/danhsach'),
+    Yii::t('viLib','Branch')=>array('chiNhanh/danhsach'),
 	Yii::t('viLib', 'Create'),
 );
 

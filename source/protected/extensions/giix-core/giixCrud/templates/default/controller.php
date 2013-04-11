@@ -116,6 +116,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
                     }
                     case 'fail': {
                         $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                        $canDelete = false;
                         break;
                     }
                 }
@@ -124,9 +125,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
                 $this->redirect(array('danhsach'));
             } else  {
                 Yii::app()->user->setFlash('info-board',$message);
-                $this->render('chitiet', array(
-                    'model' => $this->loadModel($id, 'ChiNhanh'),
-                ));
+                $this->redirect(array('chitiet', 'id' => $id));
             }
 			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('danhsach'));*/
@@ -160,7 +159,13 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	}
 
     public function  actionXuat() {
-        $dataProvider = <?php echo $this->modelClass; ?>::xuat($_POST);
+
+        $model = new <?php echo $this->modelClass; ?>('search');
+        $model->unsetAttributes();
+        if(isset($_GET['<?php echo $this->modelClass; ?>'])) {
+        $model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
+        $dataProvider = $model->search();
+        }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
     }
 

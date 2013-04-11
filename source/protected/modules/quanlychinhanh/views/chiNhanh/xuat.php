@@ -8,11 +8,11 @@
 
 $this->widget('CEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Danh_sach_chi_nhanh',
+    'title'=>'Danh_sach_chi_nhanh_' . time(),
     'autoWidth'=>false,
     'category'=>'',
-    'documentTitle'=>'Tài liệu mới',
-    'template'=>ExcelTemplate::DANH_SACH_CHI_NHANH,
+    'documentTitle'=>'Danh Sách Chi Nhánh',
+    'template'=> CEExcelView::NORMAL_LIST,
     'columns'=>array(
                     'id',
                     'ma_chi_nhanh',

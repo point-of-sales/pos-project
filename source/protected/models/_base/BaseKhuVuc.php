@@ -26,13 +26,13 @@ abstract class BaseKhuVuc extends GxActiveRecord {
 		return 'tbl_KhuVuc';
 	}
 
-	public static function label($n = 1) {
+    public static function label($n = 1) {
         if($n <= 1 ) {
             return Yii::t('viLib', 'Area');
         } else {
-		    return Yii::t('viLib', 'Areas');
+            return Yii::t('viLib', 'Areas');
         }
-	}
+    }
 
 	public static function representingColumn() {
 		return 'ma_khu_vuc';
@@ -40,7 +40,7 @@ abstract class BaseKhuVuc extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_khu_vuc,ten_khu_vuc', 'required'),
+			array('ma_khu_vuc', 'required'),
 			array('ma_khu_vuc', 'length', 'max'=>15),
 			array('ten_khu_vuc', 'length', 'max'=>100),
 			array('mo_ta', 'safe'),
@@ -73,10 +73,10 @@ abstract class BaseKhuVuc extends GxActiveRecord {
 	public function search() {
 		$criteria = new CDbCriteria;
 
-		$criteria->compare('id', $this->id);
+		//$criteria->compare('id', $this->id);
 		$criteria->compare('ma_khu_vuc', $this->ma_khu_vuc, true);
 		$criteria->compare('ten_khu_vuc', $this->ten_khu_vuc, true);
-		$criteria->compare('mo_ta', $this->mo_ta, true);
+		//$criteria->compare('mo_ta', $this->mo_ta, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

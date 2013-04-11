@@ -10,5 +10,6 @@
 
 $(document).ready(function(){
     $('.gone-out').fadeOut(5000);
+    $('.info-board').fadeOut(5000);
 });
 
