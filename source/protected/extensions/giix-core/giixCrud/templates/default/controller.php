@@ -111,7 +111,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
                     }
                     case 'rel-error': {
                         $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
+                        $canDelete = false;
                         break;
                     }
                     case 'fail': {

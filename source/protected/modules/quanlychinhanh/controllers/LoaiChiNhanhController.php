@@ -107,7 +107,7 @@ class LoaiChiNhanhController extends GxController {
                 if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));
             } else  {
-                
+
                 Yii::app()->user->setFlash('info-board',$message);
                 $this->redirect(array('chitiet', 'id' => $id));
             }

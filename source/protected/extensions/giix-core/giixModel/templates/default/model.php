@@ -135,7 +135,7 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseModelClass."\n"; 
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
             <?php if ($crud->hasManyManyRelation($modelClass)): ?>
                 if ($this->saveWithRelated($relatedData))

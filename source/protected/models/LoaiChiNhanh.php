@@ -112,7 +112,7 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';

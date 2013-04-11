@@ -11013,3 +11013,80 @@ Stack trace:
 REQUEST_URI=/quanlychinhanh/loaiChiNhanh/xoa/id/2
 HTTP_REFERER=http://pos.local/quanlychinhanh/loaiChiNhanh/chitiet/id/2
 ---
+2013/04/11 22:06:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'L001' for key 'ma_loai_chi_nhanh'. The SQL statement executed was: UPDATE `tbl_LoaiChiNhanh` SET `id`=:yp0, `ma_loai_chi_nhanh`=:yp1, `ten_loai_chi_nhanh`=:yp2 WHERE `tbl_LoaiChiNhanh`.`id`=2.
+in /var/www/pos-project/source/protected/models/LoaiChiNhanh.php (117)
+in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 22:06:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand không thể thi hành câu truy vấn SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'L001' for key 'ma_loai_chi_nhanh'. The SQL statement executed was: UPDATE `tbl_LoaiChiNhanh` SET `id`=:yp0, `ma_loai_chi_nhanh`=:yp1, `ten_loai_chi_nhanh`=:yp2 WHERE `tbl_LoaiChiNhanh`.`id`=2' in /var/www/yii13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(1691): CDbCommand->execute()
+#1 /var/www/yii13/framework/db/ar/CActiveRecord.php(1070): CActiveRecord->updateByPk('2', Array)
+#2 /var/www/yii13/framework/db/ar/CActiveRecord.php(795): CActiveRecord->update(NULL)
+#3 /var/www/pos-project/source/protected/models/LoaiChiNhanh.php(117): CActiveRecord->save()
+#4 /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php(43): LoaiChiNhanh->capNhat(Array)
+#5 [internal function]: LoaiChiNhanhController->actionCapNhat('2')
+#6 /var/www/yii13/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(LoaiChiNhanhController), Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(LoaiChiNhanhController), Object(ReflectionMethod), Array)
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('capnhat')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlychinhanh/...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlychinhanh/loaiChiNhanh/capnhat/id/2
+HTTP_REFERER=http://pos.local/quanlychinhanh/loaiChiNhanh/capnhat/id/2
+---
+2013/04/11 22:07:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'adsad' for key 'ma_chi_nhanh'. The SQL statement executed was: UPDATE `tbl_ChiNhanh` SET `id`=:yp0, `ma_chi_nhanh`=:yp1, `ten_chi_nhanh`=:yp2, `dia_chi`=:yp3, `dien_thoai`=:yp4, `fax`=:yp5, `mo_ta`=:yp6, `trang_thai`=:yp7, `truc_thuoc_id`=:yp8, `khu_vuc_id`=:yp9, `loai_chi_nhanh_id`=:yp10 WHERE `tbl_ChiNhanh`.`id`=26.
+in /var/www/pos-project/source/protected/extensions/giix-components/GxActiveRecord.php (362)
+in /var/www/pos-project/source/protected/models/ChiNhanh.php (164)
+in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (52)
+2013/04/11 22:07:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand không thể thi hành câu truy vấn SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'adsad' for key 'ma_chi_nhanh'. The SQL statement executed was: UPDATE `tbl_ChiNhanh` SET `id`=:yp0, `ma_chi_nhanh`=:yp1, `ten_chi_nhanh`=:yp2, `dia_chi`=:yp3, `dien_thoai`=:yp4, `fax`=:yp5, `mo_ta`=:yp6, `trang_thai`=:yp7, `truc_thuoc_id`=:yp8, `khu_vuc_id`=:yp9, `loai_chi_nhanh_id`=:yp10 WHERE `tbl_ChiNhanh`.`id`=26' in /var/www/yii13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(1691): CDbCommand->execute()
+#1 /var/www/yii13/framework/db/ar/CActiveRecord.php(1070): CActiveRecord->updateByPk('26', Array)
+#2 /var/www/yii13/framework/db/ar/CActiveRecord.php(795): CActiveRecord->update(NULL)
+#3 /var/www/pos-project/source/protected/extensions/giix-components/GxActiveRecord.php(362): CActiveRecord->save(true, NULL)
+#4 /var/www/pos-project/source/protected/models/ChiNhanh.php(164): GxActiveRecord->saveWithRelated(Array)
+#5 /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php(52): ChiNhanh->capNhat(Array)
+#6 [internal function]: ChiNhanhController->actionCapNhat('26')
+#7 /var/www/yii13/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ChiNhanhController), Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ChiNhanhController), Object(ReflectionMethod), Array)
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('capnhat')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlychinhanh/...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlychinhanh/chiNhanh/capnhat/id/26
+HTTP_REFERER=http://pos.local/quanlychinhanh/chiNhanh/capnhat/id/26
+---
+2013/04/11 22:14:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'BABA' for key 'ma_chi_nhanh'. The SQL statement executed was: UPDATE `tbl_ChiNhanh` SET `id`=:yp0, `ma_chi_nhanh`=:yp1, `ten_chi_nhanh`=:yp2, `dia_chi`=:yp3, `dien_thoai`=:yp4, `fax`=:yp5, `mo_ta`=:yp6, `trang_thai`=:yp7, `truc_thuoc_id`=:yp8, `khu_vuc_id`=:yp9, `loai_chi_nhanh_id`=:yp10 WHERE `tbl_ChiNhanh`.`id`=10.
+in /var/www/pos-project/source/protected/extensions/giix-components/GxActiveRecord.php (362)
+in /var/www/pos-project/source/protected/models/ChiNhanh.php (164)
+in /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php (52)
+2013/04/11 22:14:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand không thể thi hành câu truy vấn SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'BABA' for key 'ma_chi_nhanh'. The SQL statement executed was: UPDATE `tbl_ChiNhanh` SET `id`=:yp0, `ma_chi_nhanh`=:yp1, `ten_chi_nhanh`=:yp2, `dia_chi`=:yp3, `dien_thoai`=:yp4, `fax`=:yp5, `mo_ta`=:yp6, `trang_thai`=:yp7, `truc_thuoc_id`=:yp8, `khu_vuc_id`=:yp9, `loai_chi_nhanh_id`=:yp10 WHERE `tbl_ChiNhanh`.`id`=10' in /var/www/yii13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(1691): CDbCommand->execute()
+#1 /var/www/yii13/framework/db/ar/CActiveRecord.php(1070): CActiveRecord->updateByPk('10', Array)
+#2 /var/www/yii13/framework/db/ar/CActiveRecord.php(795): CActiveRecord->update(NULL)
+#3 /var/www/pos-project/source/protected/extensions/giix-components/GxActiveRecord.php(362): CActiveRecord->save(true, NULL)
+#4 /var/www/pos-project/source/protected/models/ChiNhanh.php(164): GxActiveRecord->saveWithRelated(Array)
+#5 /var/www/pos-project/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php(52): ChiNhanh->capNhat(Array)
+#6 [internal function]: ChiNhanhController->actionCapNhat('10')
+#7 /var/www/yii13/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ChiNhanhController), Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ChiNhanhController), Object(ReflectionMethod), Array)
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('capnhat')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlychinhanh/...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlychinhanh/chiNhanh/capnhat/id/10
+HTTP_REFERER=http://pos.local/quanlychinhanh/chiNhanh/capnhat/id/10
+---

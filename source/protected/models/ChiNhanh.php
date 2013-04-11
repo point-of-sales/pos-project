@@ -143,8 +143,10 @@ class ChiNhanh extends BaseChiNhanh
         // kiem tra du lieu con bi trung hay chua
         $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
         // lay ma_ cu
+
         $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
         $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
+
         $relatedData = array(
             //'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
             //'tblSanPhams' => $_POST['ChiNhanh']['tblSanPhams'] === '' ? null : $_POST['ChiNhanh']['tblSanPhams'],
@@ -157,9 +159,8 @@ class ChiNhanh extends BaseChiNhanh
             else
                 return 'fail';
         } else {
-
             // so sanh ma cu == ma moi
-            if ($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+            if ($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
                 $this->setAttributes($params);
                 if ($this->saveWithRelated($relatedData))
                     return 'ok';
