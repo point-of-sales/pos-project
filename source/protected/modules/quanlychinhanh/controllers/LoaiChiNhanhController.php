@@ -94,7 +94,7 @@ class LoaiChiNhanhController extends GxController {
                     }
                     case 'rel-error': {
                         $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
+                        $canDelete = false;
                         break;
                     }
                     case 'fail': {
@@ -107,6 +107,7 @@ class LoaiChiNhanhController extends GxController {
                 if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));
             } else  {
+                
                 Yii::app()->user->setFlash('info-board',$message);
                 $this->redirect(array('chitiet', 'id' => $id));
             }

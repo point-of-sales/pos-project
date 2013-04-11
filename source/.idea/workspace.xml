@@ -5,48 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/extensions/ebreadcrumbs/assets/home.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/extensions/ebreadcrumbs/assets/separator.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/extensions/ebreadcrumbs/EXBreadcrumbs.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/extensions/ebreadcrumbs/assets/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/extensions/ebreadcrumbs/assets/xbreadcrumbs.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/extensions/ebreadcrumbs/assets/xbreadcrumbs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/xuat.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/xuat.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/eexcelview/ExcelTemplate.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhuVuc.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhuVuc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" afterPath="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/ChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/gii-1.1.13/GiixModelCode.php" afterPath="$PROJECT_DIR$/protected/runtime/gii-1.1.13/GiixModelCode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhuVuc.php" afterPath="$PROJECT_DIR$/protected/models/KhuVuc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiChiNhanh.php" afterPath="$PROJECT_DIR$/protected/models/LoaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/asia/views/partials/_main_breadcrumbs.php" afterPath="$PROJECT_DIR$/themes/asia/views/partials/_main_breadcrumbs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/_search.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/application.log" afterPath="$PROJECT_DIR$/protected/runtime/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/capnhat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/controller.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/asia/js/custom.js" afterPath="$PROJECT_DIR$/themes/asia/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/protected/messages/vi/viLib.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/xuat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/xuat.php" />
     </list>
     <ignored path="source.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365646178479" ignored="false" />
+    <file path="/Dummy.txt" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365692625170" ignored="false" />
     <file path="/_form.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365387126157" ignored="false" />
     <file path="/BaseThongTinSanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364547448890" ignored="false" />
     <file path="/ThongTinSanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364549821352" ignored="false" />
@@ -103,7 +68,7 @@
     <file path="/CComponent.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365604046753" ignored="false" />
     <file path="/KhuVuc.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365646388978" ignored="false" />
     <file path="/_view.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365649706645" ignored="false" />
-    <file path="/LoaiChiNhanhController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365673320928" ignored="false" />
+    <file path="/LoaiChiNhanhController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365675763169" ignored="false" />
     <file path="/LoaiChiNhanh.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365671447281" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,85 +94,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="danhsach.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="77" selection-start="611" selection-end="611" vertical-scroll-proportion="-7.3333335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChiNhanhController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="0" selection-start="5424" selection-end="5424" vertical-scroll-proportion="-5.185185">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="them.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/them.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="97" selection-start="295" selection-end="295" vertical-scroll-proportion="-6.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="24" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-15.703704">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chitiet.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="chitiet.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/chitiet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="44" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.21454546">
+            <state line="27" column="44" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-16.185184">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_view.php">
+      <file leaf-file-name="LoaiChiNhanhController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="10" selection-start="472" selection-end="472" vertical-scroll-proportion="-7.3333335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoaiChiNhanh.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/models/LoaiChiNhanh.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="34" selection-start="100" selection-end="100" vertical-scroll-proportion="-2.6666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseLoaiChiNhanh.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseLoaiChiNhanh.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="22" selection-start="860" selection-end="860" vertical-scroll-proportion="-14.888889">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viLib.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/messages/vi/viLib.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="41" selection-start="1673" selection-end="1673" vertical-scroll-proportion="-9.851851">
+            <state line="109" column="16" selection-start="3858" selection-end="3858" vertical-scroll-proportion="1.0552486">
               <folding>
-                <element signature="e#6#121#0" expanded="true" />
+                <element signature="n#actionAdmin#0;n#LoaiChiNhanhController#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KhuVucController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="16" selection-start="4535" selection-end="4649" vertical-scroll-proportion="-31.851852">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -230,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/protected/models/LoaiChiNhanh.php" />
         <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php" />
         <option value="$PROJECT_DIR$/protected/models/_base/BaseKhuVuc.php" />
         <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" />
@@ -246,6 +156,7 @@
         <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/them.php" />
         <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_form.php" />
         <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/chitiet.php" />
+        <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" />
       </list>
     </option>
   </component>
@@ -285,7 +196,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -442,6 +352,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,16 +369,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zendapp" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="87" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="962" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="964" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="962" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="87" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="82" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -522,15 +433,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="0" width="1288" height="782" extended-state="7" />
+    <frame x="-4" y="0" width="1288" height="782" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26012966" sideWeight="0.6713615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26418152" sideWeight="0.6713615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13771518" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -588,7 +499,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -616,48 +527,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="37" selection-start="5605" selection-end="5605" vertical-scroll-proportion="0.6625874">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseChiNhanh.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="58" selection-start="5150" selection-end="5150" vertical-scroll-proportion="0.7132867">
-          <folding />
-        </state>
+        <state line="138" column="58" selection-start="5150" selection-end="5150" vertical-scroll-proportion="0.7132867" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="0" selection-start="5886" selection-end="5886" vertical-scroll-proportion="0.74825174">
-          <folding />
-        </state>
+        <state line="164" column="0" selection-start="5886" selection-end="5886" vertical-scroll-proportion="0.74825174" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="41" selection-start="6085" selection-end="6085" vertical-scroll-proportion="0.8426573">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="67" selection-start="5103" selection-end="5103" vertical-scroll-proportion="0.7167832">
-          <folding>
-            <element signature="n#actionAdmin#0;n#LoaiChiNhanhController#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
+        <state line="166" column="41" selection-start="6085" selection-end="6085" vertical-scroll-proportion="0.8426573" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/them.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseLoaiChiNhanh.php">
@@ -669,59 +556,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/messages/vi/viLib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="41" selection-start="1673" selection-end="1673" vertical-scroll-proportion="-9.851851">
-          <folding>
-            <element signature="e#6#121#0" expanded="true" />
-          </folding>
+        <state line="65" column="41" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.031468533">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/LoaiChiNhanh.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="100" selection-end="100" vertical-scroll-proportion="-2.6666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="77" selection-start="611" selection-end="611" vertical-scroll-proportion="-7.3333335">
+        <state line="4" column="34" selection-start="100" selection-end="100" vertical-scroll-proportion="0.031468533">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="0" selection-start="5424" selection-end="5424" vertical-scroll-proportion="-5.185185">
+        <state line="154" column="0" selection-start="5424" selection-end="5424" vertical-scroll-proportion="0.21454546">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/them.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="97" selection-start="295" selection-end="295" vertical-scroll-proportion="-6.0">
+        <state line="9" column="97" selection-start="295" selection-end="295" vertical-scroll-proportion="0.28774422">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="24" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-15.703704">
+        <state line="32" column="24" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.6727273">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="472" selection-end="472" vertical-scroll-proportion="-7.3333335">
+        <state line="11" column="10" selection-start="472" selection-end="472" vertical-scroll-proportion="0.33846155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="77" selection-start="611" selection-end="611" vertical-scroll-proportion="0.03409091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/KhuVucController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="16" selection-start="4535" selection-end="4649" vertical-scroll-proportion="-31.851852">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/chitiet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="44" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.21454546">
+        <state line="27" column="44" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-16.185184">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="16" selection-start="3858" selection-end="3858" vertical-scroll-proportion="1.0552486">
+          <folding>
+            <element signature="n#actionAdmin#0;n#LoaiChiNhanhController#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
