@@ -162,7 +162,7 @@ class CEExcelView extends EExcelView
                 $head = 'Số TT'; // replace ID with So TT
 
             self::$activeSheet->setCellValue($this->columnName($i) . $row, $head);
-            $this->setCellFormatStyle($this->columnName($i), $row, array('bold' => true),'pro');
+            $this->setCellFormatStyle($this->columnName($i), $row, array('bold' => true),'pro',PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_MEDIUM);
         }
 
 
@@ -265,10 +265,16 @@ class CEExcelView extends EExcelView
             $value = $value === null ? "" : $column->grid->getFormatter()->format($value, $column->type);
 
             // Write to the cell (and advance to the next)
-            if($column->name=='id')
+            if($column->name=='id') {
                 self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), ($rowNo+1));
-            else
+                //$this->setCellFormatStyle($this->columnName($i),$row+$rowNo,array(),null,PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true,'right'=>true,'bottom'=>true,'left'=>true,PHPExcel_Style_Border::BORDER_DASHED));
+                $this->setCellFormatStyle($this->columnName($i), $row+$rowNo, array(),null,PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_DASHED);
+            }
+            else {
                 self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), $value);
+
+                $this->setCellFormatStyle($this->columnName($i), $row+$rowNo, array(),null,PHPExcel_Style_Alignment::HORIZONTAL_GENERAL,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_DASHED);
+            }
         endforeach;
 
         // As we are done with this row we DONT need this specific record
@@ -300,7 +306,16 @@ class CEExcelView extends EExcelView
         self::$objPHPExcel->getDefaultStyle()->getFont()->setSize(12);
     }
 
-    public function setCellFormatStyle($columnStartName, $row, $textStyles = array(), $bgColor = null, $align = PHPExcel_Style_Alignment::HORIZONTAL_CENTER)
+    /*
+     function set format for cell
+     $columnStartName : column Name such as : 'A', 'B', 'C'.
+     $row : row init to write
+     ...
+     $borderPosition : array('top','right','bottom','left').
+     $borderStyle : line style for cell default is thin
+     */
+
+    public function setCellFormatStyle($columnStartName, $row, $textStyles = array(), $bgColor = null, $align = PHPExcel_Style_Alignment::HORIZONTAL_CENTER, $borderPosition=array('top'=>false,'right'=>false,'bottom'=>false,'left'=>false), $borderStyle=PHPExcel_Style_Border::BORDER_NONE)
     {
         $bold = false;
         $italic = false;
@@ -318,8 +333,9 @@ class CEExcelView extends EExcelView
                 $size = $value;
             if ($key == 'color')
                 $textColor = $value;
-
         }
+
+
         // fill color for background
         switch ($bgColor) {
             case 'red':
@@ -358,6 +374,13 @@ class CEExcelView extends EExcelView
                 'size' => $size,
                 'color' => array('rgb' => $textColor),
             ),
+            'borders'=>array(
+                'top'=> ($borderPosition['top'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
+                'right'=>($borderPosition['right'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
+                'bottom'=>($borderPosition['bottom'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
+                'left'=>($borderPosition['left'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
+            ),
+
             'alignment' => array(
                 'horizontal' => $align,
             ),

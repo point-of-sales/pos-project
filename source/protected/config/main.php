@@ -43,7 +43,9 @@ return array(
             'defaultController'=>'danhsach',
         ),
 
-        'quanlysanpham',
+        'quanlysanpham'=>array(
+            'defaultController'=>'danhsach',
+        ),
 
                     
 	),
@@ -90,25 +92,31 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
-		),
+
+            'enableProfiling'=>true,   // config to show log database
+            'enableParamLogging'=>true,
+        ),
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
 		'log'=>array(
+
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+					//'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
+
+				/*array(
+                    'class'=>'CWebLogRoute',
+                    'categories'=>'system.db.CDbCommand',
+                    'showInFireBug'=>true,
+				),*/
+
 			),
 		),
 	),

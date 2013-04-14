@@ -14,6 +14,8 @@
     float:left;
     clear:none;
     padding-right:15px;
+    padding-top:8px;
+    height:45px;
 }
 
 .search-box-form .radio-list {

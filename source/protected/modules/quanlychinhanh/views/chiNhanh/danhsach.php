@@ -54,9 +54,9 @@ return false;
 		'ten_chi_nhanh',
 		'dia_chi',
         'trang_thai'=>array(
-            'name'=>'trang_thai',
-            'value'=>'$data->layTenTrangThai()'
-        ),
+        'name'=>'trang_thai',
+        'value'=>'$data->layTenTrangThai()'
+    ),
 		/*
 		'mo_ta',
 
@@ -132,7 +132,8 @@ array(
         var c='';
         if($('#yw0 input[id=ChiNhanh_trang_thai_0]').is(':checked')) {
             c = '0';
-        } else {
+        }
+        if($('#yw0 input[id=ChiNhanh_trang_thai_1]').is(':checked')) {
             c = '1';
         }
         var d = $('#yw0 #ChiNhanh_truc_thuoc_id option:selected').val();

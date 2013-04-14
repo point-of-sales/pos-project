@@ -94,11 +94,12 @@ class SanPhamController extends GxController {
                     }
                     case 'rel-error': {
                         $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
+                        $canDelete = false;
                         break;
                     }
                     case 'fail': {
                         $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                        $canDelete = false;
                         break;
                     }
                 }
@@ -107,9 +108,7 @@ class SanPhamController extends GxController {
                 $this->redirect(array('danhsach'));
             } else  {
                 Yii::app()->user->setFlash('info-board',$message);
-                $this->render('chitiet', array(
-                    'model' => $this->loadModel($id, 'ChiNhanh'),
-                ));
+                $this->redirect(array('chitiet', 'id' => $id));
             }
 			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('danhsach'));*/
@@ -121,13 +120,12 @@ class SanPhamController extends GxController {
 
         $model = new SanPham('search');
         $model->unsetAttributes();
+        if(isset($_GET['SanPham'])) {
+            $model->setAttributes($_GET['SanPham']);
+            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
+        }
 
-        if (isset($_GET['SanPham']))
-        $model->setAttributes($_GET['SanPham']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
+        $this->render('danhsach',array('model'=>$model));
 	}
 
 	public function actionAdmin() {
@@ -141,5 +139,21 @@ class SanPhamController extends GxController {
 			'model' => $model,
 		));
 	}
+
+    public function  actionXuat() {
+
+        $model = new SanPham('search');
+        $model->unsetAttributes();
+        if(isset($_GET['SanPham'])) {
+            $model->setAttributes($_GET['SanPham']);
+            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
+            $dataProvider = $model->search();
+        }
+        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    }
+
+    public function actionThemMocGia($id) {
+
+    }
 
 }

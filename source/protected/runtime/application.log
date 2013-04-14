@@ -11090,3 +11090,909 @@ Stack trace:
 REQUEST_URI=/quanlychinhanh/chiNhanh/capnhat/id/10
 HTTP_REFERER=http://pos.local/quanlychinhanh/chiNhanh/capnhat/id/10
 ---
+2013/04/11 22:37:32 [error] [exception.CException] exception 'CException' with message 'Alias "application.models.sanPham" không có hiệu lực. Phải chắc chắn nó chỉ đến một tập tin PHP đã có.' in /var/www/yii13/framework/YiiBase.php:316
+Stack trace:
+#0 /var/www/yii13/framework/gii/generators/crud/CrudCode.php(59): YiiBase::import('application.mod...', true)
+#1 /var/www/yii13/framework/validators/CInlineValidator.php(42): CrudCode->validateModel('model', Array)
+#2 /var/www/yii13/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(GiixCrudCode), 'model')
+#3 /var/www/yii13/framework/base/CModel.php(159): CValidator->validate(Object(GiixCrudCode), NULL)
+#4 /var/www/yii13/framework/gii/CCodeGenerator.php(159): CModel->validate()
+#5 /var/www/yii13/framework/gii/CCodeGenerator.php(63): CCodeGenerator->prepare()
+#6 /var/www/yii13/framework/web/actions/CInlineAction.php(49): CCodeGenerator->actionIndex()
+#7 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('')
+#11 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('gii/giixCrud')
+#12 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /var/www/pos-project/source/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/gii/giixCrud
+HTTP_REFERER=http://pos.local/gii/giixCrud
+---
+2013/04/11 22:40:46 [warning] [application] Failed to set unsafe attribute "tblHoaDonBanHangs" of "SanPham".
+in /var/www/pos-project/source/protected/models/SanPham.php (112)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 22:40:46 [warning] [application] Failed to set unsafe attribute "tblHoaDonTraHangs" of "SanPham".
+in /var/www/pos-project/source/protected/models/SanPham.php (112)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 22:40:46 [warning] [application] Failed to set unsafe attribute "tblPhieuNhaps" of "SanPham".
+in /var/www/pos-project/source/protected/models/SanPham.php (112)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 22:40:46 [warning] [application] Failed to set unsafe attribute "tblPhieuXuats" of "SanPham".
+in /var/www/pos-project/source/protected/models/SanPham.php (112)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 22:40:46 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/models/SanPham.php (112)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 23:37:57 [error] [php] Undefined index: tblHoaDonBanHangs (/var/www/pos-project/source/protected/models/SanPham.php:108)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#2 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#3 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#4 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/them
+in /var/www/pos-project/source/protected/models/SanPham.php (108)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (16)
+in /var/www/pos-project/source/index.php (13)
+2013/04/11 23:39:49 [error] [php] Undefined index: tblHoaDonBanHangs (/var/www/pos-project/source/protected/models/SanPham.php:129)
+Stack trace:
+#0 /var/www/yii13/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /var/www/yii13/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#4 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#5 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#6 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/capnhat/id/2
+in /var/www/pos-project/source/protected/models/SanPham.php (129)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (43)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 09:32:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Không thể giải quyết yêu cầu "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/12 09:32:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Không thể giải quyết yêu cầu "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/12 10:26:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Không thể giải quyết yêu cầu "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/12 10:26:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Không thể giải quyết yêu cầu "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/12 10:55:15 [error] [exception.CException] exception 'CException' with message 'SanPhamController không tìm được view: "xuat".' in /var/www/yii13/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('xuat', Array, true)
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(152): CController->render('xuat', Array)
+#2 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionXuat()
+#3 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('xuat')
+#7 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#8 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /var/www/pos-project/source/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/quanlysanpham/sanPham/xuat?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=B%C3%A0n+%E1%BB%A7i+%C4%91i%E1%BB%87n&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=0&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/12 12:30:38 [error] [php] Undefined index: top (/var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php:372)
+Stack trace:
+#0 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(423): CEExcelView->renderNormalList()
+#1 /var/www/yii13/framework/web/CBaseController.php(173): CEExcelView->run()
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/xuat.php(15): SanPhamController->widget()
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require()
+#4 /var/www/yii13/framework/web/CBaseController.php(95): SanPhamController->renderInternal()
+#5 /var/www/yii13/framework/web/CController.php(869): SanPhamController->renderFile()
+#6 /var/www/yii13/framework/web/CController.php(782): SanPhamController->renderPartial()
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(152): SanPhamController->render()
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionXuat()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#11 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/xuat?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=
+in /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php (372)
+in /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php (71)
+in /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php (407)
+2013/04/12 12:32:24 [error] [exception.Exception] exception 'Exception' with message 'Invalid style array passed.' in /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style/Border.php:293
+Stack trace:
+#0 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style/Borders.php(308): PHPExcel_Style_Border->applyFromArray('')
+#1 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style.php(522): PHPExcel_Style_Borders->applyFromArray(Array)
+#2 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style.php(471): PHPExcel_Style->applyFromArray(Array)
+#3 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style.php(419): PHPExcel_Style->applyFromArray(Array, false)
+#4 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(388): PHPExcel_Style->applyFromArray(Array)
+#5 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(71): CEExcelView->setCellFormatStyle('A', 1, Array, NULL, 'left')
+#6 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(407): CEExcelView->renderCompanyInfoHeader()
+#7 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(423): CEExcelView->renderNormalList()
+#8 /var/www/yii13/framework/web/CBaseController.php(173): CEExcelView->run()
+#9 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/xuat.php(15): CBaseController->widget('CEExcelView', Array)
+#10 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#11 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#12 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#13 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('xuat', Array, true)
+#14 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(152): CController->render('xuat', Array)
+#15 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionXuat()
+#16 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('xuat')
+#20 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#21 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#22 /var/www/pos-project/source/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/quanlysanpham/sanPham/xuat?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/12 12:32:31 [error] [exception.Exception] exception 'Exception' with message 'Invalid style array passed.' in /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style/Border.php:293
+Stack trace:
+#0 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style/Borders.php(308): PHPExcel_Style_Border->applyFromArray('')
+#1 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style.php(522): PHPExcel_Style_Borders->applyFromArray(Array)
+#2 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style.php(471): PHPExcel_Style->applyFromArray(Array)
+#3 /var/www/pos-project/source/protected/extensions/phpexcel/Classes/PHPExcel/Style.php(419): PHPExcel_Style->applyFromArray(Array, false)
+#4 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(388): PHPExcel_Style->applyFromArray(Array)
+#5 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(71): CEExcelView->setCellFormatStyle('A', 1, Array, NULL, 'left')
+#6 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(407): CEExcelView->renderCompanyInfoHeader()
+#7 /var/www/pos-project/source/protected/extensions/eexcelview/CEExcelView.php(423): CEExcelView->renderNormalList()
+#8 /var/www/yii13/framework/web/CBaseController.php(173): CEExcelView->run()
+#9 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/xuat.php(15): CBaseController->widget('CEExcelView', Array)
+#10 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#11 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#12 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#13 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('xuat', Array, true)
+#14 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(152): CController->render('xuat', Array)
+#15 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionXuat()
+#16 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#18 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('xuat')
+#20 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#21 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#22 /var/www/pos-project/source/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/quanlysanpham/sanPham/xuat?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/12 13:37:16 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.khuyen_mai_id" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('khuyen_mai_id')
+#1 /var/www/yii13/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('khuyen_mai_id')
+#2 /var/www/yii13/framework/web/helpers/CHtml.php(1716): CHtml::resolveValue(Object(SanPham), 'khuyen_mai_id')
+#3 /var/www/yii13/framework/web/widgets/CActiveForm.php(811): CHtml::activeRadioButtonList(Object(SanPham), 'khuyen_mai_id', Array, Array)
+#4 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/_search.php(33): CActiveForm->radioButtonList(Object(SanPham), 'khuyen_mai_id', Array)
+#5 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#6 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#7 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#8 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/danhsach.php(29): CController->renderPartial('_search', Array)
+#9 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#10 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#11 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#12 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('danhsach', Array, true)
+#13 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(129): CController->render('danhsach', Array)
+#14 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionDanhSach()
+#15 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('danhsach')
+#19 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#20 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#21 /var/www/pos-project/source/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/quanlysanpham/sanPham/danhsach
+HTTP_REFERER=http://pos.local/quanlychinhanh/chiNhanh/danhsach
+---
+2013/04/12 15:15:32 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.khuyen_mai_id" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('khuyen_mai_id')
+#1 /var/www/yii13/framework/web/helpers/CHtml.php(2255): CActiveRecord->__get('khuyen_mai_id')
+#2 /var/www/yii13/framework/web/helpers/CHtml.php(1716): CHtml::resolveValue(Object(SanPham), 'khuyen_mai_id')
+#3 /var/www/yii13/framework/web/widgets/CActiveForm.php(811): CHtml::activeRadioButtonList(Object(SanPham), 'khuyen_mai_id', Array, Array)
+#4 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/_search.php(33): CActiveForm->radioButtonList(Object(SanPham), 'khuyen_mai_id', Array)
+#5 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#6 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#7 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#8 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/danhsach.php(29): CController->renderPartial('_search', Array)
+#9 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#10 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#11 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#12 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('danhsach', Array, true)
+#13 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(129): CController->render('danhsach', Array)
+#14 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionDanhSach()
+#15 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#17 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('danhsach')
+#19 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#20 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#21 /var/www/pos-project/source/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/quanlysanpham/sanPham/danhsach
+HTTP_REFERER=http://pos.local/quanlychinhanh/chiNhanh/danhsach
+---
+2013/04/12 21:57:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Không thể giải quyết yêu cầu "favicon.ico".' in /var/www/yii13/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pos-project/source/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/04/12 22:05:07 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:05:08 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:05:11 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:05:14 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:08:37 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:08:39 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:08:39 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:08:41 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:08:43 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:08:50 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:17:22 [error] [php] Undefined variable: dataProvider (/var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php:151)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#1 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#2 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#3 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/xuat
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (151)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:18:00 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(157): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test
+---
+2013/04/12 22:19:25 [error] [php] Undefined offset: 2 (/var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php:9)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(869): SanPhamController->renderFile()
+#1 /var/www/yii13/framework/web/CController.php(782): SanPhamController->renderPartial()
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(157): SanPhamController->render()
+#3 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#4 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#6 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#7 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#8 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test
+in /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php (9)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (157)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:36:30 [error] [php] Undefined offset: 2 (/var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php:9)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(869): SanPhamController->renderFile()
+#1 /var/www/yii13/framework/web/CController.php(782): SanPhamController->renderPartial()
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(157): SanPhamController->render()
+#3 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#4 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#6 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#7 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#8 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test
+in /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php (9)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (157)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:36:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Hệ thống không thể tìm được hành động yêu cầu "index".' in /var/www/yii13/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(270): CController->missingAction('')
+#1 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('')
+#2 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#3 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /var/www/pos-project/source/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/quanlysanpham/sanPham/
+---
+2013/04/12 22:41:05 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:42:50 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 22:43:31 [error] [php] Undefined index: SanPham (/var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php:151)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#1 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#2 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#3 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/xuat
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (151)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:25:34 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:26:03 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (160)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:26:03 [error] [php] Undefined index: ma_chi_nhanh (/var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php:161)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#1 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#2 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#3 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:27:16 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:27:18 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:27:18 [error] [php] Undefined index: tblChiNhanhs (/var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php:162)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#1 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#2 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#3 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=26
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (162)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:27:44 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:27:44 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "CActiveDataProvider.tblChiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CComponent->__get('tblChiNhanhs')
+#1 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#2 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#3 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#5 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#6 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#7 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#11 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#12 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /var/www/pos-project/source/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=26
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/12 23:28:06 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:28:36 [error] [php] Undefined variable: relatedParams (/var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php:165)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#1 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#2 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#3 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#5 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (165)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:28:39 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:28:47 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:28:54 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:28:56 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:29:12 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:29:18 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:29:30 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:30:30 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:30:33 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:30:50 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:30:50 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.0" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('0')
+#1 /var/www/yii13/framework/base/CModel.php(596): CActiveRecord->__get('0')
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CModel->offsetGet(0)
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/12 23:33:29 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:33:30 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:33:50 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:33:51 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:34:18 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:34:18 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/12 23:34:27 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/12 23:34:27 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.0" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('0')
+#1 /var/www/yii13/framework/base/CModel.php(596): CActiveRecord->__get('0')
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CModel->offsetGet(0)
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:41:06 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:41:06 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:41:21 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:41:22 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:41:22 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:43:52 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:43:52 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:44:02 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:44:04 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:44:04 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:44:24 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:44:31 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:45:05 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:45:05 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.chiNhanhs" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('chiNhanhs')
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__get('chiNhanhs')
+#2 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#3 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#4 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#6 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#7 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#8 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#12 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#13 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /var/www/pos-project/source/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:45:13 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:45:13 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.0" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('0')
+#1 /var/www/yii13/framework/base/CModel.php(596): CActiveRecord->__get('0')
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CModel->offsetGet(0)
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:45:15 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 01:45:15 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.0" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('0')
+#1 /var/www/yii13/framework/base/CModel.php(596): CActiveRecord->__get('0')
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CModel->offsetGet(0)
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 01:45:28 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:21:14 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:33:55 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:33:57 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:33:57 [error] [php] Trying to get property of non-object (/var/www/pos-project/source/protected/models/SanPham.php:212)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#2 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#3 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#4 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+in /var/www/pos-project/source/protected/models/SanPham.php (212)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (165)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:35:37 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:35:38 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:35:53 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:42:15 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:42:33 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 09:44:05 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:15:34 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:15:37 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:16:01 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:16:09 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:40:43 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (125)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:40:44 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:40:44 [error] [php] Undefined index: SanPham (/var/www/pos-project/source/protected/models/SanPham.php:212)
+Stack trace:
+#0 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /var/www/yii13/framework/web/CController.php(286): SanPhamController->runAction()
+#2 /var/www/yii13/framework/web/CController.php(265): SanPhamController->runActionWithFilters()
+#3 /var/www/yii13/framework/web/CWebApplication.php(282): SanPhamController->run()
+#4 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /var/www/pos-project/source/index.php(13): CWebApplication->run()
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+in /var/www/pos-project/source/protected/models/SanPham.php (212)
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (165)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:41:17 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:41:37 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:41:56 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:41:56 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.0" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('0')
+#1 /var/www/yii13/framework/base/CModel.php(596): CActiveRecord->__get('0')
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CModel->offsetGet(0)
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 10:42:03 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:42:03 [error] [exception.CException] exception 'CException' with message 'Thuộc tính "SanPham.0" chưa được định nghĩa.' in /var/www/yii13/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(143): CComponent->__get('0')
+#1 /var/www/yii13/framework/base/CModel.php(596): CActiveRecord->__get('0')
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CModel->offsetGet(0)
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 10:42:19 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)
+2013/04/13 10:42:19 [error] [exception.CException] exception 'CException' with message 'SanPham and its behaviors do not have a method or closure named "getAtrributes".' in /var/www/yii13/framework/base/CComponent.php:265
+Stack trace:
+#0 /var/www/yii13/framework/db/ar/CActiveRecord.php(225): CComponent->__call('getAtrributes', Array)
+#1 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): CActiveRecord->__call('getAtrributes', Array)
+#2 /var/www/pos-project/source/protected/modules/quanlysanpham/views/sanPham/test.php(9): SanPham->getAtrributes()
+#3 /var/www/yii13/framework/web/CBaseController.php(126): require('/var/www/pos-pr...')
+#4 /var/www/yii13/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pos-pr...', Array, true)
+#5 /var/www/yii13/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pos-pr...', Array, true)
+#6 /var/www/yii13/framework/web/CController.php(782): CController->renderPartial('test', Array, true)
+#7 /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php(166): CController->render('test', Array)
+#8 /var/www/yii13/framework/web/actions/CInlineAction.php(49): SanPhamController->actionTest()
+#9 /var/www/yii13/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii13/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii13/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii13/framework/web/CWebApplication.php(282): CController->run('test')
+#13 /var/www/yii13/framework/web/CWebApplication.php(141): CWebApplication->runController('quanlysanpham/s...')
+#14 /var/www/yii13/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /var/www/pos-project/source/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/quanlysanpham/sanPham/test?SanPham%5Bma_vach%5D=&SanPham%5Bten_san_pham%5D=&SanPham%5Bten_tieng_viet%5D=&SanPham%5Btrang_thai%5D=&SanPham%5Bnha_cung_cap_id%5D=&SanPham%5Bloai_san_pham_id%5D=&SanPham%5BtblChiNhanhs%5D=10
+HTTP_REFERER=http://pos.local/quanlysanpham/sanPham/danhsach
+---
+2013/04/13 10:42:38 [warning] [application] Failed to set unsafe attribute "tblChiNhanhs" of "SanPham".
+in /var/www/pos-project/source/protected/modules/quanlysanpham/controllers/SanPhamController.php (161)
+in /var/www/pos-project/source/index.php (13)

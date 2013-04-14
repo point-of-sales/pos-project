@@ -8,6 +8,14 @@ class LoaiSanPham extends BaseLoaiSanPham
 		return parent::model($className);
 	}
 
+    public function attributeLabels() {
+        return array(
+            'id' => Yii::t('app', 'ID'),
+            'ma_loai' => Yii::t('viLib', 'Product type code'),
+            'ten_loai' => Yii::t('viLib', 'Product type name'),
+            'sanPhams' => null,
+        );
+    }
 
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();
@@ -103,7 +111,7 @@ class LoaiSanPham extends BaseLoaiSanPham
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -126,12 +134,6 @@ class LoaiSanPham extends BaseLoaiSanPham
             return 'rel-error';
         }
     }
-
-
-
-
-
-
 
 
 }

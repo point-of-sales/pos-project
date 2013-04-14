@@ -103,7 +103,7 @@ class NhaCungCap extends BaseNhaCungCap
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -126,12 +126,6 @@ class NhaCungCap extends BaseNhaCungCap
             return 'rel-error';
         }
     }
-
-
-
-
-
-
 
 
 }

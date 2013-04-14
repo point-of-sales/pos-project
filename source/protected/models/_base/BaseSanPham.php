@@ -42,9 +42,9 @@ abstract class BaseSanPham extends GxActiveRecord {
 
 	public static function label($n = 1) {
         if($n <= 1 ) {
-            return Yii::t('viLib', 'SanPham');
+            return Yii::t('viLib', 'Product');
         } else {
-		    return Yii::t('viLib', 'SanPhams');
+		    return Yii::t('viLib', 'Products');
         }
 	}
 
@@ -54,7 +54,7 @@ abstract class BaseSanPham extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_vach, nha_cung_cap_id, loai_san_pham_id', 'required'),
+			array('ma_vach, ten_san_pham, han_dung ,nha_cung_cap_id, loai_san_pham_id,trang_thai,ton_toi_thieu', 'required'),
 			array('han_dung, ton_toi_thieu, trang_thai, nha_cung_cap_id, loai_san_pham_id', 'numerical', 'integerOnly'=>true),
 			array('ma_vach', 'length', 'max'=>15),
 			array('ten_san_pham, ten_tieng_viet', 'length', 'max'=>100),

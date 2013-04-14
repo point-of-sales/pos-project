@@ -27,9 +27,9 @@ abstract class BaseLoaiSanPham extends GxActiveRecord {
 
 	public static function label($n = 1) {
         if($n <= 1 ) {
-            return Yii::t('viLib', 'LoaiSanPham');
+            return Yii::t('viLib', 'Product type');
         } else {
-		    return Yii::t('viLib', 'LoaiSanPhams');
+		    return Yii::t('viLib', 'Product types');
         }
 	}
 
