@@ -1,27 +1,19 @@
 <?php
 
-class SanPhamController extends GxController {
+class KhachHangController extends GxController {
 
 
 	public function actionChiTiet($id) {
-
-        $model = $this->loadModel($id, 'SanPham');
-        //lay danh sach cac moc gia cua san pham nay
-        $prices = MocGia::layDanhSachGiaTheoSanPham($model->id);
-
-        $this->render('chitiet', array(
-			'model' => $model,
-            'prices'=>$prices,
+		$this->render('chitiet', array(
+			'model' => $this->loadModel($id, 'KhachHang'),
 		));
-
-
 	}
 
 	public function actionThem() {
-		$model = new SanPham;
+		$model = new KhachHang;
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->them($_POST['SanPham']);
+		if (isset($_POST['KhachHang'])) {
+            $result = $model->them($_POST['KhachHang']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -44,11 +36,11 @@ class SanPhamController extends GxController {
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'SanPham');
+		$model = $this->loadModel($id, 'KhachHang');
 
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->capNhat($_POST['SanPham']);
+		if (isset($_POST['KhachHang'])) {
+            $result = $model->capNhat($_POST['KhachHang']);
             switch($result) {
                 case 'ok': {
                     $this->redirect(array('chitiet', 'id' => $id));
@@ -69,7 +61,7 @@ class SanPhamController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'KhachHang');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -92,7 +84,7 @@ class SanPhamController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'KhachHang');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -126,22 +118,23 @@ class SanPhamController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new SanPham('search');
+        $model = new KhachHang('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPham'])) {
-            $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
-        }
 
-        $this->render('danhsach',array('model'=>$model));
+        if (isset($_GET['KhachHang']))
+        $model->setAttributes($_GET['KhachHang']);
+
+        $this->render('danhsach', array(
+        'model' => $model,
+        ));
 	}
 
 	public function actionAdmin() {
-		$model = new SanPham('search');
+		$model = new KhachHang('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['SanPham']))
-			$model->setAttributes($_GET['SanPham']);
+		if (isset($_GET['KhachHang']))
+			$model->setAttributes($_GET['KhachHang']);
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -150,19 +143,13 @@ class SanPhamController extends GxController {
 
     public function  actionXuat() {
 
-        $model = new SanPham('search');
+        $model = new KhachHang('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPham'])) {
-            $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
-            $dataProvider = $model->search();
+        if(isset($_GET['KhachHang'])) {
+        $model->setAttributes($_GET['KhachHang']);
+        $dataProvider = $model->search();
         }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
     }
-
-    public function actionThemMocGia($id) {
-
-    }
-
 
 }

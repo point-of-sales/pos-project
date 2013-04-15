@@ -1,27 +1,22 @@
 <?php
 
-class SanPhamController extends GxController {
+class MocGiaController extends GxController {
 
 
 	public function actionChiTiet($id) {
-
-        $model = $this->loadModel($id, 'SanPham');
-        //lay danh sach cac moc gia cua san pham nay
-        $prices = MocGia::layDanhSachGiaTheoSanPham($model->id);
-
-        $this->render('chitiet', array(
-			'model' => $model,
-            'prices'=>$prices,
+		$this->render('chitiet', array(
+			'model' => $this->loadModel($id, 'MocGia'),
 		));
-
-
 	}
 
-	public function actionThem() {
-		$model = new SanPham;
-
-		if (isset($_POST['SanPham'])) {
-            $result = $model->them($_POST['SanPham']);
+	public function actionThem($spid) {
+		$model = new MocGia;
+		if (isset($_POST['MocGia']) && isset($spid)) {
+            // kiem tra ngay thang hop le : ngay bat dau > ngay hien tai
+            $timeStartVal =
+            //$_POST['MocGia']['thoi_gian_bat_dau'] = date('Y-m-d',strtotime($_POST['MocGia']['thoi_gian_bat_dau']));
+            $_POST['MocGia']['san_pham_id'] = $spid;
+            $result = $model->them($_POST['MocGia']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -44,11 +39,11 @@ class SanPhamController extends GxController {
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'SanPham');
+		$model = $this->loadModel($id, 'MocGia');
 
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->capNhat($_POST['SanPham']);
+		if (isset($_POST['MocGia'])) {
+            $result = $model->capNhat($_POST['MocGia']);
             switch($result) {
                 case 'ok': {
                     $this->redirect(array('chitiet', 'id' => $id));
@@ -69,7 +64,7 @@ class SanPhamController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'MocGia');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -92,7 +87,7 @@ class SanPhamController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'MocGia');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -126,22 +121,23 @@ class SanPhamController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new SanPham('search');
+        $model = new MocGia('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPham'])) {
-            $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
-        }
 
-        $this->render('danhsach',array('model'=>$model));
+        if (isset($_GET['MocGia']))
+        $model->setAttributes($_GET['MocGia']);
+
+        $this->render('danhsach', array(
+        'model' => $model,
+        ));
 	}
 
 	public function actionAdmin() {
-		$model = new SanPham('search');
+		$model = new MocGia('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['SanPham']))
-			$model->setAttributes($_GET['SanPham']);
+		if (isset($_GET['MocGia']))
+			$model->setAttributes($_GET['MocGia']);
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -150,19 +146,13 @@ class SanPhamController extends GxController {
 
     public function  actionXuat() {
 
-        $model = new SanPham('search');
+        $model = new MocGia('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPham'])) {
-            $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
-            $dataProvider = $model->search();
+        if(isset($_GET['MocGia'])) {
+        $model->setAttributes($_GET['MocGia']);
+        $dataProvider = $model->search();
         }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
     }
-
-    public function actionThemMocGia($id) {
-
-    }
-
 
 }

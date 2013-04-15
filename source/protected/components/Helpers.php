@@ -24,30 +24,30 @@ class Helpers {
         $hasIdParams = strrpos($longUrl,'id');
         if(!$hasIdParams) {
             //normal url style with form : http://abc.com/<module>/<controller>/<action>
-            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $lastPos = strrpos($longUrl,PATH_SEPARATOR);
             $action = substr($longUrl,$lastPos+1,strlen($longUrl));
             $longUrl = substr($longUrl,0,$lastPos);
             //do again to get controller
-            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $lastPos = strrpos($longUrl,PATH_SEPARATOR);
             $controller = substr($longUrl,$lastPos+1,strlen($longUrl));
-            return array($controller . DIRECTORY_SEPARATOR . $action);
+            return array($controller . PATH_SEPARATOR . $action);
 
         } else {
             //url with id param form : http://abc.com/<module>/<controller>/<action>/<id>
 
-            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $lastPos = strrpos($longUrl,PATH_SEPARATOR);
             //get id first
             $id = substr($longUrl,$lastPos+1,strlen($longUrl));
             $longUrl = substr($longUrl,0,$lastPos-3);
             //get action. ignore id
-            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $lastPos = strrpos($longUrl,PATH_SEPARATOR);
             $action = substr($longUrl,$lastPos+1,strlen($longUrl));
             $longUrl = substr($longUrl,0,$lastPos);
             //get controller
-            $lastPos = strrpos($longUrl,DIRECTORY_SEPARATOR);
+            $lastPos = strrpos($longUrl,PATH_SEPARATOR);
             $controller = substr($longUrl,$lastPos+1,strlen($longUrl));
 
-            return array($controller . DIRECTORY_SEPARATOR . $action, 'id'=>$id);
+            return array($controller . PATH_SEPARATOR . $action, 'id'=>$id);
         }
 
     }
@@ -55,7 +55,7 @@ class Helpers {
     public static function getControllerFromShortUrl($shortUrl) {
 
         if(!empty($shortUrl)) {
-            $lastPos  = strrpos($shortUrl,DIRECTORY_SEPARATOR);
+            $lastPos  = strrpos($shortUrl,PATH_SEPARATOR);
             return substr($shortUrl,0,$lastPos);
         }
     }

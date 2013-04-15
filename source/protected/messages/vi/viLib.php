@@ -109,4 +109,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Product type code'=>'Mã loại sản phẩm',
     'Product type name'=>'Tên loại sản phẩm',
     'Price checkpoint'=>'Mốc giá',
+    'Start time have to greater or equal current time'=>'Thời gian bắt đầu phải lớn hơn hoặc bằng thời gian hiện tại',
 );

@@ -69,7 +69,7 @@ class YiiDebugToolbarPanelViewsRendering extends YiiDebugToolbarPanel
 
     public function getFileAlias($file)
     {
-        return str_replace(DIRECTORY_SEPARATOR, '.', 
+        return str_replace(DIRECTORY_SEPARATOR, '.',
                 dirname(trim(str_replace(Yii::getPathOfAlias('webroot'), '', $file), '\\/')) . '/'
                 . basename(trim(str_replace(Yii::getPathOfAlias('webroot'), '', $file), '\\/'), '.php'));
     }

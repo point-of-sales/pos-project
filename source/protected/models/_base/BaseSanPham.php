@@ -74,6 +74,7 @@ abstract class BaseSanPham extends GxActiveRecord {
 			'nhaCungCap' => array(self::BELONGS_TO, 'NhaCungCap', 'nha_cung_cap_id'),
 			'loaiSanPham' => array(self::BELONGS_TO, 'LoaiSanPham', 'loai_san_pham_id'),
 			'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamChiNhanh(san_pham_id, chi_nhanh_id)'),
+            'mocGias' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
 		);
 	}
 
@@ -108,6 +109,7 @@ abstract class BaseSanPham extends GxActiveRecord {
 			'nhaCungCap' => null,
 			'loaiSanPham' => null,
 			'tblChiNhanhs' => null,
+            'mocGias' => null,
 		);
 	}
 

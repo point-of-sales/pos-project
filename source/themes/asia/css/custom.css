@@ -132,3 +132,7 @@ h1 {
 }
 
 /*end form style */
+
+#ui-datepicker-div  {
+    display:none;
+}

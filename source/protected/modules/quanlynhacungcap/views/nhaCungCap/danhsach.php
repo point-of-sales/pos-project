@@ -33,41 +33,29 @@ return false;
 'dataProvider' => $model->search(),
 'columns' => array(
 		'id',
-		'ma_vach',
-		'ten_san_pham',
-		'ten_tieng_viet',
-		'han_dung',
-		'don_vi_tinh',
-		/*
-		'ton_toi_thieu',
-		'huong_dan_su_dung',
+		'ma_nha_cung_cap',
+		'ten_nha_cung_cap',
 		'mo_ta',
+		'dien_thoai',
+		'email',
+		/*
+		'fax',
 		'trang_thai',
-		array(
-				'name'=>'nha_cung_cap_id',
-				'value'=>'GxHtml::valueEx($data->nhaCungCap)',
-				'filter'=>GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)),
-				),
-		array(
-				'name'=>'loai_san_pham_id',
-				'value'=>'GxHtml::valueEx($data->loaiSanPham)',
-				'filter'=>GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)),
-				),
 		*/
 array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{update}{delete}',
     'buttons'=>array(
             'view'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id .DIRECTORY_SEPARATOR. Yii::app()->controller->id .DIRECTORY_SEPARATOR. "chitiet",array("id"=>$data->id))',
+            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
             ),
             'update'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id .DIRECTORY_SEPARATOR. Yii::app()->controller->id .DIRECTORY_SEPARATOR. "capnhat",array("id"=>$data->id))',
+            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "capnhat",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Update'),
             ),
             'delete'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id .DIRECTORY_SEPARATOR. Yii::app()->controller->id .DIRECTORY_SEPARATOR. "xoagrid",array("id"=>$data->id))',
+            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "xoagrid",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Delete'),
             'click' => "js:function(){
 

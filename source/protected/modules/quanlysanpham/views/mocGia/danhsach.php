@@ -1,9 +1,8 @@
 <?php
 
 $this->breadcrumbs = array(
-    Yii::t('viLib', 'Product management')=>array('sanPham/danhsach'),
-    Yii::t('viLib','Product type')=>array('sanPham/danhsach'),
-    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Product type'),
+	$model->label(1),
+	Yii::t('viLib', 'List'),
 );
 
 $this->menu = array(
@@ -29,19 +28,19 @@ return false;
 )); ?>
 </div><!-- search-form -->
 
-
-<form action="xuat" method="get" id="hidden-form">
-    <input type="hidden"  id="ma_loai" name="LoaiSanPham[ma_loai]">
-    <input type="hidden"  id="ten_loai" name="LoaiSanPham[ten_loai]">
-    <input type="submit"  class="button-no-style" value="Xuất sang Excel">
-</form>
-
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 'id' => 'grid',
 'dataProvider' => $model->search(),
 'columns' => array(
-		'ma_loai',
-		'ten_loai',
+		'id',
+		'thoi_gian_bat_dau',
+		'thoi_gian_ket_thuc',
+		'gia_ban',
+		array(
+				'name'=>'san_pham_id',
+				'value'=>'GxHtml::valueEx($data->sanPham)',
+				'filter'=>GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)),
+				),
 array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{update}{delete}',
@@ -89,23 +88,3 @@ array(
     ),
 ),
 )); ?>
-
-<script>
-    $('#yw0').submit(function(){
-            var a = $('#yw0 input[id=LoaiSanPham_ma_loai]').val();
-            var b = $('#yw0 input[id=LoaiSanPham_ten_loai]').val();
-
-
-            //set default var
-            $('#hidden-form input[id=ma_loai]').val('');
-            $('#hidden-form input[id=ten_loai]').val('');
-
-            if(a!='')
-                $('#hidden-form input[id=ten_loai]').val($.trim(a));
-            if(b!='')
-                $('#hidden-form input[id=ten_loai]').val($.trim(b));
-
-        }
-    );
-
-</script>

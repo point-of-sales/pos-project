@@ -18,7 +18,7 @@ $this->breadcrumbs = array(
 $this->menu=array(
 array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url'=>array('danhsach')),
 array('label'=>Yii::t('viLib', 'Add') . ' ' . $model->label(), 'url'=>array('them')),
-array('label'=>Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib','Price checkpoint'), 'url'=>array('sanPham/themmocgia','id'=>$model->id)),
+array('label'=>Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib','Price checkpoint'), 'url'=>array('mocGia/them','spid'=>$model->id)),
 array('label'=>Yii::t('viLib', 'Update') . ' ' . $model->label(), 'url'=>array('capnhat', 'id' => $model->id)),
 array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm'=>Yii::t('viLib','Are you sure you want to delete this item?'))),
 );
@@ -52,6 +52,32 @@ array(
 			),
 	),
 )); ?>
+
+
+
+<?php
+    $this->widget('zii.widgets.grid.CGridView',array(
+        'id'=>'grid',
+        'dataProvider'=>$prices,
+        'columns'=>array(
+            'thoi_gian_bat_dau',
+            'thoi_gian_ket_thuc',
+            'gia_ban',
+            array(
+                'class'=>'CButtonColumn',
+                'template'=>'{update}{delete}',
+                'buttons'=>array(
+                    'update'=>array(
+                        'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". "mocGia" ."/". "capnhat",array("id"=>$data->id))',
+                        'label'=>Yii::t('viLib','View'),
+                    )
+                ),
+            ),
+        ),
+
+
+    ));
+?>
 
 <!--<h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblHoaDonBanHangs')); */?></h2>
 <?php

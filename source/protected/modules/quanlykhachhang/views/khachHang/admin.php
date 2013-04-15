@@ -16,7 +16,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('san-pham-grid', {
+	$.fn.yiiGridView.update('khach-hang-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -38,30 +38,25 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id' => 'san-pham-grid',
+	'id' => 'khach-hang-grid',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
 	'columns' => array(
 		'id',
-		'ma_vach',
-		'ten_san_pham',
-		'ten_tieng_viet',
-		'han_dung',
-		'don_vi_tinh',
+		'ma_khach_hang',
+		'ho_ten',
+		'ngay_sinh',
+		'dia_chi',
+		'thanh_pho',
 		/*
-		'ton_toi_thieu',
-		'huong_dan_su_dung',
+		'dien_thoai',
+		'email',
 		'mo_ta',
-		'trang_thai',
+		'diem_tich_luy',
 		array(
-				'name'=>'nha_cung_cap_id',
-				'value'=>'GxHtml::valueEx($data->nhaCungCap)',
-				'filter'=>GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)),
-				),
-		array(
-				'name'=>'loai_san_pham_id',
-				'value'=>'GxHtml::valueEx($data->loaiSanPham)',
-				'filter'=>GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)),
+				'name'=>'loai_khach_hang_id',
+				'value'=>'GxHtml::valueEx($data->loaiKhachHang)',
+				'filter'=>GxHtml::listDataEx(LoaiKhachHang::model()->findAllAttributes(null, true)),
 				),
 		*/
 		array(

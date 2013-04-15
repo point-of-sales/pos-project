@@ -1,19 +1,19 @@
 <?php
 
-class SanPhamController extends GxController {
+class NhaCungCapController extends GxController {
 
 
 	public function actionChiTiet($id) {
 		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'SanPham'),
+			'model' => $this->loadModel($id, 'NhaCungCap'),
 		));
 	}
 
 	public function actionThem() {
-		$model = new SanPham;
+		$model = new NhaCungCap;
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->them($_POST['SanPham']);
+		if (isset($_POST['NhaCungCap'])) {
+            $result = $model->them($_POST['NhaCungCap']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -36,11 +36,11 @@ class SanPhamController extends GxController {
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'SanPham');
+		$model = $this->loadModel($id, 'NhaCungCap');
 
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->capNhat($_POST['SanPham']);
+		if (isset($_POST['NhaCungCap'])) {
+            $result = $model->capNhat($_POST['NhaCungCap']);
             switch($result) {
                 case 'ok': {
                     $this->redirect(array('chitiet', 'id' => $id));
@@ -61,7 +61,7 @@ class SanPhamController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'NhaCungCap');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -84,7 +84,7 @@ class SanPhamController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'NhaCungCap');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -94,11 +94,12 @@ class SanPhamController extends GxController {
                     }
                     case 'rel-error': {
                         $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;$this->loadModel($id, 'ChiNhanh');
+                        $canDelete = false;
                         break;
                     }
                     case 'fail': {
                         $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                        $canDelete = false;
                         break;
                     }
                 }
@@ -107,9 +108,7 @@ class SanPhamController extends GxController {
                 $this->redirect(array('danhsach'));
             } else  {
                 Yii::app()->user->setFlash('info-board',$message);
-                $this->render('chitiet', array(
-                    'model' => $this->loadModel($id, 'ChiNhanh'),
-                ));
+                $this->redirect(array('chitiet', 'id' => $id));
             }
 			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('danhsach'));*/
@@ -119,11 +118,11 @@ class SanPhamController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new SanPham('search');
+        $model = new NhaCungCap('search');
         $model->unsetAttributes();
 
-        if (isset($_GET['SanPham']))
-        $model->setAttributes($_GET['SanPham']);
+        if (isset($_GET['NhaCungCap']))
+        $model->setAttributes($_GET['NhaCungCap']);
 
         $this->render('danhsach', array(
         'model' => $model,
@@ -131,15 +130,26 @@ class SanPhamController extends GxController {
 	}
 
 	public function actionAdmin() {
-		$model = new SanPham('search');
+		$model = new NhaCungCap('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['SanPham']))
-			$model->setAttributes($_GET['SanPham']);
+		if (isset($_GET['NhaCungCap']))
+			$model->setAttributes($_GET['NhaCungCap']);
 
 		$this->render('admin', array(
 			'model' => $model,
 		));
 	}
+
+    public function  actionXuat() {
+
+        $model = new NhaCungCap('search');
+        $model->unsetAttributes();
+        if(isset($_GET['NhaCungCap'])) {
+        $model->setAttributes($_GET['NhaCungCap']);
+        $dataProvider = $model->search();
+        }
+        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    }
 
 }

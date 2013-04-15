@@ -5,6 +5,9 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
+const PATH_SEPARATOR = '/';
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Point Of Sales System',
@@ -47,6 +50,13 @@ return array(
             'defaultController'=>'danhsach',
         ),
 
+        'quanlynhacungcap'=>array(
+            'defaultController'=>'danhsach',
+        ),
+
+        'quanlykhachhang'=>array(
+            'defaultController'=>'danhsach',
+        ),
                     
 	),
 
@@ -54,6 +64,9 @@ return array(
 	'components'=>array(
         'session'=>array(
             'autoStart'=>true,
+        ),
+        'localtime'=>array(
+            'class'=>'LocalTime',
         ),
 
 		'user'=>array(
