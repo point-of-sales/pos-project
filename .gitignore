@@ -11,6 +11,11 @@
 # generated files
 bin/
 gen/
+source/.idea/
+source/nbproject/
+source/protected/runtime/
+source/protected/assets/
+
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -18,8 +23,5 @@ local.properties
 # Eclipse project files
 .classpath
 .project
-source/.idea
-source/protected/runtime
-source/protected/assets
 
 
