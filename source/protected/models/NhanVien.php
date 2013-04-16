@@ -84,7 +84,7 @@ class NhanVien extends BaseNhanVien
             //neu khoa chua ton tai
             $this->setAttributes($params);
                     $relatedData = array(
-				'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
+				//'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
 				);
                             if ($this->saveWithRelated($relatedData))
                         return 'ok';
@@ -101,7 +101,7 @@ class NhanVien extends BaseNhanVien
         $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
         $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
                     $relatedData = array(
-				'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
+				//'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
 				);
                 if(!$exist) {
             $this->setAttributes($params);
@@ -136,7 +136,16 @@ class NhanVien extends BaseNhanVien
         }
     }
 
-
+    public function getOptions($id=1){
+        switch ($id){
+            case 1:{
+                return array('Kích hoạt','Chưa kích hoạt');
+            }break;
+            case 2:{
+                return array('Nam','Nữ');
+            }
+        }
+    }
 
 
 

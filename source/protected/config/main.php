@@ -45,6 +45,10 @@ return array(
         'quanlynhanvien'=>array(
             'defaultController'=>'danhsach',
         ),
+        
+        'quanlybanhang'=>array(
+            'defaultController'=>'danhsach',
+        ),
 
         'quanlysanpham'=>array(
             'defaultController'=>'danhsach',

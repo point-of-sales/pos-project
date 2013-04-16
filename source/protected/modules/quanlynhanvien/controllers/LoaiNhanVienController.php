@@ -1,19 +1,19 @@
 <?php
 
-class NhanVienController extends GxController {
+class LoaiNhanVienController extends GxController {
 
 
 	public function actionChiTiet($id) {
 		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'NhanVien'),
+			'model' => $this->loadModel($id, 'LoaiNhanVien'),
 		));
 	}
 
 	public function actionThem() {
-		$model = new NhanVien;
+		$model = new LoaiNhanVien;
 
-		if (isset($_POST['NhanVien'])) {
-            $result = $model->them($_POST['NhanVien']);
+		if (isset($_POST['LoaiNhanVien'])) {
+            $result = $model->them($_POST['LoaiNhanVien']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -36,11 +36,11 @@ class NhanVienController extends GxController {
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'NhanVien');
+		$model = $this->loadModel($id, 'LoaiNhanVien');
 
 
-		if (isset($_POST['NhanVien'])) {
-            $result = $model->capNhat($_POST['NhanVien']);
+		if (isset($_POST['LoaiNhanVien'])) {
+            $result = $model->capNhat($_POST['LoaiNhanVien']);
             switch($result) {
                 case 'ok': {
                     $this->redirect(array('chitiet', 'id' => $id));
@@ -61,7 +61,7 @@ class NhanVienController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'NhanVien');
+            $delModel = $this->loadModel($id, 'LoaiNhanVien');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -84,7 +84,7 @@ class NhanVienController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'NhanVien');
+            $delModel = $this->loadModel($id, 'LoaiNhanVien');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -118,11 +118,11 @@ class NhanVienController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new NhanVien('search');
+        $model = new LoaiNhanVien('search');
         $model->unsetAttributes();
 
-        if (isset($_GET['NhanVien']))
-        $model->setAttributes($_GET['NhanVien']);
+        if (isset($_GET['LoaiNhanVien']))
+        $model->setAttributes($_GET['LoaiNhanVien']);
 
         $this->render('danhsach', array(
         'model' => $model,
@@ -130,11 +130,11 @@ class NhanVienController extends GxController {
 	}
 
 	public function actionAdmin() {
-		$model = new NhanVien('search');
+		$model = new LoaiNhanVien('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['NhanVien']))
-			$model->setAttributes($_GET['NhanVien']);
+		if (isset($_GET['LoaiNhanVien']))
+			$model->setAttributes($_GET['LoaiNhanVien']);
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -143,33 +143,13 @@ class NhanVienController extends GxController {
 
     public function  actionXuat() {
 
-        $model = new NhanVien('search');
+        $model = new LoaiNhanVien('search');
         $model->unsetAttributes();
-        if(isset($_GET['NhanVien'])) {
-        $model->setAttributes($_GET['NhanVien']);
+        if(isset($_GET['LoaiNhanVien'])) {
+        $model->setAttributes($_GET['LoaiNhanVien']);
         $dataProvider = $model->search();
         }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
-    }
-    
-    public function actionAjaxActive($id){
-        if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $model = $this->loadModel($id, 'NhanVien');
-            $active = ($model->trang_thai==1)?0:1;
-            $result = $model->saveAttributes(array('trang_thai'=>$active));
-            switch($result) {
-                case 'ok': {
-                    break;
-                }
-                case 'fail': {
-                    echo Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
-                    break;
-                }
-            }
-            if (!Yii::app()->getRequest()->getIsAjaxRequest())
-                $this->redirect(array('danhsach'));
-        } else
-        throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
 }

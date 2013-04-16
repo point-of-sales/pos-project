@@ -7,7 +7,6 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
 array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
-array('label'=>Yii::t('viLib', 'Create') . ' ' . LoaiNhanVien::label(), 'url'=>array('loainhanvien/them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -33,61 +32,8 @@ return false;
 'id' => 'grid',
 'dataProvider' => $model->search(),
 'columns' => array(
-		'ma_nhan_vien',
-		'ho_ten',
-		'email',
-		'dien_thoai',
-		'dia_chi',
-        'trang_thai',
-        array(
-            'class' => 'CButtonColumn',
-            'header' => 'Trạng thái',
-            'template' => '{active}',
-            'buttons' => array(
-            'active' => array(
-                    'label' => '',
-                    'url' => 'Yii::app()->createUrl("/quanlynhanvien/nhanvien/ajaxActive", array("id"=>$data->id))',
-                    'options' => array('class' => 'active_button', 
-                                        'title' =>'Enable/Disable visible this product',
-                                        'id' => 'active_button'
-                            ),
-                    'imageUrl' => Yii::app()->request->baseUrl.'/themes/asia/images/icons/active.png',
-                    'click' => "js:function(){
-                                        var url = $(this).attr('href');
-                                        $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
-                                            type:'POST',
-                                            url:$(this).attr('href'),
-                                            success:function(data) {
-                                              $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
-                                            }
-                                        })
-                                        return false;
-                                      }
-                                    ",
-                    ),
-                    )
-        ),
-		/*
-		'gioi_tinh',
-		'ngay_sinh',
-		'trinh_do',
-		'luong_co_ban',
-		'chuyen_mon',
-		'trang_thai',
-		'mat_khau',
-		'ngay_vao_lam',
-		'lan_dang_nhap_cuoi',
-		array(
-				'name'=>'loai_nhan_vien_id',
-				'value'=>'GxHtml::valueEx($data->loaiNhanVien)',
-				'filter'=>GxHtml::listDataEx(LoaiNhanVien::model()->findAllAttributes(null, true)),
-				),
-		array(
-				'name'=>'chi_nhanh_id',
-				'value'=>'GxHtml::valueEx($data->chiNhanh)',
-				'filter'=>GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),
-				),
-		*/
+		'ma_loai_nhan_vien',
+		'ten_loai',
 array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{update}{delete}',
