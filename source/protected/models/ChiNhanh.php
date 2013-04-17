@@ -96,7 +96,7 @@ class ChiNhanh extends BaseChiNhanh
         }
     }
 
-    public function kiemTraQuanHe()
+    private  function kiemTraQuanHe()
     {
         $rels = $this->relations();
         foreach ($rels as $relLabel => $value) {
@@ -108,6 +108,53 @@ class ChiNhanh extends BaseChiNhanh
             }
         }
         return false;
+    }
+
+    /*
+     * Tra ve ket qua du lieu nhap tu params - bien POST (cac khoa chinh hoac khoa Unique) co ton tai hay chua
+     */
+
+    private  function kiemTraTonTai($params) {
+        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel)) {
+            $primaryKeys = $this->tableSchema->primaryKey; //neu khong co truong ma_ . Dung Primary key thay the
+            if(is_array($primaryKeys))  {                        //neu primary keys la mang
+                $conditions = array();
+                foreach($primaryKeys as $key) {
+                    $conditions[$key] = $params[$key];
+                }
+                return  $this->exists($conditions);
+            }
+            else
+                return $this->exists($primaryKeys . '=:' . $primaryKeys, array(':' . $primaryKeys => $params[$primaryKeys]));
+        } else {
+            // co ton tai truong ma_ (co khoa Unique)
+            return $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
+        }
+    }
+
+    /*
+     * So sanh ma voi doi so params. Thu tu so sanh tu Khoa Unique->PrimaryKey
+     */
+
+    private  function soKhopMa($params) {
+        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel)) {
+            $primaryKeys = $this->tableSchema->primaryKey; //neu khong co truong ma_ . Dung Primary key thay the
+            if(is_array($primaryKeys))  {                        //neu primary keys la mang
+                $oldPrimaryValues = array();
+                foreach($primaryKeys as $key) {
+                    $oldPrimaryValues[$key] = $this->getAttribute($key);
+                }
+                return  Helpers::compareArray($oldPrimaryValues,$params);
+            }
+            else
+                return $this->getAttribute($primaryKeys) == $params[$primaryKeys];
+        } else {
+            // co ton tai truong ma_ (co khoa Unique)
+            return $this->getAttribute($uniqueKeyLabel) == $params[$uniqueKeyLabel];
+        }
+
     }
 
     private function timKhoaUnique($schema)
@@ -122,9 +169,8 @@ class ChiNhanh extends BaseChiNhanh
     public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
-        if (!$exist) {
+
+        if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
             $relatedData = array(
@@ -142,19 +188,12 @@ class ChiNhanh extends BaseChiNhanh
 
     public function capNhat($params)
     {
-        // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        // lay ma_ cu
-
-        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
-        $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
-
         $relatedData = array(
             //'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
             //'tblSanPhams' => $_POST['ChiNhanh']['tblSanPhams'] === '' ? null : $_POST['ChiNhanh']['tblSanPhams'],
             //'tblSanPhamTangs' => $_POST['ChiNhanh']['tblSanPhamTangs'] === '' ? null : $_POST['ChiNhanh']['tblSanPhamTangs'],
         );
-        if (!$exist) {
+        if (!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
             if ($this->saveWithRelated($relatedData))
                 return 'ok';
@@ -162,7 +201,7 @@ class ChiNhanh extends BaseChiNhanh
                 return 'fail';
         } else {
             // so sanh ma cu == ma moi
-            if ($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
+            if ($this->soKhopMa($params)) {
                 $this->setAttributes($params);
                 if ($this->saveWithRelated($relatedData))
                     return 'ok';

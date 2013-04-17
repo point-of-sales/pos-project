@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2013 at 02:37 PM
+-- Generation Time: Apr 17, 2013 at 04:42 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -432,7 +432,7 @@ CREATE TABLE IF NOT EXISTS `tbl_MocGia` (
   `san_pham_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `san_pham_id` (`san_pham_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `tbl_MocGia`
@@ -449,7 +449,9 @@ INSERT INTO `tbl_MocGia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) V
 (41, '2013-04-01', 60100, 2),
 (42, '2013-04-12', 38000, 2),
 (43, '2013-04-19', 5000, 3),
-(44, '2013-04-17', 4000, 3);
+(44, '2013-04-17', 4000, 3),
+(48, '2013-04-17', 8888, 4),
+(49, '2013-04-24', 7000, 4);
 
 -- --------------------------------------------------------
 
@@ -648,11 +650,14 @@ INSERT INTO `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`, `khuyen_mai_id
 CREATE TABLE IF NOT EXISTS `tbl_SanPhamTang` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_vach` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `ten_san_pham` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ten_san_pham` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `gia_tang` double NOT NULL,
+  `thoi_gian_bat_dau` date NOT NULL,
+  `thoi_gian_ket_thuc` date NOT NULL,
   `mo_ta` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_vach` (`ma_vach`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -661,11 +666,8 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTang` (
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_SanPhamTangChiNhanh` (
-  `san_pham_tang_id` int(10) NOT NULL,
+  `san_pham_tang_id` int(10) NOT NULL DEFAULT '0',
   `chi_nhanh_id` int(10) NOT NULL,
-  `gia_tang` double DEFAULT NULL,
-  `thoi_gian_bat_dau` date DEFAULT NULL,
-  `thoi_gian_ket_thuc` date DEFAULT NULL,
   `so_ton` int(10) DEFAULT NULL,
   PRIMARY KEY (`san_pham_tang_id`,`chi_nhanh_id`),
   KEY `FKtbl_SanPha299705` (`san_pham_tang_id`),

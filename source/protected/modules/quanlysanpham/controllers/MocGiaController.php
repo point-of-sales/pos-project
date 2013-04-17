@@ -4,6 +4,7 @@ class MocGiaController extends GxController {
 
 
 	public function actionChiTiet($id) {
+
 		$this->render('chitiet', array(
 			'model' => $this->loadModel($id, 'MocGia'),
 

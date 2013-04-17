@@ -45,7 +45,12 @@ You may optionally enter a comparison operator (&lt;, &lt;=, &gt;, &gt;=, &lt;&g
 		'id',
 		'ma_vach',
 		'ten_san_pham',
+		'gia_tang',
+		'thoi_gian_bat_dau',
+		'thoi_gian_ket_thuc',
+		/*
 		'mo_ta',
+		*/
 		array(
 			'class' => 'CButtonColumn',
 		),

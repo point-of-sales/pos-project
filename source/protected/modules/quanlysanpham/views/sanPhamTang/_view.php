@@ -10,6 +10,15 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('ten_san_pham')); ?>:
 	<?php echo GxHtml::encode($data->ten_san_pham); ?>
 	<br />
+	<?php echo GxHtml::encode($data->getAttributeLabel('gia_tang')); ?>:
+	<?php echo GxHtml::encode($data->gia_tang); ?>
+	<br />
+	<?php echo GxHtml::encode($data->getAttributeLabel('thoi_gian_bat_dau')); ?>:
+	<?php echo GxHtml::encode($data->thoi_gian_bat_dau); ?>
+	<br />
+	<?php echo GxHtml::encode($data->getAttributeLabel('thoi_gian_ket_thuc')); ?>:
+	<?php echo GxHtml::encode($data->thoi_gian_ket_thuc); ?>
+	<br />
 	<?php echo GxHtml::encode($data->getAttributeLabel('mo_ta')); ?>:
 	<?php echo GxHtml::encode($data->mo_ta); ?>
 	<br />

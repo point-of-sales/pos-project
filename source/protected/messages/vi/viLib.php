@@ -119,4 +119,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Current price'=>'Giá hiện tại',
     'No price level set'=>'Chưa có mốc gía',
     'No price at this time'=>'Chưa có giá',
+    'Gift product'=>'Sản phẩm tặng',
 );

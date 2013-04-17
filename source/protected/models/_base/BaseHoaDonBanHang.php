@@ -14,8 +14,8 @@
  * @property integer $khach_hang_id
  *
  * @property SanPham[] $tblSanPhams
- * @property KhachHang $khachHang
  * @property ChungTu $id0
+ * @property KhachHang $khachHang
  * @property HoaDonTraHang[] $hoaDonTraHangs
  */
 abstract class BaseHoaDonBanHang extends ChungTu {
@@ -52,8 +52,8 @@ abstract class BaseHoaDonBanHang extends ChungTu {
 	public function relations() {
 		return array(
 			'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietHoaDonBan(hoa_don_ban_id, san_pham_id)'),
-			'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
 			'id0' => array(self::BELONGS_TO, 'ChungTu', 'id'),
+			'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
 			'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'hoa_don_ban_id'),
 		);
 	}
@@ -70,8 +70,8 @@ abstract class BaseHoaDonBanHang extends ChungTu {
 			'chiet_khau' => Yii::t('app', 'Chiet Khau'),
 			'khach_hang_id' => null,
 			'tblSanPhams' => null,
-			'khachHang' => null,
 			'id0' => null,
+			'khachHang' => null,
 			'hoaDonTraHangs' => null,
 		);
 	}

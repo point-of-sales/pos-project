@@ -22,6 +22,9 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 'id',
 'ma_vach',
 'ten_san_pham',
+'gia_tang',
+'thoi_gian_bat_dau',
+'thoi_gian_ket_thuc',
 'mo_ta',
 	),
 )); ?>

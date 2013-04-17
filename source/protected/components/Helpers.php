@@ -70,5 +70,17 @@ class Helpers {
 
         return true;
     }
+    /*
+     *  so sanh tung gia tri 2 mang voi nhau. Array1 la mang
+     */
+
+    public static function compareArray($smallArray, $bigArray) {
+        foreach($smallArray as $item) {
+            if($smallArray[$item] != $bigArray[$item])
+                return false;
+
+        }
+        return true;
+    }
 
 }

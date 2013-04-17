@@ -45,7 +45,6 @@ class MocGia extends BaseMocGia
         if ($primaryKey > 0) {
             return MocGia::model()->findByPk($primaryKey);
         }
-
         if (!empty($params)) {
             if (is_array($params)) {
                 foreach ($params as $cond => $value) {
@@ -94,7 +93,7 @@ class MocGia extends BaseMocGia
 
     }
 
-    public function kiemTraQuanHe()
+    private function kiemTraQuanHe()
     {
         $rels = $this->relations();
         foreach ($rels as $relLabel => $value) {
@@ -106,6 +105,53 @@ class MocGia extends BaseMocGia
             }
         }
         return false;
+    }
+
+    /*
+     * Tra ve ket qua du lieu nhap tu params - bien POST (cac khoa chinh hoac khoa Unique) co ton tai hay chua
+     */
+
+    private function kiemTraTonTai($params) {
+        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel)) {
+            $primaryKeys = $this->tableSchema->primaryKey; //neu khong co truong ma_ . Dung Primary key thay the
+            if(is_array($primaryKeys))  {                        //neu primary keys la mang
+                $conditions = array();
+                foreach($primaryKeys as $key) {
+                    $conditions[$key] = $params[$key];
+                }
+                return  $this->exists($conditions);
+            }
+            else
+                return $this->exists($primaryKeys . '=:' . $primaryKeys, array(':' . $primaryKeys => $params[$primaryKeys]));
+        } else {
+            // co ton tai truong ma_ (co khoa Unique)
+            return $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
+        }
+    }
+
+    /*
+     * So sanh ma voi doi so params. Thu tu so sanh tu Khoa Unique->PrimaryKey
+     */
+
+    private function soKhopMa($params) {
+        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel)) {
+            $primaryKeys = $this->tableSchema->primaryKey; //neu khong co truong ma_ . Dung Primary key thay the
+            if(is_array($primaryKeys))  {                        //neu primary keys la mang
+                $oldPrimaryValues = array();
+                foreach($primaryKeys as $key) {
+                    $oldPrimaryValues[$key] = $this->getAttribute($key);
+                }
+                return  Helpers::compareArray($oldPrimaryValues,$params);
+            }
+            else
+                return $this->getAttribute($primaryKeys) == $params[$primaryKeys];
+        } else {
+            // co ton tai truong ma_ (co khoa Unique)
+            return $this->getAttribute($uniqueKeyLabel) == $params[$uniqueKeyLabel];
+        }
+
     }
 
     private function timKhoaUnique($schema)
@@ -123,24 +169,18 @@ class MocGia extends BaseMocGia
         $productLabel = 'san_pham_id';
         $exist = $this->exists($productLabel . '=:' . $productLabel, array(':' . $productLabel => $params[$productLabel]));
         if ($exist) {
-            //tim thu moc_gia_trung cua san pham
-            $startDate = date('Y-m-d',strtotime($params['thoi_gian_bat_dau']));
+            $startDate = date('Y-m-d',strtotime($params['thoi_gian_bat_dau'])); //tim thu moc_gia_trung cua san pham
             $command = Yii::app()->db->createCommand("SELECT COUNT(*)
                                                        FROM tbl_MocGia
                                                        WHERE san_pham_id = '{$params[$productLabel]}' AND thoi_gian_bat_dau = '{$startDate}'");
 
             $count = $command->queryScalar();
-            if ($count) {
-                //new no bi trung. chuyen sang update gia ca.
+            if ($count)
                 return 'dup-error';
-            }
+
         }
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        if (empty($uniqueKeyLabel))
-            $uniqueKeyLabel = 'id'; //neu khong co truong ma_ . Dung Id thay the
-        $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
-        if (!$exist) {
+        if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
 
@@ -154,14 +194,7 @@ class MocGia extends BaseMocGia
 
     public function capNhat($params)
     {
-        // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        if (empty($uniqueKeyLabel))
-            $uniqueKeyLabel = 'id'; //neu khong co truong ma_ . Dung Id thay the
-        // lay ma_ cu
-        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
-        $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
-        if (!$exist) {
+        if (!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
             if ($this->save())
                 return 'ok';
@@ -169,8 +202,7 @@ class MocGia extends BaseMocGia
                 return 'fail';
         } else {
 
-            // so sanh ma cu == ma moi
-            if ($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
+            if ($this->soKhopMa($params)) {
                 $this->setAttributes($params);
                 if ($this->save())
                     return 'ok';
