@@ -7,7 +7,6 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
 	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-	array('label'=>Yii::t('viLib', 'Create') . ' ' . LoaiNhanVien::label(), 'url'=>array('loainhanvien/them')),
 );
 ?>
 

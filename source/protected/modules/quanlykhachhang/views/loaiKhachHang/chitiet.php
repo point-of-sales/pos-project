@@ -20,29 +20,18 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 	'data' => $model,
 	'attributes' => array(
 'id',
-'ma_nhan_vien',
-'ho_ten',
-'email',
-'dien_thoai',
-'dia_chi',
-'gioi_tinh',
-'ngay_sinh',
-'trinh_do',
-'luong_co_ban',
-'chuyen_mon',
-'trang_thai',
-'mat_khau',
-'ngay_vao_lam',
-'lan_dang_nhap_cuoi',
-array(
-			'name' => 'loaiNhanVien',
-			'type' => 'raw',
-			'value' => $model->loaiNhanVien !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->loaiNhanVien)), array('loaiNhanVien/view', 'id' => GxActiveRecord::extractPkValue($model->loaiNhanVien, true))) : null,
-			),
-array(
-			'name' => 'chiNhanh',
-			'type' => 'raw',
-			'value' => $model->chiNhanh !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->chiNhanh)), array('chiNhanh/view', 'id' => GxActiveRecord::extractPkValue($model->chiNhanh, true))) : null,
-			),
+'ma_loai_khach_hang',
+'ten_loai',
 	),
 )); ?>
+
+<h2><?php echo GxHtml::encode($model->getRelationLabel('khachHangs')); ?></h2>
+<?php
+	echo GxHtml::openTag('ul');
+	foreach($model->khachHangs as $relatedModel) {
+		echo GxHtml::openTag('li');
+		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('khachHang/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
+		echo GxHtml::closeTag('li');
+	}
+	echo GxHtml::closeTag('ul');
+?>

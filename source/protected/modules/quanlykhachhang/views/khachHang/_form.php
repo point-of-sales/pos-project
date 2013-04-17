@@ -33,7 +33,7 @@
 			'options' => array(
 				'showButtonPanel' => true,
 				'changeYear' => true,
-				'dateFormat' => 'yy-mm-dd',
+				'dateFormat' => 'dd-mm-yy',
 				),
 			));
 ; ?>
@@ -63,11 +63,6 @@
 		<?php echo $form->labelEx($model,'mo_ta'); ?>
 		<?php echo $form->textArea($model, 'mo_ta'); ?>
 		<?php echo $form->error($model,'mo_ta'); ?>
-		</div><!-- row -->
-		<div class="row cus-row">
-		<?php echo $form->labelEx($model,'diem_tich_luy'); ?>
-		<?php echo $form->textField($model, 'diem_tich_luy'); ?>
-		<?php echo $form->error($model,'diem_tich_luy'); ?>
 		</div><!-- row -->
 		<div class="row cus-row">
 		<?php echo $form->labelEx($model,'loai_khach_hang_id'); ?>
