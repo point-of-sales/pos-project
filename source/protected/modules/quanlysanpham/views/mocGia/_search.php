@@ -25,20 +25,6 @@
 ; ?>
         </div>
 
-                    <div class="row cus-row">
-            <?php echo $form->label($model, 'thoi_gian_ket_thuc'); ?>
-            <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
-			'model' => $model,
-			'attribute' => 'thoi_gian_ket_thuc',
-			'value' => $model->thoi_gian_ket_thuc,
-			'options' => array(
-				'showButtonPanel' => true,
-				'changeYear' => true,
-				'dateFormat' => 'yy-mm-dd',
-				),
-			));
-; ?>
-        </div>
 
                     <div class="row cus-row">
             <?php echo $form->label($model, 'gia_ban'); ?>

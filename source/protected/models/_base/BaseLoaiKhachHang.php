@@ -12,6 +12,8 @@
  * @property integer $id
  * @property string $ma_loai_khach_hang
  * @property string $ten_loai
+ * @property integer $doanh_so
+ * @property integer $giam_gia
  *
  * @property KhachHang[] $khachHangs
  */
@@ -40,10 +42,11 @@ abstract class BaseLoaiKhachHang extends GxActiveRecord {
 	public function rules() {
 		return array(
 			array('ma_loai_khach_hang', 'required'),
+			array('doanh_so, giam_gia', 'numerical', 'integerOnly'=>true),
 			array('ma_loai_khach_hang', 'length', 'max'=>15),
 			array('ten_loai', 'length', 'max'=>100),
-			array('ten_loai', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, ma_loai_khach_hang, ten_loai', 'safe', 'on'=>'search'),
+			array('ten_loai, doanh_so, giam_gia', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, ma_loai_khach_hang, ten_loai, doanh_so, giam_gia', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +66,8 @@ abstract class BaseLoaiKhachHang extends GxActiveRecord {
 			'id' => Yii::t('app', 'ID'),
 			'ma_loai_khach_hang' => Yii::t('app', 'Ma Loai Khach Hang'),
 			'ten_loai' => Yii::t('app', 'Ten Loai'),
+			'doanh_so' => Yii::t('app', 'Doanh So'),
+			'giam_gia' => Yii::t('app', 'Giam Gia'),
 			'khachHangs' => null,
 		);
 	}
@@ -73,6 +78,8 @@ abstract class BaseLoaiKhachHang extends GxActiveRecord {
 		$criteria->compare('id', $this->id);
 		$criteria->compare('ma_loai_khach_hang', $this->ma_loai_khach_hang, true);
 		$criteria->compare('ten_loai', $this->ten_loai, true);
+		$criteria->compare('doanh_so', $this->doanh_so);
+		$criteria->compare('giam_gia', $this->giam_gia);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

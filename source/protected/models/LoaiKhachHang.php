@@ -8,29 +8,6 @@ class LoaiKhachHang extends BaseLoaiKhachHang
 		return parent::model($className);
 	}
 
-    public function rules() {
-        return array(
-                    array('ma_loai_khach_hang', 'required'),
-                    array('ma_loai_khach_hang', 'length', 'max'=>15),
-                    array('ten_loai', 'length', 'max'=>100),
-                    array('ten_loai', 'default', 'setOnEmpty' => true, 'value' => null),
-                array('id, ma_loai_khach_hang, ten_loai', 'safe', 'on'=>'search'),
-        );
-    }
-
-    public function pivotModels() {
-        return array(
-                );
-    }
-
-    public function attributeLabels() {
-        return array(
-                                    'id' => Yii::t('app', 'ID'),
-                                                'ma_loai_khach_hang' => Yii::t('app', 'Ma Loai Khach Hang'),
-                                                'ten_loai' => Yii::t('app', 'Ten Loai'),
-                                                'khachHangs' => null,
-                            );
-    }
 
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();
@@ -114,6 +91,8 @@ class LoaiKhachHang extends BaseLoaiKhachHang
     public function capNhat($params) {
         // kiem tra du lieu con bi trung hay chua
         $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel))
+            $uniqueKeyLabel = 'id';   //neu khong co truong ma_ . Dung Id thay the
         // lay ma_ cu
         $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
         $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
@@ -126,7 +105,7 @@ class LoaiKhachHang extends BaseLoaiKhachHang
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -149,12 +128,6 @@ class LoaiKhachHang extends BaseLoaiKhachHang
             return 'rel-error';
         }
     }
-
-
-
-
-
-
 
 
 }

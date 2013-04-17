@@ -110,4 +110,13 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Product type name'=>'Tên loại sản phẩm',
     'Price checkpoint'=>'Mốc giá',
     'Start time have to greater or equal current time'=>'Thời gian bắt đầu phải lớn hơn hoặc bằng thời gian hiện tại',
+    'Wrong datetime format. Supported format is dd/mm/yyyy'=>'Sai định dạng ngày tháng. Định dạng được hỗ trợ có dạng : dd/mm/yyyy',
+    'Start date'=>'Thời gian bắt đầu',
+    'End date'=>'Thời gian kết thúc',
+    'Price'=>'Giá bán',
+    'Times'=>'Thời điểm',
+    'Updating'=>'Đang cập nhật',
+    'Current price'=>'Giá hiện tại',
+    'No price level set'=>'Chưa có mốc gía',
+    'No price at this time'=>'Chưa có giá',
 );

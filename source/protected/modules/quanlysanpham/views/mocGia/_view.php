@@ -7,9 +7,6 @@
 	<?php echo GxHtml::encode($data->getAttributeLabel('thoi_gian_bat_dau')); ?>:
 	<?php echo GxHtml::encode($data->thoi_gian_bat_dau); ?>
 	<br />
-	<?php echo GxHtml::encode($data->getAttributeLabel('thoi_gian_ket_thuc')); ?>:
-	<?php echo GxHtml::encode($data->thoi_gian_ket_thuc); ?>
-	<br />
 	<?php echo GxHtml::encode($data->getAttributeLabel('gia_ban')); ?>:
 	<?php echo GxHtml::encode($data->gia_ban); ?>
 	<br />

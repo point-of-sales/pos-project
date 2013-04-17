@@ -1,26 +1,19 @@
 <?php
 
-class SanPhamController extends GxController {
+class SanPhamTangController extends GxController {
 
 
 	public function actionChiTiet($id) {
-
-        $model = $this->loadModel($id, 'SanPham');
-        //lay danh sach cac moc gia cua san pham nay
-        $danhSachMocGia = $model->layDanhSachMocGia();
-        $giaHienTai = $model->layGiaHienTai();
-        $this->render('chitiet', array(
-			'model' => $model,
-            'danhSachMocGia'=>$danhSachMocGia,
-            'giaHienTai'=>$giaHienTai,
+		$this->render('chitiet', array(
+			'model' => $this->loadModel($id, 'SanPhamTang'),
 		));
 	}
 
 	public function actionThem() {
-		$model = new SanPham;
+		$model = new SanPhamTang;
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->them($_POST['SanPham']);
+		if (isset($_POST['SanPhamTang'])) {
+            $result = $model->them($_POST['SanPhamTang']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -43,11 +36,11 @@ class SanPhamController extends GxController {
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'SanPham');
+		$model = $this->loadModel($id, 'SanPhamTang');
 
 
-		if (isset($_POST['SanPham'])) {
-            $result = $model->capNhat($_POST['SanPham']);
+		if (isset($_POST['SanPhamTang'])) {
+            $result = $model->capNhat($_POST['SanPhamTang']);
             switch($result) {
                 case 'ok': {
                     $this->redirect(array('chitiet', 'id' => $id));
@@ -68,7 +61,7 @@ class SanPhamController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'SanPhamTang');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -91,7 +84,7 @@ class SanPhamController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'SanPham');
+            $delModel = $this->loadModel($id, 'SanPhamTang');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -125,22 +118,23 @@ class SanPhamController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new SanPham('search');
+        $model = new SanPhamTang('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPham'])) {
-            $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
-        }
 
-        $this->render('danhsach',array('model'=>$model));
+        if (isset($_GET['SanPhamTang']))
+        $model->setAttributes($_GET['SanPhamTang']);
+
+        $this->render('danhsach', array(
+        'model' => $model,
+        ));
 	}
 
 	public function actionAdmin() {
-		$model = new SanPham('search');
+		$model = new SanPhamTang('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['SanPham']))
-			$model->setAttributes($_GET['SanPham']);
+		if (isset($_GET['SanPhamTang']))
+			$model->setAttributes($_GET['SanPhamTang']);
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -149,12 +143,11 @@ class SanPhamController extends GxController {
 
     public function  actionXuat() {
 
-        $model = new SanPham('search');
+        $model = new SanPhamTang('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPham'])) {
-            $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
-            $dataProvider = $model->search();
+        if(isset($_GET['SanPhamTang'])) {
+        $model->setAttributes($_GET['SanPhamTang']);
+        $dataProvider = $model->search();
         }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
     }

@@ -21,7 +21,9 @@
 
 		<div class="row cus-row">
 		<?php echo $form->labelEx($model,'thoi_gian_bat_dau'); ?>
-		<?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+		<?php
+            if(Yii::app()->controller->action->id == 'them') {
+            $form->widget('zii.widgets.jui.CJuiDatePicker', array(
 			'model' => $model,
 			'attribute' => 'thoi_gian_bat_dau',
 			'value' => $model->thoi_gian_bat_dau,
@@ -29,26 +31,18 @@
 				'showButtonPanel' => true,
 				'changeYear' => true,
 				'dateFormat' => 'dd-mm-yy',
+
 				),
 			));
-; ?>
-		<?php echo $form->error($model,'thoi_gian_bat_dau'); ?>
+; }
+        else {
+            // hien textfield ma thoi
+            echo $form->textField($model,'thoi_gian_bat_dau',array('readonly'=>true));
+        }
+            ?>
+		<?php echo $form->error($model,'thoi_gian_bat_dau');  ?>
 		</div><!-- row -->
-		<div class="row cus-row">
-		<?php /*echo $form->labelEx($model,'thoi_gian_ket_thuc'); */?><!--
-		<?php /*$form->widget('zii.widgets.jui.CJuiDatePicker', array(
-			'model' => $model,
-			'attribute' => 'thoi_gian_ket_thuc',
-			'value' => $model->thoi_gian_ket_thuc,
-			'options' => array(
-				'showButtonPanel' => true,
-				'changeYear' => true,
-				'dateFormat' => 'yy-mm-dd',
-				),
-			));
-; */?>
-		--><?php /*echo $form->error($model,'thoi_gian_ket_thuc'); */?>
-		</div><!-- row -->
+
 		<div class="row cus-row">
 		<?php echo $form->labelEx($model,'gia_ban'); ?>
 		<?php echo $form->textField($model, 'gia_ban'); ?>

@@ -26,11 +26,8 @@ class CEExcelView extends EExcelView
     public $description = '';
     public $category = '';
     public $brandName = '';
-    public $documentTitle = null;
+    public $documentTitle = '';
     public $template = null;
-
-
-    const NORMAL_LIST   =   'NORMAL_LIST';
 
 
     public function init()
@@ -423,46 +420,14 @@ class CEExcelView extends EExcelView
     public function run()
     {
 
-        switch ($this->template) {
-            case self::NORMAL_LIST:
-            {
-                $this->renderNormalList();
-                break;
-            }
-            case ExcelTemplate::DANH_SACH_SAN_PHAM:
-            {
-                break;
-            }
-            case 'sanphamtang':
-            {
-
-            }
-            case 'hoadontra':
-            {
-
-            }
-            case 'baogia':
-            {
-
-            }
-            case 'nhacungcap':
-            {
-
-            }
-            case 'khachhang':
-            {
-
-            }
-            case 'baocao':
-            {
-
-            }
-
-        }
-        //$this->renderTitleColumns();
-        //$this->renderBody();
-        //$this->renderCompanyInfoFooter();
-        //$this->renderFooter();
+        $this->setDefaultStyle();
+        $this->renderCompanyInfoHeader();
+        $this->renderCreatedDate();
+        $this->renderDocumentNo();
+        $this->renderDocumentTitle();
+        $this->renderTitleColumns();
+        $this->renderBody();
+        $this->fixColumnsWidth();
 
         //set auto width
         if ($this->autoWidth)

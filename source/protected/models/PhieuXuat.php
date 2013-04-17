@@ -94,6 +94,8 @@ class PhieuXuat extends BasePhieuXuat
     public function capNhat($params) {
         // kiem tra du lieu con bi trung hay chua
         $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel))
+            $uniqueKeyLabel = 'id';   //neu khong co truong ma_ . Dung Id thay the
         // lay ma_ cu
         $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
         $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
@@ -109,7 +111,7 @@ class PhieuXuat extends BasePhieuXuat
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
                             if ($this->saveWithRelated($relatedData))
                                 return 'ok';
@@ -132,12 +134,6 @@ class PhieuXuat extends BasePhieuXuat
             return 'rel-error';
         }
     }
-
-
-
-
-
-
 
 
 }

@@ -8,41 +8,6 @@ class KhachHang extends BaseKhachHang
 		return parent::model($className);
 	}
 
-    public function rules() {
-        return array(
-                    array('ma_khach_hang, loai_khach_hang_id', 'required'),
-                    array('diem_tich_luy, loai_khach_hang_id', 'numerical', 'integerOnly'=>true),
-                    array('ma_khach_hang', 'length', 'max'=>10),
-                    array('ho_ten, dia_chi', 'length', 'max'=>200),
-                    array('thanh_pho, email', 'length', 'max'=>100),
-                    array('dien_thoai', 'length', 'max'=>15),
-                    array('ngay_sinh, mo_ta', 'safe'),
-                    array('ho_ten, ngay_sinh, dia_chi, thanh_pho, dien_thoai, email, mo_ta, diem_tich_luy', 'default', 'setOnEmpty' => true, 'value' => null),
-                array('id, ma_khach_hang, ho_ten, ngay_sinh, dia_chi, thanh_pho, dien_thoai, email, mo_ta, diem_tich_luy, loai_khach_hang_id', 'safe', 'on'=>'search'),
-        );
-    }
-
-    public function pivotModels() {
-        return array(
-                );
-    }
-
-    public function attributeLabels() {
-        return array(
-                                    'id' => Yii::t('app', 'ID'),
-                                                'ma_khach_hang' => Yii::t('app', 'Ma Khach Hang'),
-                                                'ho_ten' => Yii::t('app', 'Ho Ten'),
-                                                'ngay_sinh' => Yii::t('app', 'Ngay Sinh'),
-                                                'dia_chi' => Yii::t('app', 'Dia Chi'),
-                                                'thanh_pho' => Yii::t('app', 'Thanh Pho'),
-                                                'dien_thoai' => Yii::t('app', 'Dien Thoai'),
-                                                'email' => Yii::t('app', 'Email'),
-                                                'mo_ta' => Yii::t('app', 'Mo Ta'),
-                                                'diem_tich_luy' => Yii::t('app', 'Diem Tich Luy'),
-                                                'loai_khach_hang_id' => null,
-                                                'loaiKhachHang' => null,
-                            );
-    }
 
     public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
         $criteria = new CDbCriteria();
@@ -126,6 +91,8 @@ class KhachHang extends BaseKhachHang
     public function capNhat($params) {
         // kiem tra du lieu con bi trung hay chua
         $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
+        if (empty($uniqueKeyLabel))
+            $uniqueKeyLabel = 'id';   //neu khong co truong ma_ . Dung Id thay the
         // lay ma_ cu
         $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
         $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
@@ -138,7 +105,7 @@ class KhachHang extends BaseKhachHang
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -161,12 +128,6 @@ class KhachHang extends BaseKhachHang
             return 'rel-error';
         }
     }
-
-
-
-
-
-
 
 
 }

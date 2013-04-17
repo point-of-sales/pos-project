@@ -11,5 +11,14 @@ $this->widget('CEExcelView', array(
     'autoWidth'=>true,
     'category'=>'',
     'documentTitle'=>'Danh Sách Sản Phẩm',
-    'template'=>CEExcelView::NORMAL_LIST,
+    'columns'=>array(
+                'id',
+                'ma_vach',
+                'ten_san_pham',
+                'ten_tieng_viet',
+                array('name'=>Yii::t('viLib','Current price'),
+                    'type'=>'raw',
+                    'value'=>'$data->layGiaHienTai()',
+                ),
+    )
 ));

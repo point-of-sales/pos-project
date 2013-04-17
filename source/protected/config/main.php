@@ -23,7 +23,9 @@ return array(
         'ext.phpexcel.Classes.PHPExcel',
         'ext.giix-components.*', // giix components
         'ext.eexcelview.*',
-        'ext.ebreadcrumbs.*'
+        'ext.ebreadcrumbs.*',
+        'ext.custom-validator.*',
+
 	),
 
 	'modules'=>array(
@@ -64,9 +66,6 @@ return array(
 	'components'=>array(
         'session'=>array(
             'autoStart'=>true,
-        ),
-        'localtime'=>array(
-            'class'=>'LocalTime',
         ),
 
 		'user'=>array(

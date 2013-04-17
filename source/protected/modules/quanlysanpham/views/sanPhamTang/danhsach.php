@@ -33,13 +33,9 @@ return false;
 'dataProvider' => $model->search(),
 'columns' => array(
 		'id',
-		'thoi_gian_bat_dau',
-		'gia_ban',
-		array(
-				'name'=>'san_pham_id',
-				'value'=>'GxHtml::valueEx($data->sanPham)',
-				'filter'=>GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)),
-				),
+		'ma_vach',
+		'ten_san_pham',
+		'mo_ta',
 array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{update}{delete}',

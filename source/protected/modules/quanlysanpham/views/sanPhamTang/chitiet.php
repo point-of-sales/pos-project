@@ -20,13 +20,19 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 	'data' => $model,
 	'attributes' => array(
 'id',
-'thoi_gian_bat_dau',
-'gia_ban',
-array(
-			'name' => 'sanPham',
-			'type' => 'raw',
-			'value' => $model->sanPham !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->sanPham)), array('sanPham/view', 'id' => GxActiveRecord::extractPkValue($model->sanPham, true))) : null,
-			),
+'ma_vach',
+'ten_san_pham',
+'mo_ta',
 	),
 )); ?>
 
+<h2><?php echo GxHtml::encode($model->getRelationLabel('tblChiNhanhs')); ?></h2>
+<?php
+	echo GxHtml::openTag('ul');
+	foreach($model->tblChiNhanhs as $relatedModel) {
+		echo GxHtml::openTag('li');
+		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('chiNhanh/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
+		echo GxHtml::closeTag('li');
+	}
+	echo GxHtml::closeTag('ul');
+?>

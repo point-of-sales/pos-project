@@ -39,7 +39,7 @@ abstract class BaseLoaiSanPham extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_loai', 'required'),
+			array('ma_loai,ten_loai', 'required'),
 			array('ma_loai', 'length', 'max'=>15),
 			array('ten_loai', 'length', 'max'=>100),
 			array('ten_loai', 'default', 'setOnEmpty' => true, 'value' => null),

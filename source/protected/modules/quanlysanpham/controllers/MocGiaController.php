@@ -6,6 +6,7 @@ class MocGiaController extends GxController {
 	public function actionChiTiet($id) {
 		$this->render('chitiet', array(
 			'model' => $this->loadModel($id, 'MocGia'),
+
 		));
 	}
 
@@ -13,8 +14,6 @@ class MocGiaController extends GxController {
 		$model = new MocGia;
 		if (isset($_POST['MocGia']) && isset($spid)) {
             // kiem tra ngay thang hop le : ngay bat dau > ngay hien tai
-            $timeStartVal =
-            //$_POST['MocGia']['thoi_gian_bat_dau'] = date('Y-m-d',strtotime($_POST['MocGia']['thoi_gian_bat_dau']));
             $_POST['MocGia']['san_pham_id'] = $spid;
             $result = $model->them($_POST['MocGia']);
             switch($result) {
@@ -22,7 +21,7 @@ class MocGiaController extends GxController {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else
-                        $this->redirect(array('chitiet', 'id' => $model->id));
+                        $this->redirect(array('sanPham/chitiet', 'id' => $spid));
                     break;
                 }
             case 'dup-error': {
@@ -35,7 +34,9 @@ class MocGiaController extends GxController {
                     }
             }
 		}
-		$this->render('them', array( 'model' => $model));
+		$this->render('them', array( 'model' => $model,
+                                     'spid'=>$spid,
+                                    ));
 	}
 
 	public function actionCapNhat($id) {

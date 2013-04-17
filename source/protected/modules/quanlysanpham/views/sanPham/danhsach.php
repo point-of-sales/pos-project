@@ -63,6 +63,11 @@ return false;
             'value'=>'GxHtml::valueEx($data->loaiSanPham)',
             'filter'=>GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)),
         ),
+        array('name'=>Yii::t('viLib','Current price'),
+            'type'=>'raw',
+            'value'=>'$data->layGiaHienTai()',
+        ),
+
 
 		/*
 		'ton_toi_thieu',

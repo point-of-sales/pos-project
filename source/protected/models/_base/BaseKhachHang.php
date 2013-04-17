@@ -21,6 +21,7 @@
  * @property integer $diem_tich_luy
  * @property integer $loai_khach_hang_id
  *
+ * @property HoaDonBanHang[] $hoaDonBanHangs
  * @property LoaiKhachHang $loaiKhachHang
  */
 abstract class BaseKhachHang extends GxActiveRecord {
@@ -61,6 +62,7 @@ abstract class BaseKhachHang extends GxActiveRecord {
 
 	public function relations() {
 		return array(
+			'hoaDonBanHangs' => array(self::HAS_MANY, 'HoaDonBanHang', 'khach_hang_id'),
 			'loaiKhachHang' => array(self::BELONGS_TO, 'LoaiKhachHang', 'loai_khach_hang_id'),
 		);
 	}
@@ -83,6 +85,7 @@ abstract class BaseKhachHang extends GxActiveRecord {
 			'mo_ta' => Yii::t('app', 'Mo Ta'),
 			'diem_tich_luy' => Yii::t('app', 'Diem Tich Luy'),
 			'loai_khach_hang_id' => null,
+			'hoaDonBanHangs' => null,
 			'loaiKhachHang' => null,
 		);
 	}

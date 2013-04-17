@@ -9,24 +9,32 @@ class MocGia extends BaseMocGia
         return parent::model($className);
     }
 
+    public function attributeLabels()
+    {
+        return array(
+            'id' => Yii::t('viLib', 'ID'),
+            'thoi_gian_bat_dau' => Yii::t('viLib', 'Start date'),
+            'gia_ban' => Yii::t('viLib', 'Price'),
+            'san_pham_id' => null,
+            'sanPham' => null,
+        );
+    }
+
+    public function beforeSave() {
+        if (parent::beforeSave()) {
+            $this->thoi_gian_bat_dau = date('Y-m-d',strtotime($this->thoi_gian_bat_dau));
+            return true;
+        }
+
+    }
+
     public function rules() {
         return array(
             array('thoi_gian_bat_dau, gia_ban, san_pham_id', 'required'),
             array('san_pham_id', 'numerical', 'integerOnly'=>true),
             array('gia_ban', 'numerical'),
-            array('thoi_gian_ket_thuc', 'safe'),
-            array('thoi_gian_ket_thuc', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, thoi_gian_bat_dau, thoi_gian_ket_thuc, gia_ban, san_pham_id', 'safe', 'on'=>'search'),
-            // valid thoi gian bat dau
-            array(
-
-                'thoi_gian_bat_dau',
-                'compare',
-                'compareValue'=>date('yy-m-d',time()),
-                'operator'=>'>=',
-                'message'=>Yii::t('viLib','Start time have to greater or equal current time'),
-            ),
-
+            array('id, thoi_gian_bat_dau, gia_ban, san_pham_id', 'safe', 'on'=>'search'),
+            array('thoi_gian_bat_dau', 'ext.custom-validator.CDateTimeValidator'),
         );
     }
 
@@ -77,10 +85,11 @@ class MocGia extends BaseMocGia
         }
     }
 
-    public static function layDanhSachGiaTheoSanPham($san_pham_id)
+    public function layDanhSachGiaTheoSanPham($san_pham)
     {
         $criteria = new CDbCriteria();
-        $criteria->compare('san_pham_id', $san_pham_id, true);
+        $criteria->compare('san_pham_id', $san_pham->id, true);
+        $criteria->order = 'thoi_gian_bat_dau ASC';
         return new CActiveDataProvider('MocGia', array('criteria' => $criteria));
 
     }
@@ -113,27 +122,28 @@ class MocGia extends BaseMocGia
         //kiem tra moc gia cua san pham nay co ton tai hay chua
         $productLabel = 'san_pham_id';
         $exist = $this->exists($productLabel . '=:' . $productLabel, array(':' . $productLabel => $params[$productLabel]));
-        if($exist) {
-            // neu ton tai thi moc gia them la moc gia thu n cua san pham
-            // kiem tra thoi gian nhap co hop le hay khong
-            $startTimeVal = strtotime($params[$productLabel]);
-            if($startTimeVal > time()) {
-                //ngay thang hop le
-            } else {
-                //ngay thang khong hop le
-            }
+        if ($exist) {
+            //tim thu moc_gia_trung cua san pham
+            $startDate = date('Y-m-d',strtotime($params['thoi_gian_bat_dau']));
+            $command = Yii::app()->db->createCommand("SELECT COUNT(*)
+                                                       FROM tbl_MocGia
+                                                       WHERE san_pham_id = '{$params[$productLabel]}' AND thoi_gian_bat_dau = '{$startDate}'");
 
-        } else {
-            // neu chua ton tai => moc gia them la moc gia dau tien cua san pham
+            $count = $command->queryScalar();
+            if ($count) {
+                //new no bi trung. chuyen sang update gia ca.
+                return 'dup-error';
+            }
         }
         // kiem tra du lieu con bi trung hay chua
         $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
         if (empty($uniqueKeyLabel))
-            $uniqueKeyLabel = 'id';   //neu khong co truong ma_ . Dung Id thay the
+            $uniqueKeyLabel = 'id'; //neu khong co truong ma_ . Dung Id thay the
         $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
         if (!$exist) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
+
             if ($this->save())
                 return 'ok';
             else
@@ -147,12 +157,10 @@ class MocGia extends BaseMocGia
         // kiem tra du lieu con bi trung hay chua
         $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
         if (empty($uniqueKeyLabel))
-            $uniqueKeyLabel = 'id';   //neu khong co truong ma_ . Dung Id thay the
-
+            $uniqueKeyLabel = 'id'; //neu khong co truong ma_ . Dung Id thay the
+        // lay ma_ cu
         $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
         $exist = $this->exists($uniqueKeyLabel . '=:' . $uniqueKeyLabel, array(':' . $uniqueKeyLabel => $params[$uniqueKeyLabel]));
-        // lay ma_ cu
-
         if (!$exist) {
             $this->setAttributes($params);
             if ($this->save())
@@ -160,6 +168,7 @@ class MocGia extends BaseMocGia
             else
                 return 'fail';
         } else {
+
             // so sanh ma cu == ma moi
             if ($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
                 $this->setAttributes($params);
@@ -184,6 +193,22 @@ class MocGia extends BaseMocGia
         } else {
             return 'rel-error';
         }
+    }
+
+    public function layThoiGianKeTiep() {
+        $command = Yii::app()->db->createCommand();
+        $command->select = 'MIN(thoi_gian_bat_dau)';
+        $command->from = 'tbl_MocGia';
+        $command->where = "san_pham_id='{$this->san_pham_id}' AND thoi_gian_bat_dau > '{$this->thoi_gian_bat_dau}'";
+        return  $command->queryScalar();
+    }
+
+    public function layKhoangThoiGian() {
+        $thoiGianKetThuc = $this->layThoiGianKeTiep();
+        if($thoiGianKetThuc!='')
+            return date('d-m-Y',strtotime($this->thoi_gian_bat_dau)) .' --> '. date('d-m-Y',strtotime($thoiGianKetThuc)-24*60*60);
+        else
+            return date('d-m-Y',strtotime($this->thoi_gian_bat_dau));
     }
 
 

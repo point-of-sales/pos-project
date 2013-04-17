@@ -11,7 +11,6 @@
  *
  * @property integer $id
  * @property string $thoi_gian_bat_dau
- * @property string $thoi_gian_ket_thuc
  * @property double $gia_ban
  * @property integer $san_pham_id
  *
@@ -44,9 +43,7 @@ abstract class BaseMocGia extends GxActiveRecord {
 			array('thoi_gian_bat_dau, gia_ban, san_pham_id', 'required'),
 			array('san_pham_id', 'numerical', 'integerOnly'=>true),
 			array('gia_ban', 'numerical'),
-			array('thoi_gian_ket_thuc', 'safe'),
-			array('thoi_gian_ket_thuc', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, thoi_gian_bat_dau, thoi_gian_ket_thuc, gia_ban, san_pham_id', 'safe', 'on'=>'search'),
+			array('id, thoi_gian_bat_dau, gia_ban, san_pham_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +62,6 @@ abstract class BaseMocGia extends GxActiveRecord {
 		return array(
 			'id' => Yii::t('app', 'ID'),
 			'thoi_gian_bat_dau' => Yii::t('app', 'Thoi Gian Bat Dau'),
-			'thoi_gian_ket_thuc' => Yii::t('app', 'Thoi Gian Ket Thuc'),
 			'gia_ban' => Yii::t('app', 'Gia Ban'),
 			'san_pham_id' => null,
 			'sanPham' => null,
@@ -77,7 +73,6 @@ abstract class BaseMocGia extends GxActiveRecord {
 
 		$criteria->compare('id', $this->id);
 		$criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
-		$criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
 		$criteria->compare('gia_ban', $this->gia_ban);
 		$criteria->compare('san_pham_id', $this->san_pham_id);
 

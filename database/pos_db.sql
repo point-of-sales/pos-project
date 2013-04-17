@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2013 at 01:50 AM
+-- Generation Time: Apr 17, 2013 at 02:37 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiNhanh` (
 INSERT INTO `tbl_ChiNhanh` (`id`, `ma_chi_nhanh`, `ten_chi_nhanh`, `dia_chi`, `dien_thoai`, `fax`, `mo_ta`, `trang_thai`, `truc_thuoc_id`, `khu_vuc_id`, `loai_chi_nhanh_id`) VALUES
 (10, 'adsad', 'yyyyy', NULL, NULL, NULL, NULL, 1, NULL, 1, 2),
 (25, 'dasdsa', 'adsad', 'sadsadsa', NULL, NULL, NULL, 1, 10, 4, 2),
-(26, 'adsa', 'adsaasdsa ', NULL, NULL, NULL, NULL, 1, 10, 1, 1),
+(26, 'adsassdsa', 'adsaasdsa ', 'dxsa', NULL, NULL, NULL, 1, 10, 1, 1),
 (27, 'adsadsa', 'adsad', NULL, NULL, NULL, NULL, 0, NULL, 1, 1),
 (28, 'BABA', 'adsa', NULL, NULL, NULL, NULL, 1, NULL, 1, 1);
 
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
   `chiet_khau` int(10) DEFAULT NULL,
   `khach_hang_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKtbl_HoaDon810063` (`id`)
+  KEY `khach_hang_id` (`khach_hang_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -244,15 +244,14 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuVuc` (
   `mo_ta` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_khu_vuc` (`ma_khu_vuc`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `tbl_KhuVuc`
 --
 
 INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
-(1, 'MTR', 'Khu vực miền Trung', 'dsadsaddsadsa'),
-(2, 'MTA', 'Khu vực miền Tây ', NULL),
+(1, 'MTR', 'Khu vực miền Trung', 'adsadsa '),
 (3, 'HNO', 'Khu vực Hà Nội ', 'dssadsad'),
 (4, 'HCM', 'Khu vực TP.Hồ Chí Minh', NULL),
 (6, 'DNB ', 'Đông Nam Bộ ', NULL),
@@ -260,7 +259,6 @@ INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
 (11, 'fsdfds', 'khu vuc xxx', 'dsa'),
 (12, 'ggggsfdsfds', 'fdafd', 'fdsf'),
 (13, 'BATDA', 'fsdfdsf', 'sdfdsf'),
-(14, 'grf', 'IRAC', 'dd'),
 (15, 'dsada', 'asdsa', NULL),
 (16, 'dsadsa', 'dsadsad', 'adsads'),
 (17, 'dsadad', 'asdsa', NULL),
@@ -292,7 +290,6 @@ INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
 (44, 'jjjhkhk', 'sdsad', NULL),
 (45, 'sfdsfds', 'sfdsfdsf', NULL),
 (46, 'fdadsad', 'adsadsa', NULL),
-(47, 'gtdgfdgfdgfd', 'dsadsa', NULL),
 (48, 'bbbaa', 'dad', NULL),
 (49, 'xxddw', 'sf', NULL),
 (50, 'dsdma a', 'dsd', NULL),
@@ -302,8 +299,7 @@ INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
 (54, 'bvncm', 'asdsa', NULL),
 (55, 'bvsssss', 'sasd', NULL),
 (56, 'bvasddp90', 's', NULL),
-(57, 'bd6', 'f', NULL),
-(58, 'sada', 'ada', 'asd');
+(59, 'dwedde', 'd3ed', '3e43e34e3');
 
 -- --------------------------------------------------------
 
@@ -360,7 +356,7 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiChiNhanh` (
 
 INSERT INTO `tbl_LoaiChiNhanh` (`id`, `ma_loai_chi_nhanh`, `ten_loai_chi_nhanh`) VALUES
 (1, 'L001', 'Chi nhánh loại 1'),
-(2, 'L002', 'Chi nhánh loại 2');
+(2, 'L003', 'Chi nhánh loại 2');
 
 -- --------------------------------------------------------
 
@@ -372,6 +368,8 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiKhachHang` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai_khach_hang` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `doanh_so` int(10) DEFAULT NULL,
+  `giam_gia` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai_khach_hang` (`ma_loai_khach_hang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -409,15 +407,17 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiSanPham` (
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai` (`ma_loai`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `tbl_LoaiSanPham`
 --
 
 INSERT INTO `tbl_LoaiSanPham` (`id`, `ma_loai`, `ten_loai`) VALUES
-(1, 'dsa', 'adas'),
-(2, 'gfdg', 'dadssa');
+(1, 'dsa', 'VVVVVV'),
+(2, 'gfdgsadsad', 'dadssa'),
+(3, 'ada ', 'adfsf'),
+(5, 'adasd', 'dadsa');
 
 -- --------------------------------------------------------
 
@@ -427,15 +427,29 @@ INSERT INTO `tbl_LoaiSanPham` (`id`, `ma_loai`, `ten_loai`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tbl_MocGia` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `gia_ban` double NOT NULL,
   `thoi_gian_bat_dau` date NOT NULL,
-  `thoi_gian_ket_thuc` date NOT NULL,
-  `chi_nhanh_id` int(10) NOT NULL,
+  `gia_ban` double NOT NULL,
   `san_pham_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKtbl_MocGia67869` (`chi_nhanh_id`,`san_pham_id`),
-  KEY `FKtbl_MocGia691990` (`chi_nhanh_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  KEY `san_pham_id` (`san_pham_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=48 ;
+
+--
+-- Dumping data for table `tbl_MocGia`
+--
+
+INSERT INTO `tbl_MocGia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) VALUES
+(32, '2013-04-17', 50009, 2),
+(33, '2013-04-24', 60000, 2),
+(34, '2013-04-29', 800000, 2),
+(35, '2013-06-12', 82000, 2),
+(38, '2013-07-16', 75000, 2),
+(39, '2013-05-15', 99999, 2),
+(40, '2013-04-28', 80000, 2),
+(41, '2013-04-01', 60100, 2),
+(42, '2013-04-12', 38000, 2),
+(43, '2013-04-19', 5000, 3),
+(44, '2013-04-17', 4000, 3);
 
 -- --------------------------------------------------------
 
@@ -461,7 +475,7 @@ CREATE TABLE IF NOT EXISTS `tbl_NhaCungCap` (
 --
 
 INSERT INTO `tbl_NhaCungCap` (`id`, `ma_nha_cung_cap`, `ten_nha_cung_cap`, `mo_ta`, `dien_thoai`, `email`, `fax`, `trang_thai`) VALUES
-(3, 'dsads', 'dsads', 'dasdsa', NULL, NULL, NULL, 1),
+(3, 'dsads', 'Cong Ty TNHH Coca VietNam', 'dasdsa', NULL, NULL, NULL, 1),
 (4, 'ffffdsad', 'adsad', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -588,14 +602,16 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
   UNIQUE KEY `ma_vach` (`ma_vach`),
   KEY `FKtbl_SanPha178229` (`nha_cung_cap_id`),
   KEY `FKtbl_SanPha797499` (`loai_san_pham_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tbl_SanPham`
 --
 
 INSERT INTO `tbl_SanPham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `han_dung`, `don_vi_tinh`, `ton_toi_thieu`, `huong_dan_su_dung`, `mo_ta`, `trang_thai`, `nha_cung_cap_id`, `loai_san_pham_id`) VALUES
-(2, 'BKBH001', 'Banh keo bien Hoa ', NULL, NULL, NULL, NULL, 'ddddddddddddddddddddd', NULL, NULL, 3, 1);
+(2, 'BKBH002', 'Banh keo bien Hoa ', NULL, 24, NULL, 6, 'ddddddddddddddddddddd', NULL, 1, 3, 1),
+(3, '543534534', 'Bàn ủi điện ', NULL, 24, NULL, 10, NULL, NULL, 0, 4, 2),
+(4, 'a', 'dasd', NULL, 1, NULL, 50, NULL, NULL, 0, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -737,6 +753,7 @@ ALTER TABLE `tbl_GanQuyen`
 -- Constraints for table `tbl_HoaDonBanHang`
 --
 ALTER TABLE `tbl_HoaDonBanHang`
+  ADD CONSTRAINT `tbl_HoaDonBanHang_ibfk_1` FOREIGN KEY (`khach_hang_id`) REFERENCES `tbl_KhachHang` (`id`),
   ADD CONSTRAINT `FKtbl_HoaDon810063` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`);
 
 --
@@ -769,8 +786,7 @@ ALTER TABLE `tbl_KhuyenMaiChiNhanh`
 -- Constraints for table `tbl_MocGia`
 --
 ALTER TABLE `tbl_MocGia`
-  ADD CONSTRAINT `FKtbl_MocGia67869` FOREIGN KEY (`chi_nhanh_id`, `san_pham_id`) REFERENCES `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`),
-  ADD CONSTRAINT `FKtbl_MocGia691990` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+  ADD CONSTRAINT `tbl_MocGia_ibfk_1` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`);
 
 --
 -- Constraints for table `tbl_NhanVien`

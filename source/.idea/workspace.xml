@@ -5,73 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/controllers/DefaultController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/controllers/DefaultController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/components/LocalTime.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/controllers/NhaCungCapController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/QuanlykhachhangModule.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/QuanlynhacungcapModule.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/_search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/_search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/admin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/admin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/capnhat.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/capnhat.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/chitiet.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/chitiet.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/chitiet.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/danhsach.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/danhsach.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/default/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/default/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlynhacungcap/views/nhaCungCap/them.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/them.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/_search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/chitiet.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/controllers/quanlysanpham/SanPhamController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/controllers/KhachHangController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/themmocgia.php" afterPath="$PROJECT_DIR$/protected/extensions/custom-validator/CDateTimeValidator.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/admin.php" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/admin.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/capnhat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/capnhat.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/danhsach.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/protected/views/quanlysanpham/sanPham/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlykhachhang/views/khachHang/them.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/components/LocalTime.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bao_cao/de_cuong_luan_van.docx" afterPath="$PROJECT_DIR$/../bao_cao/de_cuong_luan_van.docx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiKhachHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseMocGia.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseMocGia.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseSanPham.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseSanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/Helpers.php" afterPath="$PROJECT_DIR$/protected/components/Helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/custom-validator/CDateTimeValidator.php" afterPath="$PROJECT_DIR$/protected/extensions/custom-validator/CDateTimeValidator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" afterPath="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietHoaDonBan.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietHoaDonBan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietHoaDonTra.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietHoaDonTra.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietPhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietPhieuNhap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/HoaDonBanHang.php" afterPath="$PROJECT_DIR$/protected/models/HoaDonBanHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhachHang.php" afterPath="$PROJECT_DIR$/protected/models/KhachHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/LoaiKhachHang.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/MocGia.php" afterPath="$PROJECT_DIR$/protected/models/MocGia.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Writer/PDF.php" afterPath="$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Writer/PDF.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/PhieuNhap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/PhieuXuat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SanPham.php" afterPath="$PROJECT_DIR$/protected/models/SanPham.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/SanPhamController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/SanPhamController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/yii-debug-toolbar/panels/YiiDebugToolbarPanelViewsRendering.php" afterPath="$PROJECT_DIR$/protected/extensions/yii-debug-toolbar/panels/YiiDebugToolbarPanelViewsRendering.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_form.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_search.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_view.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/chitiet.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/asia/css/custom.css" afterPath="$PROJECT_DIR$/themes/asia/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/danhsach.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlynhanvien/views/nhanVien/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/loaiSanPham/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/loaiSanPham/danhsach.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/danhsach.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/danhsach.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php" afterPath="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/templates/default/model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/them.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/protected/messages/vi/viLib.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/xuat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/xuat.php" />
     </list>
     <ignored path="source.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366006149202" ignored="false" />
-    <file path="/_form.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365945770241" ignored="false" />
+    <file path="/Dummy.txt" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366180929467" ignored="false" />
+    <file path="/_form.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366041760895" ignored="false" />
     <file path="/BaseThongTinSanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364547448890" ignored="false" />
     <file path="/ThongTinSanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364549821352" ignored="false" />
-    <file path="/*.regexp" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366018000312" ignored="false" />
+    <file path="/*.regexp" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366116158624" ignored="false" />
     <file path="/DefaultController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364720453206" ignored="false" />
     <file path="/SanPhamSub.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364575882043" ignored="false" />
     <file path="/index.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365067314008" ignored="false" />
@@ -97,11 +73,11 @@
     <file path="/_search.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365911553836" ignored="false" />
     <file path="/custom.css" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365911529319" ignored="false" />
     <file path="/QuanlychinnhanhModule.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364901913602" ignored="false" />
-    <file path="/danhsach.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366016559735" ignored="false" />
+    <file path="/danhsach.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366114124110" ignored="false" />
     <file path="/langLib.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1364995947514" ignored="false" />
     <file path="/BaseChiNhanh.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365609160915" ignored="false" />
     <file path="/capnhat.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365661025396" ignored="false" />
-    <file path="/chitiet.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365940404071" ignored="false" />
+    <file path="/chitiet.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366174291714" ignored="false" />
     <file path="/KhuVucController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365673450306" ignored="false" />
     <file path="/custom.js" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365651193552" ignored="false" />
     <file path="/basemodel.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365058285162" ignored="false" />
@@ -111,15 +87,15 @@
     <file path="/controller.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365392983261" ignored="false" />
     <file path="/CModel.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365132452539" ignored="false" />
     <file path="/model.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365619793650" ignored="false" />
-    <file path="/Helpers.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365614638323" ignored="false" />
+    <file path="/Helpers.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366126848785" ignored="false" />
     <file path="/laydanhsach.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365251033324" ignored="false" />
-    <file path="/SanPhamController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365942710071" ignored="false" />
-    <file path="/SanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365912161233" ignored="false" />
+    <file path="/SanPhamController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366171208491" ignored="false" />
+    <file path="/SanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366173897938" ignored="false" />
     <file path="/GxActiveRecord.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365897288480" ignored="false" />
-    <file path="/them.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365662835603" ignored="false" />
-    <file path="/xuat.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365746516995" ignored="false" />
+    <file path="/them.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366043539367" ignored="false" />
+    <file path="/xuat.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366170823153" ignored="false" />
     <file path="/EExcelView.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365602620540" ignored="false" />
-    <file path="/CEExcelView.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365746473897" ignored="false" />
+    <file path="/CEExcelView.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366170582433" ignored="false" />
     <file path="/ExcelTemplate.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365605126540" ignored="false" />
     <file path="/CComponent.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365604046753" ignored="false" />
     <file path="/KhuVuc.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365646388978" ignored="false" />
@@ -130,11 +106,14 @@
     <file path="/test.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365896159932" ignored="false" />
     <file path="/LoaiSanPham.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365915933609" ignored="false" />
     <file path="/LoaiSanPhamController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1365916973188" ignored="false" />
-    <file path="/MocGia.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366015419251" ignored="false" />
-    <file path="/MocGiaController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366014984043" ignored="false" />
+    <file path="/MocGia.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366181133943" ignored="false" />
+    <file path="/MocGiaController.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366085162980" ignored="false" />
     <file path="/CValidator.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366014102354" ignored="false" />
-    <file path="/CDateTimeValidator.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366014762793" ignored="false" />
+    <file path="/CDateTimeValidator.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366026558346" ignored="false" />
     <file path="/JSONStorage.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366017441943" ignored="false" />
+    <file path="/CActiveRecord.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366040203399" ignored="false" />
+    <file path="/ChiTietPhieuXuat.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366184356232" ignored="false" />
+    <file path="/PhieuXuat.php" changelist="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" time="1366184438204" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +137,26 @@
     <favorites_list name="source" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ChiTietPhieuXuat.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="91" column="49" selection-start="3011" selection-end="3011" vertical-scroll-proportion="-14.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhieuXuat.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/models/PhieuXuat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="49" selection-start="2392" selection-end="2392" vertical-scroll-proportion="2.4084506">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -176,22 +174,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/them.php" />
         <option value="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php" />
-        <option value="$PROJECT_DIR$/protected/models/MocGia.php" />
-        <option value="$PROJECT_DIR$/protected/components/LocalTime.php" />
+        <option value="$PROJECT_DIR$/protected/messages/vi/viLib.php" />
+        <option value="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/danhsach.php" />
         <option value="$PROJECT_DIR$/protected/components/Helpers.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/bootstrap/components/JSONStorage.php" />
-        <option value="$PROJECT_DIR$/protected/config/console.php" />
-        <option value="$PROJECT_DIR$/protected/config/main.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/danhsach.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/giix-core/giixModel/GiixModelCode.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Autoloader.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Calculation.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Writer/PDF.php" />
-        <option value="$PROJECT_DIR$/protected/extensions/yii-debug-toolbar/panels/YiiDebugToolbarPanelViewsRendering.php" />
-        <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" />
-        <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" />
-        <option value="$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php" />
+        <option value="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" />
+        <option value="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/xuat.php" />
+        <option value="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/SanPhamController.php" />
+        <option value="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" />
+        <option value="$PROJECT_DIR$/protected/models/SanPham.php" />
+        <option value="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/chitiet.php" />
+        <option value="$PROJECT_DIR$/protected/models/MocGia.php" />
+        <option value="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" />
+        <option value="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" />
+        <option value="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" />
+        <option value="$PROJECT_DIR$/protected/models/PhieuXuat.php" />
       </list>
     </option>
   </component>
@@ -281,6 +279,112 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlysanpham" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlysanpham" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="messages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="extensions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -303,11 +407,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="phpexcel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
+              <option name="myItemId" value="eexcelview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,15 +429,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="phpexcel" />
+              <option name="myItemId" value="custom-validator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
+              <option name="myItemId" value="protected" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPExcel" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -347,7 +457,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="71" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="69" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="82" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -359,9 +469,9 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/protected/modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="87" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="964" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="962" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="87" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="958" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="955" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="86" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="82" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -431,25 +541,46 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="778" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="778" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3255086" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30388978" sideWeight="0.6744914" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24877651" sideWeight="0.67086613" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13771518" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13700788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="96" y="100" width="1088" height="582" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32394367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -483,7 +614,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
@@ -522,122 +653,110 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="53" selection-start="307" selection-end="326" vertical-scroll-proportion="0.55932206">
+        <state line="41" column="35" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/bootstrap/components/JSONStorage.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="104" selection-start="2660" selection-end="2660" vertical-scroll-proportion="0.30927834">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/console.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/chitiet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="48" selection-start="196" selection-end="196" vertical-scroll-proportion="0.13157895">
+        <state line="48" column="133" selection-start="1946" selection-end="1946" vertical-scroll-proportion="1.5824176" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/LoaiSanPham.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="96" selection-end="96" vertical-scroll-proportion="-3.6153846" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/SanPhamController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="46" selection-start="409" selection-end="409" vertical-scroll-proportion="0.03169014">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../yii13/framework/validators/CValidator.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/SanPham.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="186" column="38" selection-start="6366" selection-end="6366" vertical-scroll-proportion="0.8607595">
+        <state line="289" column="0" selection-start="10823" selection-end="10823" vertical-scroll-proportion="-33.703705">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="468" selection-end="468" vertical-scroll-proportion="-4.5">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/danhsach.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/MocGia.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="136" selection-start="2708" selection-end="2722" vertical-scroll-proportion="-22.0">
+        <state line="21" column="0" selection-start="515" selection-end="515" vertical-scroll-proportion="-10.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/LocalTime.php">
+    <entry file="file://$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/xuat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="48" selection-start="876" selection-end="876" vertical-scroll-proportion="-12.0">
+        <state line="20" column="29" selection-start="591" selection-end="591" vertical-scroll-proportion="-13.333333">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/giix-core/giixCrud/templates/default/danhsach.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/HoaDonBanHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="122" selection-start="1413" selection-end="1413" vertical-scroll-proportion="-4.5185184">
-          <folding>
-            <element signature="e#6#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Writer/PDF.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="64" selection-start="2005" selection-end="2005" vertical-scroll-proportion="0.25245902">
-          <folding>
-            <element signature="e#6#1051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/yii-debug-toolbar/panels/YiiDebugToolbarPanelViewsRendering.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="41" selection-start="1629" selection-end="1629" vertical-scroll-proportion="0.22260274">
-          <folding>
-            <element signature="e#6#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="125" selection-start="3333" selection-end="3333" vertical-scroll-proportion="0.40764332">
+        <state line="6" column="32" selection-start="144" selection-end="144" vertical-scroll-proportion="-2.6666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="136" selection-start="1942" selection-end="1942" vertical-scroll-proportion="0.66560507">
+        <state line="20" column="15" selection-start="697" selection-end="697" vertical-scroll-proportion="-6.7777777">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/KhachHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="26" selection-start="1663" selection-end="1663" vertical-scroll-proportion="-1.8846154">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Autoloader.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="44" selection-start="2553" selection-end="2553" vertical-scroll-proportion="2.7777777">
-          <folding>
-            <element signature="e#6#1056#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/giix-core/giixModel/GiixModelCode.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="41" selection-start="4000" selection-end="4000" vertical-scroll-proportion="2.3561645">
+        <state line="27" column="0" selection-start="914" selection-end="914" vertical-scroll-proportion="0.73415494">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/extensions/phpexcel/Classes/PHPExcel/Calculation.php">
+    <entry file="file://$PROJECT_DIR$/protected/models/_base/BaseChiTietPhieuXuat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1921" column="99" selection-start="92661" selection-end="92670" vertical-scroll-proportion="0.33333334">
+        <state line="53" column="21" selection-start="1502" selection-end="1502" vertical-scroll-proportion="1.464716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="49" selection-start="3011" selection-end="3011" vertical-scroll-proportion="-14.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/PhieuXuat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="49" selection-start="2392" selection-end="2392" vertical-scroll-proportion="2.4084506">
           <folding />
         </state>
       </provider>

@@ -5,6 +5,7 @@ Yii::import('application.models._base.BaseSanPham');
 class SanPham extends BaseSanPham
 {
     public $ma_chi_nhanh;
+    public $danhSachMocGia;
 
     public static function model($className = __CLASS__)
     {
@@ -203,9 +204,6 @@ class SanPham extends BaseSanPham
         return array('Chưa khuyến mãi', 'Khuyến mãi');
     }
 
-
-
-
     /*
      * custom search method to return result of searching with related data
      */
@@ -218,11 +216,6 @@ class SanPham extends BaseSanPham
         $criteria->compare('ma_vach', $this->ma_vach, true);
         $criteria->compare('ten_san_pham', $this->ten_san_pham, true);
         $criteria->compare('ten_tieng_viet', $this->ten_tieng_viet, true);
-        $criteria->compare('han_dung', $this->han_dung);
-        $criteria->compare('don_vi_tinh', $this->don_vi_tinh, true);
-        $criteria->compare('ton_toi_thieu', $this->ton_toi_thieu);
-        $criteria->compare('huong_dan_su_dung', $this->huong_dan_su_dung, true);
-        $criteria->compare('mo_ta', $this->mo_ta, true);
         $criteria->compare('trang_thai', $this->trang_thai);
         $criteria->compare('nha_cung_cap_id', $this->nha_cung_cap_id);
         $criteria->compare('loai_san_pham_id', $this->loai_san_pham_id);
@@ -230,7 +223,7 @@ class SanPham extends BaseSanPham
         if(!empty($this->ma_chi_nhanh)) {
             //search with related data
             // connect SanPham Model with it own relations
-            $criteria->together = true; //without this you wont be able to search the second table's data
+
             $criteria->with = 'tblChiNhanhs';
             $criteria->compare('tblChiNhanhs.id',$this->ma_chi_nhanh,true);
         }
@@ -239,5 +232,61 @@ class SanPham extends BaseSanPham
             'criteria' => $criteria,
         ));
     }
+
+    /*
+     * Lay danh sach cac moc gia cua san pham
+     */
+    public function layDanhSachMocGia() {
+        $criteria = new CDbCriteria();
+        $criteria->compare('san_pham_id',$this->id,true);
+        $criteria->order = 'thoi_gian_bat_dau ASC';
+        $this->danhSachMocGia = new CActiveDataProvider('MocGia', array('criteria' => $criteria));
+        return $this->danhSachMocGia;
+
+    }
+    /*
+     * Lay moc gia cua san pham.
+     * Neu Thoi gian bat dau <= Now < Thoi gian ket thuc.
+     *      return CActiveRecord MocGia
+     * Neu Now < Thoi_gian_ket_thuc
+     *      return NULL (san pham chua co Moc gia)
+     */
+    public function layMocGiaHienTai() {
+       $hien_tai = time();
+       $i=0;
+       if($this->danhSachMocGia==null)
+            $this->layDanhSachMocGia();
+       $danhSachMocGia = $this->danhSachMocGia->getData();
+
+
+       if(count($danhSachMocGia)<1)    // san pham chua co set moc gia
+           return null;
+        $thoiGianBatDau =  strtotime($danhSachMocGia[0]->getAttribute('thoi_gian_bat_dau'));
+
+       if($thoiGianBatDau > $hien_tai)
+           return 'no-price';     // san pham chua co gia trong thoi diem hien tai
+
+        if(count($danhSachMocGia)==1 && $thoiGianBatDau <= $hien_tai)
+            return $danhSachMocGia[0];
+
+        foreach($danhSachMocGia as $mocGia) {
+           $thoiGianBatDau =  strtotime($mocGia->getAttribute('thoi_gian_bat_dau'));
+           if($thoiGianBatDau <= $hien_tai)
+               $i++;
+           else
+               return $danhSachMocGia[$i-1];
+        }
+    }
+
+    public function layGiaHienTai() {
+        $mocGiaHienTai = $this->layMocGiaHienTai();
+        if($mocGiaHienTai == null)
+            return Yii::t('viLib','No price level set');
+        if($mocGiaHienTai == 'no-price')
+            return Yii::t('viLib','No price at this time');
+        if($mocGiaHienTai instanceof CActiveRecord )
+            return $mocGiaHienTai->getAttribute('gia_ban');
+    }
+
 
 }
