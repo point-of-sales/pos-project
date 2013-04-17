@@ -11,6 +11,8 @@ class NhanVienController extends GxController {
 
 	public function actionThem() {
 		$model = new NhanVien;
+        $model->gioi_tinh = 0;
+        $model->trang_thai = 1;
 
 		if (isset($_POST['NhanVien'])) {
             $result = $model->them($_POST['NhanVien']);
@@ -157,14 +159,12 @@ class NhanVienController extends GxController {
             $model = $this->loadModel($id, 'NhanVien');
             $active = ($model->trang_thai==1)?0:1;
             $result = $model->saveAttributes(array('trang_thai'=>$active));
-            switch($result) {
-                case 'ok': {
-                    break;
-                }
-                case 'fail': {
-                    echo Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
-                    break;
-                }
+            if($result){
+                break;
+            }
+            else{
+                echo Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                break;
             }
             if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));

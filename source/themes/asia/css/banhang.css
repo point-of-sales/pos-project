@@ -2,17 +2,14 @@
 #form-hd-ban {
 	position:relative;
 	height:500px;
-	background-color:#333;
 }
 #form-hd-ban-header {
 	position:relative;
 	height:40px;
-	background-color:#F00;
 }
 #form-hd-ban-header-left {
 	width:300px;
 	height:100%;
-	background-color:#060;
 	position:absolute;
 	top:0;
 	left:0;
@@ -26,7 +23,6 @@
 #form-hd-ban-header-center {
 	width:300px;
 	height:100%;
-	background-color:#C30;
 	margin:0 auto;
 }
 #form-hd-ban-header-center h1 {
@@ -38,7 +34,6 @@
 #form-hd-ban-header-right {
 	width:300px;
 	height:100%;
-	background-color:#0F0;
 	position:absolute;
 	top:0;
 	right:0;
@@ -55,7 +50,6 @@
 }
 #form-hd-ban-info {
 	height:100px;
-	background-color:#00F;
 	border-bottom:#000 solid 2px;
 	border-top:#000 solid 2px;
 }
@@ -63,7 +57,6 @@
 	height:100%;
 	width:400px;
 	float:left;
-	background-color:#960;
 }
 #form-hd-ban-ma {
 	padding:34px 25px 20px 0px;
@@ -83,7 +76,6 @@
 	height:100%;
 	width:auto;
 	float:left;
-	background-color:#90F;
 }
 #form-hd-ban-info-table {
 		
@@ -101,11 +93,9 @@
 #form-hd-ban-list {
 	height:auto;
 	min-height:200px;
-	background-color:#FF0;
 }
 #form-hd-ban-command {
 	height:40px;
-	background-color:#0FF;
 	border-bottom:#000 solid 2px;
 }
 #form-hd-ban-button{
@@ -117,8 +107,8 @@
 	left:0;
 	height:30px;
 	width:100%;
-	background-color:#0F0;
 	border-bottom:#000 solid 2px;
 	border-top:#000 solid 2px;
+    background-color: #6D91B9;
 }
 /*end form hoa don ban hang */

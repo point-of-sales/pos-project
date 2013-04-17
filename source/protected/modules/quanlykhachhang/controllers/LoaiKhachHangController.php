@@ -1,19 +1,19 @@
 <?php
 
-class HoaDonBanHangController extends GxController {
-    public $layout = '//layouts/column2';
+class LoaiKhachHangController extends GxController {
+
 
 	public function actionChiTiet($id) {
 		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'HoaDonBanHang'),
+			'model' => $this->loadModel($id, 'LoaiKhachHang'),
 		));
 	}
 
 	public function actionThem() {
-		$model = new HoaDonBanHang;
+		$model = new LoaiKhachHang;
 
-        /*if (isset($_POST['HoaDonBanHang'])) {
-            $result = $model->them($_POST['HoaDonBanHang']);
+		if (isset($_POST['LoaiKhachHang'])) {
+            $result = $model->them($_POST['LoaiKhachHang']);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -31,17 +31,16 @@ class HoaDonBanHangController extends GxController {
                     break;
                     }
             }
-		}*/
-        $this->layout = '//layouts/column1';
+		}
 		$this->render('them', array( 'model' => $model));
 	}
 
 	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'HoaDonBanHang');
+		$model = $this->loadModel($id, 'LoaiKhachHang');
 
 
-		if (isset($_POST['HoaDonBanHang'])) {
-            $result = $model->capNhat($_POST['HoaDonBanHang']);
+		if (isset($_POST['LoaiKhachHang'])) {
+            $result = $model->capNhat($_POST['LoaiKhachHang']);
             switch($result) {
                 case 'ok': {
                     $this->redirect(array('chitiet', 'id' => $id));
@@ -62,7 +61,7 @@ class HoaDonBanHangController extends GxController {
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'HoaDonBanHang');
+            $delModel = $this->loadModel($id, 'LoaiKhachHang');
             $result = $delModel->xoa();
             switch($result) {
                 case 'ok': {
@@ -85,7 +84,7 @@ class HoaDonBanHangController extends GxController {
 
 	public function actionXoa($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-            $delModel = $this->loadModel($id, 'HoaDonBanHang');
+            $delModel = $this->loadModel($id, 'LoaiKhachHang');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
@@ -119,11 +118,11 @@ class HoaDonBanHangController extends GxController {
 
 	public function actionDanhSach() {
 
-        $model = new HoaDonBanHang('search');
+        $model = new LoaiKhachHang('search');
         $model->unsetAttributes();
 
-        if (isset($_GET['HoaDonBanHang']))
-        $model->setAttributes($_GET['HoaDonBanHang']);
+        if (isset($_GET['LoaiKhachHang']))
+        $model->setAttributes($_GET['LoaiKhachHang']);
 
         $this->render('danhsach', array(
         'model' => $model,
@@ -131,11 +130,11 @@ class HoaDonBanHangController extends GxController {
 	}
 
 	public function actionAdmin() {
-		$model = new HoaDonBanHang('search');
+		$model = new LoaiKhachHang('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['HoaDonBanHang']))
-			$model->setAttributes($_GET['HoaDonBanHang']);
+		if (isset($_GET['LoaiKhachHang']))
+			$model->setAttributes($_GET['LoaiKhachHang']);
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -144,25 +143,13 @@ class HoaDonBanHangController extends GxController {
 
     public function  actionXuat() {
 
-        $model = new HoaDonBanHang('search');
+        $model = new LoaiKhachHang('search');
         $model->unsetAttributes();
-        if(isset($_GET['HoaDonBanHang'])) {
-        $model->setAttributes($_GET['HoaDonBanHang']);
+        if(isset($_GET['LoaiKhachHang'])) {
+        $model->setAttributes($_GET['LoaiKhachHang']);
         $dataProvider = $model->search();
         }
         $this->render('xuat',array('dataProvider'=>$dataProvider));
-    }
-    
-    public function actionGetSanPhamBan($ma_vach){
-        if (Yii::app()->getRequest()->getIsAjaxRequest()) {
-            $model = new SanPham();
-            if (isset($ma_vach))
-                $crt = array('ma_vach'=>$ma_vach);
-                $model->findAllAttributes();
-                echo $model->ten_san_pham;
-            }
-        else
-            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
 }

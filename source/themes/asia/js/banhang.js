@@ -24,7 +24,6 @@ function getSanPhamBan(){
         ma_vach:ma,
     },
     function (data,status){
-        alert(status);
         $.fn.yiiGridView.update('form-hd-ban-grid');
     });
 }

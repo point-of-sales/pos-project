@@ -7,6 +7,7 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
 array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
+array('label'=>Yii::t('viLib', 'Create') . ' ' . LoaiKhachHang::label(), 'url'=>array('loaikhachhang/them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

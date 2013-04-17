@@ -148,8 +148,4 @@ class NhanVien extends BaseNhanVien
     }
 
 
-
-
-
-
 }

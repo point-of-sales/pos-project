@@ -23,14 +23,14 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
                     <td id="form-hd-ban-ngay-lap">
                     <?php /*$form->widget('zii.widgets.jui.CJuiDatePicker', array(
                     			'model' => $model,
-                    			'attribute' => 'ChungTu.ngay_lap',
-                    			'value' => $model->ChungTu->ngay_lap,
+                    			'attribute' => 'ngay_lap',
+                    			'value' => $model->ngay_lap,
                     			'options' => array(
                     				'showButtonPanel' => true,
                     				'changeYear' => true,
                     				'dateFormat' => 'yy-mm-dd',
                     				),
-                    			)); */
+                    			));*/ 
                     ?>
                     </td>
                 </tr>

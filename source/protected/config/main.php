@@ -61,6 +61,10 @@ return array(
         'quanlykhachhang'=>array(
             'defaultController'=>'danhsach',
         ),
+        
+        'quanlykhachhang'=>array(
+            'defaultController'=>'danhsach',
+        ),
                     
 	),
 

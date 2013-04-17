@@ -55,7 +55,7 @@
 			'options' => array(
 				'showButtonPanel' => true,
 				'changeYear' => true,
-				'dateFormat' => 'yy-mm-dd',
+				'dateFormat' => 'dd-mm-yy',
 				),
 			));
 ; ?>
@@ -97,7 +97,7 @@
 			'options' => array(
 				'showButtonPanel' => true,
 				'changeYear' => true,
-				'dateFormat' => 'yy-mm-dd',
+				'dateFormat' => 'dd-mm-yy',
 				),
 			));
 ; ?>
