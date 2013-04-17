@@ -5,41 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3153750b-5c5d-43ca-9db3-62f7dfcaf5bc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/components/LocalTime.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bao_cao/de_cuong_luan_van.docx" afterPath="$PROJECT_DIR$/../bao_cao/de_cuong_luan_van.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseHoaDonBanHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseLoaiSanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/_base/BaseMocGia.php" afterPath="$PROJECT_DIR$/protected/models/_base/BaseMocGia.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/custom-validator/CDateTimeValidator.php" afterPath="$PROJECT_DIR$/protected/extensions/custom-validator/CDateTimeValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" afterPath="$PROJECT_DIR$/protected/extensions/eexcelview/CEExcelView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietHoaDonBan.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietHoaDonBan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietHoaDonTra.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietHoaDonTra.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietPhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietPhieuNhap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/ChiTietPhieuXuat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/HoaDonBanHang.php" afterPath="$PROJECT_DIR$/protected/models/HoaDonBanHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/KhachHang.php" afterPath="$PROJECT_DIR$/protected/models/KhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoaiKhachHang.php" afterPath="$PROJECT_DIR$/protected/models/LoaiKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/MocGia.php" afterPath="$PROJECT_DIR$/protected/models/MocGia.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/MocGiaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhieuNhap.php" afterPath="$PROJECT_DIR$/protected/models/PhieuNhap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/PhieuXuat.php" afterPath="$PROJECT_DIR$/protected/models/PhieuXuat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/SanPham.php" afterPath="$PROJECT_DIR$/protected/models/SanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/SanPhamController.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/controllers/SanPhamController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_form.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_search.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_view.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/chitiet.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/danhsach.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/them.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/mocGia/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/protected/messages/vi/viLib.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/xuat.php" afterPath="$PROJECT_DIR$/protected/modules/quanlysanpham/views/sanPham/xuat.php" />
     </list>
     <ignored path="source.iws" />
     <ignored path=".idea/workspace.xml" />
