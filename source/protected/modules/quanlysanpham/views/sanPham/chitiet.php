@@ -19,6 +19,7 @@ $this->menu = array(
     array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
     array('label' => Yii::t('viLib', 'Add') . ' ' . $model->label(), 'url' => array('them')),
     array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Price checkpoint'), 'url' => array('mocGia/them', 'spid' => $model->id)),
+    array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Sales'), 'url' => array('')),
     array('label' => Yii::t('viLib', 'Update') . ' ' . $model->label(), 'url' => array('capnhat', 'id' => $model->id)),
     array('label' => Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?'))),
 );
@@ -75,42 +76,16 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'class' => 'CButtonColumn',
             'template' => '{update}{delete}',
-            'buttons' => array(
-                'update' => array(
-                    'url' => 'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". "mocGia" ."/". "capnhat",array("id"=>$data->id))',
-                    'label' => Yii::t('viLib', 'View'),
+            'buttons'=>array(
+                'update'=>array(
+                    'url'=>'Helpers::urlRouting(Yii::app()->controller,"mocGia","capnhat",array("id"=>$data->id))',
+                    'label'=>Yii::t('viLib','Update'),
                 ),
-                'delete' => array(
-                    'url' => 'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". "mocGia" ."/". "xoagrid",array("id"=>$data->id))',
-                    'label' => Yii::t('viLib', 'Delete'),
-                    'click' => "js:function(){
-
-                    var r = confirm('Bạn có muốn xóa không ?');
-                    if(r) {
-                        var url = $(this).attr('href');
-                         $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
-                         type:'POST',
-                         url:$(this).attr('href'),
-                         success:function(data) {
-                            if(jQuery.type(data) == 'string' && data!='') {
-                                $('.search-form').after(
-                                    '<div class=error>'+data+'</div>'
-                            );
-                            $('.error').addClass('response-msg');
-                            $('.error').addClass('ui-corner-all')
-                            $('.error').fadeOut(5000);
-                         }
-
-                         $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
-                    }
-                    })
-                        return false;
-                    } else {
-                        return false;
-                        }
-                    }",
+                'delete'=>array(
+                    'url'=>'Helpers::urlRouting(Yii::app()->controller,"mocGia","xoagrid",array("id"=>$data->id))',
+                    'label'=>Yii::t('viLib','Delete'),
+                    'click' =>Helpers::deleteButtonClick(),
                 ),
-
 
             ),
         ),
@@ -119,6 +94,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 ));
 ?>
+
+<p style="background: #0088cc; color: white; font-weight: bold">Danh sach cac cua hang chua san pham</p>
 
 <!--<h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblHoaDonBanHangs')); */?></h2>
 <?php

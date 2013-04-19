@@ -6,8 +6,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('sanPham/chitiet','id'=>$spid)),
-
+	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
+	array('label'=>Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url' => array('admin')),
 );
 ?>
 

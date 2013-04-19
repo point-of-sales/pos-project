@@ -116,40 +116,31 @@ class KhachHangController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
-
-        $model = new KhachHang('search');
-        $model->unsetAttributes();
-
-        if (isset($_GET['KhachHang']))
-        $model->setAttributes($_GET['KhachHang']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new KhachHang('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['KhachHang']))
-			$model->setAttributes($_GET['KhachHang']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
-
-    public function  actionXuat() {
+    public function actionDanhSach() {
 
         $model = new KhachHang('search');
         $model->unsetAttributes();
         if(isset($_GET['KhachHang'])) {
-        $model->setAttributes($_GET['KhachHang']);
-        $dataProvider = $model->search();
+            // set vao session
+            Yii::app()->session['KhachHang'] = $_GET['KhachHang'];
+            $model->setAttributes($_GET['KhachHang']);
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        $this->render('danhsach',array('model'=>$model));
+    }
+
+    public function  actionXuat() {
+        $model = new KhachHang('search');
+        $model->unsetAttributes();
+
+        if(isset(Yii::app()->session['KhachHang'])) {
+            $model->setAttributes(Yii::app()->session['KhachHang']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
+        }
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('KhachHang')));
     }
 
 }

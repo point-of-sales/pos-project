@@ -133,40 +133,33 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
+    public function actionDanhSach() {
 
         $model = new <?php echo $this->modelClass; ?>('search');
         $model->unsetAttributes();
 
-        if (isset($_GET['<?php echo $this->modelClass; ?>']))
-        $model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new <?php echo $this->modelClass; ?>('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['<?php echo $this->modelClass; ?>']))
-			$model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
+        if(isset($_GET['<?php echo $this->modelClass; ?>'])) {
+            // set vao session
+            Yii::app()->session['<?php echo $this->modelClass; ?>'] = $_GET['<?php echo $this->modelClass; ?>'];
+            $model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
+        }
+        $this->render('danhsach',array('model'=>$model));
+    }
 
     public function  actionXuat() {
-
         $model = new <?php echo $this->modelClass; ?>('search');
         $model->unsetAttributes();
-        if(isset($_GET['<?php echo $this->modelClass; ?>'])) {
-        $model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
-        $dataProvider = $model->search();
+
+        if(isset(Yii::app()->session['<?php echo $this->modelClass; ?>'])) {
+            $model->setAttributes(Yii::app()->session['<?php echo $this->modelClass; ?>']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('<?php echo $this->modelClass; ?>')));
     }
+
 
 }

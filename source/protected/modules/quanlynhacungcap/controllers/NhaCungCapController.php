@@ -116,40 +116,31 @@ class NhaCungCapController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
-
-        $model = new NhaCungCap('search');
-        $model->unsetAttributes();
-
-        if (isset($_GET['NhaCungCap']))
-        $model->setAttributes($_GET['NhaCungCap']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new NhaCungCap('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['NhaCungCap']))
-			$model->setAttributes($_GET['NhaCungCap']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
-
-    public function  actionXuat() {
+    public function actionDanhSach() {
 
         $model = new NhaCungCap('search');
         $model->unsetAttributes();
         if(isset($_GET['NhaCungCap'])) {
-        $model->setAttributes($_GET['NhaCungCap']);
-        $dataProvider = $model->search();
+            // set vao session
+            Yii::app()->session['NhaCungCap'] = $_GET['NhaCungCap'];
+            $model->setAttributes($_GET['NhaCungCap']);
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        $this->render('danhsach',array('model'=>$model));
+    }
+
+    public function  actionXuat() {
+        $model = new NhaCungCap('search');
+        $model->unsetAttributes();
+
+        if(isset(Yii::app()->session['NhaCungCap'])) {
+            $model->setAttributes(Yii::app()->session['NhaCungCap']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
+        }
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('NhaCungCap')));
     }
 
 }

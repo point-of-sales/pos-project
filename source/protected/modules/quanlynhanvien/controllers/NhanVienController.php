@@ -118,40 +118,28 @@ class NhanVienController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
+    public function actionDanhSach() {
 
         $model = new NhanVien('search');
         $model->unsetAttributes();
-
-        if (isset($_GET['NhanVien']))
-        $model->setAttributes($_GET['NhanVien']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new NhanVien('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['NhanVien']))
-			$model->setAttributes($_GET['NhanVien']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
+        unset( Yii::app()->session['NhanVien']);
+        if(isset($_GET['NhanVien'])) {
+            // set vao session
+            Yii::app()->session['NhanVien'] = $_GET['NhanVien'];
+            $model->setAttributes($_GET['NhanVien']);
+        }
+        $this->render('danhsach',array('model'=>$model));
+    }
 
     public function  actionXuat() {
-
         $model = new NhanVien('search');
         $model->unsetAttributes();
-        if(isset($_GET['NhanVien'])) {
-        $model->setAttributes($_GET['NhanVien']);
-        $dataProvider = $model->search();
-        }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        if(isset(Yii::app()->session['NhanVien'])) {
+            $model->setAttributes(Yii::app()->session['NhanVien']);
+            $dataProvider = $model->search();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
+        } else
+            $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('NhanVien')));
     }
     
     public function actionAjaxActive($id){
@@ -160,11 +148,11 @@ class NhanVienController extends GxController {
             $active = ($model->trang_thai==1)?0:1;
             $result = $model->saveAttributes(array('trang_thai'=>$active));
             if($result){
-                break;
+                //break;
             }
             else{
                 echo Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
-                break;
+                //break;
             }
             if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));

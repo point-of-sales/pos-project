@@ -25,7 +25,6 @@
 ; ?>
         </div>
 
-
                     <div class="row cus-row">
             <?php echo $form->label($model, 'gia_ban'); ?>
             <?php echo $form->textField($model, 'gia_ban'); ?>

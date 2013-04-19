@@ -12,5 +12,5 @@ $this->widget('CEExcelView', array(
     'autoWidth'=>true,
     'category'=>'',
     'documentTitle'=>'Danh Sách Loại Sản Phẩm',
-    'template'=>CEExcelView::NORMAL_LIST,
 ));
+

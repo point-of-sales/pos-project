@@ -83,4 +83,61 @@ class Helpers {
         return true;
     }
 
+    public static function deleteButtonClick() {
+        return "js:function(){
+
+                    var r = confirm('Bạn có muốn xóa không ?');
+                    if(r) {
+                        var url = $(this).attr('href');
+                         $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
+                         type:'POST',
+                         url:$(this).attr('href'),
+                         success:function(data) {
+                            if(jQuery.type(data) == 'string' && data!='') {
+                                $('.search-form').after(
+                                    '<div class=error>'+data+'</div>'
+                            );
+                            $('.error').addClass('response-msg');
+                            $('.error').addClass('ui-corner-all')
+                            $('.error').fadeOut(5000);
+                         }
+
+                         $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
+                    }
+                    })
+                        return false;
+                    } else {
+                        return false;
+                        }
+                    }";
+    }
+
+    public static function urlRouting($controller, $subController='', $actionId='index', $params = array(),$SEPARATOR='/') {
+        $moduleId = '';
+        $controllerId = $controller->id;
+        if($subController!='')
+            $controllerId = $subController;
+
+        if($controller->module!=null) {
+            $moduleId = $controller->module->id;
+            return Yii::app()->createUrl($moduleId.$SEPARATOR.$controllerId.$SEPARATOR.$actionId,$params);
+        }
+        return Yii::app()->createUrl($controllerId.$SEPARATOR.$actionId,$params);
+    }
+
+    public static function refreshGrid() {
+        return "js:function(){
+                                        var url = $(this).attr('href');
+                                        $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
+                                            type:'POST',
+                                            url:$(this).attr('href'),
+                                            success:function(data) {
+                                              $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
+                                            }
+                                        })
+                                        return false;
+                                      }
+                                    ";
+    }
+
 }

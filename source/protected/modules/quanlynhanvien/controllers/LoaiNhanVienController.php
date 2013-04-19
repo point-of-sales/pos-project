@@ -116,40 +116,30 @@ class LoaiNhanVienController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
-
-        $model = new LoaiNhanVien('search');
-        $model->unsetAttributes();
-
-        if (isset($_GET['LoaiNhanVien']))
-        $model->setAttributes($_GET['LoaiNhanVien']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new LoaiNhanVien('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['LoaiNhanVien']))
-			$model->setAttributes($_GET['LoaiNhanVien']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
-
-    public function  actionXuat() {
+    public function actionDanhSach() {
 
         $model = new LoaiNhanVien('search');
         $model->unsetAttributes();
         if(isset($_GET['LoaiNhanVien'])) {
-        $model->setAttributes($_GET['LoaiNhanVien']);
-        $dataProvider = $model->search();
+            // set vao session
+            Yii::app()->session['LoaiNhanVien'] = $_GET['LoaiNhanVien'];
+            $model->setAttributes($_GET['LoaiNhanVien']);
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        $this->render('danhsach',array('model'=>$model));
     }
 
+    public function  actionXuat() {
+        $model = new LoaiNhanVien('search');
+        $model->unsetAttributes();
+
+        if(isset(Yii::app()->session['LoaiNhanVien'])) {
+            $model->setAttributes(Yii::app()->session['LoaiNhanVien']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
+        }
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('LoaiNhanVien')));
+    }
 }

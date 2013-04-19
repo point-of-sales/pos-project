@@ -3,17 +3,17 @@
 class MocGiaController extends GxController {
 
 
-	public function actionChiTiet($id) {
+    public function actionChiTiet($id) {
 
-		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'MocGia'),
+        $this->render('chitiet', array(
+            'model' => $this->loadModel($id, 'MocGia'),
 
-		));
-	}
+        ));
+    }
 
-	public function actionThem($spid) {
-		$model = new MocGia;
-		if (isset($_POST['MocGia']) && isset($spid)) {
+    public function actionThem($spid) {
+        $model = new MocGia;
+        if (isset($_POST['MocGia']) && isset($spid)) {
             // kiem tra ngay thang hop le : ngay bat dau > ngay hien tai
             $_POST['MocGia']['san_pham_id'] = $spid;
             $result = $model->them($_POST['MocGia']);
@@ -25,30 +25,30 @@ class MocGiaController extends GxController {
                         $this->redirect(array('sanPham/chitiet', 'id' => $spid));
                     break;
                 }
-            case 'dup-error': {
+                case 'dup-error': {
                     Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
                     break;
-            }
-            case 'fail': {
+                }
+                case 'fail': {
                     // co the lam them canh bao cho nguoi dung
                     break;
-                    }
+                }
             }
-		}
-		$this->render('them', array( 'model' => $model,
-                                     'spid'=>$spid,
-                                    ));
-	}
+        }
+        $this->render('them', array( 'model' => $model,
+            'spid'=>$spid,
+        ));
+    }
 
-	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'MocGia');
+    public function actionCapNhat($id) {
+        $model = $this->loadModel($id, 'MocGia');
 
 
-		if (isset($_POST['MocGia'])) {
+        if (isset($_POST['MocGia'])) {
             $result = $model->capNhat($_POST['MocGia']);
             switch($result) {
                 case 'ok': {
-                    $this->redirect(array('chitiet', 'id' => $id));
+                    $this->redirect(array('sanPham/chitiet', 'id' => $model->getAttribute('san_pham_id')));
                     break;
                 }
                 case 'dup-error': {
@@ -60,9 +60,9 @@ class MocGiaController extends GxController {
                     break;
                 }
             }
-		}
-		$this->render('capnhat', array( 'model' => $model));
-	}
+        }
+        $this->render('capnhat', array( 'model' => $model));
+    }
 
     public function actionXoaGrid($id) {
         if (Yii::app()->getRequest()->getIsPostRequest()) {
@@ -84,77 +84,68 @@ class MocGiaController extends GxController {
             if (!Yii::app()->getRequest()->getIsAjaxRequest())
                 $this->redirect(array('danhsach'));
         } else
-        throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
-	public function actionXoa($id) {
-		if (Yii::app()->getRequest()->getIsPostRequest()) {
+    public function actionXoa($id) {
+        if (Yii::app()->getRequest()->getIsPostRequest()) {
             $delModel = $this->loadModel($id, 'MocGia');
             $message = '';
             $canDelete = true;
             $result = $delModel->xoa();
-                switch($result) {
-                    case 'ok': {
-                        break;
-                    }
-                    case 'rel-error': {
-                        $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
-                        $canDelete = false;
-                        break;
-                    }
-                    case 'fail': {
-                        $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
-                        $canDelete = false;
-                        break;
-                    }
+            switch($result) {
+                case 'ok': {
+                    break;
                 }
+                case 'rel-error': {
+                    $message =  Yii::t('viLib','Can not delete this item because it contains relative data');
+                    $canDelete = false;
+                    break;
+                }
+                case 'fail': {
+                    $message = Yii::t('viLib','Some errors occur in delete process. Please check your DBMS!');
+                    $canDelete = false;
+                    break;
+                }
+            }
             if($canDelete) {
                 if (!Yii::app()->getRequest()->getIsAjaxRequest())
-                $this->redirect(array('danhsach'));
+                    $this->redirect(array('danhsach'));
             } else  {
                 Yii::app()->user->setFlash('info-board',$message);
                 $this->redirect(array('chitiet', 'id' => $id));
             }
-			/*if (!Yii::app()->getRequest()->getIsAjaxRequest())
-				$this->redirect(array('danhsach'));*/
-		} else
-			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
-	}
+            /*if (!Yii::app()->getRequest()->getIsAjaxRequest())
+                $this->redirect(array('danhsach'));*/
+        } else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 
-	public function actionDanhSach() {
-
-        $model = new MocGia('search');
-        $model->unsetAttributes();
-
-        if (isset($_GET['MocGia']))
-        $model->setAttributes($_GET['MocGia']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new MocGia('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['MocGia']))
-			$model->setAttributes($_GET['MocGia']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
-
-    public function  actionXuat() {
+    public function actionDanhSach() {
 
         $model = new MocGia('search');
         $model->unsetAttributes();
         if(isset($_GET['MocGia'])) {
-        $model->setAttributes($_GET['MocGia']);
-        $dataProvider = $model->search();
+            // set vao session
+            Yii::app()->session['MocGia'] = $_GET['MocGia'];
+            $model->setAttributes($_GET['MocGia']);
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        $this->render('danhsach',array('model'=>$model));
+    }
+
+    public function  actionXuat() {
+        $model = new MocGia('search');
+        $model->unsetAttributes();
+
+        if(isset(Yii::app()->session['MocGia'])) {
+            $model->setAttributes(Yii::app()->session['MocGia']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
+        }
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('MocGia')));
     }
 
 }

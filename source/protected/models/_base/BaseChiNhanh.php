@@ -78,7 +78,7 @@ abstract class BaseChiNhanh extends GxActiveRecord {
 			'chungTus' => array(self::HAS_MANY, 'ChungTu', 'chi_nhanh_id'),
 			'khuyenMais' => array(self::HAS_MANY, 'KhuyenMai', 'chi_nhanh_id'),
 			'tblKhuyenMais' => array(self::MANY_MANY, 'KhuyenMai', 'tbl_KhuyenMaiChiNhanh(chi_nhanh_id, khuyen_mai_id)'),
-			'mocGias' => array(self::HAS_MANY, 'MocGia', 'chi_nhanh_id'),
+			//'mocGias' => array(self::HAS_MANY, 'MocGia', 'chi_nhanh_id'),
 			'nhanViens' => array(self::HAS_MANY, 'NhanVien', 'chi_nhanh_id'),
 			'phieuNhaps' => array(self::HAS_MANY, 'PhieuNhap', 'chi_nhanh_xuat_id'),
 			'phieuXuats' => array(self::HAS_MANY, 'PhieuXuat', 'chi_nhanh_nhap_id'),
