@@ -30,7 +30,7 @@
  * @property LoaiSanPham $loaiSanPham
  * @property ChiNhanh[] $tblChiNhanhs
  */
-abstract class BaseSanPham extends GxActiveRecord {
+abstract class BaseSanPham extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

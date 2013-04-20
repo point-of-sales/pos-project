@@ -16,7 +16,7 @@
  * @property integer $san_pham_tang_id
  *
  */
-abstract class BaseChiTietHoaDonBan extends GxActiveRecord {
+abstract class BaseChiTietHoaDonBan extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

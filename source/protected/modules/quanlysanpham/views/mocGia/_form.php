@@ -33,6 +33,9 @@
                     'dateFormat' => 'dd-mm-yy',
 
                 ),
+                'htmlOptions'=>array(
+                    'readonly'=>true,
+                ),
             ));
             ;
 

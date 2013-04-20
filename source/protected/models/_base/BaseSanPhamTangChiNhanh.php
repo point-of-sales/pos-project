@@ -14,7 +14,7 @@
  * @property integer $so_ton
  *
  */
-abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
+abstract class BaseSanPhamTangChiNhanh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

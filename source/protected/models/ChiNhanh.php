@@ -4,7 +4,7 @@ Yii::import('application.models._base.BaseChiNhanh');
 
 class ChiNhanh extends BaseChiNhanh
 {
-    public $ma_chi_nhanh;
+    public $san_pham_id;
 
     public static function model($className = __CLASS__)
     {
@@ -108,11 +108,6 @@ class ChiNhanh extends BaseChiNhanh
         }
     }
 
-    public function layDanhSachTrangThai()
-    {
-        return array('Chưa kích hoạt', 'Kích hoạt');
-    }
-
 
     public function layDanhSachTrucThuoc()
     {
@@ -154,13 +149,6 @@ class ChiNhanh extends BaseChiNhanh
 
     }
 
-    public function layTenTrangThai()
-    {
-        $statusOptions = $this->layDanhSachTrangThai();
-        return $statusOptions[$this->trang_thai];
-
-    }
-
     public function layTenTrucThuoc()
     {
         $underOptions = $this->layDanhSachTrucThuoc();
@@ -186,6 +174,44 @@ class ChiNhanh extends BaseChiNhanh
     {
 
         return ChiNhanh::model()->exists('truc_thuoc_id=:truc_thuoc_id', array(':truc_thuoc_id' => $this->id));
+    }
+
+    /*
+     * dem so luong ton cua 1 san pham cua tai chi nhanh
+     * Su dung CDbCommand cho ket qua query nhanh.
+     */
+
+    public function laySoLuongTonSanPham() {
+        $soLuongTon  = $command = Yii::app()->db->createCommand()
+                    ->select('so_ton')
+                    ->from('tbl_ChiNhanh,tbl_SanPhamChiNhanh')
+                    ->where('tbl_ChiNhanh.id=tbl_SanPhamChiNhanh.chi_nhanh_id')
+                    ->andWhere('tbl_ChiNhanh.id=:id',array(':id'=>$this->id))
+                    ->andWhere('tbl_SanPhamChiNhanh.san_pham_id=:san_pham_id',array(':san_pham_id'=>$this->san_pham_id))
+                    ->queryScalar();
+        return ($soLuongTon=='')?0:$soLuongTon;
+    }
+
+    public function search() {
+        $criteria = new CDbCriteria;
+
+
+        $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
+        $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
+
+        $criteria->compare('trang_thai', $this->trang_thai);
+        $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
+        $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
+
+        if(!empty($this->san_pham_id)) {
+            $criteria->with = 'tblSanPhams';
+            $criteria->together = true;
+            $criteria->compare('tblSanPhams.id',$this->san_pham_id,true);
+        }
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
     }
 
     public function xuatFileExcel() {

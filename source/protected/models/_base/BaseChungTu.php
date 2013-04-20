@@ -24,7 +24,7 @@
  * @property PhieuNhap $phieuNhap
  * @property PhieuXuat $phieuXuat
  */
-abstract class BaseChungTu extends GxActiveRecord {
+abstract class BaseChungTu extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

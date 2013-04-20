@@ -16,7 +16,7 @@
  *
  * @property ChiNhanh[] $chiNhanhs
  */
-abstract class BaseKhuVuc extends GxActiveRecord {
+abstract class BaseKhuVuc extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

@@ -55,15 +55,15 @@ array(
     'template'=>'{view}{update}{delete}',
     'buttons'=>array(
             'view'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"chitiet",array("id"=>$data->id))',
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
             ),
             'update'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"capnhat",array("id"=>$data->id))',
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Update'),
             ),
             'delete'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"xoagrid",array("id"=>$data->id))',
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Delete'),
             'click' => Helpers::deleteButtonClick(),
             ),

@@ -1,15 +1,8 @@
 <?php
 
-class MocGiaController extends GxController {
+class MocGiaController extends CPOSController {
 
-
-    public function actionChiTiet($id) {
-
-        $this->render('chitiet', array(
-            'model' => $this->loadModel($id, 'MocGia'),
-
-        ));
-    }
+    public $layout = '//layouts/column1';
 
     public function actionThem($spid) {
         $model = new MocGia;
@@ -21,8 +14,13 @@ class MocGiaController extends GxController {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
-                    else
-                        $this->redirect(array('sanPham/chitiet', 'id' => $spid));
+                    else {
+                            if(isset(Yii::app()->request->urlReferrer))
+                                $this->redirect(array('sanPham/chitiet','id'=>$spid));
+                            else
+                                $this->redirect(array('sanPham/danhsach'));
+
+                        }
                     break;
                 }
                 case 'dup-error': {
@@ -42,13 +40,15 @@ class MocGiaController extends GxController {
 
     public function actionCapNhat($id) {
         $model = $this->loadModel($id, 'MocGia');
-
-
+        $model->formatDate('thoi_gian_bat_dau');
         if (isset($_POST['MocGia'])) {
             $result = $model->capNhat($_POST['MocGia']);
             switch($result) {
                 case 'ok': {
-                    $this->redirect(array('sanPham/chitiet', 'id' => $model->getAttribute('san_pham_id')));
+                    if(isset(Yii::app()->request->urlReferrer))
+                        $this->redirect(array('sanPham/chitiet','id'=>$model->getAttribute('san_pham_id')));
+                    else
+                        $this->redirect(array('sanPham/danhsach'));
                     break;
                 }
                 case 'dup-error': {
@@ -121,17 +121,7 @@ class MocGiaController extends GxController {
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
-    public function actionDanhSach() {
 
-        $model = new MocGia('search');
-        $model->unsetAttributes();
-        if(isset($_GET['MocGia'])) {
-            // set vao session
-            Yii::app()->session['MocGia'] = $_GET['MocGia'];
-            $model->setAttributes($_GET['MocGia']);
-        }
-        $this->render('danhsach',array('model'=>$model));
-    }
 
     public function  actionXuat() {
         $model = new MocGia('search');

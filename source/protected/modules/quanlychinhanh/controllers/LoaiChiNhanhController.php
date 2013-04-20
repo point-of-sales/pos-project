@@ -1,6 +1,6 @@
 <?php
 
-class LoaiChiNhanhController extends GxController {
+class LoaiChiNhanhController extends CPOSController {
 
 
 	public function actionChiTiet($id) {

@@ -4,9 +4,8 @@ Yii::import('application.models._base.BaseSanPham');
 
 class SanPham extends BaseSanPham
 {
-    public $ma_chi_nhanh;
+    public $chi_nhanh_id;
     public $danhSachMocGia;
-    public $tableAlias = 'sanpham';
 
     public static function model($className = __CLASS__)
     {
@@ -118,17 +117,6 @@ class SanPham extends BaseSanPham
         }
     }
 
-
-    public function layDanhSachTrangThai()
-    {
-        return array('Chưa kích hoạt', 'Kích hoạt');
-    }
-
-    public function layTenTrangThai() {
-        $danhSachTrangThai = $this->layDanhSachTrangThai();
-        return $danhSachTrangThai[$this->trang_thai];
-    }
-
     public function layDanhSachTrangThaiKhuyenMai() {
         return array('Chưa khuyến mãi', 'Khuyến mãi');
     }
@@ -149,12 +137,12 @@ class SanPham extends BaseSanPham
         $criteria->compare('nha_cung_cap_id', $this->nha_cung_cap_id);
         $criteria->compare('loai_san_pham_id', $this->loai_san_pham_id);
 
-        if(!empty($this->ma_chi_nhanh)) {
+        if(!empty($this->chi_nhanh_id)) {
             //search with related data
             // connect SanPham Model with it own relations
             $criteria->with = 'tblChiNhanhs';
             $criteria->together = true;
-            $criteria->compare('tblChiNhanhs.id',$this->ma_chi_nhanh,true);
+            $criteria->compare('tblChiNhanhs.id',$this->chi_nhanh_id,true);
         }
 
         return new CActiveDataProvider($this, array(
@@ -218,6 +206,22 @@ class SanPham extends BaseSanPham
     }
 
 
+    public function layDanhSachChiNhanh() {
+        $chiNhanh = new ChiNhanh();
+        $chiNhanh->san_pham_id = $this->id;
+        $dataProvider = $chiNhanh->search();
+        $danhSachChiNhanh = $dataProvider->getData();
+        foreach($danhSachChiNhanh as $chiNhanhCon)
+            $chiNhanhCon->san_pham_id = $this->id;
+        $dataProvider->model = $danhSachChiNhanh;
+        return $dataProvider;
+    }
+
+    public function layTongSoLuongTon() {
+
+    }
+
+
     public function xuatFileExcel() {
 
         $criteria = new CDbCriteria;
@@ -228,12 +232,12 @@ class SanPham extends BaseSanPham
         $criteria->compare('t.trang_thai', $this->trang_thai);
         $criteria->compare('nha_cung_cap_id', $this->nha_cung_cap_id);
         $criteria->compare('loai_san_pham_id', $this->loai_san_pham_id);
-        if(!empty($this->ma_chi_nhanh)) {
+        if(!empty($this->chi_nhanh_id)) {
             //search with related data
             // connect SanPham Model with it own relations
             $criteria->with = 'tblChiNhanhs';
             $criteria->together = true;
-            $criteria->compare('tblChiNhanhs.id',$this->ma_chi_nhanh,true);
+            $criteria->compare('tblChiNhanhs.id',$this->chi_nhanh_id,true);
         }
 
         $event = new CPOSSessionEvent();

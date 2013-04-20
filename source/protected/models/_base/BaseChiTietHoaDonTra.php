@@ -15,7 +15,7 @@
  * @property double $don_gia
  *
  */
-abstract class BaseChiTietHoaDonTra extends GxActiveRecord {
+abstract class BaseChiTietHoaDonTra extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

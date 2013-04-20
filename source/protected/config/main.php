@@ -25,6 +25,7 @@ return array(
         'ext.eexcelview.*',
         'ext.ebreadcrumbs.*',
         'ext.custom-validator.*',
+        'ext.custom-widgets.*'    //custom widgets
 
 	),
 

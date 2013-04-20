@@ -1,6 +1,6 @@
 <?php
 
-class HoaDonBanHangController extends GxController {
+class HoaDonBanHangController extends CPOSController {
     public $layout = '//layouts/column2';
 
 	public function actionChiTiet($id) {

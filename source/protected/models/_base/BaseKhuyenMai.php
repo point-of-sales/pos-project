@@ -22,7 +22,7 @@
  * @property ChiNhanh $chiNhanh
  * @property ChiNhanh[] $tblChiNhanhs
  */
-abstract class BaseKhuyenMai extends GxActiveRecord {
+abstract class BaseKhuyenMai extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

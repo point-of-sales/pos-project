@@ -1,6 +1,6 @@
 <?php
 
-class NhaCungCapController extends GxController {
+class NhaCungCapController extends CPOSController {
 
 
 	public function actionChiTiet($id) {

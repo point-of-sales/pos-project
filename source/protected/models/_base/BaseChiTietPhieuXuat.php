@@ -15,7 +15,7 @@
  * @property double $gia_xuat
  *
  */
-abstract class BaseChiTietPhieuXuat extends GxActiveRecord {
+abstract class BaseChiTietPhieuXuat extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

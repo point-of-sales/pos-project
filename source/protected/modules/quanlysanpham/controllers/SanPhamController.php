@@ -1,18 +1,14 @@
 <?php
 
-class SanPhamController extends GxController {
+class SanPhamController extends CPOSController {
 
 
 	public function actionChiTiet($id) {
 
         $model = $this->loadModel($id, 'SanPham');
         //lay danh sach cac moc gia cua san pham nay
-        $danhSachMocGia = $model->layDanhSachMocGia();
-        $giaHienTai = $model->layGiaHienTai();
         $this->render('chitiet', array(
 			'model' => $model,
-            'danhSachMocGia'=>$danhSachMocGia,
-            'giaHienTai'=>$giaHienTai,
 		));
 	}
 
@@ -131,7 +127,7 @@ class SanPhamController extends GxController {
             // set vao session
             Yii::app()->session['SanPham'] = $_GET['SanPham'];
             $model->setAttributes($_GET['SanPham']);
-            $model->ma_chi_nhanh = $_GET['SanPham']['tblChiNhanhs'];
+            $model->chi_nhanh_id = $_GET['SanPham']['tblChiNhanhs'];
         }
         $this->render('danhsach',array('model'=>$model));
 	}
@@ -142,7 +138,7 @@ class SanPhamController extends GxController {
 
         if(isset(Yii::app()->session['SanPham'])) {
             $model->setAttributes(Yii::app()->session['SanPham']);
-            $model->ma_chi_nhanh = Yii::app()->session['SanPham']['tblChiNhanhs'];
+            $model->chi_nhanh_id = Yii::app()->session['SanPham']['tblChiNhanhs'];
             // Gan handler voi event
             $handler = new CPOSEventHandler();
             $model->onAfterExport = array($handler,'clearExportSession');

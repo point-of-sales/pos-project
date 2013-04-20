@@ -16,7 +16,7 @@
  *
  * @property SanPham $sanPham
  */
-abstract class BaseMocGia extends GxActiveRecord {
+abstract class BaseMocGia extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

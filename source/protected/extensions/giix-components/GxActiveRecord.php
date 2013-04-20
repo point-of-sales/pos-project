@@ -14,7 +14,7 @@
  *
  * @author Rodrigo Coelho <rodrigo@giix.org>
  */
-abstract class GxActiveRecord extends CPOSActiveRecord {
+abstract class GxActiveRecord extends CActiveRecord {
 
     /**
      * @var string the separator used to separate the primary keys values in a

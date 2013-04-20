@@ -9,6 +9,14 @@ class MocGia extends BaseMocGia
         return parent::model($className);
     }
 
+    public static function label($n = 1) {
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'Price level');
+        } else {
+            return Yii::t('viLib', 'Prices level');
+        }
+    }
+
     public function attributeLabels()
     {
         return array(
@@ -20,13 +28,6 @@ class MocGia extends BaseMocGia
         );
     }
 
-    public function beforeSave() {
-        if (parent::beforeSave()) {
-            $this->thoi_gian_bat_dau = date('Y-m-d',strtotime($this->thoi_gian_bat_dau));
-            return true;
-        }
-
-    }
 
     public function rules() {
         return array(

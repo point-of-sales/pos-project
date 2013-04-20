@@ -1,6 +1,6 @@
 <?php
 
-class KhuVucController extends GxController {
+class KhuVucController extends CPOSController {
 
 
 	public function actionChiTiet($id) {

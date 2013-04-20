@@ -1,6 +1,6 @@
 <?php
 
-class KhachHangController extends GxController {
+class KhachHangController extends CPOSController {
 
 
 	public function actionChiTiet($id) {

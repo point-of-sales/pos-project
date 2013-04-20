@@ -1,6 +1,6 @@
 <?php
 
-class ChiNhanhController extends GxController
+class ChiNhanhController extends CPOSController
 {
 
 

@@ -1,7 +1,8 @@
 <?php
-
 $this->breadcrumbs = array(
-	$model->label(2) => array('danhsach'),
+    Yii::t('viLib', 'Product management')=>array('sanPham/danhsach'),
+    Yii::t('viLib','Gift product')=>array('sanPhamTang/danhsach'),
+    Yii::t('viLib', 'Detail')=>array(),
 	GxHtml::valueEx($model),
 );
 
@@ -19,23 +20,29 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data' => $model,
 	'attributes' => array(
-'id',
 'ma_vach',
 'ten_san_pham',
 'gia_tang',
-'thoi_gian_bat_dau',
-'thoi_gian_ket_thuc',
+array('name'=>'thoi_gian_bat_dau',
+       'value'=>$model->formatDate('thoi_gian_bat_dau')
+),
+array('name'=>'thoi_gian_ket_thuc',
+    'value'=>$model->formatDate('thoi_gian_ket_thuc')
+),
 'mo_ta',
-	),
-)); ?>
+array('name'=>'trang_thai',
+      'value'=>$model->layTenTrangThai()),
+	),));
 
-<h2><?php echo GxHtml::encode($model->getRelationLabel('tblChiNhanhs')); ?></h2>
+?>
+
+<h2><?php //echo GxHtml::encode($model->getRelationLabel('tblChiNhanhs')); ?></h2>
 <?php
-	echo GxHtml::openTag('ul');
+	/*echo GxHtml::openTag('ul');
 	foreach($model->tblChiNhanhs as $relatedModel) {
 		echo GxHtml::openTag('li');
 		echo GxHtml::link(GxHtml::encode(GxHtml::valueEx($relatedModel)), array('chiNhanh/view', 'id' => GxActiveRecord::extractPkValue($relatedModel, true)));
 		echo GxHtml::closeTag('li');
 	}
-	echo GxHtml::closeTag('ul');
+	echo GxHtml::closeTag('ul');*/
 ?>

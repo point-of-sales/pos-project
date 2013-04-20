@@ -16,7 +16,7 @@
  * @property integer $trang_thai
  *
  */
-abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
+abstract class BaseSanPhamChiNhanh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

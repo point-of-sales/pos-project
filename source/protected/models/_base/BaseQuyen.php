@@ -20,7 +20,7 @@
  * @property PhanQuyen[] $phanQuyens
  * @property PhanQuyen[] $phanQuyens1
  */
-abstract class BaseQuyen extends GxActiveRecord {
+abstract class BaseQuyen extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
