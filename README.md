@@ -20,8 +20,10 @@ D. Language and technology:
 
     Languages : PHP, MYSQL, Javascript, CSS, HTML.
     Technologies are used in project: 
-    Yii Framework, JQuery, Ajax ... E
+    Yii Framework, JQuery, Ajax ... 
+    
 E. Knowleadge base : 
+
     Object-oriented analysis and design, OOP
 
 
