@@ -1,4 +1,5 @@
 var maInput = "#form-hd-ban-ma-input";
+var gridTable = "#items"; 
 
 //chong reload page khi enter input text
 function stopRKey(evt) {
@@ -19,11 +20,30 @@ function keypressInputMa(e){
 
 function getSanPhamBan(){
     var ma = $(maInput).val();
-    var url = "getsanphamban/ma_vach/" + ma;
-    $.post(url,{
-        ma_vach:ma,
-    },
-    function (data,status){
-        $.fn.yiiGridView.update('form-hd-ban-grid');
+    var strUrl = "getsanphamban/ma_vach/" + ma;
+    $.ajax({
+        url: strUrl,
+        type: 'POST',
+        success: function(data){
+            var item = $.parseJSON(data);
+            var even_odd = 'even';
+            if(getNumRowsTable()%2 == 0)
+                even_odd = 'odd';
+            var strRow = 
+                '<tr class="' + even_odd + '">' +
+                    '<input type="hidden" value="' + item.id + '" id="" />' +
+                    '<td>' + item.ma_vach + '</td>' +
+                    '<td>' + item.ten_san_pham + '</td>' +
+                    '<td><input type="text" id="" class="" /></td>' +
+                    '<td>' + item.ma_vach + '</td>' +
+                    '<td>' + item.ma_vach + '</td>' +
+                    '<td></td>' +
+                '</tr>';
+            $(gridTable).append(strRow);
+        }
     });
+}
+
+function getNumRowsTable(){
+    return $(gridTable+' tr').length - 1;
 }

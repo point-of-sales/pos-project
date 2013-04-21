@@ -24,6 +24,16 @@
 		<?php echo $form->textField($model, 'ten_loai', array('maxlength' => 100)); ?>
 		<?php echo $form->error($model,'ten_loai'); ?>
 		</div><!-- row -->
+        <div class="row cus-row">
+		<?php echo $form->labelEx($model,'doanh_so'); ?>
+		<?php echo $form->textField($model, 'doanh_so', array('maxlength' => 100)); ?>
+		<?php echo $form->error($model,'doanh_so'); ?>
+		</div><!-- row -->
+        <div class="row cus-row">
+		<?php echo $form->labelEx($model,'giam_gia'); ?>
+		<?php echo $form->textField($model, 'giam_gia', array('maxlength' => 100)); ?>
+		<?php echo $form->error($model,'giam_gia'); ?>
+		</div><!-- row -->
 
         <div class="btn-save">
             <?php

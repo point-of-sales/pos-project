@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
     <div id="form-hd-ban-info">
     	<div id="form-hd-ban-info-left">
         	<div id="form-hd-ban-ma">
-            	<span id="form-hd-ban-ma-label">Mã sản phẩm</span>
+            	<span id="form-hd-ban-ma-label">Mã vạch</span>
                 <span><input id="form-hd-ban-ma-input" type="text" onkeypress="keypressInputMa(event)" /></span>
             </div>
         </div>
@@ -68,23 +68,35 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
         </div>
     </div>
     <div id="form-hd-ban-list">
-        <?php 
-        $this->widget('zii.widgets.grid.CGridView', array(
-            'id' => 'form-hd-ban-grid',
-            'dataProvider' => $model->search(),
-            'columns' => array(
-                    		'ma_vach',
-                            array(
-                                'header'=>'So Luong',
-                                'value'=>'CHTML::textField("so_luong","",array("maxlength"=>3,"width"=>20))',
-                                'htmlOptions'=>array('width'=>'20px')
-                            ),
-                    		'don_gia',
-                    		'thanh_tien',
-                            ),
-                        )
-                    );
-        ?>
+        <div id="grid" class="grid-view">
+            <table class="items" id="items">
+                <tr>
+                    <th>Mã vạch</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+                <tr class="odd">
+                    <input type="hidden" value="" id="" />
+                    <td>aaaaa</td>
+                    <td>aaaaa</td>
+                    <td></td>
+                    <td>aaaaa</td>
+                    <td>aaaaa</td>
+                    <td></td>
+                </tr>
+                <tr class="even">
+                    <td>aaaaa</td>
+                    <td>aaaaa</td>
+                    <td>aaaaa</td>
+                    <td>aaaaa</td>
+                    <td>aaaaa</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div id="form-hd-ban-command">
     	<div id="form-hd-ban-button">

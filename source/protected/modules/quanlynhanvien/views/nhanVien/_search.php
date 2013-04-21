@@ -33,14 +33,14 @@
         <div class="row cus-row">
 		<?php echo $form->label($model, 'gioi_tinh'); ?>
         <div class="radio-list">
-		    <?php echo $form->radioButtonList($model, 'gioi_tinh',$model->getOptions(2)); ?>
+		    <?php echo $form->radioButtonList($model, 'gioi_tinh',$model->getOptions(2,true)); ?>
         </div>
 	</div>
 
                     <div class="row cus-row">
 		<?php echo $form->label($model, 'trang_thai'); ?>
         <div class="radio-list">
-		    <?php echo $form->radioButtonList($model, 'trang_thai',$model->getOptions()); ?>
+		    <?php echo $form->radioButtonList($model, 'trang_thai',$model->getOptions(1,true)); ?>
         </div>
 	</div>
 

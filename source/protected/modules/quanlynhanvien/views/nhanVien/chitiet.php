@@ -26,14 +26,23 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 'dien_thoai',
 'dia_chi',
 'gioi_tinh',
-'ngay_sinh',
+array(
+        'name'=>'ngay_sinh',
+        'value'=>date('d-m-Y',strtotime($model->ngay_sinh)),
+    ),
 'trinh_do',
 'luong_co_ban',
 'chuyen_mon',
 'trang_thai',
 'mat_khau',
-'ngay_vao_lam',
-'lan_dang_nhap_cuoi',
+array(
+        'name'=>'ngay_vao_lam',
+        'value'=>date('d-m-Y',strtotime($model->ngay_vao_lam)),
+    ),
+array(
+        'name'=>'lan_dang_nhap_cuoi',
+        'value'=>date('d-m-Y',strtotime($model->lan_dang_nhap_cuoi)),
+    ),
 array(
 			'name' => 'loaiNhanVien',
 			'type' => 'raw',

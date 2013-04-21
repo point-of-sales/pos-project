@@ -136,14 +136,24 @@ class NhanVien extends BaseNhanVien
         }
     }
 
-    public function getOptions($id=1){
+    public function getOptions($id=1,$all=false){
         switch ($id){
             case 1:{
-                return array('Kích hoạt','Chưa kích hoạt');
+                $arr = array('Chưa kích hoạt','kích hoạt');
             }break;
             case 2:{
-                return array('Nam','Nữ');
-            }
+                $arr = array('Nam','Nữ');
+            }break;
+        }
+        if($all)
+            $arr[''] = 'Tất cả';
+        return $arr;
+    }
+    
+    public function beforeSave(){
+        if(parent::beforeSave()){
+            $this->ngay_sinh = date('Y-m-d',strtotime($this->ngay_sinh));
+            return true;
         }
     }
 

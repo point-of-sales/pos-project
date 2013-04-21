@@ -155,11 +155,14 @@ class HoaDonBanHangController extends GxController {
     
     public function actionGetSanPhamBan($ma_vach){
         if (Yii::app()->getRequest()->getIsAjaxRequest()) {
-            $model = new SanPham();
             if (isset($ma_vach))
-                $crt = array('ma_vach'=>$ma_vach);
-                $model->findAllAttributes();
-                echo $model->ten_san_pham;
+                $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+                $item = array(
+                    'id' => $model->getAttribute('id'), 
+                    'ma_vach' => $model->getAttribute('ma_vach'),
+                    'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+                );
+                echo json_encode($item);
             }
         else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
