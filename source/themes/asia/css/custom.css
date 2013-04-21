@@ -136,3 +136,31 @@ h1 {
 #ui-datepicker-div  {
     display:none;
 }
+
+/*start sub-title */
+.sub-title {
+    margin-top:15px;
+    height:40px;   
+    font-weight:bold;
+    width:100%;
+    line-height:20px;
+    background-color:#00a0c4;
+}
+
+.sub-title p {
+    line-height:20px;
+    margin-left:25px;
+    font-size:1.3em;
+    color:white;
+}
+
+/*end sub-title */
+#main-content h1 {
+    color:red;
+    padding-top:18px;
+    line-height:15px;
+    padding-left:25px;
+    color:white;
+    background-color:#5e82a3;
+    font-weight:bold;
+}

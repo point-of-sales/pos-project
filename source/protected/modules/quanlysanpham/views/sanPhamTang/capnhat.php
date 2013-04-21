@@ -1,9 +1,9 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	GxHtml::valueEx($model) => array('view', 'id' => GxActiveRecord::extractPkValue($model, true)),
-	Yii::t('viLib', 'Update'),
+    Yii::t('viLib', 'Product management')=>array('sanPham/danhsach'),
+    Yii::t('viLib','Gift product')=>array('sanPhamTang/danhsach'),
+    Yii::t('viLib', 'Update'),
 );
 
 $this->menu = array(

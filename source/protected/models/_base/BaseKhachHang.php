@@ -24,7 +24,7 @@
  * @property HoaDonBanHang[] $hoaDonBanHangs
  * @property LoaiKhachHang $loaiKhachHang
  */
-abstract class BaseKhachHang extends GxActiveRecord {
+abstract class BaseKhachHang extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

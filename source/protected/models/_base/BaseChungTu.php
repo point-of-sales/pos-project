@@ -24,7 +24,7 @@
  * @property PhieuNhap $phieuNhap
  * @property PhieuXuat $phieuXuat
  */
-abstract class BaseChungTu extends GxActiveRecord {
+abstract class BaseChungTu extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -52,6 +52,8 @@ abstract class BaseChungTu extends GxActiveRecord {
 			array('nhan_vien_id, chi_nhanh_id', 'numerical', 'integerOnly'=>true),
 			array('tri_gia', 'numerical'),
 			array('ma_chung_tu', 'length', 'max'=>15),
+			array('ghi_chu', 'safe'),
+			array('ghi_chu', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, ma_chung_tu, ngay_lap, tri_gia, ghi_chu, nhan_vien_id, chi_nhanh_id', 'safe', 'on'=>'search'),
 		);
 	}

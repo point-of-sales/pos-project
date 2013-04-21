@@ -1,6 +1,6 @@
 <?php
 
-class LoaiChiNhanhController extends GxController {
+class LoaiChiNhanhController extends CPOSController {
 
 
 	public function actionChiTiet($id) {
@@ -117,40 +117,30 @@ class LoaiChiNhanhController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
-
-        $model = new LoaiChiNhanh('search');
-        $model->unsetAttributes();
-
-        if (isset($_GET['LoaiChiNhanh']))
-        $model->setAttributes($_GET['LoaiChiNhanh']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new LoaiChiNhanh('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['LoaiChiNhanh']))
-			$model->setAttributes($_GET['LoaiChiNhanh']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
-
-    public function  actionXuat() {
+    public function actionDanhSach() {
 
         $model = new LoaiChiNhanh('search');
         $model->unsetAttributes();
         if(isset($_GET['LoaiChiNhanh'])) {
+            // set vao session
+            Yii::app()->session['LoaiChiNhanh'] = $_GET['LoaiChiNhanh'];
             $model->setAttributes($_GET['LoaiChiNhanh']);
-            $dataProvider = $model->search();
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        $this->render('danhsach',array('model'=>$model));
     }
 
+    public function  actionXuat() {
+        $model = new LoaiChiNhanh('search');
+        $model->unsetAttributes();
+
+        if(isset(Yii::app()->session['LoaiChiNhanh'])) {
+            $model->setAttributes(Yii::app()->session['LoaiChiNhanh']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
+        }
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('LoaiChiNhanh')));
+    }
 }

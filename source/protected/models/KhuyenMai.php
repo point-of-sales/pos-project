@@ -9,75 +9,10 @@ class KhuyenMai extends BaseKhuyenMai
 	}
 
 
-    public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
-        $criteria = new CDbCriteria();
-        if($primaryKey > 0) {
-            return KhuyenMai::model()->findByPk($primaryKey);
-        }
-
-        if(!empty($params)) {
-            if(is_array($params) ) {
-                foreach($params as $cond=>$value) {
-                if($criteria->condition=='') {
-                if(is_string($value)) {
-                    $value = stripcslashes($value);
-                    $value = addslashes($value);
-                }
-                    $criteria->condition = $cond .'='."'$value'" . ' AND ';
-                } else {
-                    $criteria->condition = $criteria->condition . ' ' .  $cond .'='."'$value'" . ' AND ';
-                }
-            }
-
-                $criteria->condition = substr($criteria->condition,0,strlen($criteria->condition)-5);
-
-                if($operator=='OR') {
-                    //replace AND with OR
-                    $criteria->condition = str_replace(' AND ',' OR ', $criteria->condition);
-                }
-
-            } else {
-                $criteria->condition = $params;
-            }
-
-            if($limit > 0) {
-                $criteria->limit = $limit;
-            }
-
-            if($order!='') {
-                $criteria->order = $order .' ' .$orderType;
-            }
-                return KhuyenMai::model()->findAll($criteria);
-            } else {
-
-                return KhuyenMai::model()->findAll();
-            }
-        }
-
-    public function kiemTraQuanHe() {
-        $rels = $this->relations();
-        foreach($rels as $relLabel=>$value) {
-            if($value[0]!=parent::BELONGS_TO) {
-                $tmp = $this->getRelated($relLabel);
-                if(!empty($tmp)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    private  function timKhoaUnique($schema) {
-        foreach($schema as $k=>$v) {
-            if(substr($k,0,3)=='ma_') {
-                return $k;
-            }
-        }
-    }
     public function them($params) {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-        if(!$exist) {
+
+        if(!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
                     $relatedData = array(
@@ -93,14 +28,10 @@ class KhuyenMai extends BaseKhuyenMai
 
     public function capNhat($params) {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        // lay ma_ cu
-        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
                     $relatedData = array(
 				'tblChiNhanhs' => $_POST['KhuyenMai']['tblChiNhanhs'] === '' ? null : $_POST['KhuyenMai']['tblChiNhanhs'],
 				);
-                if(!$exist) {
+                if(!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
                             if ($this->saveWithRelated($relatedData))
                                 return 'ok';
@@ -109,7 +40,7 @@ class KhuyenMai extends BaseKhuyenMai
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($this->soKhopMa($params)) {
             $this->setAttributes($params);
                             if ($this->saveWithRelated($relatedData))
                                 return 'ok';
@@ -134,10 +65,27 @@ class KhuyenMai extends BaseKhuyenMai
     }
 
 
+    public function xuatFileExcel() {
+        $criteria = new CDbCriteria;
 
+                                $criteria->compare('id', $this->id);
+                                $criteria->compare('ma_chuong_trinh', $this->ma_chuong_trinh, true);
+                                $criteria->compare('ten_chuong_trinh', $this->ten_chuong_trinh, true);
+                                $criteria->compare('mo_ta', $this->mo_ta, true);
+                                $criteria->compare('gia_giam', $this->gia_giam);
+                                $criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
+                                $criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
+                                $criteria->compare('trang_thai', $this->trang_thai);
+                                $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
+        
+        $event = new CPOSSessionEvent();
+        $event->currentSession = Yii::app()->session['KhuyenMai'];
+        $this->onAfterExport($event);
 
-
-
+        return new CActiveDataProvider($this, array(
+        'criteria' => $criteria,
+        ));
+        }
 
 
 }

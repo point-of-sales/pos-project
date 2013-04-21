@@ -54,44 +54,19 @@ array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{update}{delete}',
     'buttons'=>array(
-            'view'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "chitiet",array("id"=>$data->id))',
+        'view'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
-            ),
-            'update'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "capnhat",array("id"=>$data->id))',
+        ),
+        'update'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Update'),
-            ),
-            'delete'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "xoagrid",array("id"=>$data->id))',
+        ),
+        'delete'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Delete'),
-            'click' => "js:function(){
-
-                    var r = confirm('Bạn có muốn xóa không ?');
-                    if(r) {
-                        var url = $(this).attr('href');
-                         $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
-                         type:'POST',
-                         url:$(this).attr('href'),
-                         success:function(data) {
-                            if(jQuery.type(data) == 'string' && data!='') {
-                                $('.search-form').after(
-                                    '<div class=error>'+data+'</div>'
-                            );
-                            $('.error').addClass('response-msg');
-                            $('.error').addClass('ui-corner-all')
-                            $('.error').fadeOut(5000);
-                         }
-
-                         $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
-                    }
-                    })
-                        return false;
-                    } else {
-                        return false;
-                        }
-                    }",
-            ),
+            'click' =>Helpers::deleteButtonClick(),
+        ),
 
     ),
     ),

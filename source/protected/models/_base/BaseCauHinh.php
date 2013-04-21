@@ -15,7 +15,7 @@
  * @property integer $so_luong_ton_canh_bao
  *
  */
-abstract class BaseCauHinh extends GxActiveRecord {
+abstract class BaseCauHinh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

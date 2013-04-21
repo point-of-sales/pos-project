@@ -6,7 +6,11 @@
  * Email: crist.azn@gmail.com | Phone : 0963-500-980 
  */
 
-class CDateTimeValidator extends CValidator{
+/*
+ * Lop cung cap valid cac format ngay thang
+ */
+
+class CPOSDateTimeValidator extends CValidator{
 
     public function validateAttribute($object,$attribute) {
         $currentTimeStamp = time();
@@ -18,4 +22,7 @@ class CDateTimeValidator extends CValidator{
         }
 
     }
+
+
+
 }

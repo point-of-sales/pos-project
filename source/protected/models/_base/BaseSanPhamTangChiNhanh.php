@@ -11,13 +11,10 @@
  *
  * @property integer $san_pham_tang_id
  * @property integer $chi_nhanh_id
- * @property double $gia_tang
- * @property string $thoi_gian_bat_dau
- * @property string $thoi_gian_ket_thuc
  * @property integer $so_ton
  *
  */
-abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
+abstract class BaseSanPhamTangChiNhanh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -44,12 +41,10 @@ abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('san_pham_tang_id, chi_nhanh_id', 'required'),
+			array('chi_nhanh_id', 'required'),
 			array('san_pham_tang_id, chi_nhanh_id, so_ton', 'numerical', 'integerOnly'=>true),
-			array('gia_tang', 'numerical'),
-			array('thoi_gian_bat_dau, thoi_gian_ket_thuc', 'safe'),
-			array('gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, so_ton', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('san_pham_tang_id, chi_nhanh_id, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, so_ton', 'safe', 'on'=>'search'),
+			array('san_pham_tang_id, so_ton', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('san_pham_tang_id, chi_nhanh_id, so_ton', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,9 +62,6 @@ abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
 		return array(
 			'san_pham_tang_id' => null,
 			'chi_nhanh_id' => null,
-			'gia_tang' => Yii::t('app', 'Gia Tang'),
-			'thoi_gian_bat_dau' => Yii::t('app', 'Thoi Gian Bat Dau'),
-			'thoi_gian_ket_thuc' => Yii::t('app', 'Thoi Gian Ket Thuc'),
 			'so_ton' => Yii::t('app', 'So Ton'),
 		);
 	}
@@ -79,9 +71,6 @@ abstract class BaseSanPhamTangChiNhanh extends GxActiveRecord {
 
 		$criteria->compare('san_pham_tang_id', $this->san_pham_tang_id);
 		$criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
-		$criteria->compare('gia_tang', $this->gia_tang);
-		$criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
-		$criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
 		$criteria->compare('so_ton', $this->so_ton);
 
 		return new CActiveDataProvider($this, array(

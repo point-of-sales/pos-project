@@ -12,7 +12,6 @@ $this->widget('CEExcelView', array(
     'autoWidth'=>false,
     'category'=>'',
     'documentTitle'=>'Danh Sách Chi Nhánh',
-    'template'=> CEExcelView::NORMAL_LIST,
     'columns'=>array(
                     'id',
                     'ma_chi_nhanh',

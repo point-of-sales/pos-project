@@ -15,7 +15,7 @@
  *
  * @property ChiNhanh[] $chiNhanhs
  */
-abstract class BaseLoaiChiNhanh extends GxActiveRecord {
+abstract class BaseLoaiChiNhanh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

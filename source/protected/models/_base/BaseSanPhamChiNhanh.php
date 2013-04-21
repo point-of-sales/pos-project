@@ -7,7 +7,7 @@
  * property or method in class "SanPhamChiNhanh".
  *
  * Columns in table "tbl_SanPhamChiNhanh" available as properties of the model,
- * followed by relations of table "tbl_SanPhamChiNhanh" available as properties of the model.
+ * and there are no model relations.
  *
  * @property integer $chi_nhanh_id
  * @property integer $san_pham_id
@@ -15,9 +15,8 @@
  * @property integer $so_ton
  * @property integer $trang_thai
  *
- * @property MocGia[] $mocGias
  */
-abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
+abstract class BaseSanPhamChiNhanh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -52,7 +51,6 @@ abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
 
 	public function relations() {
 		return array(
-			'mocGias' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
 		);
 	}
 
@@ -68,7 +66,6 @@ abstract class BaseSanPhamChiNhanh extends GxActiveRecord {
 			'khuyen_mai_id' => null,
 			'so_ton' => Yii::t('app', 'So Ton'),
 			'trang_thai' => Yii::t('app', 'Trang Thai'),
-			'mocGias' => null,
 		);
 	}
 

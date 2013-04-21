@@ -66,62 +66,26 @@ array(
     'buttons'=>array(
             'active' => array(
                     'label' => '',
-                    'url' => 'Yii::app()->createUrl("/quanlynhanvien/nhanvien/ajaxActive", array("id"=>$data->id))',
+                    'url' =>'Helpers::urlRouting(Yii::app()->controller,"","ajaxActive",array("id"=>$data->id))',
                     'options' => array('class' => 'active_button', 
                                         'title' =>'Enable/Disable visible this product',
                                         'id' => 'active_button'
                             ),
                     'imageUrl' => Yii::app()->request->baseUrl.'/themes/asia/images/icons/active.png',
-                    'click' => "js:function(){
-                                        var url = $(this).attr('href');
-                                        $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
-                                            type:'POST',
-                                            url:$(this).attr('href'),
-                                            success:function(data) {
-                                              $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
-                                            }
-                                        })
-                                        return false;
-                                      }
-                                    ",
+                    'click' => Helpers::refreshGrid(),
                     ),
             'view'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "chitiet",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','View'),
+                'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
+                'label'=>Yii::t('viLib','View'),
             ),
             'update'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "capnhat",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Update'),
+                'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
+                'label'=>Yii::t('viLib','Update'),
             ),
             'delete'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "xoagrid",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Delete'),
-            'click' => "js:function(){
-
-                    var r = confirm('Bạn có muốn xóa không ?');
-                    if(r) {
-                        var url = $(this).attr('href');
-                         $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
-                         type:'POST',
-                         url:$(this).attr('href'),
-                         success:function(data) {
-                            if(jQuery.type(data) == 'string' && data!='') {
-                                $('.search-form').after(
-                                    '<div class=error>'+data+'</div>'
-                            );
-                            $('.error').addClass('response-msg');
-                            $('.error').addClass('ui-corner-all')
-                            $('.error').fadeOut(5000);
-                         }
-
-                         $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
-                    }
-                    })
-                        return false;
-                    } else {
-                        return false;
-                        }
-                    }",
+                'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
+                'label'=>Yii::t('viLib','Delete'),
+                'click' =>Helpers::deleteButtonClick(),
             ),
 
     ),

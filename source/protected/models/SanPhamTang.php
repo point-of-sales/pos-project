@@ -4,127 +4,101 @@ Yii::import('application.models._base.BaseSanPhamTang');
 
 class SanPhamTang extends BaseSanPhamTang
 {
-	public static function model($className=__CLASS__) {
-		return parent::model($className);
-	}
-
-
-    public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
-        $criteria = new CDbCriteria();
-        if($primaryKey > 0) {
-            return SanPhamTang::model()->findByPk($primaryKey);
-        }
-
-        if(!empty($params)) {
-            if(is_array($params) ) {
-                foreach($params as $cond=>$value) {
-                if($criteria->condition=='') {
-                if(is_string($value)) {
-                    $value = stripcslashes($value);
-                    $value = addslashes($value);
-                }
-                    $criteria->condition = $cond .'='."'$value'" . ' AND ';
-                } else {
-                    $criteria->condition = $criteria->condition . ' ' .  $cond .'='."'$value'" . ' AND ';
-                }
-            }
-
-                $criteria->condition = substr($criteria->condition,0,strlen($criteria->condition)-5);
-
-                if($operator=='OR') {
-                    //replace AND with OR
-                    $criteria->condition = str_replace(' AND ',' OR ', $criteria->condition);
-                }
-
-            } else {
-                $criteria->condition = $params;
-            }
-
-            if($limit > 0) {
-                $criteria->limit = $limit;
-            }
-
-            if($order!='') {
-                $criteria->order = $order .' ' .$orderType;
-            }
-                return SanPhamTang::model()->findAll($criteria);
-            } else {
-
-                return SanPhamTang::model()->findAll();
-            }
-        }
-
-    public function kiemTraQuanHe() {
-        $rels = $this->relations();
-        foreach($rels as $relLabel=>$value) {
-            if($value[0]!=parent::BELONGS_TO) {
-                $tmp = $this->getRelated($relLabel);
-                if(!empty($tmp)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
     }
-    private  function timKhoaUnique($schema) {
-        foreach($schema as $k=>$v) {
-            if(substr($k,0,3)=='ma_') {
-                return $k;
-            }
+
+
+    public static function label($n = 1) {
+        if($n <= 1 ) {
+            return Yii::t('viLib', 'Gift product');
+        } else {
+            return Yii::t('viLib', 'Gift products');
         }
     }
-    public function them($params) {
+
+    public function rules() {
+        return array(
+            array('ma_vach, ten_san_pham, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, trang_thai', 'required'),
+            array('trang_thai', 'numerical', 'integerOnly'=>true),
+            array('gia_tang', 'numerical'),
+            array('ma_vach', 'length', 'max'=>15),
+            array('ten_san_pham', 'length', 'max'=>100),
+            array('mo_ta', 'safe'),
+            array('mo_ta', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, ma_vach, ten_san_pham, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, mo_ta, trang_thai', 'safe', 'on'=>'search'),
+            array('thoi_gian_bat_dau', 'ext.custom-validator.CPOSDateTimeValidator','on'=>'them'),
+            array('thoi_gian_ket_thuc', 'ext.custom-validator.CPOSDateTimeValidator','on'=>'them'),
+            array('thoi_gian_ket_thuc','compare','compareAttribute'=>'thoi_gian_bat_dau','operator'=>'>','allowEmpty'=>false,'message'=>Yii::t('viLib','End time have to greater start time')),
+        );
+    }
+
+    public function attributeLabels() {
+        return array(
+            'id' => Yii::t('viLib', 'ID'),
+            'ma_vach' => Yii::t('viLib', 'Barcode'),
+            'ten_san_pham' => Yii::t('viLib', 'Product name'),
+            'gia_tang' => Yii::t('viLib', 'Bill value for offering'),
+            'thoi_gian_bat_dau' => Yii::t('viLib', 'Start date'),
+            'thoi_gian_ket_thuc' => Yii::t('viLib', 'End date'),
+            'mo_ta' => Yii::t('viLib', 'Description'),
+            'trang_thai'=>Yii::t('viLib', 'Status'),
+            'tblChiNhanhs' => null,
+        );
+    }
+
+    public function them($params)
+    {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-        if(!$exist) {
+        $this->scenario = 'them';
+        if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-                    $relatedData = array(
-				'tblChiNhanhs' => $_POST['SanPhamTang']['tblChiNhanhs'] === '' ? null : $_POST['SanPhamTang']['tblChiNhanhs'],
-				);
-                            if ($this->saveWithRelated($relatedData))
-                        return 'ok';
+            $relatedData = array(
+                //'tblChiNhanhs' => $_POST['SanPhamTang']['tblChiNhanhs'] === '' ? null : $_POST['SanPhamTang']['tblChiNhanhs'],
+            );
+            if ($this->saveWithRelated($relatedData))
+                return 'ok';
             else
                 return 'fail';
         } else
-                return 'dup-error';
+            return 'dup-error';
     }
 
-    public function capNhat($params) {
+    public function capNhat($params)
+    {
+        $this->scenario = 'capnhat';
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        // lay ma_ cu
-        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-                    $relatedData = array(
-				'tblChiNhanhs' => $_POST['SanPhamTang']['tblChiNhanhs'] === '' ? null : $_POST['SanPhamTang']['tblChiNhanhs'],
-				);
-                if(!$exist) {
+        $relatedData = array(
+            //'tblChiNhanhs' => $_POST['SanPhamTang']['tblChiNhanhs'] === '' ? null : $_POST['SanPhamTang']['tblChiNhanhs'],
+        );
+        if (!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
-                            if ($this->saveWithRelated($relatedData))
-                                return 'ok';
-                else
-                    return 'fail';
+            if ($this->saveWithRelated($relatedData))
+                return 'ok';
+            else
+                return 'fail';
         } else {
 
-        // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
-            $this->setAttributes($params);
-                            if ($this->saveWithRelated($relatedData))
-                                return 'ok';
+            // so sanh ma cu == ma moi
+            if ($this->soKhopMa($params)) {
+                $this->setAttributes($params);
+                if ($this->saveWithRelated($relatedData))
+                    return 'ok';
                 else
                     return 'fail';
-        } else
+            } else
                 return 'dup-error';
 
         }
     }
 
-    public function xoa() {
+    public function xoa()
+    {
         $relation = $this->kiemTraQuanHe($this->id);
-        if(!$relation) {
-            if($this->delete())
+        if (!$relation) {
+            if ($this->delete())
                 return 'ok';
             else
                 return 'fail';
@@ -134,9 +108,26 @@ class SanPhamTang extends BaseSanPhamTang
     }
 
 
+    public function xuatFileExcel()
+    {
+        $criteria = new CDbCriteria;
 
+        $criteria->compare('id', $this->id);
+        $criteria->compare('ma_vach', $this->ma_vach, true);
+        $criteria->compare('ten_san_pham', $this->ten_san_pham, true);
+        $criteria->compare('gia_tang', $this->gia_tang);
+        $criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
+        $criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
+        $criteria->compare('mo_ta', $this->mo_ta, true);
 
+        $event = new CPOSSessionEvent();
+        $event->currentSession = Yii::app()->session['SanPhamTang'];
+        $this->onAfterExport($event);
 
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
 
 

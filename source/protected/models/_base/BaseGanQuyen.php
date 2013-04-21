@@ -15,7 +15,7 @@
  * @property string $tham_so
  *
  */
-abstract class BaseGanQuyen extends GxActiveRecord {
+abstract class BaseGanQuyen extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

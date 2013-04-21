@@ -9,84 +9,10 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
 	}
 
 
-    public function attributeLabels() {
-        return array(
-            'id' => Yii::t('viLib', 'ID'),
-            'ma_loai_chi_nhanh' => Yii::t('viLib', 'Branch type Id'),
-            'ten_loai_chi_nhanh' => Yii::t('viLib', 'Branch type name'),
-            'chiNhanhs' => null,
-        );
-    }
-
-    public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
-        $criteria = new CDbCriteria();
-        if($primaryKey > 0) {
-            return LoaiChiNhanh::model()->findByPk($primaryKey);
-        }
-
-        if(!empty($params)) {
-            if(is_array($params) ) {
-                foreach($params as $cond=>$value) {
-                if($criteria->condition=='') {
-                if(is_string($value)) {
-                    $value = stripcslashes($value);
-                    $value = addslashes($value);
-                }
-                    $criteria->condition = $cond .'='."'$value'" . ' AND ';
-                } else {
-                    $criteria->condition = $criteria->condition . ' ' .  $cond .'='."'$value'" . ' AND ';
-                }
-            }
-
-                $criteria->condition = substr($criteria->condition,0,strlen($criteria->condition)-5);
-
-                if($operator=='OR') {
-                    //replace AND with OR
-                    $criteria->condition = str_replace(' AND ',' OR ', $criteria->condition);
-                }
-
-            } else {
-                $criteria->condition = $params;
-            }
-
-            if($limit > 0) {
-                $criteria->limit = $limit;
-            }
-
-            if($order!='') {
-                $criteria->order = $order .' ' .$orderType;
-            }
-                return LoaiChiNhanh::model()->findAll($criteria);
-            } else {
-
-                return LoaiChiNhanh::model()->findAll();
-            }
-        }
-
-    public function kiemTraQuanHe() {
-        $rels = $this->relations();
-        foreach($rels as $relLabel=>$value) {
-            if($value[0]!=parent::BELONGS_TO) {
-                $tmp = $this->getRelated($relLabel);
-                if(!empty($tmp)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    private  function timKhoaUnique($schema) {
-        foreach($schema as $k=>$v) {
-            if(substr($k,0,3)=='ma_') {
-                return $k;
-            }
-        }
-    }
     public function them($params) {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-        if(!$exist) {
+
+        if(!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
                             if ($this->save())
@@ -99,11 +25,7 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
 
     public function capNhat($params) {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        // lay ma_ cu
-        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-                if(!$exist) {
+                if(!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -112,7 +34,7 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $params[$uniqueKeyLabel]) {
+        if($this->soKhopMa($params)) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -135,5 +57,23 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
             return 'rel-error';
         }
     }
+
+
+    public function xuatFileExcel() {
+        $criteria = new CDbCriteria;
+
+                                $criteria->compare('id', $this->id);
+                                $criteria->compare('ma_loai_chi_nhanh', $this->ma_loai_chi_nhanh, true);
+                                $criteria->compare('ten_loai_chi_nhanh', $this->ten_loai_chi_nhanh, true);
+        
+        $event = new CPOSSessionEvent();
+        $event->currentSession = Yii::app()->session['LoaiChiNhanh'];
+        $this->onAfterExport($event);
+
+        return new CActiveDataProvider($this, array(
+        'criteria' => $criteria,
+        ));
+        }
+
 
 }

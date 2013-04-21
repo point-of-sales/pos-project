@@ -12,11 +12,15 @@
  * @property integer $id
  * @property string $ma_vach
  * @property string $ten_san_pham
+ * @property double $gia_tang
+ * @property string $thoi_gian_bat_dau
+ * @property string $thoi_gian_ket_thuc
  * @property string $mo_ta
+ * @property integer $trang_thai
  *
  * @property ChiNhanh[] $tblChiNhanhs
  */
-abstract class BaseSanPhamTang extends GxActiveRecord {
+abstract class BaseSanPhamTang extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -40,12 +44,14 @@ abstract class BaseSanPhamTang extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_vach', 'required'),
+			array('ma_vach, ten_san_pham, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, trang_thai', 'required'),
+			array('trang_thai', 'numerical', 'integerOnly'=>true),
+			array('gia_tang', 'numerical'),
 			array('ma_vach', 'length', 'max'=>15),
 			array('ten_san_pham', 'length', 'max'=>100),
 			array('mo_ta', 'safe'),
-			array('ten_san_pham, mo_ta', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, ma_vach, ten_san_pham, mo_ta', 'safe', 'on'=>'search'),
+			array('mo_ta', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, ma_vach, ten_san_pham, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, mo_ta, trang_thai', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,7 +72,11 @@ abstract class BaseSanPhamTang extends GxActiveRecord {
 			'id' => Yii::t('app', 'ID'),
 			'ma_vach' => Yii::t('app', 'Ma Vach'),
 			'ten_san_pham' => Yii::t('app', 'Ten San Pham'),
+			'gia_tang' => Yii::t('app', 'Gia Tang'),
+			'thoi_gian_bat_dau' => Yii::t('app', 'Thoi Gian Bat Dau'),
+			'thoi_gian_ket_thuc' => Yii::t('app', 'Thoi Gian Ket Thuc'),
 			'mo_ta' => Yii::t('app', 'Mo Ta'),
+			'trang_thai' => Yii::t('app', 'Trang Thai'),
 			'tblChiNhanhs' => null,
 		);
 	}
@@ -77,7 +87,11 @@ abstract class BaseSanPhamTang extends GxActiveRecord {
 		$criteria->compare('id', $this->id);
 		$criteria->compare('ma_vach', $this->ma_vach, true);
 		$criteria->compare('ten_san_pham', $this->ten_san_pham, true);
+		$criteria->compare('gia_tang', $this->gia_tang);
+		$criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
+		$criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
 		$criteria->compare('mo_ta', $this->mo_ta, true);
+		$criteria->compare('trang_thai', $this->trang_thai);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

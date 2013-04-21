@@ -13,7 +13,7 @@
  * @property integer $chi_nhanh_id
  *
  */
-abstract class BaseKhuyenMaiChiNhanh extends GxActiveRecord {
+abstract class BaseKhuyenMaiChiNhanh extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

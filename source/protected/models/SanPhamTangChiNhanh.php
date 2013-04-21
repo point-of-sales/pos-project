@@ -9,75 +9,10 @@ class SanPhamTangChiNhanh extends BaseSanPhamTangChiNhanh
 	}
 
 
-    public static function layDanhSach($primaryKey=-1, $params=array(), $operator='AND',$limit=-1,$order='',$orderType='ASC') {
-        $criteria = new CDbCriteria();
-        if($primaryKey > 0) {
-            return SanPhamTangChiNhanh::model()->findByPk($primaryKey);
-        }
-
-        if(!empty($params)) {
-            if(is_array($params) ) {
-                foreach($params as $cond=>$value) {
-                if($criteria->condition=='') {
-                if(is_string($value)) {
-                    $value = stripcslashes($value);
-                    $value = addslashes($value);
-                }
-                    $criteria->condition = $cond .'='."'$value'" . ' AND ';
-                } else {
-                    $criteria->condition = $criteria->condition . ' ' .  $cond .'='."'$value'" . ' AND ';
-                }
-            }
-
-                $criteria->condition = substr($criteria->condition,0,strlen($criteria->condition)-5);
-
-                if($operator=='OR') {
-                    //replace AND with OR
-                    $criteria->condition = str_replace(' AND ',' OR ', $criteria->condition);
-                }
-
-            } else {
-                $criteria->condition = $params;
-            }
-
-            if($limit > 0) {
-                $criteria->limit = $limit;
-            }
-
-            if($order!='') {
-                $criteria->order = $order .' ' .$orderType;
-            }
-                return SanPhamTangChiNhanh::model()->findAll($criteria);
-            } else {
-
-                return SanPhamTangChiNhanh::model()->findAll();
-            }
-        }
-
-    public function kiemTraQuanHe() {
-        $rels = $this->relations();
-        foreach($rels as $relLabel=>$value) {
-            if($value[0]!=parent::BELONGS_TO) {
-                $tmp = $this->getRelated($relLabel);
-                if(!empty($tmp)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    private  function timKhoaUnique($schema) {
-        foreach($schema as $k=>$v) {
-            if(substr($k,0,3)=='ma_') {
-                return $k;
-            }
-        }
-    }
     public function them($params) {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-        if(!$exist) {
+
+        if(!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
                             if ($this->save())
@@ -90,11 +25,7 @@ class SanPhamTangChiNhanh extends BaseSanPhamTangChiNhanh
 
     public function capNhat($params) {
         // kiem tra du lieu con bi trung hay chua
-        $uniqueKeyLabel = $this->timKhoaUnique($this->getAttributes());
-        // lay ma_ cu
-        $uniqueKeyOldVal = $this->getAttribute($uniqueKeyLabel);
-        $exist = $this->exists($uniqueKeyLabel .'=:'. $uniqueKeyLabel,array(':'.$uniqueKeyLabel=>$params[$uniqueKeyLabel]));
-                if(!$exist) {
+                if(!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -103,7 +34,7 @@ class SanPhamTangChiNhanh extends BaseSanPhamTangChiNhanh
         } else {
 
         // so sanh ma cu == ma moi
-        if($uniqueKeyOldVal == $this->getAttribute($uniqueKeyLabel)) {
+        if($this->soKhopMa($params)) {
             $this->setAttributes($params);
                             if ($this->save())
                                 return 'ok';
@@ -128,10 +59,21 @@ class SanPhamTangChiNhanh extends BaseSanPhamTangChiNhanh
     }
 
 
+    public function xuatFileExcel() {
+        $criteria = new CDbCriteria;
 
+                                $criteria->compare('san_pham_tang_id', $this->san_pham_tang_id);
+                                $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
+                                $criteria->compare('so_ton', $this->so_ton);
+        
+        $event = new CPOSSessionEvent();
+        $event->currentSession = Yii::app()->session['SanPhamTangChiNhanh'];
+        $this->onAfterExport($event);
 
-
-
+        return new CActiveDataProvider($this, array(
+        'criteria' => $criteria,
+        ));
+        }
 
 
 }

@@ -3,7 +3,7 @@ pos-project
 
 Point Of Sale Project 
 
-A. Desciption:
+A. Description:
 
     Building  model Point Of Sale for super market system which help everyone can work easily and effectively.  
 
@@ -21,6 +21,11 @@ D. Language and technology:
     Languages : PHP, MYSQL, Javascript, CSS, HTML.
     Technologies are used in project: 
     Yii Framework, JQuery, Ajax ... 
+    
+E. Knowleadge base : 
+
+    Object-oriented analysis and design, OOP
+
 
 
   

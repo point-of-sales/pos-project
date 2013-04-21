@@ -1,6 +1,6 @@
 <div class="form">
 
-    <?php  if (Yii::app()->user->hasFlash('info-board')) { ?>
+    <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
         <div
             class="response-msg error ui-corner-all info-board">        <?php echo Yii::app()->user->getFlash('info-board'); ?>    </div><?php } ?>
 
@@ -52,7 +52,7 @@
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'trang_thai'); ?>
         <div class="radio-list">
-        <?php echo $form->radioButtonList($model, 'trang_thai',$model->layDanhSachTrangThai()); ?>
+            <?php echo $form->radioButtonList($model, 'trang_thai', $model->layDanhSachTrangThai()); ?>
         </div>
         <?php echo $form->error($model, 'trang_thai'); ?>
     </div>
@@ -90,7 +90,6 @@
     <!-- row -->
 
 
-
     <!--<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblHoaDonBanHangs')); */?></label>
 		<?php /*echo $form->checkBoxList($model, 'tblHoaDonBanHangs', GxHtml::encodeEx(GxHtml::listDataEx(HoaDonBanHang::model()->findAllAttributes(null, true)), false, true)); */?>
 		<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblHoaDonTraHangs')); */?></label>
@@ -100,7 +99,7 @@
 		<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblPhieuXuats')); */?></label>
 		<?php /*echo $form->checkBoxList($model, 'tblPhieuXuats', GxHtml::encodeEx(GxHtml::listDataEx(PhieuXuat::model()->findAllAttributes(null, true)), false, true)); */?>
 		<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblChiNhanhs')); */?></label>
-		--><?php /*echo $form->checkBoxList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), false, true)); */?>
+		--><?php /*echo $form->checkBoxList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), false, true)); */ ?>
 
     <div class="btn-save">
         <?php

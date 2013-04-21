@@ -1,13 +1,13 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('danhsach'),
-	Yii::t('viLib', 'Create'),
+    Yii::t('viLib', 'Product management')=>array('sanPham/danhsach'),
+    Yii::t('viLib','Gift product')=>array('sanPhamTang/danhsach'),
+    Yii::t('viLib', 'Create'),
 );
 
 $this->menu = array(
 	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-	array('label'=>Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url' => array('admin')),
 );
 ?>
 

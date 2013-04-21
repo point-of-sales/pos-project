@@ -12,7 +12,7 @@ array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch Type') . '
 array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib',$model->label(1)), 'url'=>array('them')),
 array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Area') . ' ', 'url'=>array('khuVuc/them')),
 array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Branch Type') . ' ', 'url'=>array('loaiChiNhanh/them')),
-
+    array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
 );
 
 
@@ -36,15 +36,6 @@ return false;
 
 )); ?>
 </div><!-- search-form -->
-
-<form action="xuat" method="get" id="hidden-form">
-    <input type="hidden"  id="ma_chi_nhanh" name="ChiNhanh[ma_chi_nhanh]">
-    <input type="hidden"  id="ten_chi_nhanh" name="ChiNhanh[ten_chi_nhanh]">
-    <input type="hidden"  id="trang_thai" name="ChiNhanh[trang_thai]">
-    <input type="hidden"  id="truc_thuoc_id" name="ChiNhanh[truc_thuoc_id]">
-    <input type="hidden"  id="khu_vuc_id" name="ChiNhanh[khu_vuc_id]">
-    <input type="submit"  class="button-no-style" value="Xuất sang Excel">
-</form>
 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
@@ -81,44 +72,19 @@ array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{update}{delete}',
     'buttons'=>array(
-            'view'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "chitiet",array("id"=>$data->id))',
+        'view'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
-            ),
-            'update'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "capnhat",array("id"=>$data->id))',
+        ),
+        'update'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Update'),
-            ),
-            'delete'=>array(
-            'url'=>'Yii::app()->createUrl(Yii::app()->controller->module->id ."/". Yii::app()->controller->id ."/". "xoagrid",array("id"=>$data->id))',
+        ),
+        'delete'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Delete'),
-            'click' => "js:function(){
-
-                    var r = confirm('Bạn có muốn xóa không ?');
-                    if(r) {
-                        var url = $(this).attr('href');
-                         $.fn.yiiGridView.update('grid', {  //change my-grid to your grid's name
-                         type:'POST',
-                         url:$(this).attr('href'),
-                         success:function(data) {
-                            if(jQuery.type(data) == 'string' && data!='') {
-                                $('.search-form').after(
-                                    '<div class=error>'+data+'</div>'
-                            );
-                            $('.error').addClass('response-msg');
-                            $('.error').addClass('ui-corner-all')
-                            $('.error').fadeOut(5000);
-                         }
-
-                         $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
-                    }
-                    })
-                        return false;
-                    } else {
-                        return false;
-                        }
-                    }",
-            ),
+            'click' =>Helpers::deleteButtonClick(),
+        ),
 
     ),
     ),
@@ -126,38 +92,4 @@ array(
 )); ?>
 
 
-<script>
-    $('#yw0').submit(function(){
-        var a = $('#yw0 input[id=ChiNhanh_ma_chi_nhanh]').val();
-        var b = $('#yw0 input[id=ChiNhanh_ten_chi_nhanh]').val();
-        var c='';
-        if($('#yw0 input[id=ChiNhanh_trang_thai_0]').is(':checked')) {
-            c = '0';
-        }
-        if($('#yw0 input[id=ChiNhanh_trang_thai_1]').is(':checked')) {
-            c = '1';
-        }
-        var d = $('#yw0 #ChiNhanh_truc_thuoc_id option:selected').val();
-        var e = $('#yw0 #ChiNhanh_khu_vuc_id option:selected').val();
-
-        //set default var
-        $('#hidden-form input[id=ma_chi_nhanh]').val('');
-        $('#hidden-form input[id=ten_chi_nhanh]').val('');
-        $('#hidden-form input[id=trang_thai]').val('');
-        $('#hidden-form input[id=truc_thuoc_id]').val('');
-        $('#hidden-form input[id=khu_vuc_id]').val('');
-        if(a!='')
-            $('#hidden-form input[id=ma_chi_nhanh]').val($.trim(a));
-        if(b!='')
-            $('#hidden-form input[id=ten_chi_nhanh]').val($.trim(b));
-        if(c!='')
-            $('#hidden-form input[id=trang_thai]').val($.trim(c));
-        if(d!='')
-            $('#hidden-form input[id=truc_thuoc_id]').val($.trim(d));
-        if(e!='')
-            $('#hidden-form input[id=khu_vuc_id]').val($.trim(e));
-        }
-    );
-
-</script>
 

@@ -17,7 +17,7 @@
  *
  * @property KhachHang[] $khachHangs
  */
-abstract class BaseLoaiKhachHang extends GxActiveRecord {
+abstract class BaseLoaiKhachHang extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

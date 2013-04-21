@@ -17,7 +17,7 @@
  * @property string $website
  *
  */
-abstract class BaseThongTinCongTy extends GxActiveRecord {
+abstract class BaseThongTinCongTy extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

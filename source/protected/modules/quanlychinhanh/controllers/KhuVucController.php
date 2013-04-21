@@ -1,6 +1,6 @@
 <?php
 
-class KhuVucController extends GxController {
+class KhuVucController extends CPOSController {
 
 
 	public function actionChiTiet($id) {
@@ -29,7 +29,7 @@ class KhuVucController extends GxController {
                             $url = Yii::app()->session['url'];
                             unset(Yii::app()->session['url']);
                         }
-                        if(Helpers::getControllerFromShortUrl($url[0])=='chiNhanh') {
+                        if(Helpers::getControllerFromShortUrl($url[0])=='KhuVuc') {
                             $this->redirect($url);
                         }
                         else {
@@ -131,39 +131,31 @@ class KhuVucController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
+    public function actionDanhSach() {
 
         $model = new KhuVuc('search');
         $model->unsetAttributes();
-
-        if (isset($_GET['KhuVuc']))
-        $model->setAttributes($_GET['KhuVuc']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new KhuVuc('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['KhuVuc']))
-			$model->setAttributes($_GET['KhuVuc']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
+        if(isset($_GET['KhuVuc'])) {
+            // set vao session
+            Yii::app()->session['KhuVuc'] = $_GET['KhuVuc'];
+            $model->setAttributes($_GET['KhuVuc']);
+        }
+        $this->render('danhsach',array('model'=>$model));
+    }
 
     public function  actionXuat() {
         $model = new KhuVuc('search');
         $model->unsetAttributes();
-        if(isset($_GET['KhuVuc'])) {
-            $model->setAttributes($_GET['KhuVuc']);
-            $dataProvider = $model->search();
+
+        if(isset(Yii::app()->session['KhuVuc'])) {
+            $model->setAttributes(Yii::app()->session['KhuVuc']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('KhuVuc')));
     }
 
 }

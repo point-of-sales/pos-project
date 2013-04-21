@@ -15,7 +15,7 @@
  *
  * @property NhanVien[] $nhanViens
  */
-abstract class BaseLoaiNhanVien extends GxActiveRecord {
+abstract class BaseLoaiNhanVien extends CPOSActiveRecord {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

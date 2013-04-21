@@ -1,6 +1,6 @@
 <?php
 
-class SanPhamTangController extends GxController {
+class SanPhamTangController extends CPOSController {
 
 
 	public function actionChiTiet($id) {
@@ -8,6 +8,7 @@ class SanPhamTangController extends GxController {
 			'model' => $this->loadModel($id, 'SanPhamTang'),
 		));
 	}
+
 
 	public function actionThem() {
 		$model = new SanPhamTang;
@@ -37,8 +38,6 @@ class SanPhamTangController extends GxController {
 
 	public function actionCapNhat($id) {
 		$model = $this->loadModel($id, 'SanPhamTang');
-
-
 		if (isset($_POST['SanPhamTang'])) {
             $result = $model->capNhat($_POST['SanPhamTang']);
             switch($result) {
@@ -116,40 +115,33 @@ class SanPhamTangController extends GxController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
+    public function actionDanhSach() {
 
         $model = new SanPhamTang('search');
         $model->unsetAttributes();
 
-        if (isset($_GET['SanPhamTang']))
-        $model->setAttributes($_GET['SanPhamTang']);
-
-        $this->render('danhsach', array(
-        'model' => $model,
-        ));
-	}
-
-	public function actionAdmin() {
-		$model = new SanPhamTang('search');
-		$model->unsetAttributes();
-
-		if (isset($_GET['SanPhamTang']))
-			$model->setAttributes($_GET['SanPhamTang']);
-
-		$this->render('admin', array(
-			'model' => $model,
-		));
-	}
+        if(isset($_GET['SanPhamTang'])) {
+            // set vao session
+            Yii::app()->session['SanPhamTang'] = $_GET['SanPhamTang'];
+            $model->setAttributes($_GET['SanPhamTang']);
+        }
+        $this->render('danhsach',array('model'=>$model));
+    }
 
     public function  actionXuat() {
-
         $model = new SanPhamTang('search');
         $model->unsetAttributes();
-        if(isset($_GET['SanPhamTang'])) {
-        $model->setAttributes($_GET['SanPhamTang']);
-        $dataProvider = $model->search();
+
+        if(isset(Yii::app()->session['SanPhamTang'])) {
+            $model->setAttributes(Yii::app()->session['SanPhamTang']);
+            // Gan handler voi event
+            $handler = new CPOSEventHandler();
+            $model->onAfterExport = array($handler,'clearExportSession');
+            $dataProvider = $model->xuatFileExcel();
+            $this->render('xuat',array('dataProvider'=>$dataProvider));
         }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('SanPhamTang')));
     }
+
 
 }
