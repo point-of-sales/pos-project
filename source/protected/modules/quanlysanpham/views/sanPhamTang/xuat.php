@@ -1,6 +1,6 @@
 
 <?php
-$this->widget('CEExcelView', array(
+$this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
     'title'=>'Sample_name' . time(),
     'autoWidth'=>true,

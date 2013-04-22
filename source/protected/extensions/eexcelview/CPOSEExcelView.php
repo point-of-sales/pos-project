@@ -7,7 +7,7 @@ Yii::import('zii.widgets.grid.CGridView');
  * Time: 4:25 PM
  * Email: crist.azn@gmail.com | Phone : 0963-500-980
  */
-class CEExcelView extends EExcelView
+class CPOSEExcelView extends EExcelView
 {
 
 

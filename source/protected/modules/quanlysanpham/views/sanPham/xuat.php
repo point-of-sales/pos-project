@@ -6,7 +6,7 @@
  * Email: crist.azn@gmail.com | Phone : 0963-500-980 
  */
 
-$this->widget('CEExcelView', array(
+$this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
     'title'=>'Danh_sach_san_pham_' . time(),
     'autoWidth'=>true,

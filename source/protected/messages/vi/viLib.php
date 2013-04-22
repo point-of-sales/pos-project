@@ -131,4 +131,17 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'End time have to greater start time'=>'Thời gian kết thúc phải lớn hơn thời gian bắt đầu',
     'Type code'=>'Mã loại',
     'Type name'=>'Tên loại',
+    'Import/Export management'=>'Quản lý nhập xuất',
+    'Import product'=>'Nhập sản phẩm',
+    'Export product'=>'Xuất sản phẩm',
+    'Voucher'=>'Chứng từ',
+    'Vocher code'=>'Mã chứng từ',
+    'Created date'=>'Ngày lập',
+    'Worth'=>'Trị giá',
+    'Notes'=>'Ghi chú',
+    'Import form'=>'Phiếu nhập',
+    'Export form'=>'Phiếu xuất',
+    'Exported branch'=>'Chi nhánh xuất',
+    'Import type'=>'Loại nhập vào',
+
 );

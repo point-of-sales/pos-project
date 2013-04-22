@@ -8,6 +8,7 @@
             array('label'=>'Quản lý bán hàng', 'url'=>array('/quanlybanhang/hoaDonBanHang/danhsach')),
             array('label'=>'Quản lý khách hàng', 'url'=>array('/quanlykhachhang/khachHang/danhsach')),
             array('label'=>'Quản lý sản phẩm', 'url'=>array('/quanlysanpham/sanPham/danhsach')),
+            array('label'=>'Quản lý nhập xuất', 'url'=>array('/quanlynhapxuat/chiNhanh/danhsach')),
             array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
             array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
         ),

@@ -1,3 +1,10 @@
+<style type="text/css">
+    #page-wrapper #main-wrapper #main-content {
+        padding:10px 10px 10px;
+        width: 79.5%;
+    }
+</style>
+
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
 		<div id="main-wrapper">
