@@ -4,18 +4,13 @@ Yii::import('application.models._base.BasePhieuNhap');
 
 class PhieuNhap extends BasePhieuNhap
 {
-    public static function model($className = __CLASS__)
+
+   public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
-    public function relations() {
-        return array(
-            'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietPhieuNhap(phieu_nhap_id, san_pham_id)'),
-            'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
-            'chiNhanhXuat' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_xuat_id'),
-        );
-    }
+
 
     public function attributeLabels() {
         return array(
@@ -31,13 +26,12 @@ class PhieuNhap extends BasePhieuNhap
     public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua
-        //parent::$ma_chung_tu = 33;
 
-        if (!$this->kiemTraTonTai($params)) {
+        if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
             $relatedData = array(
-                'tblSanPhams' => $_POST['PhieuNhap']['tblSanPhams'] === '' ? null : $_POST['PhieuNhap']['tblSanPhams'],
+                //'tblSanPhams' => $params['PhieuNhap']['tblSanPhams'] === '' ? null : $params['PhieuNhap']['tblSanPhams'],
             );
             if ($this->saveWithRelated($relatedData))
                 return 'ok';
@@ -51,7 +45,7 @@ class PhieuNhap extends BasePhieuNhap
     {
         // kiem tra du lieu con bi trung hay chua
         $relatedData = array(
-            'tblSanPhams' => $_POST['PhieuNhap']['tblSanPhams'] === '' ? null : $_POST['PhieuNhap']['tblSanPhams'],
+            //'tblSanPhams' => $_POST['PhieuNhap']['tblSanPhams'] === '' ? null : $_POST['PhieuNhap']['tblSanPhams'],
         );
         if (!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
@@ -104,6 +98,4 @@ class PhieuNhap extends BasePhieuNhap
             'criteria' => $criteria,
         ));
     }
-
-
 }

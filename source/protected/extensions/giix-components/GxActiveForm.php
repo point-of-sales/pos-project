@@ -35,4 +35,6 @@ class GxActiveForm extends CActiveForm {
 		return GxHtml::activeCheckBoxList($model, $attribute, $data, $htmlOptions);
 	}
 
+
+
 }

@@ -1,23 +1,74 @@
 .form {
-    width:100%;
+    width:95%;
     padding-top:8px;
-    height:500px;
-    
 }
 
 
-#chung-tu-form {
+.form {
     padding:30px 30px 0px 30px;
     border:1px solid;
     
 }
-#chung-tu-form .cus-row label {
+.form .cus-row label {
     width:100%;
 }
 
-#chung-tu-form .cus-row {
+.form .cus-row {
     float:left;
- 
+    width:220px;
+    height:50px;
+}
+
+.form .cus-row input {
+    width:160px;
+}
+
+.form .cus-row select {
+    width:160px;
+}
+
+.form .cus-row textarea {
+    width:690px;
+    height:18px;
+}
+
+.header-voucher-info {
+    border-radius:10px;
+    overflow:hidden;
+    padding-left:15px;
+    background-color:#E6F1F6;  
+    border:1px solid #C5D5DD;
+}
+.product-voucher-info {
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color:#a5dde2;
+    border:1px solid #C5D5DD;
+    overflow:hidden;
+    border-radius:10px;
+    padding-left:20px;
+}
+
+.custom-error-messages {
+    margin-left: 20px;
+}
+
+.error {
+    margin-top: 10px;
+}
+
+#ChungTu_tri_gia {
+    width:250px !important;
+    font-weight:bold;
+    color:#007f99;
+    border:none;
+    font-size:1.6em;
+    background-color:#d6dbe0;
+    padding-right:7px;
+    border-radius:5px;
+}
+.number {
+    text-align:right;
 }
 
 

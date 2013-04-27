@@ -41,7 +41,6 @@ class SanPhamController extends CPOSController {
 	public function actionCapNhat($id) {
 		$model = $this->loadModel($id, 'SanPham');
 
-
 		if (isset($_POST['SanPham'])) {
             $result = $model->capNhat($_POST['SanPham']);
             switch($result) {

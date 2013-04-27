@@ -6,6 +6,7 @@ class MocGiaController extends CPOSController {
 
     public function actionThem($spid) {
         $model = new MocGia;
+        $model->setScenario('them');
         if (isset($_POST['MocGia']) && isset($spid)) {
             // kiem tra ngay thang hop le : ngay bat dau > ngay hien tai
             $_POST['MocGia']['san_pham_id'] = $spid;
@@ -40,7 +41,6 @@ class MocGiaController extends CPOSController {
 
     public function actionCapNhat($id) {
         $model = $this->loadModel($id, 'MocGia');
-        $model->formatDate('thoi_gian_bat_dau');
         if (isset($_POST['MocGia'])) {
             $result = $model->capNhat($_POST['MocGia']);
             switch($result) {

@@ -17,70 +17,65 @@
  * @property ChungTu $id0
  * @property ChiNhanh $chiNhanhXuat
  */
-abstract class BasePhieuNhap extends ChungTu {
+abstract class BasePhieuNhap extends CPOSBaseChungTu
+{
+    public function tableName()
+    {
+        return 'tbl_PhieuNhap';
+    }
 
-	public static function model($className=__CLASS__) {
-		return parent::model($className);
-	}
-
-	public function tableName() {
-		return 'tbl_PhieuNhap';
-	}
-
-	public static function label($n = 1) {
-        if($n <= 1 ) {
+    public static function label($n = 1)
+    {
+        if ($n <= 1) {
             return Yii::t('viLib', 'PhieuNhap');
         } else {
-		    return Yii::t('viLib', 'PhieuNhaps');
+            return Yii::t('viLib', 'PhieuNhaps');
         }
-	}
+    }
 
-	public static function representingColumn() {
-		return 'id';
-	}
+    public static function representingColumn()
+    {
+        return 'id';
+    }
 
-	public function rules() {
-		return array(
-			array('id, loai_nhap_vao, chi_nhanh_xuat_id', 'required'),
-			array('id, loai_nhap_vao, chi_nhanh_xuat_id', 'numerical', 'integerOnly'=>true),
-			array('id, loai_nhap_vao, chi_nhanh_xuat_id', 'safe', 'on'=>'search'),
-		);
-	}
+    public function relations() {
+        return array(
+            'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietPhieuNhap(phieu_nhap_id, san_pham_id)'),
+            'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
+            'chiNhanhXuat' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_xuat_id'),
+        );
+    }
 
-	public function relations() {
-		return array(
-			'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietPhieuNhap(phieu_nhap_id, san_pham_id)'),
-			'id0' => array(self::BELONGS_TO, 'ChungTu', 'id'),
-			'chiNhanhXuat' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_xuat_id'),
-		);
-	}
 
-	public function pivotModels() {
-		return array(
-			'tblSanPhams' => 'ChiTietPhieuNhap',
-		);
-	}
+    public function rules()
+    {
+        return array(
+            array('loai_nhap_vao, chi_nhanh_xuat_id', 'required'),
+            array('loai_nhap_vao, chi_nhanh_xuat_id', 'numerical', 'integerOnly' => true),
+            array('id, loai_nhap_vao, chi_nhanh_xuat_id', 'safe', 'on' => 'search'),
+        );
+    }
 
-	public function attributeLabels() {
-		return array(
-			'id' => null,
-			'loai_nhap_vao' => Yii::t('app', 'Loai Nhap Vao'),
-			'chi_nhanh_xuat_id' => null,
-			'tblSanPhams' => null,
-			'id0' => null,
-			'chiNhanhXuat' => null,
-		);
-	}
 
-	public function search() {
-		$criteria = new CDbCriteria;
+    public function pivotModels()
+    {
+        return array(
+            'tblSanPhams' => 'ChiTietPhieuNhap',
+        );
+    }
 
-		$criteria->compare('id', $this->id);
-		$criteria->compare('loai_nhap_vao', $this->loai_nhap_vao);
-		$criteria->compare('chi_nhanh_xuat_id', $this->chi_nhanh_xuat_id);
 
-		return new CActiveDataProvider($this, array(
-			'criteria' => $criteria,
-		));
-	}
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('loai_nhap_vao', $this->loai_nhap_vao);
+        $criteria->compare('chi_nhanh_xuat_id', $this->chi_nhanh_xuat_id);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
 }

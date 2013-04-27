@@ -3,12 +3,14 @@
  * User: ${Cristazn}
  * Date: 4/20/13
  * Time: 2:20 PM
- * Email: crist.azn@gmail.com | Phone : 0963-500-980 
+ * Email: crist.azn@gmail.com | Phone : 0963-500-980
  */
 
-class CPOSController extends GxController{
+abstract class CPOSController extends GxController
+{
 
-    public function loadModel($key, $modelClass) {
+    public function loadModel($key, $modelClass)
+    {
         // Get the static model.
         $staticModel = CPOSActiveRecord::model($modelClass);
 
@@ -76,9 +78,9 @@ class CPOSController extends GxController{
         // kiem tra xem co truong nao la kieu du lieu date. Chuyen thanh dang d-m-Y
         $tableSchema = $model->getTableSchema();
         $columnNames = $tableSchema->getColumnNames();
-        foreach($columnNames as $column) {
+        foreach ($columnNames as $column) {
             $columnSchema = $tableSchema->getColumn($column);
-            if($columnSchema->dbType=='date')
+            if ($columnSchema->dbType == 'date')
                 $model->formatDate($column);
 
         }
@@ -87,4 +89,20 @@ class CPOSController extends GxController{
 
     }
 
+
+    public function actionGetSanPhamBan($ma_vach){
+        if (Yii::app()->getRequest()->getIsAjaxRequest()) {
+            if (isset($ma_vach))
+                $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+
+            $item = array(
+                'id' => $model->getAttribute('id'),
+                'ma_vach' => $model->getAttribute('ma_vach'),
+                'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+            );
+            echo json_encode($item);
+        }
+        else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 }

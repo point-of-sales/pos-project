@@ -42,10 +42,10 @@ abstract class BaseChiTietPhieuNhap extends CPOSActiveRecord {
 
 	public function rules() {
 		return array(
-			//array('san_pham_id, phieu_nhap_id, so_luong, gia_nhap', 'required'),
+			array('san_pham_id, phieu_nhap_id', 'required'),
 			//array('san_pham_id, phieu_nhap_id, so_luong', 'numerical', 'integerOnly'=>true),
 			//array('gia_nhap', 'numerical'),
-			//array('san_pham_id, phieu_nhap_id, so_luong, gia_nhap', 'safe', 'on'=>'search'),
+			array('san_pham_id, phieu_nhap_id, so_luong, gia_nhap', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -12,7 +12,7 @@ class ChungTu extends BaseChungTu
     public function attributeLabels() {
         return array(
             'id' => Yii::t('viLib', 'ID'),
-            'ma_chung_tu' => Yii::t('viLib', 'Voucher'),
+            'ma_chung_tu' => Yii::t('viLib', 'Voucher code'),
             'ngay_lap' => Yii::t('viLib', 'Created date'),
             'tri_gia' => Yii::t('viLib', 'Worth'),
             'ghi_chu' => Yii::t('viLib', 'Notes'),
@@ -34,6 +34,7 @@ class ChungTu extends BaseChungTu
         if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
+
             if ($this->save())
                 return 'ok';
             else

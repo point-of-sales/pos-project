@@ -135,7 +135,7 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Import product'=>'Nhập sản phẩm',
     'Export product'=>'Xuất sản phẩm',
     'Voucher'=>'Chứng từ',
-    'Vocher code'=>'Mã chứng từ',
+    'Voucher code'=>'Mã chứng từ',
     'Created date'=>'Ngày lập',
     'Worth'=>'Trị giá',
     'Notes'=>'Ghi chú',
@@ -143,5 +143,9 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Export form'=>'Phiếu xuất',
     'Exported branch'=>'Chi nhánh xuất',
     'Import type'=>'Loại nhập vào',
-
+    'Currency'=>'Đồng',
+    'Quantity'=>'Số lượng',
+    'Import price'=>'Giá nhập',
+    'Add product to list'=>'Thêm sản phẩm vào danh sách',
+    'Product not found. Please try another barcode'=>'Sản phẩm không tìm thấy. Xin nhập lại mã vạch khác',
 );

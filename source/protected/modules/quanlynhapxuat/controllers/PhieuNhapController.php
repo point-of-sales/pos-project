@@ -4,16 +4,19 @@ class PhieuNhapController extends CPOSController {
 
 
 	public function actionChiTiet($id) {
+        $model = $this->loadModel($id, 'PhieuNhap');
+        $model->getBaseModel();
 		$this->render('chitiet', array(
 			'model' => $this->loadModel($id, 'PhieuNhap'),
 		));
 	}
 
 	public function actionThem() {
+        $this->layout = '//layouts/column1';
 		$model = new PhieuNhap;
-        print_r($model->chungTu->getAttributes());exit;
-		if (isset($_POST['PhieuNhap'])) {
-            $result = $model->them($_POST['PhieuNhap']);
+		if (isset($_POST['ChungTu'])) {
+            //print_r($_POST);exit;
+            $result = $model->them($_POST);
             switch($result) {
                 case 'ok': {
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
@@ -21,6 +24,7 @@ class PhieuNhapController extends CPOSController {
                     else
                         $this->redirect(array('chitiet', 'id' => $model->id));
                     break;
+
                 }
             case 'dup-error': {
                     Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
@@ -144,5 +148,8 @@ class PhieuNhapController extends CPOSController {
     $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('PhieuNhap')));
     }
 
+    public function actionAjaxCheckProduct() {
+
+    }
 
 }

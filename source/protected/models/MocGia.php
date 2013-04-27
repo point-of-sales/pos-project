@@ -9,8 +9,9 @@ class MocGia extends BaseMocGia
         return parent::model($className);
     }
 
-    public static function label($n = 1) {
-        if($n <= 1 ) {
+    public static function label($n = 1)
+    {
+        if ($n <= 1) {
             return Yii::t('viLib', 'Price level');
         } else {
             return Yii::t('viLib', 'Prices level');
@@ -29,13 +30,14 @@ class MocGia extends BaseMocGia
     }
 
 
-    public function rules() {
+    public function rules()
+    {
         return array(
             array('thoi_gian_bat_dau, gia_ban, san_pham_id', 'required'),
-            array('san_pham_id', 'numerical', 'integerOnly'=>true),
+            array('san_pham_id', 'numerical', 'integerOnly' => true),
             array('gia_ban', 'numerical'),
-            array('id, thoi_gian_bat_dau, gia_ban, san_pham_id', 'safe', 'on'=>'search'),
-            array('thoi_gian_bat_dau', 'ext.custom-validator.CPOSDateTimeValidator'),
+            array('id, thoi_gian_bat_dau, gia_ban, san_pham_id', 'safe', 'on' => 'search'),
+            array('thoi_gian_bat_dau', 'ext.custom-validator.CPOSDateTimeValidator','on'=>'them'),
         );
     }
 
@@ -45,7 +47,7 @@ class MocGia extends BaseMocGia
         $productLabel = 'san_pham_id';
         $exist = $this->exists($productLabel . '=:' . $productLabel, array(':' . $productLabel => $params[$productLabel]));
         if ($exist) {
-            $startDate = date('Y-m-d',strtotime($params['thoi_gian_bat_dau'])); //tim thu moc_gia_trung cua san pham
+            $startDate = date('Y-m-d', strtotime($params['thoi_gian_bat_dau'])); //tim thu moc_gia_trung cua san pham
             $command = Yii::app()->db->createCommand("SELECT COUNT(*)
                                                        FROM tbl_MocGia
                                                        WHERE san_pham_id = '{$params[$productLabel]}' AND thoi_gian_bat_dau = '{$startDate}'");
@@ -103,20 +105,23 @@ class MocGia extends BaseMocGia
         }
     }
 
-    public function layThoiGianKeTiep() {
+    public function layThoiGianKeTiep()
+    {
+        $thoi_gian_bat_dau = date('Y--m-d',strtotime($this->thoi_gian_bat_dau));
         $command = Yii::app()->db->createCommand();
         $command->select = 'MIN(thoi_gian_bat_dau)';
         $command->from = 'tbl_MocGia';
-        $command->where = "san_pham_id='{$this->san_pham_id}' AND thoi_gian_bat_dau > '{$this->thoi_gian_bat_dau}'";
-        return  $command->queryScalar();
+        $command->where = "san_pham_id='{$this->san_pham_id}' AND thoi_gian_bat_dau > '{$thoi_gian_bat_dau}'";
+        return $command->queryScalar();
     }
 
-    public function layKhoangThoiGian() {
+    public function layKhoangThoiGian()
+    {
         $thoiGianKetThuc = $this->layThoiGianKeTiep();
-        if($thoiGianKetThuc!='')
-            return date('d-m-Y',strtotime($this->thoi_gian_bat_dau)) .' --> '. date('d-m-Y',strtotime($thoiGianKetThuc)-24*60*60);
+        if ($thoiGianKetThuc != '')
+            return $this->thoi_gian_bat_dau . ' --> ' . date('d-m-Y', strtotime($thoiGianKetThuc) - 24 * 60 * 60);
         else
-            return date('d-m-Y',strtotime($this->thoi_gian_bat_dau));
+            return $this->thoi_gian_bat_dau;
     }
 
 
