@@ -107,9 +107,9 @@ class NhanVien extends BaseNhanVien
         $criteria->compare('loai_nhan_vien_id', $this->loai_nhan_vien_id);
         $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['NhanVien'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

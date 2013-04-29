@@ -72,9 +72,9 @@ class HoaDonTraHang extends BaseHoaDonTraHang
                                 $criteria->compare('ly_do_tra_hang', $this->ly_do_tra_hang, true);
                                 $criteria->compare('hoa_don_ban_id', $this->hoa_don_ban_id);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['HoaDonTraHang'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

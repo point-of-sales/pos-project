@@ -98,7 +98,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
     * Dinh nghia event after export. Event that su duoc trigger o day. $event la CSessionEvent chua session
     */
 
-    public function onAfterExport($event)
+   public function onAfterExport($event)
     {
         $this->raiseEvent('onAfterExport', $event);
 

@@ -65,9 +65,9 @@ class PhanQuyen extends BasePhanQuyen
                                 $criteria->compare('vai_tro_id', $this->vai_tro_id);
                                 $criteria->compare('quyen_id', $this->quyen_id);
         
-        $event = new CPOSSessionEvent();
+       /* $event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['PhanQuyen'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

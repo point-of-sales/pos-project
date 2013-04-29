@@ -16,4 +16,6 @@ class CPOSEventHandler  {
         if(isset($event->currentSession))
             unset($event->currentSession);
     }
+
+
 }

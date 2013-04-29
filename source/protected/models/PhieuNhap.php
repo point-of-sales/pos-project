@@ -90,9 +90,9 @@ class PhieuNhap extends BasePhieuNhap
         $criteria->compare('loai_nhap_vao', $this->loai_nhap_vao);
         $criteria->compare('chi_nhanh_xuat_id', $this->chi_nhanh_xuat_id);
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['PhieuNhap'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

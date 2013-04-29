@@ -121,17 +121,11 @@ class MocGiaController extends CPOSController {
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
-
-
     public function  actionXuat() {
         $model = new MocGia('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['MocGia'])) {
-            $model->setAttributes(Yii::app()->session['MocGia']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

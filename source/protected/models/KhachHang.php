@@ -74,9 +74,9 @@ class KhachHang extends BaseKhachHang
                                 $criteria->compare('diem_tich_luy', $this->diem_tich_luy);
                                 $criteria->compare('loai_khach_hang_id', $this->loai_khach_hang_id);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['KhachHang'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

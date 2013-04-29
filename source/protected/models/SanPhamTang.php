@@ -120,9 +120,9 @@ class SanPhamTang extends BaseSanPhamTang
         $criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
         $criteria->compare('mo_ta', $this->mo_ta, true);
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['SanPhamTang'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

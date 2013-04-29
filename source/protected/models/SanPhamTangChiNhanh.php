@@ -66,9 +66,9 @@ class SanPhamTangChiNhanh extends BaseSanPhamTangChiNhanh
                                 $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
                                 $criteria->compare('so_ton', $this->so_ton);
         
-        $event = new CPOSSessionEvent();
+       /* $event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['SanPhamTangChiNhanh'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

@@ -124,10 +124,10 @@ class PhieuNhapController extends CPOSController {
 
         $model = new PhieuNhap('search');
         $model->unsetAttributes();
-
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['PhieuNhap'])) {
             // set vao session
-            Yii::app()->session['PhieuNhap'] = $_GET['PhieuNhap'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['PhieuNhap']);
             $model->setAttributes($_GET['PhieuNhap']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -136,16 +136,12 @@ class PhieuNhapController extends CPOSController {
     public function  actionXuat() {
         $model = new PhieuNhap('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['PhieuNhap'])) {
-            $model->setAttributes(Yii::app()->session['PhieuNhap']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }
-    $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('PhieuNhap')));
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('PhieuNhap')));
     }
 
     public function actionAjaxCheckProduct() {

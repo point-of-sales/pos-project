@@ -67,9 +67,9 @@ class GanQuyen extends BaseGanQuyen
                                 $criteria->compare('bizrule', $this->bizrule, true);
                                 $criteria->compare('tham_so', $this->tham_so, true);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['GanQuyen'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

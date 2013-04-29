@@ -77,9 +77,14 @@ return array(
 
 	// application components
 	'components'=>array(
-        'session'=>array(
+        /*'session'=>array(
+
+        ),*/
+        'CPOSSessionManager'=>array(
+            'class'=>'CPOSSessionManager',
             'autoStart'=>true,
         ),
+
 
 		'user'=>array(
 			// enable cookie-based authentication

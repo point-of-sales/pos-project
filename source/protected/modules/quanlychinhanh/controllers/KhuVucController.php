@@ -11,10 +11,10 @@ class KhuVucController extends CPOSController {
 
 	public function actionThem() {
 
-        if(empty(Yii::app()->session['url'])) {
+        if(Yii::app()->CPOSSessionManager->isEmpty('url')) {
             $longUrl = Yii::app()->request->urlReferrer;
             $shortUrl = Helpers::getShortURL($longUrl);
-            Yii::app()->session['url'] = $shortUrl;
+            Yii::app()->CPOSSessionManager->setItem('url',$shortUrl);
         }
 		$model = new KhuVuc;
 		if (isset($_POST['KhuVuc'])) {
@@ -25,11 +25,11 @@ class KhuVucController extends CPOSController {
                         Yii::app()->end();
                     else {
                         $url = array();
-                        if(isset(Yii::app()->session['url'])) {
-                            $url = Yii::app()->session['url'];
-                            unset(Yii::app()->session['url']);
+                        if(!Yii::app()->CPOSSessionManager->isEmpty('url')) {
+                            $url = Yii::app()->CPOSSessionManager->getItem('url');
+                            Yii::app()->CPOSSessionManager->clearKey('url');
                         }
-                        if(Helpers::getControllerFromShortUrl($url[0])=='KhuVuc') {
+                        if(Helpers::getControllerFromShortUrl($url[0])=='chiNhanh') {
                             $this->redirect($url);
                         }
                         else {
@@ -135,9 +135,10 @@ class KhuVucController extends CPOSController {
 
         $model = new KhuVuc('search');
         $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['KhuVuc'])) {
             // set vao session
-            Yii::app()->session['KhuVuc'] = $_GET['KhuVuc'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['KhuVuc']);
             $model->setAttributes($_GET['KhuVuc']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -147,11 +148,8 @@ class KhuVucController extends CPOSController {
         $model = new KhuVuc('search');
         $model->unsetAttributes();
 
-        if(isset(Yii::app()->session['KhuVuc'])) {
-            $model->setAttributes(Yii::app()->session['KhuVuc']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

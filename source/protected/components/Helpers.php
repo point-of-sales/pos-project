@@ -25,31 +25,32 @@ class Helpers
         //find the id param
         $hasIdParams = strrpos($longUrl, 'id');
         if (!$hasIdParams) {
+
             //normal url style with form : http://abc.com/<module>/<controller>/<action>
-            $lastPos = strrpos($longUrl, PATH_SEPARATOR);
+            $lastPos = strrpos($longUrl, '/');
             $action = substr($longUrl, $lastPos + 1, strlen($longUrl));
             $longUrl = substr($longUrl, 0, $lastPos);
             //do again to get controller
-            $lastPos = strrpos($longUrl, PATH_SEPARATOR);
+            $lastPos = strrpos($longUrl, '/');
             $controller = substr($longUrl, $lastPos + 1, strlen($longUrl));
-            return array($controller . PATH_SEPARATOR . $action);
+            return array($controller . '/' . $action);
 
         } else {
             //url with id param form : http://abc.com/<module>/<controller>/<action>/<id>
 
-            $lastPos = strrpos($longUrl, PATH_SEPARATOR);
+            $lastPos = strrpos($longUrl, '/');
             //get id first
             $id = substr($longUrl, $lastPos + 1, strlen($longUrl));
             $longUrl = substr($longUrl, 0, $lastPos - 3);
             //get action. ignore id
-            $lastPos = strrpos($longUrl, PATH_SEPARATOR);
+            $lastPos = strrpos($longUrl, '/');
             $action = substr($longUrl, $lastPos + 1, strlen($longUrl));
             $longUrl = substr($longUrl, 0, $lastPos);
             //get controller
-            $lastPos = strrpos($longUrl, PATH_SEPARATOR);
+            $lastPos = strrpos($longUrl, '/');
             $controller = substr($longUrl, $lastPos + 1, strlen($longUrl));
 
-            return array($controller . PATH_SEPARATOR . $action, 'id' => $id);
+            return array($controller . '/' . $action, 'id' => $id);
         }
 
     }
@@ -58,7 +59,7 @@ class Helpers
     {
 
         if (!empty($shortUrl)) {
-            $lastPos = strrpos($shortUrl, PATH_SEPARATOR);
+            $lastPos = strrpos($shortUrl, '/');
             return substr($shortUrl, 0, $lastPos);
         }
     }
@@ -161,6 +162,65 @@ class Helpers
             $inputArray = array_slice($inputArray,1);
             return $slice[0];
         }
+    }
+
+
+    public static function array_create(&$targetArray, $dims, $value) {
+        if(!empty($dims)) {  // neu dims la mang da chieu
+            foreach ($dims as $dim) {
+                if (!isset($targetArray[$dim])) {
+                    $targetArray[$dim] = array();
+                }
+                $targetArray = & $targetArray[$dim];
+            }
+            $targetArray = $value;
+        } else
+            // mang la mang rong. Chen vao phan tu cuoi.
+            $targetArray[] = $value;
+    }
+
+    public static function array_getval($targetArray,$dims) {
+        if(!empty($dims)) {  // neu dims la mang da chieu
+            foreach($dims as $dim) {
+                $tmp = $targetArray[$dim];
+                $targetArray = $tmp;
+            }
+        } else               // neu dims ko duoc la mang rong. Lay phan tu cuoi cung
+            $tmp = array_pop($targetArray);
+        return (!empty($tmp))?$tmp:null;
+    }
+
+    public static function checkIsNull($var) {
+        return ($var == null);
+    }
+
+    public static function array_clearitem(&$targetArray,$dims) {
+        if(!empty($dims)) {
+            // set null
+            Helpers::array_create($targetArray,$dims,null);
+            //recreate array without null item
+           // print_r($targetArray);exit;
+            $targetArray = Helpers::array_filter_null_items($targetArray);
+        }
+    }
+
+    public static function array_filter_null_items($inputArray) {
+        // If it is an element, then just return it
+        if (!is_array($inputArray)) {
+            return $inputArray;
+        }
+
+        $non_empty_items = array();
+
+        foreach ($inputArray as $key => $value) {
+            // Ignore empty cells
+            if($value) {
+                // Use recursion to evaluate cells
+                $non_empty_items[$key] = Helpers::array_filter_null_items($value);
+            }
+        }
+        // Finally return the array without empty items
+        return $non_empty_items;
     }
 
 

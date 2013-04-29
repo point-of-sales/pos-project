@@ -120,9 +120,10 @@ class NhaCungCapController extends CPOSController {
 
         $model = new NhaCungCap('search');
         $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['NhaCungCap'])) {
             // set vao session
-            Yii::app()->session['NhaCungCap'] = $_GET['NhaCungCap'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['NhaCungCap']);
             $model->setAttributes($_GET['NhaCungCap']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -131,12 +132,8 @@ class NhaCungCapController extends CPOSController {
     public function  actionXuat() {
         $model = new NhaCungCap('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['NhaCungCap'])) {
-            $model->setAttributes(Yii::app()->session['NhaCungCap']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

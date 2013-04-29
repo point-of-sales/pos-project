@@ -66,9 +66,9 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
                                 $criteria->compare('ma_loai_chi_nhanh', $this->ma_loai_chi_nhanh, true);
                                 $criteria->compare('ten_loai_chi_nhanh', $this->ten_loai_chi_nhanh, true);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['LoaiChiNhanh'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

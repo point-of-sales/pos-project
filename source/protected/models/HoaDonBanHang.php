@@ -72,9 +72,9 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                                 $criteria->compare('chiet_khau', $this->chiet_khau);
                                 $criteria->compare('khach_hang_id', $this->khach_hang_id);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['HoaDonBanHang'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

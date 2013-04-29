@@ -240,9 +240,9 @@ class SanPham extends BaseSanPham
             $criteria->compare('tblChiNhanhs.id',$this->chi_nhanh_id,true);
         }
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['SanPham'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

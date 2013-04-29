@@ -120,9 +120,10 @@ class LoaiSanPhamController extends CPOSController {
 
         $model = new LoaiSanPham('search');
         $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['LoaiSanPham'])) {
             // set vao session
-            Yii::app()->session['LoaiSanPham'] = $_GET['LoaiSanPham'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['LoaiSanPham']);
             $model->setAttributes($_GET['LoaiSanPham']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -131,12 +132,8 @@ class LoaiSanPhamController extends CPOSController {
     public function  actionXuat() {
         $model = new LoaiSanPham('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['LoaiSanPham'])) {
-            $model->setAttributes(Yii::app()->session['LoaiSanPham']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

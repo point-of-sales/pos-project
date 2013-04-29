@@ -124,8 +124,8 @@
                 <tr>
                     <th id="grid_c0"><?php echo Yii::t('viLib','Order')?></th>
                     <th id="grid_c1"><?php echo Yii::t('viLib','Product name')?></th>
-                    <th id="grid_c2"><?php echo Yii::t('viLib','Price')?></th>
-                    <th id="grid_c3"><?php echo Yii::t('viLib','Quantity')?>
+                    <th id="grid_c2"><?php echo Yii::t('viLib','Quantity')?></th>
+                    <th id="grid_c3"><?php echo Yii::t('viLib','Price')?>
                     <th id="grid_c4" class="button-column"> </th>
                 </tr>
             </thead

@@ -68,9 +68,9 @@ class ChiTietHoaDonBan extends BaseChiTietHoaDonBan
                                 $criteria->compare('don_gia', $this->don_gia);
                                 $criteria->compare('san_pham_tang_id', $this->san_pham_tang_id);
         
-        $event = new CPOSSessionEvent();
+       /* $event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['ChiTietHoaDonBan'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

@@ -75,9 +75,9 @@ class Quyen extends BaseQuyen
                                 $criteria->compare('bizrule', $this->bizrule, true);
                                 $criteria->compare('tham_so', $this->tham_so, true);
         
-        $event = new CPOSSessionEvent();
+       /* $event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['Quyen'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

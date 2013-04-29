@@ -105,4 +105,5 @@ abstract class CPOSController extends GxController
         else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
+
 }

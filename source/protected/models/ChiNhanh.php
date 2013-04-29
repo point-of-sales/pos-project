@@ -228,9 +228,9 @@ class ChiNhanh extends BaseChiNhanh
         $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
         $criteria->compare('loai_chi_nhanh_id', $this->loai_chi_nhanh_id);
 
-        $event = new CPOSSessionEvent();
-        $event->currentSession = Yii::app()->session['ChiNhanh'];
-        $this->onAfterExport($event);
+        /*$event = new CPOSSessionEvent();
+        $event->currentSession = Yii::app()->CPOSSessionManager->getItem('ChiNhanh');
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

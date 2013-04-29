@@ -67,9 +67,9 @@ class ChiTietPhieuXuat extends BaseChiTietPhieuXuat
                                 $criteria->compare('so_luong', $this->so_luong);
                                 $criteria->compare('gia_xuat', $this->gia_xuat);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['ChiTietPhieuXuat'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

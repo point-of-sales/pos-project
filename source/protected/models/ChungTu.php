@@ -93,9 +93,9 @@ class ChungTu extends BaseChungTu
         $criteria->compare('nhan_vien_id', $this->nhan_vien_id);
         $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['ChungTu'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

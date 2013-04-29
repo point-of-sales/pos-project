@@ -119,10 +119,10 @@ class SanPhamTangController extends CPOSController {
 
         $model = new SanPhamTang('search');
         $model->unsetAttributes();
-
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['SanPhamTang'])) {
             // set vao session
-            Yii::app()->session['SanPhamTang'] = $_GET['SanPhamTang'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['SanPhamTang']);
             $model->setAttributes($_GET['SanPhamTang']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -131,16 +131,12 @@ class SanPhamTangController extends CPOSController {
     public function  actionXuat() {
         $model = new SanPhamTang('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['SanPhamTang'])) {
-            $model->setAttributes(Yii::app()->session['SanPhamTang']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }
-    $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('SanPhamTang')));
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('SanPhamTang')));
     }
 
 

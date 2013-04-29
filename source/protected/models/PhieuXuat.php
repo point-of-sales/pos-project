@@ -73,9 +73,9 @@ class PhieuXuat extends BasePhieuXuat
                                 $criteria->compare('loai_xuat_ra', $this->loai_xuat_ra);
                                 $criteria->compare('chi_nhanh_nhap_id', $this->chi_nhanh_nhap_id);
         
-        $event = new CPOSSessionEvent();
+       /* $event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['PhieuXuat'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

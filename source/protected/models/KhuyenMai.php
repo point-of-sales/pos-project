@@ -78,9 +78,9 @@ class KhuyenMai extends BaseKhuyenMai
                                 $criteria->compare('trang_thai', $this->trang_thai);
                                 $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['KhuyenMai'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

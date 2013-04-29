@@ -122,10 +122,10 @@ class NhanVienController extends CPOSController {
 
         $model = new NhanVien('search');
         $model->unsetAttributes();
-        unset( Yii::app()->session['NhanVien']);
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['NhanVien'])) {
             // set vao session
-            Yii::app()->session['NhanVien'] = $_GET['NhanVien'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['NhanVien']);
             $model->setAttributes($_GET['NhanVien']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -134,12 +134,12 @@ class NhanVienController extends CPOSController {
     public function  actionXuat() {
         $model = new NhanVien('search');
         $model->unsetAttributes();
-        if(isset(Yii::app()->session['NhanVien'])) {
-            $model->setAttributes(Yii::app()->session['NhanVien']);
-            $dataProvider = $model->search();
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
+            $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
-        } else
-            $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('NhanVien')));
+        }
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('NhanVien')));
     }
     
     public function actionAjaxActive($id){

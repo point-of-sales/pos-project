@@ -103,9 +103,9 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseModelClass."\n"; 
             $criteria->compare('<?php echo $name; ?>', $this-><?php echo $name; ?><?php echo $partial ? ', true' : ''; ?>);
         <?php endforeach; ?>
 
-        $event = new CPOSSessionEvent();
-        $event->currentSession = Yii::app()->session['<?php echo $modelClass; ?>'];
-        $this->onAfterExport($event);
+        /*$event = new CPOSSessionEvent();
+        $event->currentSession = Yii::app()->session['<?php /*echo $modelClass; */?>'];
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

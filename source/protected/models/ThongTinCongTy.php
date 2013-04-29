@@ -69,9 +69,9 @@ class ThongTinCongTy extends BaseThongTinCongTy
                                 $criteria->compare('email', $this->email, true);
                                 $criteria->compare('website', $this->website, true);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['ThongTinCongTy'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

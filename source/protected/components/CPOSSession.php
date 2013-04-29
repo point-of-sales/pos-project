@@ -1,5 +1,5 @@
 <?php
-class CPOSSession{
+class CPOSSession {
     private $_session;
     private $_array;
     private $_label;

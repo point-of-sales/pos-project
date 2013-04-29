@@ -118,29 +118,24 @@ class SanPhamController extends CPOSController {
 			throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
 	}
 
-	public function actionDanhSach() {
+    public function actionDanhSach() {
 
         $model = new SanPham('search');
         $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['SanPham'])) {
             // set vao session
-            Yii::app()->session['SanPham'] = $_GET['SanPham'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['SanPham']);
             $model->setAttributes($_GET['SanPham']);
-            $model->chi_nhanh_id = $_GET['SanPham']['tblChiNhanhs'];
         }
         $this->render('danhsach',array('model'=>$model));
-	}
+    }
 
     public function  actionXuat() {
         $model = new SanPham('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['SanPham'])) {
-            $model->setAttributes(Yii::app()->session['SanPham']);
-            $model->chi_nhanh_id = Yii::app()->session['SanPham']['tblChiNhanhs'];
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

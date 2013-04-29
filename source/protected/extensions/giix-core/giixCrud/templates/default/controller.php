@@ -137,10 +137,10 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 
         $model = new <?php echo $this->modelClass; ?>('search');
         $model->unsetAttributes();
-
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['<?php echo $this->modelClass; ?>'])) {
             // set vao session
-            Yii::app()->session['<?php echo $this->modelClass; ?>'] = $_GET['<?php echo $this->modelClass; ?>'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['<?php echo $this->modelClass; ?>']);
             $model->setAttributes($_GET['<?php echo $this->modelClass; ?>']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -150,15 +150,12 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
         $model = new <?php echo $this->modelClass; ?>('search');
         $model->unsetAttributes();
 
-        if(isset(Yii::app()->session['<?php echo $this->modelClass; ?>'])) {
-            $model->setAttributes(Yii::app()->session['<?php echo $this->modelClass; ?>']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }
-    $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('<?php echo $this->modelClass; ?>')));
+        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('<?php echo $this->modelClass; ?>')));
     }
 
 

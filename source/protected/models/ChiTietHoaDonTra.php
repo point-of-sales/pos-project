@@ -67,9 +67,9 @@ class ChiTietHoaDonTra extends BaseChiTietHoaDonTra
                                 $criteria->compare('so_luong', $this->so_luong);
                                 $criteria->compare('don_gia', $this->don_gia);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['ChiTietHoaDonTra'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

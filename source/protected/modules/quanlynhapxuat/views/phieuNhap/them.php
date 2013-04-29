@@ -25,7 +25,7 @@
         switch (e.keyCode) {
             case 13:
             {
-                ajaxTransferDataObject.dataStored = null;
+
                 if (ajaxTransferDataObject.hasInputErrors()) {
                     ajaxTransferDataObject.renderErrors();
                     ajaxTransferDataObject.focusErrors();
@@ -50,6 +50,7 @@
         this.productName = "#productname";
         this.quantity = "#quantity";
         this.price = "#price";
+
 
         this.gridTable = "#items";
         this.dataStored = null;
@@ -76,9 +77,9 @@
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
-
-        if(jQuery.inArray(item.ma_vach,this.addedItems)<0) {
-            // not found in added Array. Need to add it.
+        var position = jQuery.inArray(item.ma_vach,this.addedItems);   // position of item in added list.
+        if(position<0) {
+            // not found in added Array. Need to add new it.
             var even_odd = 'even';
             if (this.getNumRowsTable() % 2 == 0)
                 even_odd = 'odd';
@@ -87,12 +88,21 @@
                     '<input type="hidden" value="' + item.id + '" id="" />' +
                     '<td>' + '<input type="text" name="ma_vach[]" value="' + item.ma_vach + '" id="" />' + '</td>' +
                     '<td>' + '<input type="text" name="ten_san_pham[]" value="' + item.ten_san_pham + '" id="" />' + '</td>' +
-                    '<td>' + '<input type="text" name="so_luong[]" value="' + $(this.quantity).val() + '" id="" />' + '</td>' +
-                    '<td>' + '<input type="text" name="don_gia[]" value="' + $(this.price).val() + '" id="" />' + '</td>' +
+                    '<td>' + '<input type="text" name="so_luong[]" value="' + $(this.quantity).val() + '" id="sl_'+this.addedItems.length+'" />' + '</td>' +
+                    '<td>' + '<input type="text" name="don_gia[]" value="' + $(this.price).val() + '" id="dg_'+this.addedItems.length+'" />' + '</td>' +
                     '<td></td>' +
                     '</tr>';
             $(this.gridTable).append(strRow);
             this.addedItems.push(item.ma_vach);
+        } else {
+            // modify existed record on grid. Plus the quantity and change the price
+            var quantitySelector = '#sl_' + position;
+            var priceSelector = '#dg_' + position;
+            var newQuantity = parseInt($(quantitySelector).val()) + parseInt($(this.quantity).val());
+            var newPrice = $(this.price).val();
+
+            $(quantitySelector).val(newQuantity);
+            $(priceSelector).val(newPrice);
         }
         // clear dataStored after fill to grids
         this.dataStored = null;
@@ -216,8 +226,16 @@
     AjaxTransferData.prototype.resetInputs = function() {
         $(this.barcode).val('');
         $(this.productName).val('');
-        $(this.quantity).val('');
-        $(this.price).val('');
+        $(this.quantity).val(0);
+        $(this.price).val(0);
+    }
+
+    AjaxTransferData.prototype.setItemToSession = function(item) {
+
+    }
+
+    AjaxTransferData.prototype.getItemsFromSession = function() {
+
     }
 
     //Static method
@@ -235,7 +253,6 @@
         });
         return $.parseJSON(ret);
     }
-
 
 </script>
 

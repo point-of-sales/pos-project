@@ -79,9 +79,9 @@ class LoaiSanPham extends BaseLoaiSanPham
         $criteria->compare('ma_loai', $this->ma_loai, true);
         $criteria->compare('ten_loai', $this->ten_loai, true);
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['LoaiSanPham'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

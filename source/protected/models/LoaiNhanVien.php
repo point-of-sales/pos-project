@@ -66,9 +66,9 @@ class LoaiNhanVien extends BaseLoaiNhanVien
                                 $criteria->compare('ma_loai_nhan_vien', $this->ma_loai_nhan_vien, true);
                                 $criteria->compare('ten_loai', $this->ten_loai, true);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['LoaiNhanVien'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

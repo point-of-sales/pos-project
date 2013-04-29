@@ -68,9 +68,9 @@ class LoaiKhachHang extends BaseLoaiKhachHang
                                 $criteria->compare('doanh_so', $this->doanh_so);
                                 $criteria->compare('giam_gia', $this->giam_gia);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['LoaiKhachHang'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

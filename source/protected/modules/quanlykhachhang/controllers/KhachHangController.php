@@ -120,9 +120,10 @@ class KhachHangController extends CPOSController {
 
         $model = new KhachHang('search');
         $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['KhachHang'])) {
             // set vao session
-            Yii::app()->session['KhachHang'] = $_GET['KhachHang'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['KhachHang']);
             $model->setAttributes($_GET['KhachHang']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -131,12 +132,8 @@ class KhachHangController extends CPOSController {
     public function  actionXuat() {
         $model = new KhachHang('search');
         $model->unsetAttributes();
-
-        if(isset(Yii::app()->session['KhachHang'])) {
-            $model->setAttributes(Yii::app()->session['KhachHang']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

@@ -72,9 +72,9 @@ class ChiTietPhieuNhap extends BaseChiTietPhieuNhap
         $criteria->compare('so_luong', $this->so_luong);
         $criteria->compare('gia_nhap', $this->gia_nhap);
 
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['ChiTietPhieuNhap'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

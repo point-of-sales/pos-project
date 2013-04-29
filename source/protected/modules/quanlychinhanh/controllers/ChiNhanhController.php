@@ -149,9 +149,10 @@ class ChiNhanhController extends CPOSController
 
         $model = new ChiNhanh('search');
         $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
         if(isset($_GET['ChiNhanh'])) {
             // set vao session
-            Yii::app()->session['ChiNhanh'] = $_GET['ChiNhanh'];
+            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['ChiNhanh']);
             $model->setAttributes($_GET['ChiNhanh']);
         }
         $this->render('danhsach',array('model'=>$model));
@@ -160,11 +161,8 @@ class ChiNhanhController extends CPOSController
     public function  actionXuat() {
         $model = new ChiNhanh('search');
         $model->unsetAttributes();
-        if(isset(Yii::app()->session['ChiNhanh'])) {
-            $model->setAttributes(Yii::app()->session['ChiNhanh']);
-            // Gan handler voi event
-            $handler = new CPOSEventHandler();
-            $model->onAfterExport = array($handler,'clearExportSession');
+        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat',array('dataProvider'=>$dataProvider));
         }

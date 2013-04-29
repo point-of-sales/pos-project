@@ -65,9 +65,9 @@ class KhuyenMaiChiNhanh extends BaseKhuyenMaiChiNhanh
                                 $criteria->compare('khuyen_mai_id', $this->khuyen_mai_id);
                                 $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['KhuyenMaiChiNhanh'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

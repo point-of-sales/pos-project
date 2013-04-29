@@ -5,7 +5,6 @@
  * Time: 4:25 PM
  * Email: crist.azn@gmail.com | Phone : 0963-500-980 
  */
-
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
     'title'=>'Danh_sach_chi_nhanh_' . time(),
@@ -40,3 +39,6 @@ $this->widget('CPOSEExcelView', array(
                 ),
 
 ));
+
+
+

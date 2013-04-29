@@ -71,9 +71,9 @@ class NhaCungCap extends BaseNhaCungCap
                                 $criteria->compare('fax', $this->fax, true);
                                 $criteria->compare('trang_thai', $this->trang_thai);
         
-        $event = new CPOSSessionEvent();
+        /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['NhaCungCap'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
         'criteria' => $criteria,

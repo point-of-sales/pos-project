@@ -82,9 +82,9 @@ class KhuVuc extends BaseKhuVuc
         $criteria->compare('ten_khu_vuc', $this->ten_khu_vuc, true);
         $criteria->compare('mo_ta', $this->mo_ta, true);
 
-        $event = new CPOSSessionEvent();
+       /* $event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->session['KhuVuc'];
-        $this->onAfterExport($event);
+        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

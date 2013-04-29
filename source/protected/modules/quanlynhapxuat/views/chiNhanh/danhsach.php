@@ -6,9 +6,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-array('label'=>Yii::t('viLib', 'Import product'), 'url'=>array('chungTu/themPhieuNhap')),
-array('label'=>Yii::t('viLib', 'Export product'), 'url'=>array('chungTu/themPhieuXuat')),
-array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Voucher'), 'url'=>array('chungTu/danhsach')),
+array('label'=>Yii::t('viLib', 'Import product'), 'url'=>array('phieuNhap/them')),
+array('label'=>Yii::t('viLib', 'Export product'), 'url'=>array('phieuXuat/them')),
+//array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Voucher'), 'url'=>array('chungTu/danhsach')),
 array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
 
 );
