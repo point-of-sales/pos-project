@@ -144,8 +144,13 @@ class PhieuNhapController extends CPOSController {
         $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('PhieuNhap')));
     }
 
-    public function actionAjaxCheckProduct() {
-
+    public function actionSyncData() {
+        if(isset($_POST)) {
+            Yii::app()->CPOSSessionManager->setItem('ChiTiet',$_POST);
+        }
     }
+
+
+
 
 }

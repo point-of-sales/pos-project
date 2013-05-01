@@ -136,8 +136,8 @@ return array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
-                    'class'=>'CWebLogRoute',
-					//'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+                    //'class'=>'CWebLogRoute',
+					'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
 					//'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages

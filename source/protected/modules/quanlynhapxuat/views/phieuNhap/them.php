@@ -1,6 +1,26 @@
-<script>
+<?php
+//Yii::app()->CPOSSessionManager->clear('ChiTiet');
+?>
 
+<script>
     var ajaxTransferDataObject = new AjaxTransferData();
+
+    $(window).load(function () {
+        // When grid is empty and data is exist on session. Fill grid again with data from the session
+        if(ajaxTransferDataObject.isEmptyGrid()) {
+            var isEmptySession = <?php echo json_encode(Yii::app()->CPOSSessionManager->isEmpty('ChiTiet'))?>;
+            if(!isEmptySession) {
+                ajaxTransferDataObject.addedItems = <?php echo json_encode(Yii::app()->CPOSSessionManager->getItem('ChiTiet'))?>;
+                 // Refill grid
+                $.each(ajaxTransferDataObject.addedItems.items,function(key,value){
+                    var item = ajaxTransferDataObject.addedItems.items[key];
+                    ajaxTransferDataObject.renderRow(item);
+                });
+            }
+        }
+    });
+
+
     $(document).ready(function(){
          $('#barcode').blur(function(){
             item = AjaxTransferData.getStaticProduct();
@@ -34,13 +54,20 @@
                     // khong co loi xay ra. Dua du lieu vao Grid
                     // truoc khi dua du lieu thi kiem tra no co ton tai tren grid chua
                     ajaxTransferDataObject.fillItemsToGrid();
+                    ajaxTransferDataObject.syncSession();
                     ajaxTransferDataObject.resetInputs();
                 }
             }
         }
     }
 
-
+    function trimNumber(s) {
+        while (s.substr(0,1) == '0' && s.length>1)
+        {
+            s = s.substr(1,9999);
+        }
+        return s;
+    }
 
     // =====================================================================================
 
@@ -51,12 +78,11 @@
         this.quantity = "#quantity";
         this.price = "#price";
 
-
         this.gridTable = "#items";
         this.dataStored = null;
         this.customInfoBoard = null;
         this.errors = null;
-        this.addedItems = new Array();
+        this.addedItems = {'items':[]};              // Json object
 
     };
     AjaxTransferData.prototype.getProduct = function () {
@@ -77,32 +103,28 @@
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
-        var position = jQuery.inArray(item.ma_vach,this.addedItems);   // position of item in added list.
+        var position = this.isInArray(item.id);   // position of item in added list.
         if(position<0) {
             // not found in added Array. Need to add new it.
-            var even_odd = 'even';
-            if (this.getNumRowsTable() % 2 == 0)
-                even_odd = 'odd';
-            var strRow =
-                '<tr class="' + even_odd + '">' +
-                    '<input type="hidden" value="' + item.id + '" id="" />' +
-                    '<td>' + '<input type="text" name="ma_vach[]" value="' + item.ma_vach + '" id="" />' + '</td>' +
-                    '<td>' + '<input type="text" name="ten_san_pham[]" value="' + item.ten_san_pham + '" id="" />' + '</td>' +
-                    '<td>' + '<input type="text" name="so_luong[]" value="' + $(this.quantity).val() + '" id="sl_'+this.addedItems.length+'" />' + '</td>' +
-                    '<td>' + '<input type="text" name="don_gia[]" value="' + $(this.price).val() + '" id="dg_'+this.addedItems.length+'" />' + '</td>' +
-                    '<td></td>' +
-                    '</tr>';
-            $(this.gridTable).append(strRow);
-            this.addedItems.push(item.ma_vach);
+            item.so_luong  = parseInt(trimNumber($(this.quantity).val()));
+            item.don_gia  = parseInt(trimNumber($(this.price).val()));
+            this.renderRow(item);
+            this.addedItems.items.push(item);
         } else {
             // modify existed record on grid. Plus the quantity and change the price
-            var quantitySelector = '#sl_' + position;
-            var priceSelector = '#dg_' + position;
-            var newQuantity = parseInt($(quantitySelector).val()) + parseInt($(this.quantity).val());
-            var newPrice = $(this.price).val();
+            var quantitySelector = '#sl_' + item.id;
+            var priceSelector = '#dg_' + item.id;
+            var newQuantity = parseInt(trimNumber($(quantitySelector).val())) + parseInt(trimNumber($(this.quantity).val()));
+            var newPrice = parseInt(trimNumber($(this.price).val()));
 
             $(quantitySelector).val(newQuantity);
             $(priceSelector).val(newPrice);
+            // modify data in addedItems
+            var newData = {
+                'so_luong':newQuantity,
+                'don_gia':newPrice
+            };
+            this.updateItemAtPosition(position,newData);
         }
         // clear dataStored after fill to grids
         this.dataStored = null;
@@ -229,14 +251,75 @@
         $(this.quantity).val(0);
         $(this.price).val(0);
     }
+    /*
+        Kiem tra 1 id cua 1 san pham co nam trong danh sach san pham da them vao grid chua.
+        Dung Json kiem tra
+     */
 
-    AjaxTransferData.prototype.setItemToSession = function(item) {
-
+    AjaxTransferData.prototype.isInArray = function(id) {
+       // var self = this;  // define self is AjaxTransferData
+        var found = false;
+        for(var i=0;i<this.addedItems.items.length;i++) {
+            $.each(this.addedItems.items[i],function(key,value){
+               if(id==value) {
+                    found = true;
+                    return !found;
+               }
+            });
+            if(found)
+                return i;
+        }
+        return -1;
     }
 
-    AjaxTransferData.prototype.getItemsFromSession = function() {
-
+    AjaxTransferData.prototype.updateItemAtPosition = function(position,newData) {
+        var self = this;
+        for(i=0;i<this.addedItems.items.length;i++) {
+            if(i==position) {
+                // update it
+                var obj = this.addedItems.items[position];
+                $.each(newData,function(key,value){
+                    if(key in obj && key=='so_luong')
+                        self.addedItems.items[position][key] = self.addedItems.items[position][key] + value;
+                    if(key in obj)
+                        self.addedItems.items[position][key] = value;
+                });
+            }
+        }
     }
+
+    AjaxTransferData.prototype.syncSession = function() {
+        $.ajax({
+            url:"syncdata",
+            type:"POST",
+            data:this.addedItems,
+            success:function(response) {
+                console.log(response);
+            }
+        });
+    }
+
+    AjaxTransferData.prototype.renderRow = function(item) {
+        var even_odd = 'even';
+        if (this.getNumRowsTable() % 2 == 0)
+            even_odd = 'odd';
+        var strRow =
+            '<tr class="' + even_odd + '">' +
+                '<input type="hidden" value="' + item.id + '" id="" />' +
+                '<td>' + '<input type="text" name="ma_vach[]" value="' + item.ma_vach + '" id="" />' + '</td>' +
+                '<td>' + '<input type="text" name="ten_san_pham[]" value="' + item.ten_san_pham + '" id="" />' + '</td>' +
+                '<td>' + '<input type="text" name="so_luong[]" value="' + item.so_luong + '" id="sl_'+item.id+'" />' + '</td>' +
+                '<td>' + '<input type="text" name="don_gia[]" value="' + item.don_gia + '" id="dg_'+item.id+'" />' + '</td>' +
+                '<td></td>' +
+                '</tr>';
+        $(this.gridTable).append(strRow);
+    }
+
+    AjaxTransferData.prototype.isEmptyGrid = function() {
+        return ($('#items tr').length==1)?true:false;
+    }
+
+
 
     //Static method
     AjaxTransferData.getStaticProduct = function() {
@@ -253,6 +336,11 @@
         });
         return $.parseJSON(ret);
     }
+    /*
+        Kiem tra grid co du lieu hay chua
+     */
+
+
 
 </script>
 
