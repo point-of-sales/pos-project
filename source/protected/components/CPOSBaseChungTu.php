@@ -120,7 +120,7 @@ abstract class CPOSBaseChungTu extends CPOSActiveRecord {
                    $baseModelSavedRecord = ChungTu::model()->find("{$uniqueLabel}='{$this->baseModel->getAttribute($uniqueLabel)}'");
                    $this->setAttribute('id',$baseModelSavedRecord->getAttribute('id'));
                 }
-                return parent::saveWithRelated($relatedData,false);
+                return parent::saveWithRelated($relatedData,false,null,array(),true);
             }
         }
         return false;

@@ -1,7 +1,3 @@
-<?php
-//Yii::app()->CPOSSessionManager->clear('ChiTiet');
-?>
-
 <script>
     var ajaxTransferDataObject = new AjaxTransferData();
 
@@ -107,7 +103,7 @@
         if(position<0) {
             // not found in added Array. Need to add new it.
             item.so_luong  = parseInt(trimNumber($(this.quantity).val()));
-            item.don_gia  = parseInt(trimNumber($(this.price).val()));
+            item.gia_nhap  = parseInt(trimNumber($(this.price).val()));
             this.renderRow(item);
             this.addedItems.items.push(item);
         } else {
@@ -122,7 +118,7 @@
             // modify data in addedItems
             var newData = {
                 'so_luong':newQuantity,
-                'don_gia':newPrice
+                'gia_nhap':newPrice
             };
             this.updateItemAtPosition(position,newData);
         }
@@ -306,10 +302,10 @@
         var strRow =
             '<tr class="' + even_odd + '">' +
                 '<input type="hidden" value="' + item.id + '" id="" />' +
-                '<td>' + '<input type="text" name="ma_vach[]" value="' + item.ma_vach + '" id="" />' + '</td>' +
-                '<td>' + '<input type="text" name="ten_san_pham[]" value="' + item.ten_san_pham + '" id="" />' + '</td>' +
+                '<td>' + '<input type="text" name="ma_vach[]" value="' + item.ma_vach + '" class="ma_vach_items" readonly="readonly" />' + '</td>' +
+                '<td>' + '<input type="text" name="ten_san_pham[]" value="' + item.ten_san_pham + '" class="ten_san_pham_items" readonly="readonly" />' + '</td>' +
                 '<td>' + '<input type="text" name="so_luong[]" value="' + item.so_luong + '" id="sl_'+item.id+'" />' + '</td>' +
-                '<td>' + '<input type="text" name="don_gia[]" value="' + item.don_gia + '" id="dg_'+item.id+'" />' + '</td>' +
+                '<td>' + '<input type="text" name="gia_nhap[]" value="' + item.gia_nhap + '" id="dg_'+item.id+'" />' + '</td>' +
                 '<td></td>' +
                 '</tr>';
         $(this.gridTable).append(strRow);

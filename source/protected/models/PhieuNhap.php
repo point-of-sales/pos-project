@@ -30,8 +30,13 @@ class PhieuNhap extends BasePhieuNhap
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
+            //print_r(Yii::app()->CPOSSessionManager->getItem('ChiTiet'));exit;
+            $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTiet');
+            $items = $sessionData['items'];
+            $relatedItems = Helpers::formatArray($items);
             $relatedData = array(
-                //'tblSanPhams' => $params['PhieuNhap']['tblSanPhams'] === '' ? null : $params['PhieuNhap']['tblSanPhams'],
+                // fill related with data from the Session
+                'tblSanPhams' => $relatedItems,
             );
             if ($this->saveWithRelated($relatedData))
                 return 'ok';
@@ -39,6 +44,14 @@ class PhieuNhap extends BasePhieuNhap
                 return 'fail';
         } else
             return 'dup-error';
+    }
+
+    /*
+     * method cap nhat So Luong tblSanPhamChiNhanh
+     */
+
+    public function capNhatSoLuong() {
+
     }
 
     public function capNhat($params)

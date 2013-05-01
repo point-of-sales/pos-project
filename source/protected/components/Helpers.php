@@ -151,7 +151,8 @@ class Helpers
     }
 
     /*
-     * Cat mang va tra ve gia tri cat. Mang ban dau bi thay doi gia tri
+     * Cat dau mang va tra ve gia tri gia tri la mang cat. Mang ban dau bi thay doi gia tri
+     *
      */
 
     public static function array_cut(&$inputArray) {
@@ -221,6 +222,25 @@ class Helpers
         }
         // Finally return the array without empty items
         return $non_empty_items;
+    }
+
+    /*
+     * Dinh dang lai du lieu cua mang Items theo dang ['SP002']=>Array(30,4000),
+     */
+
+    public static function formatArray($inputArray) {
+        $resultArray = array();
+        foreach($inputArray as $array) {
+            $id = $array['id'];
+            $arr  = array();
+            foreach($array as $key=>$value) {
+                if($key!='ma_vach' && $key!='id' && $key!='ten_san_pham')
+                    $arr[$key] = $value;
+            }
+            $resultArray[$id] = $arr;
+
+        }
+        return $resultArray;
     }
 
 

@@ -232,16 +232,19 @@ abstract class CPOSActiveRecord extends GxActiveRecord
             throw new CDbException(Yii::t('giix', 'Cannot save the related records to the database because the main record is new.'));
 
         // Save each related data.
-
-        //relatedData form
         // [SP001] => Array(30,60000), [SP003] => Array(40,80000)
+
         if ($hasExtraFields) {
+            $pivotName = array_shift(array_keys($relatedData));
             $relatedExtraData = array();
-            foreach ($relatedData as $key => $value) {
+            foreach ($relatedData[$pivotName] as $key => $value) {
                 $relatedExtraData[] = $value;
             }
             // recreate $relatedData
-            $relatedData = array_keys($relatedData);
+            $tmp[$pivotName] = array_keys($relatedData[$pivotName]);
+            unset($relatedData);
+            $relatedData =  $tmp;
+            unset($tmp);
         }
         foreach ($relatedData as $relationName => $relationData) {
             // The pivot model class name.
