@@ -1,4 +1,8 @@
+<?php
+    Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/BaseAjaxTransferData.js');
+?>
 <script>
+    extendClass(AjaxTransferData, BaseAjaxTransferData);
     var ajaxTransferDataObject = new AjaxTransferData();
 
     $(window).load(function () {
@@ -19,23 +23,11 @@
 
     $(document).ready(function(){
          $('#barcode').blur(function(){
-            item = AjaxTransferData.getStaticProduct();
+            item = BaseAjaxTransferData.getStaticProduct();
             if(item!=null)
                 $('#productname').val(item.ten_san_pham);
          });
     });
-    // ======================== GLOBAL AREA =================================================
-    //chong reload page khi enter input text
-    function stopRKey(evt) {
-        var evt = (evt) ? evt : ((event) ? event : null);
-        var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-        if ((evt.keyCode == 13) && (node.type == "text")) {
-            return false;
-        }
-    }
-
-    document.onkeypress = stopRKey;
-    ///////////////////////////////////////////
 
     function keypressInputMa(e) {
         switch (e.keyCode) {
@@ -56,15 +48,6 @@
             }
         }
     }
-
-    function trimNumber(s) {
-        while (s.substr(0,1) == '0' && s.length>1)
-        {
-            s = s.substr(1,9999);
-        }
-        return s;
-    }
-
     // =====================================================================================
 
     // ==================================== CLASS AREA ====================================
@@ -74,28 +57,7 @@
         this.quantity = "#quantity";
         this.price = "#price";
 
-        this.gridTable = "#items";
-        this.dataStored = null;
-        this.customInfoBoard = null;
-        this.errors = null;
-        this.addedItems = {'items':[]};              // Json object
-
     };
-    AjaxTransferData.prototype.getProduct = function () {
-        var ma = $(this.barcode).val();
-        var strUrl = "getsanphamban/ma_vach/" + ma;
-        var ret;
-        $.ajax({
-            url: strUrl,
-            type: 'POST',
-            async: false,
-            success: function(response) {
-                ret = response;
-            }
-        });
-        this.dataStored = ret;
-        return this.dataStored !=null;
-    }
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
@@ -127,10 +89,6 @@
 
     }
 
-    AjaxTransferData.prototype.getNumRowsTable = function () {
-        return $(this.gridTable + ' tr').length - 1;
-    }
-
     AjaxTransferData.prototype.hasInputErrors = function() {
         this.checkInputErrors();
         if(this.errors.length>0)
@@ -153,7 +111,7 @@
 
         }
         else {
-            if (!this.getProduct()) {
+            if (!this.getProduct($(this.barcode).val())) {
                 // neu san pham chua co trong danh sach san pham. Lam thong bao loi dua vao trong info-message
                 $('<p>', {
                     class: 'custom-error-messages'
@@ -205,16 +163,6 @@
 
     }
 
-    AjaxTransferData.prototype.renderErrors = function() {
-        if(this.customInfoBoard!=null) {
-            this.customInfoBoard.insertAfter('.header-voucher-info');
-            $('.error').fadeOut(5000);
-        }
-        // clear customInfoBoard
-        this.customInfoBoard = null;
-
-    }
-
     AjaxTransferData.prototype.focusErrors = function() {
         if(this.errors.length>0) {
             // focus vao error dau tien
@@ -247,53 +195,7 @@
         $(this.quantity).val(0);
         $(this.price).val(0);
     }
-    /*
-        Kiem tra 1 id cua 1 san pham co nam trong danh sach san pham da them vao grid chua.
-        Dung Json kiem tra
-     */
 
-    AjaxTransferData.prototype.isInArray = function(id) {
-       // var self = this;  // define self is AjaxTransferData
-        var found = false;
-        for(var i=0;i<this.addedItems.items.length;i++) {
-            $.each(this.addedItems.items[i],function(key,value){
-               if(id==value) {
-                    found = true;
-                    return !found;
-               }
-            });
-            if(found)
-                return i;
-        }
-        return -1;
-    }
-
-    AjaxTransferData.prototype.updateItemAtPosition = function(position,newData) {
-        var self = this;
-        for(i=0;i<this.addedItems.items.length;i++) {
-            if(i==position) {
-                // update it
-                var obj = this.addedItems.items[position];
-                $.each(newData,function(key,value){
-                    if(key in obj && key=='so_luong')
-                        self.addedItems.items[position][key] = self.addedItems.items[position][key] + value;
-                    if(key in obj)
-                        self.addedItems.items[position][key] = value;
-                });
-            }
-        }
-    }
-
-    AjaxTransferData.prototype.syncSession = function() {
-        $.ajax({
-            url:"syncdata",
-            type:"POST",
-            data:this.addedItems,
-            success:function(response) {
-                console.log(response);
-            }
-        });
-    }
 
     AjaxTransferData.prototype.renderRow = function(item) {
         var even_odd = 'even';
@@ -310,33 +212,6 @@
                 '</tr>';
         $(this.gridTable).append(strRow);
     }
-
-    AjaxTransferData.prototype.isEmptyGrid = function() {
-        return ($('#items tr').length==1)?true:false;
-    }
-
-
-
-    //Static method
-    AjaxTransferData.getStaticProduct = function() {
-        var ma = $('#barcode').val();
-        var strUrl = "getsanphamban/ma_vach/" + ma;
-        var ret;
-        $.ajax({
-            url: strUrl,
-            type: 'POST',
-            async: false,
-            success: function(response) {
-                ret = response;
-            }
-        });
-        return $.parseJSON(ret);
-    }
-    /*
-        Kiem tra grid co du lieu hay chua
-     */
-
-
 
 </script>
 

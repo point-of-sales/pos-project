@@ -249,6 +249,19 @@ class SanPham extends BaseSanPham
         ));
     }
 
+    public function laySoLuongTonHienTai() {
+        return Yii::app()->db->createCommand()
+            ->select("so_ton")
+            ->from('tbl_SanPhamChiNhanh')
+            ->where('san_pham_id=:san_pham_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_id'=>$this->id, ':chi_nhanh_id'=>$this->chi_nhanh_id))
+            ->queryScalar();
+    }
+
+    public function capNhatSoLuongTon() {
+
+    }
+
+
 
 
 

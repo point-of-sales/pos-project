@@ -98,7 +98,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
     * Dinh nghia event after export. Event that su duoc trigger o day. $event la CSessionEvent chua session
     */
 
-   public function onAfterExport($event)
+    public function onAfterExport($event)
     {
         $this->raiseEvent('onAfterExport', $event);
 
@@ -169,7 +169,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
         }
     }
 
-    public function saveWithRelated($relatedData, $runValidation = true, $attributes = null, $options = array(), $hasExtraFields = false)
+    public function saveWithRelated($relatedData, $runValidation = true, $attributes = null, $options = array(), $hasExtraFields = false, $hasExtraBehaviour = false)
     {
         // Merge the specified options with the default options.
         $options = array_merge(
@@ -202,7 +202,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
             if (!empty($relatedData)) {
 
 
-                if (!$this->saveRelated($relatedData, $runValidation, $options['batch'], $hasExtraFields)) {
+                if (!$this->saveRelated($relatedData, $runValidation, $options['batch'], $hasExtraFields, $hasExtraBehaviour)) {
                     if ($transacted)
                         $transaction->rollback();
                     return false;
@@ -222,7 +222,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
         return true;
     }
 
-    protected function saveRelated($relatedData, $runValidation = true, $batch = true, $hasExtraFields)
+    protected function saveRelated($relatedData, $runValidation = true, $batch = true, $hasExtraFields, $hasExtraBehaviour)
     {
         if (empty($relatedData))
             return true;
@@ -243,7 +243,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
             // recreate $relatedData
             $tmp[$pivotName] = array_keys($relatedData[$pivotName]);
             unset($relatedData);
-            $relatedData =  $tmp;
+            $relatedData = $tmp;
             unset($tmp);
         }
         foreach ($relatedData as $relationName => $relationData) {
@@ -283,16 +283,32 @@ abstract class CPOSActiveRecord extends GxActiveRecord
             $deleteMap = array();
             $insertMap = array();
             if ($newMap !== null) {
-                // Identify the relations to be deleted.
-                foreach ($currentMap as $currentItem) {
-                    if (!in_array($currentItem, $newMap))
-                        $deleteMap[] = $currentItem;
+                if ($hasExtraBehaviour) {
+                    foreach ($newMap as $newItem) {
+                        if (!in_array($newItem, $currentMap)) {
+                            // insert item
+                            $insertMap[] = $newItem;
+                        } else {
+                            // replace old item with newitem
+                            $deleteMap[] = $newItem;
+                            $insertMap[] = $newItem;
+                        }
+                    }
+                } else {
+
+                    // Identify the relations to be deleted.
+                    foreach ($currentMap as $currentItem) {
+                        if (!in_array($currentItem, $newMap))
+                            $deleteMap[] = $currentItem;
+                    }
+                    // Identify the relations to be inserted.
+                    foreach ($newMap as $newItem) {
+                        if (!in_array($newItem, $currentMap))
+                            $insertMap[] = $newItem;
+                    }
+
                 }
-                // Identify the relations to be inserted.
-                foreach ($newMap as $newItem) {
-                    if (!in_array($newItem, $currentMap))
-                        $insertMap[] = $newItem;
-                }
+
             } else // If the new data is empty, everything must be deleted.
                 $deleteMap = $currentMap;
             // If nothing changed, we simply continue the loop.
@@ -326,6 +342,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
             }
 
             // Insert the new data.
+
             foreach ($insertMap as $value) {
                 $pivotModel = new $pivotClassName();
                 if ($hasExtraFields) {

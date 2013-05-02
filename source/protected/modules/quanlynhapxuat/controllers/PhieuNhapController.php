@@ -18,9 +18,7 @@ class PhieuNhapController extends CPOSController {
             $result = $model->them($_POST);
             switch($result) {
                 case 'ok': {
-                    // Cong vao so luong tung chi nhanh tblSanPhamChiNhanh
 
-                    // $sanpham = $this->loadModel(2,'SanPham');
                     // clear Session
                     Yii::app()->CPOSSessionManager->clear('ChiTiet');
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
