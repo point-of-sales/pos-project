@@ -16,7 +16,7 @@ class ChungTu extends BaseChungTu
             'ngay_lap' => Yii::t('viLib', 'Created date'),
             'tri_gia' => Yii::t('viLib', 'Worth'),
             'ghi_chu' => Yii::t('viLib', 'Notes'),
-            'nhan_vien_id' => null,
+            'nhan_vien_id' => Yii::t('viLib','Employee'),
             'chi_nhanh_id' => null,
             'nhanVien' => null,
             'chiNhanh' => null,

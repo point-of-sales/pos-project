@@ -30,13 +30,16 @@ class PhieuNhap extends BasePhieuNhap
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-            $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTiet');
-            $items = $sessionData['items'];
-            $relatedItems = Helpers::formatArray($items);
-            $relatedData = array(
-                // fill related with data from the Session
-                'tblSanPhams' => $relatedItems,
-            );
+            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap')) {
+                $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuNhap');
+                $items = $sessionData['items'];
+                $relatedItems = Helpers::formatArray($items);
+                $relatedData = array(
+                    // fill related with data from the Session
+                    'tblSanPhams' => $relatedItems,
+                );
+            } else
+                return 'detail-err';
             if ($this->saveWithRelated($relatedData)) {
                 // Cong vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
@@ -124,5 +127,14 @@ class PhieuNhap extends BasePhieuNhap
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
+    }
+
+    public function layDanhSachLoaiNhap() {
+        return array(Yii::t('viLib','Import for sale'),Yii::t('viLib','Import for borrow'),Yii::t('viLib','Import for test'));
+    }
+
+    public function layTenLoaiNhap() {
+        $danhSachLoaiNhap = $this->layDanhSachLoaiNhap();
+        return $danhSachLoaiNhap[$this->loai_nhap_vao];
     }
 }

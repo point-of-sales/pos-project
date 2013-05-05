@@ -51,7 +51,7 @@ abstract class BasePhieuNhap extends CPOSBaseChungTu
     {
         return array(
             array('loai_nhap_vao, chi_nhanh_xuat_id', 'required'),
-            array('loai_nhap_vao, chi_nhanh_xuat_id', 'numerical', 'integerOnly' => true),
+            array('chi_nhanh_xuat_id', 'numerical', 'integerOnly' => true),
             array('id, loai_nhap_vao, chi_nhanh_xuat_id', 'safe', 'on' => 'search'),
         );
     }

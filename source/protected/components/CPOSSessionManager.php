@@ -101,7 +101,7 @@ class CPOSSessionManager extends CHttpSession
     {
         if (!empty($key)) {
             $ret = parent::get($key);
-            return isset($ret)==null?true:false;
+            return ($ret=== null || array_filter($ret) === array());
         }
     }
 

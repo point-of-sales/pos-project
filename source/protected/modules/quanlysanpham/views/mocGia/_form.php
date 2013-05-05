@@ -55,6 +55,7 @@
 		<?php /*echo $form->error($model,'san_pham_id'); */?>
 		</div>--><!-- row -->
 
+    <div class="clear"></div>
 
     <div class="btn-save">
         <?php

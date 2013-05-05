@@ -18,7 +18,7 @@
  * @property ChiNhanh $chiNhanhNhap
  * @property ChungTu $id0
  */
-abstract class BasePhieuXuat extends ChungTu {
+abstract class BasePhieuXuat extends CPOSBaseChungTu {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
@@ -42,7 +42,7 @@ abstract class BasePhieuXuat extends ChungTu {
 
 	public function rules() {
 		return array(
-			array('id, ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'required'),
+			array('ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'required'),
 			array('id, loai_xuat_ra, chi_nhanh_nhap_id', 'numerical', 'integerOnly'=>true),
 			array('id, ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'safe', 'on'=>'search'),
 		);

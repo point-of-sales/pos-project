@@ -148,4 +148,12 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Import price'=>'Giá nhập',
     'Add product to list'=>'Thêm sản phẩm vào danh sách',
     'Product not found. Please try another barcode'=>'Sản phẩm không tìm thấy. Xin nhập lại mã vạch khác',
+    'Export reason'=>'Lý do xuất',
+    'Import branch'=>'Chi nhánh nhập',
+    'Export price'=>'Giá xuất',
+    'Export type'=>'Loại xuất ra',
+    'Total quantity'=>'Tổng số lượng tồn',
+    'Import for sale'=>'Xuất bán',
+    'Import for borrow'=>'Xuất cho mượn',
+    'Import for test'=>'Xuất kiểm tra',
 );

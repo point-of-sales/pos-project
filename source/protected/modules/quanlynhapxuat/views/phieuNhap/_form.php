@@ -50,7 +50,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),array("options"=>array($id=>array("selected"=>"selected")))); ?>
             <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
         </div>
 
@@ -58,10 +58,10 @@
             <?php echo $form->labelEx($model->baseModel, 'tri_gia'); ?>
             <?php
             if (!empty($model->baseModel->tri_gia))
-                echo $form->textField($model->baseModel, 'tri_gia', array('readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency');
+                echo $form->textField($model->baseModel, 'tri_gia', array('class'=>'number','readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency');
             else
 
-                echo $form->textField($model->baseModel, 'tri_gia', array('value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
+                echo $form->textField($model->baseModel, 'tri_gia', array('class'=>'number','value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
             <?php echo $form->error($model->baseModel, 'tri_gia'); ?>
         </div>
 
@@ -74,36 +74,36 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'loai_nhap_vao'); ?>
-            <?php echo $form->textField($model, 'loai_nhap_vao'); ?>
+            <?php echo $form->dropDownList($model, 'loai_nhap_vao',$model->layDanhSachLoaiNhap()); ?>
             <?php echo $form->error($model, 'loai_nhap_vao'); ?>
         </div>
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ghi_chu'); ?>
-            <?php echo $form->textArea($model->baseModel, 'ghi_chu'); ?>
+            <?php echo $form->textArea($model->baseModel, 'ghi_chu',array('class'=>'import-notes')); ?>
             <?php echo $form->error($model->baseModel, 'ghi_chu'); ?>
         </div>
     </div>
 
     <div class="product-voucher-info">
         <div class="row cus-row">
-            <?php echo GxHtml::label(Yii::t('viLib','Barcode'),'barcode')?>
-            <?php echo GxHtml::textField('barcode','',array('onkeypress'=>'keypressInputMa(event)')) ?>
+            <?php echo GxHtml::label(Yii::t('viLib', 'Barcode'), 'barcode') ?>
+            <?php echo GxHtml::textField('barcode', '', array('onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
-            <?php echo GxHtml::label(Yii::t('viLib','Product name'),'ten_san_pham')?>
-            <?php echo GxHtml::textField('productname','',array('readOnly'=>'readOnly')) ?>
+            <?php echo GxHtml::label(Yii::t('viLib', 'Product name'), 'ten_san_pham') ?>
+            <?php echo GxHtml::textField('productname', '', array('readOnly' => 'readOnly','onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
-            <?php echo GxHtml::label(Yii::t('viLib','Quantity'),'quantity')?>
-            <?php echo GxHtml::textField('quantity',0,array('class'=>'number')) ?>
+            <?php echo GxHtml::label(Yii::t('viLib', 'Quantity'), 'quantity') ?>
+            <?php echo GxHtml::textField('quantity', 0, array('class' => 'number','onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
-            <?php echo GxHtml::label(Yii::t('viLib','Import price'),'import-price')?>
-            <?php echo GxHtml::textField('price',0,array('class'=>'number')) ?>
+            <?php echo GxHtml::label(Yii::t('viLib', 'Import price'), 'import-price') ?>
+            <?php echo GxHtml::textField('price', 0, array('class' => 'number','onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
@@ -112,28 +112,25 @@
                 Yii::app()->createUrl(array('phieuNhap/AjaxCheckProduct'),
                 // options
 
-                ))*/?>
+                ))*/
+            ?>
         </div>
 
         <!--<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblSanPhams'));*/?></label>
-        --><?php /*echo $form->checkBoxList($model, 'tblSanPhams', GxHtml::encodeEx(GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)), false, true));  */?>
+        --><?php /*echo $form->checkBoxList($model, 'tblSanPhams', GxHtml::encodeEx(GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)), false, true));  */ ?>
     </div>
     <div class="detail-voucher">
-        <table class="items" id="items">
-            <thead>
+        <div id="grid" class="grid-view">
+            <table id="items" class="items">
                 <tr>
-                    <th id="grid_c0"><?php echo Yii::t('viLib','Order')?></th>
-                    <th id="grid_c1"><?php echo Yii::t('viLib','Product name')?></th>
-                    <th id="grid_c2"><?php echo Yii::t('viLib','Quantity')?></th>
-                    <th id="grid_c3"><?php echo Yii::t('viLib','Price')?>
-                    <th id="grid_c4" class="button-column"> </th>
+                    <th id="grid_c0"><?php echo Yii::t('viLib', 'Barcode') ?></th>
+                    <th id="grid_c1"><?php echo Yii::t('viLib', 'Product name') ?></th>
+                    <th id="grid_c2"><?php echo Yii::t('viLib', 'Quantity') ?></th>
+                    <th id="grid_c3"><?php echo Yii::t('viLib', 'Import price') ?>
+                    <th id="grid_c4" class="button-column"></th>
                 </tr>
-            </thead
-            <tbody>
-
-            </tbody>
-
-        </table>
+            </table>
+        </div>
     </div>
 
     <div class="clear"></div>

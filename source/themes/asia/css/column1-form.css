@@ -27,9 +27,9 @@
     width:160px;
 }
 
-.form .cus-row textarea {
+.form .cus-row .import-notes {
     width:690px;
-    height:18px;
+    height:40px;
 }
 
 .header-voucher-info {
@@ -72,10 +72,13 @@
 .number {
     text-align:right;
 }
-.ma_vach_items {
-    border:none;
-}
-.ten_san_pham_items {
-    border:none;
+
+.form .cus-row .export-reason {
+    width:160px;
+    height:40px;
 }
 
+.form .cus-row .export-notes {
+    width:470px;
+    height:40px;
+}

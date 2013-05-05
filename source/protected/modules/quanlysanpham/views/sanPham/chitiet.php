@@ -109,6 +109,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ));
 ?>
 
+<?php
+    echo GxHtml::encode(Yii::t('viLib','Total quantity') .' : '.  $model->layTongSoLuongTon());
+?>
 
 <!--<h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblHoaDonBanHangs')); */?></h2>
 <?php

@@ -6,9 +6,10 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
+array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'),'url'=>array('phieuNhap/danhsach')),
+    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'),'url'=>array('phieuXuat/danhsach')),
 array('label'=>Yii::t('viLib', 'Import product'), 'url'=>array('phieuNhap/them')),
 array('label'=>Yii::t('viLib', 'Export product'), 'url'=>array('phieuXuat/them')),
-//array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Voucher'), 'url'=>array('chungTu/danhsach')),
 array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
 
 );
@@ -57,12 +58,12 @@ array(
             'label'=>Yii::t('viLib','View'),
         ),
         'import'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"chungTu","themPhieuNhap")',
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"phieuNhap","them",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Import product'),
             'imageUrl'=>Yii::app()->theme->baseUrl . '/images/import_icon.png',
         ),
         'export'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"chungTu","themPhieuXuat")',
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"phieuXuat","them",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','Export product'),
             'imageUrl'=>Yii::app()->theme->baseUrl . '/images/export_icon.png',
         ),

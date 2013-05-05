@@ -132,4 +132,5 @@ abstract class CPOSBaseChungTu extends CPOSActiveRecord {
         $this->baseModel->delete();
     }
 
+
 }

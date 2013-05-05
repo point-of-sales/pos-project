@@ -1,39 +1,40 @@
 <?php
     Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/BaseAjaxTransferData.js');
 ?>
-<script>
+    <script>
     extendClass(AjaxTransferData, BaseAjaxTransferData);
     var ajaxTransferDataObject = new AjaxTransferData();
+    ajaxTransferDataObject.defaultAjaxUrl = "<?php echo Yii::app()->createUrl('quanlynhapxuat/phieuNhap') ?>";
 
     $(window).load(function () {
         // When grid is empty and data is exist on session. Fill grid again with data from the session
-        if(ajaxTransferDataObject.isEmptyGrid()) {
-            var isEmptySession = <?php echo json_encode(Yii::app()->CPOSSessionManager->isEmpty('ChiTiet'))?>;
-            if(!isEmptySession) {
-                ajaxTransferDataObject.addedItems = <?php echo json_encode(Yii::app()->CPOSSessionManager->getItem('ChiTiet'))?>;
-                 // Refill grid
-                $.each(ajaxTransferDataObject.addedItems.items,function(key,value){
+        if (ajaxTransferDataObject.isEmptyGrid()) {
+            var isEmptySession = <?php echo (Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap'))?1:0?>;
+            if (!isEmptySession) {
+                ajaxTransferDataObject.addedItems = <?php echo json_encode(Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuNhap'))?>;
+                // Refill grid
+                $.each(ajaxTransferDataObject.addedItems.items, function (key, value) {
                     var item = ajaxTransferDataObject.addedItems.items[key];
                     ajaxTransferDataObject.renderRow(item);
                 });
+                calTotal();
             }
         }
     });
 
-
-    $(document).ready(function(){
-         $('#barcode').blur(function(){
-            item = BaseAjaxTransferData.getStaticProduct();
-            if(item!=null)
+    $(document).ready(function () {
+        $('#barcode').blur(function () {
+            item = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
+            if (item != null)
                 $('#productname').val(item.ten_san_pham);
-         });
+        });
+
     });
 
     function keypressInputMa(e) {
         switch (e.keyCode) {
             case 13:
             {
-
                 if (ajaxTransferDataObject.hasInputErrors()) {
                     ajaxTransferDataObject.renderErrors();
                     ajaxTransferDataObject.focusErrors();
@@ -42,8 +43,10 @@
                     // khong co loi xay ra. Dua du lieu vao Grid
                     // truoc khi dua du lieu thi kiem tra no co ton tai tren grid chua
                     ajaxTransferDataObject.fillItemsToGrid();
-                    ajaxTransferDataObject.syncSession();
+                    ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
                     ajaxTransferDataObject.resetInputs();
+                    calTotal();
+
                 }
             }
         }
@@ -57,15 +60,16 @@
         this.quantity = "#quantity";
         this.price = "#price";
 
-    };
+    }
+    ;
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
         var position = this.isInArray(item.id);   // position of item in added list.
-        if(position<0) {
+        if (position < 0) {
             // not found in added Array. Need to add new it.
-            item.so_luong  = parseInt(trimNumber($(this.quantity).val()));
-            item.gia_nhap  = parseInt(trimNumber($(this.price).val()));
+            item.so_luong = parseInt(trimNumber($(this.quantity).val()));
+            item.gia_nhap = parseInt(trimNumber($(this.price).val()));
             this.renderRow(item);
             this.addedItems.items.push(item);
         } else {
@@ -79,19 +83,19 @@
             $(priceSelector).val(newPrice);
             // modify data in addedItems
             var newData = {
-                'so_luong':newQuantity,
-                'gia_nhap':newPrice
+                'so_luong': newQuantity,
+                'gia_nhap': newPrice
             };
-            this.updateItemAtPosition(position,newData);
+            this.updateItemAtPosition(position, newData);
         }
         // clear dataStored after fill to grids
         this.dataStored = null;
 
     }
 
-    AjaxTransferData.prototype.hasInputErrors = function() {
+    AjaxTransferData.prototype.hasInputErrors = function () {
         this.checkInputErrors();
-        if(this.errors.length>0)
+        if (this.errors.length > 0)
             return true;
         else
             return false;
@@ -111,7 +115,7 @@
 
         }
         else {
-            if (!this.getProduct($(this.barcode).val())) {
+            if (!this.getProduct(this.defaultAjaxUrl, $(this.barcode).val())) {
                 // neu san pham chua co trong danh sach san pham. Lam thong bao loi dua vao trong info-message
                 $('<p>', {
                     class: 'custom-error-messages'
@@ -132,7 +136,7 @@
                 class: 'custom-error-messages'
             }).text('<?php print(Yii::t('viLib','Import price must have greater than zero'))?>').appendTo(this.customInfoBoard);
             this.errors.push(2);
-        } else if(isNaN($(this.price).val())) {
+        } else if (isNaN($(this.price).val())) {
             $('<p>', {
                 class: 'custom-error-messages'
             }).text('<?php print(Yii::t('viLib','Data mistmatch'))?>').appendTo(this.customInfoBoard);
@@ -151,7 +155,7 @@
                 class: 'custom-error-messages'
             }).text('<?php print(Yii::t('viLib','Quantity must have greater than zero'))?>').appendTo(this.customInfoBoard);
             this.errors.push(3);
-        } else if(isNaN($(this.quantity).val())) {
+        } else if (isNaN($(this.quantity).val())) {
             $('<p>', {
                 class: 'custom-error-messages'
             }).text('<?php print(Yii::t('viLib','Data mistmatch'))?>').appendTo(this.customInfoBoard);
@@ -163,22 +167,25 @@
 
     }
 
-    AjaxTransferData.prototype.focusErrors = function() {
-        if(this.errors.length>0) {
+    AjaxTransferData.prototype.focusErrors = function () {
+        if (this.errors.length > 0) {
             // focus vao error dau tien
-            var  error = this.errors[0];
+            var error = this.errors[0];
             switch (error) {
-                case 1: {
+                case 1:
+                {
                     $(this.barcode).val('');
                     $(this.barcode).focus();
                     break;
                 }
-                case 2: {
+                case 2:
+                {
                     $(this.price).val('');
                     $(this.price).focus();
                     break;
                 }
-                case 3: {
+                case 3:
+                {
                     $(this.quantity).val('');
                     $(this.quantity).focus();
                     break;
@@ -189,7 +196,7 @@
         this.errors = null;
     }
 
-    AjaxTransferData.prototype.resetInputs = function() {
+    AjaxTransferData.prototype.resetInputs = function () {
         $(this.barcode).val('');
         $(this.productName).val('');
         $(this.quantity).val(0);
@@ -197,40 +204,77 @@
     }
 
 
-    AjaxTransferData.prototype.renderRow = function(item) {
+    AjaxTransferData.prototype.renderRow = function (item) {
         var even_odd = 'even';
         if (this.getNumRowsTable() % 2 == 0)
             even_odd = 'odd';
         var strRow =
             '<tr class="' + even_odd + '">' +
                 '<input type="hidden" value="' + item.id + '" id="" />' +
-                '<td>' + '<input type="text" name="ma_vach[]" value="' + item.ma_vach + '" class="ma_vach_items" readonly="readonly" />' + '</td>' +
-                '<td>' + '<input type="text" name="ten_san_pham[]" value="' + item.ten_san_pham + '" class="ten_san_pham_items" readonly="readonly" />' + '</td>' +
-                '<td>' + '<input type="text" name="so_luong[]" value="' + item.so_luong + '" id="sl_'+item.id+'" />' + '</td>' +
-                '<td>' + '<input type="text" name="gia_nhap[]" value="' + item.gia_nhap + '" id="dg_'+item.id+'" />' + '</td>' +
-                '<td></td>' +
+                '<td>' + item.ma_vach + '<input type="hidden" name="ma_vach[]" value="' + item.ma_vach + '"/>' + '</td>' +
+                '<td>' + item.ten_san_pham + '<input type="hidden" name="ten_san_pham[]" value="' + item.ten_san_pham + '"/>' + '</td>' +
+                '<td>' + '<input type="text" name="so_luong[]" onblur="return changeQuantity(' + item.id + ')" value="' + item.so_luong + '" id="sl_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<input type="text" name="gia_nhap[]" onblur="return changePrice(' + item.id + ')" value="' + item.gia_nhap + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<a href="#" onclick="return ajaxTransferDataObject.removeItem(' + item.id + ')">' + '<img src="<?php echo Yii::app()->theme->baseUrl . '/images/delete.png'?>" id="cl_' + item.id + '" class="clearitems" alt="Xóa"/>' + '</a>' + '</td>' +
+
                 '</tr>';
         $(this.gridTable).append(strRow);
     }
 
-</script>
+
+    AjaxTransferData.prototype.removeItem = function (id) {
+        this.clearItem(id);
+        $('#cl_' + id).parent().parent().parent().remove();
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        calTotal();
+        return false;
+
+    }
+
+    function calTotal() {
+        var total = 0;
+        for (var i = 0; i < ajaxTransferDataObject.addedItems.items.length; i++) {
+            total = total + ajaxTransferDataObject.addedItems.items[i].so_luong * ajaxTransferDataObject.addedItems.items[i].gia_nhap;
+        }
+        $('#ChungTu_tri_gia').val(total);
+    }
+
+    function changeQuantity(id) {
+        var newData = {
+            'so_luong': parseInt($('#sl_' + id).val())
+        };
+        var position = ajaxTransferDataObject.isInArray(id);
+        ajaxTransferDataObject.updateItemAtPosition(position, newData);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        calTotal();
+    }
+
+    function changePrice(id) {
+        var newData = {
+            'gia_nhap': parseInt($('#dg_' + id).val())
+        };
+        var position = ajaxTransferDataObject.isInArray(id);
+        ajaxTransferDataObject.updateItemAtPosition(position, newData);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        calTotal();
+    }
+
+    </script>
 
 <?php
 $this->breadcrumbs = array(
-    $model->label(2) => array('danhsach'),
-    Yii::t('viLib', 'Create'),
-);
-
-$this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url' => array('admin')),
+    Yii::t('viLib', 'Import/Export management') => array('chiNhanh/danhsach'),
+    Yii::t('viLib', 'Import form') => array(),
+    Yii::t('viLib', 'Create') => array(),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(
     'model' => $model,
+    //isset($id)?('id'=>$id):null,
+    'id' => isset($id) ? $id : null,
     'buttons' => 'create'));
 ?>

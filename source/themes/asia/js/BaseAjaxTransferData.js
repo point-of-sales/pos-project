@@ -24,8 +24,11 @@ var BaseAjaxTransferData = function() {
     this.errors = null;
     this.addedItems = {'items':[]};              // Json object
 
-    BaseAjaxTransferData.prototype.getProduct = function (ma) {
-        var strUrl = "getsanphamban/ma_vach/" + ma;
+    BaseAjaxTransferData.prototype.getProduct = function (url,ma) {
+        var strUrl;
+        if(typeof(url)==='undefined')
+            strUrl = "getsanphamban/ma_vach/" + ma;
+        strUrl = url + "/getsanphamban/ma_vach/" + ma;
         var ret;
         $.ajax({
             url: strUrl,
@@ -68,9 +71,13 @@ var BaseAjaxTransferData = function() {
         return -1;
     }
 
-    BaseAjaxTransferData.prototype.syncSession = function() {
+    BaseAjaxTransferData.prototype.syncSession = function(url) {
+        var strUrl;
+        if(typeof(url)==='undefined')
+            strUrl = "syncdata"
+        strUrl = url + "/syncdata";
         $.ajax({
-            url:"syncdata",
+            url: strUrl,
             type:"POST",
             data:this.addedItems,
             success:function(response) {
@@ -80,14 +87,17 @@ var BaseAjaxTransferData = function() {
     }
 
     BaseAjaxTransferData.prototype.isEmptyGrid = function() {
-        return ($($(this.gridTable).val() + 'tr').length==1)?true:false;
+        return ($(this.gridTable + ' tr').length==1)?true:false;
     }
 
 
     //Static method
-    BaseAjaxTransferData.getStaticProduct = function() {
+    BaseAjaxTransferData.getStaticProduct = function(url) {
         var ma = $('#barcode').val();
-        var strUrl = "getsanphamban/ma_vach/" + ma;
+        var strUrl;
+        if(typeof (url)==='undefined')
+            strUrl = "getsanphamban/ma_vach/" + ma;
+        strUrl = url + "/getsanphamban/ma_vach/" + ma;
         var ret;
         $.ajax({
             url: strUrl,
@@ -107,20 +117,22 @@ var BaseAjaxTransferData = function() {
 
     BaseAjaxTransferData.prototype.updateItemAtPosition = function(position,newData) {
         var self = this;
-        for(i=0;i<this.addedItems.items.length;i++) {
-            if(i==position) {
-                // update it
-                var obj = this.addedItems.items[position];
-                $.each(newData,function(key,value){
-                    if(key in obj && key=='so_luong')
-                        self.addedItems.items[position][key] = self.addedItems.items[position][key] + value;
-                    if(key in obj)
-                        self.addedItems.items[position][key] = value;
-                });
-            }
-        }
+        var obj = this.addedItems.items[position];
+        $.each(newData,function(key,value){
+            if(key in obj)
+                self.addedItems.items[position][key] = value;
+        });
     }
 
+    // clear item and syc with session
+
+    BaseAjaxTransferData.prototype.clearItem = function(id) {
+        var self = this;
+        for(i=0;i<this.addedItems.items.length;i++) {
+           if(this.addedItems.items[i].id == id)
+                this.addedItems.items.splice(i,1);
+        }
+    }
 
 }
 
