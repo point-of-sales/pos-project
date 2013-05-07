@@ -60,9 +60,9 @@ abstract class BaseMocGia extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'thoi_gian_bat_dau' => Yii::t('app', 'Thoi Gian Bat Dau'),
-			'gia_ban' => Yii::t('app', 'Gia Ban'),
+			'id' => Yii::t('viLib', 'ID'),
+			'thoi_gian_bat_dau' => Yii::t('viLib', 'Thoi Gian Bat Dau'),
+			'gia_ban' => Yii::t('viLib', 'Gia Ban'),
 			'san_pham_id' => null,
 			'sanPham' => null,
 		);

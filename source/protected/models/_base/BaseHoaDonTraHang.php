@@ -66,7 +66,7 @@ abstract class BaseHoaDonTraHang extends ChungTu {
 	public function attributeLabels() {
 		return array(
 			'id' => null,
-			'ly_do_tra_hang' => Yii::t('app', 'Ly Do Tra Hang'),
+			'ly_do_tra_hang' => Yii::t('viLib', 'Ly Do Tra Hang'),
 			'hoa_don_ban_id' => null,
 			'tblSanPhams' => null,
 			'id0' => null,

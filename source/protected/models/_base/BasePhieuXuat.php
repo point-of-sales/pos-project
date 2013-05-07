@@ -65,8 +65,8 @@ abstract class BasePhieuXuat extends CPOSBaseChungTu {
 	public function attributeLabels() {
 		return array(
 			'id' => null,
-			'ly_do_xuat' => Yii::t('app', 'Ly Do Xuat'),
-			'loai_xuat_ra' => Yii::t('app', 'Loai Xuat Ra'),
+			'ly_do_xuat' => Yii::t('viLib', 'Ly Do Xuat'),
+			'loai_xuat_ra' => Yii::t('viLib', 'Loai Xuat Ra'),
 			'chi_nhanh_nhap_id' => null,
 			'tblSanPhams' => null,
 			'chiNhanhNhap' => null,

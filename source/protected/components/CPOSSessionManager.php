@@ -39,7 +39,7 @@ class CPOSSessionManager extends CHttpSession
                 if(isset($dims))
                     $elem[$dims] = $item;
                 else
-                    $elem = $item;
+                    $elem = $item;   /// ??????
             }
             $this->add($key, $elem);
         }

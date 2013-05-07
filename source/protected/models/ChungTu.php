@@ -81,6 +81,29 @@ class ChungTu extends BaseChungTu
     }
 
 
+    /*
+     * Lay danh sach cac chung tu thuoc loai phieu nhap
+     */
+
+    public function layDanhSachChuntTuPhieuNhap () {
+        $criteria = new CDbCriteria();
+        $criteria->join = 'LEFT JOIN tbl_PhieuXuat pn ON t.id = pn.id';
+        $criteria->condition = 't.id NOT IN (SELECT id FROM tbl_PhieuXuat)';
+        return $this->findAll($criteria);
+    }
+
+    /*
+     * Lay danh sach cac chung tu thuoc loai phieu xuat
+     */
+
+    public function layDanhSachChungTuPhieuXuat () {
+        $criteria = new CDbCriteria();
+        $criteria->join = 'LEFT JOIN tbl_PhieuNhap pn ON t.id = pn.id';
+        $criteria->condition = 't.id NOT IN (SELECT id FROM tbl_PhieuNhap)';
+        return $this->findAll($criteria);
+    }
+
+
     public function xuatFileExcel()
     {
         $criteria = new CDbCriteria;

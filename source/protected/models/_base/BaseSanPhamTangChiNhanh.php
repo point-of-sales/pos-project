@@ -62,7 +62,7 @@ abstract class BaseSanPhamTangChiNhanh extends CPOSActiveRecord {
 		return array(
 			'san_pham_tang_id' => null,
 			'chi_nhanh_id' => null,
-			'so_ton' => Yii::t('app', 'So Ton'),
+			'so_ton' => Yii::t('viLib', 'So Ton'),
 		);
 	}
 

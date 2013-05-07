@@ -6,18 +6,19 @@
     )); ?>
 
     <div class="row cus-row">
-        <?php echo $form->label($model->baseModel, 'id'); ?>
-        <?php echo $form->dropDownList($model->baseModel, 'id', GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+        <?php echo GxHtml::label(Yii::t('viLib','Voucher code'),'id'); ?>
+        <?php echo $form->dropDownList($model->baseModel, 'id', GxHtml::listDataEx($model->baseModel->layDanhSachChungTuPhieuXuat()), array('prompt' => Yii::t('viLib', 'All'))); ?>
+
     </div>
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'loai_xuat_ra'); ?>
-        <?php echo $form->dropDownList($model, 'loai_xuat_ra', $model->layDanhSachLoaiXuat()); ?>
+        <?php echo $form->dropDownList($model, 'loai_xuat_ra', $model->layDanhSachLoaiXuat(),array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'chi_nhanh_nhap_id'); ?>
-        <?php echo $form->dropDownList($model, 'chi_nhanh_nhap_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'chi_nhanh_nhap_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row buttons btn-search">

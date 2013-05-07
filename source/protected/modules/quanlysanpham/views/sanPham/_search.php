@@ -36,17 +36,17 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'nha_cung_cap_id'); ?>
-        <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'loai_san_pham_id'); ?>
-        <?php echo $form->dropDownList($model, 'loai_san_pham_id', GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'loai_san_pham_id', GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row cus-row">
        <label><?php echo GxHtml::encode(Yii::t('viLib','Branch')); ?></label>
-        <?php echo $form->dropDownList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), false, true),array('prompt' => Yii::t('app', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), false, true),array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
     <div class="clear"></div>
     <div class="row buttons btn-search">

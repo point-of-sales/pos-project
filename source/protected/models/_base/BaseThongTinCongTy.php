@@ -60,12 +60,12 @@ abstract class BaseThongTinCongTy extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'ten_cong_ty' => Yii::t('app', 'Ten Cong Ty'),
-			'dia_chi' => Yii::t('app', 'Dia Chi'),
-			'dien_thoai' => Yii::t('app', 'Dien Thoai'),
-			'fax' => Yii::t('app', 'Fax'),
-			'email' => Yii::t('app', 'Email'),
-			'website' => Yii::t('app', 'Website'),
+			'ten_cong_ty' => Yii::t('viLib', 'Ten Cong Ty'),
+			'dia_chi' => Yii::t('viLib', 'Dia Chi'),
+			'dien_thoai' => Yii::t('viLib', 'Dien Thoai'),
+			'fax' => Yii::t('viLib', 'Fax'),
+			'email' => Yii::t('viLib', 'Email'),
+			'website' => Yii::t('viLib', 'Website'),
 		);
 	}
 

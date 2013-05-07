@@ -33,5 +33,9 @@ class ChiNhanhController extends CPOSController {
         $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('ChiNhanh')));
     }
 
+    public function actionViewRaw() {
+        $this->renderPartial('raw');
+    }
+
 
 }

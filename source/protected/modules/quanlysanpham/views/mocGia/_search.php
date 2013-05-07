@@ -34,7 +34,7 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'san_pham_id'); ?>
-        <?php echo $form->dropDownList($model, 'san_pham_id', GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'san_pham_id', GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row buttons btn-search">

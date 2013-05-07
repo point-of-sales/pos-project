@@ -43,6 +43,8 @@ abstract class BasePhieuNhap extends CPOSBaseChungTu
             'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietPhieuNhap(phieu_nhap_id, san_pham_id)'),
             'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
             'chiNhanhXuat' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_xuat_id'),
+            'chiTietPhieuNhap'=>array(self::HAS_MANY,'ChiTietPhieuNhap','phieu_nhap_id'),
+
         );
     }
 

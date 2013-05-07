@@ -62,10 +62,10 @@ abstract class BaseKhuVuc extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_khu_vuc' => Yii::t('app', 'Ma Khu Vuc'),
-			'ten_khu_vuc' => Yii::t('app', 'Ten Khu Vuc'),
-			'mo_ta' => Yii::t('app', 'Mo Ta'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ma_khu_vuc' => Yii::t('viLib', 'Ma Khu Vuc'),
+			'ten_khu_vuc' => Yii::t('viLib', 'Ten Khu Vuc'),
+			'mo_ta' => Yii::t('viLib', 'Mo Ta'),
 			'chiNhanhs' => null,
 		);
 	}

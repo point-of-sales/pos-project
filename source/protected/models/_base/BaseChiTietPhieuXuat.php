@@ -64,8 +64,8 @@ abstract class BaseChiTietPhieuXuat extends CPOSActiveRecord {
 		return array(
 			'san_pham_id' => null,
 			'phieu_xuat_id' => null,
-			'so_luong' => Yii::t('app', 'So Luong'),
-			'gia_xuat' => Yii::t('app', 'Gia Xuat'),
+			'so_luong' => Yii::t('viLib', 'So Luong'),
+			'gia_xuat' => Yii::t('viLib', 'Gia Xuat'),
 		);
 	}
 

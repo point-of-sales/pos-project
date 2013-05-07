@@ -97,14 +97,14 @@ abstract class BaseChiNhanh extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_chi_nhanh' => Yii::t('app', 'Ma Chi Nhanh'),
-			'ten_chi_nhanh' => Yii::t('app', 'Ten Chi Nhanh'),
-			'dia_chi' => Yii::t('app', 'Dia Chi'),
-			'dien_thoai' => Yii::t('app', 'Dien Thoai'),
-			'fax' => Yii::t('app', 'Fax'),
-			'mo_ta' => Yii::t('app', 'Mo Ta'),
-			'trang_thai' => Yii::t('app', 'Trang Thai'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ma_chi_nhanh' => Yii::t('viLib', 'Ma Chi Nhanh'),
+			'ten_chi_nhanh' => Yii::t('viLib', 'Ten Chi Nhanh'),
+			'dia_chi' => Yii::t('viLib', 'Dia Chi'),
+			'dien_thoai' => Yii::t('viLib', 'Dien Thoai'),
+			'fax' => Yii::t('viLib', 'Fax'),
+			'mo_ta' => Yii::t('viLib', 'Mo Ta'),
+			'trang_thai' => Yii::t('viLib', 'Trang Thai'),
 			'truc_thuoc_id' => null,
 			'khu_vuc_id' => null,
 			'loai_chi_nhanh_id' => null,

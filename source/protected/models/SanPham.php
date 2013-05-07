@@ -253,6 +253,7 @@ class SanPham extends BaseSanPham
         ));
     }
 
+
     public function laySoLuongTonHienTai() {
         return Yii::app()->db->createCommand()
             ->select("so_ton")

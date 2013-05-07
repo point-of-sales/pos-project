@@ -7,7 +7,7 @@
 
                     <div class="row cus-row">
             <?php echo $form->label($model, 'id'); ?>
-            <?php echo $form->dropDownList($model, 'id', GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+            <?php echo $form->dropDownList($model, 'id', GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
         </div>
 
                     <div class="row cus-row">

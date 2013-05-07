@@ -68,12 +68,12 @@ abstract class BaseQuyen extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ten_quyen' => Yii::t('app', 'Ten Quyen'),
-			'loai' => Yii::t('app', 'Loai'),
-			'mo_ta' => Yii::t('app', 'Mo Ta'),
-			'bizrule' => Yii::t('app', 'Bizrule'),
-			'tham_so' => Yii::t('app', 'Tham So'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ten_quyen' => Yii::t('viLib', 'Ten Quyen'),
+			'loai' => Yii::t('viLib', 'Loai'),
+			'mo_ta' => Yii::t('viLib', 'Mo Ta'),
+			'bizrule' => Yii::t('viLib', 'Bizrule'),
+			'tham_so' => Yii::t('viLib', 'Tham So'),
 			'tblNhanViens' => null,
 			'phanQuyens' => null,
 			'phanQuyens1' => null,

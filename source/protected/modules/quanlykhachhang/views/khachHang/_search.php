@@ -42,7 +42,7 @@
 
                     <div class="row cus-row">
             <?php echo $form->label($model, 'loai_khach_hang_id'); ?>
-            <?php echo $form->dropDownList($model, 'loai_khach_hang_id', GxHtml::listDataEx(LoaiKhachHang::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+            <?php echo $form->dropDownList($model, 'loai_khach_hang_id', GxHtml::listDataEx(LoaiKhachHang::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
         </div>
 
         <div class="row buttons btn-search">

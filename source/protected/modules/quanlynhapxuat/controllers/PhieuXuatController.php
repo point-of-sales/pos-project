@@ -6,8 +6,15 @@ class PhieuXuatController extends CPOSController
 
     public function actionChiTiet($id)
     {
+        $model = $this->loadModel($id, 'PhieuXuat');
+        $model->getBaseModel();
+        $criteria  = new CDbCriteria();
+        $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
+        $criteria->params = array(':phieu_xuat_id'=>$id);
+        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuXuat',array('criteria'=>$criteria));
         $this->render('chitiet', array(
-            'model' => $this->loadModel($id, 'PhieuXuat'),
+            'model' => $model,
+            'dataProvider'=>$chiTietPhieuNhapDataProvider,
         ));
     }
 
@@ -149,26 +156,28 @@ class PhieuXuatController extends CPOSController
     {
 
         $model = new PhieuXuat('search');
+
         $model->unsetAttributes();
         Yii::app()->CPOSSessionManager->clearKey('ExportData');
-        if (isset($_GET['PhieuXuat'])) {
+        if (isset($_GET['ChungTu'])) {
             // set vao session
             Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['PhieuXuat']);
-            $model->setAttributes($_GET['PhieuXuat']);
+            $model->setAttributes($_GET);
+            $model->setAttribute('id',$model->baseModel->getAttribute('id'));
         }
         $this->render('danhsach', array('model' => $model));
     }
 
-    public function  actionXuat()
+    public function  actionXuat($id)
     {
-        $model = new PhieuXuat('search');
-        $model->unsetAttributes();
-        if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
-            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
-            $dataProvider = $model->xuatFileExcel();
-            $this->render('xuat', array('dataProvider' => $dataProvider));
+        if(isset($id)) {
+            $criteria  = new CDbCriteria();
+            $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
+            $criteria->params = array(':phieu_xuat_id'=>$id);
+            $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat',array('criteria'=>$criteria));
+            $this->render('xuat', array('dataProvider' => $chiTietPhieuXuatDataProvider));
         }
-        $this->render('xuat', array('dataProvider' => new CActiveDataProvider('PhieuXuat')));
+        throw new CException('404','Id not found');
     }
 
     public function actionLaySoLuongTon($ma_vach, $chi_nhanh_id)
