@@ -146,6 +146,8 @@ class SanPhamController extends CPOSController
             // set vao session
             Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['SanPham']);
             $model->setAttributes($_GET['SanPham']);
+            $model->setAttribute('chi_nhanh_id',$_GET['SanPham']['tblChiNhanhs']);
+
         }
         $this->render('danhsach', array('model' => $model));
     }
@@ -156,6 +158,9 @@ class SanPhamController extends CPOSController
         $model->unsetAttributes();
         if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
             $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
+            $tmp = Yii::app()->CPOSSessionManager->getItem('ExportData');
+            $chi_nhanh_id = $tmp['tblChiNhanhs'];
+            $model->setAttribute('chi_nhanh_id',$chi_nhanh_id);
             $dataProvider = $model->xuatFileExcel();
             $this->render('xuat', array('dataProvider' => $dataProvider));
         }
