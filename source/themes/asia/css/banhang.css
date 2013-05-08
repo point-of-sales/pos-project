@@ -5,7 +5,7 @@
 }
 #form-hd-ban-header {
 	position:relative;
-	height:40px;
+	height:45px;
 }
 #form-hd-ban-header-left {
 	width:300px;
@@ -45,17 +45,18 @@
     
 }
 #form-hd-ban-header-table tr td {
-    padding: 3px 0px 3px 10px ;
+    padding: 0px 0px 0px 10px ;
     font-size: 12px;
 }
 #form-hd-ban-info {
 	height:100px;
+    width:auto;
 	border-bottom:#000 solid 2px;
 	border-top:#000 solid 2px;
 }
 #form-hd-ban-info-left {
 	height:100%;
-	width:400px;
+	width:60%;
 	float:left;
 }
 #form-hd-ban-ma {
@@ -74,7 +75,7 @@
 }
 #form-hd-ban-info-right {
 	height:100%;
-	width:auto;
+	width:40%;
 	float:left;
 }
 #form-hd-ban-info-table {
