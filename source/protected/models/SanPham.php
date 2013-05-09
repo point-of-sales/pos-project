@@ -284,8 +284,10 @@ class SanPham extends BaseSanPham
         $giaHienTai = $this->layGiaHienTai();
         if($this->khuyen_mai_id!='') {
             $khuyenMai = $this->khuyenMai->gia_giam;
+            return round($giaHienTai-($giaHienTai*($khuyenMai/100)));
         }
-        return round($giaHienTai-($giaHienTai*($khuyenMai/100)));
+        return $giaHienTai;
+
     }
 
 }
