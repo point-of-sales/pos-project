@@ -142,6 +142,7 @@ return array(
                     //'class'=>'CWebLogRoute',
 					'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
 					'levels'=>'error, warning',
+					//'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
 

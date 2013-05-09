@@ -183,8 +183,12 @@ class Helpers
     public static function array_getval($targetArray,$dims) {
         if(!empty($dims)) {  // neu dims la mang da chieu
             foreach($dims as $dim) {
-                $tmp = $targetArray[$dim];
-                $targetArray = $tmp;
+                if(isset($targetArray[$dim])) {
+                    $tmp = $targetArray[$dim];
+                    $targetArray = $tmp;
+                } else
+                    return null; // khong tim thay dim
+
             }
         } else               // neu dims ko duoc la mang rong. Lay phan tu cuoi cung
             $tmp = array_pop($targetArray);
