@@ -32,7 +32,8 @@ class KhuyenMai extends BaseKhuyenMai
         if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-            $relatedData = array( //'tblChiNhanhs' => $_POST['KhuyenMai']['tblChiNhanhs'] === '' ? null : $_POST['KhuyenMai']['tblChiNhanhs'],
+            $relatedData = array(
+                'tblChiNhanhs' => $_POST['KhuyenMai']['tblChiNhanhs'] === '' ? null : $_POST['KhuyenMai']['tblChiNhanhs'],
             );
             if ($this->saveWithRelated($relatedData))
                 return 'ok';
