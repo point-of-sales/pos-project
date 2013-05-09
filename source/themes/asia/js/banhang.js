@@ -73,12 +73,12 @@ function xuLyThaoTac(){
         case sAction.soLuong:{
             cur_so_luong = $(maInput).val();
             capNhatSoLuong(cur_ma_vach,cur_so_luong);
-            cur_ma_vach = "";
             xoaMaInput();
             chuyenDoiThaoTac(sAction.maVach);
         }break;
         case sAction.khachHang:{
             layKhachHang();
+            xoaMaInput();
         }break;
     }
 }
@@ -93,12 +93,19 @@ function layKhachHang(){
     var ma_khach_hang = $(maInput).val();
     var strUrl = "laykhachhang";
     $.ajax({
-        async: false;
+        async: false,
         url: strUrl,
         type: 'POST',
         data: {ma_khach_hang: ma_khach_hang},
         success: function(data){
-            
+            var item = $.parseJSON(data);
+            if(item.status == 'ok'){
+                $(formError).html("");
+                dongBoDuLieu();
+            }
+            else{
+                $(formError).html(item.msg);
+            }   
         }
     });
 }
@@ -181,6 +188,7 @@ function xoaSanPhamBan(id){
         success: function(data){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
+                cur_ma_vach = "";
                 $(formError).html("");
                 dongBoDuLieu();
                 xoaMaInput();

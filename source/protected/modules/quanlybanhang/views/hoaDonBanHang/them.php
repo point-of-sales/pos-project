@@ -1,7 +1,7 @@
 <?php
 Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/banhang.js');
 Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/banhang.css');
-//print_r(Yii::app()->session->toArray());
+print_r(Yii::app()->session->toArray());
 ?>
 <input type="hidden" id="base-url" value="<?php echo Yii::app()->request->baseUrl?>" />
 <div id="form-hd-ban">

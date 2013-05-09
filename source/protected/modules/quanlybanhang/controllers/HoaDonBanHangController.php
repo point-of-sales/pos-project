@@ -153,7 +153,28 @@ class HoaDonBanHangController extends CPOSController {
     }
     
     public function actionLayKhachHang(){
-        
+        if (Yii::app()->getRequest()->getIsAjaxRequest()==true && isset($_POST['ma_khach_hang'])==true) {
+            $ma_khach_hang = $_POST['ma_khach_hang'];
+            $khach_hang = Yii::app()->CPOSSessionManager->getItem('hd_ban_hang',array('khach_hang'));   
+            $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
+            if(!empty($model)){
+                $khach_hang['khach_hang_id'] = $model->getAttribute('khach_hang_id');
+                Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$khach_hang,array('khach_hang'));
+                $result = array(
+                    'status' => 'ok',
+                    'msg' => 'ok'
+                );
+            }
+            else{
+                $result = array(
+                    'status' => 'error',
+                    'msg' => 'Mã khách hàng không đúng',
+                );   
+            }
+            echo json_encode($result);
+        }
+        else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
     
     public function actionCapNhatSoLuong(){
@@ -206,7 +227,10 @@ class HoaDonBanHangController extends CPOSController {
             $cthd_ban_hang = Yii::app()->CPOSSessionManager->getItem('hd_ban_hang',array('cthd_ban_hang'));
             $index = $this->kiemTraMaVach($ma_vach);
             if($index != -1){
+                //xoa phan tu khoi array
                 unset($cthd_ban_hang[$index]);
+                //re index lai array
+                $cthd_ban_hang = array_values($cthd_ban_hang);
                 Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
                 $result = array(
                     'status' => 'ok',
@@ -225,7 +249,6 @@ class HoaDonBanHangController extends CPOSController {
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
     
-    //public function actionLaySanPhamBan($ma_vach,$so_luong,$flag=false){
     public function actionLaySanPhamBan(){
         if (Yii::app()->getRequest()->getIsAjaxRequest()==true && isset($_POST['ma_vach'])==true) {
             $ma_vach = $_POST['ma_vach'];
@@ -295,21 +318,6 @@ class HoaDonBanHangController extends CPOSController {
     
     public function actionDongBoDuLieu(){
         echo json_encode(Yii::app()->CPOSSessionManager->getItem('hd_ban_hang'));
-    }
-    
-    public function themSanPhamBan($item,$append=true){
-        $cthd_ban_hang = Yii::app()->CPOSSessionManager->getItem('hd_ban_hang',array('cthd_ban_hang'));
-        if($append){
-            $cthd_ban_hang[] = $item;
-        }
-        else{
-            for($i=0;$i<count($cthd_ban_hang);$i++){
-                if($cthd_ban_hang[$i]['id']==$item['id']){
-                    $cthd_ban_hang[$i]['so_luong'] += $item['so_luong'];
-                }
-            }   
-        }
-        Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
     }
     
     public function kiemTraSoLuong($ma_vach,$chi_nhanh,$so_luong){
