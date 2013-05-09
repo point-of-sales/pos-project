@@ -4,6 +4,7 @@ var sKey = {
     z : 122,
     x : 120,
     c : 99,
+    v : 118,
     f5 : 116,
     tab : 9
 };
@@ -11,13 +12,15 @@ var sKey = {
 var sAction = {
     maVach : "Mã vạch",
     soLuong : "Số lượng",
-    khachHang : "Khách hàng"
+    khachHang : "Khách hàng",
+    timKhachHang : "Tìm khách hàng"
 };
 
 var maInput = "#form-hd-ban-ma-input";
 var maLabel = "#form-hd-ban-ma-label";
 var formError = "#form-hd-ban-error";
 var gridTable = "#items";
+var timKHDialog = "#dialog-tim-khach-hang";
 var baseUrl = "";
 var curAction = "";
 var cur_ma_vach = "";
@@ -33,6 +36,29 @@ document.onkeypress = stopRKey;
 ///////////////////////////////////////////
 
 $(document).ready(function(){
+    // Login Dialog Link
+    $(timKHDialog).click(function(){
+    	$('#dialog-tim-khach-hang').dialog('open');
+    	return false;
+    });
+    
+    // Login Dialog			
+    $(timKHDialog).dialog({
+    	autoOpen: false,
+    	width: 300,
+    	height: 230,
+    	bgiframe: true,
+    	modal: true,
+    	buttons: {
+    		"Login": function() { 
+    			$(this).dialog("close"); 
+    		}, 
+    		"Close": function() { 
+    			$(this).dialog("close"); 
+    		} 
+    	}
+    });
+    
     xoaMaInput();
     baseUrl = $('#base-url').val();
     curAction = sAction.maVach;
@@ -40,7 +66,8 @@ $(document).ready(function(){
 });
 
 function keypressInputMa(e){
-    switch(e.charCode||e.keyCode){
+    var key = e.charCode||e.keyCode;
+    switch(key){
         case sKey.enter:{
             xuLyThaoTac();
         }break;
@@ -58,6 +85,9 @@ function keypressInputMa(e){
                 chuyenDoiThaoTac(sAction.soLuong);
                 xoaMaInput("1");              
             }
+        }break;
+        case sKey.c:{
+            $(timKHDialog).dialog('open');
         }break;
     }
 }
@@ -79,6 +109,9 @@ function xuLyThaoTac(){
         case sAction.khachHang:{
             layKhachHang();
             xoaMaInput();
+        }break;
+        case sAction.timKhachHang:{
+            
         }break;
     }
 }
@@ -261,8 +294,4 @@ function xoaGrid(){
         '<th>Thành tiền</th>'+
         '<th></th>'+
     '</tr>');
-}
-
-function timId(){
-    
 }

@@ -61,7 +61,21 @@ class CPOSSessionManager extends CHttpSession
         } else
             return null;
     }
-
+    
+    /*
+     * Tra ve du lieu trong key cua Session
+     */
+    
+    public function getKey($key) {
+        if (!empty($key)) {
+            $elem = $this->get($key);
+            if ($elem != null) {
+                return Helpers::array_getval($elem,null);    // lay tat cac cac bien trong elem  
+            }
+        } else
+            return null;
+    }
+    
     /*
      * Xoa du lieu o 1 key nao do. Xoa tat ca trong $key
      */
