@@ -57,10 +57,10 @@ abstract class BaseCauHinh extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'so_san_pham_tren_trang' => Yii::t('app', 'So San Pham Tren Trang'),
-			'so_phan_trang' => Yii::t('app', 'So Phan Trang'),
-			'bat_buoc_thong_tin_khach_hang' => Yii::t('app', 'Bat Buoc Thong Tin Khach Hang'),
-			'so_luong_ton_canh_bao' => Yii::t('app', 'So Luong Ton Canh Bao'),
+			'so_san_pham_tren_trang' => Yii::t('viLib', 'So San Pham Tren Trang'),
+			'so_phan_trang' => Yii::t('viLib', 'So Phan Trang'),
+			'bat_buoc_thong_tin_khach_hang' => Yii::t('viLib', 'Bat Buoc Thong Tin Khach Hang'),
+			'so_luong_ton_canh_bao' => Yii::t('viLib', 'So Luong Ton Canh Bao'),
 		);
 	}
 

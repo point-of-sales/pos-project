@@ -69,14 +69,14 @@ abstract class BaseSanPhamTang extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_vach' => Yii::t('app', 'Ma Vach'),
-			'ten_san_pham' => Yii::t('app', 'Ten San Pham'),
-			'gia_tang' => Yii::t('app', 'Gia Tang'),
-			'thoi_gian_bat_dau' => Yii::t('app', 'Thoi Gian Bat Dau'),
-			'thoi_gian_ket_thuc' => Yii::t('app', 'Thoi Gian Ket Thuc'),
-			'mo_ta' => Yii::t('app', 'Mo Ta'),
-			'trang_thai' => Yii::t('app', 'Trang Thai'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ma_vach' => Yii::t('viLib', 'Ma Vach'),
+			'ten_san_pham' => Yii::t('viLib', 'Ten San Pham'),
+			'gia_tang' => Yii::t('viLib', 'Gia Tang'),
+			'thoi_gian_bat_dau' => Yii::t('viLib', 'Thoi Gian Bat Dau'),
+			'thoi_gian_ket_thuc' => Yii::t('viLib', 'Thoi Gian Ket Thuc'),
+			'mo_ta' => Yii::t('viLib', 'Mo Ta'),
+			'trang_thai' => Yii::t('viLib', 'Trang Thai'),
 			'tblChiNhanhs' => null,
 		);
 	}

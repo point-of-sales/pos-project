@@ -76,11 +76,11 @@ abstract class BaseChungTu extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_chung_tu' => Yii::t('app', 'Ma Chung Tu'),
-			'ngay_lap' => Yii::t('app', 'Ngay Lap'),
-			'tri_gia' => Yii::t('app', 'Tri Gia'),
-			'ghi_chu' => Yii::t('app', 'Ghi Chu'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ma_chung_tu' => Yii::t('viLib', 'Ma Chung Tu'),
+			'ngay_lap' => Yii::t('viLib', 'Ngay Lap'),
+			'tri_gia' => Yii::t('viLib', 'Tri Gia'),
+			'ghi_chu' => Yii::t('viLib', 'Ghi Chu'),
 			'nhan_vien_id' => null,
 			'chi_nhanh_id' => null,
 			'nhanVien' => null,

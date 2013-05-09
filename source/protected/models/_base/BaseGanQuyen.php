@@ -64,8 +64,8 @@ abstract class BaseGanQuyen extends CPOSActiveRecord {
 		return array(
 			'nhan_vien_id' => null,
 			'quyen_id' => null,
-			'bizrule' => Yii::t('app', 'Bizrule'),
-			'tham_so' => Yii::t('app', 'Tham So'),
+			'bizrule' => Yii::t('viLib', 'Bizrule'),
+			'tham_so' => Yii::t('viLib', 'Tham So'),
 		);
 	}
 

@@ -67,7 +67,7 @@ abstract class BaseHoaDonBanHang extends CPOSBaseChungTu {
 	public function attributeLabels() {
 		return array(
 			'id' => null,
-			'chiet_khau' => Yii::t('app', 'Chiet Khau'),
+			'chiet_khau' => Yii::t('viLib', 'Chiet Khau'),
 			'khach_hang_id' => null,
 			'tblSanPhams' => null,
 			'id0' => null,

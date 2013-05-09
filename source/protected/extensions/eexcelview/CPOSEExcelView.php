@@ -155,7 +155,7 @@ class CPOSEExcelView extends EExcelView
             } else
                 $head = trim($column->header) !== '' ? $column->header : $column->grid->blankDisplay;
 
-            if ($head == 'ID')
+            if ($head == 'ID' || $head == 'id')
                 $head = 'Số TT'; // replace ID with So TT
 
             self::$activeSheet->setCellValue($this->columnName($i) . $row, $head);
@@ -262,7 +262,7 @@ class CPOSEExcelView extends EExcelView
             $value = $value === null ? "" : $column->grid->getFormatter()->format($value, $column->type);
 
             // Write to the cell (and advance to the next)
-            if($column->name=='id') {
+            if($column->name=='id' || $column->name=='ID' || $column->name=='STT') {
                 self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), ($rowNo+1));
                 //$this->setCellFormatStyle($this->columnName($i),$row+$rowNo,array(),null,PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true,'right'=>true,'bottom'=>true,'left'=>true,PHPExcel_Style_Border::BORDER_DASHED));
                 $this->setCellFormatStyle($this->columnName($i), $row+$rowNo, array(),null,PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_DASHED);
@@ -404,31 +404,121 @@ class CPOSEExcelView extends EExcelView
     }
 
 
-    public function renderNormalList()
+    public function renderPhieuNhapInfo($startColumn=null, $row=6)
     {
-        $this->setDefaultStyle();
-        $this->renderCompanyInfoHeader();
-        $this->renderCreatedDate();
-        $this->renderDocumentNo();
-        $this->renderDocumentTitle();
-        $this->renderTitleColumns();
-        $this->renderBody();
-        $this->fixColumnsWidth();
+        //custom column and row
+        if (isset($startColumn)) {
+            $i = $this->columnIndex($startColumn);
+        } else {
+            $i = 0;
+        }
+        $tmp = $this->dataProvider->getData();
+        $chiTietPhieuNhap = $tmp[0];
+        $maChungTu = $chiTietPhieuNhap->phieuNhap->chungTu->ma_chung_tu;
+        $ngayLap = $chiTietPhieuNhap->phieuNhap->chungTu->ngay_lap;
+        $nhanVien = $chiTietPhieuNhap->phieuNhap->chungTu->nhanVien->ho_ten;
+        $chiNhanhNhap = $chiTietPhieuNhap->phieuNhap->chungTu->chiNhanh->ten_chi_nhanh;
+        $chiNhanhXuat = $chiTietPhieuNhap->phieuNhap->chiNhanhXuat->ten_chi_nhanh;
+
+        self::$activeSheet->setCellValue('B8', Yii::t('viLib','Voucher code')); self::$activeSheet->setCellValue('C8', $maChungTu);
+        self::$activeSheet->setCellValue('B9', Yii::t('viLib','Created date')); self::$activeSheet->setCellValue('C9', $ngayLap);
+        self::$activeSheet->setCellValue('B10', Yii::t('viLib','Employee')); self::$activeSheet->setCellValue('C10', $nhanVien);
+        self::$activeSheet->setCellValue('B11', Yii::t('viLib','Export branch')); self::$activeSheet->setCellValue('C11', $chiNhanhXuat);
+        self::$activeSheet->setCellValue('B12', Yii::t('viLib','Import branch')); self::$activeSheet->setCellValue('C12', $chiNhanhNhap);
+        self::$activeSheet->setCellValue('B13', Yii::t('viLib','Shipper'));
 
     }
 
+    public function renderPhieuXuatInfo($startColumn=null, $row=6)
+    {
+        //custom column and row
+        if (isset($startColumn)) {
+            $i = $this->columnIndex($startColumn);
+        } else {
+            $i = 0;
+        }
+        $tmp = $this->dataProvider->getData();
+        $chiTietPhieuXuat = $tmp[0];
+        $maChungTu = $chiTietPhieuXuat->phieuXuat->chungTu->ma_chung_tu;
+        $ngayLap = $chiTietPhieuXuat->phieuXuat->chungTu->ngay_lap;
+        $nhanVien = $chiTietPhieuXuat->phieuXuat->chungTu->nhanVien->ho_ten;
+        $chiNhanhXuat = $chiTietPhieuXuat->phieuXuat->chungTu->chiNhanh->ten_chi_nhanh;
+        $chiNhanhNhap = $chiTietPhieuXuat->phieuXuat->chiNhanhNhap->ten_chi_nhanh;
+
+        self::$activeSheet->setCellValue('B8', Yii::t('viLib','Voucher code')); self::$activeSheet->setCellValue('C8', $maChungTu);
+        self::$activeSheet->setCellValue('B9', Yii::t('viLib','Created date')); self::$activeSheet->setCellValue('C9', $ngayLap);
+        self::$activeSheet->setCellValue('B10', Yii::t('viLib','Employee')); self::$activeSheet->setCellValue('C10', $nhanVien);
+        self::$activeSheet->setCellValue('B11', Yii::t('viLib','Export from : ')); self::$activeSheet->setCellValue('C11', $chiNhanhXuat);
+        self::$activeSheet->setCellValue('B12', Yii::t('viLib','Import branch')); self::$activeSheet->setCellValue('C12', $chiNhanhNhap);
+        self::$activeSheet->setCellValue('B13', Yii::t('viLib','Shipper'));
+
+    }
+
+    public function renderTotal($startColum=null,$rowStartColumTitles=0) {
+        //custom column and row
+        if (isset($startColumn)) {
+            $startIndex = $this->columnIndex($startColumn);
+        } else {
+            $startIndex = 0;
+        }
+
+        $tmp = $this->dataProvider->getData();
+        $toTal = 0;
+        foreach($tmp as $t) {
+            $arr = $t->getAttributes();
+            $gia = 0;
+            foreach($arr as $key=>$value) {
+                if(substr($key,0,4)=='gia_') {
+                    $gia = $value;
+                    break;
+                }
+            }
+            $toTal = $toTal + $t->so_luong * $gia;
+        }
+        $rowNum = count($tmp)+ 1 + $rowStartColumTitles;
+        $a = $tmp[0];
+
+        $columNum = count($a->getAttributes())+1;
+        $endIndex = $startIndex + $columNum;
+        $endColumn = $this->columnName($endIndex);
+        self::$activeSheet->setCellValue($startColum . $rowNum, Yii::t('viLib','Total'));
+        self::$activeSheet->setCellValue($this->columnName($endIndex+1) . $rowNum, $toTal);
+        $this->setCellFormatStyle($startColum, $rowNum, array('bold'=>true),'#f2ef87',PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColum . $rowNum  . ":"  . $endColumn . $rowNum);
+
+    }
+
+
+
     public function run()
     {
-
         $this->setDefaultStyle();
         $this->renderCompanyInfoHeader();
-        $this->renderCreatedDate();
         $this->renderDocumentNo();
         $this->renderDocumentTitle();
-        $this->renderTitleColumns();
-        $this->renderBody();
-        $this->fixColumnsWidth();
 
+        switch ($this->template) {
+            case 'PhieuNhap': {
+                $this->renderTitleColumns('A',15);
+                $this->renderPhieuNhapInfo();
+                $this->renderBody('A',16);
+                $this->renderTotal('A',15);
+                break;
+            }
+            case 'PhieuXuat': {
+                $this->renderTitleColumns('A',15);
+                $this->renderPhieuXuatInfo();
+                $this->renderBody('A',16);
+                $this->renderTotal('A',15);
+                break;
+            }
+            default : {
+                $this->renderCreatedDate();
+                $this->renderTitleColumns();
+                $this->renderBody();
+            }
+        }
+        $this->fixColumnsWidth();
         //set auto width
         if ($this->autoWidth)
             foreach ($this->columns as $n => $column)

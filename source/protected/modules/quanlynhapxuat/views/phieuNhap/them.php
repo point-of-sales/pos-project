@@ -269,7 +269,7 @@ $this->breadcrumbs = array(
 );
 ?>
 
-    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Import form'); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

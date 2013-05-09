@@ -61,12 +61,12 @@
 
                     <div class="row cus-row">
             <?php echo $form->label($model, 'loai_nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model, 'loai_nhan_vien_id', GxHtml::listDataEx(LoaiNhanVien::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+            <?php echo $form->dropDownList($model, 'loai_nhan_vien_id', GxHtml::listDataEx(LoaiNhanVien::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
         </div>
 
                     <div class="row cus-row">
             <?php echo $form->label($model, 'chi_nhanh_id'); ?>
-            <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
+            <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
         </div>
 
         <div class="row buttons btn-search">

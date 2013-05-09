@@ -60,9 +60,9 @@ abstract class BaseLoaiSanPham extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_loai' => Yii::t('app', 'Ma Loai'),
-			'ten_loai' => Yii::t('app', 'Ten Loai'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ma_loai' => Yii::t('viLib', 'Ma Loai'),
+			'ten_loai' => Yii::t('viLib', 'Ten Loai'),
 			'sanPhams' => null,
 		);
 	}

@@ -39,7 +39,7 @@ class PhieuNhap extends BasePhieuNhap
                     'tblSanPhams' => $relatedItems,
                 );
             } else
-                return 'detail-err';
+                return 'detail-error';
             if ($this->saveWithRelated($relatedData)) {
                 // Cong vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
@@ -61,14 +61,6 @@ class PhieuNhap extends BasePhieuNhap
                 return 'fail';
         } else
             return 'dup-error';
-    }
-
-    /*
-     * method cap nhat So Luong tblSanPhamChiNhanh
-     */
-
-    public function capNhatSoLuong() {
-
     }
 
     public function capNhat($params)
@@ -137,4 +129,5 @@ class PhieuNhap extends BasePhieuNhap
         $danhSachLoaiNhap = $this->layDanhSachLoaiNhap();
         return $danhSachLoaiNhap[$this->loai_nhap_vao];
     }
+
 }

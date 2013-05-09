@@ -9,6 +9,12 @@ class ChiTietPhieuNhap extends BaseChiTietPhieuNhap
         return parent::model($className);
     }
 
+    public function relations() {
+        return array(
+            'phieuNhap'=>array(self::BELONGS_TO,'PhieuNhap','phieu_nhap_id'),
+            'sanPham'=>array(self::BELONGS_TO,'SanPham','san_pham_id'),
+        );
+    }
 
     public function them($params)
     {

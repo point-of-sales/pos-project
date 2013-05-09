@@ -67,14 +67,14 @@ abstract class BaseNhaCungCap extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'id' => Yii::t('app', 'ID'),
-			'ma_nha_cung_cap' => Yii::t('app', 'Ma Nha Cung Cap'),
-			'ten_nha_cung_cap' => Yii::t('app', 'Ten Nha Cung Cap'),
-			'mo_ta' => Yii::t('app', 'Mo Ta'),
-			'dien_thoai' => Yii::t('app', 'Dien Thoai'),
-			'email' => Yii::t('app', 'Email'),
-			'fax' => Yii::t('app', 'Fax'),
-			'trang_thai' => Yii::t('app', 'Trang Thai'),
+			'id' => Yii::t('viLib', 'ID'),
+			'ma_nha_cung_cap' => Yii::t('viLib', 'Ma Nha Cung Cap'),
+			'ten_nha_cung_cap' => Yii::t('viLib', 'Ten Nha Cung Cap'),
+			'mo_ta' => Yii::t('viLib', 'Mo Ta'),
+			'dien_thoai' => Yii::t('viLib', 'Dien Thoai'),
+			'email' => Yii::t('viLib', 'Email'),
+			'fax' => Yii::t('viLib', 'Fax'),
+			'trang_thai' => Yii::t('viLib', 'Trang Thai'),
 			'sanPhams' => null,
 		);
 	}

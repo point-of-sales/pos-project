@@ -22,6 +22,14 @@ class PhieuXuat extends BasePhieuXuat
     }
 
 
+    public function relations() {
+        return array(
+            'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietPhieuXuat(phieu_xuat_id, san_pham_id)'),
+            'chiNhanhNhap' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_nhap_id'),
+            'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
+        );
+    }
+
     public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua
@@ -128,9 +136,6 @@ class PhieuXuat extends BasePhieuXuat
         $criteria->compare('ly_do_xuat', $this->ly_do_xuat, true);
         $criteria->compare('loai_xuat_ra', $this->loai_xuat_ra);
         $criteria->compare('chi_nhanh_nhap_id', $this->chi_nhanh_nhap_id);
-
-
-
         /* $event = new CPOSSessionEvent();
          $event->currentSession = Yii::app()->session['PhieuXuat'];
          $this->onAfterExport($event);*/
@@ -141,7 +146,11 @@ class PhieuXuat extends BasePhieuXuat
     }
 
     public function layDanhSachLoaiXuat() {
-        return array(Yii::t('viLib','Import for sale'),Yii::t('viLib','Import for borrow'),Yii::t('viLib','Import for test'));
+        return array(Yii::t('viLib','Export for sale'),Yii::t('viLib','Export for borrow'),Yii::t('viLib','Export for test'));
     }
 
+    public function layTenLoaiXuat() {
+        $danhSachLoaiXuat = $this->layDanhSachLoaiXuat();
+        return $danhSachLoaiXuat[$this->loai_xuat_ra];
+    }
 }

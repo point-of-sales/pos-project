@@ -1,4 +1,6 @@
+
 <?php
+
 
 $this->breadcrumbs = array(
     Yii::t('viLib','Import/Export management')=>array('chiNhanh/danhsach'),
@@ -7,7 +9,7 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
 array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'),'url'=>array('phieuNhap/danhsach')),
-    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'),'url'=>array('phieuXuat/danhsach')),
+array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'),'url'=>array('phieuXuat/danhsach')),
 array('label'=>Yii::t('viLib', 'Import product'), 'url'=>array('phieuNhap/them')),
 array('label'=>Yii::t('viLib', 'Export product'), 'url'=>array('phieuXuat/them')),
 array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
@@ -54,7 +56,7 @@ array(
     'template'=>'{view}{import}{export}',
     'buttons'=>array(
         'view'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"chiNhanh","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
         ),
         'import'=>array(

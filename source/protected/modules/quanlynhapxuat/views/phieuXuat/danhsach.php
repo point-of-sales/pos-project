@@ -1,8 +1,7 @@
 <?php
-
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Import/Export management') => array('chiNhanh/danhsach'),
-    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Export form'),
+    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'),
 );
 
 $this->menu = array(
@@ -29,15 +28,22 @@ return false;
         )); ?>
     </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php
+
+$this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'grid',
     'dataProvider' => $model->search(),
     'columns' => array(
         array(
             'name' => 'id',
-            'value' => 'GxHtml::valueEx($data->id0)',
+            'value' => 'GxHtml::valueEx($data->chungTu)',
             'filter' => GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)),
         ),
+        array(
+            'name' => Yii::t('viLib','Created date'),
+            'value' => '$data->getBaseModel()->ngay_lap'
+        ),
+
         'loai_xuat_ra',
         array(
             'name' => 'chi_nhanh_nhap_id',

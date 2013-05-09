@@ -8,8 +8,13 @@ class PhieuNhapController extends CPOSController
     {
         $model = $this->loadModel($id, 'PhieuNhap');
         $model->getBaseModel();
+        $criteria  = new CDbCriteria();
+        $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
+        $criteria->params = array(':phieu_nhap_id'=>$id);
+        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap',array('criteria'=>$criteria));
         $this->render('chitiet', array(
-            'model' => $this->loadModel($id, 'PhieuNhap'),
+            'model' => $model,
+            'dataProvider'=>$chiTietPhieuNhapDataProvider,
         ));
     }
 
@@ -27,6 +32,7 @@ class PhieuNhapController extends CPOSController
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else
+
                         $this->redirect(array('chitiet', 'id' => $model->id));
                     break;
 
@@ -50,6 +56,7 @@ class PhieuNhapController extends CPOSController
             }
 
         }
+
         if (isset($id))
             $this->render('them', array('model' => $model, 'id' => $id));
         else
@@ -155,24 +162,27 @@ class PhieuNhapController extends CPOSController
         $model = new PhieuNhap('search');
         $model->unsetAttributes();
         Yii::app()->CPOSSessionManager->clearKey('ExportData');
-        if (isset($_GET['PhieuNhap'])) {
+        if (isset($_GET['ChungTu'])) {
             // set vao session
             Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['PhieuNhap']);
-            $model->setAttributes($_GET['PhieuNhap']);
+            $model->setAttributes($_GET);
+            $model->setAttribute('id',$model->baseModel->getAttribute('id'));
+
         }
         $this->render('danhsach', array('model' => $model));
     }
 
-    public function  actionXuat()
+    public function  actionXuat($id)
     {
-        $model = new PhieuNhap('search');
-        $model->unsetAttributes();
-        if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
-            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
-            $dataProvider = $model->xuatFileExcel();
-            $this->render('xuat', array('dataProvider' => $dataProvider));
+        if(isset($id)) {
+            $criteria  = new CDbCriteria();
+            $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
+            $criteria->params = array(':phieu_nhap_id'=>$id);
+            $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap',array('criteria'=>$criteria));
+            $this->render('xuat', array('dataProvider' => $chiTietPhieuNhapDataProvider));
         }
-        $this->render('xuat', array('dataProvider' => new CActiveDataProvider('PhieuNhap')));
+        throw new CException('404','Id not found');
+
     }
 
     public function actionSyncData()
@@ -182,6 +192,7 @@ class PhieuNhapController extends CPOSController
             Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuNhap', $_POST);
         }
     }
+
 
 
 }

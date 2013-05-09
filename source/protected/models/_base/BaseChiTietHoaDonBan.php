@@ -65,8 +65,8 @@ abstract class BaseChiTietHoaDonBan extends CPOSActiveRecord {
 		return array(
 			'san_pham_id' => null,
 			'hoa_don_ban_id' => null,
-			'so_luong' => Yii::t('app', 'So Luong'),
-			'don_gia' => Yii::t('app', 'Don Gia'),
+			'so_luong' => Yii::t('viLib', 'So Luong'),
+			'don_gia' => Yii::t('viLib', 'Don Gia'),
 			'san_pham_tang_id' => null,
 		);
 	}
