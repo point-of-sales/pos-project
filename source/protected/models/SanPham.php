@@ -208,6 +208,7 @@ class SanPham extends BaseSanPham
            else
                return $danhSachMocGia[$i-1];
         }
+        return $danhSachMocGia[$i-1];
     }
 
     public function layGiaHienTai() {

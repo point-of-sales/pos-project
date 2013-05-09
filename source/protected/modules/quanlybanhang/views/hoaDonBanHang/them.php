@@ -1,7 +1,7 @@
 <?php
 Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/banhang.js');
 Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/banhang.css');
-print_r(Yii::app()->session->toArray());
+//print_r(Yii::app()->session->toArray());
 ?>
 <input type="hidden" id="base-url" value="<?php echo Yii::app()->request->baseUrl?>" />
 <div id="form-hd-ban">
@@ -49,21 +49,21 @@ print_r(Yii::app()->session->toArray());
         	<table id="form-hd-ban-info-table">
             	<tr>
                 	<td class="form-hd-ban-label">Họ tên</td>
-                    <td id="form-hd-ban-ho-ten-kh">ten khach hang</td>
+                    <td><span id="form-hd-ban-ho-ten-kh"></span></td>
                     <td class="form-hd-ban-label">Tổng</td>
-                    <td id="form-hd-ban-tong">1000000</td>
+                    <td><span id="form-hd-ban-tong">0</span></td>
                 </tr>
                 <tr>
                 	<td class="form-hd-ban-label">Chiết khấu</td>
-                    <td id="form-hd-ban-chiet-khau">chiet khau</td>
+                    <td><span id="form-hd-ban-chiet-khau">0</span><span>%</span></td>
                     <td class="form-hd-ban-label">Trị giá</td>
-                    <td id="form-hd-ban-tri-gia">90000</td>
+                    <td><span id="form-hd-ban-tri-gia">0</span></td>
                 </tr>
                 <tr>
                 	<td class="form-hd-ban-label">Số tiền nhận</td>
-                    <td id="form-hd-ban-so-tien-nhan">1000000</td>
+                    <td><span id="form-hd-ban-so-tien-nhan">0</span></td>
                     <td class="form-hd-ban-label">Tiền dư</td>
-                    <td id="form-hd-ban-tien-du">50000</td>
+                    <td><span id="form-hd-ban-tien-du">0</span></td>
                 </tr>
             </table>
         </div>
@@ -93,6 +93,10 @@ print_r(Yii::app()->session->toArray());
     	<div id="form-hd-ban-button">
             <a class="btn ui-state-default ui-corner-all" id="dialog_link" href="#">
                 <span class="ui-icon ui-icon-newwin"></span>
+                Hóa đơn mới
+            </a>
+            <a class="btn ui-state-default ui-corner-all" id="dialog_link" href="#">
+                <span class="ui-icon ui-icon-newwin"></span>
                 In hóa đơn
             </a>
         </div>
@@ -101,25 +105,4 @@ print_r(Yii::app()->session->toArray());
     <?php $this->endWidget();?>
 </div>
 
-<div id="dialog-tim-khach-hang" title="Tìm khách hàng">
-	<form action="#" method="post" enctype="multipart/form-data" class="forms" name="form" >
-		<ul>
-			<li>
-				<label for="email" class="desc">
-					Email:
-				</label>
-				<div>
-					<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="email" id="email" />
-				</div>
-			</li>
-			<li>
-				<label for="password" class="desc">
-					Password:
-				</label>
-				<div>
-					<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="password" id="password" />
-				</div>
-			</li>
-		</ul>
-	</form>
-</div>
+<div id="dialog-tim-khach-hang" title="Tìm khách hàng"></div>
