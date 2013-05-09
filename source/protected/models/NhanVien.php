@@ -4,14 +4,37 @@ Yii::import('application.models._base.BaseNhanVien');
 
 class NhanVien extends BaseNhanVien
 {
-    public function getSex()
-    {
-        return array('Nam', 'Nữ');
-    }
+
 
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+
+    public function attributeLabels() {
+        return array(
+            'id' => Yii::t('viLib', 'ID'),
+            'ma_nhan_vien' => Yii::t('viLib', 'Employee code'),
+            'ho_ten' => Yii::t('viLib', 'Fullname'),
+            'email' => Yii::t('viLib', 'Email'),
+            'dien_thoai' => Yii::t('viLib', 'Phone'),
+            'dia_chi' => Yii::t('viLib', 'Addess'),
+            'gioi_tinh' => Yii::t('viLib', 'Gender'),
+            'ngay_sinh' => Yii::t('viLib', 'Birthday'),
+            'trinh_do' => Yii::t('viLib', 'Qualification'),
+            'luong_co_ban' => Yii::t('viLib', 'Base Salary'),
+            'chuyen_mon' => Yii::t('viLib', 'Specialize'),
+            'trang_thai' => Yii::t('viLib', 'Status'),
+            'mat_khau' => Yii::t('viLib', 'Password'),
+            'ngay_vao_lam' => Yii::t('viLib', 'Day start up'),
+            'lan_dang_nhap_cuoi' => Yii::t('viLib', 'Last login'),
+            'loai_nhan_vien_id' => Yii::t('viLib','Employee type'),
+            'chi_nhanh_id' => null,
+            'chungTus' => null,
+            'tblQuyens' => null,
+            'loaiNhanVien' => null,
+            'chiNhanh' => null,
+        );
     }
 
 
@@ -70,21 +93,6 @@ class NhanVien extends BaseNhanVien
         }
     }
 
-    public function getOptions($id = 1)
-    {
-        switch ($id) {
-            case 1:
-            {
-                return array('Kích hoạt', 'Chưa kích hoạt');
-            }
-                break;
-            case 2:
-            {
-                return array('Nam', 'Nữ');
-            }
-        }
-    }
-
     public function xuatFileExcel()
     {
         $criteria = new CDbCriteria;
@@ -116,5 +124,13 @@ class NhanVien extends BaseNhanVien
         ));
     }
 
+    public function layDanhSachGioiTinh()
+    {
+        return array('Nam', 'Nữ');
+    }
+    public function layTenGioiTinh() {
+        $danhSachGioiTinh = $this->layDanhSachGioiTinh();
+        return $danhSachGioiTinh[$this->gioi_tinh];
+    }
 
 }

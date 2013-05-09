@@ -1,17 +1,19 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('danhsach'),
-	Yii::t('viLib', 'Create'),
+    Yii::t('viLib', 'Employee management') => array('nhanVien/danhsach'),
+    Yii::t('viLib', 'Employee') => array('nhanVien/danhsach'),
+    Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Employee'),
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-	array('label'=>Yii::t('viLib', 'Create') . ' ' . LoaiNhanVien::label(), 'url'=>array('loainhanvien/them')),
+    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee'), 'url' => array('danhsach')),
+    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach')),
+	array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Employee type'), 'url'=>array('loaiNhanVien/them')),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Create') . ' ' . GxHtml::encode($model->label()); ?></h1>
+<h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Employee'); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

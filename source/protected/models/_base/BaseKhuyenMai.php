@@ -19,7 +19,6 @@
  * @property integer $trang_thai
  * @property integer $chi_nhanh_id
  *
- * @property ChiNhanh $chiNhanh
  * @property ChiNhanh[] $tblChiNhanhs
  */
 abstract class BaseKhuyenMai extends CPOSActiveRecord {
@@ -34,9 +33,9 @@ abstract class BaseKhuyenMai extends CPOSActiveRecord {
 
 	public static function label($n = 1) {
         if($n <= 1 ) {
-            return Yii::t('viLib', 'KhuyenMai');
+            return Yii::t('viLib', 'Promotion');
         } else {
-		    return Yii::t('viLib', 'KhuyenMais');
+		    return Yii::t('viLib', 'Promotions');
         }
 	}
 
@@ -46,19 +45,18 @@ abstract class BaseKhuyenMai extends CPOSActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_chuong_trinh, trang_thai, chi_nhanh_id', 'required'),
-			array('gia_giam, trang_thai, chi_nhanh_id', 'numerical', 'integerOnly'=>true),
+			array('ma_chuong_trinh, trang_thai', 'required'),
+			array('gia_giam, trang_thai', 'numerical', 'integerOnly'=>true),
 			array('ma_chuong_trinh', 'length', 'max'=>15),
 			array('ten_chuong_trinh', 'length', 'max'=>200),
 			array('mo_ta, thoi_gian_bat_dau, thoi_gian_ket_thuc', 'safe'),
 			array('ten_chuong_trinh, mo_ta, gia_giam, thoi_gian_bat_dau, thoi_gian_ket_thuc', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, ma_chuong_trinh, ten_chuong_trinh, mo_ta, gia_giam, thoi_gian_bat_dau, thoi_gian_ket_thuc, trang_thai, chi_nhanh_id', 'safe', 'on'=>'search'),
+			array('id, ma_chuong_trinh, ten_chuong_trinh, mo_ta, gia_giam, thoi_gian_bat_dau, thoi_gian_ket_thuc, trang_thai', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
-			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 			'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_KhuyenMaiChiNhanh(khuyen_mai_id, chi_nhanh_id)'),
 		);
 	}
@@ -79,8 +77,6 @@ abstract class BaseKhuyenMai extends CPOSActiveRecord {
 			'thoi_gian_bat_dau' => Yii::t('viLib', 'Thoi Gian Bat Dau'),
 			'thoi_gian_ket_thuc' => Yii::t('viLib', 'Thoi Gian Ket Thuc'),
 			'trang_thai' => Yii::t('viLib', 'Trang Thai'),
-			'chi_nhanh_id' => null,
-			'chiNhanh' => null,
 			'tblChiNhanhs' => null,
 		);
 	}
@@ -96,7 +92,6 @@ abstract class BaseKhuyenMai extends CPOSActiveRecord {
 		$criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
 		$criteria->compare('thoi_gian_ket_thuc', $this->thoi_gian_ket_thuc, true);
 		$criteria->compare('trang_thai', $this->trang_thai);
-		$criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

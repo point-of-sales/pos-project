@@ -176,6 +176,8 @@ class ChiNhanh extends BaseChiNhanh
         return ChiNhanh::model()->exists('truc_thuoc_id=:truc_thuoc_id', array(':truc_thuoc_id' => $this->id));
     }
 
+
+
     /*
      * dem so luong ton cua 1 san pham cua tai chi nhanh
      * Su dung CDbCommand cho ket qua query nhanh.
@@ -190,6 +192,14 @@ class ChiNhanh extends BaseChiNhanh
                     ->andWhere('tbl_SanPhamChiNhanh.san_pham_id=:san_pham_id',array(':san_pham_id'=>$this->san_pham_id))
                     ->queryScalar();
         return ($soLuongTon=='')?0:$soLuongTon;
+    }
+
+    /*
+     * Kiem tra chi nhanh co khuyen mai hay khong
+     */
+
+    public function coKhuyenMai() {
+
     }
 
     public function search() {

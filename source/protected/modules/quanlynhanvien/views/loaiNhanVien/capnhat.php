@@ -1,9 +1,10 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	GxHtml::valueEx($model) => array('view', 'id' => GxActiveRecord::extractPkValue($model, true)),
-	Yii::t('viLib', 'Update'),
+    Yii::t('viLib', 'Employee management') => array('nhanVien/danhsach'),
+    Yii::t('viLib', 'Employee type') => array('loaiNhanVien/danhsach'),
+    Yii::t('viLib', 'Update') => array(),
+    GxHtml::valueEx($model),
 );
 
 $this->menu = array(

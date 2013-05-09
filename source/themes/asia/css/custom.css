@@ -156,13 +156,13 @@ h1 {
 
 /*end sub-title */
 #main-content h1 {
-    color:red;
     padding-top:18px;
     line-height:15px;
     padding-left:25px;
     color:white;
     background-color:#5e82a3;
     font-weight:bold;
+    margin-bottom:50px;
 }
 
 /*start grid */
@@ -292,3 +292,26 @@ h1 {
     border: 1px solid #ccc;
 }
 /*end grid */
+
+/* khuyen mai chi nhanh */
+
+.khuyen-mai-chi-nhanh {
+    border:1px solid;
+    padding-left:130px;
+    padding-top:10px;
+    margin-top:10px;
+
+
+}
+
+.khuyen-mai-chi-nhanh #KhuyenMai_tblChiNhanhs input {
+    
+    width:100px;
+    color:red;
+}
+
+.khuyen-mai-chi-nhanh #KhuyenMai_tblChiNhanhs label {
+    float:left;
+    width:180px;
+}
+

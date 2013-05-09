@@ -1,13 +1,14 @@
 <?php
 
 $this->breadcrumbs = array(
-    Yii::t('viLib', 'Product management')=>array('sanPham/danhsach'),
+    Yii::t('viLib', 'Product management') => array('sanPham/danhsach'),
     Yii::t('viLib','Gift product')=>array('sanPhamTang/danhsach'),
+    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product'),
 );
 
 $this->menu = array(
 array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
-array('label'=>Yii::t('viLib', 'Export') . ' ' . $model->label(), 'url'=>array('xuat')),
+array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -20,7 +21,7 @@ return false;
 ");
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Gift product'); ?></h1>
 
 
 <div class="search-form">

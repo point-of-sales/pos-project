@@ -56,10 +56,18 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => 'GxHtml::valueEx($data->loaiSanPham)',
             'filter' => GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)),
         ),
+
+        array('name' => Yii::t('viLib', 'Base price'),
+            'type' => 'raw',
+            'value' => '$data->gia_goc',
+        ),
+
         array('name' => Yii::t('viLib', 'Current price'),
             'type' => 'raw',
             'value' => '$data->layGiaHienTai()',
         ),
+
+
 
         array(
             'class' => 'CButtonColumn',

@@ -75,6 +75,13 @@
         <?php echo $form->textField($model, 'ton_toi_thieu'); ?>
         <?php echo $form->error($model, 'ton_toi_thieu'); ?>
     </div>
+
+    <!-- row -->
+    <div class="row cus-row">
+        <?php echo $form->labelEx($model, 'gia_goc'); ?>
+        <?php echo $form->textField($model, 'gia_goc'); ?>
+        <?php echo $form->error($model, 'gia_goc'); ?>
+    </div>
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'huong_dan_su_dung'); ?>

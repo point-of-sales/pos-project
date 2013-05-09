@@ -14,7 +14,7 @@ class SanPham extends BaseSanPham
 
     public function rules() {
         return array(
-            array('ma_vach, ten_san_pham, han_dung ,nha_cung_cap_id, loai_san_pham_id,trang_thai,ton_toi_thieu', 'required'),
+            array('ma_vach, ten_san_pham, han_dung ,nha_cung_cap_id, loai_san_pham_id,trang_thai,ton_toi_thieu,gia_goc', 'required'),
             array('han_dung, ton_toi_thieu, trang_thai, nha_cung_cap_id, loai_san_pham_id', 'numerical', 'integerOnly'=>true),
             array('ma_vach', 'length', 'max'=>15),
             array('ten_san_pham, ten_tieng_viet', 'length', 'max'=>100),
@@ -22,6 +22,19 @@ class SanPham extends BaseSanPham
             array('huong_dan_su_dung, mo_ta', 'safe'),
             array('ten_san_pham, ten_tieng_viet, han_dung, don_vi_tinh, ton_toi_thieu, huong_dan_su_dung, mo_ta, trang_thai', 'default', 'setOnEmpty' => true, 'value' => null),
             array('id, ma_vach, ten_san_pham, ten_tieng_viet, han_dung, don_vi_tinh, ton_toi_thieu, huong_dan_su_dung, mo_ta, trang_thai, nha_cung_cap_id, loai_san_pham_id,ma_chi_nhanh', 'safe', 'on'=>'search'),
+        );
+    }
+
+    public function relations() {
+        return array(
+            'tblHoaDonBanHangs' => array(self::MANY_MANY, 'HoaDonBanHang', 'tbl_ChiTietHoaDonBan(san_pham_id, hoa_don_ban_id)'),
+            'tblHoaDonTraHangs' => array(self::MANY_MANY, 'HoaDonTraHang', 'tbl_ChiTietHoaDonTra(san_pham_id, hoa_don_tra_id)'),
+            'tblPhieuNhaps' => array(self::MANY_MANY, 'PhieuNhap', 'tbl_ChiTietPhieuNhap(san_pham_id, phieu_nhap_id)'),
+            'tblPhieuXuats' => array(self::MANY_MANY, 'PhieuXuat', 'tbl_ChiTietPhieuXuat(san_pham_id, phieu_xuat_id)'),
+            'nhaCungCap' => array(self::BELONGS_TO, 'NhaCungCap', 'nha_cung_cap_id'),
+            'loaiSanPham' => array(self::BELONGS_TO, 'LoaiSanPham', 'loai_san_pham_id'),
+            'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamChiNhanh(san_pham_id, chi_nhanh_id)'),
+            'mocGias' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
         );
     }
 
@@ -38,6 +51,7 @@ class SanPham extends BaseSanPham
             'huong_dan_su_dung' => Yii::t('viLib', 'Manual'),
             'mo_ta' => Yii::t('viLib', 'Description'),
             'trang_thai' => Yii::t('viLib', 'Status'),
+            'gia_goc'=>Yii::t('viLib', 'Base price'),
             'nha_cung_cap_id' => null,
             'loai_san_pham_id' => null,
             'tblHoaDonBanHangs' => null,

@@ -7,16 +7,19 @@ $this->widget('CPOSEExcelView', array(
     'category'=>'',
     'documentTitle'=>'Sample_name',
     'columns'=>array(
-        array('name'=>'STT',
-             'value'=>''
-             ),
-        'ma_vach',
-        'ten_san_pham',
-        'gia_tang',
+        'ma_chuong_trinh',
+        'ten_chuong_trinh',
+        'gia_giam',
         'thoi_gian_bat_dau',
+
         'thoi_gian_ket_thuc',
-        array('name'=>Yii::t('viLib','Status'),
-              'value'=>'$data->layTenTrangThai()',
+        array('name' => Yii::t('viLib', 'Status'),
+            'value' => '$data->layTenTrangThai()',
+        ),
+
+        array(
+            'name' => 'chi_nhanh_id',
+            'value' => '$data->chiNhanh->ten_chi_nhanh',
         ),
     ),
 ));

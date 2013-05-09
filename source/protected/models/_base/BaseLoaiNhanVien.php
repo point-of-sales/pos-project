@@ -27,9 +27,9 @@ abstract class BaseLoaiNhanVien extends CPOSActiveRecord {
 
 	public static function label($n = 1) {
         if($n <= 1 ) {
-            return Yii::t('viLib', 'LoaiNhanVien');
+            return Yii::t('viLib', 'Employee type');
         } else {
-		    return Yii::t('viLib', 'LoaiNhanViens');
+		    return Yii::t('viLib', 'Employees types');
         }
 	}
 

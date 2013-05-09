@@ -1,11 +1,14 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(1),
-	Yii::t('viLib', 'List'),
+    Yii::t('viLib', 'Employee management') => array('nhanVien/danhsach'),
+    Yii::t('viLib', 'Employee type') => array('loaiNhanVien/danhsach'),
+    Yii::t('viLib', 'List'),
+
 );
 
 $this->menu = array(
+array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee'), 'url' => array('nhanVien/danhsach')),
 array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
 );
 
@@ -19,7 +22,7 @@ return false;
 ");
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee type'); ?></h1>
 
 
 <div class="search-form">

@@ -53,6 +53,7 @@ $this->menu = array(
             'type' => 'raw',
             'value' => $model->layGiaHienTai(),
         ),
+        'gia_goc',
     ),
 )); ?>
 
