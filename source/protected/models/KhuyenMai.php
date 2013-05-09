@@ -59,10 +59,11 @@ class KhuyenMai extends BaseKhuyenMai
         );
     }
 
-    public function relations() {
+    public function relations()
+    {
         return array(
             'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_KhuyenMaiChiNhanh(khuyen_mai_id, chi_nhanh_id)'),
-            //'sanPham'=> array(self::)
+            'sanPham' => array(self::HAS_MANY, 'SanPham', 'khuyen_mai_id'),
         );
     }
 
@@ -207,13 +208,20 @@ class KhuyenMai extends BaseKhuyenMai
         ));
 
     }
-        public function layDanhSachChiNhanh() {
-            $danhSachUl = '<ul>';
-            $danhSachChiNhanh = $this->tblChiNhanhs;
-            foreach($danhSachChiNhanh as $chiNhanh) {
-                $danhSachUl = $danhSachUl . '<li> - ' . $chiNhanh->ten_chi_nhanh . '</li>';
-            }
-            $danhSachUl = $danhSachUl . '</ul>';
-            echo  $danhSachUl;
+
+    public function layDanhSachChiNhanh()
+    {
+        $danhSachUl = '<ul>';
+        $danhSachChiNhanh = $this->tblChiNhanhs;
+        foreach ($danhSachChiNhanh as $chiNhanh) {
+            $danhSachUl = $danhSachUl . '<li> - ' . $chiNhanh->ten_chi_nhanh . '</li>';
         }
+        $danhSachUl = $danhSachUl . '</ul>';
+        echo $danhSachUl;
+    }
+
+    public static function layDanhSachKhuyenMaiKichHoat()
+    {
+        return KhuyenMai::model()->findAllByAttributes(array("trang_thai" => 1));
+    }
 }

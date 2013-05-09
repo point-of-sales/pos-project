@@ -71,7 +71,6 @@ class SanPhamChiNhanh extends BaseSanPhamChiNhanh
 
         $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
         $criteria->compare('san_pham_id', $this->san_pham_id);
-        $criteria->compare('khuyen_mai_id', $this->khuyen_mai_id);
         $criteria->compare('so_ton', $this->so_ton);
         $criteria->compare('trang_thai', $this->trang_thai);
 

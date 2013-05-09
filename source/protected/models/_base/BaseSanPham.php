@@ -128,6 +128,7 @@ abstract class BaseSanPham extends CPOSActiveRecord {
 		$criteria->compare('trang_thai', $this->trang_thai);
 		$criteria->compare('nha_cung_cap_id', $this->nha_cung_cap_id);
 		$criteria->compare('loai_san_pham_id', $this->loai_san_pham_id);
+        $criteria->compare('khuyen_mai_id', $this->loai_san_pham_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

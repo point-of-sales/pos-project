@@ -191,4 +191,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Approve branch'=>'Chi nhánh áp dụng',
     'Promotion product'=>'Sản phẩm áp dụng khuyến mãi',
     'Base price'=>'Giá gốc',
+    'Promotion not available'=>'Chưa có Khuyến mãi'
 );

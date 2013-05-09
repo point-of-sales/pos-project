@@ -17,7 +17,6 @@
  * @property string $thoi_gian_bat_dau
  * @property string $thoi_gian_ket_thuc
  * @property integer $trang_thai
- * @property integer $chi_nhanh_id
  *
  * @property ChiNhanh[] $tblChiNhanhs
  */

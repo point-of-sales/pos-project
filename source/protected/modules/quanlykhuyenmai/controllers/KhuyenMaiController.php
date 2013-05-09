@@ -165,6 +165,26 @@ class KhuyenMaiController extends CPOSController
         $this->render('xuat', array('dataProvider' => new CActiveDataProvider('KhuyenMai')));
     }
 
+    public function  actionXuatKhuyenMaiSanPham()
+    {
+        $model = new SanPham('search');
+        $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
+        if (isset($_GET['SanPham'])) {
+            // set vao session
+            Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['SanPham']);
+            $model->setAttributes($_GET['SanPham']);
+            $model->setAttribute('chi_nhanh_id',$_GET['SanPham']['tblChiNhanhs']);
+            $sanPhamDataProvider = $model->search();
+        }
+        if(!isset($sanPhamDataProvider))
+            $sanPhamDataProvider = new CActiveDataProvider('SanPham');
+
+        $this->render('xuatkhuyenmaisanpham', array('dataProvider' => $sanPhamDataProvider));
+
+
+    }
+
     public function actionKhuyenMaiChiNhanh()
     {
         $chiNhanhProvider = new CActiveDataProvider('ChiNhanh');
@@ -173,12 +193,37 @@ class KhuyenMaiController extends CPOSController
 
     public function actionKhuyenMaiSanPham()
     {
-        $criteria = new CDbCriteria();
-//       / $criteria->with = ''
+        $model = new SanPham('search');
+        $model->unsetAttributes();
+        Yii::app()->CPOSSessionManager->clearKey('ExportData');
+        if (isset($_GET['SanPham'])) {
+            // set vao session
+            Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['SanPham']);
+            $model->setAttributes($_GET['SanPham']);
+            $model->setAttribute('chi_nhanh_id',$_GET['SanPham']['tblChiNhanhs']);
+            $sanPhamDataProvider = $model->search();
+        }
+        if(!isset($sanPhamDataProvider))
+           $sanPhamDataProvider = new CActiveDataProvider('SanPham');
 
-        $sanPhamProvider = new CActiveDataProvider('SanPham');
-        $this->render('khuyenmaisanpham', array('sanPhamProvider' => $sanPhamProvider));
+        $this->render('khuyenmaisanpham', array('sanPhamDataProvider' => $sanPhamDataProvider, 'model'=>$model));
+
     }
 
+    public function actionCapNhatKhuyenMai($spid, $kmid)
+    {
+        if (Yii::app()->getRequest()->getIsAjaxRequest()) {
+            if (isset($spid) && isset($kmid)) {
+                $model = SanPham::model()->findByAttributes(array("id" => $spid));
+                if ($kmid < 1)
+                    $kmid = ''; // xoa khuyen mai cho san pham nay
+
+                $model->setAttribute('khuyen_mai_id', $kmid);
+                if ($model->save(false, null)) ;
+                echo 'ok';
+            }
+        } else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 
 }

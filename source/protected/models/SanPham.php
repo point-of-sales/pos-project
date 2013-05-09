@@ -35,6 +35,7 @@ class SanPham extends BaseSanPham
             'loaiSanPham' => array(self::BELONGS_TO, 'LoaiSanPham', 'loai_san_pham_id'),
             'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamChiNhanh(san_pham_id, chi_nhanh_id)'),
             'mocGias' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
+            'khuyenMai'=>array(self::BELONGS_TO,'KhuyenMai','khuyen_mai_id'),
         );
     }
 
@@ -268,6 +269,7 @@ class SanPham extends BaseSanPham
     }
 
 
+
     public function laySoLuongTonHienTai() {
         return Yii::app()->db->createCommand()
             ->select("so_ton")
@@ -275,4 +277,15 @@ class SanPham extends BaseSanPham
             ->where('san_pham_id=:san_pham_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_id'=>$this->id, ':chi_nhanh_id'=>$this->chi_nhanh_id))
             ->queryScalar();
     }
+
+
+    public function layGiaHienTaiKemKhuyenMai() {
+
+        $giaHienTai = $this->layGiaHienTai();
+        if($this->khuyen_mai_id!='') {
+            $khuyenMai = $this->khuyenMai->gia_giam;
+        }
+        return round($giaHienTai-($giaHienTai*($khuyenMai/100)));
+    }
+
 }

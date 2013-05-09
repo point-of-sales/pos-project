@@ -11,7 +11,6 @@
  *
  * @property integer $chi_nhanh_id
  * @property integer $san_pham_id
- * @property integer $khuyen_mai_id
  * @property integer $so_ton
  * @property integer $trang_thai
  *
