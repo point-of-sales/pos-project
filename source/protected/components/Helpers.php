@@ -190,8 +190,12 @@ class Helpers
                     return null; // khong tim thay dim
 
             }
-        } else               // neu dims ko duoc la mang rong. Lay phan tu cuoi cung
-            $tmp = array_pop($targetArray);
+        } else {              // neu dims ko duoc la mang rong. Lay phan tu cuoi cung 
+            if($dims==null)
+                $tmp = $targetArray;
+            else 
+                $tmp = array_pop($targetArray);
+        }
         return (!empty($tmp))?$tmp:null;
     }
 

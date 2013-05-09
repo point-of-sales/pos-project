@@ -317,7 +317,7 @@ class HoaDonBanHangController extends CPOSController {
     }
     
     public function actionDongBoDuLieu(){
-        echo json_encode(Yii::app()->CPOSSessionManager->getItem('hd_ban_hang'));
+        echo json_encode(Yii::app()->CPOSSessionManager->getKey('hd_ban_hang'));
     }
     
     public function kiemTraSoLuong($ma_vach,$chi_nhanh,$so_luong){

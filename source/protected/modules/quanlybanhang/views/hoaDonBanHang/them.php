@@ -91,10 +91,35 @@ print_r(Yii::app()->session->toArray());
     </div>
     <div id="form-hd-ban-command">
     	<div id="form-hd-ban-button">
-        	<input type="button" value="In hóa đơn" />
-            <input type="button" value="Hóa đơn mới" />
+            <a class="btn ui-state-default ui-corner-all" id="dialog_link" href="#">
+                <span class="ui-icon ui-icon-newwin"></span>
+                In hóa đơn
+            </a>
         </div>
     </div>
     <div id="form-hd-ban-footer">form-hd-ban-footer</div>
     <?php $this->endWidget();?>
+</div>
+
+<div id="dialog-tim-khach-hang" title="Tìm khách hàng">
+	<form action="#" method="post" enctype="multipart/form-data" class="forms" name="form" >
+		<ul>
+			<li>
+				<label for="email" class="desc">
+					Email:
+				</label>
+				<div>
+					<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="email" id="email" />
+				</div>
+			</li>
+			<li>
+				<label for="password" class="desc">
+					Password:
+				</label>
+				<div>
+					<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="password" id="password" />
+				</div>
+			</li>
+		</ul>
+	</form>
 </div>
