@@ -190,8 +190,7 @@ class SanPham extends BaseSanPham
             $this->layDanhSachMocGia();
        $danhSachMocGia = $this->danhSachMocGia->getData();
 
-
-       if(count($danhSachMocGia)<1)    // san pham chua co set moc gia
+       if(count($danhSachMocGia)==0)    // san pham chua co set moc gia
            return null;
         $thoiGianBatDau =  strtotime($danhSachMocGia[0]->getAttribute('thoi_gian_bat_dau'));
 
@@ -213,6 +212,7 @@ class SanPham extends BaseSanPham
 
     public function layGiaHienTai() {
         $mocGiaHienTai = $this->layMocGiaHienTai();
+
         if($mocGiaHienTai == null)
             return Yii::t('viLib','No price level set');
         if($mocGiaHienTai == 'no-price')
