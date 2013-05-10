@@ -333,10 +333,18 @@ class HoaDonBanHangController extends CPOSController {
             for($i=0;$i<count($cthd_ban_hang);$i++){
                 $tri_gia += $cthd_ban_hang[$i]['gia_ban']*$cthd_ban_hang[$i]['so_luong'];
             }
-            $tri_gia -= $tri_gia*($hd_ban_hang['giam_gia']/100);
+            if(isset($hd_ban_hang['giam_gia']))
+                $giam_gia = $hd_ban_hang['giam_gia'];
+            else
+                $giam_gia = 0;
+            $tri_gia -= $tri_gia*($giam_gia/100);
         }
         Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tri_gia,array('tri_gia'));
         echo json_encode(Yii::app()->CPOSSessionManager->getKey('hd_ban_hang'));
+    }
+    
+    public function taoMoiHoaDon(){
+        
     }
     
     public function kiemTraSoLuong($ma_vach,$chi_nhanh,$so_luong){
