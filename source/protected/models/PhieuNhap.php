@@ -74,6 +74,48 @@ class PhieuNhap extends BasePhieuNhap
             return 'dup-error';
     }
 
+
+    public function nhapHangTang($params)
+    {
+        // kiem tra du lieu con bi trung hay chua
+
+        if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
+            //neu khoa chua ton tai
+
+            $this->setAttributes($params);
+            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap')) {
+                $sessionData = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhap');
+                $items = $sessionData['items'];
+                $relatedItems = Helpers::formatArray($items);
+                $relatedData = array(
+                    // fill related with data from the Session
+                    'tblSanPhamTangs' => $relatedItems,
+                );
+            } else
+                return 'detail-error';
+            if ($this->saveWithRelated($relatedData)) {
+                // Cong vao so luong tung chi nhanh tblSanPhamChiNhanh
+                $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
+                foreach($relatedItems as $key=>$itemsInfo) {
+                    $product = SanPham::model()->findByPk($key);  // update scenario
+                    $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
+                    $currentQuantity = $product->laySoLuongTonHienTai();
+                    $newQuantity = $currentQuantity + $itemsInfo['so_luong'];
+                    $relatedQuantityItems[$key] = array('so_ton'=>$newQuantity);
+                }
+                $relatedQuantityData  = array(
+                    'tblSanPhamTangs' => $relatedQuantityItems,
+                );
+
+                if($chiNhanh->saveWithRelated($relatedQuantityData,false,null,array(),true,true))
+                    return 'ok';
+            }
+            else
+                return 'fail';
+        } else
+            return 'dup-error';
+    }
+
     public function capNhat($params)
     {
         // kiem tra du lieu con bi trung hay chua

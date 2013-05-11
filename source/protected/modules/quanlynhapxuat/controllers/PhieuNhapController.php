@@ -63,6 +63,51 @@ class PhieuNhapController extends CPOSController
             $this->render('them', array('model' => $model));
     }
 
+    public function actionNhapHangTang($id = null)
+    {
+        $this->layout = '//layouts/column1';
+        $model = new PhieuNhap;
+        if (isset($_POST['ChungTu'])) {
+            $result = $model->them($_POST);
+            switch ($result) {
+                case 'ok':
+                {
+                    // clear Session
+                    Yii::app()->CPOSSessionManager->clear('ChiTietPhieuNhap');
+                    if (Yii::app()->getRequest()->getIsAjaxRequest())
+                        Yii::app()->end();
+                    else
+
+                        $this->redirect(array('chitiet', 'id' => $model->id));
+                    break;
+
+                }
+                case 'dup-error':
+                {
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Data existed in sytem. Please try another one!'));
+                    break;
+                }
+                case 'detail-error':
+                {
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Detail import is not existed. Please fill it'));
+                    break;
+                }
+
+                case 'fail':
+                {
+                    // co the lam them canh bao cho nguoi dung
+                    break;
+                }
+            }
+
+        }
+
+        if (isset($id))
+            $this->render('them', array('model' => $model, 'id' => $id));
+        else
+            $this->render('them', array('model' => $model));
+    }
+
     public function actionCapNhat($id)
     {
         $model = $this->loadModel($id, 'PhieuNhap');
