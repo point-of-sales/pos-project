@@ -13,7 +13,7 @@
  * @property integer $hoa_don_ban_id
  * @property integer $so_luong
  * @property double $don_gia
- * @property integer $san_pham_tang_id
+
  *
  */
 abstract class BaseChiTietHoaDonBan extends CPOSActiveRecord {
@@ -44,10 +44,9 @@ abstract class BaseChiTietHoaDonBan extends CPOSActiveRecord {
 	public function rules() {
 		return array(
 			array('san_pham_id, hoa_don_ban_id, so_luong, don_gia', 'required'),
-			array('san_pham_id, hoa_don_ban_id, so_luong, san_pham_tang_id', 'numerical', 'integerOnly'=>true),
+			array('san_pham_id, hoa_don_ban_id, so_luong', 'numerical', 'integerOnly'=>true),
 			array('don_gia', 'numerical'),
-			array('san_pham_tang_id', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('san_pham_id, hoa_don_ban_id, so_luong, don_gia, san_pham_tang_id', 'safe', 'on'=>'search'),
+			array('san_pham_id, hoa_don_ban_id, so_luong, don_gia', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,7 +77,6 @@ abstract class BaseChiTietHoaDonBan extends CPOSActiveRecord {
 		$criteria->compare('hoa_don_ban_id', $this->hoa_don_ban_id);
 		$criteria->compare('so_luong', $this->so_luong);
 		$criteria->compare('don_gia', $this->don_gia);
-		$criteria->compare('san_pham_tang_id', $this->san_pham_tang_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
