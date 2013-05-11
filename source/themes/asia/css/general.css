@@ -476,14 +476,14 @@ button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em 
 	/* Header */
 
 #header {
-	height:121px;
+	height:78px;
 	padding:0 10px;
 }
 
 #header #top-menu {
 	font-size:0.9em;
-	height:28px;
-	line-height:28px;
+	height:35px;
+	line-height:34px;
 	text-align:right;
 }
 
@@ -498,15 +498,20 @@ button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em 
 #header #sitename {
 	height:43px;
 	padding:8px 0 0;
+    position: absolute;
+    top: 0px;
+    left: 13px;
+    width: 250px;
 }
 
 #header #sitename a.logo {
 	height:36px;
-	line-height:36px;
+	line-height:32px;
 	display:block;
-	font-size:1.5em;
+	font-size:1.3em;
 	padding:0 0 0 45px;
 	font-weight:bold;
+    margin-top: -2px;
 }
 
 #header #sitename .button {
@@ -786,7 +791,7 @@ button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em 
 #page-wrapper #sidebar {
     border: 1px solid;
     float: left;
-    margin: 111px 0 0 -241px;
+    margin: 69px 0 0 -241px;
     padding: 10px;
     width: 218px;
 }

@@ -10,16 +10,26 @@ class PhieuNhap extends BasePhieuNhap
         return parent::model($className);
     }
 
-
-
     public function attributeLabels() {
         return array(
             'id' => null,
             'loai_nhap_vao' => Yii::t('viLib', 'Import type'),
             'chi_nhanh_xuat_id' => Yii::t('viLib', 'Exported branch'),
+            'nha_cung_cap_id'=>Yii::t('viLib','Supplier'),
             'tblSanPhams' => null,
             'id0' => null,
             'chiNhanhXuat' => null,
+        );
+    }
+
+    public function rules()
+    {
+        return array(
+            array('loai_nhap_vao, chi_nhanh_xuat_id', 'required'),
+            array('chi_nhanh_xuat_id,nha_cung_cap_id', 'numerical', 'integerOnly' => true),
+            array('id, loai_nhap_vao, chi_nhanh_xuat_id, nha_cung_cap_id', 'safe', 'on' => 'search'),
+            array('chi_nhanh_xuat_id','ext.custom-validator.CPOSSupplierValidator'),
+            array('chi_nhanh_xuat_id','ext.custom-validator.CPOSBranchValidator'),
         );
     }
 
@@ -29,9 +39,10 @@ class PhieuNhap extends BasePhieuNhap
 
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
+
             $this->setAttributes($params);
             if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap')) {
-                $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuNhap');
+                $sessionData = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhap');
                 $items = $sessionData['items'];
                 $relatedItems = Helpers::formatArray($items);
                 $relatedData = array(

@@ -50,7 +50,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),array("options"=>array($id=>array("selected"=>"selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array($id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
         </div>
 
@@ -58,29 +58,35 @@
             <?php echo $form->labelEx($model->baseModel, 'tri_gia'); ?>
             <?php
             if (!empty($model->baseModel->tri_gia))
-                echo $form->textField($model->baseModel, 'tri_gia', array('class'=>'number','readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency');
+                echo $form->textField($model->baseModel, 'tri_gia', array('class' => 'number', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency');
             else
 
-                echo $form->textField($model->baseModel, 'tri_gia', array('class'=>'number','value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
+                echo $form->textField($model->baseModel, 'tri_gia', array('class' => 'number', 'value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
             <?php echo $form->error($model->baseModel, 'tri_gia'); ?>
         </div>
 
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'chi_nhanh_xuat_id'); ?>
-            <?php echo $form->dropDownList($model, 'chi_nhanh_xuat_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true))); ?>
+            <?php echo $form->dropDownList($model, 'chi_nhanh_xuat_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoat(), null, "ten_chi_nhanh"), array('onchange' => 'checkEnableSupplier(this)')); ?>
             <?php echo $form->error($model, 'chi_nhanh_xuat_id'); ?>
         </div>
 
         <div class="row cus-row">
+            <?php echo $form->labelEx($model, 'nha_cung_cap_id'); ?>
+            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
+            <?php echo $form->error($model, 'nha_cung_cap_id'); ?>
+        </div>
+
+        <div class="row cus-row">
             <?php echo $form->labelEx($model, 'loai_nhap_vao'); ?>
-            <?php echo $form->dropDownList($model, 'loai_nhap_vao',$model->layDanhSachLoaiNhap()); ?>
+            <?php echo $form->dropDownList($model, 'loai_nhap_vao', $model->layDanhSachLoaiNhap()); ?>
             <?php echo $form->error($model, 'loai_nhap_vao'); ?>
         </div>
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ghi_chu'); ?>
-            <?php echo $form->textArea($model->baseModel, 'ghi_chu',array('class'=>'import-notes')); ?>
+            <?php echo $form->textArea($model->baseModel, 'ghi_chu', array('class' => 'import-notes')); ?>
             <?php echo $form->error($model->baseModel, 'ghi_chu'); ?>
         </div>
     </div>
@@ -93,17 +99,17 @@
 
         <div class="row cus-row">
             <?php echo GxHtml::label(Yii::t('viLib', 'Product name'), 'ten_san_pham') ?>
-            <?php echo GxHtml::textField('productname', '', array('readOnly' => 'readOnly','onkeypress' => 'keypressInputMa(event)')) ?>
+            <?php echo GxHtml::textField('productname', '', array('readOnly' => 'readOnly', 'onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
             <?php echo GxHtml::label(Yii::t('viLib', 'Quantity'), 'quantity') ?>
-            <?php echo GxHtml::textField('quantity', 0, array('class' => 'number','onkeypress' => 'keypressInputMa(event)')) ?>
+            <?php echo GxHtml::textField('quantity', 0, array('class' => 'number', 'onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
             <?php echo GxHtml::label(Yii::t('viLib', 'Import price'), 'import-price') ?>
-            <?php echo GxHtml::textField('price', 0, array('class' => 'number','onkeypress' => 'keypressInputMa(event)')) ?>
+            <?php echo GxHtml::textField('price', 0, array('class' => 'number', 'onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
         <div class="row cus-row">
@@ -137,7 +143,7 @@
 
     <div class="btn-save">
         <?php
-        echo GxHtml::submitButton(Yii::t('viLib', 'Save'));
+        echo GxHtml::submitButton(Yii::t('viLib', 'Save'),array('onclick'=>'return reCheckQuantity()'));
         $this->endWidget();
         ?>
     </div>

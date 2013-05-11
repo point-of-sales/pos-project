@@ -8,13 +8,13 @@ class PhieuNhapController extends CPOSController
     {
         $model = $this->loadModel($id, 'PhieuNhap');
         $model->getBaseModel();
-        $criteria  = new CDbCriteria();
+        $criteria = new CDbCriteria();
         $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
-        $criteria->params = array(':phieu_nhap_id'=>$id);
-        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap',array('criteria'=>$criteria));
+        $criteria->params = array(':phieu_nhap_id' => $id);
+        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
         $this->render('chitiet', array(
             'model' => $model,
-            'dataProvider'=>$chiTietPhieuNhapDataProvider,
+            'dataProvider' => $chiTietPhieuNhapDataProvider,
         ));
     }
 
@@ -44,7 +44,7 @@ class PhieuNhapController extends CPOSController
                 }
                 case 'detail-error':
                 {
-                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Detail import is not existed. Please fill it'));
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Detail import is not existed. Please fill it'));
                     break;
                 }
 
@@ -166,7 +166,7 @@ class PhieuNhapController extends CPOSController
             // set vao session
             Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['PhieuNhap']);
             $model->setAttributes($_GET);
-            $model->setAttribute('id',$model->baseModel->getAttribute('id'));
+            $model->setAttribute('id', $model->baseModel->getAttribute('id'));
 
         }
         $this->render('danhsach', array('model' => $model));
@@ -174,25 +174,24 @@ class PhieuNhapController extends CPOSController
 
     public function  actionXuat($id)
     {
-        if(isset($id)) {
-            $criteria  = new CDbCriteria();
+        if (isset($id)) {
+            $criteria = new CDbCriteria();
             $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
-            $criteria->params = array(':phieu_nhap_id'=>$id);
-            $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap',array('criteria'=>$criteria));
+            $criteria->params = array(':phieu_nhap_id' => $id);
+            $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
             $this->render('xuat', array('dataProvider' => $chiTietPhieuNhapDataProvider));
         }
-        throw new CException('404','Id not found');
+        throw new CException('404', 'Id not found');
 
     }
 
     public function actionSyncData()
     {
-        if (isset($_POST)) {
+        if (isset($_POST['items'])) {
             Yii::app()->CPOSSessionManager->clear('ChiTietPhieuNhap');
-            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuNhap', $_POST);
+            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuNhap',$_POST['items'],array('items'));
         }
     }
-
 
 
 }

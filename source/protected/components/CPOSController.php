@@ -99,6 +99,7 @@ abstract class CPOSController extends GxController
                 'id' => $model->getAttribute('id'),
                 'ma_vach' => $model->getAttribute('ma_vach'),
                 'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+                'gia_goc'=>$model->getAttribute('gia_goc'),
             );
             echo json_encode($item);
         }

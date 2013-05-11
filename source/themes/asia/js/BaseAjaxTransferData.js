@@ -17,16 +17,16 @@ function stopRKey(evt) {
 document.onkeypress = stopRKey;
 
 
-var BaseAjaxTransferData = function() {
+var BaseAjaxTransferData = function () {
     this.gridTable = "#items";
     this.dataStored = null;
     this.customInfoBoard = null;
     this.errors = null;
-    this.addedItems = {'items':[]};              // Json object
+    this.addedItems = {'items': []};              // Json object
 
-    BaseAjaxTransferData.prototype.getProduct = function (url,ma) {
+    BaseAjaxTransferData.prototype.getProduct = function (url, ma) {
         var strUrl;
-        if(typeof(url)==='undefined')
+        if (typeof(url) === 'undefined')
             strUrl = "getsanphamban/ma_vach/" + ma;
         strUrl = url + "/getsanphamban/ma_vach/" + ma;
         var ret;
@@ -34,20 +34,20 @@ var BaseAjaxTransferData = function() {
             url: strUrl,
             type: 'POST',
             async: false,
-            success: function(response) {
+            success: function (response) {
                 ret = response;
             }
         });
         this.dataStored = ret;
-        return this.dataStored !=null;
+        return this.dataStored != null;
     }
 
     BaseAjaxTransferData.prototype.getNumRowsTable = function () {
         return $(this.gridTable + ' tr').length - 1;
     }
 
-    BaseAjaxTransferData.prototype.renderErrors = function() {
-        if(this.customInfoBoard!=null) {
+    BaseAjaxTransferData.prototype.renderErrors = function () {
+        if (this.customInfoBoard != null) {
             this.customInfoBoard.insertAfter('.header-voucher-info');
             $('.error').fadeOut(5000);
         }
@@ -56,46 +56,48 @@ var BaseAjaxTransferData = function() {
 
     }
 
-    BaseAjaxTransferData.prototype.isInArray = function(id) {
+    BaseAjaxTransferData.prototype.isInArray = function (id) {
         var found = false;
-        for(var i=0;i<this.addedItems.items.length;i++) {
-            $.each(this.addedItems.items[i],function(key,value){
-                if(id==value) {
-                    found = true;
-                    return !found;
-                }
-            });
-            if(found)
-                return i;
+        if (typeof (this.addedItems.items) != 'undefined') {
+            for (var i = 0; i < this.addedItems.items.length; i++) {
+                $.each(this.addedItems.items[i], function (key, value) {
+                    if (id == value) {
+                        found = true;
+                        return !found;
+                    }
+                });
+                if (found)
+                    return i;
+            }
         }
         return -1;
     }
 
-    BaseAjaxTransferData.prototype.syncSession = function(url) {
+    BaseAjaxTransferData.prototype.syncSession = function (url) {
         var strUrl;
-        if(typeof(url)==='undefined')
+        if (typeof(url) === 'undefined')
             strUrl = "syncdata"
         strUrl = url + "/syncdata";
         $.ajax({
             url: strUrl,
-            type:"POST",
-            data:this.addedItems,
-            success:function(response) {
+            type: "POST",
+            data: this.addedItems,
+            success: function (response) {
                 console.log(response);
             }
         });
     }
 
-    BaseAjaxTransferData.prototype.isEmptyGrid = function() {
-        return ($(this.gridTable + ' tr').length==1)?true:false;
+    BaseAjaxTransferData.prototype.isEmptyGrid = function () {
+        return ($(this.gridTable + ' tr').length == 1) ? true : false;
     }
 
 
     //Static method
-    BaseAjaxTransferData.getStaticProduct = function(url) {
+    BaseAjaxTransferData.getStaticProduct = function (url) {
         var ma = $('#barcode').val();
         var strUrl;
-        if(typeof (url)==='undefined')
+        if (typeof (url) === 'undefined')
             strUrl = "getsanphamban/ma_vach/" + ma;
         strUrl = url + "/getsanphamban/ma_vach/" + ma;
         var ret;
@@ -103,7 +105,7 @@ var BaseAjaxTransferData = function() {
             url: strUrl,
             type: 'POST',
             async: false,
-            success: function(response) {
+            success: function (response) {
                 ret = response;
             }
         });
@@ -115,37 +117,36 @@ var BaseAjaxTransferData = function() {
      Dung Json kiem tra
      */
 
-    BaseAjaxTransferData.prototype.updateItemAtPosition = function(position,newData) {
+    BaseAjaxTransferData.prototype.updateItemAtPosition = function (position, newData) {
         var self = this;
         var obj = this.addedItems.items[position];
-        $.each(newData,function(key,value){
-            if(key in obj)
+        $.each(newData, function (key, value) {
+            if (key in obj)
                 self.addedItems.items[position][key] = value;
         });
     }
 
     // clear item and syc with session
 
-    BaseAjaxTransferData.prototype.clearItem = function(id) {
+    BaseAjaxTransferData.prototype.clearItem = function (id) {
         var self = this;
-        for(i=0;i<this.addedItems.items.length;i++) {
-           if(this.addedItems.items[i].id == id)
-                this.addedItems.items.splice(i,1);
+        for (i = 0; i < this.addedItems.items.length; i++) {
+            if (this.addedItems.items[i].id == id)
+                this.addedItems.items.splice(i, 1);
         }
     }
 
 }
 
 
-function extendClass (childClass, parentClass) {
+function extendClass(childClass, parentClass) {
     childClass.prototype = new parentClass();
     childClass.prototype.constructor = childClass;
 }
 
 function trimNumber(s) {
-    while (s.substr(0,1) == '0' && s.length>1)
-    {
-        s = s.substr(1,9999);
+    while (s.substr(0, 1) == '0' && s.length > 1) {
+        s = s.substr(1, 9999);
     }
     return s;
 }

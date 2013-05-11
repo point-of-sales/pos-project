@@ -200,11 +200,12 @@ class PhieuXuatController extends CPOSController
 
     public function actionSyncData()
     {
-        if (isset($_POST)) {
+        if (isset($_POST['items'])) {
             Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
-            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuXuat', $_POST);
+            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuXuat',$_POST['items'],array('items'));
         }
     }
+
 
 
 }

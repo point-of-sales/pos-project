@@ -18,13 +18,6 @@
 
 
     <div class="row cus-row">
-        <?php echo $form->label($model, 'trang_thai'); ?>
-        <div class="radio-list">
-        <?php echo $form->radioButtonList($model, 'trang_thai',$model->layDanhSachTrangThai()); ?>
-        </div>
-    </div>
-
-    <div class="row cus-row">
         <?php echo $form->label($model, 'truc_thuoc_id'); ?>
         <?php echo $form->dropDownList($model, 'truc_thuoc_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>

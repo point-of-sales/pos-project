@@ -191,5 +191,9 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Approve branch'=>'Chi nhánh áp dụng',
     'Promotion product'=>'Sản phẩm áp dụng khuyến mãi',
     'Base price'=>'Giá gốc',
-    'Promotion not available'=>'Chưa có Khuyến mãi'
+    'Promotion not available'=>'Chưa có Khuyến mãi',
+    'Current price with promotion'=>'Giá hiện tại kèm khuyến mãi',
+    'Suppier is required when export source is out of system'=>'Phải điền thông tin nhà cung cấp khi nguồn nhập bên ngoài hệ thống',
+    'No supplier'=>'Không có nhà cung cấp',
+    'Can not import/export from same branch'=>'Không thể đồng thời xuất nhập cùng chi nhánh',
 );

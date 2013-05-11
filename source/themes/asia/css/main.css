@@ -149,8 +149,9 @@ div.breadcrumbs span
 div.search-form
 {
 	padding: 10px;
-	margin: 10px 0;
+	/*margin: 10px 0;*/
 	background: #eee;
+    margin-top: -32px;
 }
 
 

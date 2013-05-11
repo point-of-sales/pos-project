@@ -25,9 +25,11 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
 
     $(document).ready(function () {
         $('#barcode').blur(function () {
-            item = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
-            if (item != null)
-                $('#productname').val(item.ten_san_pham);
+            var preGetItem = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
+            if (preGetItem != null) {
+                $('#productname').val(preGetItem.ten_san_pham);
+                $('#price').val(preGetItem.gia_goc);
+            }
         });
 
     });

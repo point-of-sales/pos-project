@@ -132,6 +132,7 @@ class NhaCungCapController extends CPOSController {
     public function  actionXuat() {
         $model = new NhaCungCap('search');
         $model->unsetAttributes();
+
         if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
             $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
@@ -139,5 +140,6 @@ class NhaCungCapController extends CPOSController {
         }
         $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('NhaCungCap')));
     }
+
 
 }

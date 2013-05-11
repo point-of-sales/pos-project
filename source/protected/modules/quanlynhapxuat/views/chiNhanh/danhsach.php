@@ -41,15 +41,15 @@ return false;
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 'id' => 'grid',
-'dataProvider' => $model->search(),
+'dataProvider' => $model->searchChiNhanhKichHoat(),
 'columns' => array(
 		'ma_chi_nhanh',
 		'ten_chi_nhanh',
 		'dia_chi',
-        'trang_thai'=>array(
-        'name'=>'trang_thai',
-        'value'=>'$data->layTenTrangThai()'
-    ),
+        'dien_thoai',
+        array('name'=>'khu_vuc_id',
+              'value'=>'$data->khuVuc->ten_khu_vuc'
+        ),
 
 array(
     'class' => 'CButtonColumn',

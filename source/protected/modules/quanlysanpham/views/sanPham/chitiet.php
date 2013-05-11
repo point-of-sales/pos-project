@@ -54,6 +54,12 @@ $this->menu = array(
             'value' => $model->layGiaHienTai(),
         ),
         'gia_goc',
+        array('name' => Yii::t('viLib', 'Current price with promotion'),
+            'type' => 'raw',
+            'value' => $model->layGiaHienTaiKemKhuyenMai(),
+        ),
+
+
     ),
 )); ?>
 

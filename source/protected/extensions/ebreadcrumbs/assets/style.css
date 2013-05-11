@@ -2,7 +2,7 @@
 
 .xbreadcrumbs LI {
 	border-right: none;
-	background: url(separator.gif) no-repeat right center;
+	background: url(separator.png) no-repeat right;
 	padding-right: 15px;
 	padding-left: 10px;
 }
@@ -16,6 +16,6 @@
 }
 
 .xbreadcrumbs LI A.home {
-	background: url(home.gif) no-repeat left center;
+	background: url(home.png) no-repeat left center;
 	padding-left: 20px;
 }

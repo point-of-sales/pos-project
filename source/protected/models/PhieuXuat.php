@@ -21,6 +21,15 @@ class PhieuXuat extends BasePhieuXuat
         );
     }
 
+    public function rules() {
+        return array(
+            array('ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'required'),
+            array('id, loai_xuat_ra, chi_nhanh_nhap_id', 'numerical', 'integerOnly'=>true),
+            array('id, ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'safe', 'on'=>'search'),
+            array('chi_nhanh_nhap_id','ext.custom-validator.CPOSBranchValidator'),
+        );
+    }
+
 
     public function relations() {
         return array(

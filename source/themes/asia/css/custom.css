@@ -73,7 +73,7 @@
 
 h1 {
     padding-bottom:20px;
-    font-size:20px;
+    font-size:16px;
 }
 
 .detail-view {
@@ -157,12 +157,13 @@ h1 {
 /*end sub-title */
 #main-content h1 {
     padding-top:18px;
-    line-height:15px;
+    line-height:4px;
     padding-left:25px;
     color:white;
-    background-color:#5e82a3;
+    background-color:#7c7c7c;
     font-weight:bold;
     margin-bottom:50px;
+    border-radius:3px;
 }
 
 /*start grid */

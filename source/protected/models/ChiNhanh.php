@@ -224,6 +224,29 @@ class ChiNhanh extends BaseChiNhanh
         ));
     }
 
+    public function searchChiNhanhKichHoat() {
+        $criteria = new CDbCriteria;
+
+
+        $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
+        $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
+
+        $criteria->compare('trang_thai',1);
+        $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
+        $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
+        $criteria->addCondition('id>1');
+
+        if(!empty($this->san_pham_id)) {
+            $criteria->with = 'tblSanPhams';
+            $criteria->together = true;
+            $criteria->compare('tblSanPhams.id',$this->san_pham_id,true);
+        }
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
     public function xuatFileExcel() {
         $criteria = new CDbCriteria;
         $criteria->compare('id', $this->id);
@@ -237,7 +260,7 @@ class ChiNhanh extends BaseChiNhanh
         $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
         $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
         $criteria->compare('loai_chi_nhanh_id', $this->loai_chi_nhanh_id);
-
+        $criteria->addCondition('id>1');
         /*$event = new CPOSSessionEvent();
         $event->currentSession = Yii::app()->CPOSSessionManager->getItem('ChiNhanh');
         $this->onAfterExport($event);*/
@@ -246,6 +269,23 @@ class ChiNhanh extends BaseChiNhanh
             'criteria' => $criteria,
         ));
     }
+
+    public static function layDanhSachChiNhanhKichHoat() {
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('trang_thai=1');
+        $criteria->order = 'id DESC';
+        return ChiNhanh::model()->findAll($criteria);
+    }
+
+
+    public static function layDanhSachChiNhanhKichHoatTrongHeThong() {
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('trang_thai=1');
+        $criteria->addCondition('id>1');
+        return ChiNhanh::model()->findAll($criteria);
+    }
+
+
 
 
 }

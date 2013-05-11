@@ -195,9 +195,9 @@ a:hover, .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited
 }
 
 #header #sitename a.logo {
-	color:#fff;
+	color:#e8e2d6;
 	background:url('../../../images/logo.png') no-repeat;
-	text-shadow:1px 1px 0 #4c6a8c;
+	
 }
 
 #header #top-menu a:hover, #header #sitename a.logo:hover {
@@ -207,11 +207,16 @@ a:hover, .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited
 	/* Header navigation menu */
 
 #navigation li a {
-	color:#454545;
+	color:#494C49;
 	font-weight:bold;
-	border-right:#a3cfee solid 1px;
+	border-right:#494C49 solid 1px;
 	border-left:#fff solid 1px;
 }
+
+#navigation li:first-child {
+	border-left:none;
+}
+
 
 #navigation li.sfHover, #navigation li.sfHover2 {
 	background:#fff;

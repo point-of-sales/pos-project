@@ -1,5 +1,6 @@
 <?php
-    Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/BaseAjaxTransferData.js');
+
+Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/BaseAjaxTransferData.js');
 ?>
     <script>
     extendClass(AjaxTransferData, BaseAjaxTransferData);
@@ -11,7 +12,8 @@
         if (ajaxTransferDataObject.isEmptyGrid()) {
             var isEmptySession = <?php echo (Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap'))?1:0?>;
             if (!isEmptySession) {
-                ajaxTransferDataObject.addedItems = <?php echo json_encode(Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuNhap'))?>;
+                ajaxTransferDataObject.addedItems = <?php
+                    $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhap'); echo json_encode($sessionItems)?>;
                 // Refill grid
                 $.each(ajaxTransferDataObject.addedItems.items, function (key, value) {
                     var item = ajaxTransferDataObject.addedItems.items[key];
@@ -24,9 +26,11 @@
 
     $(document).ready(function () {
         $('#barcode').blur(function () {
-            item = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
-            if (item != null)
-                $('#productname').val(item.ten_san_pham);
+            var preGetItem = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
+            if (preGetItem != null) {
+                $('#productname').val(preGetItem.ten_san_pham);
+                $('#price').val(preGetItem.gia_goc);
+            }
         });
 
     });
@@ -60,8 +64,7 @@
         this.quantity = "#quantity";
         this.price = "#price";
 
-    }
-    ;
+    };
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
@@ -259,17 +262,36 @@
         calTotal();
     }
 
+    function checkEnableSupplier(exportBranchHTMLSelectObject) {
+        var exportSelectedValue = exportBranchHTMLSelectObject.options[exportBranchHTMLSelectObject.selectedIndex].value;
+        if (exportSelectedValue == 1) {
+            // OUTSYS comming. enable nha_cung_cap_id
+            $('#PhieuNhap_nha_cung_cap_id').attr('disabled', false);
+        } else {
+            $('#PhieuNhap_nha_cung_cap_id').attr('disabled', true);
+        }
+    }
+
+    function reCheckQuantity() {
+        var result = true;
+        if(ajaxTransferDataObject.addedItems.items.length>0) {
+            $.ajax({
+               url:
+            });
+        }
+    }
+
     </script>
 
 <?php
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Import/Export management') => array('chiNhanh/danhsach'),
     Yii::t('viLib', 'Import form') => array(),
-    Yii::t('viLib', 'Create') => array(),
+    Yii::t('viLib', 'Create'),
 );
 ?>
 
-    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Import form'); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Import form'); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(
