@@ -8,13 +8,13 @@ class PhieuXuatController extends CPOSController
     {
         $model = $this->loadModel($id, 'PhieuXuat');
         $model->getBaseModel();
-        $criteria  = new CDbCriteria();
+        $criteria = new CDbCriteria();
         $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
-        $criteria->params = array(':phieu_xuat_id'=>$id);
-        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuXuat',array('criteria'=>$criteria));
+        $criteria->params = array(':phieu_xuat_id' => $id);
+        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
         $this->render('chitiet', array(
             'model' => $model,
-            'dataProvider'=>$chiTietPhieuNhapDataProvider,
+            'dataProvider' => $chiTietPhieuNhapDataProvider,
         ));
     }
 
@@ -163,21 +163,21 @@ class PhieuXuatController extends CPOSController
             // set vao session
             Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['PhieuXuat']);
             $model->setAttributes($_GET);
-            $model->setAttribute('id',$model->baseModel->getAttribute('id'));
+            $model->setAttribute('id', $model->baseModel->getAttribute('id'));
         }
         $this->render('danhsach', array('model' => $model));
     }
 
     public function  actionXuat($id)
     {
-        if(isset($id)) {
-            $criteria  = new CDbCriteria();
+        if (isset($id)) {
+            $criteria = new CDbCriteria();
             $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
-            $criteria->params = array(':phieu_xuat_id'=>$id);
-            $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat',array('criteria'=>$criteria));
+            $criteria->params = array(':phieu_xuat_id' => $id);
+            $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
             $this->render('xuat', array('dataProvider' => $chiTietPhieuXuatDataProvider));
         }
-        throw new CException('404','Id not found');
+        throw new CException('404', 'Id not found');
     }
 
     public function actionLaySoLuongTon($ma_vach, $chi_nhanh_id)
@@ -200,12 +200,40 @@ class PhieuXuatController extends CPOSController
 
     public function actionSyncData()
     {
-        if (isset($_POST['items'])) {
-            Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
-            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuXuat',$_POST['items'],array('items'));
-        }
+        Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
+        if (isset($_POST['items']))
+            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuXuat', $_POST['items'], array('items'));
+
     }
 
+    public function actionReCheckBeforeSent($cnid)
+    {
+        $result = 'ok';
+        if (Yii::app()->request->isAjaxRequest) {
+
+            if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat')) {
+                // check valid quantity + check enought instock
+                $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuXuat');
+                $items = $sessionItems['items'];
+
+                foreach ($items as $item) {
+
+                    $sanPham = SanPham::model()->find('id=:id', array(':id' => $item['id']));
+                    $sanPham->chi_nhanh_id = $cnid;
+
+                    $soTon = ($sanPham->laySoLuongTonHienTai() - $sanPham->ton_toi_thieu);
+                    if ($item['so_luong'] <= 0 || $item['gia_xuat'] <= 0 || $item['so_luong'] > $soTon) {
+                        $result = 'fail';
+                        break;
+                    }
+                }
+
+            } else
+                $result = 'fail';
+            echo $result;
+        } else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 
 
 }

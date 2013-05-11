@@ -5,8 +5,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     <script>
     extendClass(AjaxTransferData, BaseAjaxTransferData);
     var ajaxTransferDataObject = new AjaxTransferData();
-    ajaxTransferDataObject.defaultAjaxUrl = "<?php echo Yii::app()->createUrl('quanlynhapxuat/phieuNhap') ?>";
-
+    ajaxTransferDataObject.url = '/quanlynhapxuat/phieuNhap/';
     $(window).load(function () {
         // When grid is empty and data is exist on session. Fill grid again with data from the session
         if (ajaxTransferDataObject.isEmptyGrid()) {
@@ -26,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
 
     $(document).ready(function () {
         $('#barcode').blur(function () {
-            var preGetItem = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
+            var preGetItem = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.url);
             if (preGetItem != null) {
                 $('#productname').val(preGetItem.ten_san_pham);
                 $('#price').val(preGetItem.gia_goc);
@@ -47,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                     // khong co loi xay ra. Dua du lieu vao Grid
                     // truoc khi dua du lieu thi kiem tra no co ton tai tren grid chua
                     ajaxTransferDataObject.fillItemsToGrid();
-                    ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+                    ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
                     ajaxTransferDataObject.resetInputs();
                     calTotal();
 
@@ -118,7 +117,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
 
         }
         else {
-            if (!this.getProduct(this.defaultAjaxUrl, $(this.barcode).val())) {
+            if (!this.getProduct(this.url, $(this.barcode).val())) {
                 // neu san pham chua co trong danh sach san pham. Lam thong bao loi dua vao trong info-message
                 $('<p>', {
                     class: 'custom-error-messages'
@@ -228,7 +227,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     AjaxTransferData.prototype.removeItem = function (id) {
         this.clearItem(id);
         $('#cl_' + id).parent().parent().parent().remove();
-        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        this.syncSession(this.url);
         calTotal();
         return false;
 
@@ -248,7 +247,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         };
         var position = ajaxTransferDataObject.isInArray(id);
         ajaxTransferDataObject.updateItemAtPosition(position, newData);
-        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
         calTotal();
     }
 
@@ -258,7 +257,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         };
         var position = ajaxTransferDataObject.isInArray(id);
         ajaxTransferDataObject.updateItemAtPosition(position, newData);
-        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
         calTotal();
     }
 
@@ -272,13 +271,35 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         }
     }
 
-    function reCheckQuantity() {
-        var result = true;
+    function reCheckBeforeSent() {
+        var isValidQuantity = 'ok';
         if(ajaxTransferDataObject.addedItems.items.length>0) {
             $.ajax({
-               url:
+               url:'/quanlynhapxuat/phieuNhap/recheckbeforesent',
+               type:'POST',
+               async:false,
+               success: function(response) {
+                   isValidQuantity = response;
+               }
+
             });
+        } else
+            isValidQuantity = false;
+
+        if(isValidQuantity=='fail') {
+            ajaxTransferDataObject.errors = new Array();
+            ajaxTransferDataObject.customInfoBoard = $('<div>').addClass('error');
+            $('<p>', {
+                class: 'custom-error-messages'
+            }).text('<?php print(Yii::t('viLib','Quantity or Price is not valid in detail form section. Form can not be sent.'))?>').appendTo(ajaxTransferDataObject.customInfoBoard);
+            ajaxTransferDataObject.errors.push(4);
+            ajaxTransferDataObject.renderErrors();
+            ajaxTransferDataObject.errors = null;
+            return false;
         }
+        return true;
+
+
     }
 
     </script>

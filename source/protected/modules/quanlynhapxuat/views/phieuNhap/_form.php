@@ -143,7 +143,7 @@
 
     <div class="btn-save">
         <?php
-        echo GxHtml::submitButton(Yii::t('viLib', 'Save'),array('onclick'=>'return reCheckQuantity()'));
+        echo GxHtml::submitButton(Yii::t('viLib', 'Save'),array('onclick'=>'return reCheckBeforeSent()'));
         $this->endWidget();
         ?>
     </div>

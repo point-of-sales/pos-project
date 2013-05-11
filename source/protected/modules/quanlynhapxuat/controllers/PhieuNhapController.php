@@ -181,17 +181,37 @@ class PhieuNhapController extends CPOSController
             $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
             $this->render('xuat', array('dataProvider' => $chiTietPhieuNhapDataProvider));
         }
-        throw new CException('404', 'Id not found');
+        throw new CHttpException('404', 'Id not found');
 
     }
 
     public function actionSyncData()
     {
-        if (isset($_POST['items'])) {
-            Yii::app()->CPOSSessionManager->clear('ChiTietPhieuNhap');
-            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuNhap',$_POST['items'],array('items'));
-        }
+        Yii::app()->CPOSSessionManager->clear('ChiTietPhieuNhap');
+        if (isset($_POST['items']))
+            Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuNhap', $_POST['items'], array('items'));
+
     }
 
+    public function actionReCheckBeforeSent()
+    {
+        $result = 'ok';
+        if (Yii::app()->request->isAjaxRequest) {
+            // check valid quantity
+            if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap')) {
+                $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhap');
+                $items = $sessionItems['items'];
+                foreach ($items as $item) {
+                    if ($item['so_luong'] <= 0 || $item['gia_nhap'] <= 0) {
+                        $result = 'fail';
+                        break;
+                    }
+                }
+            } else
+                $result = 'fail';
+            echo $result;
+        } else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
 
 }

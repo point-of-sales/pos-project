@@ -5,7 +5,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     // ===================================== GLOBAL AREA ============================================
     extendClass(AjaxTransferData, BaseAjaxTransferData);
     var ajaxTransferDataObject = new AjaxTransferData();
-    ajaxTransferDataObject.defaultAjaxUrl = "<?php echo Yii::app()->createUrl('quanlynhapxuat/phieuXuat') ?>";
+    ajaxTransferDataObject.url = '/quanlynhapxuat/phieuXuat/';
 
     $(window).load(function () {
         // When grid is empty and data is exist on session. Fill grid again with data from the session
@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
 
     $(document).ready(function () {
         $('#barcode').blur(function () {
-            var preGetItem = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.defaultAjaxUrl);
+            var preGetItem = BaseAjaxTransferData.getStaticProduct(ajaxTransferDataObject.url);
             if (preGetItem != null) {
                 $('#productname').val(preGetItem.ten_san_pham);
                 $('#price').val(preGetItem.gia_goc);
@@ -46,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                     // khong co loi xay ra. Dua du lieu vao Grid
                     // truoc khi dua du lieu thi kiem tra no co ton tai tren grid chua
                     ajaxTransferDataObject.fillItemsToGrid();
-                    ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+                    ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
                     ajaxTransferDataObject.resetInputs();
                     calTotal();
 
@@ -63,7 +63,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         this.quantity = "#quantity";
         this.price = "#price";
         this.exportBranch = "#ChungTu_chi_nhanh_id";
-    };
+    }
+    ;
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
@@ -71,7 +72,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         if (position < 0) {
             // not found in added Array. Need to add new it.
             item.so_luong = parseInt(trimNumber($(this.quantity).val()));
-            item.gia_nhap = parseInt(trimNumber($(this.price).val()));
+            item.gia_xuat = parseInt(trimNumber($(this.price).val()));
             this.renderRow(item);
             this.addedItems.items.push(item);
         } else {
@@ -86,7 +87,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
             // modify data in addedItems
             var newData = {
                 'so_luong': newQuantity,
-                'gia_nhap': newPrice
+                'gia_xuat': newPrice
             };
             this.updateItemAtPosition(position, newData);
         }
@@ -117,7 +118,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
 
         }
         else {
-            if (!this.getProduct(this.defaultAjaxUrl, $(this.barcode).val())) {
+            if (!this.getProduct(this.url, $(this.barcode).val())) {
                 // neu san pham chua co trong danh sach san pham. Lam thong bao loi dua vao trong info-message
                 $('<p>', {
                     class: 'custom-error-messages'
@@ -163,23 +164,26 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
             }).text('<?php print(Yii::t('viLib','Data mistmatch'))?>').appendTo(this.customInfoBoard);
             this.errors.push(3);
         } else {
-            var result = this.isOverInstock(this.defaultAjaxUrl,$(this.barcode).val(),$(this.exportBranch).val());
+            var result = this.isOverInstock(this.url, $(this.barcode).val(), $(this.exportBranch).val());
             switch (result) {
-                case 'over': {
+                case 'over-instock':
+                {
                     $('<p>', {
                         class: 'custom-error-messages'
                     }).text('<?php print(Yii::t('viLib','Input quantity is greater than instock.'))?>').appendTo(this.customInfoBoard);
                     this.errors.push(3);
                     break;
                 }
-                case 'over-limit':{
+                case 'over-limit':
+                {
                     $('<p>', {
                         class: 'custom-error-messages'
                     }).text('<?php print(Yii::t('viLib','Input quantity is greater than limit minimum instock.'))?>').appendTo(this.customInfoBoard);
                     this.errors.push(3);
                     break;
                 }
-                case 'not-found': {
+                case 'not-found':
+                {
                     $('<p>', {
                         class: 'custom-error-messages'
                     }).text('<?php print(Yii::t('viLib','Quantity of this product is not exist in this branch'))?>').appendTo(this.customInfoBoard);
@@ -241,7 +245,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                 '<td>' + item.ma_vach + '<input type="hidden" name="ma_vach[]" value="' + item.ma_vach + '"/>' + '</td>' +
                 '<td>' + item.ten_san_pham + '<input type="hidden" name="ten_san_pham[]" value="' + item.ten_san_pham + '"/>' + '</td>' +
                 '<td>' + '<input type="text" name="so_luong[]" onblur="return changeQuantity(' + item.id + ')" value="' + item.so_luong + '" id="sl_' + item.id + '" class="number" />' + '</td>' +
-                '<td>' + '<input type="text" name="gia_nhap[]" onblur="return changePrice(' + item.id + ')" value="' + item.gia_nhap + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<input type="text" name="gia_xuat[]" onblur="return changePrice(' + item.id + ')" value="' + item.gia_xuat + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
                 '<td>' + '<a href="#" onclick="return ajaxTransferDataObject.removeItem(' + item.id + ')">' + '<img src="<?php echo Yii::app()->theme->baseUrl . '/images/delete.png'?>" id="cl_' + item.id + '" class="clearitems" alt="Xóa"/>' + '</a>' + '</td>' +
 
                 '</tr>';
@@ -252,7 +256,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     AjaxTransferData.prototype.removeItem = function (id) {
         this.clearItem(id);
         $('#cl_' + id).parent().parent().parent().remove();
-        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
         calTotal();
         return false;
 
@@ -261,7 +265,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     function calTotal() {
         var total = 0;
         for (var i = 0; i < ajaxTransferDataObject.addedItems.items.length; i++) {
-            total = total + ajaxTransferDataObject.addedItems.items[i].so_luong * ajaxTransferDataObject.addedItems.items[i].gia_nhap;
+            total = total + ajaxTransferDataObject.addedItems.items[i].so_luong * ajaxTransferDataObject.addedItems.items[i].gia_xuat;
         }
         $('#ChungTu_tri_gia').val(total);
     }
@@ -272,32 +276,29 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         };
         var position = ajaxTransferDataObject.isInArray(id);
         ajaxTransferDataObject.updateItemAtPosition(position, newData);
-        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
         calTotal();
     }
 
     function changePrice(id) {
         var newData = {
-            'gia_nhap': parseInt($('#dg_' + id).val())
+            'gia_xuat': parseInt($('#dg_' + id).val())
         };
         var position = ajaxTransferDataObject.isInArray(id);
         ajaxTransferDataObject.updateItemAtPosition(position, newData);
-        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.defaultAjaxUrl);
+        ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
         calTotal();
     }
 
-    AjaxTransferData.prototype.isOverInstock = function(url, ma_vach, chi_nhanh_id) {
-        var strUrl;
+    AjaxTransferData.prototype.isOverInstock = function (url, ma_vach, chi_nhanh_id) {
+        var strUrl = url + "laysoluongton/ma_vach/" + ma_vach + "/chi_nhanh_id/" + chi_nhanh_id;
         var result = 'ok';
-        if(typeof (url)==='undefined')
-            strUrl = "/laysoluongton/ma_vach/" + ma_vach + "/chi_nhanh_id/"  + chi_nhanh_id;
-        strUrl = url + "/laysoluongton/ma_vach/" + ma_vach + "/chi_nhanh_id/"  + chi_nhanh_id;
         var ret;
         $.ajax({
             url: strUrl,
-            type:"POST",
-            async:false,
-            success:function(response) {
+            type: "POST",
+            async: false,
+            success: function (response) {
                 ret = response;
             }
         });
@@ -305,14 +306,46 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         var item = $.parseJSON(ret);
         var slnhapvao = parseInt($(this.quantity).val());
 
-        if(item.so_ton==false)
+        if (item.so_ton == false)
             return result = 'not-found';
-        if(item.so_ton < slnhapvao)        // so xuat > ton
+        if (item.so_ton < slnhapvao)        // so xuat > ton
             return result = 'over-instock';
-        if(item.ton_toi_thieu > (item.so_ton - slnhapvao))  // so xuat < ton. Nhung khi tru thi ket qua duoi dinh muc ton toi thieu
+        if (item.ton_toi_thieu > (item.so_ton - slnhapvao))  // so xuat < ton. Nhung khi tru thi ket qua duoi dinh muc ton toi thieu
             return result = 'over-limit';
         return result;
     }
+
+
+    function reCheckBeforeSent() {
+
+        var chi_nhanh_id = $('#ChungTu_chi_nhanh_id').val();
+        var isValidQuantity = 'ok';
+        if (ajaxTransferDataObject.addedItems.items.length > 0) {
+            $.ajax({
+                url: '/quanlynhapxuat/phieuXuat/recheckbeforesent/cnid/' + chi_nhanh_id,
+                type: 'POST',
+                async: false,
+                success: function (response) {
+                    isValidQuantity = response;
+                }
+            });
+        } else
+            isValidQuantity = false;
+
+        if (isValidQuantity == 'fail') {
+            ajaxTransferDataObject.errors = new Array();
+            ajaxTransferDataObject.customInfoBoard = $('<div>').addClass('error');
+            $('<p>', {
+                class: 'custom-error-messages'
+            }).text('<?php print(Yii::t('viLib','Quantity or Price is not valid in detail form section. Form can not be sent.'))?>').appendTo(ajaxTransferDataObject.customInfoBoard);
+            ajaxTransferDataObject.errors.push(4);
+            ajaxTransferDataObject.renderErrors();
+            ajaxTransferDataObject.errors = null;
+            return false;
+        }
+        return true;
+    }
+
 
     </script>
 
@@ -320,14 +353,14 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Import/Export management') => array('chiNhanh/danhsach'),
     Yii::t('viLib', 'Export form') => array(),
-    Yii::t('viLib', 'Create') => array(),
+    Yii::t('viLib', 'Create'),
 );
 ?>
 
-    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Export form'); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Export form'); ?></h1>
 
 <?php
-    $this->renderPartial('_form', array(
+$this->renderPartial('_form', array(
     'model' => $model,
     'id' => isset($id) ? $id : null,
     'buttons' => 'create'));

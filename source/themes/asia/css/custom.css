@@ -316,3 +316,8 @@ h1 {
     width:180px;
 }
 
+/* detail view in chi tite */
+table .detail-view {
+    margin-top: -34px;
+}
+/* end detai view */

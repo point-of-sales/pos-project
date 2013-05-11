@@ -196,4 +196,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Suppier is required when export source is out of system'=>'Phải điền thông tin nhà cung cấp khi nguồn nhập bên ngoài hệ thống',
     'No supplier'=>'Không có nhà cung cấp',
     'Can not import/export from same branch'=>'Không thể đồng thời xuất nhập cùng chi nhánh',
+    'Quantity or Price is not valid in detail form section. Form can not be sent.'=>'Số lượng hoặc giá ở chi tiết phiếu không hợp lệ. Không thể gửi phiếu'
 );

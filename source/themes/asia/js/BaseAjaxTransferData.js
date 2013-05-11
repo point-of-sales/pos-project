@@ -24,11 +24,8 @@ var BaseAjaxTransferData = function () {
     this.errors = null;
     this.addedItems = {'items': []};              // Json object
 
-    BaseAjaxTransferData.prototype.getProduct = function (url, ma) {
-        var strUrl;
-        if (typeof(url) === 'undefined')
-            strUrl = "getsanphamban/ma_vach/" + ma;
-        strUrl = url + "/getsanphamban/ma_vach/" + ma;
+    BaseAjaxTransferData.prototype.getProduct = function (url,ma) {
+        var strUrl  = url + "getsanphamban/ma_vach/" + ma;
         var ret;
         $.ajax({
             url: strUrl,
@@ -74,10 +71,8 @@ var BaseAjaxTransferData = function () {
     }
 
     BaseAjaxTransferData.prototype.syncSession = function (url) {
-        var strUrl;
-        if (typeof(url) === 'undefined')
-            strUrl = "syncdata"
-        strUrl = url + "/syncdata";
+
+        var strUrl = url + "syncdata";
         $.ajax({
             url: strUrl,
             type: "POST",
@@ -96,10 +91,7 @@ var BaseAjaxTransferData = function () {
     //Static method
     BaseAjaxTransferData.getStaticProduct = function (url) {
         var ma = $('#barcode').val();
-        var strUrl;
-        if (typeof (url) === 'undefined')
-            strUrl = "getsanphamban/ma_vach/" + ma;
-        strUrl = url + "/getsanphamban/ma_vach/" + ma;
+        var strUrl = url + "getsanphamban/ma_vach/" + ma;
         var ret;
         $.ajax({
             url: strUrl,
