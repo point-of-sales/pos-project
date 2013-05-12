@@ -1,8 +1,13 @@
 <?php
 Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/banhang.js');
 Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/banhang.css');
-//print_r(Yii::app()->session->toArray());
+/*
+echo '<pre>';
+print_r(Yii::app()->session->toArray());
+echo '</pre>';
+*/
 ?>
+<?php  if(Yii::app()->user->hasFlash('info-board')) {?>    <div class="response-msg error ui-corner-all info-board">        <?php echo Yii::app()->user->getFlash('info-board');?>    </div><?php } ?>
 <input type="hidden" id="base-url" value="<?php echo Yii::app()->request->baseUrl?>" />
 <div id="form-hd-ban">
 <?php $form = $this->beginWidget('GxActiveForm', array(
@@ -11,10 +16,18 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
 ?>
 	<div id="form-hd-ban-header">
     	<div id="form-hd-ban-header-left">
-        	<h2 id="form-hd-ban-chi-nhanh">
-                Chi nhánh 
-                <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true))); ?>
-            </h2>
+            <ul>
+                <li>
+                    <span>Mã hóa đơn</span>
+                    <span id="form-hd-ban-ma-hoa-don"></span>
+                </li>
+                <li>
+                    <span>Chi nhánh</span>
+                    <span>
+                        <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true))); ?>
+                    </span>
+                </li>
+            </ul>
         </div>
         <div id="form-hd-ban-header-center"><h1>TẠO HÓA ĐƠN BÁN HÀNG</h1></div>
         <div id="form-hd-ban-header-right">
@@ -46,7 +59,14 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
     </div>
     <div id="form-hd-ban-info">
     	<div id="form-hd-ban-info-left">
-        	<table id="form-hd-ban-info-table">
+            <div id="form-hd-ban-ma">
+            	<span id="form-hd-ban-ma-label">Mã vạch</span>
+                <span><input id="form-hd-ban-ma-input" type="text" onkeypress="keypressInputMa(event)" /></span>
+                <div id="form-hd-ban-error"></div>
+            </div>
+        </div>
+        <div id="form-hd-ban-info-right">
+            <table id="form-hd-ban-info-table">
             	<tr>
                 	<td class="form-hd-ban-label">Họ tên</td>
                     <td><span id="form-hd-ban-ho-ten-kh"></span></td>
@@ -67,13 +87,6 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
                 </tr>
             </table>
         </div>
-        <div id="form-hd-ban-info-right">
-            <div id="form-hd-ban-ma">
-            	<span id="form-hd-ban-ma-label">Mã vạch</span>
-                <span><input id="form-hd-ban-ma-input" type="text" onkeypress="keypressInputMa(event)" /></span>
-                <div id="form-hd-ban-error"></div>
-            </div>
-        </div>
     </div>
     <div id="form-hd-ban-list">
         <div id="grid" class="grid-view">
@@ -91,18 +104,40 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/ban
     </div>
     <div id="form-hd-ban-command">
     	<div id="form-hd-ban-button">
-            <a class="btn ui-state-default ui-corner-all" id="dialog_link" href="#">
-                <span class="ui-icon ui-icon-newwin"></span>
-                Hóa đơn mới
-            </a>
-            <a class="btn ui-state-default ui-corner-all" id="dialog_link" href="#">
-                <span class="ui-icon ui-icon-newwin"></span>
-                In hóa đơn
-            </a>
+            <input class="" type="button" value="Hóa đơn mới" onclick="hoaDonMoi()" />
+            <input class="" type="submit" value="In hóa đơn" />
         </div>
     </div>
-    <div id="form-hd-ban-footer">form-hd-ban-footer</div>
+    <div id="form-hd-ban-footer">F1: MÃ VẠCH -- F2: KHÁCH HÀNG -- F3: TÌM KHÁCH HÀNG -- F4: HÀNG TẶNG</div>
     <?php $this->endWidget();?>
 </div>
 
 <div id="dialog-tim-khach-hang" title="Tìm khách hàng"></div>
+<div id="dialog-hang-tang" title="Sản phẩm tặng">
+    <div id="dialog-hang-tang-header">
+        <div id="dialog-hang-tang-ma">
+            <span id="dialog-hang-tang-ma-label">Mã hàng tặng</span>
+            <input id="dialog-hang-tang-ma-input" type="text" />
+        </div>
+    </div>
+    <div id="dialog-hang-tang-body">
+        <div id="grid" class="grid-view">
+            <table class="items" id="items">
+                <tr>
+                    <th>Mã vạch</th>
+                    <th>Tên hàng tặng</th>
+                    <th>Số lượng</th>
+                    <th>Giá được tặng</th>
+                    <th></th>
+                </tr>
+                <tr class="even">
+                    <td>123</td>
+                    <td>123</td>
+                    <td><input id="slht_1" value="1" /></td>
+                    <td>123</td>
+                    <td><input id="cht_1" type="checkbox" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

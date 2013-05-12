@@ -36,7 +36,6 @@ class PhieuNhap extends BasePhieuNhap
     public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua
-
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
 
