@@ -14,11 +14,15 @@
 	top:0;
 	left:0;
 }
-#form-hd-ban-header-left h2 {
-	text-align:left;
-	font-size:15px;
-	font-weight:bold;
-	padding:12px;
+#form-hd-ban-header-left{
+    
+}
+#form-hd-ban-header-left ul{
+    
+}
+#form-hd-ban-header-left ul li{
+    float: left;
+    list-style: none;
 }
 #form-hd-ban-header-center {
 	width:300px;
@@ -56,7 +60,7 @@
 }
 #form-hd-ban-info-left {
 	height:100%;
-	width:60%;
+	width:40%;
 	float:left;
 }
 #form-hd-ban-ma {
@@ -70,12 +74,12 @@
 #form-hd-ban-ma-input {
     margin-left: 20px;
 	height:23px;
-	width:170px;
+	width:200px;
 	font-size:24px;
 }
 #form-hd-ban-info-right {
 	height:100%;
-	width:40%;
+	width:60%;
 	float:left;
 }
 #form-hd-ban-info-table {

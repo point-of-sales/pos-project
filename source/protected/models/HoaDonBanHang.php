@@ -12,18 +12,40 @@ class HoaDonBanHang extends BaseHoaDonBanHang
     public function them($params) {
         // kiem tra du lieu con bi trung hay chua
 
-        if(!$this->kiemTraTonTai($params)) {
+        if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-                    $relatedData = array(
-				'tblSanPhams' => $_POST['HoaDonBanHang']['tblSanPhams'] === '' ? null : $_POST['HoaDonBanHang']['tblSanPhams'],
-				);
-                            if ($this->saveWithRelated($relatedData))
-                        return 'ok';
+            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietHoaDonBan')) {
+                $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietHoaDonBan');
+                $items = $sessionData['items'];
+                $relatedItems = Helpers::formatArray($items);
+                $relatedData = array(
+                    // fill related with data from the Session
+                    'tblSanPhams' => $relatedItems,
+                );
+            } else
+                return 'detail-error';
+            if ($this->saveWithRelated($relatedData)) {
+                // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
+                $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
+                foreach($relatedItems as $key=>$itemsInfo) {
+                    $product = SanPham::model()->findByPk($key);  // update scenario
+                    $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
+                    $currentQuantity = $product->laySoLuongTonHienTai();
+                    $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
+                    $relatedQuantityItems[$key] = array('so_ton'=>$newQuantity);
+                }
+                $relatedQuantityData  = array(
+                    'tblSanPhams' => $relatedQuantityItems,
+                );
+
+                if($chiNhanh->saveWithRelated($relatedQuantityData,false,null,array(),true,true))
+                    return 'ok';
+            }
             else
                 return 'fail';
         } else
-                return 'dup-error';
+            return 'dup-error';
     }
 
     public function capNhat($params) {
@@ -80,6 +102,24 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         'criteria' => $criteria,
         ));
         }
+        
+    public static function layMaHoaDonMoi(){
+  
+         $maxId = Yii::app()->db->createCommand()
+                    ->select('max(id)')
+                    ->from('tbl_HoaDonBanHang')
+                    ->queryScalar();
+        
+        $model = HoaDonBanHang::model()->findByPk($maxId);
+        
+        $ma_chung_tu = 'BH0000000001'; 
+        if(isset($model)){
+            $ma_chung_tu = $model->getBaseModel()->ma_chung_tu;
+            $ma_chung_tu = substr($ma_chung_tu,2);
+            $ma_chung_tu = ((int)$ma_chung_tu)+1;
+        }
+        return $ma_chung_tu;
+    }
 
 
 }

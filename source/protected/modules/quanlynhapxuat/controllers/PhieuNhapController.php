@@ -23,6 +23,8 @@ class PhieuNhapController extends CPOSController
         $this->layout = '//layouts/column1';
         $model = new PhieuNhap;
         if (isset($_POST['ChungTu'])) {
+            var_dump($_POST);exit;
+       
             $result = $model->them($_POST);
             switch ($result) {
                 case 'ok':

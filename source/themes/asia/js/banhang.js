@@ -5,15 +5,20 @@ var sKey = {
     x : 120,
     c : 99,
     v : 118,
+    tab : 9,
+    f1 : 112,
+    f2 : 113,
+    f3 : 114,
+    f4 : 115,
     f5 : 116,
-    tab : 9
 };
 
 var sAction = {
     maVach : "Mã vạch",
     soLuong : "Số lượng",
     khachHang : "Khách hàng",
-    timKhachHang : "Tìm khách hàng"
+    timKhachHang : "Tìm khách hàng",
+    hangTang : "Hàng tặng"
 };
 
 var idMaInput = "#form-hd-ban-ma-input";
@@ -21,10 +26,13 @@ var idMaLabel = "#form-hd-ban-ma-label";
 var idFormError = "#form-hd-ban-error";
 var idGridTable = "#items";
 var idDialogTimKH = "#dialog-tim-khach-hang";
+var idDialogHangTang = "#dialog-hang-tang";
 var idHoTenKH = "#form-hd-ban-ho-ten-kh";
 var idChietKhau = "#form-hd-ban-chiet-khau";
 var idTong = "#form-hd-ban-tong";
 var idTriGia = "#form-hd-ban-tri-gia";
+var idMaHoaDon = "#form-hd-ban-ma-hoa-don";
+var idInHoaDon = "#form-hd-ban-in";
 var baseUrl = "";
 var curAction = "";
 var cur_ma_vach = "";
@@ -40,27 +48,66 @@ document.onkeypress = stopRKey;
 ///////////////////////////////////////////
 
 $(document).ready(function(){
-    // Login Dialog			
-    $(idDialogTimKH).dialog({
-    	autoOpen: false,
-    	width: 300,
-    	height: 230,
-    	modal: true,
-    	buttons: {
-    		"OK": function() { 
-    			$(this).dialog("close"); 
-    		}, 
-    		"Cancel": function() { 
-    			$(this).dialog("close"); 
-    		} 
-    	}
-    });
-    
+    dialogTimKhachHang();
+    dialogHangTang();
     xoaMaInput();
     baseUrl = $('#base-url').val();
     curAction = sAction.maVach;
     dongBoDuLieu();
 });
+
+function hoaDonMoi(){
+    var conf = confirm("Tạo hóa đơn mới?");
+    if(conf==true){
+        $.ajax({
+            url:"hoadonmoi",
+            type:"POST",
+            success:function(data){
+                location.reload();
+            },
+        });   
+    }
+}
+
+function dialogTimKhachHang(){
+    $(idDialogTimKH).dialog({
+    	autoOpen: false,
+    	width: 300,
+    	height: 230,
+    	modal: true,
+        buttons:{
+            "Chấp nhận": function(){
+                $(this).dialog("close");
+            },
+            "Hủy bỏ": function(){
+                $(this).dialog("close");
+            }
+        },
+        beforeClose: function(event,ui){
+            xoaMaInput();
+        }
+    });
+}
+
+function dialogHangTang(){
+    $(idDialogHangTang).dialog({
+    	autoOpen: false,
+    	width: 800,
+    	height: 500,
+    	modal: true,
+    	buttons:{
+            "Chấp nhận": function(){
+                $(this).dialog("close");
+            },
+            "Hủy bỏ": function(){
+                $(this).dialog("close");
+            }
+        },
+        beforeClose: function(event,ui){
+            xoaMaInput();
+        }
+    });
+}
 
 function keypressInputMa(e){
     var key = e.charCode||e.keyCode;
@@ -69,25 +116,29 @@ function keypressInputMa(e){
             e.preventDefault();
             xuLyThaoTac();
         }break;
-        case sKey.x:{
+        case sKey.f2:{   //khach hang
             e.preventDefault();
             chuyenDoiThaoTac(sAction.khachHang);
             xoaMaInput();
         }break;
-        case sKey.z:{
+        case sKey.f1:{   //ma vach
             e.preventDefault();
             chuyenDoiThaoTac(sAction.maVach);
         }break;
-        case sKey.tab:{
+        case sKey.tab:{ //so luong
             e.preventDefault();
             if(cur_ma_vach!=""){
                 chuyenDoiThaoTac(sAction.soLuong);
                 xoaMaInput("1");              
             }
         }break;
-        case sKey.c:{
+        case sKey.f3:{   //tim khach hang
             e.preventDefault();
             $(idDialogTimKH).dialog('open');
+        }break;
+        case sKey.f4:{   //tim khach hang
+            e.preventDefault();
+            $(idDialogHangTang).dialog('open');
         }break;
     }
 }
@@ -103,7 +154,6 @@ function xuLyThaoTac(){
         case sAction.soLuong:{
             cur_so_luong = $(idMaInput).val();
             capNhatSoLuong(cur_ma_vach,cur_so_luong);
-            chuyenDoiThaoTac(sAction.maVach);
         }break;
         case sAction.khachHang:{
             layKhachHang();
@@ -183,6 +233,7 @@ function capNhatSoLuongGrid(e,id){
                     xoaMaInput();
                 }
                 else{
+                    $('#sl_'+id).select();
                     $(idFormError).html(item.msg);
                 }   
             }
@@ -200,10 +251,13 @@ function capNhatSoLuong(ma_vach,so_luong){
         success: function(data){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
+                cur_ma_vach = "";
                 $(idFormError).html("");
                 dongBoDuLieu();
+                chuyenDoiThaoTac(sAction.maVach);
             }
             else{
+                $(idMaInput).select();
                 $(idFormError).html(item.msg);
             }   
         }
@@ -245,11 +299,13 @@ function dongBoDuLieu(){
                 return;
             var cthd = hd.cthd_ban_hang;
             var kh = hd.khach_hang;
+            //set ma hoa don
+            $(idMaHoaDon).text(hd.ma_chung_tu);
             //set tri gia hoa don
-            $(idTriGia).text(hd.tri_gia);
+            $(idTriGia).text(vnd_format(hd.tri_gia));
             if(kh!=null){
                 $(idHoTenKH).text(kh.ho_ten);
-                $(idChietKhau).text(hd.giam_gia);
+                $(idChietKhau).text(hd.chiet_khau);
             }
             if(cthd!=null){
                 for(var i=0;i<cthd.length;i++){
@@ -262,7 +318,7 @@ function dongBoDuLieu(){
                             '<td id="mv_'+cthd[i].id+'">' + cthd[i].ma_vach + '</td>' +
                             '<td>' + cthd[i].ten_san_pham + '</td>' +
                             '<td><input type="text" id="sl_'+cthd[i].id+'" class="" value="'+cthd[i].so_luong+'" onkeypress="capNhatSoLuongGrid(event,'+cthd[i].id+')" /></td>' +
-                            '<td id="gb_'+cthd[i].id+'">' + cthd[i].gia_ban + '</td>' +
+                            '<td id="gb_'+cthd[i].id+'">' + vnd_format(cthd[i].don_gia) + '</td>' +
                             '<td id="tt_'+cthd[i].id+'">' + '</td>' +
                             '<td>'+'<a title="Xóa" href="javascript:;" onclick="xoaSanPhamBan('+cthd[i].id+')">'+
                                 '<img alt="Xóa" src="'+baseUrl+'/themes/asia/images/delete.png" />'+'</a>'+
@@ -275,9 +331,9 @@ function dongBoDuLieu(){
                 //tinh tong tien
                 var tong = 0;
                 for(var i=0;i<cthd.length;i++){
-                    tong += parseInt($("#tt_"+cthd[i].id).text());
+                    tong += del_format($("#tt_"+cthd[i].id).text());
                 }
-                $(idTong).text(tong);
+                $(idTong).text(vnd_format(tong));
             }
         }
     });
@@ -285,8 +341,8 @@ function dongBoDuLieu(){
 
 function capNhatThanhTien(id){
     var sl = $('#sl_'+id).val();
-    var gb = $('#gb_'+id).text();
-    $('#tt_'+id).text(sl*gb);
+    var gb = del_format($('#gb_'+id).text());
+    $('#tt_'+id).text(vnd_format(sl*gb));
 }
 
 function laySoDongGrid(){
@@ -310,4 +366,24 @@ function xoaGrid(){
         '<th>Thành tiền</th>'+
         '<th></th>'+
     '</tr>');
+}
+
+function vnd_format(number){
+    return number_format(number,0,'.',',')
+}
+
+function del_format(number){
+    number = number.toString();
+    number = number.replace(',','');
+    number = number.replace('.','');
+    return parseInt(number); 
+}
+
+function number_format( number, decimals, dec_point, thousands_sep ) {   
+    var n = number, c = isNaN(decimals = Math.abs(decimals)) ? 2 : decimals;
+    var d = dec_point == undefined ? "," : dec_point;
+    var t = thousands_sep == undefined ? "." : thousands_sep, s = n < 0 ? "-" : "";
+    var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+                              
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
