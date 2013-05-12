@@ -59,6 +59,48 @@ class PhieuXuatController extends CPOSController
 
     }
 
+
+    public function actionXuatSanPhamTang($id = null)
+    {
+        $this->layout = '//layouts/column1';
+        $model = new PhieuXuat;
+
+        if (isset($_POST['ChungTu'])) {
+            $result = $model->xuatSanPhamTang($_POST);
+            switch ($result) {
+                case 'ok':
+                {
+                    Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
+                    if (Yii::app()->getRequest()->getIsAjaxRequest())
+                        Yii::app()->end();
+                    else
+                        $this->redirect(array('chitiet', 'id' => $model->id));
+                    break;
+                }
+                case 'dup-error':
+                {
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Data existed in sytem. Please try another one!'));
+                    break;
+                }
+                case 'detail-error':
+                {
+                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Detail import is not existed. Please fill it'));
+                    break;
+                }
+                case 'fail':
+                {
+                    // co the lam them canh bao cho nguoi dung
+                    break;
+                }
+            }
+        }
+        if (isset($id))
+            $this->render('xuatsanphamtang', array('model' => $model, 'id' => $id));
+        else
+            $this->render('xuatsanphamtang', array('model' => $model));
+
+    }
+
     public function actionCapNhat($id)
     {
         $model = $this->loadModel($id, 'PhieuXuat');
@@ -190,6 +232,24 @@ class PhieuXuatController extends CPOSController
                 $item = array(
                     'so_ton' => $tonHienTai,
                     'ton_toi_thieu' => $model->ton_toi_thieu,
+                );
+            }
+            echo json_encode($item);
+        } else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+
+    }
+
+    public function actionLaySoLuongTonSanPhamTang($ma_vach, $chi_nhanh_id)
+    {
+        if (Yii::app()->getRequest()->getIsAjaxRequest()) {
+            if (isset($chi_nhanh_id) && isset($ma_vach)) {
+                $model = SanPhamTang::model()->findByAttributes(array('ma_vach' => $ma_vach));
+                $model->chi_nhanh_id = $chi_nhanh_id;
+
+                $tonHienTai = $model->laySoLuongTonHienTai();
+                $item = array(
+                    'so_ton' => $tonHienTai,
                 );
             }
             echo json_encode($item);

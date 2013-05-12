@@ -110,7 +110,7 @@ abstract class CPOSController extends GxController
     public function actionGetSanPhamTang($ma_vach){
         if (Yii::app()->getRequest()->getIsAjaxRequest()) {
             if (isset($ma_vach))
-                $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+                $model = SanPhamTang::model()->findByAttributes(array('ma_vach'=>$ma_vach));
 
             $item = array(
                 'id' => $model->getAttribute('id'),

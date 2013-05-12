@@ -4,6 +4,8 @@ Yii::import('application.models._base.BaseSanPhamTang');
 
 class SanPhamTang extends BaseSanPhamTang
 {
+    public $chi_nhanh_id;
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -128,6 +130,16 @@ class SanPhamTang extends BaseSanPhamTang
             'criteria' => $criteria,
         ));
     }
+
+    public function laySoLuongTonHienTai() {
+        return Yii::app()->db->createCommand()
+            ->select("so_ton")
+            ->from('tbl_SanPhamTangChiNhanh')
+            ->where('san_pham_tang_id=:san_pham_tang_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_tang_id'=>$this->id, ':chi_nhanh_id'=>$this->chi_nhanh_id))
+            ->queryScalar();
+    }
+
+
 
 
 

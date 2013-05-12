@@ -63,12 +63,12 @@ class PhieuNhapController extends CPOSController
             $this->render('them', array('model' => $model));
     }
 
-    public function actionNhapHangTang($id = null)
+    public function actionNhapSanPhamTang($id = null)
     {
         $this->layout = '//layouts/column1';
         $model = new PhieuNhap;
         if (isset($_POST['ChungTu'])) {
-            $result = $model->them($_POST);
+            $result = $model->nhapHangTang($_POST);
             switch ($result) {
                 case 'ok':
                 {
@@ -103,9 +103,9 @@ class PhieuNhapController extends CPOSController
         }
 
         if (isset($id))
-            $this->render('them', array('model' => $model, 'id' => $id));
+            $this->render('nhapsanphamtang', array('model' => $model, 'id' => $id));
         else
-            $this->render('them', array('model' => $model));
+            $this->render('nhapsanphamtang', array('model' => $model));
     }
 
     public function actionCapNhat($id)

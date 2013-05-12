@@ -48,7 +48,7 @@ abstract class BaseChungTu extends CPOSActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_chung_tu, ngay_lap, tri_gia, nhan_vien_id, chi_nhanh_id', 'required'),
+			array('ma_chung_tu, ngay_lap, nhan_vien_id, chi_nhanh_id', 'required'),
 			array('nhan_vien_id, chi_nhanh_id', 'numerical', 'integerOnly'=>true),
 			array('tri_gia', 'numerical'),
 			array('ma_chung_tu', 'length', 'max'=>15),

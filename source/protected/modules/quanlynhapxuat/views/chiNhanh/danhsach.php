@@ -11,6 +11,8 @@ $this->menu = array(
 array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'),'url'=>array('phieuNhap/danhsach')),
 array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'),'url'=>array('phieuXuat/danhsach')),
 array('label'=>Yii::t('viLib', 'Import product'), 'url'=>array('phieuNhap/them')),
+array('label'=>Yii::t('viLib', 'Import gift product'), 'url'=>array('phieuNhap/nhapsanphamtang')),
+    array('label'=>Yii::t('viLib', 'Export gift product'), 'url'=>array('phieuXuat/xuatsanphamtang')),
 array('label'=>Yii::t('viLib', 'Export product'), 'url'=>array('phieuXuat/them')),
 array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
 

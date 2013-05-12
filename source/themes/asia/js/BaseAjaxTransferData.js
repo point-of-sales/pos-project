@@ -39,6 +39,21 @@ var BaseAjaxTransferData = function () {
         return this.dataStored != null;
     }
 
+    BaseAjaxTransferData.prototype.getGiftProduct = function (url,ma) {
+        var strUrl  = url + "getsanphamtang/ma_vach/" + ma;
+        var ret;
+        $.ajax({
+            url: strUrl,
+            type: 'POST',
+            async: false,
+            success: function (response) {
+                ret = response;
+            }
+        });
+        this.dataStored = ret;
+        return this.dataStored != null;
+    }
+
     BaseAjaxTransferData.prototype.getNumRowsTable = function () {
         return $(this.gridTable + ' tr').length - 1;
     }
@@ -103,6 +118,22 @@ var BaseAjaxTransferData = function () {
         });
         return $.parseJSON(ret);
     }
+
+    BaseAjaxTransferData.getStaticGiftProduct = function (url) {
+        var ma = $('#barcode').val();
+        var strUrl = url + "getsanphamtang/ma_vach/" + ma;
+        var ret;
+        $.ajax({
+            url: strUrl,
+            type: 'POST',
+            async: false,
+            success: function (response) {
+                ret = response;
+            }
+        });
+        return $.parseJSON(ret);
+    }
+
 
     /*
      Kiem tra 1 id cua 1 san pham co nam trong danh sach san pham da them vao grid chua.
