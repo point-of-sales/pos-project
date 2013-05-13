@@ -30,30 +30,26 @@ class HoaDonBanHangController extends CPOSController {
             );
             foreach($hd_ban_hang['cthd_ban_hang'] as $item){
                 $post['ChiTietHoaDonBan'][] = array(
-                    'san_pham_id' => $item['id'],
-                    'hoa_don_ban_id' => $hd_ban_hang['ma_chung_tu'],
+                    'id' => $item['id'],
                     'so_luong' => $item['so_luong'],
                     'don_gia' => $item['don_gia'],
                 );
             }
-            
             $result = $model->them($post);
             switch($result) {
-                case 'ok': {
-                    if (Yii::app()->getRequest()->getIsAjaxRequest())
-                        Yii::app()->end();
-                    else
-                        $this->redirect(array('chitiet', 'id' => $model->id));
-                    break;
-                }
-            case 'dup-error': {
-                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
-                    break;
-            }
-            case 'fail': {
-                    // co the lam them canh bao cho nguoi dung
-                    break;
-                    }
+                case 'ok':{
+                    $this->actionHoaDonMoi();
+                    $this->redirect(array('them'));
+                }break;
+                case 'detail-error':{
+                    Yii::app()->user->setFlash('info-board','Vui lòng nhập đầu đủ thông tin hóa đơn');
+                }break;
+                case 'fail':{
+                    Yii::app()->user->setFlash('info-board','Lưu hóa đơn thất bại');
+                }break;
+                case 'dup-error':{
+                    Yii::app()->user->setFlash('info-board','dup-error');
+                }break;
             }
 		}
         if(Yii::app()->CPOSSessionManager->isEmpty('hd_ban_hang')){
@@ -355,17 +351,18 @@ class HoaDonBanHangController extends CPOSController {
         $hd_ban_hang = Yii::app()->CPOSSessionManager->getKey('hd_ban_hang');
         //tinh tri gia hoa don
         if(isset($hd_ban_hang['cthd_ban_hang'])){
-            $tri_gia = 0;
+            $tong = 0;
             $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
             for($i=0;$i<count($cthd_ban_hang);$i++){
-                $tri_gia += $cthd_ban_hang[$i]['don_gia']*$cthd_ban_hang[$i]['so_luong'];
+                $tong += $cthd_ban_hang[$i]['don_gia']*$cthd_ban_hang[$i]['so_luong'];
             }
             if(isset($hd_ban_hang['chiet_khau']))
                 $chiet_khau = $hd_ban_hang['chiet_khau'];
             else
                 $chiet_khau = 0;
-            $tri_gia -= $tri_gia*($chiet_khau/100);
+            $tri_gia = $tong - $tong*($chiet_khau/100);
             Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tri_gia,array('tri_gia'));
+            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tong,array('tong'));
         }
         echo json_encode(Yii::app()->CPOSSessionManager->getKey('hd_ban_hang'));
     }
@@ -401,6 +398,19 @@ class HoaDonBanHangController extends CPOSController {
     }
     
     public function actionHoaDonMoi(){
+        //lay khach hang mac dinh la khach mua le
+        $ma_khach_hang = 'KHBT';   
+        $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
+        if(!empty($model)){
+            $khach_hang = array(
+                'id' => $model->getAttribute('id'),
+                'ma_khach_hang' => $model->getAttribute('ma_khach_hang'),
+                'ho_ten' => $model->getAttribute('ho_ten'),
+                'diem_tich_luy' => $model->getAttribute('diem_tich_luy'),
+                'loai_khach_hang_id' => $model->getAttribute('loai_khach_hang_id'),
+            );
+        }
+        
         $hd_ban_hang = array(
             'cthd_ban_hang' => array(),
             'cthd_hang_tang' => array(),
@@ -408,11 +418,13 @@ class HoaDonBanHangController extends CPOSController {
             'ma_chung_tu' => HoaDonBanHang::layMaHoaDonMoi(),
             'ngay_lap' => date('Y-m-d'),
             'tri_gia' => 0,
+            'tong' => 0,
             'ghi_chu' => '',
-            'nhan_vien_id' => -1,
+            'nhan_vien_id' => 2,
             'chi_nhanh_id' => 10,
-            'khach_hang' => array(),
+            'khach_hang' => $khach_hang,
         );
+        Yii::app()->CPOSSessionManager->clear('hd_ban_hang');
         Yii::app()->CPOSSessionManager->add('hd_ban_hang',$hd_ban_hang);
     }
 

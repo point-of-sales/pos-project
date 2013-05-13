@@ -5,12 +5,15 @@ var sKey = {
     x : 120,
     c : 99,
     v : 118,
+    b : 98,
     tab : 9,
     f1 : 112,
     f2 : 113,
     f3 : 114,
     f4 : 115,
     f5 : 116,
+    f6 : 117,
+    f7 : 118,
 };
 
 var sAction = {
@@ -18,7 +21,8 @@ var sAction = {
     soLuong : "Số lượng",
     khachHang : "Khách hàng",
     timKhachHang : "Tìm khách hàng",
-    hangTang : "Hàng tặng"
+    hangTang : "Hàng tặng",
+    tienNhan : "Tiền nhận",
 };
 
 var idMaInput = "#form-hd-ban-ma-input";
@@ -27,12 +31,17 @@ var idFormError = "#form-hd-ban-error";
 var idGridTable = "#items";
 var idDialogTimKH = "#dialog-tim-khach-hang";
 var idDialogHangTang = "#dialog-hang-tang";
+var idDialogThemKH = "#dialog-them-khach-hang";
 var idHoTenKH = "#form-hd-ban-ho-ten-kh";
 var idChietKhau = "#form-hd-ban-chiet-khau";
 var idTong = "#form-hd-ban-tong";
 var idTriGia = "#form-hd-ban-tri-gia";
 var idMaHoaDon = "#form-hd-ban-ma-hoa-don";
 var idInHoaDon = "#form-hd-ban-in";
+var idChiNhanh = "#form-hd-ban-chi-nhanh";
+var idHoTenNV = "#form-hd-ban-ho-ten-nv";
+var idTienNhan = "#form-hd-ban-so-tien-nhan";
+var idTienDu = "#form-hd-ban-tien-du";
 var baseUrl = "";
 var curAction = "";
 var cur_ma_vach = "";
@@ -50,10 +59,19 @@ document.onkeypress = stopRKey;
 $(document).ready(function(){
     dialogTimKhachHang();
     dialogHangTang();
+    dialogThemKhachHang();
     xoaMaInput();
     baseUrl = $('#base-url').val();
     curAction = sAction.maVach;
     dongBoDuLieu();
+});
+
+$(document).keypress(function(e){
+    /*var key = e.charCode||e.keyCode;
+    if(key == sKey.f5){
+        e.preventDefault();
+        hoaDonMoi();
+    }*/
 });
 
 function hoaDonMoi(){
@@ -71,6 +89,26 @@ function hoaDonMoi(){
 
 function dialogTimKhachHang(){
     $(idDialogTimKH).dialog({
+    	autoOpen: false,
+    	width: 300,
+    	height: 230,
+    	modal: true,
+        buttons:{
+            "Chấp nhận": function(){
+                $(this).dialog("close");
+            },
+            "Hủy bỏ": function(){
+                $(this).dialog("close");
+            }
+        },
+        beforeClose: function(event,ui){
+            xoaMaInput();
+        }
+    });
+}
+
+function dialogThemKhachHang(){
+    $(idDialogThemKH).dialog({
     	autoOpen: false,
     	width: 300,
     	height: 230,
@@ -116,14 +154,14 @@ function keypressInputMa(e){
             e.preventDefault();
             xuLyThaoTac();
         }break;
-        case sKey.f2:{   //khach hang
+        case sKey.z:{   //ma vach
+            e.preventDefault();
+            chuyenDoiThaoTac(sAction.maVach);
+        }break;
+        case sKey.x:{   //khach hang
             e.preventDefault();
             chuyenDoiThaoTac(sAction.khachHang);
             xoaMaInput();
-        }break;
-        case sKey.f1:{   //ma vach
-            e.preventDefault();
-            chuyenDoiThaoTac(sAction.maVach);
         }break;
         case sKey.tab:{ //so luong
             e.preventDefault();
@@ -132,11 +170,19 @@ function keypressInputMa(e){
                 xoaMaInput("1");              
             }
         }break;
-        case sKey.f3:{   //tim khach hang
+        case sKey.c:{   //tien nhan
+            e.preventDefault();
+            chuyenDoiThaoTac(sAction.tienNhan);
+        }break;
+        case sKey.f1:{   //tim khach hang
             e.preventDefault();
             $(idDialogTimKH).dialog('open');
         }break;
-        case sKey.f4:{   //tim khach hang
+        case sKey.f2:{   //them khach hang
+            e.preventDefault();
+            $(idDialogThemKH).dialog('open');
+        }break;
+        case sKey.f3:{   //hang tang
             e.preventDefault();
             $(idDialogHangTang).dialog('open');
         }break;
@@ -157,11 +203,43 @@ function xuLyThaoTac(){
         }break;
         case sAction.khachHang:{
             layKhachHang();
-            chuyenDoiThaoTac(sAction.maVach);
         }break;
         case sAction.timKhachHang:{
             
         }break;
+        case sAction.tienNhan:{
+            tinhTienNhan(true);
+        }break;
+    }
+}
+
+function tinhTienNhan(hand){
+    var tien_nhan = 0,tien_du = 0;
+    if(hand == true){
+        tien_nhan = $(idMaInput).val();
+        tien_du = parseInt(tien_nhan) - del_format($(idTriGia).text());
+        if(tien_du<0){
+            $(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
+            $(idMaInput).select();
+        }
+        else{
+            $(idTienNhan).text(vnd_format(tien_nhan));
+            $(idTienDu).text(vnd_format(tien_du));
+            $(idFormError).text("");
+            chuyenDoiThaoTac(sAction.maVach);   
+        }   
+    }
+    else{
+        tien_nhan = del_format($(idTienNhan).text());
+        if(tien_nhan>0){
+            tien_du = parseInt(tien_nhan) - del_format($(idTriGia).text());
+            if(tien_du<0){
+                tien_du = 0;   
+                $(idTienNhan).text("0");
+                $(idFormError).text("Vui lòng nhập lại tiền nhận");
+            }
+            $(idTienDu).text(vnd_format(tien_du));   
+        }
     }
 }
 
@@ -187,6 +265,7 @@ function layKhachHang(){
                 chuyenDoiThaoTac(sAction.ma_vach);
             }
             else{
+                $(idMaInput).select();
                 $(idFormError).html(item.msg);
             }   
         }
@@ -301,8 +380,10 @@ function dongBoDuLieu(){
             var kh = hd.khach_hang;
             //set ma hoa don
             $(idMaHoaDon).text(hd.ma_chung_tu);
-            //set tri gia hoa don
+            $(idChiNhanh).text(hd.chi_nhanh_id);
+            $(idHoTenNV).text(hd.nhan_vien_id);
             $(idTriGia).text(vnd_format(hd.tri_gia));
+            $(idTong).text(vnd_format(hd.tong));
             if(kh!=null){
                 $(idHoTenKH).text(kh.ho_ten);
                 $(idChietKhau).text(hd.chiet_khau);
@@ -328,12 +409,7 @@ function dongBoDuLieu(){
                     //update thanh tien
                     capNhatThanhTien(cthd[i].id);
                 }
-                //tinh tong tien
-                var tong = 0;
-                for(var i=0;i<cthd.length;i++){
-                    tong += del_format($("#tt_"+cthd[i].id).text());
-                }
-                $(idTong).text(vnd_format(tong));
+                tinhTienNhan(false);
             }
         }
     });
@@ -374,8 +450,8 @@ function vnd_format(number){
 
 function del_format(number){
     number = number.toString();
-    number = number.replace(',','');
-    number = number.replace('.','');
+    number = number.replaceAll(',','');
+    number = number.replaceAll('.','');
     return parseInt(number); 
 }
 
@@ -386,4 +462,14 @@ function number_format( number, decimals, dec_point, thousands_sep ) {
     var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
                               
     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+}
+
+String.prototype.replaceAll = function(strTarget,strSubString){
+    var strText = this;
+    var intIndexOfMatch = strText.indexOf( strTarget );
+    while (intIndexOfMatch != -1){
+        strText = strText.replace( strTarget, strSubString );
+        intIndexOfMatch = strText.indexOf( strTarget );
+    }
+    return strText;
 }
