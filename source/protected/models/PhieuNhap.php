@@ -79,7 +79,7 @@ class PhieuNhap extends BasePhieuNhap
                     $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
                     $currentQuantity = $product->laySoLuongTonHienTai();
                     $newQuantity = $currentQuantity + $itemsInfo['so_luong'];
-                    $relatedQuantityItems[$key] = array('so_ton'=>$newQuantity);
+                    $relatedQuantityItems[$key] = array('so_ton'=>$newQuantity,'trang_thai'=>1);
                 }
                 $relatedQuantityData  = array(
                     'tblSanPhams' => $relatedQuantityItems,

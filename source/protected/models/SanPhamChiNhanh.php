@@ -9,9 +9,6 @@ class SanPhamChiNhanh extends BaseSanPhamChiNhanh
         return parent::model($className);
     }
 
-
-
-
     public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua

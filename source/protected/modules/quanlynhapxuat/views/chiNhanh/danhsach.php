@@ -31,7 +31,7 @@ return false;
 
 
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch'); ?></h1>
 
 <div class="search-form">
     <?php $this->renderPartial('_search', array(

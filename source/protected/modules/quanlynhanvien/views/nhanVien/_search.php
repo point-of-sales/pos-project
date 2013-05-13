@@ -31,7 +31,7 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'loai_nhan_vien_id'); ?>
-        <?php echo $form->dropDownList($model, 'loai_nhan_vien_id', GxHtml::listDataEx(LoaiNhanVien::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'loai_nhan_vien_id', GxHtml::listDataEx(LoaiNhanVien::model()->findAll(),null,"ten_loai"), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row cus-row">

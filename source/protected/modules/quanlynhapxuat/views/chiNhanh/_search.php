@@ -16,15 +16,9 @@
         <?php echo $form->textField($model, 'ten_chi_nhanh', array('maxlength' => 100)); ?>
     </div>
 
-
-    <div class="row cus-row">
-        <?php echo $form->label($model, 'truc_thuoc_id'); ?>
-        <?php echo $form->dropDownList($model, 'truc_thuoc_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
-    </div>
-
     <div class="row cus-row">
         <?php echo $form->label($model, 'khu_vuc_id'); ?>
-        <?php echo $form->dropDownList($model, 'khu_vuc_id', GxHtml::listDataEx(KhuVuc::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'khu_vuc_id', GxHtml::listDataEx(KhuVuc::model()->findAll(),null,"ten_khu_vuc"), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row buttons btn-search">

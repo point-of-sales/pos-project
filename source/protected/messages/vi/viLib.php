@@ -122,6 +122,7 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Gift product'=>'Sản phẩm tặng',
     'Gift products'=>'Các sản phẩm tặng',
     'Stored'=>'Tồn kho',
+    'Instock'=>'Tồn kho',
     'Prices level list'=>'Danh sách các mốc giá',
     'Stored at branch'=>'Tồn kho tại chi nhánh',
     'Price level'=>'Mốc giá',
@@ -215,5 +216,8 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Supplier name'=>'Tên nhà cung cấp',
     'Supplier management'=>'Quản lý nhà cung cấp',
     'Employee type name'=>'Tên loại nhân viên',
+    'Total instock'=>'Tổng tồn',
+    'Some problems are occured. Please check you input data or contact Administrator for helping'=>'Có lỗi xảy ra. Vui lòng kiểm tra dữ liệu nhập hoặc liên hệ với quản trị viên để được giúp đỡ',
+
 
 );

@@ -37,15 +37,15 @@
 /*default btn line*/
 
 .btn-save {
-    border-top:2px solid; 
+    border-top:2px solid;
     border-bottom:2px solid;
     background-color:#BBDEF7;
     height:50px;
 }
 
 .btn-save input[type="submit"] {
-    
-    padding:2px 20px 2px 20px; 
+
+    padding:2px 20px 2px 20px;
     float:right;
     margin-right:40px;
     margin-top:12px;
@@ -81,7 +81,7 @@ h1 {
 }
 
 .detail-view tr {
-   
+
     height:30px;
 }
 
@@ -137,10 +137,10 @@ h1 {
     display:none;
 }
 
-/*start sub-title */
+/*start sub-title */
 .sub-title {
     margin-top:15px;
-    height:40px;   
+    height:40px;
     font-weight:bold;
     width:100%;
     line-height:20px;
@@ -306,7 +306,7 @@ h1 {
 }
 
 .khuyen-mai-chi-nhanh #KhuyenMai_tblChiNhanhs input {
-    
+
     width:100px;
     color:red;
 }
@@ -338,3 +338,31 @@ div.search-form {
 }
 
 /* end increase cgridview font-size */
+/* new-product-form-dialog  */
+#new-product-form-dialog {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+}
+
+/* end new-product-form-dialog */
+#ajax-image {
+    position:absolute;
+    top:455px;
+    left:83%;
+}
+
+#ajax-link {
+    position:absolute;
+    top:463px;
+    left:86%;
+}
+
+#ajax-link a {
+    color:#00709e;
+    font-weight:bold;
+    font-style:italic;
+}
+
+

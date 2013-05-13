@@ -129,7 +129,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             $ma_chung_tu = $model->getBaseModel()->ma_chung_tu;
             $str = $model->taoMaChungTuMoi($ma_chung_tu, 'BH', 13);
         } else {
-            $str = $this->taoMaChungTuMoi('', 'BH', 13);
+            $str = $model->taoMaChungTuMoi('', 'BH', 13);
         }
         return $str;
     }

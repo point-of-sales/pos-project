@@ -110,9 +110,30 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'columns' => array(
         'ma_chi_nhanh',
         'ten_chi_nhanh',
-        array('name' => Yii::t('viLib', 'Stored'),
-            'value' => '$data->laySoLuongTonSanPham()')
+        array('name' => Yii::t('viLib', 'Instock'),
+            'value' => '$data->laySoLuongTonSanPham()'),
+        array('name'=>'trang_thai',
+              'value'=>'$data->layTenTrangThaiSanPhamOChiNhanh()'
+        ),
+        array(
+            'class' => 'CButtonColumn',
+            'template' => '{active}',
+            'buttons' => array(
+                'active' => array(
+                    'label' => '',
+                    'url' => 'Yii::app()->createUrl("/quanlychinhanh/chiNhanh/ajaxActiveStatusProduct",array("cnid"=>$data->id,"spid"=>$data->san_pham_id))',
+                    'options' => array('class' => 'active_button',
+                        'title' => Yii::t('viLib', 'Active/Deactive this item'),
+                        'id' => 'active_button'
+                    ),
+                    'imageUrl' => Yii::app()->request->baseUrl . '/themes/asia/images/icons/active.png',
+                    'click' => Helpers::refreshGrid('chi-nhanh-grid'),
+
+                ),
+            ),
+        ),
     ),
+
 ));
 ?>
 
