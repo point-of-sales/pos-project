@@ -46,6 +46,7 @@ var baseUrl = "";
 var curAction = "";
 var cur_ma_vach = "";
 var cur_so_luong = 1;
+var in_hoa_don = false;
 
 //chong reload page khi enter input text
 function stopRKey(evt) {
@@ -85,6 +86,10 @@ function hoaDonMoi(){
             },
         });   
     }
+}
+
+function inHoaDon(){
+    
 }
 
 function dialogTimKhachHang(){
@@ -208,12 +213,12 @@ function xuLyThaoTac(){
             
         }break;
         case sAction.tienNhan:{
-            tinhTienNhan(true);
+            capNhatTienNhan(true);
         }break;
     }
 }
 
-function tinhTienNhan(hand){
+function capNhatTienNhan(hand){
     var tien_nhan = 0,tien_du = 0;
     if(hand == true){
         tien_nhan = $(idMaInput).val();
@@ -241,6 +246,11 @@ function tinhTienNhan(hand){
             $(idTienDu).text(vnd_format(tien_du));   
         }
     }
+    $.post(
+        'capnhattiennhan',
+        {tien_nhan:tien_nhan,tien_du:tien_du},
+        function(data,status){}
+    );
 }
 
 function chuyenDoiThaoTac(action){
@@ -384,6 +394,8 @@ function dongBoDuLieu(){
             $(idHoTenNV).text(hd.nhan_vien_id);
             $(idTriGia).text(vnd_format(hd.tri_gia));
             $(idTong).text(vnd_format(hd.tong));
+            $(idTienNhan).text(vnd_format(hd.tien_nhan));
+            $(idTienDu).text(vnd_format(hd.tien_du));
             if(kh!=null){
                 $(idHoTenKH).text(kh.ho_ten);
                 $(idChietKhau).text(hd.chiet_khau);
@@ -409,7 +421,7 @@ function dongBoDuLieu(){
                     //update thanh tien
                     capNhatThanhTien(cthd[i].id);
                 }
-                tinhTienNhan(false);
+                capNhatTienNhan(false);
             }
         }
     });

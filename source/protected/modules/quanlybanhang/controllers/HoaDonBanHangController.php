@@ -35,10 +35,11 @@ class HoaDonBanHangController extends CPOSController {
                     'don_gia' => $item['don_gia'],
                 );
             }
-            $result = $model->them($post);
+            //$result = $model->them($post);
+            $result = 'ok';
             switch($result) {
                 case 'ok':{
-                    $this->actionHoaDonMoi();
+                    //$this->actionHoaDonMoi();
                     $this->redirect(array('them'));
                 }break;
                 case 'detail-error':{
@@ -58,6 +59,12 @@ class HoaDonBanHangController extends CPOSController {
         $this->layout = '//layouts/column1';
 		$this->render('them', array( 'model' => $model));
 	}
+    
+    public function actionHoaDon(){
+        $this->layout = '//layouts/column1';
+        $this->forward('hoadon');
+        Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',false,array('in_hoa_don'));
+    }
 
 	public function actionCapNhat($id) {
 		$model = $this->loadModel($id, 'HoaDonBanHang');
@@ -414,18 +421,29 @@ class HoaDonBanHangController extends CPOSController {
         $hd_ban_hang = array(
             'cthd_ban_hang' => array(),
             'cthd_hang_tang' => array(),
+            'khach_hang' => $khach_hang,
             'chiet_khau' => 0,
             'ma_chung_tu' => HoaDonBanHang::layMaHoaDonMoi(),
             'ngay_lap' => date('Y-m-d'),
             'tri_gia' => 0,
             'tong' => 0,
+            'tien_nhan' => 0,
+            'tien_du' => 0,
             'ghi_chu' => '',
             'nhan_vien_id' => 2,
             'chi_nhanh_id' => 10,
-            'khach_hang' => $khach_hang,
         );
         Yii::app()->CPOSSessionManager->clear('hd_ban_hang');
         Yii::app()->CPOSSessionManager->add('hd_ban_hang',$hd_ban_hang);
+    }
+    
+    public function actionCapNhatTienNhan(){
+        if (Yii::app()->getRequest()->getIsAjaxRequest()==true) {
+            $tien_nhan = $_POST['tien_nhan'];
+            $tien_du = $_POST['tien_du'];
+            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tien_nhan,array('tien_nhan'));
+            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tien_du,array('tien_du'));
+        }
     }
 
 }
