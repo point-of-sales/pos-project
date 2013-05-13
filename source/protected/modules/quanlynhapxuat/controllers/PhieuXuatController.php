@@ -11,10 +11,24 @@ class PhieuXuatController extends CPOSController
         $criteria = new CDbCriteria();
         $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
         $criteria->params = array(':phieu_xuat_id' => $id);
-        $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
+        $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
         $this->render('chitiet', array(
             'model' => $model,
-            'dataProvider' => $chiTietPhieuNhapDataProvider,
+            'dataProvider' => $chiTietPhieuXuatDataProvider,
+        ));
+    }
+
+    public function actionChiTietXuatSanPhamTang($id)
+    {
+        $model = $this->loadModel($id, 'PhieuXuat');
+        $model->getBaseModel();
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
+        $criteria->params = array(':phieu_xuat_id' => $id);
+        $chiTietPhieuXuatSanPhamTangDataProvider = new CActiveDataProvider('ChiTietPhieuXuatSanPhamTang', array('criteria' => $criteria));
+        $this->render('chitietxuatsanphamtang', array(
+            'model' => $model,
+            'dataProvider' => $chiTietPhieuXuatSanPhamTangDataProvider,
         ));
     }
 
@@ -32,7 +46,7 @@ class PhieuXuatController extends CPOSController
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else
-                        $this->redirect(array('chitiet', 'id' => $model->id));
+                        $this->redirect(array('chitietxuatsanphamtang', 'id' => $model->id));
                     break;
                 }
                 case 'dup-error':
@@ -74,7 +88,7 @@ class PhieuXuatController extends CPOSController
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else
-                        $this->redirect(array('chitiet', 'id' => $model->id));
+                        $this->redirect(array('chitietxuatsanphamtang', 'id' => $model->id));
                     break;
                 }
                 case 'dup-error':

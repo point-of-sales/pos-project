@@ -13,11 +13,11 @@ class LoaiNhanVienController extends CPOSController
 
     public function actionThem()
     {
-        if(Yii::app()->CPOSSessionManager->isEmpty('url')) {
+        /*if(Yii::app()->CPOSSessionManager->isEmpty('url')) {
             $longUrl = Yii::app()->request->urlReferrer;
             $shortUrl = Helpers::getShortURL($longUrl);
             Yii::app()->CPOSSessionManager->setItem('url',$shortUrl);
-        }
+        }*/
 
         $model = new LoaiNhanVien;
 
@@ -29,7 +29,7 @@ class LoaiNhanVienController extends CPOSController
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else {
-                        $url = array();
+                        /*$url = array();
                         if(!Yii::app()->CPOSSessionManager->isEmpty('url')) {
                             $url = Yii::app()->CPOSSessionManager->getItem('url');
                             Yii::app()->CPOSSessionManager->clearKey('url');
@@ -39,7 +39,8 @@ class LoaiNhanVienController extends CPOSController
                         }
                         else {
                             $this->redirect(array('chitiet', 'id' => $model->id));
-                        }
+                        }*/
+                        $this->redirect(array('chitiet', 'id' => $model->id));
                     }
                     break;
                 }

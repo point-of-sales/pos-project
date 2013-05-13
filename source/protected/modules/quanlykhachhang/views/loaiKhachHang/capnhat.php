@@ -1,20 +1,20 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	GxHtml::valueEx($model) => array('view', 'id' => GxActiveRecord::extractPkValue($model, true)),
-	Yii::t('viLib', 'Update'),
+    Yii::t('viLib', 'Customer management') => array('khachHang/danhsach'),
+    Yii::t('viLib', 'Customer type') => array('loaiKhachHang/danhsach'),
+    Yii::t('viLib', 'Update')=>array(),
+    GxHtml::valueEx($model,"ten_loai")
 );
 
 $this->menu = array(
 	array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url'=>array('danhsach')),
 	array('label' => Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
 	array('label' => Yii::t('viLib', 'View') . ' ' . $model->label(), 'url'=>array('chitiet', 'id' => GxActiveRecord::extractPkValue($model, true))),
-	array('label' => Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Update') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'Update') . ' ' .  Yii::t('viLib', 'Customer type') . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ten_loai")); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

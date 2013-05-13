@@ -38,13 +38,13 @@
 
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'nha_cung_cap_id'); ?>
-        <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true))); ?>
+        <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAll(),null,"ten_nha_cung_cap")); ?>
         <?php echo $form->error($model, 'nha_cung_cap_id'); ?>
     </div>
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'loai_san_pham_id'); ?>
-        <?php echo $form->dropDownList($model, 'loai_san_pham_id', GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true))); ?>
+        <?php echo $form->dropDownList($model, 'loai_san_pham_id', GxHtml::listDataEx(LoaiSanPham::model()->findAll(),null,"ten_loai")); ?>
         <?php echo $form->error($model, 'loai_san_pham_id'); ?>
     </div>
     <!-- row -->

@@ -25,7 +25,7 @@ class PhieuNhap extends BasePhieuNhap
     public function rules()
     {
         return array(
-            array('chi_nhanh_xuat_id', 'required'),
+            array('chi_nhanh_xuat_id,loai_nhap_vao', 'required'),
             array('chi_nhanh_xuat_id,nha_cung_cap_id', 'numerical', 'integerOnly' => true),
             array('id, loai_nhap_vao, chi_nhanh_xuat_id, nha_cung_cap_id', 'safe', 'on' => 'search'),
             array('chi_nhanh_xuat_id','ext.custom-validator.CPOSSupplierValidator'),
@@ -40,8 +40,8 @@ class PhieuNhap extends BasePhieuNhap
             'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
             'chiNhanhXuat' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_xuat_id'),
             'chiTietPhieuNhap'=>array(self::HAS_MANY,'ChiTietPhieuNhap','phieu_nhap_id'),
-            'chiTietPhieuNhapSanPhamTang'=>array(self::HAS_MANY,'ChiTietPhieuNhapSanPhamTang','phieu_nhap_id')
-
+            'chiTietPhieuNhapSanPhamTang'=>array(self::HAS_MANY,'ChiTietPhieuNhapSanPhamTang','phieu_nhap_id'),
+            'loaiNhapXuat'=>array(self::BELONGS_TO, 'LoaiNhapXuat', 'loai_nhap_vao')
         );
     }
 
@@ -194,22 +194,5 @@ class PhieuNhap extends BasePhieuNhap
         ));
     }
 
-    public function layDanhSachLoaiNhap() {
-        return array(0=>Yii::t('viLib','Import for sale'),1=>Yii::t('viLib','Import for borrow'),2=>Yii::t('viLib','Import for test'));
-    }
-
-    public function layTenLoaiNhap() {
-        $danhSachLoaiNhap = $this->layDanhSachLoaiNhap();
-        return $danhSachLoaiNhap[$this->loai_nhap_vao];
-    }
-
-    public function layDanhSachLoaiNhapSanPhamTang() {
-        return array(6=>Yii::t('viLib','Import for offering'),7=>Yii::t('viLib','Import for test'));
-    }
-
-    public function layTenLoaiNhapSanPhamTang() {
-        $danhSachLoaiNhapSanPhamTang = $this->layDanhSachLoaiNhapSanPhamTang();
-        return $danhSachLoaiNhapSanPhamTang[$this->loai_nhap_vao];
-    }
 
 }

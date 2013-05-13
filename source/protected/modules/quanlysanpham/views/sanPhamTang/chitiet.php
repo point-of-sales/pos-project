@@ -3,7 +3,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'Product management')=>array('sanPham/danhsach'),
     Yii::t('viLib','Gift product')=>array('sanPhamTang/danhsach'),
     Yii::t('viLib', 'Detail')=>array(),
-	GxHtml::valueEx($model),
+	GxHtml::valueEx($model,"ten_san_pham"),
 );
 
 $this->menu=array(
@@ -15,7 +15,7 @@ array('label'=>Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url'=>'#', 'l
 ?>
 
 
-<h1><?php echo Yii::t('viLib', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ten_san_pham")); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data' => $model,

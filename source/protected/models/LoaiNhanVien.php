@@ -13,7 +13,7 @@ class LoaiNhanVien extends BaseLoaiNhanVien
         return array(
             'id' => Yii::t('viLib', 'ID'),
             'ma_loai_nhan_vien' => Yii::t('viLib', 'Emploee type code'),
-            'ten_loai' => Yii::t('viLib', 'Emploee type name'),
+            'ten_loai' => Yii::t('viLib', 'Employee type name'),
             'nhanViens' => null,
         );
     }
@@ -87,6 +87,11 @@ class LoaiNhanVien extends BaseLoaiNhanVien
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
+    }
+
+    public static function layDanhSachLoaiNhanVien() {
+        $danhSachLoaiNhanVien = LoaiNhanVien::model()->findAll();
+        return $danhSachLoaiNhanVien;
     }
 
 

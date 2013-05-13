@@ -9,7 +9,8 @@ class PhieuXuat extends BasePhieuXuat
         return parent::model($className);
     }
 
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return array(
             'id' => null,
             'ly_do_xuat' => Yii::t('viLib', 'Export reason'),
@@ -21,30 +22,33 @@ class PhieuXuat extends BasePhieuXuat
         );
     }
 
-    public function rules() {
+    public function rules()
+    {
         return array(
             array('ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'required'),
-            array('id, loai_xuat_ra, chi_nhanh_nhap_id', 'numerical', 'integerOnly'=>true),
-            array('id, ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'safe', 'on'=>'search'),
-            array('chi_nhanh_nhap_id','ext.custom-validator.CPOSBranchValidator'),
+            array('id, loai_xuat_ra, chi_nhanh_nhap_id', 'numerical', 'integerOnly' => true),
+            array('id, ly_do_xuat, loai_xuat_ra, chi_nhanh_nhap_id', 'safe', 'on' => 'search'),
+            array('chi_nhanh_nhap_id', 'ext.custom-validator.CPOSBranchValidator'),
         );
     }
 
 
-    public function relations() {
+    public function relations()
+    {
         return array(
             'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietPhieuXuat(phieu_xuat_id, san_pham_id)'),
-            'tblSanPhamTangs'=>array(self::MANY_MANY,'SanPhamTang','tbl_ChiTietPhieuXuatSanPhamTang(phieu_xuat_id, san_pham_tang_id)'),
+            'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietPhieuXuatSanPhamTang(phieu_xuat_id, san_pham_tang_id)'),
             'chiNhanhNhap' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_nhap_id'),
             'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
-
+            'loaiNhapXuat'=>array(self::BELONGS_TO, 'LoaiNhapXuat', 'loai_xuat_ra')
         );
     }
 
-    public function pivotModels() {
+    public function pivotModels()
+    {
         return array(
             'tblSanPhams' => 'ChiTietPhieuXuat',
-            'tblSanPhamTangs'=>'ChiTietPhieuXuatSanPhamTang',
+            'tblSanPhamTangs' => 'ChiTietPhieuXuatSanPhamTang',
         );
     }
 
@@ -55,7 +59,7 @@ class PhieuXuat extends BasePhieuXuat
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat')) {
+            if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat')) {
                 $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuXuat');
                 $items = $sessionData['items'];
                 $relatedItems = Helpers::formatArray($items);
@@ -68,21 +72,20 @@ class PhieuXuat extends BasePhieuXuat
             if ($this->saveWithRelated($relatedData)) {
                 // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
-                foreach($relatedItems as $key=>$itemsInfo) {
-                    $product = SanPham::model()->findByPk($key);  // update scenario
+                foreach ($relatedItems as $key => $itemsInfo) {
+                    $product = SanPham::model()->findByPk($key); // update scenario
                     $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
                     $currentQuantity = $product->laySoLuongTonHienTai();
                     $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
-                    $relatedQuantityItems[$key] = array('so_ton'=>$newQuantity);
+                    $relatedQuantityItems[$key] = array('so_ton' => $newQuantity);
                 }
-                $relatedQuantityData  = array(
+                $relatedQuantityData = array(
                     'tblSanPhams' => $relatedQuantityItems,
                 );
 
-                if($chiNhanh->saveWithRelated($relatedQuantityData,false,null,array(),true,true))
+                if ($chiNhanh->saveWithRelated($relatedQuantityData, false, null, array(), true, true))
                     return 'ok';
-            }
-            else
+            } else
                 return 'fail';
         } else
             return 'dup-error';
@@ -95,8 +98,10 @@ class PhieuXuat extends BasePhieuXuat
 
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
+
             $this->setAttributes($params);
-            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat')) {
+
+            if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat')) {
                 $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuXuat');
                 $items = $sessionData['items'];
                 $relatedItems = Helpers::formatArray($items);
@@ -109,21 +114,20 @@ class PhieuXuat extends BasePhieuXuat
             if ($this->saveWithRelated($relatedData)) {
                 // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
-                foreach($relatedItems as $key=>$itemsInfo) {
-                    $giftProduct = SanPhamTang::model()->findByPk($key);  // update scenario
+                foreach ($relatedItems as $key => $itemsInfo) {
+                    $giftProduct = SanPhamTang::model()->findByPk($key); // update scenario
                     $giftProduct->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
                     $currentQuantity = $giftProduct->laySoLuongTonHienTai();
                     $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
-                    $relatedQuantityItems[$key] = array('so_ton'=>$newQuantity);
+                    $relatedQuantityItems[$key] = array('so_ton' => $newQuantity);
                 }
-                $relatedQuantityData  = array(
+                $relatedQuantityData = array(
                     'tblSanPhamTangs' => $relatedQuantityItems,
                 );
 
-                if($chiNhanh->saveWithRelated($relatedQuantityData,false,null,array(),true,true))
+                if ($chiNhanh->saveWithRelated($relatedQuantityData, false, null, array(), true, true))
                     return 'ok';
-            }
-            else
+            } else
                 return 'fail';
         } else
             return 'dup-error';
@@ -188,7 +192,8 @@ class PhieuXuat extends BasePhieuXuat
         ));
     }
 
-    public function search() {
+    public function search()
+    {
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
@@ -204,23 +209,6 @@ class PhieuXuat extends BasePhieuXuat
         ));
     }
 
-    public function layDanhSachLoaiXuat() {
-        return array(3=>Yii::t('viLib','Export for sale'),4=>Yii::t('viLib','Export for borrow'),5=>Yii::t('viLib','Export for test'));
-    }
 
-    public function layTenLoaiXuat() {
-        $danhSachLoaiXuat = $this->layDanhSachLoaiXuat();
-        return $danhSachLoaiXuat[$this->loai_xuat_ra];
-    }
-
-
-    public function layDanhSachLoaiXuatSanPhamTang() {
-        return array(8=>Yii::t('viLib','Export for offering'),9=>Yii::t('viLib','Export for test'));
-    }
-
-    public function layTenLoaiXuatSanPhamTang() {
-        $danhSachLoaiXuatSanPhamTang = $this->layDanhSachLoaiXuatSanPhamTang();
-        return $danhSachLoaiXuatSanPhamTang[$this->loai_xuat_ra];
-    }
 
 }

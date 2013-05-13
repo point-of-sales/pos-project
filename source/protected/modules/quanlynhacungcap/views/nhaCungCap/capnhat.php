@@ -1,9 +1,11 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(2) => array('index'),
-	GxHtml::valueEx($model) => array('view', 'id' => GxActiveRecord::extractPkValue($model, true)),
-	Yii::t('viLib', 'Update'),
+    Yii::t('viLib', 'Supplier management') => array('nhaCungCap/danhsach'),
+    Yii::t('viLib', 'Supplier') => array('nhaCungCap/danhsach'),
+    Yii::t('viLib', 'Update')=>array(),
+    GxHtml::valueEx($model,"ten_nha_cung_cap"),
+
 );
 
 $this->menu = array(
@@ -14,7 +16,7 @@ $this->menu = array(
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Update') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'Update') . ' ' .  Yii::t('viLib', 'Supplier') . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ten_nha_cung_cap")); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

@@ -25,7 +25,7 @@ $this->menu = array(
 ?>
 
 
-<h1><?php echo Yii::t('viLib', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Product') . ' ' . $model->ten_san_pham; ?></h1>
 
 <?php $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,

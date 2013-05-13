@@ -4,7 +4,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'Promotion management') => array('khuyenMai/danhsach'),
     Yii::t('viLib', 'Promotion') => array('khuyenMai/danhsach'),
     Yii::t('viLib', 'Detail') => array(),
-    GxHtml::valueEx($model),
+    GxHtml::valueEx($model,"ten_chuong_trinh"),
 );
 
 $this->menu = array(
@@ -16,7 +16,7 @@ $this->menu = array(
 ?>
 
 
-    <h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Promotion') . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Promotion') . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ten_chuong_trinh")); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
     'data' => $model,

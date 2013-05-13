@@ -57,7 +57,7 @@ class ChiNhanh extends BaseChiNhanh
         if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-            $relatedData = array(//'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
+            $relatedData = array( //'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
                 //'tblSanPhams' => $_POST['ChiNhanh']['tblSanPhams'] === '' ? null : $_POST['ChiNhanh']['tblSanPhams'],
                 //'tblSanPhamTangs' => $_POST['ChiNhanh']['tblSanPhamTangs'] === '' ? null : $_POST['ChiNhanh']['tblSanPhamTangs'],
             );
@@ -71,7 +71,7 @@ class ChiNhanh extends BaseChiNhanh
 
     public function capNhat($params)
     {
-        $relatedData = array(//'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
+        $relatedData = array( //'tblKhuyenMais' => $_POST['ChiNhanh']['tblKhuyenMais'] === '' ? null : $_POST['ChiNhanh']['tblKhuyenMais'],
             //'tblSanPhams' => $_POST['ChiNhanh']['tblSanPhams'] === '' ? null : $_POST['ChiNhanh']['tblSanPhams'],
             //'tblSanPhamTangs' => $_POST['ChiNhanh']['tblSanPhamTangs'] === '' ? null : $_POST['ChiNhanh']['tblSanPhamTangs'],
         );
@@ -177,32 +177,30 @@ class ChiNhanh extends BaseChiNhanh
     }
 
 
-
     /*
      * dem so luong ton cua 1 san pham cua tai chi nhanh
      * Su dung CDbCommand cho ket qua query nhanh.
      */
 
-    public function laySoLuongTonSanPham() {
-        $soLuongTon  = $command = Yii::app()->db->createCommand()
-                    ->select('so_ton')
-                    ->from('tbl_ChiNhanh,tbl_SanPhamChiNhanh')
-                    ->where('tbl_ChiNhanh.id=tbl_SanPhamChiNhanh.chi_nhanh_id')
-                    ->andWhere('tbl_ChiNhanh.id=:id',array(':id'=>$this->id))
-                    ->andWhere('tbl_SanPhamChiNhanh.san_pham_id=:san_pham_id',array(':san_pham_id'=>$this->san_pham_id))
-                    ->queryScalar();
-        return ($soLuongTon=='')?0:$soLuongTon;
+    public function laySoLuongTonSanPham()
+    {
+        $soLuongTon = $command = Yii::app()->db->createCommand()
+            ->select('so_ton')
+            ->from('tbl_ChiNhanh,tbl_SanPhamChiNhanh')
+            ->where('tbl_ChiNhanh.id=tbl_SanPhamChiNhanh.chi_nhanh_id')
+            ->andWhere('tbl_ChiNhanh.id=:id', array(':id' => $this->id))
+            ->andWhere('tbl_SanPhamChiNhanh.san_pham_id=:san_pham_id', array(':san_pham_id' => $this->san_pham_id))
+            ->queryScalar();
+        return ($soLuongTon == '') ? 0 : $soLuongTon;
     }
 
     /*
      * Kiem tra chi nhanh co khuyen mai hay khong
      */
 
-    public function coKhuyenMai() {
 
-    }
-
-    public function search() {
+    public function search()
+    {
         $criteria = new CDbCriteria;
 
 
@@ -213,10 +211,10 @@ class ChiNhanh extends BaseChiNhanh
         $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
         $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
 
-        if(!empty($this->san_pham_id)) {
+        if (!empty($this->san_pham_id)) {
             $criteria->with = 'tblSanPhams';
             $criteria->together = true;
-            $criteria->compare('tblSanPhams.id',$this->san_pham_id,true);
+            $criteria->compare('tblSanPhams.id', $this->san_pham_id, true);
         }
 
         return new CActiveDataProvider($this, array(
@@ -224,22 +222,23 @@ class ChiNhanh extends BaseChiNhanh
         ));
     }
 
-    public function searchChiNhanhKichHoat() {
+    public function searchChiNhanhKichHoat()
+    {
         $criteria = new CDbCriteria;
 
 
         $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
         $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
 
-        $criteria->compare('trang_thai',1);
+        $criteria->compare('trang_thai', 1);
         $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
         $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
         $criteria->addCondition('id>1');
 
-        if(!empty($this->san_pham_id)) {
+        if (!empty($this->san_pham_id)) {
             $criteria->with = 'tblSanPhams';
             $criteria->together = true;
-            $criteria->compare('tblSanPhams.id',$this->san_pham_id,true);
+            $criteria->compare('tblSanPhams.id', $this->san_pham_id, true);
         }
 
         return new CActiveDataProvider($this, array(
@@ -247,7 +246,8 @@ class ChiNhanh extends BaseChiNhanh
         ));
     }
 
-    public function xuatFileExcel() {
+    public function xuatFileExcel()
+    {
         $criteria = new CDbCriteria;
         $criteria->compare('id', $this->id);
         $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
@@ -270,7 +270,8 @@ class ChiNhanh extends BaseChiNhanh
         ));
     }
 
-    public static function layDanhSachChiNhanhKichHoat() {
+    public static function layDanhSachChiNhanhKichHoat()
+    {
         $criteria = new CDbCriteria();
         $criteria->addCondition('trang_thai=1');
         $criteria->order = 'id DESC';
@@ -278,14 +279,13 @@ class ChiNhanh extends BaseChiNhanh
     }
 
 
-    public static function layDanhSachChiNhanhKichHoatTrongHeThong() {
+    public static function layDanhSachChiNhanhKichHoatTrongHeThong()
+    {
         $criteria = new CDbCriteria();
         $criteria->addCondition('trang_thai=1');
         $criteria->addCondition('id>1');
         return ChiNhanh::model()->findAll($criteria);
     }
-
-
 
 
 }

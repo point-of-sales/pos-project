@@ -5,7 +5,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     <script>
     extendClass(AjaxTransferData, BaseAjaxTransferData);
     var ajaxTransferDataObject = new AjaxTransferData();
-    ajaxTransferDataObject.url = '/quanlynhapxuat/phieuNhap/';
+    ajaxTransferDataObject.url = "<?php echo Yii::app()->createUrl('/quanlynhapxuat/phieuNhap')?>" + '/';
     $(window).load(function () {
         // When grid is empty and data is exist on session. Fill grid again with data from the session
         if (ajaxTransferDataObject.isEmptyGrid()) {

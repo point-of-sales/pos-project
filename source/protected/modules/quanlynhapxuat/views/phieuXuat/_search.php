@@ -1,5 +1,6 @@
 <div class="wide search-box-form">
 
+
     <?php $form = $this->beginWidget('GxActiveForm', array(
         'action' => Yii::app()->createUrl($this->route),
         'method' => 'get',
@@ -13,7 +14,7 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'loai_xuat_ra'); ?>
-        <?php echo $form->dropDownList($model, 'loai_xuat_ra', $model->layDanhSachLoaiXuat(),array('prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'loai_xuat_ra', LoaiNhapXuat::layDanhSachLoaiXuat(),array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row cus-row">

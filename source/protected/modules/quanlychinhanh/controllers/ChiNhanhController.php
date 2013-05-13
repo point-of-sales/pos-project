@@ -43,7 +43,7 @@ class ChiNhanhController extends CPOSController
 
     public function actionCapNhat($id)
     {
-        if(!isset($id) || !is_numeric($id) || $id<1) {
+        if (!isset($id) || !is_numeric($id) || $id < 1) {
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
             exit;
         }
@@ -145,28 +145,30 @@ class ChiNhanhController extends CPOSController
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
-    public function actionDanhSach() {
+    public function actionDanhSach()
+    {
 
         $model = new ChiNhanh('search');
         $model->unsetAttributes();
         Yii::app()->CPOSSessionManager->clearKey('ExportData');
-        if(isset($_GET['ChiNhanh'])) {
+        if (isset($_GET['ChiNhanh'])) {
             // set vao session
-            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['ChiNhanh']);
+            Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['ChiNhanh']);
             $model->setAttributes($_GET['ChiNhanh']);
         }
-        $this->render('danhsach',array('model'=>$model));
+        $this->render('danhsach', array('model' => $model));
     }
 
-    public function  actionXuat() {
+    public function  actionXuat()
+    {
         $model = new ChiNhanh('search');
         $model->unsetAttributes();
-        if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+        if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
             $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
             $dataProvider = $model->xuatFileExcel();
-            $this->render('xuat',array('dataProvider'=>$dataProvider));
+            $this->render('xuat', array('dataProvider' => $dataProvider));
         }
-        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('ChiNhanh')));
+        $this->render('xuat', array('dataProvider' => new CActiveDataProvider('ChiNhanh')));
     }
 
 }

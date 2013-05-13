@@ -1,13 +1,14 @@
 <?php
 
 $this->breadcrumbs = array(
-    $model->label(1),
-    Yii::t('viLib', 'List'),
+    Yii::t('viLib', 'Supplier management') => array('nhaCungCap/danhsach'),
+    Yii::t('viLib', 'Supplier') => array('nhaCungCap/danhsach'),
+    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Supplier')
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . $model->label(), 'url' => array('xuat')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('xuat')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -20,7 +21,7 @@ return false;
 ");
 ?>
 
-    <h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Supplier'); ?></h1>
 
 
     <div class="search-form">
@@ -37,7 +38,10 @@ return false;
         'ten_nha_cung_cap',
         'dien_thoai',
         'email',
-        'trang_thai',
+        array(
+            'name'=>'trang_thai',
+            'value'=>'$data->layTenTrangThai()'
+        ),
         array(
             'class' => 'CButtonColumn',
             'template' => '{view}{update}{delete}',

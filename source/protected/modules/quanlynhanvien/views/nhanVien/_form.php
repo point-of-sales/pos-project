@@ -31,13 +31,13 @@
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'chi_nhanh_id'); ?>
-        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true))); ?>
+        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,"ten_chi_nhanh")); ?>
         <?php echo $form->error($model, 'chi_nhanh_id'); ?>
     </div>
 
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'loai_nhan_vien_id'); ?>
-        <?php echo $form->dropDownList($model, 'loai_nhan_vien_id', GxHtml::listDataEx(LoaiNhanVien::model()->findAllAttributes(null, true))); ?>
+        <?php echo $form->dropDownList($model, 'loai_nhan_vien_id', GxHtml::listDataEx(LoaiNhanVien::layDanhSachLoaiNhanVien(),null,"ten_loai")); ?>
         <?php echo $form->error($model, 'loai_nhan_vien_id'); ?>
     </div>
     <!-- row -->

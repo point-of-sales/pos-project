@@ -9,6 +9,19 @@ class NhaCungCap extends BaseNhaCungCap
         return parent::model($className);
     }
 
+    public function attributeLabels() {
+        return array(
+            'id' => Yii::t('viLib', 'ID'),
+            'ma_nha_cung_cap' => Yii::t('viLib', 'Supplier code'),
+            'ten_nha_cung_cap' => Yii::t('viLib', 'Supplier name'),
+            'mo_ta' => Yii::t('viLib', 'Description'),
+            'dien_thoai' => Yii::t('viLib', 'Phone'),
+            'email' => Yii::t('viLib', 'Email'),
+            'fax' => Yii::t('viLib', 'Fax'),
+            'trang_thai' => Yii::t('viLib', 'Status'),
+            'sanPhams' => null,
+        );
+    }
 
     public function them($params)
     {

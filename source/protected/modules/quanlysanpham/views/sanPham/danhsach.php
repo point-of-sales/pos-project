@@ -9,7 +9,8 @@ $this->breadcrumbs = array(
 $this->menu = array(
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/danhsach')),
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/danhsach')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/them')),
     array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/them')),
     array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat')),
 );
@@ -41,20 +42,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'columns' => array(
         'ma_vach',
         'ten_san_pham',
-        'ten_tieng_viet',
-        'trang_thai' => array(
-            'name' => 'trang_thai',
-            'value' => '$data->layTenTrangThai()',
-        ),
         array(
             'name' => 'nha_cung_cap_id',
-            'value' => 'GxHtml::valueEx($data->nhaCungCap)',
-            'filter' => GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)),
+            'value' => '$data->nhaCungCap->ten_nha_cung_cap',
         ),
         array(
             'name' => 'loai_san_pham_id',
-            'value' => 'GxHtml::valueEx($data->loaiSanPham)',
-            'filter' => GxHtml::listDataEx(LoaiSanPham::model()->findAllAttributes(null, true)),
+            'value' => '$data->loaiSanPham->ten_loai',
         ),
 
         array('name' => Yii::t('viLib', 'Base price'),
@@ -67,8 +61,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => '$data->layGiaHienTai()',
         ),
 
-
-
+        array('name' => Yii::t('viLib', 'Promotion'),
+            'type' => 'raw',
+            'value' => '($data->khuyen_mai_id!=null)?(CHtml::image(Yii::app()->theme->baseUrl . "/images/promo.png") ."  ".$data->khuyenMai->ten_chuong_trinh):null',
+        ),
+        'trang_thai' => array(
+            'name' => 'trang_thai',
+            'value' => '$data->layTenTrangThai()',
+        ),
         array(
             'class' => 'CButtonColumn',
             'template' => '{view}{update}{delete}',

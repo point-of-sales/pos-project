@@ -4,7 +4,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'Employee management') => array('nhanVien/danhsach'),
     Yii::t('viLib', 'Employee') => array('nhanVien/danhsach'),
     Yii::t('viLib', 'Detail') => array(),
-    GxHtml::valueEx($model),
+    GxHtml::valueEx($model,"ho_ten"),
 );
 
 $this->menu = array(
@@ -15,7 +15,7 @@ $this->menu = array(
 ?>
 
 
-    <h1><?php echo Yii::t('viLib', 'View') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Employee') . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ho_ten")); ?></h1>
 
 <?php $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
@@ -36,7 +36,10 @@ $this->menu = array(
         'trinh_do',
         'luong_co_ban',
         'chuyen_mon',
-        'trang_thai',
+        array(
+            'name' => 'trang_thai',
+            'value' => $model->layTenTrangThai(),
+        ),
         'mat_khau',
         array(
             'name' => 'ngay_vao_lam',
@@ -49,12 +52,12 @@ $this->menu = array(
         array(
             'name' => 'loaiNhanVien',
             'type' => 'raw',
-            'value' => $model->loaiNhanVien !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->loaiNhanVien)), array('loaiNhanVien/view', 'id' => GxActiveRecord::extractPkValue($model->loaiNhanVien, true))) : null,
+            'value' => $model->loaiNhanVien->ten_loai,
         ),
         array(
             'name' => 'chiNhanh',
             'type' => 'raw',
-            'value' => $model->chiNhanh !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->chiNhanh)), array('chiNhanh/view', 'id' => GxActiveRecord::extractPkValue($model->chiNhanh, true))) : null,
+            'value' => $model->chiNhanh->ten_chi_nhanh,
         ),
     ),
 )); ?>

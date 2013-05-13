@@ -4,7 +4,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib','Promotion management')=>array('khuyenMai/danhsach'),
     Yii::t('viLib','Promotion')=>array('khuyenMai/danhsach'),
     Yii::t('viLib', 'Update')=>array(),
-	GxHtml::valueEx($model),
+	GxHtml::valueEx($model,"ten_chuong_trinh"),
 );
 
 $this->menu = array(
@@ -14,7 +14,7 @@ $this->menu = array(
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib','Promotion'); ?></h1>
+<h1><?php echo Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib','Promotion') . ' ' . GxHtml::valueEx($model,"ten_chuong_trinh") ; ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

@@ -19,7 +19,7 @@
 }
 
 .search-box-form .radio-list {
-    
+    margin-top:-6px;
     width:160px;
 }
 
@@ -321,3 +321,20 @@ table .detail-view {
     margin-top: -34px;
 }
 /* end detai view */
+
+
+div.search-form {
+    background: none repeat scroll 0 0 #EEEEEE;
+    margin-top: -32px;
+    padding-top: 3px;
+    padding-bottom: 15px;
+    padding-left:10px;
+}
+
+/* increase cgridview font-size */
+.grid-view table.items th, .grid-view table.items td {
+    font-size: 1em;
+    padding-bottom: 6px !important;
+}
+
+/* end increase cgridview font-size */

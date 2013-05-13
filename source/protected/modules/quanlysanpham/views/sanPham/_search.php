@@ -48,7 +48,7 @@
        <label><?php echo GxHtml::encode(Yii::t('viLib','Branch')); ?></label>
         <?php echo $form->dropDownList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), false, true),array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
-    <div class="clear"></div>
+
     <div class="row buttons btn-search">
         <?php echo GxHtml::submitButton(Yii::t('viLib', 'Search')); ?>
     </div>

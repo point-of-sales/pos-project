@@ -12,7 +12,7 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'loai_nhap_vao'); ?>
-        <?php echo $form->dropDownList($model, 'loai_nhap_vao',$model->layDanhSachLoaiNhap()); ?>
+        <?php echo $form->dropDownList($model, 'loai_nhap_vao',LoaiNhapXuat::layDanhSachLoaiNhap(),array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row cus-row">

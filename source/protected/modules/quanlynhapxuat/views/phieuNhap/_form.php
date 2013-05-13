@@ -44,7 +44,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAllAttributes(null, true))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten")); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 
@@ -80,7 +80,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'loai_nhap_vao'); ?>
-            <?php echo $form->dropDownList($model, 'loai_nhap_vao', $model->layDanhSachLoaiNhap()); ?>
+            <?php echo $form->dropDownList($model, 'loai_nhap_vao', LoaiNhapXuat::layDanhSachLoaiNhapSanPhamBan()); ?>
             <?php echo $form->error($model, 'loai_nhap_vao'); ?>
         </div>
 

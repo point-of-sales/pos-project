@@ -74,7 +74,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'loai_xuat_ra'); ?>
-            <?php echo $form->dropDownList($model, 'loai_xuat_ra',$model->layDanhSachLoaiXuat()); ?>
+            <?php echo $form->dropDownList($model, 'loai_xuat_ra',LoaiNhapXuat::layDanhSachLoaiXuatSanPhamBan()); ?>
             <?php echo $form->error($model, 'loai_xuat_ra'); ?>
         </div>
 

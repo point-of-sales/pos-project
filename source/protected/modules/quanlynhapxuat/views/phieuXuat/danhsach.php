@@ -44,7 +44,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => '$data->getBaseModel()->ngay_lap'
         ),
 
-        'loai_xuat_ra',
+        array(
+            'name' => Yii::t('viLib','Export type'),
+            'value' => '$data->loaiNhapXuat->ten_loai_nhap_xuat',
+        ),
+
         array(
             'name' => 'chi_nhanh_nhap_id',
             'value' => 'GxHtml::valueEx($data->chiNhanhNhap)',

@@ -69,7 +69,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'loai_nhap_vao'); ?>
-            <?php echo $form->dropDownList($model, 'loai_nhap_vao', $model->layDanhSachLoaiNhapSanPhamTang()); ?>
+            <?php echo $form->dropDownList($model, 'loai_nhap_vao', LoaiNhapXuat::layDanhSachLoaiNhapSanPhamTang()); ?>
             <?php echo $form->error($model, 'loai_nhap_vao'); ?>
         </div>
 

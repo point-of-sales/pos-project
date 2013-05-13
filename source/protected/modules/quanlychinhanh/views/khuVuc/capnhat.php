@@ -4,7 +4,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib','Branch management')=>array('chiNhanh/danhsach'),
     Yii::t('viLib','Area')=>array('khuVuc/danhsach'),
     Yii::t('viLib', 'Update')=>array(),
-	GxHtml::valueEx($model),
+    GxHtml::valueEx($model,"ten_khu_vuc"),
 );
 
 $this->menu = array(
@@ -14,7 +14,7 @@ $this->menu = array(
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Update') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'Update') . ' ' . GxHtml::encode($model->label()) . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ten_khu_vuc")); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(

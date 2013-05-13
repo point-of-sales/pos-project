@@ -200,5 +200,20 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Import for offering'=>'Nhập tặng',
     'Import gift product'=>'Nhập sản phẩm tặng',
     'Export gift product'=>'Xuất sản phẩm tặng',
-    'Export for offering'=>'Xuất tặng'
+    'Export gift for test'=>'Xuất sản phẩm tặng kiểm tra',
+    'Customer management'=>'Quản lý khách hàng',
+    'Customer'=>'Khách hàng',
+    'Cumulative score'=>'Điểm tích lũy',
+    'Customer type'=>'Loại khách hàng',
+    'Customer code'=>'Mã khách hàng',
+    'Customer type code'=>'Mã loại khách hàng',
+    'City'=>'Thành phố',
+    'Customer name type'=>'Tên loại',
+    'Sales'=>'Doanh số',
+    'Discount'=>'Chiết khấu',
+    'Supplier code'=>'Mã nhà cung cấp',
+    'Supplier name'=>'Tên nhà cung cấp',
+    'Supplier management'=>'Quản lý nhà cung cấp',
+    'Employee type name'=>'Tên loại nhân viên',
+
 );

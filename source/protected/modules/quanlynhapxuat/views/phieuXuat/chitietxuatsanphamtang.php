@@ -3,6 +3,7 @@
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Import/Export management') => array('chiNhanh/danhsach'),
     Yii::t('viLib', 'Export form detail') => array(),
+    Yii::t('viLib', 'Gift product') => array(),
     GxHtml::valueEx($model),
 );
 
@@ -41,9 +42,9 @@ $this->menu = array(
             'value' => $model->baseModel->chiNhanh->ten_chi_nhanh,
         ),
         array(
-            'name' => Yii::t('viLib', 'Export type'),
+            'name' => Yii::t('viLib', 'Import type'),
             'type' => 'raw',
-            'value' => $model->loaiNhapXuat->ten_loai_nhap_xuat,
+            'value' => $model->layTenLoaiXuatSanPhamTang(),
         ),
         array(
             'name' => 'chiNhanhNhap',
@@ -66,18 +67,18 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'columns' => array(
         array(
             'name' => Yii::t('viLib', 'Barcode'),
-            'value' => '$data->sanPham->ma_vach',
+            'value' => '$data->sanPhamTang->ma_vach',
         ),
         array('name' => Yii::t('viLib', 'Product name'),
-            'value' => '$data->sanPham->ten_san_pham'
+            'value' => '$data->sanPhamTang->ten_san_pham'
         ),
         array(
             'name' => Yii::t('viLib', 'Quantity'),
             'value' => '$data->so_luong',
         ),
         array(
-            'name' => Yii::t('viLib', 'Export price'),
-            'value' => '$data->gia_xuat',
+            'name' => Yii::t('viLib', 'Bill value for offering'),
+            'value' => '$data->sanPhamTang->gia_tang',
         )
     )
 )); ?>

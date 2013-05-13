@@ -18,13 +18,27 @@ class PhieuNhapController extends CPOSController
         ));
     }
 
+    public function actionChiTietXuatSanPhamTang($id)
+    {
+        $model = $this->loadModel($id, 'PhieuNhap');
+        $model->getBaseModel();
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
+        $criteria->params = array(':phieu_nhap_id' => $id);
+        $chiTietPhieuNhapSanPhamTangDataProvider = new CActiveDataProvider('ChiTietPhieuNhapSanPhamTang', array('criteria' => $criteria));
+        $this->render('chitiet', array(
+            'model' => $model,
+            'dataProvider' => $chiTietPhieuNhapSanPhamTangDataProvider,
+        ));
+    }
+
+
+
     public function actionThem($id = null)
     {
         $this->layout = '//layouts/column1';
         $model = new PhieuNhap;
         if (isset($_POST['ChungTu'])) {
-            var_dump($_POST);exit;
-       
             $result = $model->them($_POST);
             switch ($result) {
                 case 'ok':
