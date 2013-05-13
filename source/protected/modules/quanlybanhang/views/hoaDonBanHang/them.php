@@ -16,26 +16,26 @@ echo '</pre>';
 ?>
 	<div id="form-hd-ban-header">
     	<div id="form-hd-ban-header-left">
-            <ul>
-                <li>
-                    <span>Mã hóa đơn</span>
-                    <span id="form-hd-ban-ma-hoa-don"></span>
-                </li>
-                <li>
-                    <span>Chi nhánh</span>
-                    <span>
-                        <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true))); ?>
-                    </span>
-                </li>
-            </ul>
+            <table id="form-hd-ban-table">
+                <tr>
+                    <td>Mã hóa đơn</td>
+                    <td><span id="form-hd-ban-ma-hoa-don"></span></td>
+                </tr>
+                <tr>
+                    <td>Chi nhánh</td>
+                    <td>
+                        <span id="form-hd-ban-chi-nhanh"></span>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="form-hd-ban-header-center"><h1>TẠO HÓA ĐƠN BÁN HÀNG</h1></div>
         <div id="form-hd-ban-header-right">
             <table id="form-hd-ban-header-table">
             	<tr>
                 	<td>Họ tên NV</td>
-                    <td id="form-hd-ban-ho-ten-nv">
-                    <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAllAttributes(null, true))); ?>
+                    <td>
+                        <span id="form-hd-ban-ho-ten-nv"></span>
                     </td>
                 </tr>
                 <tr>
@@ -105,14 +105,17 @@ echo '</pre>';
     <div id="form-hd-ban-command">
     	<div id="form-hd-ban-button">
             <input class="" type="button" value="Hóa đơn mới" onclick="hoaDonMoi()" />
-            <input class="" type="submit" value="In hóa đơn" />
+            <input class="" type="submit" value="In hóa đơn" onclick="inHoaDon()" />
         </div>
     </div>
-    <div id="form-hd-ban-footer">F1: MÃ VẠCH -- F2: KHÁCH HÀNG -- F3: TÌM KHÁCH HÀNG -- F4: HÀNG TẶNG</div>
+    <div id="form-hd-ban-footer">
+        Z: MÃ VẠCH -- X: KHÁCH HÀNG -- C: TIỀN NHẬN -- F1: TÌM KHÁCH HÀNG -- F2: THÊM KHÁCH HÀNG -- F3: HÀNG TẶNG
+    </div>
     <?php $this->endWidget();?>
 </div>
 
 <div id="dialog-tim-khach-hang" title="Tìm khách hàng"></div>
+<div id="dialog-them-khach-hang" title="Thêm khách hàng"></div>
 <div id="dialog-hang-tang" title="Sản phẩm tặng">
     <div id="dialog-hang-tang-header">
         <div id="dialog-hang-tang-ma">

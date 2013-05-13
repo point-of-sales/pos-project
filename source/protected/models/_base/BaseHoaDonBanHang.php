@@ -42,7 +42,7 @@ abstract class BaseHoaDonBanHang extends CPOSBaseChungTu {
 
 	public function rules() {
 		return array(
-			array('id, khach_hang_id', 'required'),
+			array('khach_hang_id', 'required'),
 			array('id, chiet_khau, khach_hang_id', 'numerical', 'integerOnly'=>true),
 			array('chiet_khau', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, chiet_khau, khach_hang_id', 'safe', 'on'=>'search'),

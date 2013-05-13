@@ -134,13 +134,14 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+        /*
 		'log'=>array(
 
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
                     //'class'=>'CWebLogRoute',
-					'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+					//'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
 					'levels'=>'error, warning',
 
 					//'levels'=>'error, warning',
@@ -151,10 +152,10 @@ return array(
                     'class'=>'CWebLogRoute',
                     'categories'=>'system.db.CDbCommand',
                     'showInFireBug'=>true,
-				),*/
+				),
 
 			),
-		),
+		),*/
 	),
 
 	// application-level parameters that can be accessed

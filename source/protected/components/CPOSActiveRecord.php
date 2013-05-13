@@ -13,6 +13,24 @@
 
 abstract class CPOSActiveRecord extends GxActiveRecord
 {
+    //neu chua co ma thi truyen ma_chung_tu = ""
+    public function taoMaChungTuMoi($ma_chung_tu,$tiep_dong_ngu,$do_dai){
+        //print_r('dsd');exit;
+        if($ma_chung_tu != ""){
+            $ma_chung_tu = substr($ma_chung_tu,2);
+            $ma_chung_tu = ((int)$ma_chung_tu)+1;
+        }
+        else{
+            $ma_chung_tu = 1;
+        }
+        $str = "";
+        $do_dai = $do_dai-strlen($tiep_dong_ngu)-strlen($ma_chung_tu);
+        for($i=0;$i<$do_dai;$i++){
+            $str.='0';
+        }
+        $str = $tiep_dong_ngu.$str.$ma_chung_tu;
+        return $str;
+    }
 
     protected function kiemTraQuanHe()
     {

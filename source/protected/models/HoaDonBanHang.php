@@ -7,7 +7,16 @@ class HoaDonBanHang extends BaseHoaDonBanHang
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
-
+    
+    	public function relations() {
+		return array(
+			'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietHoaDonBan(hoa_don_ban_id, san_pham_id)'),
+			'id0' => array(self::BELONGS_TO, 'ChungTu', 'id'),
+			'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
+			'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'hoa_don_ban_id'),
+            'tblSanPhamTangs'=>array(self::MANY_MANY,'SanPhamTang','tbl_ChiTietHoaDonTang(hoa_don_id,san_pham_tang_id)'),
+		);
+	}
 
     public function them($params) {
         // kiem tra du lieu con bi trung hay chua
@@ -15,10 +24,9 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
-            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietHoaDonBan')) {
-                $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietHoaDonBan');
-                $items = $sessionData['items'];
-                $relatedItems = Helpers::formatArray($items);
+            if(!empty($params['ChiTietHoaDonBan'])) {
+                $cthd = $params['ChiTietHoaDonBan'];
+                $relatedItems = Helpers::formatArray($cthd);
                 $relatedData = array(
                     // fill related with data from the Session
                     'tblSanPhams' => $relatedItems,
@@ -111,15 +119,14 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                     ->queryScalar();
         
         $model = HoaDonBanHang::model()->findByPk($maxId);
-        
-        $ma_chung_tu = 'BH0000000001'; 
         if(isset($model)){
             $ma_chung_tu = $model->getBaseModel()->ma_chung_tu;
-            $ma_chung_tu = substr($ma_chung_tu,2);
-            $ma_chung_tu = ((int)$ma_chung_tu)+1;
+            $str = $model->taoMaChungTuMoi($ma_chung_tu,'BH',13);
         }
-        return $ma_chung_tu;
+        else{
+            $str = $this->taoMaChungTuMoi('','BH',13);
+        }
+        return $str;
     }
-
 
 }
