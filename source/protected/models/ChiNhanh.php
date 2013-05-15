@@ -278,6 +278,17 @@ class ChiNhanh extends BaseChiNhanh
         return ChiNhanh::model()->findAll($criteria);
     }
 
+    public function layTenTrangThaiSanPhamOChiNhanh() {
+        $danhSachTrangThaiSanPhamOChiNhanh = $this->layDanhSachTrangThai();
+        $index = Yii::app()->db->createCommand()
+            ->select('trang_thai')
+            ->from('tbl_SanPhamChiNhanh')
+            ->where('san_pham_id=:san_pham_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_id'=>$this->san_pham_id,':chi_nhanh_id'=>$this->id))
+            ->queryScalar();
+        return $danhSachTrangThaiSanPhamOChiNhanh[$index];
+
+    }
+
 
     public static function layDanhSachChiNhanhKichHoatTrongHeThong()
     {
@@ -286,6 +297,8 @@ class ChiNhanh extends BaseChiNhanh
         $criteria->addCondition('id>1');
         return ChiNhanh::model()->findAll($criteria);
     }
+
+
 
 
 }

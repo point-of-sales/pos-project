@@ -46,7 +46,7 @@ class PhieuXuatController extends CPOSController
                     if (Yii::app()->getRequest()->getIsAjaxRequest())
                         Yii::app()->end();
                     else
-                        $this->redirect(array('chitietxuatsanphamtang', 'id' => $model->id));
+                        $this->redirect(array('chitiet', 'id' => $model->id));
                     break;
                 }
                 case 'dup-error':

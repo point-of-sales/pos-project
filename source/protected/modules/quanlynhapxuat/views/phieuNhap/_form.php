@@ -44,7 +44,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten")); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(), null, "ho_ten")); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 
@@ -74,7 +74,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'nha_cung_cap_id'); ?>
-            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
+            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAll(), null, "ten_nha_cung_cap"), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
             <?php echo $form->error($model, 'nha_cung_cap_id'); ?>
         </div>
 
@@ -113,13 +113,22 @@
         </div>
 
         <div class="row cus-row">
-            <?php /*echo GxHtml::ajaxLink(
-                Yii::t('viLib','Add product to list'),
-                Yii::app()->createUrl(array('phieuNhap/AjaxCheckProduct'),
-                // options
-
-                ))*/
+            <div id="ajax-image">
+            <?php
+            // the link that may open the dialog
+            echo CHtml::image(Yii::app()->theme->baseUrl . '/images/new-item.png');
             ?>
+            </div>
+            <div id="ajax-link">
+            <?php
+            echo CHtml::ajaxLink(Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), Yii::app()->createUrl('/quanlysanpham/sanPham/themajax'), array(
+                'onclick' => '$("#new-product-form-dialog").dialog("open"); return false;',
+                'update' => '#new-product-form-dialog',
+                array('id'=>'show-new-product-form')
+            ));
+            ?>
+            </div>
+            <div id="new-product-form-dialog"></div>
         </div>
 
         <!--<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblSanPhams'));*/?></label>
@@ -143,7 +152,7 @@
 
     <div class="btn-save">
         <?php
-        echo GxHtml::submitButton(Yii::t('viLib', 'Save'),array('onclick'=>'return reCheckBeforeSent()'));
+        echo GxHtml::submitButton(Yii::t('viLib', 'Save'), array('onclick' => 'return reCheckBeforeSent()'));
         $this->endWidget();
         ?>
     </div>

@@ -44,10 +44,25 @@ class SanPhamController extends CPOSController
         $this->render('them', array('model' => $model));
     }
 
+    public function actionThemAjax() {
+        $model = new SanPham;
+        $flag = true;
+        if (isset($_POST['SanPham'])) {
+            $flag = false;
+            $model->trang_thai = 1;   // mac dinh kich hoat san
+            $result = $model->them($_POST['SanPham']);
+            echo $result;
+        }
+        if($flag) {
+            Yii::app()->clientScript->scriptMap['jquery.js'] = false;
+            $this->renderPartial('themajax', array('model' => $model),false,true);
+        }
+    }
+
     public function actionCapNhat($id)
     {
         $model = $this->loadModel($id, 'SanPham');
-
+        $this->performAjaxValidation($model);
         if (isset($_POST['SanPham'])) {
             $result = $model->capNhat($_POST['SanPham']);
             switch ($result) {
@@ -134,6 +149,16 @@ class SanPhamController extends CPOSController
                 $this->redirect(array('danhsach'));*/
         } else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
+    }
+
+    protected function performAjaxValidation($model)
+    {
+
+        if(isset($_POST['ajax']) && $_POST['ajax']==='san-pham-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
     }
 
     public function actionDanhSach()

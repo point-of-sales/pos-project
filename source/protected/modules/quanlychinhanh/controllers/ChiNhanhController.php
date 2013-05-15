@@ -171,4 +171,22 @@ class ChiNhanhController extends CPOSController
         $this->render('xuat', array('dataProvider' => new CActiveDataProvider('ChiNhanh')));
     }
 
+    public function actionAjaxActiveStatusProduct($cnid,$spid) {
+        if(Yii::app()->request->isAjaxRequest) {
+            if(isset($cnid) && isset($spid)) {
+                $sanPhamChiNhanh = $this->loadModel(array('san_pham_id'=>$spid,'chi_nhanh_id'=>$cnid),'SanPhamChiNhanh');
+                if($sanPhamChiNhanh->trang_thai=='')
+                    $sanPhamChiNhanh->trang_thai = 1;
+                else {
+                    $sanPhamChiNhanh->trang_thai = ($sanPhamChiNhanh->trang_thai)?0:1;
+                }
+
+                print_r($sanPhamChiNhanh->getAttributes());
+                if($sanPhamChiNhanh->save(false))
+                    echo 'ok';
+            }
+        } else
+            throw new CHttpException('404','Page not found');
+    }
+
 }

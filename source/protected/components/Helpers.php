@@ -134,7 +134,7 @@ class Helpers
         return Yii::app()->createUrl($controllerId . $SEPARATOR . $actionId, $params);
     }
 
-    public static function refreshGrid()
+    public static function refreshGrid($gridName = 'grid')
     {
         return "js:function(){
                                         var url = $(this).attr('href');
@@ -142,7 +142,7 @@ class Helpers
                                             type:'POST',
                                             url:$(this).attr('href'),
                                             success:function(data) {
-                                              $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name
+                                              $.fn.yiiGridView.update('$gridName'); //change my-grid to your grid's name
                                             }
                                         })
                                         return false;
@@ -155,19 +155,21 @@ class Helpers
      *
      */
 
-    public static function array_cut(&$inputArray) {
-        if(empty($inputArray))
+    public static function array_cut(&$inputArray)
+    {
+        if (empty($inputArray))
             return null;
-        if(count($inputArray)>0) {
-            $slice = array_slice($inputArray,0,1);
-            $inputArray = array_slice($inputArray,1);
+        if (count($inputArray) > 0) {
+            $slice = array_slice($inputArray, 0, 1);
+            $inputArray = array_slice($inputArray, 1);
             return $slice[0];
         }
     }
 
 
-    public static function array_create(&$targetArray, $dims, $value) {
-        if(!empty($dims)) {  // neu dims la mang da chieu
+    public static function array_create(&$targetArray, $dims, $value)
+    {
+        if (!empty($dims)) { // neu dims la mang da chieu
             foreach ($dims as $dim) {
                 if (!isset($targetArray[$dim])) {
                     $targetArray[$dim] = array();
@@ -180,40 +182,44 @@ class Helpers
             $targetArray[] = $value;
     }
 
-    public static function array_getval($targetArray,$dims) {
-        if(!empty($dims)) {  // neu dims la mang da chieu
-            foreach($dims as $dim) {
-                if(isset($targetArray[$dim])) {
+    public static function array_getval($targetArray, $dims)
+    {
+        if (!empty($dims)) { // neu dims la mang da chieu
+            foreach ($dims as $dim) {
+                if (isset($targetArray[$dim])) {
                     $tmp = $targetArray[$dim];
                     $targetArray = $tmp;
                 } else
                     return null; // khong tim thay dim
 
             }
-        } else {              // neu dims ko duoc la mang rong. Lay phan tu cuoi cung 
-            if($dims==null)
+        } else { // neu dims ko duoc la mang rong. Lay phan tu cuoi cung
+            if ($dims == null)
                 $tmp = $targetArray;
-            else 
+            else
                 $tmp = array_pop($targetArray);
         }
-        return (!empty($tmp))?$tmp:null;
+        return (!empty($tmp)) ? $tmp : null;
     }
 
-    public static function checkIsNull($var) {
+    public static function checkIsNull($var)
+    {
         return ($var == null);
     }
 
-    public static function array_clearitem(&$targetArray,$dims) {
-        if(!empty($dims)) {
+    public static function array_clearitem(&$targetArray, $dims)
+    {
+        if (!empty($dims)) {
             // set null
-            Helpers::array_create($targetArray,$dims,null);
+            Helpers::array_create($targetArray, $dims, null);
             //recreate array without null item
-           // print_r($targetArray);exit;
+            // print_r($targetArray);exit;
             $targetArray = Helpers::array_filter_null_items($targetArray);
         }
     }
 
-    public static function array_filter_null_items($inputArray) {
+    public static function array_filter_null_items($inputArray)
+    {
         // If it is an element, then just return it
         if (!is_array($inputArray)) {
             return $inputArray;
@@ -223,7 +229,7 @@ class Helpers
 
         foreach ($inputArray as $key => $value) {
             // Ignore empty cells
-            if($value) {
+            if ($value) {
                 // Use recursion to evaluate cells
                 $non_empty_items[$key] = Helpers::array_filter_null_items($value);
             }
@@ -236,13 +242,14 @@ class Helpers
      * Dinh dang lai du lieu cua mang Items theo dang ['SP002']=>Array(30,4000),
      */
 
-    public static function formatArray($inputArray) {
+    public static function formatArray($inputArray)
+    {
         $resultArray = array();
-        foreach($inputArray as $array) {
+        foreach ($inputArray as $array) {
             $id = $array['id'];
-            $arr  = array();
-            foreach($array as $key=>$value) {
-                if($key!='ma_vach' && $key!='id' && $key!='ten_san_pham')
+            $arr = array();
+            foreach ($array as $key => $value) {
+                if ($key != 'ma_vach' && $key != 'id' && $key != 'ten_san_pham')
                     $arr[$key] = $value;
             }
             $resultArray[$id] = $arr;

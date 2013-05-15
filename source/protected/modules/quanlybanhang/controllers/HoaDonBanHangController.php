@@ -54,9 +54,11 @@ class HoaDonBanHangController extends CPOSController {
                 }break;
             }
 		}
+
         if(Yii::app()->CPOSSessionManager->isEmpty('hd_ban_hang')){
-            $this->actionHoaDonMoi();   
+            $this->actionHoaDonMoi();
         }
+
         $this->layout = '//layouts/column1';
 		$this->render('them', array( 'model' => $model));
 	}
@@ -420,7 +422,7 @@ class HoaDonBanHangController extends CPOSController {
                 'dia_chi' => $model->getAttribute('dia_chi'),
             );
         }
-        
+
         $hd_ban_hang = array(
             'cthd_ban_hang' => array(),
             'cthd_hang_tang' => array(),

@@ -25,7 +25,7 @@ return false;
 ");
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product'); ?></h1>
 
 
 <div class="search-form">
@@ -42,13 +42,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'columns' => array(
         'ma_vach',
         'ten_san_pham',
+        'don_vi_tinh',
         array(
-            'name' => 'nha_cung_cap_id',
-            'value' => '$data->nhaCungCap->ten_nha_cung_cap',
-        ),
-        array(
-            'name' => 'loai_san_pham_id',
-            'value' => '$data->loaiSanPham->ten_loai',
+            'name'=>'nha_cung_cap_id',
+            'value'=>'$data->nhaCungCap->ten_nha_cung_cap'
         ),
 
         array('name' => Yii::t('viLib', 'Base price'),
@@ -65,7 +62,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'type' => 'raw',
             'value' => '($data->khuyen_mai_id!=null)?(CHtml::image(Yii::app()->theme->baseUrl . "/images/promo.png") ."  ".$data->khuyenMai->ten_chuong_trinh):null',
         ),
-        'trang_thai' => array(
+
+        array(
+            'name'=>Yii::t('viLib', 'Total instock'),
+            'value'=>'$data->layTongSoLuongTon()',
+        ),
+        array(
             'name' => 'trang_thai',
             'value' => '$data->layTenTrangThai()',
         ),
