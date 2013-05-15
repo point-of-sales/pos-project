@@ -1,5 +1,6 @@
 <?php
 Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/banhang.js');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/hd-format.js');
 Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/banhang.css');
 /*
 echo '<pre>';
@@ -12,6 +13,7 @@ echo '</pre>';
 <div id="form-hd-ban">
 <?php $form = $this->beginWidget('GxActiveForm', array(
 	'enableAjaxValidation' => false,
+    'id' => 'form',
 ));
 ?>
 	<div id="form-hd-ban-header">
@@ -105,7 +107,7 @@ echo '</pre>';
     <div id="form-hd-ban-command">
     	<div id="form-hd-ban-button">
             <input class="" type="button" value="Hóa đơn mới" onclick="hoaDonMoi()" />
-            <input class="" type="submit" value="In hóa đơn" onclick="inHoaDon()" />
+            <input class="" type="submit" value="In hóa đơn" />
         </div>
     </div>
     <div id="form-hd-ban-footer">

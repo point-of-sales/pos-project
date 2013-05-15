@@ -1,0 +1,36 @@
+#hoa-don{
+    width: 600px;
+}
+#hoa-don-header{
+}
+#hoa-don-header-company{
+	
+}
+#hoa-don-header-title{
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}
+#hoa-don-body-info-left{
+	float:left;
+	width:300px;
+}
+#hoa-don-body-info-right{
+	float:right;
+	width:300px;
+}
+.clear{
+	clear:right;
+}
+#hoa-don-body-detail{
+	
+}
+#hoa-don-body-detail table{
+    width:600px;
+    border-collapse: collapse;
+}
+#hoa-don-footer{
+	text-align:center;
+	font-size:14px;
+	font-style:italic;
+}
