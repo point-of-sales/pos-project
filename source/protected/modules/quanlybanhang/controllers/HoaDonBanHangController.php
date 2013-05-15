@@ -39,6 +39,7 @@ class HoaDonBanHangController extends CPOSController {
             $result = 'ok';
             switch($result) {
                 case 'ok':{
+                    $this->actionInHoaDon(true);
                     //$this->actionHoaDonMoi();
                     $this->redirect(array('them'));
                 }break;
@@ -59,12 +60,6 @@ class HoaDonBanHangController extends CPOSController {
         $this->layout = '//layouts/column1';
 		$this->render('them', array( 'model' => $model));
 	}
-    
-    public function actionHoaDon(){
-        $this->layout = '//layouts/column1';
-        $this->forward('hoadon');
-        Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',false,array('in_hoa_don'));
-    }
 
 	public function actionCapNhat($id) {
 		$model = $this->loadModel($id, 'HoaDonBanHang');
@@ -193,6 +188,8 @@ class HoaDonBanHangController extends CPOSController {
                     'ma_khach_hang' => $model->getAttribute('ma_khach_hang'),
                     'ho_ten' => $model->getAttribute('ho_ten'),
                     'diem_tich_luy' => $model->getAttribute('diem_tich_luy'),
+                    'dien_thoai' => $model->getAttribute('dien_thoai'),
+                    'dia_chi' => $model->getAttribute('dia_chi'),
                     'loai_khach_hang_id' => $model->getAttribute('loai_khach_hang_id'),
                 );
                 Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$khach_hang,array('khach_hang'));
@@ -323,7 +320,8 @@ class HoaDonBanHangController extends CPOSController {
                             'ma_vach' => $model->getAttribute('ma_vach'),
                             'ten_san_pham' => $model->getAttribute('ten_san_pham'),
                             'don_gia'=> $model->layGiaHienTaiKemKhuyenMai(),
-                            'so_luong' => 1
+                            'so_luong' => 1,
+                            'thanh_tien' => 0,
                         );
                         $cthd_ban_hang[] = $item;
                         //cap nhat session cthd ban
@@ -361,13 +359,16 @@ class HoaDonBanHangController extends CPOSController {
             $tong = 0;
             $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
             for($i=0;$i<count($cthd_ban_hang);$i++){
-                $tong += $cthd_ban_hang[$i]['don_gia']*$cthd_ban_hang[$i]['so_luong'];
+                $thanh_tien = $cthd_ban_hang[$i]['don_gia']*$cthd_ban_hang[$i]['so_luong'];
+                $cthd_ban_hang[$i]['thanh_tien'] = $thanh_tien;
+                $tong += $thanh_tien;
             }
             if(isset($hd_ban_hang['chiet_khau']))
                 $chiet_khau = $hd_ban_hang['chiet_khau'];
             else
                 $chiet_khau = 0;
             $tri_gia = $tong - $tong*($chiet_khau/100);
+            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
             Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tri_gia,array('tri_gia'));
             Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tong,array('tong'));
         }
@@ -415,6 +416,8 @@ class HoaDonBanHangController extends CPOSController {
                 'ho_ten' => $model->getAttribute('ho_ten'),
                 'diem_tich_luy' => $model->getAttribute('diem_tich_luy'),
                 'loai_khach_hang_id' => $model->getAttribute('loai_khach_hang_id'),
+                'dien_thoai' => $model->getAttribute('dien_thoai'),
+                'dia_chi' => $model->getAttribute('dia_chi'),
             );
         }
         
@@ -435,6 +438,27 @@ class HoaDonBanHangController extends CPOSController {
         );
         Yii::app()->CPOSSessionManager->clear('hd_ban_hang');
         Yii::app()->CPOSSessionManager->add('hd_ban_hang',$hd_ban_hang);
+    }
+    
+    public function actionInHoaDon($flag=null){
+        if(is_null($flag)){
+            $result = Yii::app()->session['in_hoa_don'];
+            if($result){
+                $data = Yii::app()->CPOSSessionManager->getKey('hd_ban_hang');
+                Yii::app()->session['hoa_don'] = $data;
+                Yii::app()->session['in_hoa_don'] = false;
+                echo 'true';
+            }
+            else{
+                echo 'false';
+            }
+        }
+        Yii::app()->session['in_hoa_don'] = $flag;
+    }
+    
+    public function actionHoaDon(){
+        $this->layout = '//layouts/column1';
+        $this->renderPartial('hoadon');
     }
     
     public function actionCapNhatTienNhan(){

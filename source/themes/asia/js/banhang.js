@@ -25,6 +25,7 @@ var sAction = {
     tienNhan : "Tiền nhận",
 };
 
+var idForm = "#form";
 var idMaInput = "#form-hd-ban-ma-input";
 var idMaLabel = "#form-hd-ban-ma-label";
 var idFormError = "#form-hd-ban-error";
@@ -58,6 +59,7 @@ document.onkeypress = stopRKey;
 ///////////////////////////////////////////
 
 $(document).ready(function(){
+    inHoaDon();
     dialogTimKhachHang();
     dialogHangTang();
     dialogThemKhachHang();
@@ -89,7 +91,20 @@ function hoaDonMoi(){
 }
 
 function inHoaDon(){
-    
+    $.ajax({
+        url:"inhoadon",
+        type:"POST",
+        async:false,
+        success:function(data){
+            if(data=='true'){
+                window.open('hoadon');   
+            }
+        },
+    });
+    $(idForm).submit(function(e){
+        e.preventDefault();
+        this.submit();  //k dung jquery o day de tranh lap vo tan
+    });
 }
 
 function dialogTimKhachHang(){
@@ -254,6 +269,7 @@ function capNhatTienNhan(hand){
 }
 
 function chuyenDoiThaoTac(action){
+    console.log(action);
     $(idMaLabel).html(action);
     curAction = action;
     xoaMaInput();
@@ -270,12 +286,12 @@ function layKhachHang(){
         success: function(data){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
+                chuyenDoiThaoTac(sAction.maVach);
                 $(idFormError).html("");
                 dongBoDuLieu();
-                chuyenDoiThaoTac(sAction.ma_vach);
             }
             else{
-                $(idMaInput).select();
+                xoaMaInput();
                 $(idFormError).html(item.msg);
             }   
         }
@@ -454,34 +470,4 @@ function xoaGrid(){
         '<th>Thành tiền</th>'+
         '<th></th>'+
     '</tr>');
-}
-
-function vnd_format(number){
-    return number_format(number,0,'.',',')
-}
-
-function del_format(number){
-    number = number.toString();
-    number = number.replaceAll(',','');
-    number = number.replaceAll('.','');
-    return parseInt(number); 
-}
-
-function number_format( number, decimals, dec_point, thousands_sep ) {   
-    var n = number, c = isNaN(decimals = Math.abs(decimals)) ? 2 : decimals;
-    var d = dec_point == undefined ? "," : dec_point;
-    var t = thousands_sep == undefined ? "." : thousands_sep, s = n < 0 ? "-" : "";
-    var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
-                              
-    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-}
-
-String.prototype.replaceAll = function(strTarget,strSubString){
-    var strText = this;
-    var intIndexOfMatch = strText.indexOf( strTarget );
-    while (intIndexOfMatch != -1){
-        strText = strText.replace( strTarget, strSubString );
-        intIndexOfMatch = strText.indexOf( strTarget );
-    }
-    return strText;
 }
