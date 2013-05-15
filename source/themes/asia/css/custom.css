@@ -365,4 +365,39 @@ div.search-form {
     font-style:italic;
 }
 
+.chi-nhanh-dropdownlist-report {
+    width:200px;
 
+}
+
+.form-portlet .row {
+    padding-top:5px;
+    padding-bottom:7px;
+}
+
+.report-intro{
+    width:1015px;
+    height:360px;
+    border:1px solid #5B77CC;
+    margin-top:-32px;
+}
+
+.report-intro p {
+    margin-top:10px;
+    margin-left:10px;
+    padding:10px;
+    font-size:1.4em;
+    font-weight:bold;
+    color:white;
+    border:1px solid;
+    background-color:#00A0C4;
+    width:975px;
+    height:25px;
+}
+
+.report-intro img {
+    width:16%;
+    margin-left:750px;
+    margin-top:120px;
+    
+}

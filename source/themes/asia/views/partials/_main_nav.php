@@ -11,6 +11,7 @@
             array('label'=>'Quản lý nhập xuất', 'url'=>array('/quanlynhapxuat/chiNhanh/danhsach')),
             array('label'=>'Quản lý khuyến mãi', 'url'=>array('/quanlykhuyenmai/khuyenMai/danhsach')),
             array('label'=>'Quản lý nhà cung cấp', 'url'=>array('/quanlynhacungcap/nhaCungCap/danhsach')),
+            array('label'=>'Quản lý báo cáo', 'url'=>array('/quanlybaocao/baoCao/danhsach')),
             array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
             array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
         ),

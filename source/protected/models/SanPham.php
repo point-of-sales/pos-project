@@ -6,6 +6,11 @@ class SanPham extends BaseSanPham
 {
     public $chi_nhanh_id;
     public $danhSachMocGia;
+    public $ton_dau_ky=0;
+    public $so_luong_nhap=0;
+    public $so_luong_xuat=0;
+    public $so_luong_ban=0;
+    public $so_luong_thuc_ton=0;
 
     public static function model($className = __CLASS__)
     {
@@ -36,6 +41,7 @@ class SanPham extends BaseSanPham
             'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamChiNhanh(san_pham_id, chi_nhanh_id)'),
             'mocGias' => array(self::HAS_MANY, 'MocGia', 'san_pham_id'),
             'khuyenMai'=>array(self::BELONGS_TO,'KhuyenMai','khuyen_mai_id'),
+            'sanPhamChiNhanh'=>array(self::HAS_MANY,'SanPhamChiNhanh','san_pham_id'),
         );
     }
 

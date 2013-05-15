@@ -13,7 +13,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
     {
         return array(
             'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietHoaDonBan(hoa_don_ban_id, san_pham_id)'),
-            'id0' => array(self::BELONGS_TO, 'ChungTu', 'id'),
+            'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
             'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
             'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'hoa_don_ban_id'),
             'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietHoaDonTang(hoa_don_id,san_pham_tang_id)'),

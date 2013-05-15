@@ -218,6 +218,13 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Employee type name'=>'Tên loại nhân viên',
     'Total instock'=>'Tổng tồn',
     'Some problems are occured. Please check you input data or contact Administrator for helping'=>'Có lỗi xảy ra. Vui lòng kiểm tra dữ liệu nhập hoặc liên hệ với quản trị viên để được giúp đỡ',
-
-
+    'Beginning instock'=>'Tồn đầu kỳ',
+    'Import quantity'=>'Số lượng nhập',
+    'Export quantity'=>'Số lượng xuất',
+    'Sale quantity'=>'Số lượng bán',
+    'Real instock'=>'Số lượng thực tồn',
+    'Choose a branch to view Import & Export Status'=>'Chọn chi nhánh để xem báo cáo tình hình nhập xuất',
+    'Time period'=>'Khoảng thời gian',
+    'not defined'=>'chưa định nghĩa',
+    'Time period is wrong format'=>'Sai định dạng ngày tháng',
 );

@@ -29,6 +29,22 @@
                     $this->endWidget();
                     ?>
 				</div>
+                <?php
+                    switch(Yii::app()->controller->action->id) {
+                        case 'nhapxuatton': {
+                            $this->widget('CPOSImportExportReportPortlet');
+                            break;
+                        }
+                        case 'banhang': {
+                            $this->widget('CPOSSaleReportPorlet');
+                            break;
+                        }
+
+                    }
+
+
+                ?>
+
 			</div>
 			<div class="clearfix"></div>
 		</div>

@@ -75,6 +75,9 @@ return array(
         'quanlykhuyenmai'=>array(
             'defaultController'=>'danhsach',
         ),
+        'quanlybaocao'=>array(
+            'defaultController'=>'baocao',
+        ),
                     
 	),
 
