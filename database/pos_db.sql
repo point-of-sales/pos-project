@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2013 at 11:11 PM
+-- Generation Time: May 15, 2013 at 03:19 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -63,13 +63,13 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiNhanh` (
 --
 
 INSERT INTO `tbl_ChiNhanh` (`id`, `ma_chi_nhanh`, `ten_chi_nhanh`, `dia_chi`, `dien_thoai`, `fax`, `mo_ta`, `trang_thai`, `truc_thuoc_id`, `khu_vuc_id`, `loai_chi_nhanh_id`) VALUES
-(1, 'OUTSYS', 'Các nguồn bên ngoài hệ thống ', NULL, NULL, NULL, 'Các công ty, tổ chức bên ngoài hệ thống ', 1, NULL, 1, 1),
-(10, 'adsad', 'yyyyy', NULL, NULL, NULL, NULL, 1, NULL, 1, 2),
-(25, 'dasdsa', 'adsad', 'sadsadsa', NULL, NULL, NULL, 1, 10, 4, 2),
-(26, 'adsassdsa', 'adsaasdsa ', 'dxsa', NULL, NULL, NULL, 1, 10, 1, 1),
-(27, 'adsadsa', 'adsad', NULL, NULL, NULL, NULL, 0, NULL, 1, 1),
-(28, 'BABA', 'adsa', NULL, NULL, NULL, NULL, 1, NULL, 1, 1),
-(29, 'sa', 'sa', NULL, NULL, NULL, NULL, 0, NULL, 1, 1);
+(1, 'OUTSYS', 'Các nguồn bên ngoài hệ thống ', NULL, NULL, NULL, 'Các công ty, tổ chức bên ngoài hệ thống ', 1, NULL, 4, 1),
+(10, 'CN0001', 'Siêu thị Trung tâm Sài gòn Times', '1 Trần Hưng Đạo - Q1', NULL, NULL, NULL, 1, NULL, 4, 1),
+(25, 'CN9874', 'Trung tâm mua sắm AT ', '63 Yersin - TP.Đà lạt', NULL, NULL, NULL, 1, 27, 6, 2),
+(26, 'CN0732', 'Siêu thị Thăng Long ', '55 Hoàng Quốc Việt - Hà Nội', '08-3234324', '08-3234325', NULL, 1, 10, 3, 1),
+(27, 'CN0032', 'Siêu thị Mama Baker V', '34 Trần Quốc Thảo - Q3', '08-5464848', '08-5464849', NULL, 1, 10, 4, 1),
+(28, 'CN0839', 'Chi nhánh Siêu thị Antec ', '78 Trường Sa - Tân Bình', '08-3444323', '08-3444325', NULL, 1, 10, 4, 2),
+(29, 'CN0040', 'Chi nhánh Siêu thị An Bình ', '103 An Bình - Q5', '08-4343433', '08-4343435', NULL, 1, 10, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -139,51 +139,13 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhap` (
 --
 
 INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, `gia_nhap`) VALUES
-(2, 56657, 131, 3123),
-(2, 56658, 1312312, 321321),
-(2, 56662, 20, 3123),
-(2, 56664, 213, 2131),
-(2, 56665, 3213, 21321),
-(2, 56686, 3210, -80000),
-(2, 56687, 2312, -80000),
-(2, 56688, 3213, 80000),
-(2, 56689, 3213, -80000),
-(2, 56690, 1321, -80000),
-(2, 56691, 31321, -80000),
-(3, 56662, 33, 3123),
-(4, 56646, 110, 123),
-(4, 56648, 432, 3123),
-(4, 56649, 321, 432),
-(4, 56653, 5555, 423),
-(4, 56655, 9088, 3123),
-(4, 56658, 3213, 4324),
-(4, 56661, 321, 13),
-(4, 56662, 123, 323),
-(4, 56663, 3123, 3213),
-(4, 56664, 3210, 2131),
-(4, 56673, 12321, 213),
-(4, 56674, -321, 3123),
-(4, 56675, -320, 213),
-(4, 56676, -320, 3213),
-(4, 56677, -3213, 2321),
-(4, 56678, -321, 321),
-(4, 56679, -3213, 321321),
-(4, 56680, -32321, 313),
-(4, 56681, -321, 3132),
-(4, 56682, -311, 3123),
-(4, 56683, -13, 323),
-(4, 56684, -312, 32),
-(4, 56685, 1230, 2131),
-(4, 56686, 213, 31321),
-(4, 56687, 321, 3213),
-(4, 56688, 3123, -31123),
-(4, 56689, 3213, 2131),
-(4, 56690, 1312, 3123),
-(4, 56691, 312, 3123),
-(4, 56692, 3213, -13123),
-(4, 56693, 32213, 321321),
-(5, 56660, 123, 43234),
-(5, 56666, 9999, 99999);
+(8, 56719, 250, 390000),
+(8, 56726, 300, 390000),
+(9, 56726, 50, 200000),
+(10, 56719, 600, 45000),
+(10, 56721, 200, 45000),
+(10, 56725, 230, 45000),
+(11, 56721, 120, 430000);
 
 -- --------------------------------------------------------
 
@@ -199,6 +161,13 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhapSanPhamTang` (
   KEY `FKtbl_ChiTie125142` (`san_pham_tang_id`),
   KEY `FKtbl_ChiTie280143` (`phieu_nhap_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_ChiTietPhieuNhapSanPhamTang`
+--
+
+INSERT INTO `tbl_ChiTietPhieuNhapSanPhamTang` (`san_pham_tang_id`, `phieu_nhap_id`, `so_luong`) VALUES
+(1, 56720, 100);
 
 -- --------------------------------------------------------
 
@@ -221,24 +190,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuat` (
 --
 
 INSERT INTO `tbl_ChiTietPhieuXuat` (`san_pham_id`, `phieu_xuat_id`, `so_luong`, `gia_xuat`) VALUES
-(2, 56659, 323, 9000),
-(2, 56667, 323, NULL),
-(2, 56669, 321, NULL),
-(2, 56670, 32, NULL),
-(2, 56671, 13123, NULL),
-(2, 56695, 132, NULL),
-(4, 56647, 50, NULL),
-(4, 56651, 2, NULL),
-(4, 56652, 2, NULL),
-(4, 56656, 550, NULL),
-(4, 56668, 312, NULL),
-(4, 56672, 321, NULL),
-(4, 56694, 321, NULL),
-(4, 56696, 121, NULL),
-(4, 56697, 311, NULL),
-(4, 56698, 2147483647, NULL),
-(4, 56699, 32, NULL),
-(4, 56700, 221, 3231);
+(10, 56724, 230, 45000);
 
 -- --------------------------------------------------------
 
@@ -273,68 +225,19 @@ CREATE TABLE IF NOT EXISTS `tbl_ChungTu` (
   UNIQUE KEY `ma_chung_tu` (`ma_chung_tu`),
   KEY `FKtbl_ChungT392230` (`nhan_vien_id`),
   KEY `FKtbl_ChungT837946` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56701 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56727 ;
 
 --
 -- Dumping data for table `tbl_ChungTu`
 --
 
 INSERT INTO `tbl_ChungTu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`, `nhan_vien_id`, `chi_nhanh_id`) VALUES
-(56646, 'BHUY', '2013-05-04', 13530, NULL, 2, 28),
-(56647, 'XUATAA', '2013-05-04', 15600, NULL, 2, 28),
-(56648, 'HDNDAH', '2013-05-05', 1349136, NULL, 2, 29),
-(56649, 'DA', '2013-05-05', 138672, NULL, 2, 10),
-(56650, 'JJSASS', '2013-05-05', 0, NULL, 2, 29),
-(56651, 'HDKDA', '2013-05-05', 426, NULL, 2, 28),
-(56652, 'NDKKD', '2013-05-05', 624, NULL, 2, 28),
-(56653, 'adadNHAP ', '2013-05-05', 2349765, NULL, 2, 28),
-(56654, 'SSASAS', '2013-05-05', 0, NULL, 2, 10),
-(56655, 'BHGS', '2013-05-05', 28381824, NULL, 2, 28),
-(56656, 'DDADAS', '2013-05-05', 1767150, NULL, 2, 28),
-(56657, 'HDJA', '2013-05-06', 409113, NULL, 2, 10),
-(56658, 'NHAP1', '2013-05-06', 421687297164, 'nhap hang moi ', 2, 26),
-(56659, 'XUAT2233', '2013-05-06', 1008729, NULL, 2, 26),
-(56660, 'NHAP2', '2013-05-06', 5317782, NULL, 2, 10),
-(56661, 'JSSF', '2013-05-10', 4173, NULL, 2, 10),
-(56662, 'FDSDSD', '2013-05-10', 205248, NULL, 2, 10),
-(56663, 'GFDJD', '2013-05-10', 10034199, NULL, 2, 10),
-(56664, 'GDJDJ', '2013-05-10', 7294413, NULL, 2, 10),
-(56665, 'XXX333', '2013-05-10', 68504373, NULL, 2, 10),
-(56666, 'CHINHANH25', '2013-05-10', 999890001, NULL, 2, 25),
-(56667, 'GHD', '2013-05-10', 25840000, NULL, 2, 10),
-(56668, 'DDSD', '2013-05-10', 1002456, NULL, 2, 10),
-(56669, 'GDJDA', '2013-05-10', 25680000, NULL, 2, 10),
-(56670, 'dasddegds', '2013-05-10', 2560000, NULL, 2, 10),
-(56671, 'LKJDDKJ', '2013-05-10', 1049840000, NULL, 2, 10),
-(56672, 'NFNFFDS', '2013-05-10', 1031373, NULL, 2, 10),
-(56673, 'DAS', '2013-05-10', 2624373, NULL, 2, 10),
-(56674, 'DADADdsd', '2013-05-11', -1002483, NULL, 2, 10),
-(56675, 'HGG', '2013-05-11', -68160, NULL, 2, 10),
-(56676, 'DSASA', '2013-05-11', -1028160, NULL, 2, 10),
-(56677, 'HFDKD', '2013-05-11', -7457373, NULL, 2, 10),
-(56678, 'DDADDAD', '2013-05-11', -103041, NULL, 2, 10),
-(56679, 'XSA', '2013-05-11', -1032404373, NULL, 2, 10),
-(56680, 'DADAAD', '2013-05-11', -10116473, NULL, 2, 10),
-(56681, 'NMJJ', '2013-05-11', -1005372, NULL, 2, 10),
-(56682, 'JJDA', '2013-05-11', -971253, NULL, 2, 10),
-(56683, 'HFDDNA', '2013-05-11', -4199, NULL, 2, 10),
-(56684, 'ID', '2013-05-11', -9984, NULL, 2, 10),
-(56685, 'dsadsa', '2013-05-11', 2621130, NULL, 2, 10),
-(56686, 'DADADDAD', '2013-05-11', -250128627, NULL, 2, 10),
-(56687, 'BDND', '2013-05-11', -183928627, NULL, 2, 10),
-(56688, 'VCNDA', '2013-05-11', 159842871, NULL, 2, 10),
-(56689, 'HDA', '2013-05-11', -250193097, NULL, 2, 10),
-(56690, 'OPOPSA', '2013-05-11', -101582624, NULL, 2, 10),
-(56691, 'ODA', '2013-05-11', -2504705624, NULL, 2, 10),
-(56692, 'NNDA', '2013-05-11', -42164199, NULL, 2, 10),
-(56693, 'ODAD', '2013-05-11', 10350713373, NULL, 2, 26),
-(56694, 'adsafff', '2013-05-11', 1031373, NULL, 2, 26),
-(56695, 'sAFC', '2013-05-11', 10560000, NULL, 2, 26),
-(56696, 'adasdsaf', '2013-05-11', 37873, NULL, 2, 26),
-(56697, 'JDJSASSA', '2013-05-11', 6630831, NULL, 2, 26),
-(56698, 'adsad', '2013-05-11', 31229826114483, NULL, 2, 26),
-(56699, 'BNAA', '2013-05-11', 10272, NULL, 2, 26),
-(56700, 'HDJDJAD', '2013-05-11', 714051, NULL, 2, 26);
+(56719, 'PN0432432', '2013-05-13', 124500000, NULL, 2, 10),
+(56720, 'TA321321', '2013-05-13', 0, NULL, 2, 10),
+(56721, 'PN321342', '2013-05-13', 60600000, NULL, 6, 28),
+(56724, 'PX0435453', '2013-05-13', 10350000, NULL, 2, 10),
+(56725, 'PN434535', '2013-05-13', 10350000, NULL, 2, 26),
+(56726, 'PN3234234', '2013-05-13', 127000000, NULL, 6, 10);
 
 -- --------------------------------------------------------
 
@@ -402,14 +305,15 @@ CREATE TABLE IF NOT EXISTS `tbl_KhachHang` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_khach_hang` (`ma_khach_hang`),
   KEY `FKtbl_KhachH518685` (`loai_khach_hang_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tbl_KhachHang`
 --
 
 INSERT INTO `tbl_KhachHang` (`id`, `ma_khach_hang`, `ho_ten`, `ngay_sinh`, `dia_chi`, `thanh_pho`, `dien_thoai`, `email`, `mo_ta`, `diem_tich_luy`, `loai_khach_hang_id`) VALUES
-(1, 'saadad', 'daad', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 2);
+(1, 'KH00423', 'Lê Thanh Bình', '1970-01-06', '8/4 Bà Hạt - Q10', 'TP Hồ Chí Minh', '0904343243', NULL, NULL, 51000, 2),
+(2, 'KHBT', 'Khach hang mua le', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 7);
 
 -- --------------------------------------------------------
 
@@ -424,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuVuc` (
   `mo_ta` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_khu_vuc` (`ma_khu_vuc`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=78 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tbl_KhuVuc`
@@ -434,69 +338,7 @@ INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
 (1, 'MTR', 'Khu vực miền Trung', 'adsadsa '),
 (3, 'HNO', 'Khu vực Hà Nội ', 'dssadsad'),
 (4, 'HCM', 'Khu vực TP.Hồ Chí Minh', NULL),
-(6, 'DNB ', 'Đông Nam Bộ ', NULL),
-(10, 'bbb', 'dsa', 'adssa'),
-(11, 'fsdfds', 'khu vuc xxx', 'dsa'),
-(12, 'ggggsfdsfds', 'fdafd', 'fdsf'),
-(13, 'BATDA', 'fsdfdsf', 'sdfdsf'),
-(15, 'dsada', 'asdsa', NULL),
-(16, 'dsadsa', 'dsadsad', 'adsads'),
-(17, 'dsadad', 'asdsa', NULL),
-(18, 'sfdds', 'sdfdsfd', NULL),
-(19, 'sdfsdfdsfds', 'sdfdsfs', NULL),
-(20, 'fdfs', 'sfdsf', NULL),
-(21, 'sdsad', 'adsa', NULL),
-(22, 'dsa', 'asdsa', NULL),
-(23, 'sdfd', 'sdfdsf', NULL),
-(24, 'dsss', 'sds', NULL),
-(25, 'asdsa', 'adsad', NULL),
-(26, 'vvv', 'wdadsa', NULL),
-(27, 'sfds', 'sdfsd', NULL),
-(28, 'sfdsf', 'sfdds', NULL),
-(29, 'hgfhfh', 'sfdds', NULL),
-(30, 'cc', 'adsa', NULL),
-(31, 'sfsdf', 'sfds', NULL),
-(32, 'fdsf', 'sfdd', NULL),
-(33, 'sd', 'ds', NULL),
-(34, 'f', 'sd', NULL),
-(35, 'sf', 'sdf', NULL),
-(36, 'dfdfddsa', 'sdf', NULL),
-(37, 'sfs', 'SAFA', 'sdd'),
-(39, 'sfd', 'sf', NULL),
-(40, 's', 'dd', NULL),
-(41, 'ssdd', 'ss', NULL),
-(42, 'hhhd', 'ssd', NULL),
-(43, 'hfhfhfhfh', 'sfdsfsdfdsfdsf', NULL),
-(44, 'jjjhkhk', 'sdsad', NULL),
-(46, 'fdadsad', 'adsadsa', NULL),
-(48, 'bbbaa', 'dad', NULL),
-(49, 'xxddw', 'sf', NULL),
-(50, 'dsdma a', 'dsd', NULL),
-(51, 'gdjdjdkd', 'sfda', NULL),
-(52, 'bababamama', 'dss', NULL),
-(53, 'fhfhf', 'asd', NULL),
-(54, 'bvncm', 'asdsa', NULL),
-(55, 'bvsssss', 'sasd', NULL),
-(56, 'bvasddp90', 's', NULL),
-(59, 'dwedde', 'd3ed', '3e43e34e3'),
-(60, 'gfdg', 'dasd', 'asd'),
-(61, 'gfdgfd', 'dsad', 'adsa'),
-(62, 'adsa', 'ad', 'asd'),
-(63, 'adsavvf', 'asd', 'das'),
-(64, 'bcnh', 'sds', 'dsa'),
-(65, 'hgfhf', 'adsa', NULL),
-(66, 'as', 'adsa', 'adsa'),
-(67, 'sdflpoo', 'sdsa', NULL),
-(68, 'adsavvfdf', 'dsa', NULL),
-(69, 'jgj', 'as', NULL),
-(70, 'bcnd', 'sdsa', NULL),
-(71, 'dsad', 'sadsa', NULL),
-(72, 'das', 'adsa', NULL),
-(73, 'bgtdid', 'adsa', NULL),
-(74, 'fds', 'sfds', NULL),
-(75, 'bfgjp', 'ad', NULL),
-(76, 'nn', 'ad', NULL),
-(77, 'efrw', 'efrew', NULL);
+(6, 'DNB ', 'Đông Nam Bộ ', NULL);
 
 -- --------------------------------------------------------
 
@@ -522,10 +364,10 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuyenMai` (
 --
 
 INSERT INTO `tbl_KhuyenMai` (`id`, `ma_chuong_trinh`, `ten_chuong_trinh`, `mo_ta`, `gia_giam`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `trang_thai`) VALUES
-(4, 'KM033', 'Khuyen mai tang 33%', NULL, 33, '2013-05-10', '2013-06-30', 1),
-(5, 'KM044', 'khuyen mai tang 44%', NULL, 44, '2013-05-15', '2013-05-30', 0),
-(6, 'KM50', 'Khuyen mai tang 50%', NULL, 50, '2013-05-30', '2013-08-30', 1),
-(7, 'KM90', 'Khuyen mai tang 90%', NULL, 90, '2013-07-18', '2013-09-27', 0);
+(4, 'KM33', 'Khuyến mãi tặng 33%', NULL, 33, '2013-05-10', '2013-06-30', 1),
+(5, 'KM44', 'Khuyến mãi tặng 44%', NULL, 44, '2013-05-15', '2013-05-30', 0),
+(6, 'KM50', 'Khuyến mãi tặng 50%', NULL, 50, '2013-05-30', '2013-08-30', 1),
+(7, 'KM90', 'Khuyến mãi tặng 90%', NULL, 90, '2013-07-18', '2013-09-27', 0);
 
 -- --------------------------------------------------------
 
@@ -591,15 +433,19 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiKhachHang` (
   `giam_gia` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai_khach_hang` (`ma_loai_khach_hang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tbl_LoaiKhachHang`
 --
 
 INSERT INTO `tbl_LoaiKhachHang` (`id`, `ma_loai_khach_hang`, `ten_loai`, `doanh_so`, `giam_gia`) VALUES
-(1, 'das', 'sa', NULL, NULL),
-(2, 'LKH001', 'Khach loai 1', 1000000, 20);
+(2, 'LKH001', 'Khách hàng loại 1', 30000000, 15),
+(3, 'L002', 'Khách hàng loại 2', 15000000, 5),
+(4, 'L003', 'Khách hàng loại 3', 1000000, 3),
+(5, 'VIP001', 'Khách VIP1', 100000000, 20),
+(6, 'VIP002', 'Khách VIP2', 80000000, 17),
+(7, 'KHBT', 'Khách lẻ', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -613,16 +459,48 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiNhanVien` (
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai_nhan_vien` (`ma_loai_nhan_vien`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `tbl_LoaiNhanVien`
 --
 
 INSERT INTO `tbl_LoaiNhanVien` (`id`, `ma_loai_nhan_vien`, `ten_loai`) VALUES
-(1, 'TK1', 'Thu Kho 1'),
+(1, 'TK1', 'Kế toán 1'),
 (3, 'DH1', 'Điều hành 1'),
-(4, 'BH', 'Bán hàng ');
+(4, 'BH', 'Bán hàng '),
+(5, 'TK', 'Thủ kho ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_LoaiNhapXuat`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_LoaiNhapXuat` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `ma_loai_nhap_xuat` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `ten_loai_nhap_xuat` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `loai` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ma_loai_nhap_xuat` (`ma_loai_nhap_xuat`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `tbl_LoaiNhapXuat`
+--
+
+INSERT INTO `tbl_LoaiNhapXuat` (`id`, `ma_loai_nhap_xuat`, `ten_loai_nhap_xuat`, `loai`) VALUES
+(1, 'N001', 'Nhập bán ', 0),
+(2, 'N002', 'Nhập mượn', 0),
+(3, 'N003', 'Nhập kiểm tra', 0),
+(4, 'N004', ' Nhập sản phẩm tặng ', 1),
+(5, 'N005', 'Nhập sản phẩm tặng kiểm tra ', 1),
+(6, 'X006', 'Xuất bán', 2),
+(7, 'X007', 'Xuất cho mượn ', 2),
+(8, 'X008', 'Xuất kiểm tra ', 2),
+(9, 'X009', 'Xuất sản phẩm tặng', 3),
+(10, 'X010', 'Xuất sản phẩm tặng kiểm tra ', 3);
 
 -- --------------------------------------------------------
 
@@ -636,18 +514,20 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiSanPham` (
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai` (`ma_loai`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tbl_LoaiSanPham`
 --
 
 INSERT INTO `tbl_LoaiSanPham` (`id`, `ma_loai`, `ten_loai`) VALUES
-(1, 'dsa', 'VVVVVV'),
-(2, 'gfdgsadsad', 'dadssa'),
-(3, 'ada ', 'adfsf'),
-(5, 'adasd', 'dadsa'),
-(6, 'wfdsa', 'sfd');
+(1, 'DT', 'Đồ điện tử'),
+(2, 'TP', 'Thực phẩm'),
+(3, 'GK', 'Nước giải khát-nước ngọt'),
+(5, 'RB', 'Rượu bia'),
+(6, 'GD', 'Đồ gia dụng'),
+(7, 'QA', 'Quần áo hàng may mặc'),
+(8, 'QT', 'Đồ trang trí-quà tặng');
 
 -- --------------------------------------------------------
 
@@ -662,28 +542,7 @@ CREATE TABLE IF NOT EXISTS `tbl_MocGia` (
   `san_pham_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `san_pham_id` (`san_pham_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=58 ;
-
---
--- Dumping data for table `tbl_MocGia`
---
-
-INSERT INTO `tbl_MocGia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) VALUES
-(32, '2013-04-17', 50009, 2),
-(33, '2013-04-24', 63000, 2),
-(34, '2013-04-29', 800000, 2),
-(40, '2013-04-28', 80000, 2),
-(42, '2013-04-12', 38000, 2),
-(43, '2013-04-19', 5000, 3),
-(44, '2013-04-17', 4000, 3),
-(48, '2013-04-17', 8888, 4),
-(49, '2013-04-24', 7000, 4),
-(50, '2013-05-09', 5345, 2),
-(53, '2013-08-16', 233, 2),
-(54, '2013-06-13', 33, 2),
-(55, '2013-04-21', 6000, 5),
-(56, '2013-04-30', 80000, 5),
-(57, '2013-05-29', 53543, 4);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -702,15 +561,19 @@ CREATE TABLE IF NOT EXISTS `tbl_NhaCungCap` (
   `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_nha_cung_cap` (`ma_nha_cung_cap`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tbl_NhaCungCap`
 --
 
 INSERT INTO `tbl_NhaCungCap` (`id`, `ma_nha_cung_cap`, `ten_nha_cung_cap`, `mo_ta`, `dien_thoai`, `email`, `fax`, `trang_thai`) VALUES
-(3, 'dsads', 'Cong Ty TNHH Coca VietNam', 'dasdsa', NULL, NULL, NULL, 1),
-(4, 'ffffdsad', 'adsad', NULL, NULL, NULL, NULL, 1);
+(3, 'CC03983', 'Công Ty TNHH Pepsi Việt Nam', 'dasdsa', NULL, NULL, NULL, 1),
+(4, 'CC83239', 'Công ty Sữa Vinamilk ', NULL, '08-3213234', NULL, NULL, 1),
+(5, 'CC355324', 'Tập đoàn Nutifoods - Nutifoods Việt Nam', NULL, '08-4324322', NULL, NULL, 1),
+(6, 'CC9573432', 'Công ty gốm sứ Sét vàng', NULL, '08-534543', NULL, NULL, 1),
+(7, 'CC3653423', 'Điện máy Nguyễn Kim', NULL, '08-3455435', NULL, NULL, 1),
+(8, 'CC32434', 'Công ty TNHH May mặc Thiên Hà', NULL, '08-432143', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -741,15 +604,16 @@ CREATE TABLE IF NOT EXISTS `tbl_NhanVien` (
   KEY `ngay_vao_lam` (`ngay_vao_lam`),
   KEY `FKtbl_NhanVi521022` (`loai_nhan_vien_id`),
   KEY `FKtbl_NhanVi835155` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tbl_NhanVien`
 --
 
 INSERT INTO `tbl_NhanVien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai`, `dia_chi`, `gioi_tinh`, `ngay_sinh`, `trinh_do`, `luong_co_ban`, `chuyen_mon`, `trang_thai`, `mat_khau`, `ngay_vao_lam`, `lan_dang_nhap_cuoi`, `loai_nhan_vien_id`, `chi_nhanh_id`) VALUES
-(2, 'adsa', 'adsa', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, 'adsa', NULL, NULL, 1, 26),
-(5, 'dsad', 'dsad', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 'dsadsa', NULL, NULL, 1, 26);
+(2, 'BH001', 'Trần Thụy Diễm My ', NULL, NULL, '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3000000, 'Bán hàng', 1, '123456', '2010-08-11', '1970-01-01', 4, 26),
+(5, 'KT00322', 'Lê Quốc Nam', NULL, NULL, '78/3/2 Thích Quảng Đức - Gò Vấp', 0, '1983-06-15', NULL, NULL, NULL, 1, '123456', '2009-01-21', '1970-01-01', 1, 26),
+(6, 'TK03123', 'Nguyễn Thành Trung', NULL, NULL, NULL, 0, '1982-05-21', NULL, NULL, NULL, 1, '1233', '2013-05-23', '1970-01-01', 5, 10);
 
 -- --------------------------------------------------------
 
@@ -773,13 +637,14 @@ CREATE TABLE IF NOT EXISTS `tbl_PhanQuyen` (
 
 CREATE TABLE IF NOT EXISTS `tbl_PhieuNhap` (
   `id` int(10) NOT NULL,
-  `loai_nhap_vao` tinyint(4) NOT NULL,
+  `loai_nhap_vao` int(10) NOT NULL,
   `chi_nhanh_xuat_id` int(10) NOT NULL,
   `nha_cung_cap_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKtbl_PhieuN364331` (`chi_nhanh_xuat_id`),
   KEY `FKtbl_PhieuN233283` (`id`),
-  KEY `FKtbl_PhieuN233299` (`nha_cung_cap_id`)
+  KEY `FKtbl_PhieuN233299` (`nha_cung_cap_id`),
+  KEY `loai_nhap_vao` (`loai_nhap_vao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -787,42 +652,11 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuNhap` (
 --
 
 INSERT INTO `tbl_PhieuNhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cung_cap_id`) VALUES
-(56646, 0, 10, NULL),
-(56648, 0, 10, NULL),
-(56649, 0, 10, NULL),
-(56653, 0, 10, NULL),
-(56654, 0, 10, NULL),
-(56655, 0, 10, NULL),
-(56657, 0, 10, NULL),
-(56658, 0, 28, NULL),
-(56660, 0, 10, NULL),
-(56661, 0, 10, NULL),
-(56662, 0, 26, NULL),
-(56663, 0, 1, 3),
-(56664, 0, 10, NULL),
-(56665, 0, 1, 3),
-(56666, 0, 1, 3),
-(56673, 0, 1, 4),
-(56674, 0, 28, NULL),
-(56675, 0, 28, NULL),
-(56676, 0, 28, NULL),
-(56677, 0, 28, NULL),
-(56678, 0, 28, NULL),
-(56679, 0, 28, NULL),
-(56680, 0, 28, NULL),
-(56681, 0, 28, NULL),
-(56682, 0, 28, NULL),
-(56683, 0, 28, NULL),
-(56684, 0, 28, NULL),
-(56685, 0, 28, NULL),
-(56686, 0, 28, NULL),
-(56687, 0, 28, NULL),
-(56688, 0, 28, NULL),
-(56689, 0, 28, NULL),
-(56690, 0, 28, NULL),
-(56691, 0, 28, NULL),
-(56692, 0, 28, NULL),
-(56693, 0, 28, NULL);
+(56719, 1, 1, 5),
+(56720, 4, 1, 4),
+(56721, 1, 1, 4),
+(56725, 1, 10, NULL),
+(56726, 1, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -837,7 +671,8 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuXuat` (
   `chi_nhanh_nhap_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKtbl_PhieuX543690` (`id`),
-  KEY `FKtbl_PhieuX273736` (`chi_nhanh_nhap_id`)
+  KEY `FKtbl_PhieuX273736` (`chi_nhanh_nhap_id`),
+  KEY `loai_xuat_ra` (`loai_xuat_ra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -845,25 +680,7 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuXuat` (
 --
 
 INSERT INTO `tbl_PhieuXuat` (`id`, `ly_do_xuat`, `loai_xuat_ra`, `chi_nhanh_nhap_id`) VALUES
-(56647, 'adsa', 0, 10),
-(56650, 'dadsa', 1, 10),
-(56651, 'adas', 2, 10),
-(56652, '231', 2, 10),
-(56656, '2132', 2, 10),
-(56659, 'xuat ban di', 0, 10),
-(56667, 'adsad', 0, 25),
-(56668, 'dsadsa', 0, 10),
-(56669, 'adsa', 0, 10),
-(56670, 'adads', 0, 10),
-(56671, 'ADSSAD', 0, 10),
-(56672, 'ada', 0, 26),
-(56694, 'adsa', 0, 10),
-(56695, 'ASDSA', 0, 10),
-(56696, 'adsa', 0, 10),
-(56697, 'adsad', 0, 10),
-(56698, 'adsa', 0, 10),
-(56699, 'adsa', 0, 10),
-(56700, 'dfsad', 0, 10);
+(56724, 'Mượn để bán', 7, 26);
 
 -- --------------------------------------------------------
 
@@ -908,17 +725,24 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
   KEY `FKtbl_SanPha178229` (`nha_cung_cap_id`),
   KEY `FKtbl_SanPha797499` (`loai_san_pham_id`),
   KEY `FKtbl_SanPha69518` (`khuyen_mai_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `tbl_SanPham`
 --
 
 INSERT INTO `tbl_SanPham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `han_dung`, `don_vi_tinh`, `ton_toi_thieu`, `huong_dan_su_dung`, `mo_ta`, `gia_goc`, `trang_thai`, `nha_cung_cap_id`, `loai_san_pham_id`, `khuyen_mai_id`) VALUES
-(2, 'BKBH003', 'Banh keo bien Hoa ', 'sadsa', 56, NULL, 6, 'ddddddddddddddddddddd', NULL, 80000, 1, 3, 2, 6),
-(3, '543534534', 'Bàn ủi điện ', NULL, 24, NULL, 10, NULL, NULL, 0, 0, 4, 2, 4),
-(4, 'b', 'dasd', NULL, 1, NULL, 50, NULL, NULL, 0, 0, 3, 3, 4),
-(5, 'gfdgfd', 'sfds', 'sfdsf', 12, NULL, 50, NULL, NULL, 0, 0, 3, 3, 4);
+(6, '040284', 'Bộ bình trà 16 món - Moriitalia ', 'Bộ bình trà 16 món - Moriitalia ', 0, 'Bộ', 50, NULL, '* Bộ bình trà Moriitalia 16 món.\r\n- Bộ gồm 16 món.\r\n   + 01 Bình trà.\r\n   + 06 Tách trà.\r\n   + 06 Cốc.\r\n   + 01 Hũ đựng đường.\r\n- Thành phần: Sứ cao cấp sản xuất theo tiêu chuẩn của Moriitalia.\r\n- Có thể sử dụng làm quà tặng, rất có ý nghĩa.\r\n- Nhãn hiệu: Morriitalia - Moriitalia chuyên cung cấp đa dạng các sản phẩm hàng gia dụng, đồ dùng nhà bếp, điện gia dụng, quà tặng, đồ trang trí , sản phẩm dùng cho du lịch, dã ngoại ….nổi tiếng thế giới với mức giá cạnh tranh nhất.\r\n- Xuất xứ: Trung Quốc - Sản phẩm được thiết kế và sản xuất theo công nghệ của Italia.', 230000, 1, 6, 6, 4),
+(7, '040207', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 24, 'Cái', 13, NULL, '* Máy xay sinh tố  Osaka BL619.\r\n- Công suất: 300W.\r\n- Dung tích: 1.5 lít.\r\n- Mô tả:\r\n    + Cối được làm bằng hợp chất không bể, không trầy xước.\r\n    + 03 tốc độ.\r\n    + Lọc bằng inox.\r\n    + Motor thế hệ mới vận hành êm.\r\n    + Tự động tắt máy khi quá tải.\r\n    + Xay nhuyễn được đá.\r\n    + Cối nhỏ xay khô.\r\n    + Vỏ nhựa tổng hợp, bền chắc và dễ lau chùi.\r\n- Tính năng: Xay sinh tố. Có cối nhỏ xay khô, có lọc làm sữa đậu nành.\r\n- Sử dụng dễ dàng và nhanh chóng, thời gian thực hiện chỉ tính bằng giây.\r\n- Màu sắc: Màu trắng.\r\n- Bảo hành: 12 tháng.\r\n- Nhãn hiệu: Osaka. Công ty Osaka là công ty chuyên sản xuất các sản phẩm điện gia dụng cao cấp.\r\n- Sản xuất tại Trung Quốc - Sản phẩm được sản xuất theo tiêu chuẩn CE (Châu Âu), và GS (Mỹ).', 6800000, 1, 7, 1, NULL),
+(8, '040176', 'Bia Heineken ', 'Bia Heineken ', 12, 'Thùng', 127, NULL, '- Bia Heineken\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Cách thức chế biến: Lên men tự nhiên\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Heineken\r\n- Xuất xứ: Việt Nam', 390000, 1, 5, 5, NULL),
+(9, '900053', 'Bia Sài Gòn 333', 'Bia Sài Gòn 333', 12, 'Thùng', 127, NULL, '- Bia Sài Gòn 333\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Bia Sài Gòn 333\r\n- Xuất xứ: Việt Nam', 200000, 1, 5, 5, 6),
+(10, '813378', 'Cà phê hòa tan 3 trong 1 Vinacafé', 'Cà phê hòa tan 3 trong 1 Vinacafé', 12, 'Bịch', 50, NULL, '- Cà phê hòa tan 3 trong 1 Vinacafé\r\n- Trọng lượng: 20gr/gói\r\n- Quy cách: 24 gói x 20gr\r\n- Thành phần: Đường, bột kem, cà phê hòa tan (14%)\r\n- Dạng thành phẩm: Gói\r\n- Cách bảo quản: bảo quản nơi khô ráo, thoáng mát\r\n- Sản phẩm đạt chất lượng vệ sinh an toàn thực phẩm, không chứa melamine\r\n- Sản phẩm của Cty Cổ Phần Vinacafé Biên Hòa\r\n- Xuất xứ: Việt Nam', 45000, 1, 4, 3, NULL),
+(11, '010302', 'Cà phê Chồn Robusta 51gr-Hộp quà màu đỏ', 'Cà phê Chồn Robusta 51gr-Hộp quà màu đỏ', 12, 'Hộp', 127, '- Cách dùng: \r\n        + Cho khoảng 20g cà phê bột – tương đương khoảng 1.5 muỗng ăn đầy vào buồng phin và san phẳng bằng nắp gài.\r\n        + Đặt phin lên đĩa phin, dùng nắp gài nén thật chặt trước khi châm vào khoảng 40ml nước sôi. Khoảng 3-4 phút, phin sẽ chảy hết.\r\n        + Đặt phin vào trong nồi hấp đang sôi khoảng 5 phút để hơi nước làm bột cà phê trương nở đều trong phin\r\n        + Lót giấy lọc trong lòng phin sạch, đổ cà phê đã pha vào để lọc hết cặn và bụi than trước khi thưởng thức.\r\n        + Bạn sẽ có tách cà phê Chồn hoàn hảo, đủ sánh đặc, nóng và thơm lừng, đủ để đem đến cho bạn những giây phút thưởng thức không thể quên.\r\n- Lưu ý: \r\n        + Túi nhôm khi đã mở, thì nên dùng hết cà phê trong vòng 2 tuần với hạt và 1 tuần với bột. \r\n        + Túi đang dùng nên được gói kín, không để hơi ẩm lọt vào và cần được cất giữ ở nơi mát mẻ, có độ ẩm thấp.\r\n        + Có thể bảo quản trong ngăn mát tủ lạnh.\r\n', '* Hộp quà màu đỏ - Cà phê Chồn Robusta\r\n- Trọng lượng: 17gr / gói\r\n- Quy cách: 3 gói / hộp\r\n- Mô tả:\r\n        + Cà phê Robusta Chồn được làm từ trái cà phê ở vùng Buôn Mê Thuột vốn nổi tiếng vì nước đặc sánh và vị đậm đà.\r\n        + Cà phê Robusta Chồn vẫn giữ lại các đặc tính ấy của cà phê thường, nhưng lại có thêm vị ngọt thanh cộng thêm vị chua trái cây không hề thấy ở loại cà phê Robusta thường, đồng thời có mùi hương thơm hơn hẳn.\r\n- Nhãn hiệu: Legend Revived\r\n- Xuất xứ: Việt Nam\r\n', 430000, 1, 4, 3, 4),
+(12, '030031', 'Nước ngọt - Pepsi Light ', 'Nước ngọt - Pepsi Light ', 12, 'Thùng', 127, NULL, '* Nước ngọt - Pepsi Light\r\n- Quy cách: 24 lon/thùng\r\n- Thành phần: Nước bão hòa CO2, đường mía, màu tự nhiên, chất điều chỉnh độ axit, caffein, chất ổn định, hỗn hợp tự nhiên\r\n- Dành chongười ăn kiêng\r\n- Dạng thành phẩm: Lon\r\n- Hạn sử dụng: 12 tháng kể từ ngày sản xuất\r\n- Cách bảo quản: Bảo quản ở nơi thoáng mát, tránh ánh nắng trực tiếp, có thể bảo quản lạnh.\r\n- Sản phẩm của Pepsi\r\n- Xuất xứ: Việt Nam', 150000, 1, 3, 3, NULL),
+(17, '810200', 'Gối tựa 50x50cm cotton xốp màu thêu*Thiên Hà', NULL, 0, NULL, 20, NULL, NULL, 50000, 1, 8, 1, NULL),
+(18, '490221', 'Khăn HM42 - 34x42', NULL, 0, NULL, 10, NULL, NULL, 48000, 1, 8, 7, NULL),
+(20, '550112', 'Bộ Drap gối cao cấp 1.2x2m cotton hoa*Thiên Hà', NULL, 0, NULL, 45, NULL, NULL, 520000, 1, 8, 7, NULL),
+(21, '060327', 'Sữa tươi tiệt trùng hương dâu 180ml*Vinamilk ', NULL, 6, 'Lốc/6 Cái', 50, NULL, NULL, 15000, 1, 4, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -941,15 +765,12 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamChiNhanh` (
 --
 
 INSERT INTO `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `trang_thai`) VALUES
-(10, 2, 54568, NULL),
-(10, 3, 33, NULL),
-(10, 4, 9263, NULL),
-(10, 5, 123, NULL),
-(25, 5, 9999, NULL),
-(26, 2, 1311857, NULL),
-(26, 4, 1409974803, NULL),
-(28, 4, 14149, NULL),
-(29, 4, 432, NULL);
+(10, 8, 550, 1),
+(10, 9, 50, 1),
+(10, 10, 370, 1),
+(26, 10, 230, 0),
+(28, 10, 200, 1),
+(28, 11, 120, 1);
 
 -- --------------------------------------------------------
 
@@ -968,21 +789,14 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTang` (
   `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_vach` (`ma_vach`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `tbl_SanPhamTang`
 --
 
 INSERT INTO `tbl_SanPhamTang` (`id`, `ma_vach`, `ten_san_pham`, `gia_tang`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `mo_ta`, `trang_thai`) VALUES
-(2, 'GHAHA', 'ffdsfsdf', 3213213, '2013-04-20', '2013-05-23', NULL, 0),
-(3, 'dadsadsa', 'adas', 3333, '2013-04-16', '2013-04-25', NULL, 1),
-(4, 'rwer', 'werfdf', 24324, '2013-04-21', '2013-04-23', NULL, 1),
-(5, 'adsad', 'asd', 543543, '2013-04-08', '2013-04-24', NULL, 1),
-(6, 'gdf', 'sfds', 344, '2013-04-16', '2013-04-17', NULL, 0),
-(7, 'dsavv', 'dd', 22, '2013-04-14', '2013-04-17', NULL, 0),
-(8, 'asdcc', 's', 333, '2013-04-14', '2013-04-17', NULL, 1),
-(9, 'fff', 'ada', 534, '2013-04-07', '2013-04-16', NULL, 0);
+(1, 'TA98423', 'Gấu Panda HUAHUA', 150000, '2013-05-15', '2013-07-31', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -998,6 +812,13 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTangChiNhanh` (
   KEY `FKtbl_SanPha299705` (`san_pham_tang_id`),
   KEY `FKtbl_SanPha601534` (`chi_nhanh_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_SanPhamTangChiNhanh`
+--
+
+INSERT INTO `tbl_SanPhamTangChiNhanh` (`san_pham_tang_id`, `chi_nhanh_id`, `so_ton`) VALUES
+(1, 10, 100);
 
 -- --------------------------------------------------------
 
@@ -1079,8 +900,8 @@ ALTER TABLE `tbl_ChiTietPhieuXuat`
 -- Constraints for table `tbl_ChiTietPhieuXuatSanPhamTang`
 --
 ALTER TABLE `tbl_ChiTietPhieuXuatSanPhamTang`
-  ADD CONSTRAINT `FKtbl_ChiTie280145` FOREIGN KEY (`phieu_xuat_id`) REFERENCES `tbl_PhieuXuat` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie125144` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_SanPhamTang` (`id`);
+  ADD CONSTRAINT `FKtbl_ChiTie125144` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_SanPhamTang` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie280145` FOREIGN KEY (`phieu_xuat_id`) REFERENCES `tbl_PhieuXuat` (`id`);
 
 --
 -- Constraints for table `tbl_ChungTu`
@@ -1149,14 +970,16 @@ ALTER TABLE `tbl_PhanQuyen`
 ALTER TABLE `tbl_PhieuNhap`
   ADD CONSTRAINT `FKtbl_PhieuN233283` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`),
   ADD CONSTRAINT `FKtbl_PhieuN233299` FOREIGN KEY (`nha_cung_cap_id`) REFERENCES `tbl_NhaCungCap` (`id`),
-  ADD CONSTRAINT `FKtbl_PhieuN364331` FOREIGN KEY (`chi_nhanh_xuat_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+  ADD CONSTRAINT `FKtbl_PhieuN364331` FOREIGN KEY (`chi_nhanh_xuat_id`) REFERENCES `tbl_ChiNhanh` (`id`),
+  ADD CONSTRAINT `tbl_PhieuNhap_ibfk_1` FOREIGN KEY (`loai_nhap_vao`) REFERENCES `tbl_LoaiNhapXuat` (`id`);
 
 --
 -- Constraints for table `tbl_PhieuXuat`
 --
 ALTER TABLE `tbl_PhieuXuat`
   ADD CONSTRAINT `FKtbl_PhieuX273736` FOREIGN KEY (`chi_nhanh_nhap_id`) REFERENCES `tbl_ChiNhanh` (`id`),
-  ADD CONSTRAINT `FKtbl_PhieuX543690` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`);
+  ADD CONSTRAINT `FKtbl_PhieuX543690` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`),
+  ADD CONSTRAINT `tbl_PhieuXuat_ibfk_1` FOREIGN KEY (`loai_xuat_ra`) REFERENCES `tbl_LoaiNhapXuat` (`id`);
 
 --
 -- Constraints for table `tbl_SanPham`

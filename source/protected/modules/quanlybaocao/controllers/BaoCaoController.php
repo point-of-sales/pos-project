@@ -128,7 +128,7 @@ class BaoCaoController extends CPOSController
 
                 }
             }
-            
+
         }
         $this->render('banhang');
     }
