@@ -35,11 +35,11 @@ class HoaDonBanHangController extends CPOSController {
                     'don_gia' => $item['don_gia'],
                 );
             }
-            //$result = $model->them($post);
-            $result = 'ok';
+            $result = $model->them($post);
+            //$result = 'ok';
             switch($result) {
                 case 'ok':{
-                    $this->actionInHoaDon(true);
+                    $this->taoHoaDonMoi();
                     //$this->actionHoaDonMoi();
                     $this->redirect(array('them'));
                 }break;
@@ -55,9 +55,11 @@ class HoaDonBanHangController extends CPOSController {
             }
 		}
 
-        if(Yii::app()->CPOSSessionManager->isEmpty('hd_ban_hang')){
-            $this->actionHoaDonMoi();
+       if(Yii::app()->CPOSSessionManager->isEmpty('hd_ban_hang')){
+            $this->taoHoaDonMoi();
         }
+
+
 
         $this->layout = '//layouts/column1';
 		$this->render('them', array( 'model' => $model));
@@ -406,7 +408,47 @@ class HoaDonBanHangController extends CPOSController {
         }
         return -1;
     }
-    
+
+    protected  function taoHoaDonMoi(){
+        //lay khach hang mac dinh la khach mua le
+        $ma_khach_hang = 'KHBT';
+        $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
+        if(!empty($model)){
+            $khach_hang = array(
+                'id' => $model->getAttribute('id'),
+                'ma_khach_hang' => $model->getAttribute('ma_khach_hang'),
+                'ho_ten' => $model->getAttribute('ho_ten'),
+                'diem_tich_luy' => $model->getAttribute('diem_tich_luy'),
+                'loai_khach_hang_id' => $model->getAttribute('loai_khach_hang_id'),
+                'dien_thoai' => $model->getAttribute('dien_thoai'),
+                'dia_chi' => $model->getAttribute('dia_chi'),
+            );
+        }
+
+        $hd_ban_hang = array(
+            'cthd_ban_hang' => array(),
+            'cthd_hang_tang' => array(),
+            'khach_hang' => $khach_hang,
+            'chiet_khau' => 0,
+            'ma_chung_tu' => HoaDonBanHang::layMaHoaDonMoi(),
+            'ngay_lap' => date('Y-m-d'),
+            'tri_gia' => 0,
+            'tong' => 0,
+            'tien_nhan' => 0,
+            'tien_du' => 0,
+            'ghi_chu' => '',
+            'nhan_vien_id' => 2,
+            'chi_nhanh_id' => 10,
+        );
+
+        //print_r($hd_ban_hang);exit;
+
+        Yii::app()->CPOSSessionManager->clearKey('hd_ban_hang');
+        Yii::app()->CPOSSessionManager->add('hd_ban_hang',$hd_ban_hang);
+        //Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$hd_ban_hang);
+    }
+
+
     public function actionHoaDonMoi(){
         //lay khach hang mac dinh la khach mua le
         $ma_khach_hang = 'KHBT';   

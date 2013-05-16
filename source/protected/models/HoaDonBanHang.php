@@ -44,7 +44,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                     $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
                     $currentQuantity = $product->laySoLuongTonHienTai();
                     $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
-                    $relatedQuantityItems[$key] = array('so_ton' => $newQuantity);
+                    $relatedQuantityItems[$key] = array('so_ton' => $newQuantity,'trang_thai'=>1);
                 }
                 $relatedQuantityData = array(
                     'tblSanPhams' => $relatedQuantityItems,
@@ -126,10 +126,11 @@ class HoaDonBanHang extends BaseHoaDonBanHang
 
         $model = HoaDonBanHang::model()->findByPk($maxId);
         if (isset($model)) {
+
             $ma_chung_tu = $model->getBaseModel()->ma_chung_tu;
-            $str = $model->taoMaChungTuMoi($ma_chung_tu, 'BH', 13);
+            $str = parent::taoMaChungTuMoi($ma_chung_tu, 'BH', 13);
         } else {
-            $str = $model->taoMaChungTuMoi('', 'BH', 13);
+            $str = parent::taoMaChungTuMoi('', 'BH', 13);
         }
         return $str;
     }
