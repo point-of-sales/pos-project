@@ -471,5 +471,14 @@ class HoaDonBanHangController extends CPOSController {
             Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$tien_du,array('tien_du'));
         }
     }
+    
+    public function actionLayHangTang(){
+        if (Yii::app()->getRequest()->getIsAjaxRequest()==true && isset($_POST['tri_gia'])==true) {
+            $tri_gia = $_POST['tri_gia'];
+            
+        }
+        else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));       
+    }
 
 }

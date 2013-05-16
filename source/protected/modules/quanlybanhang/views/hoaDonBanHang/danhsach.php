@@ -34,7 +34,7 @@ return false;
 'columns' => array(
 		array(
 				'name'=>'id',
-				'value'=>'GxHtml::valueEx($data->id0)',
+				'value'=>'GxHtml::valueEx($data->chungTu)',
 				'filter'=>GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)),
 				),
 		'chiet_khau',
