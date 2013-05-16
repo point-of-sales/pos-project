@@ -401,3 +401,19 @@ div.search-form {
     margin-top:120px;
     
 }
+
+.report-content {
+    margin-top:-33px;
+} 
+ .main-report-intro {
+    width:1015px;
+    height:360px;
+    border:1px solid #5B77CC;
+    margin-top:-32px;
+    
+ }
+
+.main-report-intro img {
+    padding:8px;
+    opacity:0.75;
+}

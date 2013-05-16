@@ -8,7 +8,7 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
     array('label' => Yii::t('viLib', 'Import Export Report'), 'url' => array('baoCao/nhapxuatton')),
-    array('label' => Yii::t('viLib', 'General Report'), 'url' => array('baoCao/tonghop')),
+ //   array('label' => Yii::t('viLib', 'General Report'), 'url' => array('baoCao/tonghop')),
     array('label' => Yii::t('viLib', 'Sales Report'), 'url' => array('baoCao/banhang')),
 );
 
@@ -25,8 +25,8 @@ return false;
 
 
 
-<h1><?php echo Yii::t('viLib', 'List of reports in system')?></h1>
+<h1><?php echo Yii::t('viLib', 'System List Reports')?></h1>
 
-<div class="report-intro">
-    <p>adasd</p>
+<div class="main-report-intro">
+    <img src="<?php echo Yii::app()->theme->baseUrl . '/images/report-bg.jpg'?>">
 </div>

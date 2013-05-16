@@ -3,8 +3,10 @@
 Yii::import('application.models._base.BaseChiNhanh');
 
 class ChiNhanh extends BaseChiNhanh
+
 {
     public $san_pham_id;
+    public $doanh_so = array();
 
     public static function model($className = __CLASS__)
     {
@@ -278,12 +280,13 @@ class ChiNhanh extends BaseChiNhanh
         return ChiNhanh::model()->findAll($criteria);
     }
 
-    public function layTenTrangThaiSanPhamOChiNhanh() {
+    public function layTenTrangThaiSanPhamOChiNhanh()
+    {
         $danhSachTrangThaiSanPhamOChiNhanh = $this->layDanhSachTrangThai();
         $index = Yii::app()->db->createCommand()
             ->select('trang_thai')
             ->from('tbl_SanPhamChiNhanh')
-            ->where('san_pham_id=:san_pham_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_id'=>$this->san_pham_id,':chi_nhanh_id'=>$this->id))
+            ->where('san_pham_id=:san_pham_id AND chi_nhanh_id=:chi_nhanh_id', array(':san_pham_id' => $this->san_pham_id, ':chi_nhanh_id' => $this->id))
             ->queryScalar();
         return $danhSachTrangThaiSanPhamOChiNhanh[$index];
 
@@ -298,7 +301,68 @@ class ChiNhanh extends BaseChiNhanh
         return ChiNhanh::model()->findAll($criteria);
     }
 
+    public function tinhDoanhSoTheoKhoangThoiGian($thoi_gian_bat_dau, $thoi_gian_ket_thuc)
+    {
+        $this->doanh_so[] = array($thoi_gian_bat_dau,0); // first init
 
+        do {
+            $thoi_gian_ket_thuc_moc = date('d-m-Y', strtotime('last day of this month', strtotime($thoi_gian_bat_dau)) + 24 * 60 * 60);
+            if (strtotime($thoi_gian_ket_thuc_moc) > strtotime($thoi_gian_ket_thuc))
+                $thoi_gian_ket_thuc_moc = $thoi_gian_ket_thuc;
 
+            $criteria = new CDbCriteria();
+            $criteria->with = 'chungTu';
+            $criteria->together = true;
+            $criteria->addBetweenCondition('chungTu.ngay_lap', date('Y-m-d', strtotime($thoi_gian_bat_dau)), date('Y-m-d', strtotime($thoi_gian_ket_thuc_moc)));
+            $criteria->compare('chungTu.chi_nhanh_id', $this->id);
+            $danhSachHoaDonTrongMoc = HoaDonBanHang::model()->findAll($criteria);
+            $tri_gia = 0;
+            foreach ($danhSachHoaDonTrongMoc as $hoaDon)
+                $tri_gia = $tri_gia + $hoaDon->getBaseModel()->tri_gia;
+
+            $this->doanh_so[] = array($thoi_gian_ket_thuc_moc, $tri_gia);
+            $thoi_gian_bat_dau = $thoi_gian_ket_thuc_moc;
+        } while (strtotime($thoi_gian_ket_thuc_moc) < strtotime($thoi_gian_ket_thuc));
+    }
+
+    public function tinhTongDoanhSo() {
+        $tongDoanhSo = 0;
+        if(!empty($this->doanh_so)) {
+            foreach($this->doanh_so as $ds)
+                $tongDoanhSo = $tongDoanhSo + $ds[1];
+        }
+        return $tongDoanhSo;
+    }
+
+    public function layDanhSachDoanhSo() {
+        $doanhSo = $this->doanh_so;
+        $danhSachDoanhSo = array();
+        foreach($doanhSo as $ds) {
+            $danhSachDoanhSo[] = $ds[1];
+        }
+        return $danhSachDoanhSo;
+    }
+
+    public function layDanhSachThoiGianDoanhSo() {
+        $doanhSo = $this->doanh_so;
+        $danhSachThoiGianDoanhSo = array();
+        foreach($doanhSo as $ds) {
+            $danhSachThoiGianDoanhSo[] = $ds[0];
+        }
+        return $danhSachThoiGianDoanhSo;
+    }
+
+    public static function layDanhSachDoanhSoCacChiNhanh($danhSachChiNhanh) {
+        foreach($danhSachChiNhanh as $chiNhanh)
+            $danhSachDoanhSo[] = $chiNhanh->tinhTongDoanhSo();
+        return $danhSachDoanhSo;
+    }
+
+    public static function layDanhSachThoiGianCacChiNhanh($danhSachChiNhanh) {
+        $chiNhanh = $danhSachChiNhanh[0];
+        foreach($chiNhanh->doanh_so as $ds)
+            $danhSachThoiGian[] = $ds[0];
+        return $danhSachThoiGian;
+    }
 
 }
