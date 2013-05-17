@@ -163,6 +163,21 @@ function dialogHangTang(){
         },
         beforeClose: function(event,ui){
             xoaMaInput();
+        },
+        open: function(event,ui){
+            layHangTang();
+        }
+    });
+}
+
+function layHangTang(){
+    var tri_gia = del_format($(idTriGia).text());
+    $.ajax({
+        url: 'layhangtang',
+        type: 'POST',
+        data: {tri_gia:tri_gia},
+        success: function(data,status){
+            
         }
     });
 }

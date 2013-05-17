@@ -110,7 +110,7 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
 <script type="text/javascript">
     var tri_gia = del_format(document.getElementById("tri-gia").textContent);
     var bang_chu = document.getElementById("bang-chu");
-    bang_chu.textContent = docso(tri_gia);
+    bang_chu.textContent = docso(tri_gia)+' đồng';
     
     window.print();
     window.close();
