@@ -3,20 +3,21 @@
  * User: ${Cristazn}
  * Date: 5/14/13
  * Time: 11:13 AM
- * Email: crist.azn@gmail.com | Phone : 0963-500-980 
+ * Email: crist.azn@gmail.com | Phone : 0963-500-980
  */
 ?>
 
 <div class="form-portlet">
     <?php $form = $this->beginWidget('GxActiveForm',array(
-        'id'=>'nhap-xuat-ton'
+        'id'=>'ban-hang'
     )); ?>
+
 
     <?php echo $form->errorSummary($model);?>
 
     <div class="row">
         <?php echo $form->labelEx($model,'chi_nhanh_id')?>
-        <?php echo $form->dropDownList($model,'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,'ten_chi_nhanh'),array('class'=>'chi-nhanh-dropdownlist-report')); ?>
+        <?php echo $form->dropDownList($model,'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,'ten_chi_nhanh'),array('class'=>'chi-nhanh-dropdownlist-report','prompt'=>Yii::t('viLib','All'))); ?>
         <?php $form->error($model,'chi_nhanh_id') ?>
     </div>
 
@@ -63,8 +64,8 @@
     </div><!-- row -->
 
     <?php
-        echo GxHtml::submitButton(Yii::t('viLib', 'Search'));
-        $this->endWidget();
+    echo GxHtml::submitButton(Yii::t('viLib', 'Search'));
+    $this->endWidget();
     ?>
 
 </div>

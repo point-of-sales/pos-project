@@ -35,10 +35,19 @@
                             $this->widget('CPOSImportExportReportPortlet');
                             break;
                         }
-                        case 'banhang': {
-                            $this->widget('CPOSSaleReportPorlet');
+                        case 'banhangchinhanh': {
+                            $this->widget('CPOSBranchSaleReportPorlet');
                             break;
                         }
+                        case 'banhangsanpham': {
+                            $this->widget('CPOSProductSaleReportPorlet');
+                            break;
+                        }
+                        case 'banhangtop': {
+                            $this->widget('CPOSSaleTopPortlet');
+                            break;
+                        }
+
 
                     }
 

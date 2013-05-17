@@ -11,6 +11,7 @@ class SanPham extends BaseSanPham
     public $so_luong_xuat = 0;
     public $so_luong_ban = 0;
     public $so_luong_thuc_ton = 0;
+    public $doanh_so = array();
 
     public static function model($className = __CLASS__)
     {
@@ -362,6 +363,109 @@ class SanPham extends BaseSanPham
         }
         $this->so_luong_thuc_ton = ($this->ton_dau_ky + $this->so_luong_nhap) - ($this->so_luong_ban + $this->so_luong_xuat);
 
+    }
+
+    public function tinhDoanhSoTheoKhoangThoiGian($thoi_gian_bat_dau, $thoi_gian_ket_thuc)
+    {
+        $this->doanh_so[] = array($thoi_gian_bat_dau, 0); // first init
+
+        do {
+            $thoi_gian_ket_thuc_moc = date('d-m-Y', strtotime('last day of this month', strtotime($thoi_gian_bat_dau)) + 24 * 60 * 60);
+            if (strtotime($thoi_gian_ket_thuc_moc) > strtotime($thoi_gian_ket_thuc))
+                $thoi_gian_ket_thuc_moc = $thoi_gian_ket_thuc;
+
+            $criteria = new CDbCriteria();
+            $criteria->with = 'chungTu';
+            $criteria->together = true;
+            $criteria->addBetweenCondition('chungTu.ngay_lap', date('Y-m-d', strtotime($thoi_gian_bat_dau)), date('Y-m-d', strtotime($thoi_gian_ket_thuc_moc)));
+            $criteria->compare('chungTu.chi_nhanh_id', $this->chi_nhanh_id);
+            $danhSachHoaDonTrongMoc = HoaDonBanHang::model()->findAll($criteria);
+            $tri_gia = 0;
+            foreach ($danhSachHoaDonTrongMoc as $hoaDonBan) {
+                $sanPhamRow = Yii::app()->db->createCommand()
+                    ->select('so_luong,don_gia')
+                    ->from('tbl_ChiTietHoaDonBan')
+                    ->where('hoa_don_ban_id=:hoa_don_ban_id AND san_pham_id=:san_pham_id', array(':hoa_don_ban_id' => $hoaDonBan->id, ':san_pham_id' => $this->id))
+                    ->queryRow();
+                $tri_gia = $tri_gia + ($sanPhamRow['so_luong'] * $sanPhamRow['don_gia']);
+            }
+            $this->doanh_so[] = array($thoi_gian_ket_thuc_moc, $tri_gia);
+            $thoi_gian_bat_dau = $thoi_gian_ket_thuc_moc;
+        } while (strtotime($thoi_gian_ket_thuc_moc) < strtotime($thoi_gian_ket_thuc));
+    }
+
+    public function tinhDoanhSoSanPhamTheoKhoangThoiGianTrenCacChiNhanh($thoi_gian_bat_dau, $thoi_gian_ket_thuc)
+    {
+        $this->doanh_so[] = array($thoi_gian_bat_dau, 0); // first init
+
+        do {
+            $thoi_gian_ket_thuc_moc = date('d-m-Y', strtotime('last day of this month', strtotime($thoi_gian_bat_dau)) + 24 * 60 * 60);
+            if (strtotime($thoi_gian_ket_thuc_moc) > strtotime($thoi_gian_ket_thuc))
+                $thoi_gian_ket_thuc_moc = $thoi_gian_ket_thuc;
+
+            $criteria = new CDbCriteria();
+            $criteria->with = 'chungTu';
+            $criteria->together = true;
+            $criteria->addBetweenCondition('chungTu.ngay_lap', date('Y-m-d', strtotime($thoi_gian_bat_dau)), date('Y-m-d', strtotime($thoi_gian_ket_thuc_moc)));
+            $danhSachHoaDonTrongMoc = HoaDonBanHang::model()->findAll($criteria);
+            $tri_gia = 0;
+            foreach ($danhSachHoaDonTrongMoc as $hoaDonBan) {
+                $sanPhamRow = Yii::app()->db->createCommand()
+                    ->select('so_luong,don_gia')
+                    ->from('tbl_ChiTietHoaDonBan')
+                    ->where('hoa_don_ban_id=:hoa_don_ban_id AND san_pham_id=:san_pham_id', array(':hoa_don_ban_id' => $hoaDonBan->id, ':san_pham_id' => $this->id))
+                    ->queryRow();
+                $tri_gia = $tri_gia + ($sanPhamRow['so_luong'] * $sanPhamRow['don_gia']);
+            }
+            $this->doanh_so[] = array($thoi_gian_ket_thuc_moc, $tri_gia);
+            $thoi_gian_bat_dau = $thoi_gian_ket_thuc_moc;
+        } while (strtotime($thoi_gian_ket_thuc_moc) < strtotime($thoi_gian_ket_thuc));
+    }
+
+    public function layDanhSachDoanhSo()
+    {
+        $doanhSo = $this->doanh_so;
+        $danhSachDoanhSo = array();
+        foreach ($doanhSo as $ds) {
+            $danhSachDoanhSo[] = $ds[1];
+        }
+        return $danhSachDoanhSo;
+    }
+
+    // thoi gian cac moc cua doanh so
+    public function layDanhSachThoiGian()
+    {
+        $doanhSo = $this->doanh_so;
+        $danhSachThoiGian = array();
+        foreach ($doanhSo as $tg) {
+            $danhSachThoiGian[] = $tg[0];
+        }
+        return $danhSachThoiGian;
+    }
+
+    public static function layDanhSachDoanhSoTongCacSanPham($danhSachSanPham)
+    {
+        $danhSachDoanhSoTong = array();
+        foreach ($danhSachSanPham as $sp) {
+            $danhSachDoanhSoTong[] = array_sum($sp->layDanhSachDoanhSo());
+        }
+        return $danhSachDoanhSoTong;
+    }
+
+    // ap dung cho CActiveDataProvider
+    public static function layDanhSachThoiGianCacSanPham($danhSachSanPham)
+    {
+        $sp = $danhSachSanPham[0];
+        return $sp->layDanhSachThoiGian();
+    }
+
+    public static function layDanhSachTenSanPham($danhSachSanPham)
+    {
+        $danhSachTen = array();
+        foreach ($danhSachSanPham as $sp) {
+            $danhSachTen[] = $sp->ten_san_pham;
+        }
+        return $danhSachTen;
     }
 
 }

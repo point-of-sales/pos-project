@@ -8,11 +8,11 @@
 
 Yii::import('zii.widgets.CPortlet');
 
-class CPOSSaleReportPorlet extends CPortlet {
+class CPOSBranchSaleReportPorlet extends CPortlet {
 
     protected  function renderContent() {
-        $form = new CPOSBanHangForm();
-        $this->render('_formbanhang',array('model'=>$form));
+        $form = new CPOSBanHangChiNhanhForm();
+        $this->render('_formbanhangchinhanh',array('model'=>$form));
     }
 
 }

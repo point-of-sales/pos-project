@@ -9,14 +9,20 @@
 
 <div class="form-portlet">
     <?php $form = $this->beginWidget('GxActiveForm',array(
-        'id'=>'ban-hang'
+        'id'=>'ban-hang-san-pham'
     )); ?>
 
 
     <?php echo $form->errorSummary($model);?>
 
     <div class="row">
-        <?php $form->labelEx($model,'chi_nhanh_id')?>
+        <?php echo $form->labelEx($model,'ma_vach')?>
+        <?php echo $form->textField($model,'ma_vach'); ?>
+        <?php $form->error($model,'ma_vach') ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'chi_nhanh_id')?>
         <?php echo $form->dropDownList($model,'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,'ten_chi_nhanh'),array('class'=>'chi-nhanh-dropdownlist-report','prompt'=>Yii::t('viLib','All'))); ?>
         <?php $form->error($model,'chi_nhanh_id') ?>
     </div>

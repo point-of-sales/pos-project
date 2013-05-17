@@ -139,5 +139,20 @@ class SanPhamTangController extends CPOSController {
         $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('SanPhamTang')));
     }
 
+    public function actionTest() {
+        $chi_nhanh_id = 10;
+        $tri_gia_hoa_don = 180000;
+       $criteria = new CDbCriteria();
+       $criteria->with = 'sanPhamTangChiNhanh';
+       $criteria->together = true;
+       $criteria->compare('sanPhamTangChiNhanh.chi_nhanh_id',$chi_nhanh_id);
+       $criteria->addCondition('gia_tang <= ' . $tri_gia_hoa_don);
+       $criteria->addCondition('so_ton >= 0');
+
+       $sanPhamTang = SanPhamTang::model()->findAll($criteria);
+       print_r($sanPhamTang[0]->sanPhamTangChiNhanh[0]->getAttributes());exit;
+
+
+    }
 
 }

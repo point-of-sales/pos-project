@@ -6,7 +6,7 @@
  * Email: crist.azn@gmail.com | Phone : 0963-500-980 
  */
 
-class CPOSBanHangForm extends CFormModel {
+class CPOSBanHangChiNhanhForm extends CFormModel {
     public $chi_nhanh_id;
     public $thoi_gian_bat_dau;
     public $thoi_gian_ket_thuc;
