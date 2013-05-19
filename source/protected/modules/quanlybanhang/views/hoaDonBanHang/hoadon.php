@@ -1,5 +1,6 @@
 <?php
-$hd_ban_hang = Yii::app()->CPOSSessionManager->getKey('hoa_don');
+$hd_ban_hang = Yii::app()->session['hoa_don'];
+//var_dump($hd_ban_hang);
 $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
 $khach_hang = $hd_ban_hang['khach_hang'];
 $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);

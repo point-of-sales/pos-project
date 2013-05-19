@@ -142,16 +142,18 @@ return array(
 
 			'class'=>'CLogRouter',
 			'routes'=>array(
+            
 				array(
-                    //'class'=>'CWebLogRoute',
+                    'class'=>'CWebLogRoute',
 					//'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
 					'levels'=>'error, warning',
 
 					//'levels'=>'error, warning',
 				),
+                
 				// uncomment the following to show log messages on web pages
 
-				/*array(
+				array(
                     'class'=>'CWebLogRoute',
                     'categories'=>'system.db.CDbCommand',
                     'showInFireBug'=>true,
