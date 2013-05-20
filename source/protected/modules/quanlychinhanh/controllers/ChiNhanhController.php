@@ -180,8 +180,6 @@ class ChiNhanhController extends CPOSController
                 else {
                     $sanPhamChiNhanh->trang_thai = ($sanPhamChiNhanh->trang_thai)?0:1;
                 }
-
-                print_r($sanPhamChiNhanh->getAttributes());
                 if($sanPhamChiNhanh->save(false))
                     echo 'ok';
             }

@@ -236,6 +236,13 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'System List Reports'=>'Danh sách các báo cáo trong hệ thống',
     'Choose time period to view Sales Status'=>'Chọn khoảng thời gian để xem báo cáo',
     'Top Sale Products Report on Branch'=>'Top các sản phẩm doanh thu cao trong chi nhánh',
-    'Top Sale Products Report on Branchs'=>'Top các sản phẩm doanh thu cao trong các chi nhánh'
+    'Top Sale Products Report on Branchs'=>'Top các sản phẩm doanh thu cao trong các chi nhánh',
+    'Decentralization management'=>'Quản lý phân quyền',
+    'Decentralization'=>'Phân quyền',
+    'Authentication item'=>'Điều khoản chứng thực',
+    'Assign rights'=>'Ấn định quyền hạn',
+    'List Assigned rights'=>'Danh sách quyền hạn được ấn định',
+    'You are not allowed to access this section. Please contact to your administrator for help'=>'Bạn không được phép truy cập vào trang này. Xin vui lòng liên hệ với quản trị viên để được giúp đỡ',
+
 
 );

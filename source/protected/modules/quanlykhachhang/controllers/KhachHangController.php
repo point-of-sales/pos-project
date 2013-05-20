@@ -117,16 +117,19 @@ class KhachHangController extends CPOSController {
 	}
 
     public function actionDanhSach() {
-
-        $model = new KhachHang('search');
-        $model->unsetAttributes();
-        Yii::app()->CPOSSessionManager->clearKey('ExportData');
-        if(isset($_GET['KhachHang'])) {
-            // set vao session
-            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['KhachHang']);
-            $model->setAttributes($_GET['KhachHang']);
-        }
-        $this->render('danhsach',array('model'=>$model));
+       if(Yii::app()->user->checkAccess('Quanlykhachhang.KhachHang.DanhSach')) {
+            $model = new KhachHang('search');
+            $model->unsetAttributes();
+            Yii::app()->CPOSSessionManager->clearKey('ExportData');
+            if(isset($_GET['KhachHang'])) {
+                // set vao session
+                Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['KhachHang']);
+                $model->setAttributes($_GET['KhachHang']);
+            }
+            $this->render('danhsach',array('model'=>$model));
+       } else {
+           throw new CHttpException('403','eeee');
+       }
     }
 
     public function  actionXuat() {

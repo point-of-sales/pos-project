@@ -417,3 +417,51 @@ div.search-form {
     padding:8px;
     opacity:0.75;
 }
+/* custom-rights-content */
+.cus-rights-content {
+    margin-top:-49px;
+}
+
+/* end custom-rights-content */
+
+.cus-relations-rights-content {
+    border:1px solid;
+    width: 688px;
+    padding: 10px 0 10px 10px;
+
+}
+
+.cus-auth-form {
+    padding:10px;
+    float:left;
+    width:400px;
+    margin-left:25px;
+}
+.cus-assign {
+
+    padding:10px;
+    margin-left:65px;
+}
+
+.cus-rights-form {
+    width:450px;
+    float:left;
+    margin-left:35px;
+}
+
+.cus-relations-rights-mini-content {
+    width:450px;
+    margin-left:50px;
+}
+
+/* error 403 */
+.error-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top:-80px
+}
+
+
+/* end error 403 */
