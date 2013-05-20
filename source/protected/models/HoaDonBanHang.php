@@ -19,7 +19,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietHoaDonTang(hoa_don_id,san_pham_tang_id)'),
         );
     }
-
+    
     public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua
@@ -28,19 +28,45 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             //neu khoa chua ton tai
             $this->setAttributes($params);
             if (!empty($params['ChiTietHoaDonBan'])) {
-                /*
                 $cthd = $params['ChiTietHoaDonBan'];
                 $relatedItems = Helpers::formatArray($cthd);
                 $relatedData = array(
                     // fill related with data from the Session
                     'tblSanPhams' => $relatedItems,
                 );
-                $relatedItems = Helpers::formatArray($cthd);
-                $relatedData = array(
-                    // fill related with data from the Session
-                    'tblSanPhams' => $relatedItems,
+            } else
+                return 'detail-error';
+            if ($this->saveWithRelated($relatedData)) {
+                // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
+                $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
+                foreach ($relatedItems as $key => $itemsInfo) {
+                    $product = SanPham::model()->findByPk($key); // update scenario
+                    $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
+                    $currentQuantity = $product->laySoLuongTonHienTai();
+                    $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
+                    $relatedQuantityItems[$key] = array('so_ton' => $newQuantity);
+                }
+                $relatedQuantityData = array(
+                    'tblSanPhams' => $relatedQuantityItems,
                 );
-                */
+
+                if ($chiNhanh->saveWithRelated($relatedQuantityData, false, null, array(), true, true))
+                    return 'ok';
+            } else
+                return 'fail';
+        } else
+            return 'dup-error';
+    }
+
+    public function them1($params)
+    {
+        // kiem tra du lieu con bi trung hay chua
+
+        if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
+            //neu khoa chua ton tai
+            $this->setAttributes($params);
+            if (!empty($params['ChiTietHoaDonBan'])) {
+                
                 $cthd_hang_ban = $params['ChiTietHoaDonBan'];
                 if(!empty($params['ChiTietHoaDonTang'])){
                     $cthd_hang_tang = $params['ChiTietHoaDonTang'];
@@ -59,6 +85,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             } else
                 return 'detail-error';
             if ($this->saveWithRelated($relatedData)) {
+                
                 // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
                 foreach ($cthd_hang_ban as $key => $itemsInfo) {

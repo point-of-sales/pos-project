@@ -487,6 +487,7 @@ function checkHangTang(id){
         }   
         arr_id_hang_tang.push(id);
         updateListHangTang();
+        $('#slht_d_'+id).removeAttr('readonly');
     }
     else{
         for(var i=0;i<arr_id_hang_tang.length;i++){
@@ -495,6 +496,7 @@ function checkHangTang(id){
             }
         }
         updateListHangTang();
+        $('#slht_d_'+id).attr('readonly','readonly');
     }
 }
 

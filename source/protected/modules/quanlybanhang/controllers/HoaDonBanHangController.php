@@ -42,7 +42,7 @@ class HoaDonBanHangController extends CPOSController {
                 );
             }
             $result = $model->them($post);
-            $result = 'ok';
+            //$result = 'ok';
             switch($result) {
                 case 'ok':{
                     $this->actionInHoaDon(true);
