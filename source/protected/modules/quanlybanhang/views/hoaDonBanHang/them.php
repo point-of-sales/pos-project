@@ -110,11 +110,11 @@ echo '</pre>';
             <input class="" type="submit" value="In hóa đơn" />
         </div>
     </div>
-    <!--
+    
     <div id="form-hd-ban-footer">
         Z: MÃ VẠCH -- X: KHÁCH HÀNG -- C: TIỀN NHẬN -- F1: TÌM KHÁCH HÀNG -- F2: THÊM KHÁCH HÀNG -- F3: HÀNG TẶNG
     </div>
-    -->
+    
     <?php $this->endWidget();?>
 </div>
 
