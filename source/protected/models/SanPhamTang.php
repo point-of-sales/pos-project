@@ -19,6 +19,15 @@ class SanPhamTang extends BaseSanPhamTang
             return Yii::t('viLib', 'Gift products');
         }
     }
+    
+    
+    
+    public function relations() {
+		return array(
+			'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamTangChiNhanh(san_pham_tang_id, chi_nhanh_id)'),
+            'sanPhamTangChiNhanh'=> array(self::HAS_MANY, 'SanPhamTangChiNhanh', 'san_pham_tang_id'),
+		);
+    }
 
     public function relations() {
         return array(
@@ -147,6 +156,25 @@ class SanPhamTang extends BaseSanPhamTang
             ->where('san_pham_tang_id=:san_pham_tang_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_tang_id'=>$this->id, ':chi_nhanh_id'=>$this->chi_nhanh_id))
             ->queryScalar();
     }
+
+    public static function laySanPhamTang($chi_nhanh_id,$tri_gia){
+        /*$crt = new CDbCriteria;
+        $crt->with = 'sanPhamTangChiNhanh';
+        $crt->together = true;
+        $crt->compare('sanPhamTangChiNhanh.chi_nhanh_id',$chi_nhanh_id);
+        $crt->addCondition('gia_tang <='.$tri_gia);
+        $crt->addCondition('so_ton >= 0');
+        
+        return SanPhamTang::model()->findAll($crt);*/
+        
+        return Yii::app()->db->createCommand()
+                ->select('*')
+                ->from('tbl_SanPhamTang sp, tbl_SanPhamTangChiNhanh cn')
+                ->where(
+                    'sp.id = cn.san_pham_tang_id AND chi_nhanh_id = :chi_nhanh_id AND so_ton >0 AND gia_tang <= :gia_tang',
+                    array(':chi_nhanh_id'=>$chi_nhanh_id,':gia_tang'=>$tri_gia)
+                    )
+                ->queryAll();
     // tong luong ton tren tat ca chi nhanh
     public function layTongSoLuongTon()
     {

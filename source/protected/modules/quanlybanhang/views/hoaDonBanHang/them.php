@@ -4,7 +4,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/h
 Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl . '/css/banhang.css');
 /*
 echo '<pre>';
-print_r(Yii::app()->session->toArray());
+print_r(Yii::app()->session['hd_ban_hang']);
 echo '</pre>';
 */
 ?>
@@ -110,9 +110,11 @@ echo '</pre>';
             <input class="" type="submit" value="In hóa đơn" />
         </div>
     </div>
+    <!--
     <div id="form-hd-ban-footer">
         Z: MÃ VẠCH -- X: KHÁCH HÀNG -- C: TIỀN NHẬN -- F1: TÌM KHÁCH HÀNG -- F2: THÊM KHÁCH HÀNG -- F3: HÀNG TẶNG
     </div>
+    -->
     <?php $this->endWidget();?>
 </div>
 
@@ -123,24 +125,22 @@ echo '</pre>';
         <div id="dialog-hang-tang-ma">
             <span id="dialog-hang-tang-ma-label">Mã hàng tặng</span>
             <input id="dialog-hang-tang-ma-input" type="text" />
+            <span id="dialog-hang-tang-error"></span>
+        </div>
+        <div>
+            <span id="dialog-hang-tang-list"></span>
         </div>
     </div>
+    <div id="dialog-hang-tang-ds"></div>
     <div id="dialog-hang-tang-body">
         <div id="grid" class="grid-view">
-            <table class="items" id="items">
+            <table class="items" id="gridHangTang">
                 <tr>
                     <th>Mã vạch</th>
                     <th>Tên hàng tặng</th>
                     <th>Số lượng</th>
                     <th>Giá được tặng</th>
                     <th></th>
-                </tr>
-                <tr class="even">
-                    <td>123</td>
-                    <td>123</td>
-                    <td><input id="slht_1" value="1" /></td>
-                    <td>123</td>
-                    <td><input id="cht_1" type="checkbox" /></td>
                 </tr>
             </table>
         </div>
