@@ -41,12 +41,13 @@ class HoaDonBanHangController extends CPOSController {
                     'so_luong' => $item['so_luong'],
                 );
             }
-            $result = $model->them($post);
-            //$result = 'ok';
+            //$result = $model->them($post);
+            $result = 'ok';
             switch($result) {
                 case 'ok':{
+                    var_dump(LoaiKhachHang::layLoaiKhachHangHienTai($hd_ban_hang['tri_gia']));exit;
                     $this->actionInHoaDon(true);
-                    $this->actionHoaDonMoi();
+                    //$this->actionHoaDonMoi();
                     $this->redirect(array('them'));
                 }break;
                 case 'detail-error':{
@@ -575,12 +576,23 @@ class HoaDonBanHangController extends CPOSController {
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
     
-    private function objectToArray($object){
-        $arr = array();
-        foreach($object as $item){
-            $arr[] = (array)$item;
+    private function kiemTraMaVachHangTang($ma_vach){
+        $model = SanPhamTang::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+        if(!empty($model)){
+            $ma_vach = $model->getAttribute('ma_vach');
         }
-        return $arr;
+        else{
+            return -1;
+        }
+        $cthd_hang_tang = Yii::app()->CPOSSessionManager->getItem('hd_ban_hang',array('cthd_hang_tang'));
+        if(!isset($cthd_hang_tang))
+            return -1;
+        for($i=0;$i<count($cthd_hang_tang);$i++){
+            if($cthd_hang_tang[$i]['ma_vach']==$ma_vach){
+                return $i;
+            }
+        }
+        return -1;
     }
     
     /////////////////////////////////////////////////// END HANG TANG////////////////////////////////////////////////
@@ -650,26 +662,17 @@ class HoaDonBanHangController extends CPOSController {
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
     
-    private function kiemTraMaVachHangTang($ma_vach){
-        $model = SanPhamTang::model()->findByAttributes(array('ma_vach'=>$ma_vach));
-        if(!empty($model)){
-            $ma_vach = $model->getAttribute('ma_vach');
-        }
-        else{
-            return -1;
-        }
-        $cthd_hang_tang = Yii::app()->CPOSSessionManager->getItem('hd_ban_hang',array('cthd_hang_tang'));
-        if(!isset($cthd_hang_tang))
-            return -1;
-        for($i=0;$i<count($cthd_hang_tang);$i++){
-            if($cthd_hang_tang[$i]['ma_vach']==$ma_vach){
-                return $i;
-            }
-        }
-        return -1;
-    }
-    
     /////////////////////////////////////////////////// END KHACH HANG ////////////////////////////////////////////////
+    
+    /////////////////////////////////////////////////// START HELPER ////////////////////////////////////////////////
+    
+    private function objectToArray($object){
+        $arr = array();
+        foreach($object as $item){
+            $arr[] = (array)$item;
+        }
+        return $arr;
+    }
     
     private function kiemTraSoLuongHopLe($so_luong){
         if(!is_numeric($so_luong))
@@ -682,4 +685,6 @@ class HoaDonBanHangController extends CPOSController {
         return true;
     }
 
+    /////////////////////////////////////////////////// END HELPER ////////////////////////////////////////////////
+    
 }
