@@ -28,7 +28,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         );
     }
 
-    public function them1($params)
+    public function them($params)
     {
         // kiem tra du lieu con bi trung hay chua
 

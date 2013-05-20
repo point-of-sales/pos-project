@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2013 at 04:05 PM
--- Server version: 5.5.31
--- PHP Version: 5.3.10-1ubuntu3.6
+-- Generation Time: May 20, 2013 at 09:32 AM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthAssignment`
+-- Table structure for table `authassignment`
 --
 
-CREATE TABLE IF NOT EXISTS `AuthAssignment` (
+CREATE TABLE IF NOT EXISTS `authassignment` (
   `itemname` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `userid` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `bizrule` text COLLATE utf8_unicode_ci,
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `AuthAssignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `AuthAssignment`
+-- Dumping data for table `authassignment`
 --
 
-INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
+INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 ('NVBanHang', '2', NULL, 'N;'),
 ('NVChiNhanh', '8', NULL, 'N;'),
 ('NVThuKho', '5', NULL, 'N;'),
@@ -48,10 +48,10 @@ INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthItem`
+-- Table structure for table `authitem`
 --
 
-CREATE TABLE IF NOT EXISTS `AuthItem` (
+CREATE TABLE IF NOT EXISTS `authitem` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `type` int(11) NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
@@ -61,10 +61,10 @@ CREATE TABLE IF NOT EXISTS `AuthItem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `AuthItem`
+-- Dumping data for table `authitem`
 --
 
-INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
+INSERT INTO `authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('NVBanHang', 2, 'Đại diện cho nhân viên bán hàng. Quyền cho phép thao tác các chức năng bán hàng ở chi nhánh.', NULL, 'N;'),
 ('NVChiNhanh', 2, 'Đại diện cho người quản lý trên chi nhánh. Thực hiện thao tác  quản lý trên phạm vi chi nhánh.', NULL, 'N;'),
 ('NVThuKho', 2, 'Đại diện vai trò nhân viên thủ kho. Thực hiện thao tác liên quan đến nhập xuất kho, quản lý tồn.', NULL, 'N;'),
@@ -276,10 +276,10 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthItemChild`
+-- Table structure for table `authitemchild`
 --
 
-CREATE TABLE IF NOT EXISTS `AuthItemChild` (
+CREATE TABLE IF NOT EXISTS `authitemchild` (
   `parent` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`parent`,`child`),
@@ -287,10 +287,10 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `AuthItemChild`
+-- Dumping data for table `authitemchild`
 --
 
-INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
+INSERT INTO `authitemchild` (`parent`, `child`) VALUES
 ('NVChiNhanh', 'NVBanHang'),
 ('NVChiNhanh', 'NVThuKho'),
 ('NVBanHang', 'QuanLyBanHang'),
@@ -401,10 +401,10 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Rights`
+-- Table structure for table `rights`
 --
 
-CREATE TABLE IF NOT EXISTS `Rights` (
+CREATE TABLE IF NOT EXISTS `rights` (
   `itemname` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `type` int(11) NOT NULL,
   `weight` int(11) NOT NULL,
@@ -414,10 +414,10 @@ CREATE TABLE IF NOT EXISTS `Rights` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_CauHinh`
+-- Table structure for table `tbl_cauhinh`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_CauHinh` (
+CREATE TABLE IF NOT EXISTS `tbl_cauhinh` (
   `so_san_pham_tren_trang` tinyint(4) DEFAULT NULL,
   `so_phan_trang` tinyint(4) DEFAULT NULL,
   `bat_buoc_thong_tin_khach_hang` tinyint(4) DEFAULT NULL,
@@ -427,10 +427,10 @@ CREATE TABLE IF NOT EXISTS `tbl_CauHinh` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiNhanh`
+-- Table structure for table `tbl_chinhanh`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiNhanh` (
+CREATE TABLE IF NOT EXISTS `tbl_chinhanh` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_chi_nhanh` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_chi_nhanh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -450,10 +450,10 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiNhanh` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
 
 --
--- Dumping data for table `tbl_ChiNhanh`
+-- Dumping data for table `tbl_chinhanh`
 --
 
-INSERT INTO `tbl_ChiNhanh` (`id`, `ma_chi_nhanh`, `ten_chi_nhanh`, `dia_chi`, `dien_thoai`, `fax`, `mo_ta`, `trang_thai`, `truc_thuoc_id`, `khu_vuc_id`, `loai_chi_nhanh_id`) VALUES
+INSERT INTO `tbl_chinhanh` (`id`, `ma_chi_nhanh`, `ten_chi_nhanh`, `dia_chi`, `dien_thoai`, `fax`, `mo_ta`, `trang_thai`, `truc_thuoc_id`, `khu_vuc_id`, `loai_chi_nhanh_id`) VALUES
 (1, 'OUTSYS', 'Các nguồn bên ngoài hệ thống ', NULL, NULL, NULL, 'Các công ty, tổ chức bên ngoài hệ thống ', 1, NULL, 4, 1),
 (10, 'CN0001', 'Siêu thị Trung tâm Sài gòn Times', '1 Trần Hưng Đạo - Q1', NULL, NULL, NULL, 1, NULL, 4, 1),
 (25, 'CN9874', 'Trung tâm mua sắm AT ', '63 Yersin - TP.Đà lạt', NULL, NULL, NULL, 1, 27, 6, 2),
@@ -465,10 +465,10 @@ INSERT INTO `tbl_ChiNhanh` (`id`, `ma_chi_nhanh`, `ten_chi_nhanh`, `dia_chi`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietHoaDonBan`
+-- Table structure for table `tbl_chitiethoadonban`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonBan` (
+CREATE TABLE IF NOT EXISTS `tbl_chitiethoadonban` (
   `san_pham_id` int(10) NOT NULL,
   `hoa_don_ban_id` int(10) NOT NULL,
   `so_luong` int(11) NOT NULL,
@@ -479,24 +479,19 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonBan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_ChiTietHoaDonBan`
+-- Dumping data for table `tbl_chitiethoadonban`
 --
 
-INSERT INTO `tbl_ChiTietHoaDonBan` (`san_pham_id`, `hoa_don_ban_id`, `so_luong`, `don_gia`) VALUES
-(10, 56727, 2, 48000),
-(10, 56728, 3, 48000),
-(10, 56755, 5, 48000),
-(10, 56759, 6, 48000),
-(17, 56731, 8, 80000),
-(18, 56731, 1, 54000);
+INSERT INTO `tbl_chitiethoadonban` (`san_pham_id`, `hoa_don_ban_id`, `so_luong`, `don_gia`) VALUES
+(8, 56764, 4, 54000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietHoaDonTang`
+-- Table structure for table `tbl_chitiethoadontang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonTang` (
+CREATE TABLE IF NOT EXISTS `tbl_chitiethoadontang` (
   `san_pham_tang_id` int(10) NOT NULL,
   `hoa_don_ban_id` int(10) NOT NULL,
   `so_luong` int(11) NOT NULL,
@@ -506,20 +501,19 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonTang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_ChiTietHoaDonTang`
+-- Dumping data for table `tbl_chitiethoadontang`
 --
 
-INSERT INTO `tbl_ChiTietHoaDonTang` (`san_pham_tang_id`, `hoa_don_ban_id`, `so_luong`) VALUES
-(1, 56755, 1),
-(1, 56759, 1);
+INSERT INTO `tbl_chitiethoadontang` (`san_pham_tang_id`, `hoa_don_ban_id`, `so_luong`) VALUES
+(1, 56764, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietHoaDonTra`
+-- Table structure for table `tbl_chitiethoadontra`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonTra` (
+CREATE TABLE IF NOT EXISTS `tbl_chitiethoadontra` (
   `san_pham_id` int(10) NOT NULL,
   `hoa_don_tra_id` int(10) NOT NULL,
   `so_luong` int(10) DEFAULT NULL,
@@ -532,10 +526,10 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonTra` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietPhieuNhap`
+-- Table structure for table `tbl_chitietphieunhap`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhap` (
+CREATE TABLE IF NOT EXISTS `tbl_chitietphieunhap` (
   `san_pham_id` int(10) NOT NULL,
   `phieu_nhap_id` int(10) NOT NULL,
   `so_luong` int(10) DEFAULT NULL,
@@ -546,10 +540,10 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_ChiTietPhieuNhap`
+-- Dumping data for table `tbl_chitietphieunhap`
 --
 
-INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, `gia_nhap`) VALUES
+INSERT INTO `tbl_chitietphieunhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, `gia_nhap`) VALUES
 (6, 56729, 2000, 230000),
 (8, 56719, 250, 390000),
 (8, 56726, 300, 390000),
@@ -568,10 +562,10 @@ INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietPhieuNhapSanPhamTang`
+-- Table structure for table `tbl_chitietphieunhapsanphamtang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhapSanPhamTang` (
+CREATE TABLE IF NOT EXISTS `tbl_chitietphieunhapsanphamtang` (
   `san_pham_tang_id` int(10) NOT NULL,
   `phieu_nhap_id` int(10) NOT NULL,
   `so_luong` int(10) DEFAULT NULL,
@@ -581,19 +575,19 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhapSanPhamTang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_ChiTietPhieuNhapSanPhamTang`
+-- Dumping data for table `tbl_chitietphieunhapsanphamtang`
 --
 
-INSERT INTO `tbl_ChiTietPhieuNhapSanPhamTang` (`san_pham_tang_id`, `phieu_nhap_id`, `so_luong`) VALUES
+INSERT INTO `tbl_chitietphieunhapsanphamtang` (`san_pham_tang_id`, `phieu_nhap_id`, `so_luong`) VALUES
 (1, 56720, 100);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietPhieuXuat`
+-- Table structure for table `tbl_chitietphieuxuat`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuat` (
+CREATE TABLE IF NOT EXISTS `tbl_chitietphieuxuat` (
   `san_pham_id` int(10) NOT NULL,
   `phieu_xuat_id` int(10) NOT NULL,
   `so_luong` int(10) DEFAULT NULL,
@@ -604,19 +598,19 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_ChiTietPhieuXuat`
+-- Dumping data for table `tbl_chitietphieuxuat`
 --
 
-INSERT INTO `tbl_ChiTietPhieuXuat` (`san_pham_id`, `phieu_xuat_id`, `so_luong`, `gia_xuat`) VALUES
+INSERT INTO `tbl_chitietphieuxuat` (`san_pham_id`, `phieu_xuat_id`, `so_luong`, `gia_xuat`) VALUES
 (10, 56724, 230, 45000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChiTietPhieuXuatSanPhamTang`
+-- Table structure for table `tbl_chitietphieuxuatsanphamtang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuatSanPhamTang` (
+CREATE TABLE IF NOT EXISTS `tbl_chitietphieuxuatsanphamtang` (
   `san_pham_tang_id` int(10) NOT NULL,
   `phieu_xuat_id` int(10) NOT NULL,
   `so_luong` int(10) DEFAULT NULL,
@@ -628,10 +622,10 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuatSanPhamTang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ChungTu`
+-- Table structure for table `tbl_chungtu`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ChungTu` (
+CREATE TABLE IF NOT EXISTS `tbl_chungtu` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_chung_tu` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ngay_lap` date NOT NULL,
@@ -643,36 +637,32 @@ CREATE TABLE IF NOT EXISTS `tbl_ChungTu` (
   UNIQUE KEY `ma_chung_tu` (`ma_chung_tu`),
   KEY `FKtbl_ChungT392230` (`nhan_vien_id`),
   KEY `FKtbl_ChungT837946` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56762 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56765 ;
 
 --
--- Dumping data for table `tbl_ChungTu`
+-- Dumping data for table `tbl_chungtu`
 --
 
-INSERT INTO `tbl_ChungTu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`, `nhan_vien_id`, `chi_nhanh_id`) VALUES
+INSERT INTO `tbl_chungtu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`, `nhan_vien_id`, `chi_nhanh_id`) VALUES
 (56719, 'PN0432432', '2013-05-13', 124500000, NULL, 2, 10),
 (56720, 'TA321321', '2013-05-13', 0, NULL, 2, 10),
 (56721, 'PN321342', '2013-05-13', 60600000, NULL, 6, 28),
 (56724, 'PX0435453', '2013-05-13', 10350000, NULL, 2, 10),
 (56725, 'PN434535', '2013-05-13', 10350000, NULL, 2, 26),
 (56726, 'PN3234234', '2013-05-13', 127000000, NULL, 6, 10),
-(56727, 'BH00000000001', '2013-05-15', 96000, NULL, 2, 10),
-(56728, 'BH00000000002', '2013-05-15', 144000, NULL, 2, 10),
 (56729, 'PN432454', '2013-05-17', 460000000, NULL, 6, 10),
 (56730, 'PN005439', '2013-05-17', 18296500000, NULL, 6, 10),
-(56731, 'BH00000000003', '2013-05-17', 694000, NULL, 2, 10),
-(56755, 'BH00000000004', '2013-05-20', 240000, NULL, 2, 10),
-(56759, 'BH00000000005', '2013-05-20', 288000, NULL, 2, 10),
 (56760, 'PN432428', '2013-05-20', 128000000, NULL, 6, 29),
-(56761, 'PN949484', '2013-05-20', 90000000, NULL, 6, 10);
+(56761, 'PN949484', '2013-05-20', 90000000, NULL, 6, 10),
+(56764, 'BH00000000001', '2013-05-20', 183600, NULL, 2, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_HoaDonBanHang`
+-- Table structure for table `tbl_hoadonbanhang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
+CREATE TABLE IF NOT EXISTS `tbl_hoadonbanhang` (
   `id` int(10) NOT NULL,
   `chiet_khau` int(10) DEFAULT NULL,
   `khach_hang_id` int(10) NOT NULL,
@@ -681,23 +671,19 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_HoaDonBanHang`
+-- Dumping data for table `tbl_hoadonbanhang`
 --
 
-INSERT INTO `tbl_HoaDonBanHang` (`id`, `chiet_khau`, `khach_hang_id`) VALUES
-(56727, 0, 2),
-(56728, 0, 2),
-(56731, 0, 2),
-(56755, 0, 2),
-(56759, 0, 2);
+INSERT INTO `tbl_hoadonbanhang` (`id`, `chiet_khau`, `khach_hang_id`) VALUES
+(56764, 15, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_HoaDonTraHang`
+-- Table structure for table `tbl_hoadontrahang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_HoaDonTraHang` (
+CREATE TABLE IF NOT EXISTS `tbl_hoadontrahang` (
   `id` int(10) NOT NULL,
   `ly_do_tra_hang` text COLLATE utf8_unicode_ci,
   `hoa_don_ban_id` int(10) NOT NULL,
@@ -709,10 +695,10 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonTraHang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_KhachHang`
+-- Table structure for table `tbl_khachhang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_KhachHang` (
+CREATE TABLE IF NOT EXISTS `tbl_khachhang` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_khach_hang` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `ho_ten` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -730,20 +716,20 @@ CREATE TABLE IF NOT EXISTS `tbl_KhachHang` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `tbl_KhachHang`
+-- Dumping data for table `tbl_khachhang`
 --
 
-INSERT INTO `tbl_KhachHang` (`id`, `ma_khach_hang`, `ho_ten`, `ngay_sinh`, `dia_chi`, `thanh_pho`, `dien_thoai`, `email`, `mo_ta`, `diem_tich_luy`, `loai_khach_hang_id`) VALUES
+INSERT INTO `tbl_khachhang` (`id`, `ma_khach_hang`, `ho_ten`, `ngay_sinh`, `dia_chi`, `thanh_pho`, `dien_thoai`, `email`, `mo_ta`, `diem_tich_luy`, `loai_khach_hang_id`) VALUES
 (1, 'KH00423', 'Lê Thanh Bình', '1970-01-06', '8/4 Bà Hạt - Q10', 'TP Hồ Chí Minh', '0904343243', NULL, NULL, 51000, 2),
 (2, 'KHBT', 'Khach hang mua le', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_KhuVuc`
+-- Table structure for table `tbl_khuvuc`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_KhuVuc` (
+CREATE TABLE IF NOT EXISTS `tbl_khuvuc` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_khu_vuc` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_khu_vuc` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -753,10 +739,10 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuVuc` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `tbl_KhuVuc`
+-- Dumping data for table `tbl_khuvuc`
 --
 
-INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
+INSERT INTO `tbl_khuvuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
 (1, 'MTR', 'Khu vực miền Trung', 'adsadsa '),
 (3, 'HNO', 'Khu vực Hà Nội ', 'dssadsad'),
 (4, 'HCM', 'Khu vực TP.Hồ Chí Minh', NULL),
@@ -765,10 +751,10 @@ INSERT INTO `tbl_KhuVuc` (`id`, `ma_khu_vuc`, `ten_khu_vuc`, `mo_ta`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_KhuyenMai`
+-- Table structure for table `tbl_khuyenmai`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_KhuyenMai` (
+CREATE TABLE IF NOT EXISTS `tbl_khuyenmai` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_chuong_trinh` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_chuong_trinh` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -782,10 +768,10 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuyenMai` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `tbl_KhuyenMai`
+-- Dumping data for table `tbl_khuyenmai`
 --
 
-INSERT INTO `tbl_KhuyenMai` (`id`, `ma_chuong_trinh`, `ten_chuong_trinh`, `mo_ta`, `gia_giam`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `trang_thai`) VALUES
+INSERT INTO `tbl_khuyenmai` (`id`, `ma_chuong_trinh`, `ten_chuong_trinh`, `mo_ta`, `gia_giam`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `trang_thai`) VALUES
 (4, 'KM33', 'Khuyến mãi tặng 33%', NULL, 33, '2013-05-10', '2013-06-30', 1),
 (5, 'KM44', 'Khuyến mãi tặng 44%', NULL, 44, '2013-05-15', '2013-05-30', 0),
 (6, 'KM50', 'Khuyến mãi tặng 50%', NULL, 50, '2013-05-30', '2013-08-30', 1),
@@ -794,10 +780,10 @@ INSERT INTO `tbl_KhuyenMai` (`id`, `ma_chuong_trinh`, `ten_chuong_trinh`, `mo_ta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_KhuyenMaiChiNhanh`
+-- Table structure for table `tbl_khuyenmaichinhanh`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_KhuyenMaiChiNhanh` (
+CREATE TABLE IF NOT EXISTS `tbl_khuyenmaichinhanh` (
   `khuyen_mai_id` int(10) NOT NULL,
   `chi_nhanh_id` int(10) NOT NULL,
   PRIMARY KEY (`khuyen_mai_id`,`chi_nhanh_id`),
@@ -806,10 +792,10 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuyenMaiChiNhanh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_KhuyenMaiChiNhanh`
+-- Dumping data for table `tbl_khuyenmaichinhanh`
 --
 
-INSERT INTO `tbl_KhuyenMaiChiNhanh` (`khuyen_mai_id`, `chi_nhanh_id`) VALUES
+INSERT INTO `tbl_khuyenmaichinhanh` (`khuyen_mai_id`, `chi_nhanh_id`) VALUES
 (5, 26),
 (4, 27),
 (4, 28),
@@ -821,10 +807,10 @@ INSERT INTO `tbl_KhuyenMaiChiNhanh` (`khuyen_mai_id`, `chi_nhanh_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_LoaiChiNhanh`
+-- Table structure for table `tbl_loaichinhanh`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_LoaiChiNhanh` (
+CREATE TABLE IF NOT EXISTS `tbl_loaichinhanh` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai_chi_nhanh` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai_chi_nhanh` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -833,20 +819,20 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiChiNhanh` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `tbl_LoaiChiNhanh`
+-- Dumping data for table `tbl_loaichinhanh`
 --
 
-INSERT INTO `tbl_LoaiChiNhanh` (`id`, `ma_loai_chi_nhanh`, `ten_loai_chi_nhanh`) VALUES
+INSERT INTO `tbl_loaichinhanh` (`id`, `ma_loai_chi_nhanh`, `ten_loai_chi_nhanh`) VALUES
 (1, 'L001', 'Chi nhánh loại 1'),
 (2, 'L003', 'Chi nhánh loại 2');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_LoaiKhachHang`
+-- Table structure for table `tbl_loaikhachhang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_LoaiKhachHang` (
+CREATE TABLE IF NOT EXISTS `tbl_loaikhachhang` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai_khach_hang` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -857,10 +843,10 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiKhachHang` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `tbl_LoaiKhachHang`
+-- Dumping data for table `tbl_loaikhachhang`
 --
 
-INSERT INTO `tbl_LoaiKhachHang` (`id`, `ma_loai_khach_hang`, `ten_loai`, `doanh_so`, `giam_gia`) VALUES
+INSERT INTO `tbl_loaikhachhang` (`id`, `ma_loai_khach_hang`, `ten_loai`, `doanh_so`, `giam_gia`) VALUES
 (2, 'LKH001', 'Khách hàng loại 1', 30000000, 15),
 (3, 'L002', 'Khách hàng loại 2', 15000000, 5),
 (4, 'L003', 'Khách hàng loại 3', 1000000, 3),
@@ -871,10 +857,10 @@ INSERT INTO `tbl_LoaiKhachHang` (`id`, `ma_loai_khach_hang`, `ten_loai`, `doanh_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_LoaiNhanVien`
+-- Table structure for table `tbl_loainhanvien`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_LoaiNhanVien` (
+CREATE TABLE IF NOT EXISTS `tbl_loainhanvien` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai_nhan_vien` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -883,10 +869,10 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiNhanVien` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `tbl_LoaiNhanVien`
+-- Dumping data for table `tbl_loainhanvien`
 --
 
-INSERT INTO `tbl_LoaiNhanVien` (`id`, `ma_loai_nhan_vien`, `ten_loai`) VALUES
+INSERT INTO `tbl_loainhanvien` (`id`, `ma_loai_nhan_vien`, `ten_loai`) VALUES
 (1, 'TK1', 'Kế toán 1'),
 (3, 'QLCN', 'Quản lý chi nhánh'),
 (4, 'BH', 'Bán hàng '),
@@ -896,10 +882,10 @@ INSERT INTO `tbl_LoaiNhanVien` (`id`, `ma_loai_nhan_vien`, `ten_loai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_LoaiNhapXuat`
+-- Table structure for table `tbl_loainhapxuat`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_LoaiNhapXuat` (
+CREATE TABLE IF NOT EXISTS `tbl_loainhapxuat` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai_nhap_xuat` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai_nhap_xuat` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -909,10 +895,10 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiNhapXuat` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `tbl_LoaiNhapXuat`
+-- Dumping data for table `tbl_loainhapxuat`
 --
 
-INSERT INTO `tbl_LoaiNhapXuat` (`id`, `ma_loai_nhap_xuat`, `ten_loai_nhap_xuat`, `loai`) VALUES
+INSERT INTO `tbl_loainhapxuat` (`id`, `ma_loai_nhap_xuat`, `ten_loai_nhap_xuat`, `loai`) VALUES
 (1, 'N001', 'Nhập bán ', 0),
 (2, 'N002', 'Nhập mượn', 0),
 (3, 'N003', 'Nhập kiểm tra', 0),
@@ -927,10 +913,10 @@ INSERT INTO `tbl_LoaiNhapXuat` (`id`, `ma_loai_nhap_xuat`, `ten_loai_nhap_xuat`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_LoaiSanPham`
+-- Table structure for table `tbl_loaisanpham`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_LoaiSanPham` (
+CREATE TABLE IF NOT EXISTS `tbl_loaisanpham` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -939,10 +925,10 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiSanPham` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `tbl_LoaiSanPham`
+-- Dumping data for table `tbl_loaisanpham`
 --
 
-INSERT INTO `tbl_LoaiSanPham` (`id`, `ma_loai`, `ten_loai`) VALUES
+INSERT INTO `tbl_loaisanpham` (`id`, `ma_loai`, `ten_loai`) VALUES
 (1, 'DT', 'Đồ điện tử'),
 (2, 'TP', 'Thực phẩm'),
 (3, 'GK', 'Nước giải khát-nước ngọt'),
@@ -954,10 +940,10 @@ INSERT INTO `tbl_LoaiSanPham` (`id`, `ma_loai`, `ten_loai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_MocGia`
+-- Table structure for table `tbl_mocgia`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_MocGia` (
+CREATE TABLE IF NOT EXISTS `tbl_mocgia` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `thoi_gian_bat_dau` date NOT NULL,
   `gia_ban` double NOT NULL,
@@ -967,10 +953,10 @@ CREATE TABLE IF NOT EXISTS `tbl_MocGia` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `tbl_MocGia`
+-- Dumping data for table `tbl_mocgia`
 --
 
-INSERT INTO `tbl_MocGia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) VALUES
+INSERT INTO `tbl_mocgia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) VALUES
 (1, '2013-05-15', 230000, 9),
 (2, '2013-06-21', 250000, 9),
 (3, '2013-05-30', 240000, 9),
@@ -982,10 +968,10 @@ INSERT INTO `tbl_MocGia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_NhaCungCap`
+-- Table structure for table `tbl_nhacungcap`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_NhaCungCap` (
+CREATE TABLE IF NOT EXISTS `tbl_nhacungcap` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_nha_cung_cap` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_nha_cung_cap` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -999,10 +985,10 @@ CREATE TABLE IF NOT EXISTS `tbl_NhaCungCap` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `tbl_NhaCungCap`
+-- Dumping data for table `tbl_nhacungcap`
 --
 
-INSERT INTO `tbl_NhaCungCap` (`id`, `ma_nha_cung_cap`, `ten_nha_cung_cap`, `mo_ta`, `dien_thoai`, `email`, `fax`, `trang_thai`) VALUES
+INSERT INTO `tbl_nhacungcap` (`id`, `ma_nha_cung_cap`, `ten_nha_cung_cap`, `mo_ta`, `dien_thoai`, `email`, `fax`, `trang_thai`) VALUES
 (3, 'CC03983', 'Công Ty TNHH Pepsi Việt Nam', NULL, '08-896654', NULL, NULL, 1),
 (4, 'CC83239', 'Công ty Sữa Vinamilk ', NULL, '08-3213234', NULL, NULL, 1),
 (5, 'CC355324', 'Tập đoàn Nutifoods - Nutifoods Việt Nam', NULL, '08-4324322', NULL, NULL, 1),
@@ -1013,10 +999,10 @@ INSERT INTO `tbl_NhaCungCap` (`id`, `ma_nha_cung_cap`, `ten_nha_cung_cap`, `mo_t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_NhanVien`
+-- Table structure for table `tbl_nhanvien`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_NhanVien` (
+CREATE TABLE IF NOT EXISTS `tbl_nhanvien` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_nhan_vien` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `ho_ten` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -1042,10 +1028,10 @@ CREATE TABLE IF NOT EXISTS `tbl_NhanVien` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `tbl_NhanVien`
+-- Dumping data for table `tbl_nhanvien`
 --
 
-INSERT INTO `tbl_NhanVien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai`, `dia_chi`, `gioi_tinh`, `ngay_sinh`, `trinh_do`, `luong_co_ban`, `chuyen_mon`, `trang_thai`, `mat_khau`, `ngay_vao_lam`, `lan_dang_nhap_cuoi`, `loai_nhan_vien_id`, `chi_nhanh_id`) VALUES
+INSERT INTO `tbl_nhanvien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai`, `dia_chi`, `gioi_tinh`, `ngay_sinh`, `trinh_do`, `luong_co_ban`, `chuyen_mon`, `trang_thai`, `mat_khau`, `ngay_vao_lam`, `lan_dang_nhap_cuoi`, `loai_nhan_vien_id`, `chi_nhanh_id`) VALUES
 (2, 'BH001', 'Trần Thụy Diễm My ', NULL, NULL, '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3200000, 'Bán hàng', 1, 'e10adc3949ba59abbe56e057f20f883e', '2010-08-11', '1970-01-01', 4, 26),
 (5, 'KT00322', 'Lê Quốc Nam', NULL, NULL, '78/3/2 Thích Quảng Đức - Gò Vấp', 0, '1983-06-15', NULL, NULL, NULL, 1, 'e10adc3949ba59abbe56e057f20f883e', '2009-01-21', '1970-01-01', 1, 26),
 (6, 'TK03123', 'Nguyễn Thành Trung', NULL, NULL, NULL, 0, '1982-05-21', NULL, NULL, NULL, 1, 'e10adc3949ba59abbe56e057f20f883e', '2013-05-23', '1970-01-01', 5, 10),
@@ -1055,10 +1041,10 @@ INSERT INTO `tbl_NhanVien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_PhieuNhap`
+-- Table structure for table `tbl_phieunhap`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_PhieuNhap` (
+CREATE TABLE IF NOT EXISTS `tbl_phieunhap` (
   `id` int(10) NOT NULL,
   `loai_nhap_vao` int(10) NOT NULL,
   `chi_nhanh_xuat_id` int(10) NOT NULL,
@@ -1071,10 +1057,10 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuNhap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_PhieuNhap`
+-- Dumping data for table `tbl_phieunhap`
 --
 
-INSERT INTO `tbl_PhieuNhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cung_cap_id`) VALUES
+INSERT INTO `tbl_phieunhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cung_cap_id`) VALUES
 (56719, 1, 1, 5),
 (56720, 4, 1, 4),
 (56721, 1, 1, 4),
@@ -1088,10 +1074,10 @@ INSERT INTO `tbl_PhieuNhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_PhieuXuat`
+-- Table structure for table `tbl_phieuxuat`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_PhieuXuat` (
+CREATE TABLE IF NOT EXISTS `tbl_phieuxuat` (
   `id` int(10) NOT NULL,
   `ly_do_xuat` text COLLATE utf8_unicode_ci NOT NULL,
   `loai_xuat_ra` int(10) NOT NULL,
@@ -1103,19 +1089,19 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuXuat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_PhieuXuat`
+-- Dumping data for table `tbl_phieuxuat`
 --
 
-INSERT INTO `tbl_PhieuXuat` (`id`, `ly_do_xuat`, `loai_xuat_ra`, `chi_nhanh_nhap_id`) VALUES
+INSERT INTO `tbl_phieuxuat` (`id`, `ly_do_xuat`, `loai_xuat_ra`, `chi_nhanh_nhap_id`) VALUES
 (56724, 'Mượn để bán', 7, 26);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_SanPham`
+-- Table structure for table `tbl_sanpham`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
+CREATE TABLE IF NOT EXISTS `tbl_sanpham` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_vach` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_san_pham` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1138,10 +1124,10 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `tbl_SanPham`
+-- Dumping data for table `tbl_sanpham`
 --
 
-INSERT INTO `tbl_SanPham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `han_dung`, `don_vi_tinh`, `ton_toi_thieu`, `huong_dan_su_dung`, `mo_ta`, `gia_goc`, `trang_thai`, `nha_cung_cap_id`, `loai_san_pham_id`, `khuyen_mai_id`) VALUES
+INSERT INTO `tbl_sanpham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `han_dung`, `don_vi_tinh`, `ton_toi_thieu`, `huong_dan_su_dung`, `mo_ta`, `gia_goc`, `trang_thai`, `nha_cung_cap_id`, `loai_san_pham_id`, `khuyen_mai_id`) VALUES
 (6, '040284', 'Bộ bình trà 16 món - Moriitalia ', 'Bộ bình trà 16 món - Moriitalia ', 0, 'Bộ', 50, NULL, '* Bộ bình trà Moriitalia 16 món.\r\n- Bộ gồm 16 món.\r\n   + 01 Bình trà.\r\n   + 06 Tách trà.\r\n   + 06 Cốc.\r\n   + 01 Hũ đựng đường.\r\n- Thành phần: Sứ cao cấp sản xuất theo tiêu chuẩn của Moriitalia.\r\n- Có thể sử dụng làm quà tặng, rất có ý nghĩa.\r\n- Nhãn hiệu: Morriitalia - Moriitalia chuyên cung cấp đa dạng các sản phẩm hàng gia dụng, đồ dùng nhà bếp, điện gia dụng, quà tặng, đồ trang trí , sản phẩm dùng cho du lịch, dã ngoại ….nổi tiếng thế giới với mức giá cạnh tranh nhất.\r\n- Xuất xứ: Trung Quốc - Sản phẩm được thiết kế và sản xuất theo công nghệ của Italia.', 230000, 1, 6, 6, 4),
 (7, '040207', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 24, 'Cái', 13, NULL, '* Máy xay sinh tố  Osaka BL619.\r\n- Công suất: 300W.\r\n- Dung tích: 1.5 lít.\r\n- Mô tả:\r\n    + Cối được làm bằng hợp chất không bể, không trầy xước.\r\n    + 03 tốc độ.\r\n    + Lọc bằng inox.\r\n    + Motor thế hệ mới vận hành êm.\r\n    + Tự động tắt máy khi quá tải.\r\n    + Xay nhuyễn được đá.\r\n    + Cối nhỏ xay khô.\r\n    + Vỏ nhựa tổng hợp, bền chắc và dễ lau chùi.\r\n- Tính năng: Xay sinh tố. Có cối nhỏ xay khô, có lọc làm sữa đậu nành.\r\n- Sử dụng dễ dàng và nhanh chóng, thời gian thực hiện chỉ tính bằng giây.\r\n- Màu sắc: Màu trắng.\r\n- Bảo hành: 12 tháng.\r\n- Nhãn hiệu: Osaka. Công ty Osaka là công ty chuyên sản xuất các sản phẩm điện gia dụng cao cấp.\r\n- Sản xuất tại Trung Quốc - Sản phẩm được sản xuất theo tiêu chuẩn CE (Châu Âu), và GS (Mỹ).', 6800000, 1, 7, 1, NULL),
 (8, '040176', 'Bia Heineken ', 'Bia Heineken ', 12, 'Thùng', 127, NULL, '- Bia Heineken\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Cách thức chế biến: Lên men tự nhiên\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Heineken\r\n- Xuất xứ: Việt Nam', 390000, 1, 5, 5, NULL),
@@ -1157,10 +1143,10 @@ INSERT INTO `tbl_SanPham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `h
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_SanPhamChiNhanh`
+-- Table structure for table `tbl_sanphamchinhanh`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_SanPhamChiNhanh` (
+CREATE TABLE IF NOT EXISTS `tbl_sanphamchinhanh` (
   `chi_nhanh_id` int(10) NOT NULL DEFAULT '0',
   `san_pham_id` int(10) NOT NULL DEFAULT '0',
   `so_ton` int(10) DEFAULT NULL,
@@ -1171,19 +1157,19 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamChiNhanh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_SanPhamChiNhanh`
+-- Dumping data for table `tbl_sanphamchinhanh`
 --
 
-INSERT INTO `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `trang_thai`) VALUES
+INSERT INTO `tbl_sanphamchinhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `trang_thai`) VALUES
 (10, 6, 2000, 1),
-(10, 8, 550, 1),
+(10, 8, 546, 1),
 (10, 9, 50, 1),
 (10, 10, 359, 1),
 (10, 12, 600, 1),
 (10, 17, 3722, 1),
 (10, 18, 2999, 1),
 (10, 20, 34550, 1),
-(26, 10, 230, 0),
+(26, 10, 230, 1),
 (28, 10, 200, 1),
 (28, 11, 120, 1),
 (29, 18, 500, 1),
@@ -1192,10 +1178,10 @@ INSERT INTO `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `tra
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_SanPhamTang`
+-- Table structure for table `tbl_sanphamtang`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_SanPhamTang` (
+CREATE TABLE IF NOT EXISTS `tbl_sanphamtang` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_vach` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_san_pham` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1209,19 +1195,19 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTang` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `tbl_SanPhamTang`
+-- Dumping data for table `tbl_sanphamtang`
 --
 
-INSERT INTO `tbl_SanPhamTang` (`id`, `ma_vach`, `ten_san_pham`, `gia_tang`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `mo_ta`, `trang_thai`) VALUES
+INSERT INTO `tbl_sanphamtang` (`id`, `ma_vach`, `ten_san_pham`, `gia_tang`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `mo_ta`, `trang_thai`) VALUES
 (1, 'TA98423', 'Gấu Panda HUAHUA', 150000, '2013-05-15', '2013-07-31', NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_SanPhamTangChiNhanh`
+-- Table structure for table `tbl_sanphamtangchinhanh`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_SanPhamTangChiNhanh` (
+CREATE TABLE IF NOT EXISTS `tbl_sanphamtangchinhanh` (
   `san_pham_tang_id` int(10) NOT NULL DEFAULT '0',
   `chi_nhanh_id` int(10) NOT NULL,
   `so_ton` int(10) DEFAULT NULL,
@@ -1231,19 +1217,19 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTangChiNhanh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_SanPhamTangChiNhanh`
+-- Dumping data for table `tbl_sanphamtangchinhanh`
 --
 
-INSERT INTO `tbl_SanPhamTangChiNhanh` (`san_pham_tang_id`, `chi_nhanh_id`, `so_ton`) VALUES
-(1, 10, 99);
+INSERT INTO `tbl_sanphamtangchinhanh` (`san_pham_tang_id`, `chi_nhanh_id`, `so_ton`) VALUES
+(1, 10, 96);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ThongTinCongTy`
+-- Table structure for table `tbl_thongtincongty`
 --
 
-CREATE TABLE IF NOT EXISTS `tbl_ThongTinCongTy` (
+CREATE TABLE IF NOT EXISTS `tbl_thongtincongty` (
   `ten_cong_ty` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dia_chi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dien_thoai` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1253,10 +1239,10 @@ CREATE TABLE IF NOT EXISTS `tbl_ThongTinCongTy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_ThongTinCongTy`
+-- Dumping data for table `tbl_thongtincongty`
 --
 
-INSERT INTO `tbl_ThongTinCongTy` (`ten_cong_ty`, `dia_chi`, `dien_thoai`, `fax`, `email`, `website`) VALUES
+INSERT INTO `tbl_thongtincongty` (`ten_cong_ty`, `dia_chi`, `dien_thoai`, `fax`, `email`, `website`) VALUES
 ('Công ty TNHH An Phước ', '45 Nguyễn Trãi - P5 - Q10 ', '(08) 3848439', '(08) 3848440', 'anphuoc@hcm.vn', 'www.anphuoc.vn ');
 
 --
@@ -1264,166 +1250,166 @@ INSERT INTO `tbl_ThongTinCongTy` (`ten_cong_ty`, `dia_chi`, `dien_thoai`, `fax`,
 --
 
 --
--- Constraints for table `AuthAssignment`
+-- Constraints for table `authassignment`
 --
-ALTER TABLE `AuthAssignment`
-  ADD CONSTRAINT `AuthAssignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `authassignment`
+  ADD CONSTRAINT `AuthAssignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `AuthItemChild`
+-- Constraints for table `authitemchild`
 --
-ALTER TABLE `AuthItemChild`
-  ADD CONSTRAINT `AuthItemChild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `AuthItemChild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `authitemchild`
+  ADD CONSTRAINT `AuthItemChild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `AuthItemChild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Rights`
+-- Constraints for table `rights`
 --
-ALTER TABLE `Rights`
-  ADD CONSTRAINT `Rights_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `rights`
+  ADD CONSTRAINT `Rights_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_ChiNhanh`
+-- Constraints for table `tbl_chinhanh`
 --
-ALTER TABLE `tbl_ChiNhanh`
-  ADD CONSTRAINT `FKtbl_ChiNha197094` FOREIGN KEY (`truc_thuoc_id`) REFERENCES `tbl_ChiNhanh` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiNha320112` FOREIGN KEY (`khu_vuc_id`) REFERENCES `tbl_KhuVuc` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiNha643812` FOREIGN KEY (`loai_chi_nhanh_id`) REFERENCES `tbl_LoaiChiNhanh` (`id`);
+ALTER TABLE `tbl_chinhanh`
+  ADD CONSTRAINT `FKtbl_ChiNha197094` FOREIGN KEY (`truc_thuoc_id`) REFERENCES `tbl_chinhanh` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiNha320112` FOREIGN KEY (`khu_vuc_id`) REFERENCES `tbl_khuvuc` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiNha643812` FOREIGN KEY (`loai_chi_nhanh_id`) REFERENCES `tbl_loaichinhanh` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietHoaDonBan`
+-- Constraints for table `tbl_chitiethoadonban`
 --
-ALTER TABLE `tbl_ChiTietHoaDonBan`
-  ADD CONSTRAINT `FKtbl_ChiTie469808` FOREIGN KEY (`hoa_don_ban_id`) REFERENCES `tbl_HoaDonBanHang` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie898627` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`);
+ALTER TABLE `tbl_chitiethoadonban`
+  ADD CONSTRAINT `FKtbl_ChiTie469808` FOREIGN KEY (`hoa_don_ban_id`) REFERENCES `tbl_hoadonbanhang` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie898627` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_sanpham` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietHoaDonTang`
+-- Constraints for table `tbl_chitiethoadontang`
 --
-ALTER TABLE `tbl_ChiTietHoaDonTang`
-  ADD CONSTRAINT `FKtbl_ChiTie468546` FOREIGN KEY (`hoa_don_ban_id`) REFERENCES `tbl_HoaDonBanHang` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie898645` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_SanPhamTang` (`id`);
+ALTER TABLE `tbl_chitiethoadontang`
+  ADD CONSTRAINT `FKtbl_ChiTie468546` FOREIGN KEY (`hoa_don_ban_id`) REFERENCES `tbl_hoadonbanhang` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie898645` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_sanphamtang` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietHoaDonTra`
+-- Constraints for table `tbl_chitiethoadontra`
 --
-ALTER TABLE `tbl_ChiTietHoaDonTra`
-  ADD CONSTRAINT `FKtbl_ChiTie11581` FOREIGN KEY (`hoa_don_tra_id`) REFERENCES `tbl_HoaDonTraHang` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie916439` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`);
+ALTER TABLE `tbl_chitiethoadontra`
+  ADD CONSTRAINT `FKtbl_ChiTie11581` FOREIGN KEY (`hoa_don_tra_id`) REFERENCES `tbl_hoadontrahang` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie916439` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_sanpham` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietPhieuNhap`
+-- Constraints for table `tbl_chitietphieunhap`
 --
-ALTER TABLE `tbl_ChiTietPhieuNhap`
-  ADD CONSTRAINT `FKtbl_ChiTie125902` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie280924` FOREIGN KEY (`phieu_nhap_id`) REFERENCES `tbl_PhieuNhap` (`id`);
+ALTER TABLE `tbl_chitietphieunhap`
+  ADD CONSTRAINT `FKtbl_ChiTie125902` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_sanpham` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie280924` FOREIGN KEY (`phieu_nhap_id`) REFERENCES `tbl_phieunhap` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietPhieuNhapSanPhamTang`
+-- Constraints for table `tbl_chitietphieunhapsanphamtang`
 --
-ALTER TABLE `tbl_ChiTietPhieuNhapSanPhamTang`
-  ADD CONSTRAINT `FKtbl_ChiTie125142` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_SanPhamTang` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie280143` FOREIGN KEY (`phieu_nhap_id`) REFERENCES `tbl_PhieuNhap` (`id`);
+ALTER TABLE `tbl_chitietphieunhapsanphamtang`
+  ADD CONSTRAINT `FKtbl_ChiTie125142` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_sanphamtang` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie280143` FOREIGN KEY (`phieu_nhap_id`) REFERENCES `tbl_phieunhap` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietPhieuXuat`
+-- Constraints for table `tbl_chitietphieuxuat`
 --
-ALTER TABLE `tbl_ChiTietPhieuXuat`
-  ADD CONSTRAINT `FKtbl_ChiTie259107` FOREIGN KEY (`phieu_xuat_id`) REFERENCES `tbl_PhieuXuat` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie815494` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`);
+ALTER TABLE `tbl_chitietphieuxuat`
+  ADD CONSTRAINT `FKtbl_ChiTie259107` FOREIGN KEY (`phieu_xuat_id`) REFERENCES `tbl_phieuxuat` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie815494` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_sanpham` (`id`);
 
 --
--- Constraints for table `tbl_ChiTietPhieuXuatSanPhamTang`
+-- Constraints for table `tbl_chitietphieuxuatsanphamtang`
 --
-ALTER TABLE `tbl_ChiTietPhieuXuatSanPhamTang`
-  ADD CONSTRAINT `FKtbl_ChiTie125144` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_SanPhamTang` (`id`),
-  ADD CONSTRAINT `FKtbl_ChiTie280145` FOREIGN KEY (`phieu_xuat_id`) REFERENCES `tbl_PhieuXuat` (`id`);
+ALTER TABLE `tbl_chitietphieuxuatsanphamtang`
+  ADD CONSTRAINT `FKtbl_ChiTie125144` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_sanphamtang` (`id`),
+  ADD CONSTRAINT `FKtbl_ChiTie280145` FOREIGN KEY (`phieu_xuat_id`) REFERENCES `tbl_phieuxuat` (`id`);
 
 --
--- Constraints for table `tbl_ChungTu`
+-- Constraints for table `tbl_chungtu`
 --
-ALTER TABLE `tbl_ChungTu`
-  ADD CONSTRAINT `FKtbl_ChungT392230` FOREIGN KEY (`nhan_vien_id`) REFERENCES `tbl_NhanVien` (`id`),
-  ADD CONSTRAINT `FKtbl_ChungT837946` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+ALTER TABLE `tbl_chungtu`
+  ADD CONSTRAINT `FKtbl_ChungT392230` FOREIGN KEY (`nhan_vien_id`) REFERENCES `tbl_nhanvien` (`id`),
+  ADD CONSTRAINT `FKtbl_ChungT837946` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_chinhanh` (`id`);
 
 --
--- Constraints for table `tbl_HoaDonBanHang`
+-- Constraints for table `tbl_hoadonbanhang`
 --
-ALTER TABLE `tbl_HoaDonBanHang`
-  ADD CONSTRAINT `FKtbl_HoaDon810063` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`),
-  ADD CONSTRAINT `tbl_HoaDonBanHang_ibfk_1` FOREIGN KEY (`khach_hang_id`) REFERENCES `tbl_KhachHang` (`id`);
+ALTER TABLE `tbl_hoadonbanhang`
+  ADD CONSTRAINT `FKtbl_HoaDon810063` FOREIGN KEY (`id`) REFERENCES `tbl_chungtu` (`id`),
+  ADD CONSTRAINT `tbl_HoaDonBanHang_ibfk_1` FOREIGN KEY (`khach_hang_id`) REFERENCES `tbl_khachhang` (`id`);
 
 --
--- Constraints for table `tbl_HoaDonTraHang`
+-- Constraints for table `tbl_hoadontrahang`
 --
-ALTER TABLE `tbl_HoaDonTraHang`
-  ADD CONSTRAINT `FKtbl_HoaDon696201` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`),
-  ADD CONSTRAINT `FKtbl_HoaDon976146` FOREIGN KEY (`hoa_don_ban_id`) REFERENCES `tbl_HoaDonBanHang` (`id`);
+ALTER TABLE `tbl_hoadontrahang`
+  ADD CONSTRAINT `FKtbl_HoaDon696201` FOREIGN KEY (`id`) REFERENCES `tbl_chungtu` (`id`),
+  ADD CONSTRAINT `FKtbl_HoaDon976146` FOREIGN KEY (`hoa_don_ban_id`) REFERENCES `tbl_hoadonbanhang` (`id`);
 
 --
--- Constraints for table `tbl_KhachHang`
+-- Constraints for table `tbl_khachhang`
 --
-ALTER TABLE `tbl_KhachHang`
-  ADD CONSTRAINT `FKtbl_KhachH518685` FOREIGN KEY (`loai_khach_hang_id`) REFERENCES `tbl_LoaiKhachHang` (`id`);
+ALTER TABLE `tbl_khachhang`
+  ADD CONSTRAINT `FKtbl_KhachH518685` FOREIGN KEY (`loai_khach_hang_id`) REFERENCES `tbl_loaikhachhang` (`id`);
 
 --
--- Constraints for table `tbl_KhuyenMaiChiNhanh`
+-- Constraints for table `tbl_khuyenmaichinhanh`
 --
-ALTER TABLE `tbl_KhuyenMaiChiNhanh`
-  ADD CONSTRAINT `FKtbl_Khuyen292321` FOREIGN KEY (`khuyen_mai_id`) REFERENCES `tbl_KhuyenMai` (`id`),
-  ADD CONSTRAINT `FKtbl_Khuyen611439` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+ALTER TABLE `tbl_khuyenmaichinhanh`
+  ADD CONSTRAINT `FKtbl_Khuyen292321` FOREIGN KEY (`khuyen_mai_id`) REFERENCES `tbl_khuyenmai` (`id`),
+  ADD CONSTRAINT `FKtbl_Khuyen611439` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_chinhanh` (`id`);
 
 --
--- Constraints for table `tbl_MocGia`
+-- Constraints for table `tbl_mocgia`
 --
-ALTER TABLE `tbl_MocGia`
-  ADD CONSTRAINT `tbl_MocGia_ibfk_1` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`);
+ALTER TABLE `tbl_mocgia`
+  ADD CONSTRAINT `tbl_MocGia_ibfk_1` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_sanpham` (`id`);
 
 --
--- Constraints for table `tbl_NhanVien`
+-- Constraints for table `tbl_nhanvien`
 --
-ALTER TABLE `tbl_NhanVien`
-  ADD CONSTRAINT `FKtbl_NhanVi521022` FOREIGN KEY (`loai_nhan_vien_id`) REFERENCES `tbl_LoaiNhanVien` (`id`),
-  ADD CONSTRAINT `FKtbl_NhanVi835155` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+ALTER TABLE `tbl_nhanvien`
+  ADD CONSTRAINT `FKtbl_NhanVi521022` FOREIGN KEY (`loai_nhan_vien_id`) REFERENCES `tbl_loainhanvien` (`id`),
+  ADD CONSTRAINT `FKtbl_NhanVi835155` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_chinhanh` (`id`);
 
 --
--- Constraints for table `tbl_PhieuNhap`
+-- Constraints for table `tbl_phieunhap`
 --
-ALTER TABLE `tbl_PhieuNhap`
-  ADD CONSTRAINT `FKtbl_PhieuN233283` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`),
-  ADD CONSTRAINT `FKtbl_PhieuN233299` FOREIGN KEY (`nha_cung_cap_id`) REFERENCES `tbl_NhaCungCap` (`id`),
-  ADD CONSTRAINT `FKtbl_PhieuN364331` FOREIGN KEY (`chi_nhanh_xuat_id`) REFERENCES `tbl_ChiNhanh` (`id`),
-  ADD CONSTRAINT `tbl_PhieuNhap_ibfk_1` FOREIGN KEY (`loai_nhap_vao`) REFERENCES `tbl_LoaiNhapXuat` (`id`);
+ALTER TABLE `tbl_phieunhap`
+  ADD CONSTRAINT `FKtbl_PhieuN233283` FOREIGN KEY (`id`) REFERENCES `tbl_chungtu` (`id`),
+  ADD CONSTRAINT `FKtbl_PhieuN233299` FOREIGN KEY (`nha_cung_cap_id`) REFERENCES `tbl_nhacungcap` (`id`),
+  ADD CONSTRAINT `FKtbl_PhieuN364331` FOREIGN KEY (`chi_nhanh_xuat_id`) REFERENCES `tbl_chinhanh` (`id`),
+  ADD CONSTRAINT `tbl_PhieuNhap_ibfk_1` FOREIGN KEY (`loai_nhap_vao`) REFERENCES `tbl_loainhapxuat` (`id`);
 
 --
--- Constraints for table `tbl_PhieuXuat`
+-- Constraints for table `tbl_phieuxuat`
 --
-ALTER TABLE `tbl_PhieuXuat`
-  ADD CONSTRAINT `FKtbl_PhieuX273736` FOREIGN KEY (`chi_nhanh_nhap_id`) REFERENCES `tbl_ChiNhanh` (`id`),
-  ADD CONSTRAINT `FKtbl_PhieuX543690` FOREIGN KEY (`id`) REFERENCES `tbl_ChungTu` (`id`),
-  ADD CONSTRAINT `tbl_PhieuXuat_ibfk_1` FOREIGN KEY (`loai_xuat_ra`) REFERENCES `tbl_LoaiNhapXuat` (`id`);
+ALTER TABLE `tbl_phieuxuat`
+  ADD CONSTRAINT `FKtbl_PhieuX273736` FOREIGN KEY (`chi_nhanh_nhap_id`) REFERENCES `tbl_chinhanh` (`id`),
+  ADD CONSTRAINT `FKtbl_PhieuX543690` FOREIGN KEY (`id`) REFERENCES `tbl_chungtu` (`id`),
+  ADD CONSTRAINT `tbl_PhieuXuat_ibfk_1` FOREIGN KEY (`loai_xuat_ra`) REFERENCES `tbl_loainhapxuat` (`id`);
 
 --
--- Constraints for table `tbl_SanPham`
+-- Constraints for table `tbl_sanpham`
 --
-ALTER TABLE `tbl_SanPham`
-  ADD CONSTRAINT `FKtbl_SanPha178229` FOREIGN KEY (`nha_cung_cap_id`) REFERENCES `tbl_NhaCungCap` (`id`),
-  ADD CONSTRAINT `FKtbl_SanPha69518` FOREIGN KEY (`khuyen_mai_id`) REFERENCES `tbl_KhuyenMai` (`id`),
-  ADD CONSTRAINT `FKtbl_SanPha797499` FOREIGN KEY (`loai_san_pham_id`) REFERENCES `tbl_LoaiSanPham` (`id`);
+ALTER TABLE `tbl_sanpham`
+  ADD CONSTRAINT `FKtbl_SanPha178229` FOREIGN KEY (`nha_cung_cap_id`) REFERENCES `tbl_nhacungcap` (`id`),
+  ADD CONSTRAINT `FKtbl_SanPha69518` FOREIGN KEY (`khuyen_mai_id`) REFERENCES `tbl_khuyenmai` (`id`),
+  ADD CONSTRAINT `FKtbl_SanPha797499` FOREIGN KEY (`loai_san_pham_id`) REFERENCES `tbl_loaisanpham` (`id`);
 
 --
--- Constraints for table `tbl_SanPhamChiNhanh`
+-- Constraints for table `tbl_sanphamchinhanh`
 --
-ALTER TABLE `tbl_SanPhamChiNhanh`
-  ADD CONSTRAINT `FKtbl_SanPha228435` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_SanPham` (`id`),
-  ADD CONSTRAINT `FKtbl_SanPha834242` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+ALTER TABLE `tbl_sanphamchinhanh`
+  ADD CONSTRAINT `FKtbl_SanPha228435` FOREIGN KEY (`san_pham_id`) REFERENCES `tbl_sanpham` (`id`),
+  ADD CONSTRAINT `FKtbl_SanPha834242` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_chinhanh` (`id`);
 
 --
--- Constraints for table `tbl_SanPhamTangChiNhanh`
+-- Constraints for table `tbl_sanphamtangchinhanh`
 --
-ALTER TABLE `tbl_SanPhamTangChiNhanh`
-  ADD CONSTRAINT `FKtbl_SanPha299705` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_SanPhamTang` (`id`),
-  ADD CONSTRAINT `FKtbl_SanPha601534` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_ChiNhanh` (`id`);
+ALTER TABLE `tbl_sanphamtangchinhanh`
+  ADD CONSTRAINT `FKtbl_SanPha299705` FOREIGN KEY (`san_pham_tang_id`) REFERENCES `tbl_sanphamtang` (`id`),
+  ADD CONSTRAINT `FKtbl_SanPha601534` FOREIGN KEY (`chi_nhanh_id`) REFERENCES `tbl_chinhanh` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -41,13 +41,13 @@ class HoaDonBanHangController extends CPOSController {
                     'so_luong' => $item['so_luong'],
                 );
             }
-            //$result = $model->them($post);
-            $result = 'ok';
+            $result = $model->them($post);
+            //$result = 'ok';
             switch($result) {
                 case 'ok':{
-                    var_dump(LoaiKhachHang::layLoaiKhachHangHienTai($hd_ban_hang['tri_gia']));exit;
+                    //var_dump(LoaiKhachHang::layLoaiKhachHangHienTai($hd_ban_hang['tri_gia']));exit;
                     $this->actionInHoaDon(true);
-                    //$this->actionHoaDonMoi();
+                    $this->actionHoaDonMoi();
                     $this->redirect(array('them'));
                 }break;
                 case 'detail-error':{
