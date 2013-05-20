@@ -58,6 +58,8 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 }
             } else
                 return 'detail-error';
+               // print_r($relatedData);exit;
+
             if ($this->saveWithRelated($relatedData)) {
                 // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
