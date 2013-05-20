@@ -41,7 +41,7 @@ class HoaDonBanHangController extends CPOSController {
                     'so_luong' => $item['so_luong'],
                 );
             }
-            $result = $model->them($post);
+            $result = $model->them1($post);
             //$result = 'ok';
             switch($result) {
                 case 'ok':{
