@@ -226,5 +226,16 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Choose a branch to view Import & Export Status'=>'Chọn chi nhánh để xem báo cáo tình hình nhập xuất',
     'Time period'=>'Khoảng thời gian',
     'not defined'=>'chưa định nghĩa',
+    'Report management'=>'Quản lý báo cáo',
+    'Report'=>'Báo cáo',
     'Time period is wrong format'=>'Sai định dạng ngày tháng',
+    'Import and Export Report'=>'Báo cáo nhập xuất tồn',
+    'Branch Sales Report'=>'Báo cáo doanh thu theo chi nhánh',
+    'Product Sales Report'=>'Báo cáo doanh thu theo sản phẩm',
+    'Top Sales Report'=>'Báo cáo doanh thu TOP sản phẩm',
+    'System List Reports'=>'Danh sách các báo cáo trong hệ thống',
+    'Choose time period to view Sales Status'=>'Chọn khoảng thời gian để xem báo cáo',
+    'Top Sale Products Report on Branch'=>'Top các sản phẩm doanh thu cao trong chi nhánh',
+    'Top Sale Products Report on Branchs'=>'Top các sản phẩm doanh thu cao trong các chi nhánh'
+
 );

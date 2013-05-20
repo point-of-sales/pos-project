@@ -29,6 +29,13 @@ class SanPhamTang extends BaseSanPhamTang
 		);
     }
 
+    public function relations() {
+        return array(
+            'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamTangChiNhanh(san_pham_tang_id, chi_nhanh_id)'),
+            'sanPhamTangChiNhanh'=>array(self::HAS_MANY,'SanPhamTangChiNhanh','san_pham_tang_id'),
+        );
+    }
+
     public function rules() {
         return array(
             array('ma_vach, ten_san_pham, gia_tang, thoi_gian_bat_dau, thoi_gian_ket_thuc, trang_thai', 'required'),
@@ -140,6 +147,8 @@ class SanPhamTang extends BaseSanPhamTang
         ));
     }
 
+    // ton tai chi nhanh id
+
     public function laySoLuongTonHienTai() {
         return Yii::app()->db->createCommand()
             ->select("so_ton")
@@ -147,8 +156,6 @@ class SanPhamTang extends BaseSanPhamTang
             ->where('san_pham_tang_id=:san_pham_tang_id AND chi_nhanh_id=:chi_nhanh_id',array(':san_pham_tang_id'=>$this->id, ':chi_nhanh_id'=>$this->chi_nhanh_id))
             ->queryScalar();
     }
-
-
 
     public static function laySanPhamTang($chi_nhanh_id,$tri_gia){
         /*$crt = new CDbCriteria;
@@ -168,6 +175,14 @@ class SanPhamTang extends BaseSanPhamTang
                     array(':chi_nhanh_id'=>$chi_nhanh_id,':gia_tang'=>$tri_gia)
                     )
                 ->queryAll();
+    // tong luong ton tren tat ca chi nhanh
+    public function layTongSoLuongTon()
+    {
+        return Yii::app()->db->createCommand()
+            ->select('sum(so_ton)')
+            ->from('tbl_SanPhamTangChiNhanh')
+            ->where('san_pham_tang_id=:san_pham_tang_id', array(':san_pham_tang_id' => $this->id))
+            ->queryScalar();
     }
 
 }

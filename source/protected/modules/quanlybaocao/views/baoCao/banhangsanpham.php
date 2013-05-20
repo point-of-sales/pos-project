@@ -9,25 +9,33 @@
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Report management') => array('baoCao/danhsach'),
     Yii::t('viLib', 'Report') => array('baoCao/baocao'),
-    Yii::t('viLib', 'Sales Report'),
+    Yii::t('viLib', 'Product Sales Report'),
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Import Export Report'), 'url' => array('baoCao/nhapxuatton')),
-   // array('label' => Yii::t('viLib', 'General Report'), 'url' => array('baoCao/baocaotonghop')),
-    array('label' => Yii::t('viLib', 'Sales Report'), 'url' => array('baoCao/banhang')),
+    array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton')),
+    array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh')),
+    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham')),
+    array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop')),
 );
 
 ?>
 
 
-<h1><?php echo Yii::t('viLib', 'Sales Report') ?></h1>
+<h1><?php echo Yii::t('viLib', 'Product Sales Report') ?></h1>
 <div class="report-content">
 
     <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
         <div
             class="response-msg error ui-corner-all info-board">
-        <?php echo Yii::app()->user->getFlash('info-board'); ?>
+            <?php echo Yii::app()->user->getFlash('info-board'); ?>
+        </div>
+    <?php } ?>
+
+    <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
+        <div
+            class="response-msg error ui-corner-all info-board">
+            <?php echo Yii::app()->user->getFlash('info-board'); ?>
         </div>
     <?php } ?>
 
@@ -37,47 +45,28 @@ $this->menu = array(
         ?>
         <div class="report-intro">
             <p><?php echo Yii::t('viLib', 'Choose time period to view Sales Status') ?></p>
-            <img src="<?php echo Yii::app()->theme->baseUrl . '/images/chart.png' ?>">
+            <img src="<?php echo Yii::app()->theme->baseUrl . '/images/product.png' ?>">
         </div>
 
     <?php
     }
 
-
-    if (isset($chiNhanh)) {
+    if (isset($sanPham)) {
 
         echo '<div class="sub-title">';
         echo '<p>' . Yii::t('viLib', 'Time period') . ' : ' . $thoi_gian_bat_dau . ' --> ' . $thoi_gian_ket_thuc . '</p>';
         echo '</div>';
 
+        $danhSachSanPham = $sanPham->getData();
+        $sp = $danhSachSanPham[0];
         if (count($chiNhanh->getData()) > 1) {
+            // doanh so san pham tren tat ca cac chi nhanh
             // Xem tong quat bang Chart
-            $series_data = ChiNhanh::layDanhSachDoanhSoCacChiNhanh($chiNhanh->getData());
-            $categories = ChiNhanh::layDanhSachThoiGianCacChiNhanh($chiNhanh->getData());
+            $series_data = $sp->layDanhSachDoanhSo();
+            $categories = $sp->layDanhSachThoiGian();
             $this->widget('ext.highcharts.HighchartsWidget', array(
                 'options' => array(
-                    'title' => array('text' => Yii::t('viLib', 'All Branchs Sales Report')),
-                    'xAxis' => array(
-                        'categories' => $categories,
-                    ),
-                    'yAxis' => array(
-                        'title' => array('text' => Yii::t('viLib', 'Sales')),
-                    ),
-                    'series' => array(array('name' => Yii::t('viLib', 'Sales status'),
-                        'data' => $series_data,)
-                    ),
-                )
-            ));
-
-        } else {
-            // mot chi nhanh
-            $cnData = $chiNhanh->getData();
-            $chiNhanh_bc = $cnData[0];
-            $series_data = $chiNhanh_bc->layDanhSachDoanhSo();
-            $categories = ChiNhanh::layDanhSachThoiGianCacChiNhanh($chiNhanh->getData());
-            $this->widget('ext.highcharts.HighchartsWidget', array(
-                'options' => array(
-                    'title' => array('text' => Yii::t('viLib', 'Branch Sales Report')),
+                    'title' => array('text' => Yii::t('viLib', 'Product Sales Report on All Branchs ')),
                     'xAxis' => array(
                         'categories' => $categories,
                     ),
@@ -90,28 +79,28 @@ $this->menu = array(
                     'credits' => array('enabled' => false),
                 )
             ));
-
+        } else {
+            // doanh so san pham tren 1 chi nhanh
+            $series_data = $sp->layDanhSachDoanhSo();
+            $categories = $sp->layDanhSachThoiGian();
+            $this->widget('ext.highcharts.HighchartsWidget', array(
+                'options' => array(
+                    'title' => array('text' => Yii::t('viLib', 'Product Sales Report on Branchs ')),
+                    'xAxis' => array(
+                        'categories' => $categories,
+                    ),
+                    'yAxis' => array(
+                        'title' => array('text' => Yii::t('viLib', 'Sales')),
+                    ),
+                    'series' => array(array('name' => Yii::t('viLib', 'Sales status'),
+                        'data' => $series_data,)
+                    ),
+                    'credits' => array('enabled' => false),
+                )
+            ));
         }
-        // Xem chi tiet bang Grid
-        $this->widget('zii.widgets.grid.CGridView', array(
-            'dataProvider' => $chiNhanh,
-            'columns' => array(
-                'ma_chi_nhanh',
-                'ten_chi_nhanh',
-                'dia_chi',
-                array(
-                    'name' => 'trang_thai',
-                    'value' => '$data->layTenTrangThai()'
-                ),
-                array(
-                    'name' => 'tong_doanh_so',
-                    'value' => '$data->tinhTongDoanhSo()',
-                ),
-            ),
-        ));
 
     }
-
 
     ?>
 </div>

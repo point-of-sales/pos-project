@@ -13,9 +13,10 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Import Export Report'), 'url' => array('baoCao/nhapxuatton')),
-// /   array('label' => Yii::t('viLib', 'General Report'), 'url' => array('baoCao/baocaotonghop')),
-    array('label' => Yii::t('viLib', 'Sales Report'), 'url' => array('baoCao/banhang')),
+    array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton')),
+    array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh')),
+    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham')),
+    array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop')),
 );
 
 ?>
