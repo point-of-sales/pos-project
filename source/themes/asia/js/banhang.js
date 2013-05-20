@@ -467,7 +467,7 @@ function layHangTang(){
                             '<input type="hidden" value="' + hang_tang[i].id + '" id="idht_d_'+hang_tang[i].id+'" />' +
                             '<td id="mvht_d_'+hang_tang[i].id+'">' + hang_tang[i].ma_vach + '</td>' +
                             '<td id="tht_d_'+hang_tang[i].id+'">' + hang_tang[i].ten_san_pham + '</td>' +
-                            '<td><input type="text" id="slht_d_'+hang_tang[i].id+'" class="" value="1" /></td>' +
+                            '<td><input type="text" id="slht_d_'+hang_tang[i].id+'" readonly="readonly" value="1" /></td>' +
                             '<td id="ght_d_'+hang_tang[i].id+'">' + vnd_format(hang_tang[i].gia_tang) + '</td>' +
                             '<td><input type="checkbox" id="chk_d_'+hang_tang[i].id+'" onclick=checkHangTang('+hang_tang[i].id+') /></td>' +
                         '</tr>';

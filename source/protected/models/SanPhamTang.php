@@ -28,13 +28,13 @@ class SanPhamTang extends BaseSanPhamTang
             'sanPhamTangChiNhanh'=> array(self::HAS_MANY, 'SanPhamTangChiNhanh', 'san_pham_tang_id'),
 		);
     }
-
+/*
     public function relations() {
         return array(
             'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamTangChiNhanh(san_pham_tang_id, chi_nhanh_id)'),
             'sanPhamTangChiNhanh'=>array(self::HAS_MANY,'SanPhamTangChiNhanh','san_pham_tang_id'),
         );
-    }
+    }*/
 
     public function rules() {
         return array(
@@ -166,7 +166,7 @@ class SanPhamTang extends BaseSanPhamTang
         $crt->addCondition('so_ton >= 0');
         
         return SanPhamTang::model()->findAll($crt);*/
-        
+            
         return Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('tbl_SanPhamTang sp, tbl_SanPhamTangChiNhanh cn')
@@ -175,6 +175,8 @@ class SanPhamTang extends BaseSanPhamTang
                     array(':chi_nhanh_id'=>$chi_nhanh_id,':gia_tang'=>$tri_gia)
                     )
                 ->queryAll();
+    }
+    
     // tong luong ton tren tat ca chi nhanh
     public function layTongSoLuongTon()
     {
