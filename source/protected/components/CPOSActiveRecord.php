@@ -252,18 +252,28 @@ abstract class CPOSActiveRecord extends GxActiveRecord
         // Save each related data.
         // [SP001] => Array(30,60000), [SP003] => Array(40,80000)
 
+
+
         if ($hasExtraFields) {
-            $pivotName = array_shift(array_keys($relatedData));
+            $pivotName = array_keys($relatedData);
             $relatedExtraData = array();
-            foreach ($relatedData[$pivotName] as $key => $value) {
-                $relatedExtraData[] = $value;
+            if(!empty($pivotName)) {
+                foreach($pivotName as $pv) {
+                    foreach ($relatedData[$pv] as $key => $value) {
+                        $relatedExtraData[] = $value;
+                    }
+                    // recreate $relatedData
+                    $tmp[$pv] = array_keys($relatedData[$pv]);
+
+                }
+                unset($relatedData);
+                $relatedData = $tmp;
+                unset($tmp);
+
             }
-            // recreate $relatedData
-            $tmp[$pivotName] = array_keys($relatedData[$pivotName]);
-            unset($relatedData);
-            $relatedData = $tmp;
-            unset($tmp);
+
         }
+
         foreach ($relatedData as $relationName => $relationData) {
             // The pivot model class name.
             $pivotClassNames = $this->pivotModels();

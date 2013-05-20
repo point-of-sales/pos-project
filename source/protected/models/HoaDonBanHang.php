@@ -9,6 +9,14 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         return parent::model($className);
     }
 
+    public function pivotModels()
+    {
+        return array(
+            'tblSanPhams' => 'ChiTietHoaDonBan',
+            'tblSanPhamTangs' => 'ChiTietHoaDonTang',
+        );
+    }
+
     public function relations()
     {
         return array(
@@ -16,46 +24,8 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             'chungTu' => array(self::BELONGS_TO, 'ChungTu', 'id'),
             'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
             'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'hoa_don_ban_id'),
-            'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietHoaDonTang(hoa_don_id,san_pham_tang_id)'),
+            'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietHoaDonTang(hoa_don_ban_id,san_pham_tang_id)'),
         );
-    }
-    
-    public function them($params)
-    {
-        // kiem tra du lieu con bi trung hay chua
-
-        if (!$this->baseModel->kiemTraTonTai($params[$this->baseTableName])) {
-            //neu khoa chua ton tai
-            $this->setAttributes($params);
-            if (!empty($params['ChiTietHoaDonBan'])) {
-                $cthd = $params['ChiTietHoaDonBan'];
-                $relatedItems = Helpers::formatArray($cthd);
-                $relatedData = array(
-                    // fill related with data from the Session
-                    'tblSanPhams' => $relatedItems,
-                );
-            } else
-                return 'detail-error';
-            if ($this->saveWithRelated($relatedData)) {
-                // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
-                $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
-                foreach ($relatedItems as $key => $itemsInfo) {
-                    $product = SanPham::model()->findByPk($key); // update scenario
-                    $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
-                    $currentQuantity = $product->laySoLuongTonHienTai();
-                    $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
-                    $relatedQuantityItems[$key] = array('so_ton' => $newQuantity);
-                }
-                $relatedQuantityData = array(
-                    'tblSanPhams' => $relatedQuantityItems,
-                );
-
-                if ($chiNhanh->saveWithRelated($relatedQuantityData, false, null, array(), true, true))
-                    return 'ok';
-            } else
-                return 'fail';
-        } else
-            return 'dup-error';
     }
 
     public function them1($params)
@@ -66,17 +36,16 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             //neu khoa chua ton tai
             $this->setAttributes($params);
             if (!empty($params['ChiTietHoaDonBan'])) {
-                
-                $cthd_hang_ban = $params['ChiTietHoaDonBan'];
-                if(!empty($params['ChiTietHoaDonTang'])){
-                    $cthd_hang_tang = $params['ChiTietHoaDonTang'];
+
+                $cthd_hang_ban = Helpers::formatArray($params['ChiTietHoaDonBan']);
+                if (!empty($params['ChiTietHoaDonTang'])) {
+                    $cthd_hang_tang = Helpers::formatArray($params['ChiTietHoaDonTang']);
                     $relatedData = array(
                         // fill related with data from the Session
-                        'tblSanPhams' => Helpers::formatArray($cthd_hang_ban),
-                        'tblSanPhamTangs' => Helpers::formatArray($cthd_hang_tang),
-                    ); 
-                }
-                else{
+                        'tblSanPhams' => $cthd_hang_ban,
+                        'tblSanPhamTangs' => $cthd_hang_tang,
+                    );
+                } else {
                     $relatedData = array(
                         // fill related with data from the Session
                         'tblSanPhams' => Helpers::formatArray($cthd_hang_ban),
@@ -84,34 +53,38 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 }
             } else
                 return 'detail-error';
+
+
             if ($this->saveWithRelated($relatedData)) {
-                
+
                 // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
                 $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
+
                 foreach ($cthd_hang_ban as $key => $itemsInfo) {
+
                     $product = SanPham::model()->findByPk($key); // update scenario
                     $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
                     $currentQuantity = $product->laySoLuongTonHienTai();
                     $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
-                    $relatedQuantitySanPhams[$key] = array('so_ton' => $newQuantity,'trang_thai'=>1);
+                    $relatedQuantitySanPhams[$key] = array('so_ton' => $newQuantity, 'trang_thai' => 1);
                 }
-                if(isset($cthd_hang_tang)){
+
+                if (isset($cthd_hang_tang)) {
                     foreach ($cthd_hang_tang as $key => $itemsInfo) {
                         $product = SanPhamTang::model()->findByPk($key); // update scenario
                         $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
                         $currentQuantity = $product->laySoLuongTonHienTai();
                         $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
-                        $relatedQuantitySanPhamTangs[$key] = array('so_ton' => $newQuantity,'trang_thai'=>1);
+                        $relatedQuantitySanPhamTangs[$key] = array('so_ton' => $newQuantity, 'trang_thai' => 1);
                     }
                     $relatedQuantityData = array(
                         'tblSanPhams' => $relatedQuantitySanPhams,
                         'tblSanPhamTangs' => $relatedQuantitySanPhamTangs,
-                    );   
-                }
-                else{
+                    );
+                } else {
                     $relatedQuantityData = array(
                         'tblSanPhams' => $relatedQuantitySanPhams,
-                    );   
+                    );
                 }
 
                 if ($chiNhanh->saveWithRelated($relatedQuantityData, false, null, array(), true, true))

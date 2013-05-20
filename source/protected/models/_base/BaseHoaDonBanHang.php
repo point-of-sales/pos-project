@@ -58,11 +58,10 @@ abstract class BaseHoaDonBanHang extends CPOSBaseChungTu {
 		);
 	}
 
-	public function pivotModels() {
-		return array(
-			'tblSanPhams' => 'ChiTietHoaDonBan',
-		);
-	}
+    public function pivotModels() {
+        return array(
+        );
+    }
 
 	public function attributeLabels() {
 		return array(

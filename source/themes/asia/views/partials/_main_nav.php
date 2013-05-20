@@ -2,18 +2,18 @@
     <?php $this->widget('zii.widgets.CMenu',array(
         'id'=>'navigation',
         'items'=>array(
-            array('label'=>'Home', 'url'=>array('/site/index')),
-            array('label'=>'Quản lý chi nhánh', 'url'=>array('/quanlychinhanh/chiNhanh/danhsach')),
-            array('label'=>'Quản lý nhân viên', 'url'=>array('/quanlynhanvien/nhanVien/danhsach')),
-            array('label'=>'Quản lý bán hàng', 'url'=>array('/quanlybanhang/hoaDonBanHang/danhsach')),
-            array('label'=>'Quản lý khách hàng', 'url'=>array('/quanlykhachhang/khachHang/danhsach')),
-            array('label'=>'Quản lý sản phẩm', 'url'=>array('/quanlysanpham/sanPham/danhsach')),
-            array('label'=>'Quản lý nhập xuất', 'url'=>array('/quanlynhapxuat/chiNhanh/danhsach')),
-            array('label'=>'Quản lý khuyến mãi', 'url'=>array('/quanlykhuyenmai/khuyenMai/danhsach')),
-            array('label'=>'Quản lý nhà cung cấp', 'url'=>array('/quanlynhacungcap/nhaCungCap/danhsach')),
-            array('label'=>'Quản lý báo cáo', 'url'=>array('/quanlybaocao/baoCao/danhsach')),
-            array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-            array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+            array('label'=>Yii::t('viLib','Branch management'), 'url'=>array('/quanlychinhanh/chiNhanh/danhsach')),
+            array('label'=>Yii::t('viLib','Employee management'), 'url'=>array('/quanlynhanvien/nhanVien/danhsach')),
+            array('label'=>Yii::t('viLib','Sales management'), 'url'=>array('/quanlybanhang/hoaDonBanHang/danhsach')),
+            array('label'=>Yii::t('viLib','Customer management'), 'url'=>array('/quanlykhachhang/khachHang/danhsach')),
+            array('label'=>Yii::t('viLib','Product management'), 'url'=>array('/quanlysanpham/sanPham/danhsach')),
+            array('label'=>Yii::t('viLib','Import/Export management'), 'url'=>array('/quanlynhapxuat/chiNhanh/danhsach')),
+            array('label'=>Yii::t('viLib','Promotion management'), 'url'=>array('/quanlykhuyenmai/khuyenMai/danhsach')),
+            array('label'=>Yii::t('viLib','Supplier management'), 'url'=>array('/quanlynhacungcap/nhaCungCap/danhsach')),
+            array('label'=>Yii::t('viLib','Report management'), 'url'=>array('/quanlybaocao/baoCao/danhsach')),
+            array('label'=>Yii::t('viLib','Decentralization management'), 'url'=>array('/quanlyphanquyen/assignment/danhsach')),
+            //array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+            //array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
         ),
         'htmlOptions'=>array('class'=>'sf-navbar')
     )); ?>

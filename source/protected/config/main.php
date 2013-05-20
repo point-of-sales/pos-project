@@ -20,12 +20,15 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.modules.quanlyphanquyen.*',
+        'application.modules.quanlyphanquyen.components.*',
         'ext.phpexcel.Classes.PHPExcel',
         'ext.giix-components.*', // giix components
         'ext.eexcelview.*',
         'ext.ebreadcrumbs.*',
         'ext.custom-validator.*',
         'ext.custom-widgets.*'    //custom widgets
+
 
 	),
 
@@ -78,6 +81,24 @@ return array(
         'quanlybaocao'=>array(
             'defaultController'=>'baocao',
         ),
+        'quanlyphanquyen'=>array(
+            'superuserName'=>'QuanLyHeThong', // Name of the role with super user privileges.
+            'authenticatedName'=>'Authenticated', // Name of the authenticated user role.
+            'userClass'=>'NhanVien',
+            'userIdColumn'=>'id', // Name of the user id column in the database.
+            'userNameColumn'=>'ma_nhan_vien', // Name of the user name column in the database.
+            'enableBizRule'=>true, // Whether to enable authorization item business rules.
+            'enableBizRuleData'=>false, // Whether to enable data for business rules.
+            'displayDescription'=>true, // Whether to use item description instead of name.
+            'flashSuccessKey'=>'RightsSuccess', // Key to use for setting success flash messages.
+            'flashErrorKey'=>'RightsError', // Key to use for setting error flash messages.
+            'install'=>true, // Whether to install rights.
+            'baseUrl'=>'/quanlyphanquyen', // Base URL for Rights. Change if module is nested.
+            'layout'=>'/quanlyphanquyen.views.layouts.main', // Layout to use for displaying Rights.
+            'appLayout'=>'webroot.themes.asia.views.layouts.main', // Application layout.
+            'cssFile'=>'rights.css', // Style sheet file to use for Rights.
+            'debug'=>false, // Whether to enable debug mode.
+        ),
                     
 	),
 
@@ -95,9 +116,12 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-           // 'class'=>'CWebUser',
+            'class'=>'RWebUser',
            // 'autoUpdateFlash' => false, // add this line to disable the flash counter
 
+        ),
+        'authManager'=>array(
+            'class'=>'RDbAuthManager',
         ),
         // Yii Booster config
         'bootstrap' => array(

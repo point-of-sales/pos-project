@@ -45,6 +45,7 @@ class NhanVien extends BaseNhanVien
         if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
+            $this->mat_khau = md5($this->mat_khau);
             $relatedData = array( //'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],
             );
             if ($this->saveWithRelated($relatedData))
@@ -58,9 +59,11 @@ class NhanVien extends BaseNhanVien
     public function capNhat($params)
     {
         // kiem tra du lieu con bi trung hay chua
+
         $relatedData = array( /*'tblQuyens' => $_POST['NhanVien']['tblQuyens'] === '' ? null : $_POST['NhanVien']['tblQuyens'],*/);
         if (!$this->kiemTraTonTai($params)) {
             $this->setAttributes($params);
+            $this->mat_khau = md5($this->mat_khau);
             if ($this->saveWithRelated($relatedData))
                 return 'ok';
             else
@@ -70,6 +73,7 @@ class NhanVien extends BaseNhanVien
             // so sanh ma cu == ma moi
             if ($this->soKhopMa($params)) {
                 $this->setAttributes($params);
+                $this->mat_khau = md5($this->mat_khau);
                 if ($this->saveWithRelated($relatedData))
                     return 'ok';
                 else
