@@ -137,4 +137,14 @@ class NhanVien extends BaseNhanVien
         return $danhSachGioiTinh[$this->gioi_tinh];
     }
 
+    public static function getRole($id) {
+        return  Yii::app()->db->createCommand()
+            ->select('itemname')
+            ->from('AuthAssignment')
+            ->where('userid=:nhan_vien_id')
+            ->queryScalar(array(':nhan_vien_id'=>$id));
+
+    }
+
+
 }

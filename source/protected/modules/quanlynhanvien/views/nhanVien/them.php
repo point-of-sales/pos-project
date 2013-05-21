@@ -8,8 +8,8 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
     array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee'), 'url' => array('danhsach')),
-    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach')),
-	array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Employee type'), 'url'=>array('loaiNhanVien/them')),
+    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach'),'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
 );
 ?>
 

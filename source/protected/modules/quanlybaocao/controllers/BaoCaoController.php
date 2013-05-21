@@ -2,6 +2,7 @@
 
 class BaoCaoController extends CPOSController
 {
+
     public function actionDanhSach()
     {
         if (Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.DanhSach'))
@@ -45,7 +46,7 @@ class BaoCaoController extends CPOSController
             else
                 $this->render('nhapxuatton'); // render intro
         } else
-            throw new CHttpException('403', Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+            throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
 
     public function actionBanHangChiNhanh()
@@ -80,7 +81,7 @@ class BaoCaoController extends CPOSController
             }
             $this->render('banhangchinhanh', array('chiNhanh' => isset($chiNhanh) ? $chiNhanh : null, 'thoi_gian_bat_dau' => isset($thoi_gian_bat_dau) ? $thoi_gian_bat_dau : null, 'thoi_gian_ket_thuc' => isset($thoi_gian_ket_thuc) ? $thoi_gian_ket_thuc : null));
         } else
-            throw new CHttpException('403', Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+            throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
 
     }
 
@@ -136,7 +137,7 @@ class BaoCaoController extends CPOSController
 
             $this->render('banhangsanpham', array('sanPham' => isset($sanPham) ? $sanPham : null, 'chiNhanh' => isset($chiNhanh) ? $chiNhanh : null, 'thoi_gian_bat_dau' => isset($thoi_gian_bat_dau) ? $thoi_gian_bat_dau : null, 'thoi_gian_ket_thuc' => isset($thoi_gian_ket_thuc) ? $thoi_gian_ket_thuc : null));
         } else
-            throw new CHttpException('403', Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+            throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
 
     public function actionBanHangTop()
@@ -209,7 +210,7 @@ class BaoCaoController extends CPOSController
             }
             $this->render('banhangtop', array('sanPham' => isset($sanPham) ? $sanPham : null, 'chiNhanh' => isset($chiNhanh) ? $chiNhanh : null, 'thoi_gian_bat_dau' => isset($thoi_gian_bat_dau) ? $thoi_gian_bat_dau : null, 'thoi_gian_ket_thuc' => isset($thoi_gian_ket_thuc) ? $thoi_gian_ket_thuc : null));
         } else
-            throw new CHttpException('403', Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+            throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
 
 
 

@@ -187,6 +187,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
         }
     }
 
+
     public function saveWithRelated($relatedData, $runValidation = true, $attributes = null, $options = array(), $hasExtraFields = false, $hasExtraBehaviour = false)
     {
         // Merge the specified options with the default options.

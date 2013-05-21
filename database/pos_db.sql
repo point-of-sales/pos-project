@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2013 at 04:05 PM
+-- Generation Time: May 21, 2013 at 03:31 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -183,7 +183,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlynhapxuat.ChiNhanh.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.ChiNhanh.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.ChiNhanh.DanhSach', 0, NULL, NULL, 'N;'),
-('Quanlynhapxuat.ChiNhanh.ViewRaw', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.ChiNhanh.Xuat', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.CapNhat', 0, NULL, NULL, 'N;'),
@@ -267,7 +266,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlysanpham.SanPhamTang.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPhamTang.Xuat', 0, NULL, NULL, 'N;'),
 ('Site.*', 1, NULL, NULL, 'N;'),
-('Site.Contact', 0, NULL, NULL, 'N;'),
 ('Site.Error', 0, NULL, NULL, 'N;'),
 ('Site.Index', 0, NULL, NULL, 'N;'),
 ('Site.Login', 0, NULL, NULL, 'N;'),
@@ -317,6 +315,7 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVChiNhanh', 'Quanlybaocao.BaoCao.BanHangTop'),
 ('NVChiNhanh', 'Quanlybaocao.BaoCao.DanhSach'),
 ('NVChiNhanh', 'Quanlybaocao.BaoCao.NhapXuatTon'),
+('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct'),
 ('NVThuKho', 'Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct'),
 ('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.ChiTiet'),
 ('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.DanhSach'),
@@ -339,6 +338,10 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.XoaGrid'),
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.Xuat'),
 ('NVThuKho', 'QuanLyKho'),
+('NVChiNhanh', 'Quanlykhuyenmai.KhuyenMai.ChiTiet'),
+('NVChiNhanh', 'Quanlykhuyenmai.KhuyenMai.DanhSach'),
+('NVChiNhanh', 'Quanlynhacungcap.NhaCungCap.DanhSach'),
+('NVChiNhanh', 'Quanlynhacungcap.NhaCungCap.Xuat'),
 ('NVChiNhanh', 'Quanlynhanvien.NhanVien.AjaxActive'),
 ('NVChiNhanh', 'Quanlynhanvien.NhanVien.CapNhat'),
 ('NVChiNhanh', 'Quanlynhanvien.NhanVien.ChiTiet'),
@@ -350,7 +353,6 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('QuanLyKho', 'QuanLyNhapXuat'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.ChiTiet'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.DanhSach'),
-('NVThuKho', 'Quanlynhapxuat.ChiNhanh.ViewRaw'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.Xuat'),
 ('NVThuKho', 'Quanlynhapxuat.PhieuNhap.CapNhat'),
 ('NVThuKho', 'Quanlynhapxuat.PhieuNhap.ChiTiet'),
@@ -389,11 +391,19 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVChiNhanh', 'Quanlysanpham.MocGia.Xoa'),
 ('NVChiNhanh', 'Quanlysanpham.MocGia.XoaGrid'),
 ('NVChiNhanh', 'Quanlysanpham.MocGia.Xuat'),
+('NVChiNhanh', 'Quanlysanpham.SanPham.CapNhat'),
 ('NVThuKho', 'Quanlysanpham.SanPham.ChiTiet'),
+('NVBanHang', 'Quanlysanpham.SanPham.DanhSach'),
 ('NVThuKho', 'Quanlysanpham.SanPham.DanhSach'),
+('NVChiNhanh', 'Quanlysanpham.SanPham.Them'),
+('NVThuKho', 'Quanlysanpham.SanPham.ThemAjax'),
 ('NVThuKho', 'Quanlysanpham.SanPham.Xuat'),
+('NVChiNhanh', 'Quanlysanpham.SanPhamTang.CapNhat'),
+('NVChiNhanh', 'Quanlysanpham.SanPhamTang.ChiTiet'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.ChiTiet'),
+('NVChiNhanh', 'Quanlysanpham.SanPhamTang.DanhSach'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.DanhSach'),
+('NVChiNhanh', 'Quanlysanpham.SanPhamTang.Them'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.Xuat'),
 ('NVBanHang', 'Site.*'),
 ('NVThuKho', 'Site.*');
@@ -1135,7 +1145,7 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
   KEY `FKtbl_SanPha178229` (`nha_cung_cap_id`),
   KEY `FKtbl_SanPha797499` (`loai_san_pham_id`),
   KEY `FKtbl_SanPha69518` (`khuyen_mai_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `tbl_SanPham`

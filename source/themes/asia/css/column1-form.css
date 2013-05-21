@@ -83,3 +83,75 @@
     width:470px;
     height:40px;
 }
+
+.form-login-wrapper {
+    border:none;
+}
+#login-form-content {
+    border:1px solid #5B77CC;
+    width:400px;
+    height:200px;
+    padding:15px;
+    margin:130px auto;
+    text-align:center;
+    background-color: #F1F1F1;
+}
+
+.error-4-series {
+    
+    margin-top:300px;
+    text-align:center;
+    font-size:1.8em;
+    font-weight:bold;
+    padding:20px;
+}
+
+#login-form-title {
+    float:left;
+    width:430px;
+    height:50px;
+    margin-left:-15px;
+    margin-top:-15px;
+    margin-bottom:30px;
+    line-height:50px;
+    background-image:url(../images/login-title.jpg);
+}
+
+#login-form-title span {
+    font-size:1.5em;
+    color:white;
+    font-weight:bold;
+}
+
+.intro-image {
+    float:left;
+    width:auto;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.intro-text {
+    width:660px;
+    float:left;
+}
+
+.intro-text p {
+    text-align:justify;
+}
+
+.intro-text .intro-text-content {
+    padding-left:30px;
+}
+
+.intro-text-header {
+    font-weight:bold;
+    color:#5B77CC;
+}
+
+
+.features-ul {
+    padding-left:30px;
+}
+.features-ul li {
+    padding-top:10px;   
+}

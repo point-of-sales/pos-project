@@ -90,37 +90,38 @@ abstract class CPOSController extends GxController
     }
 
 
-    public function actionGetSanPhamBan($ma_vach){
+    public function actionGetSanPhamBan($ma_vach)
+    {
         if (Yii::app()->getRequest()->getIsAjaxRequest()) {
             if (isset($ma_vach))
-                $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+                $model = SanPham::model()->findByAttributes(array('ma_vach' => $ma_vach));
 
             $item = array(
                 'id' => $model->getAttribute('id'),
                 'ma_vach' => $model->getAttribute('ma_vach'),
                 'ten_san_pham' => $model->getAttribute('ten_san_pham'),
-                'gia_goc'=>$model->getAttribute('gia_goc'),
+                'gia_goc' => $model->getAttribute('gia_goc'),
             );
             echo json_encode($item);
-        }
-        else
+        } else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 
-    public function actionGetSanPhamTang($ma_vach){
+    public function actionGetSanPhamTang($ma_vach)
+    {
+
         if (Yii::app()->getRequest()->getIsAjaxRequest()) {
             if (isset($ma_vach))
-                $model = SanPhamTang::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+                $model = SanPhamTang::model()->findByAttributes(array('ma_vach' => $ma_vach));
 
             $item = array(
                 'id' => $model->getAttribute('id'),
                 'ma_vach' => $model->getAttribute('ma_vach'),
                 'ten_san_pham' => $model->getAttribute('ten_san_pham'),
-                'gia_tang'=>$model->getAttribute('gia_tang'),
+                'gia_tang' => $model->getAttribute('gia_tang'),
             );
             echo json_encode($item);
-        }
-        else
+        } else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
 

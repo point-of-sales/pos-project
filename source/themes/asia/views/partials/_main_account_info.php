@@ -1,7 +1,7 @@
-<a href="#" title="My account">My account</a> |
-<a href="#" title="Settings">Settings</a> |
-<a href="#" title="Contact us">Contact us</a>
-
-<span>Logged in as <a href="#" title="Logged in as admin">admin</a></span>
-| <a href="#" title="Edit profile">Edit profile</a>
-| <a href="#" title="Logout">Logout</a>
+<span><a href="#"><?php echo Yii::app()->user->getState('title') ?></a></span>|<?php
+if (!Yii::app()->user->isGuest) :
+    ?>
+    <a href="<?php echo Yii::app()->createUrl('/site/logout') ?>" title="Logout">Logout</a>
+<?php
+endif;
+?>
