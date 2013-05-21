@@ -2,6 +2,7 @@
 $hd_ban_hang = Yii::app()->session['hoa_don'];
 //var_dump($hd_ban_hang);
 $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
+$cthd_hang_tang = $hd_ban_hang['cthd_hang_tang'];
 $khach_hang = $hd_ban_hang['khach_hang'];
 $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
 ?>
@@ -81,6 +82,22 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
                     <td><?php echo $cthd['so_luong'];?></td>
                     <td><?php echo number_format($cthd['don_gia'],0,'.',',');?></td>
                     <td><?php echo number_format($cthd['thanh_tien'],0,'.',',');?></td>
+                </tr>
+                <?php
+                $i++;
+                endforeach;
+                
+                foreach($cthd_hang_tang as $cthd):
+                ?>
+                <tr>
+                    <td><?php echo $i;?></td>
+                    <td>
+                        <?php echo $cthd['ma_vach'];?>
+                        <br />
+                        <?php echo $cthd['ten_san_pham'];?>
+                    </td>
+                    <td><?php echo $cthd['so_luong'];?></td>
+                    <td colspan="2">Hàng tặng</td>
                 </tr>
                 <?php
                 $i++;

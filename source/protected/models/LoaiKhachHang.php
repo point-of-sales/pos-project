@@ -92,6 +92,16 @@ class LoaiKhachHang extends BaseLoaiKhachHang
             'criteria' => $criteria,
         ));
     }
+    
+    public static function layLoaiKhachHangHienTai($doanh_so){
+        return Yii::app()->db->createCommand()
+            ->select('*')
+            ->from('tbl_loaikhachhang')
+            ->where('doanh_so <= :doanh_so',array(':doanh_so'=>$doanh_so))
+            ->order('doanh_so DESC')
+            ->limit(1)
+            ->queryRow();
+    }
 
 
 }

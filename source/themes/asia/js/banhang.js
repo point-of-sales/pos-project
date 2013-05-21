@@ -177,6 +177,21 @@ function xoaGrid(){
     '</tr>');
 }
 
+function enableInput(id,enable){
+    if(enable){
+        $(id).removeAttr('readonly');   
+    }
+    else{
+        $(id).attr('readonly','readonly');
+    }
+}
+
+//== so sanh bang ve gia tri === so sanh bang ve gia tri va kieu du lieu
+function isInteger(value){
+    var er = /^[0-9]+$/;
+    return ( er.test(value) ) ? true : false;
+}
+
 /////////////////////////////////////////////////// END FORM////////////////////////////////////////////////
 
 /////////////////////////////////////////////////// START HOA DON////////////////////////////////////////////////
@@ -214,6 +229,11 @@ function capNhatTienNhan(hand){
     var tien_nhan = 0,tien_du = 0;
     if(hand == true){
         tien_nhan = $(idMaInput).val();
+        if(isNaN(tien_nhan)==true || isInteger(tien_nhan)==false){
+            $(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
+            $(idMaInput).select();
+            return;
+        }
         tien_du = parseInt(tien_nhan) - del_format($(idTriGia).text());
         if(tien_du<0){
             $(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
@@ -487,7 +507,8 @@ function checkHangTang(id){
         }   
         arr_id_hang_tang.push(id);
         updateListHangTang();
-        $('#slht_d_'+id).removeAttr('readonly');
+        enableInput('#slht_d_'+id,true);
+        //$('#slht_d_'+id).removeAttr('readonly');
     }
     else{
         for(var i=0;i<arr_id_hang_tang.length;i++){
@@ -496,7 +517,8 @@ function checkHangTang(id){
             }
         }
         updateListHangTang();
-        $('#slht_d_'+id).attr('readonly','readonly');
+        enableInput('#slht_d_'+id,false);
+        //$('#slht_d_'+id).attr('readonly','readonly');
     }
 }
 

@@ -106,5 +106,25 @@ class KhachHang extends BaseKhachHang
         ));
     }
 
-
+    public static function capNhatTriGia($id,$tri_gia){ 
+        $model = KhachHang::model()->findByAttributes(array('id'=>$id));
+        if(!empty($model)){
+            $diem_tich_luy_hien_tai = $model->getAttribute('diem_tich_luy');
+            $loai_khach_hang_hien_tai = $model->loaiKhachHang->id;
+            $doanh_so_hien_tai = $model->loaiKhachHang->doanh_so;
+            
+            $diem_tich_luy = $tri_gia+$diem_tich_luy_hien_tai;
+            //up level cho khach hang
+            if($diem_tich_luy >= $doanh_so_hien_tai){
+                
+            }
+            
+            $model->setAttribute('diem_tich_luy',$diem_tich_luy);
+            $model->save();
+        }
+        else{
+            return 'fail';
+        }
+    }
+    
 }
