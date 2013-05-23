@@ -292,8 +292,19 @@ class AuthItemController extends RController
                 $formModel->attributes = $_POST['AuthItemForm'];
                 if ($formModel->validate() === true) {
                     // Create the item
+
+
                     $item = $this->_authorizer->createAuthItem($formModel->name, $type, $formModel->description, $formModel->bizRule, $formModel->data);
                     $item = $this->_authorizer->attachAuthItemBehavior($item);
+
+                    if ($type == 2) // role selected
+                    {
+                        $rightModel = new RightsWeight();
+                        $rightModel->itemname = $formModel->name;
+                        $rightModel->type = 2;
+                        $rightModel->weight = $formModel->weight;
+                        $rightModel->save();
+                    }
 
                     // Set a flash message for creating the item
                     Yii::app()->user->setFlash($this->module->flashSuccessKey,
@@ -325,14 +336,35 @@ class AuthItemController extends RController
 
             // Create the authorization item form
             $formModel = new AuthItemForm('update');
+            $currentWeight = Yii::app()->db->createCommand()
+                ->select('weight')
+                ->from('Rights')
+                ->where('itemname=:itemname', array(':itemname' => $itemName))
+                ->queryScalar();
+
 
             if (isset($_POST['AuthItemForm']) === true) {
                 $formModel->attributes = $_POST['AuthItemForm'];
                 if ($formModel->validate() === true) {
                     // Update the item and load it
+
+                    if ($model->type == 2) {
+
+                        $rightModel = RightsWeight::model()->find('itemname=:itemname', array(':itemname' => $itemName));
+                        $rightModel->itemname = $formModel->name;
+                        $rightModel->type = 2;
+                        if($currentWeight < 999)
+                            $rightModel->weight = $formModel->weight;
+                        else
+                            $rightModel->weight = 999;
+                    }
+
+
                     $this->_authorizer->updateAuthItem($itemName, $formModel->name, $formModel->description, $formModel->bizRule, $formModel->data);
+                    $rightModel->save();
                     $item = $this->_authorizer->authManager->getAuthItem($formModel->name);
                     $item = $this->_authorizer->attachAuthItemBehavior($item);
+
 
                     // Set a flash message for updating the item
                     Yii::app()->user->setFlash($this->module->flashSuccessKey,
@@ -391,6 +423,7 @@ class AuthItemController extends RController
                 'childSelectOptions' => $childSelectOptions,
                 'parentDataProvider' => $parentDataProvider,
                 'childDataProvider' => $childDataProvider,
+                'currentWeight' => $currentWeight,
             ));
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));

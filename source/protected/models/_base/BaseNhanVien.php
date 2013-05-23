@@ -56,7 +56,7 @@ abstract class BaseNhanVien extends CPOSActiveRecord {
 
 	public function rules() {
 		return array(
-			array('ma_nhan_vien, ho_ten, trang_thai, mat_khau, loai_nhan_vien_id, chi_nhanh_id', 'required'),
+			array('ma_nhan_vien, ho_ten, trang_thai, loai_nhan_vien_id, chi_nhanh_id', 'required'),
 			array('gioi_tinh, trang_thai, loai_nhan_vien_id, chi_nhanh_id', 'numerical', 'integerOnly'=>true),
 			array('luong_co_ban', 'numerical'),
 			array('ma_nhan_vien', 'length', 'max'=>10),
@@ -65,14 +65,13 @@ abstract class BaseNhanVien extends CPOSActiveRecord {
 			array('dien_thoai', 'length', 'max'=>12),
 			array('ngay_sinh, ngay_vao_lam, lan_dang_nhap_cuoi', 'safe'),
 			array('email, dien_thoai, dia_chi, gioi_tinh, ngay_sinh, trinh_do, luong_co_ban, chuyen_mon, ngay_vao_lam, lan_dang_nhap_cuoi', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, ma_nhan_vien, ho_ten, email, dien_thoai, dia_chi, gioi_tinh, ngay_sinh, trinh_do, luong_co_ban, chuyen_mon, trang_thai, mat_khau, ngay_vao_lam, lan_dang_nhap_cuoi, loai_nhan_vien_id, chi_nhanh_id', 'safe', 'on'=>'search'),
+			array('id, ma_nhan_vien, ho_ten, email, dien_thoai, dia_chi, gioi_tinh, ngay_sinh, trinh_do, luong_co_ban, chuyen_mon, trang_thai, ngay_vao_lam, lan_dang_nhap_cuoi, loai_nhan_vien_id, chi_nhanh_id', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function relations() {
 		return array(
 			'chungTus' => array(self::HAS_MANY, 'ChungTu', 'nhan_vien_id'),
-			'tblQuyens' => array(self::MANY_MANY, 'Quyen', 'tbl_GanQuyen(nhan_vien_id, quyen_id)'),
 			'loaiNhanVien' => array(self::BELONGS_TO, 'LoaiNhanVien', 'loai_nhan_vien_id'),
 			'chiNhanh' => array(self::BELONGS_TO, 'ChiNhanh', 'chi_nhanh_id'),
 		);

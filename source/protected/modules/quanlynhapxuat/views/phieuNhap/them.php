@@ -32,6 +32,15 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
             }
         });
 
+        $('#ChungTu_chi_nhanh_id').focus(function(e){
+            $(this).blur();
+        });
+
+        $('#ChungTu_nhan_vien_id').focus(function(e){
+            $(this).blur();
+        });
+
+
     });
 
     function keypressInputMa(e) {
@@ -62,6 +71,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         this.productName = "#productname";
         this.quantity = "#quantity";
         this.price = "#price";
+        this.addedItems.type = 1;  // 0. nhap tang - 1. nhap ban
 
     };
 

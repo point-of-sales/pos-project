@@ -22,7 +22,7 @@ var BaseAjaxTransferData = function () {
     this.dataStored = null;
     this.customInfoBoard = null;
     this.errors = null;
-    this.addedItems = {'items': []};              // Json object
+    this.addedItems = {'items': [], 'type':''};              // Json object
 
     BaseAjaxTransferData.prototype.getProduct = function (url,ma) {
         var strUrl  = url + "getsanphamban/ma_vach/" + ma;

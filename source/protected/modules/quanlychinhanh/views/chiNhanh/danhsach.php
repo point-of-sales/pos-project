@@ -9,9 +9,9 @@ $this->breadcrumbs = array(
 $this->menu = array(
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Areas') . ' ', 'url' => array('khuVuc/danhsach')),
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Branch Type') . ' ', 'url' => array('loaiChiNhanh/danhsach')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', $model->label(1)), 'url' => array('them'),'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Area') . ' ', 'url' => array('khuVuc/them'),'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Branch Type') . ' ', 'url' => array('loaiChiNhanh/them'),'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', $model->label(1)), 'url' => array('them'),'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Area') . ' ', 'url' => array('khuVuc/them'),'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Branch Type') . ' ', 'url' => array('loaiChiNhanh/them'),'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
     array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat')),
 );
 

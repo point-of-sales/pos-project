@@ -294,12 +294,23 @@ class ChiNhanh extends BaseChiNhanh
 
 
     public static function layDanhSachChiNhanhKichHoatTrongHeThong()
-    {
-        $criteria = new CDbCriteria();
-        $criteria->addCondition('trang_thai=1');
-        $criteria->addCondition('id>1');
-        return ChiNhanh::model()->findAll($criteria);
+    {   $currentUserId = Yii::app()->user->id;
+        if (RightsWeight::getRoleWeight($currentUserId) == 999) {
+            $criteria = new CDbCriteria();
+            $criteria->addCondition('trang_thai=1');
+            $criteria->addCondition('id>1');
+            return ChiNhanh::model()->findAll($criteria);
+        } else {
+            $nhanVien = NhanVien::model()->findByPk($currentUserId);
+            $chiNhanhId = $nhanVien->chiNhanh->id;
+            $criteria = new CDbCriteria();
+            $criteria->addCondition('trang_thai=1');
+            $criteria->addCondition("id=$chiNhanhId");
+
+            return ChiNhanh::model()->findAll($criteria);
+        }
     }
+
 
     public function tinhDoanhSoTheoKhoangThoiGian($thoi_gian_bat_dau, $thoi_gian_ket_thuc)
     {

@@ -243,6 +243,17 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Assign rights'=>'Ấn định quyền hạn',
     'List Assigned rights'=>'Danh sách quyền hạn được ấn định',
     'You are not allowed to access this section. Please contact to your administrator for help'=>'Bạn không được phép truy cập vào trang này. Xin vui lòng liên hệ với quản trị viên để được giúp đỡ',
-    'Sales management'=>'Quản lý bán hàng'
+    'Sales management'=>'Quản lý bán hàng',
+    'Current time'=>'Thời gian hiện hành',
+    'Current user'=>'Người dùng hiện hành',
+    'Position'=>'Vị trí',
+    'Can not delete current user. This user may be an Administrator or current login user'=>'Không thể xóa người dùng này. Người dùng này có thể có quyền Quản trị hoặc là người dùng hiện hành',
+    'This user is Administrator always active in system'=>'Đây là người dùng Administrator luôn được kích hoạt trong hệ thống',
+    'Can not delete user in different branch'=>'Không thể xóa người dùng ở chi nhánh khác',
+    'Can not update this user.This user may be an Administrator or current login user'=>'Không thể cập nhật người dùng này. Người dùng này có thể có quyền Quản trị hoặc là người dùng hiện hành',
+    'Can not update user in different branch'=>'Không thể cập nhật người dùng ở chi nhánh khác',
+    'New password 1'=>'Mật khẩu 1',
+    'New password 2'=>'Mật khẩu 2',
+
 
 );

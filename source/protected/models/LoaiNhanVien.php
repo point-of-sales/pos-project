@@ -9,7 +9,19 @@ class LoaiNhanVien extends BaseLoaiNhanVien
         return parent::model($className);
     }
 
-    public function attributeLabels() {
+    public function rules()
+    {
+        return array(
+            array('ma_loai_nhan_vien,lop', 'required'),
+            array('ma_loai_nhan_vien', 'length', 'max' => 15),
+            array('ten_loai', 'length', 'max' => 100),
+            array('ten_loai', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, ma_loai_nhan_vien, ten_loai,lop', 'safe', 'on' => 'search'),
+        );
+    }
+
+    public function attributeLabels()
+    {
         return array(
             'id' => Yii::t('viLib', 'ID'),
             'ma_loai_nhan_vien' => Yii::t('viLib', 'Emploee type code'),
@@ -89,9 +101,34 @@ class LoaiNhanVien extends BaseLoaiNhanVien
         ));
     }
 
-    public static function layDanhSachLoaiNhanVien() {
-        $danhSachLoaiNhanVien = LoaiNhanVien::model()->findAll();
-        return $danhSachLoaiNhanVien;
+    public static function layDanhSachLoaiNhanVien()
+    {
+        $currentUserId = Yii::app()->user->id;
+        if (RightsWeight::getRoleWeight($currentUserId) == 999) {
+            $danhSachLoaiNhanVien = LoaiNhanVien::model()->findAll();
+            return $danhSachLoaiNhanVien;
+        } else {
+
+            $nhanVien = NhanVien::model()->findByPk($currentUserId);
+            $loaiNhanVien = $nhanVien->loaiNhanVien;
+            if ($loaiNhanVien->lop == 1) { // manager
+                $criteria = new CDbCriteria();
+                $criteria->addCondition("lop<$loaiNhanVien->lop");;
+                $danhSachLoaiNhanVien = LoaiNhanVien::model()->findAll($criteria);
+                return $danhSachLoaiNhanVien;
+            }
+        }
+    }
+
+    public static function layDanhSachLop()
+    {
+        return array(Yii::t('viLib', 'Normal Employee'), Yii::t('viLib', 'Manager'), Yii::t('viLib', 'Administrator'));
+    }
+
+    public function layTenLop()
+    {
+        $danhSachLop = LoaiNhanVien::layDanhSachLop();
+        return $danhSachLop[$this->lop];
     }
 
 

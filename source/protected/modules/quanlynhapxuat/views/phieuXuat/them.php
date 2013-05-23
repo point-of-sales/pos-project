@@ -31,7 +31,13 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                 $('#price').val(preGetItem.gia_goc);
             }
         });
+        $('#ChungTu_chi_nhanh_id').focus(function(e){
+            $(this).blur();
+        });
 
+        $('#ChungTu_nhan_vien_id').focus(function(e){
+            $(this).blur();
+        });
     });
 
     function keypressInputMa(e) {
@@ -63,8 +69,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         this.quantity = "#quantity";
         this.price = "#price";
         this.exportBranch = "#ChungTu_chi_nhanh_id";
-    }
-    ;
+        this.addedItems.type = 1;  // 0. xuat tang - 1. xuat ban
+    };
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);

@@ -7,9 +7,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach'),'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
+    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach'),'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
     array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible'=>NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong'),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -76,7 +76,7 @@ return false;
         */
         array(
             'class' => 'CButtonColumn',
-            'template' => '{view}{update}{delete}{active}',
+            'template' => '{view}{update}{delete}{active}{changepass}',
             'htmlOptions' => array('style' => 'width:80px'),
 
             'buttons' => array(
@@ -98,6 +98,11 @@ return false;
                 'update' => array(
                     'url' => 'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
                     'label' => Yii::t('viLib', 'Update'),
+                ),
+                'changepass' => array(
+                    'url' => 'Helpers::urlRouting(Yii::app()->controller,"","thaydoimatkhau",array("id"=>$data->id))',
+                    'imageUrl' => Yii::app()->request->baseUrl . '/themes/asia/images/icons/passkey.png',
+                    'label' => Yii::t('viLib', 'Update password'),
                 ),
                 'delete' => array(
                     'url' => 'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',

@@ -35,12 +35,15 @@ abstract class CPOSActiveRecord extends GxActiveRecord
     protected function kiemTraQuanHe()
     {
         $rels = $this->relations();
+        $i = 0;
         foreach ($rels as $relLabel => $value) {
+            $i++;
             if ($value[0] != parent::BELONGS_TO) {
                 $tmp = $this->getRelated($relLabel);
-                if (!empty($tmp))
-                    return true;
+                if (!empty($tmp) && !($tmp[0] instanceof AuthAssignment)) {
 
+                    return true;
+                }
             }
         }
         return false;

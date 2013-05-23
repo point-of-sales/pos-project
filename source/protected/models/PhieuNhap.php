@@ -194,5 +194,9 @@ class PhieuNhap extends BasePhieuNhap
         ));
     }
 
+    public static function tenTable() {
+        return 'tbl_PhieuNhap';
+    }
+
 
 }

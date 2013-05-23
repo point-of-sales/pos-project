@@ -6,7 +6,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product'),
 );
 
-if (NhanVien::getRole(Yii::app()->user->id) == 'NVChiNhanh' || NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong') {
+if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 3 || RightsWeight::getRoleWeight(Yii::app()->user->id) == 999 ) {
     $this->menu = array(
         array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/danhsach')),
         array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/danhsach')),

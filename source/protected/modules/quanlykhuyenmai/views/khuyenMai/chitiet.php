@@ -6,7 +6,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'Detail') => array(),
     GxHtml::valueEx($model, "ten_chuong_trinh"),
 );
-if (NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong') {
+if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) {
     $this->menu = array(
         array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('danhsach')),
         array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them')),

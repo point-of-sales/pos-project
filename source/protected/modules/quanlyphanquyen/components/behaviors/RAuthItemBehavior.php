@@ -8,6 +8,7 @@
 */
 class RAuthItemBehavior extends CBehavior
 {
+
 	/**
 	* @property integer the id of the user to whom this item is assigned.
 	*/
@@ -276,6 +277,10 @@ class RAuthItemBehavior extends CBehavior
             'authItem/update',
             'name'=>urlencode($this->owner->name),
         ));
+    }
+
+    public function getPositionDescription() {
+        return (Rights::module()->displayDescription===true && $this->owner->description!==null) ? $this->owner->description:Yii::t('viLib','Not defined');
     }
 
 }

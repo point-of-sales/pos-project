@@ -6,7 +6,7 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Supplier')
 );
 
-if (NhanVien::getRole(Yii::app()->user->id) == 'QuanLyHeThong') {
+if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) {
     $this->menu = array(
         array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('them')),
         array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('xuat')),

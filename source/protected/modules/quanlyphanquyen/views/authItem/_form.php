@@ -46,6 +46,16 @@
 
     <?php endif; ?>
 
+    <div class="row">
+        <?php echo CHtml::label(Yii::t('t','Menu template'),''); ?>
+        <?php if (!isset($currentWeight)): ?>
+            <?php echo $form->dropDownList($model, 'weight', AuthItemForm::getWeightOptions()); ?>
+        <?php elseif ($currentWeight < 999): ?>
+            <?php echo $form->dropDownList($model, 'weight', AuthItemForm::getWeightOptions(), array("options" => array($currentWeight => array("selected" => "selected")))); ?>
+        <?php endif; ?>
+        <?php echo $form->error($model, 'weight'); ?>
+    </div>
+
 
     <div class="clear"></div>
 

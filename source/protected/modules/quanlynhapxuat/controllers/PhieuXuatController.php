@@ -43,13 +43,13 @@ class PhieuXuatController extends CPOSController
         if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.Them')) {
             $this->layout = '//layouts/column1';
             $model = new PhieuXuat;
-
+            $model->getBaseModel()->ma_chung_tu = PhieuNhap::layMaChungTuMoi('PhieuXuat', 'PX');
             if (isset($_POST['ChungTu'])) {
                 $result = $model->them($_POST);
                 switch ($result) {
                     case 'ok':
                     {
-                        Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
+                        Yii::app()->CPOSSessionManager->clearKey('ChiTietPhieuXuat');
                         if (Yii::app()->getRequest()->getIsAjaxRequest())
                             Yii::app()->end();
                         else
@@ -87,13 +87,13 @@ class PhieuXuatController extends CPOSController
         if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.XuatSanPhamTang')) {
             $this->layout = '//layouts/column1';
             $model = new PhieuXuat;
-
+            $model->getBaseModel()->ma_chung_tu = PhieuNhap::layMaChungTuMoi('PhieuXuat', 'PX');
             if (isset($_POST['ChungTu'])) {
                 $result = $model->xuatSanPhamTang($_POST);
                 switch ($result) {
                     case 'ok':
                     {
-                        Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
+                        Yii::app()->CPOSSessionManager->clearKey('ChiTietPhieuXuatSanPhamTang');
                         if (Yii::app()->getRequest()->getIsAjaxRequest())
                             Yii::app()->end();
                         else
@@ -306,9 +306,15 @@ class PhieuXuatController extends CPOSController
     public function actionSyncData()
     {
         if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.SyncData')) {
-            Yii::app()->CPOSSessionManager->clear('ChiTietPhieuXuat');
-            if (isset($_POST['items']))
+            Yii::app()->CPOSSessionManager->clearKey('ChiTietPhieuXuat');
+            Yii::app()->CPOSSessionManager->clearKey('ChiTietPhieuXuatSanPhamTang');
+            if (isset($_POST['items'])) {
+                if ($_POST['type']) // xuat san pham ban
                 Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuXuat', $_POST['items'], array('items'));
+                else
+                    Yii::app()->CPOSSessionManager->setItem('ChiTietPhieuXuatSanPhamTang', $_POST['items'], array('items'));
+            }
+
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }

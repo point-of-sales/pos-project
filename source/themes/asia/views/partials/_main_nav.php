@@ -1,7 +1,7 @@
 <?php
-$currentRole = NhanVien::getRole(Yii::app()->user->id);
-switch ($currentRole) {
-    case 'NVBanHang':
+$currentRoleWeight = RightsWeight::getRoleWeight(Yii::app()->user->id);
+switch ($currentRoleWeight) {
+    case 1:
     {
         $menuItems = array(
             array('label' => Yii::t('viLib', 'Sales management'), 'url' => array('/quanlybanhang/hoaDonBanHang/danhsach')),
@@ -10,7 +10,7 @@ switch ($currentRole) {
         );
         break;
     }
-    case 'NVThuKho':
+    case 2:
     {
         $menuItems = array(
             array('label' => Yii::t('viLib', 'Product management'), 'url' => array('/quanlysanpham/sanPham/danhsach')),
@@ -18,7 +18,7 @@ switch ($currentRole) {
         );
         break;
     }
-    case 'NVChiNhanh':
+    case 3:
     {
         $menuItems = array(
             array('label' => Yii::t('viLib', 'Branch management'), 'url' => array('/quanlychinhanh/chiNhanh/danhsach')),
@@ -33,7 +33,7 @@ switch ($currentRole) {
         );
         break;
     }
-    case 'QuanLyHeThong':
+    case 999:
     {
         $menuItems = array(
             array('label' => Yii::t('viLib', 'Branch management'), 'url' => array('/quanlychinhanh/chiNhanh/danhsach')),
