@@ -6,7 +6,7 @@
  * Email: crist.azn@gmail.com | Phone : 0963-500-980 
  */
 
-class ThayDoiMatKhauForm extends  CFormModel{
+class CPOSThayDoiMatKhauForm extends  CFormModel{
 
     public $nhanVien;
     public $mat_khau_moi_1;

@@ -255,11 +255,11 @@ class NhanVienController extends CPOSController
     {
         if (Yii::app()->user->checkAccess('Quanlynhanvien.NhanVien.ThayDoiMatKhau')) {
 
-            $modelForm = new ThayDoiMatKhauForm();
+            $modelForm = new CPOSThayDoiMatKhauForm();
             $modelForm->nhanVien = $this->loadModel($id,'NhanVien');
 
-            if (isset($_POST['ThayDoiMatKhauForm'])) {
-                $result  = $modelForm->capNhatMatKhau($_POST['ThayDoiMatKhauForm']);
+            if (isset($_POST['CPOSThayDoiMatKhauForm'])) {
+                $result  = $modelForm->capNhatMatKhau($_POST['CPOSThayDoiMatKhauForm']);
                 if($result=='ok') {
                     $this->redirect(array('danhsach'));
                 } else {
