@@ -101,8 +101,8 @@ class PhieuXuat extends BasePhieuXuat
 
             $this->setAttributes($params);
 
-            if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat')) {
-                $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuXuat');
+            if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuatSanPhamTang')) {
+                $sessionData = Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuXuatSanPhamTang');
                 $items = $sessionData['items'];
                 $relatedItems = Helpers::formatArray($items);
                 $relatedData = array(
@@ -209,6 +209,9 @@ class PhieuXuat extends BasePhieuXuat
         ));
     }
 
+    public static function tenTable() {
+        return 'tbl_PhieuXuat';
+    }
 
 
 }

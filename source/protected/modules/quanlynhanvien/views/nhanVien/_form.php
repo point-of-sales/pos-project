@@ -43,6 +43,13 @@
     <!-- row -->
 
     <div class="row cus-row">
+        <?php echo $form->labelEx($model->quyen, 'itemname'); ?>
+        <?php echo $form->dropDownList($model->quyen, 'itemname',RightsWeight::layDanhSachQuyen()); ?>
+        <?php echo $form->error($model->quyen, 'itemname'); ?>
+    </div>
+    <!-- row -->
+
+    <div class="row cus-row">
         <?php echo $form->labelEx($model, 'email'); ?>
         <?php echo $form->textField($model, 'email', array('maxlength' => 100)); ?>
         <?php echo $form->error($model, 'email'); ?>
@@ -63,7 +70,7 @@
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'gioi_tinh'); ?>
         <div class="radio-list">
-            <?php echo $form->radioButtonList($model, 'gioi_tinh', $model->layDanhSachGioiTinh()); ?>
+            <?php echo $form->radioButtonList($model, 'gioi_tinh', NhanVien::layDanhSachGioiTinh()); ?>
         </div>
         <?php echo $form->error($model, 'gioi_tinh'); ?>
     </div>
@@ -109,11 +116,13 @@
         <?php echo $form->error($model, 'trang_thai'); ?>
     </div>
     <!-- row -->
+    <?php if(Yii::app()->controller->action->id=='them'):?>
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'mat_khau'); ?>
         <?php echo $form->passwordField($model, 'mat_khau', array('maxlength' => 100)); ?>
         <?php echo $form->error($model, 'mat_khau'); ?>
     </div>
+    <?php endif; ?>
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'ngay_vao_lam'); ?>

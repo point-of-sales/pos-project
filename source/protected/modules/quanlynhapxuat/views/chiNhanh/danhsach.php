@@ -56,6 +56,7 @@ return false;
 array(
     'class' => 'CButtonColumn',
     'template'=>'{view}{import}{export}',
+    'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id)==999,   // chi cho quan tri he thong dung tinh nang nay
     'buttons'=>array(
         'view'=>array(
             'url'=>'Helpers::urlRouting(Yii::app()->controller,"chiNhanh","chitiet",array("id"=>$data->id))',

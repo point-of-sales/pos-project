@@ -18,7 +18,7 @@
     <div class="row cus-row">
         <?php echo $form->label($model, 'gioi_tinh'); ?>
         <div class="radio-list">
-            <?php echo $form->radioButtonList($model, 'gioi_tinh', $model->layDanhSachGioiTinh()); ?>
+            <?php echo $form->radioButtonList($model, 'gioi_tinh', NhanVien::layDanhSachGioiTinh()); ?>
         </div>
     </div>
 

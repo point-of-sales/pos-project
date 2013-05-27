@@ -6,10 +6,12 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Supplier')
 );
 
-$this->menu = array(
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('xuat')),
-);
+if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) {
+    $this->menu = array(
+        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('them')),
+        array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Supplier'), 'url' => array('xuat')),
+    );
+}
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-form form').submit(function(){
@@ -39,8 +41,8 @@ return false;
         'dien_thoai',
         'email',
         array(
-            'name'=>'trang_thai',
-            'value'=>'$data->layTenTrangThai()'
+            'name' => 'trang_thai',
+            'value' => '$data->layTenTrangThai()'
         ),
         array(
             'class' => 'CButtonColumn',

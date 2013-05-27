@@ -13,7 +13,7 @@ class AuthItemForm extends CFormModel
 	public $type;
 	public $bizRule;
 	public $data;
-
+    public $weight;
 	/**
 	* Declares the validation rules.
 	*/
@@ -25,7 +25,8 @@ class AuthItemForm extends CFormModel
 			array('name', 'newNameIsAvailable', 'on'=>'update'),
 			array('name', 'isSuperuser', 'on'=>'update'),
 			array('data', 'bizRuleNotEmpty'),
-		   	array('bizRule, data', 'safe'),
+		   	array('bizRule, data, weight', 'safe'),
+
 		);
 	}
 
@@ -82,5 +83,9 @@ class AuthItemForm extends CFormModel
 		if( empty($this->data)===false && empty($this->bizRule)===true )
 			$this->addError('data', Rights::t('core', 'Business rule cannot be empty.'));
 	}
+
+    public static function getWeightOptions() {
+        return array('1'=>Yii::t('viLib','Seller'),'2'=>Yii::t('viLib','Storekeeper'),'3'=>Yii::t('viLib','Branch manager'));
+    }
 }
 

@@ -32,6 +32,14 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
             }
         });
 
+        $('#ChungTu_chi_nhanh_id').focus(function(e){
+            $(this).blur();
+        });
+
+        $('#ChungTu_nhan_vien_id').focus(function(e){
+            $(this).blur();
+        });
+
     });
 
     function keypressInputMa(e) {

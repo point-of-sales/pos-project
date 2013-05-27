@@ -20,13 +20,14 @@ class UserIdentity extends CUserIdentity
 
     public function authenticate()
     {
-        $record = NhanVien::model()->findByAttributes(array('ma_nhan_vien' => $this->username));
+        $record = NhanVien::model()->findByAttributes(array('ma_nhan_vien' => $this->username,'trang_thai'=>1));
         if ($record == null)
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         else if ($record->mat_khau != md5($this->password))
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         else {
             $this->_id = $record->id;
+            $this->setState('id',$record->id);
             $this->setState('title', $record->ho_ten);
             $this->errorCode = self::ERROR_NONE;
         }
@@ -37,4 +38,5 @@ class UserIdentity extends CUserIdentity
     {
         return $this->_id;
     }
+
 }

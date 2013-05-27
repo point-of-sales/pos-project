@@ -23,7 +23,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ma_chung_tu'); ?>
-            <?php echo $form->textField($model->baseModel, 'ma_chung_tu'); ?>
+            <?php echo $form->textField($model->baseModel, 'ma_chung_tu',array('readonly'=>'readonly','style'=>'font-weight:bold')); ?>
             <?php echo $form->error($model->baseModel, 'ma_chung_tu'); ?>
         </div>
         <!-- row -->
@@ -44,13 +44,13 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAllAttributes(null, true))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten"),array("options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array($id => array("selected" => "selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array(NhanVien::model()->findByPk(Yii::app()->user->id)->chiNhanh->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
         </div>
 

@@ -107,7 +107,7 @@ class Helpers
                             );
                             $('.error').addClass('response-msg');
                             $('.error').addClass('ui-corner-all')
-                            $('.error').fadeOut(5000);
+                            $('.error').fadeOut(15000);
                          }
 
                          $.fn.yiiGridView.update('grid'); //change my-grid to your grid's name

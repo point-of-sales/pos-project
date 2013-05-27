@@ -21,7 +21,7 @@ $this->menu = array(
 
 <div id="updatedAuthItem" class="cus-rights-content">
 
-    <?php $this->renderPartial('_form', array('model'=>$formModel)); ?>
+    <?php $this->renderPartial('_form', array('model'=>$formModel,'currentWeight'=>$currentWeight)); ?>
 
     <div class="relations span-11 last cus-relations-rights-mini-content">
 

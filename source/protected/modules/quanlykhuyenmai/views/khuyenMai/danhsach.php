@@ -6,12 +6,14 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Promotion'),
 );
 
-$this->menu = array(
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Promotion') .' '. Yii::t('viLib', 'Product'), 'url' => array('khuyenmaisanpham')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('xuat')),
+if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) {
+    $this->menu = array(
+        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them')),
+        array('label' => Yii::t('viLib', 'Promotion') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('khuyenmaisanpham')),
+        array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('xuat')),
 
-);
+    );
+}
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-form form').submit(function(){
@@ -23,7 +25,7 @@ return false;
 ");
 ?>
 
-    <h1><?php echo Yii::t('viLib', 'List') . ' ' .  Yii::t('viLib', 'Promotion'); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Promotion'); ?></h1>
 
 
     <div class="search-form">
@@ -49,7 +51,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
 
         array(
-            'name' => Yii::t('viLib','Approve branch'),
+            'name' => Yii::t('viLib', 'Approve branch'),
             'value' => '$data->layDanhSachChiNhanh()',
         ),
 

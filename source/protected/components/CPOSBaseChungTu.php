@@ -133,4 +133,23 @@ abstract class CPOSBaseChungTu extends CPOSActiveRecord {
     }
 
 
+    public static function layMaChungTuMoi($className,$prefix) {
+
+        $tableName = call_user_func(array($className,'tenTable'));
+
+        $maxId = Yii::app()->db->createCommand()
+            ->select('max(id)')
+            ->from($tableName)
+            ->queryScalar();
+
+        $model = CPOSActiveRecord::model($className)->findByPk($maxId);
+        if (isset($model)) {
+            $ma_chung_tu = $model->getBaseModel()->ma_chung_tu;
+            $str = parent::taoMaChungTuMoi($ma_chung_tu, $prefix, 13);
+        } else {
+            $str = parent::taoMaChungTuMoi('', $prefix, 13);
+        }
+        return $str;
+    }
+
 }

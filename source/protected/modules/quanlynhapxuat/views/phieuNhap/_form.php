@@ -23,7 +23,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ma_chung_tu'); ?>
-            <?php echo $form->textField($model->baseModel, 'ma_chung_tu'); ?>
+            <?php echo $form->textField($model->baseModel, 'ma_chung_tu',array('readonly'=>'readonly','style'=>'font-weight:bold')); ?>
             <?php echo $form->error($model->baseModel, 'ma_chung_tu'); ?>
         </div>
         <!-- row -->
@@ -44,7 +44,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(), null, "ho_ten")); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(), null, "ho_ten"),array("options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 

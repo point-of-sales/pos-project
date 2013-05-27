@@ -7,16 +7,16 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee'), 'url' => array('danhsach')),
-    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach')),
-	array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Employee type'), 'url'=>array('loaiNhanVien/them')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('danhsach')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/danhsach'), 'visible' => RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible' => RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Employee'); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee'); ?></h1>
 
 <?php
 $this->renderPartial('_form', array(
-		'model' => $model,
-		'buttons' => 'create'));
+    'model' => $model,
+    'buttons' => 'create'));
 ?>

@@ -245,7 +245,6 @@ class SanPham extends BaseSanPham
         $danhSachChiNhanh = $dataProvider->getData();
         foreach ($danhSachChiNhanh as $chiNhanhCon)
             $chiNhanhCon->san_pham_id = $this->id;
-        //    $dataProvider->model = $danhSachChiNhanh;
         return $dataProvider;
     }
 

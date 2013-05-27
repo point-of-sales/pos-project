@@ -9,6 +9,12 @@
 const PATH_SEPARATOR = '/';
 
 return array(
+    'behaviors'=>array(
+        'onBeginRequest'=>array(
+            'class'=>'application.components.CPOSRequireLogin',
+        )
+    ),
+
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Point Of Sales System',
     'theme'=>'asia',
@@ -34,7 +40,7 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',
@@ -44,6 +50,9 @@ return array(
                                 'ext.giix-core', // giix generators
                         ),
 		),
+
+        'defaultController'=>'site',
+
         'quanlychinhanh'=>array(
             'defaultController'=>'danhsach',
         ),
@@ -102,6 +111,7 @@ return array(
                     
 	),
 
+
 	// application components
 	'components'=>array(
         /*'session'=>array(
@@ -111,6 +121,7 @@ return array(
             'class'=>'CPOSSessionManager',
             'autoStart'=>true,
         ),
+
 
 
 		'user'=>array(
@@ -193,4 +204,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+
+
 );

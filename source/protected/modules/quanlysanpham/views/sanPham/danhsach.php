@@ -6,15 +6,16 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product'),
 );
 
-$this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/danhsach')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/danhsach')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/them')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat')),
-);
-
+if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 3 || RightsWeight::getRoleWeight(Yii::app()->user->id) == 999 ) {
+    $this->menu = array(
+        array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/danhsach')),
+        array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/danhsach')),
+        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('them')),
+        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/them')),
+        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/them')),
+        array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat')),
+    );
+}
 Yii::app()->clientScript->registerScript('search', "
 $('.search-form form').submit(function(){
 $.fn.yiiGridView.update('grid', {
@@ -44,8 +45,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
         'ten_san_pham',
         'don_vi_tinh',
         array(
-            'name'=>'nha_cung_cap_id',
-            'value'=>'$data->nhaCungCap->ten_nha_cung_cap'
+            'name' => 'nha_cung_cap_id',
+            'value' => '$data->nhaCungCap->ten_nha_cung_cap'
         ),
 
         array('name' => Yii::t('viLib', 'Base price'),
@@ -64,8 +65,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
 
         array(
-            'name'=>Yii::t('viLib', 'Total instock'),
-            'value'=>'$data->layTongSoLuongTon()',
+            'name' => Yii::t('viLib', 'Total instock'),
+            'value' => '$data->layTongSoLuongTon()',
         ),
         array(
             'name' => 'trang_thai',
