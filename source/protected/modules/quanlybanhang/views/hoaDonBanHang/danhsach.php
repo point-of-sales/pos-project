@@ -1,5 +1,4 @@
 <?php
-
 $this->breadcrumbs = array(
 	$model->label(1),
 	Yii::t('viLib', 'List'),
@@ -33,30 +32,31 @@ return false;
 'dataProvider' => $model->search(),
 'columns' => array(
 		array(
-				'name'=>'id',
+				'name'=>'Mã chứng từ',
 				'value'=>'GxHtml::valueEx($data->chungTu)',
 				'filter'=>GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)),
 				),
-		'chiet_khau',
-		'khach_hang_id',
+        array(
+            'name'=>'Khách hàng',
+            'value'=>'GxHtml::valueEx($data->khachHang)." --- ".$data->khachHang["ho_ten"]',
+			'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
+        ),
+        array(
+            'name'=>'Ngày lập',
+            'value' => '$data->getBaseModel()->ngay_lap'
+        ),
+        array(
+            'name'=>'Trị giá',
+            'value' => '$data->getBaseModel()->tri_gia'
+        ),
 array(
     'class' => 'CButtonColumn',
-    'template'=>'{view}{update}{delete}',
+    'template'=>'{view}',
     'buttons'=>array(
         'view'=>array(
             'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
         ),
-        'update'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Update'),
-        ),
-        'delete'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Delete'),
-            'click' =>Helpers::deleteButtonClick(),
-        ),
-
     ),
     ),
 ),

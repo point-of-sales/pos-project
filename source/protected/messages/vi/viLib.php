@@ -95,6 +95,7 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Detail'=>'Chi tiết',
     'Branch management'=>'Quản lý chi nhánh',
     'Product management'=>'Quản lý sản phẩm',
+    'Sales management'=>'Quản lý bán hàng',
     'Barcode'=>'Mã vạch',
     'Product name'=>'Tên sản phẩm',
     'Vietnamese name'=>'Tên tiếng việt',

@@ -4,6 +4,7 @@ Yii::import('application.models._base.BaseHoaDonBanHang');
 
 class HoaDonBanHang extends BaseHoaDonBanHang
 {
+    
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -48,7 +49,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 } else {
                     $relatedData = array(
                         // fill related with data from the Session
-                        'tblSanPhams' => Helpers::formatArray($cthd_hang_ban),
+                        'tblSanPhams' => $cthd_hang_ban,
                     );
                 }
             } else
@@ -171,5 +172,20 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         }
         return $str;
     }
+    
+    	public function search() {
+		$criteria = new CDbCriteria;
+        $criteria->with = 'chungTu';
+        $criteria->together = true;
+		$criteria->compare('id', $this->id);
+		$criteria->compare('chiet_khau', $this->chiet_khau);
+		$criteria->compare('khach_hang_id', $this->khach_hang_id);
+        $criteria->order = 'chungTu.ngay_lap DESC';
+
+		return new CActiveDataProvider($this, array(
+			'criteria' => $criteria,
+		));
+	}
+
 
 }
