@@ -36,7 +36,7 @@ $this->menu = array(
         array(
             'name' => Yii::t('viLib','Created date'),
             'type' => 'raw',
-            'value' => $model->baseModel->ngay_lap,
+            'value' => date('d/m/Y - h:i:s',strtotime($model->baseModel->ngay_lap)),
         ),
         array(
             'name' => 'Địa chỉ',

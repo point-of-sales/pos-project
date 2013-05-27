@@ -319,22 +319,31 @@ class HoaDonBanHangController extends CPOSController {
                 $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
                 if(!empty($model)){
                     if($this->kiemTraSoLuongHangBan($ma_vach,$chi_nhanh,$so_luong)){
-                        $item = array(
-                            'id' => $model->getAttribute('id'), 
-                            'ma_vach' => $model->getAttribute('ma_vach'),
-                            'ten_san_pham' => $model->getAttribute('ten_san_pham'),
-                            'don_gia'=> $model->layGiaHienTaiKemKhuyenMai(),
-                            'so_luong' => 1,
-                            'thanh_tien' => 0,
-                        );
-                        $cthd_ban_hang[] = $item;
-                        //cap nhat session cthd ban
-                        Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
-                        
-                        $result = array(
-                            'status' => 'ok',
-                            'msg' => 'ok'
-                        );
+                        $don_gia = $model->layGiaHienTaiKemKhuyenMai();
+                        if(is_numeric($don_gia)){
+                            $item = array(
+                                'id' => $model->getAttribute('id'), 
+                                'ma_vach' => $model->getAttribute('ma_vach'),
+                                'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+                                'don_gia'=> $don_gia,
+                                'so_luong' => 1,
+                                'thanh_tien' => 0,
+                            );
+                            $cthd_ban_hang[] = $item;
+                            //cap nhat session cthd ban
+                            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
+                            
+                            $result = array(
+                                'status' => 'ok',
+                                'msg' => 'ok'
+                            );   
+                        }
+                        else{
+                            $result = array(
+                                'status' => 'error',
+                                'msg' => 'Sản phẩm chưa có mốc giá',
+                            );   
+                        }
                     }
                     else{
                         $result = array(

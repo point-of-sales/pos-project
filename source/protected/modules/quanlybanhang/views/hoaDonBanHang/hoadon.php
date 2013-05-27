@@ -1,5 +1,9 @@
 <?php
-$hd_ban_hang = Yii::app()->session['hoa_don'];
+if(isset($_GET['id'])){
+    $hd_ban_hang = HoaDonBanHang::layHoaDonBanHang($_GET['id']);
+}else{
+    $hd_ban_hang = Yii::app()->session['hoa_don'];   
+}
 $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
 $cthd_hang_tang = $hd_ban_hang['cthd_hang_tang'];
 $khach_hang = $hd_ban_hang['khach_hang'];
@@ -49,7 +53,7 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
                 </tr>
                 <tr>
                     <td>Ngày lập</td>
-                    <td><?php echo $hd_ban_hang['ngay_lap']?></td>
+                    <td><?php echo date('d/m/Y - h:i:s',strtotime($hd_ban_hang['ngay_lap']))?></td>
                 </tr>
                 <tr>
                     <td>Nhân viên bán hàng</td>

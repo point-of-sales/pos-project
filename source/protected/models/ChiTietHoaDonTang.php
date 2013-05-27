@@ -8,6 +8,13 @@ class ChiTietHoaDonTang extends BaseChiTietHoaDonTang
     {
         return parent::model($className);
     }
+    
+    public function relations()
+    {
+        return array(
+            'sanPhamTang' => array(self::BELONGS_TO, 'SanPhamTang', 'san_pham_tang_id'),
+        );
+    }
 
 
     public function them($params)
