@@ -8,10 +8,10 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('capnhat', 'id' => $model->id)),
-    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?'))),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.Them')),
+    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('capnhat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.CapNhat')),
+    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?')),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.Xoa')),
 );
 ?>
 

@@ -113,43 +113,16 @@ class ChiNhanh extends BaseChiNhanh
 
     public function layDanhSachTrucThuoc()
     {
-        $chiNhanhs = Yii::app()->db->createCommand()
-            ->select('id, ten_chi_nhanh')
-            ->from('tbl_ChiNhanh')
-            ->queryAll();
+        $danhSachChiNhanhModel = ChiNhanh::model()->findAll();
         $danhSachChiNhanh[''] = 'Không trực thuộc';
-        foreach ($chiNhanhs as $chiNhanh) {
-            if ($chiNhanh['ten_chi_nhanh'] != $this->ten_chi_nhanh) {
-                $danhSachChiNhanh[$chiNhanh['id']] = $chiNhanh['ten_chi_nhanh'];
+        foreach ($danhSachChiNhanhModel as $chiNhanh) {
+            if ($chiNhanh->ten_chi_nhanh != $this->ten_chi_nhanh) {
+                $danhSachChiNhanh[$chiNhanh->id] = $chiNhanh->ten_chi_nhanh;
             }
         }
         return $danhSachChiNhanh;
     }
 
-    public function layDanhSachKhuVuc()
-    {
-        $khuVucs = Yii::app()->db->createCommand()
-            ->select('id, ten_khu_vuc')
-            ->from('tbl_KhuVuc')
-            ->queryAll();
-        foreach ($khuVucs as $khuVuc) {
-            $danhSachKhuVuc[$khuVuc['id']] = $khuVuc['ten_khu_vuc'];
-        }
-        return $danhSachKhuVuc;
-    }
-
-    public function layDanhSachLoaiChiNhanh()
-    {
-        $loais = Yii::app()->db->createCommand()
-            ->select('id, ten_loai_chi_nhanh')
-            ->from('tbl_LoaiChiNhanh')
-            ->queryAll();
-        foreach ($loais as $loai) {
-            $danhSachLoai[$loai['id']] = $loai['ten_loai_chi_nhanh'];
-        }
-        return $danhSachLoai;
-
-    }
 
     public function layTenTrucThuoc()
     {
@@ -162,13 +135,14 @@ class ChiNhanh extends BaseChiNhanh
 
     public function layTenLoaiChiNhanh()
     {
-        $typeOptions = $this->layDanhSachLoaiChiNhanh();
-        return $typeOptions[$this->loai_chi_nhanh_id];
+        $danhSachLoaiChiNhanh = LoaiChiNhanh::layDanhSachLoaiChiNhanh();
+
+        return $danhSachLoaiChiNhanh[$this->loai_chi_nhanh_id];
     }
 
     public function layTenKhuVuc()
     {
-        $areaOptions = $this->layDanhSachKhuVuc();
+        $areaOptions = KhuVuc::layDanhSachKhuVuc();
         return $areaOptions[$this->khu_vuc_id];
     }
 
@@ -294,7 +268,8 @@ class ChiNhanh extends BaseChiNhanh
 
 
     public static function layDanhSachChiNhanhKichHoatTrongHeThong()
-    {   $currentUserId = Yii::app()->user->id;
+    {
+        $currentUserId = Yii::app()->user->id;
         if (RightsWeight::getRoleWeight($currentUserId) == 999) {
             $criteria = new CDbCriteria();
             $criteria->addCondition('trang_thai=1');
@@ -314,7 +289,7 @@ class ChiNhanh extends BaseChiNhanh
 
     public function tinhDoanhSoTheoKhoangThoiGian($thoi_gian_bat_dau, $thoi_gian_ket_thuc)
     {
-        $this->doanh_so[] = array($thoi_gian_bat_dau,0); // first init
+        $this->doanh_so[] = array($thoi_gian_bat_dau, 0); // first init
 
         do {
             $thoi_gian_ket_thuc_moc = date('d-m-Y', strtotime('last day of this month', strtotime($thoi_gian_bat_dau)) + 24 * 60 * 60);
@@ -336,42 +311,47 @@ class ChiNhanh extends BaseChiNhanh
         } while (strtotime($thoi_gian_ket_thuc_moc) < strtotime($thoi_gian_ket_thuc));
     }
 
-    public function tinhTongDoanhSo() {
+    public function tinhTongDoanhSo()
+    {
         $tongDoanhSo = 0;
-        if(!empty($this->doanh_so)) {
-            foreach($this->doanh_so as $ds)
+        if (!empty($this->doanh_so)) {
+            foreach ($this->doanh_so as $ds)
                 $tongDoanhSo = $tongDoanhSo + $ds[1];
         }
         return $tongDoanhSo;
     }
 
-    public function layDanhSachDoanhSo() {
+    public function layDanhSachDoanhSo()
+    {
         $doanhSo = $this->doanh_so;
         $danhSachDoanhSo = array();
-        foreach($doanhSo as $ds) {
+        foreach ($doanhSo as $ds) {
             $danhSachDoanhSo[] = $ds[1];
         }
         return $danhSachDoanhSo;
     }
 
-    public function layDanhSachThoiGianDoanhSo() {
+    public function layDanhSachThoiGianDoanhSo()
+    {
         $doanhSo = $this->doanh_so;
         $danhSachThoiGianDoanhSo = array();
-        foreach($doanhSo as $ds) {
+        foreach ($doanhSo as $ds) {
             $danhSachThoiGianDoanhSo[] = $ds[0];
         }
         return $danhSachThoiGianDoanhSo;
     }
 
-    public static function layDanhSachDoanhSoCacChiNhanh($danhSachChiNhanh) {
-        foreach($danhSachChiNhanh as $chiNhanh)
+    public static function layDanhSachDoanhSoCacChiNhanh($danhSachChiNhanh)
+    {
+        foreach ($danhSachChiNhanh as $chiNhanh)
             $danhSachDoanhSo[] = $chiNhanh->tinhTongDoanhSo();
         return $danhSachDoanhSo;
     }
 
-    public static function layDanhSachThoiGianCacChiNhanh($danhSachChiNhanh) {
+    public static function layDanhSachThoiGianCacChiNhanh($danhSachChiNhanh)
+    {
         $chiNhanh = $danhSachChiNhanh[0];
-        foreach($chiNhanh->doanh_so as $ds)
+        foreach ($chiNhanh->doanh_so as $ds)
             $danhSachThoiGian[] = $ds[0];
         return $danhSachThoiGian;
     }

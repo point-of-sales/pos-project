@@ -7,9 +7,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach'),'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible'=>RightsWeight::getRoleWeight(Yii::app()->user->id) == 999),
+    array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach'),'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.LoaiNhanVien.DanhSach')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('them'),'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.NhanVien.Them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.LoaiNhanVien.Them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

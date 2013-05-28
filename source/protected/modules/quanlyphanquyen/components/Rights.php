@@ -338,4 +338,58 @@ class Rights
         return $selectOptions;
     }
 
+
+    public static function getPermissionsArray($role, $hierarchy = '') {
+
+        $retArray = array('operations' => array(), 'roles' => array(), 'tasks' => array());
+
+        if (isset($role)) {
+            $children = Rights::getAuthorizer()->getAuthItemChildren($role);
+            foreach ($children as $child) {
+                $type = '';
+                if (!$child->type == 0) { //if the child is a role or task, recurse
+                    if ($child->type == 2) { //a role
+                        $type = 'roles';
+                    } else {//a task
+                        $type = 'tasks';
+                    }
+
+                    $retArray = array_merge_recursive($retArray, Rights::getPermissionsArray(
+                        $child->name, $hierarchy . '|' . $child->name
+                        . ':type=' . $child->type
+                        . ':description=' . $child->description
+                    ));
+                } else { //this is an operation, base level
+                    $type = 'operations';
+                }
+
+                if (substr($hierarchy, 0, 1) == '|') { //removes leading slash
+                    $hierarchy = substr($hierarchy, 1);
+                }
+
+                $retArray[$type][$child->name] = $hierarchy;
+            }
+        }
+
+        return $retArray;
+    }
+
+    public static function getCurrentUserModuleList() {
+        $role = RightsWeight::getRole(Yii::app()->user->id);
+        $permissions = Rights::getPermissionsArray($role);
+        $operations = $permissions['operations'];
+        $ModuleList  = array();
+        foreach($operations as $key=>$value) {
+            $firstDotPos = strpos($key,'.');
+            $moduleName = substr($key,0,$firstDotPos);
+            if(!in_array($moduleName,$ModuleList)) {
+                $ModuleList[] = $moduleName;
+            }
+        }
+        return $ModuleList;
+    }
+
+   
+
+
 }

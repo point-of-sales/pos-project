@@ -7,7 +7,7 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('danhsach')),
+	array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.DanhSach')),
 );
 ?>
 

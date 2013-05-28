@@ -6,14 +6,13 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Promotion'),
 );
 
-if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) {
-    $this->menu = array(
-        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them')),
-        array('label' => Yii::t('viLib', 'Promotion') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('khuyenmaisanpham')),
-        array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('xuat')),
+$this->menu = array(
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.Them')),
+    array('label' => Yii::t('viLib', 'Promotion') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('khuyenmaisanpham'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.KhuyenMaiSanPham')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('xuat'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.Xuat')),
 
-    );
-}
+);
+
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-form form').submit(function(){

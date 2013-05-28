@@ -8,9 +8,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Promotion'), 'url'=>array('danhsach')),
-	array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Promotion'), 'url'=>array('them')),
-	array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib','Promotion'), 'url'=>array('chitiet', 'id' => GxActiveRecord::extractPkValue($model, true))),
+	array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Promotion'), 'url'=>array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.DanhSach')),
+	array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Promotion'), 'url'=>array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.Them')),
+	array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib','Promotion'), 'url'=>array('chitiet', 'id' => GxActiveRecord::extractPkValue($model, true)),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.ChiTiet')),
 );
 ?>
 

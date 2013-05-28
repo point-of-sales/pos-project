@@ -5,7 +5,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.Them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Import gift product'), 'url' => array('phieuNhap/nhapsanphamtang'), 'visible' => Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.NhapSanPhamTang')),
 
 );
 

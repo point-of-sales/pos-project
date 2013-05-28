@@ -38,13 +38,13 @@
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'khu_vuc_id'); ?>
-        <?php echo $form->dropDownList($model, 'khu_vuc_id', $model->layDanhSachKhuVuc()); ?>
+        <?php echo $form->dropDownList($model, 'khu_vuc_id', KhuVuc::layDanhSachKhuVuc()); ?>
         <?php echo $form->error($model, 'khu_vuc_id'); ?>
     </div>
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'loai_chi_nhanh_id'); ?>
-        <?php echo $form->dropDownList($model, 'loai_chi_nhanh_id', $model->layDanhSachLoaiChiNhanh()); ?>
+        <?php echo $form->dropDownList($model, 'loai_chi_nhanh_id',LoaiChiNhanh::layDanhSachLoaiChiNhanh()); ?>
         <?php echo $form->error($model, 'loai_chi_nhanh_id'); ?>
     </div>
     <!-- row -->

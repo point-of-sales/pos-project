@@ -7,9 +7,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' .  Yii::t('viLib', 'Customer type'), 'url' => array('loaiKhachHang/danhsach')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' .  Yii::t('viLib', 'Customer'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' .  Yii::t('viLib', 'Customer type') , 'url' => array('loaiKhachHang/them')),
+    array('label' => Yii::t('viLib', 'List') . ' ' .  Yii::t('viLib', 'Customer type'), 'url' => array('loaiKhachHang/danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.DanhSach')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' .  Yii::t('viLib', 'Customer'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.KhachHang.Them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' .  Yii::t('viLib', 'Customer type') , 'url' => array('loaiKhachHang/them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.Them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

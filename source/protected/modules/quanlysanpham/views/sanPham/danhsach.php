@@ -6,16 +6,16 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product'),
 );
 
-if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 3 || RightsWeight::getRoleWeight(Yii::app()->user->id) == 999 ) {
-    $this->menu = array(
-        array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/danhsach')),
-        array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/danhsach')),
-        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('them')),
-        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/them')),
-        array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/them')),
-        array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat')),
-    );
-}
+
+$this->menu = array(
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/danhsach'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPhamTang.DanhSach')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/danhsach'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.DanhSach')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('them'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Gift product'), 'url' => array('sanPhamTang/them'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPhamTang.Them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product type'), 'url' => array('loaiSanPham/them'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.LoaiSanPham.Them')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Xuat')),
+);
+
 Yii::app()->clientScript->registerScript('search', "
 $('.search-form form').submit(function(){
 $.fn.yiiGridView.update('grid', {

@@ -7,7 +7,7 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Customer type'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhachhang.LoaiKhachHang.Them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

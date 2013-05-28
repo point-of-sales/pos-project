@@ -141,6 +141,7 @@ abstract class CPOSActiveRecord extends GxActiveRecord
         $this->setAttribute($attribute, date($format, strtotime($this->getAttribute($attribute))));
     }
 
+
     public function layDanhSachTrangThai()
     {
         return array('Chưa kích hoạt', 'Kích hoạt');
@@ -185,6 +186,9 @@ abstract class CPOSActiveRecord extends GxActiveRecord
                 $columnSchema = $tableSchema->getColumn($column);
                 if ($columnSchema->dbType == 'date')
                     $this->formatDate($column, 'Y-m-d');
+                if($columnSchema->dbType == 'datetime') {
+                    $this->formatDate($column, 'Y-m-d h:i:s');
+                }
             }
             return true;
         }

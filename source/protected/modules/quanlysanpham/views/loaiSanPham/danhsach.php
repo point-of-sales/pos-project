@@ -7,8 +7,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
-array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat')),
+array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product type'), 'url'=>array('them'),'visible' => Yii::app()->user->checkAccess('Quanlysanpham.LoaiSanPham.Them')),
+array('label'=>Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib','File Excel'), 'url'=>array('xuat'),'visible' => Yii::app()->user->checkAccess('Quanlysanpham.LoaiSanPham.Xuat')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

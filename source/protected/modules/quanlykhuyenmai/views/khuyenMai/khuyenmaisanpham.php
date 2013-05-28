@@ -40,8 +40,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('xuatkhuyenmaisanpham')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.Them')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('xuatkhuyenmaisanpham'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.XuatKhuyenMaiSanPham')),
 
 );
 

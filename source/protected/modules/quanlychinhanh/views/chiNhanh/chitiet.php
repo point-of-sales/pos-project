@@ -16,10 +16,10 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' . $model->label(), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Update') . ' ' . $model->label(), 'url' => array('capnhat', 'id' => $model->id)),
-    array('label' => Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?'))),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib','Branch'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.Them')),
+    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib','Branch'), 'url' => array('capnhat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.CapNhat')),
+    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib','Branch'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?')),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.Xoa')),
 );
 ?>
 

@@ -91,4 +91,15 @@ class KhuVuc extends BaseKhuVuc
         ));
     }
 
+    public static function layDanhSachKhuVuc()
+    {
+        $khuVucModel = KhuVuc::model()->findAll();
+        $danhSachKhuVuc = array();
+        foreach ($khuVucModel as $khuVuc) {
+            $danhSachKhuVuc[$khuVuc->id] = $khuVuc->ten_khu_vuc;
+        }
+        return $danhSachKhuVuc;
+    }
+
+
 }

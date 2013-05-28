@@ -254,6 +254,16 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Can not update user in different branch'=>'Không thể cập nhật người dùng ở chi nhánh khác',
     'New password 1'=>'Mật khẩu 1',
     'New password 2'=>'Mật khẩu 2',
+    'Config management'=>'Quản lý cấu hình',
+    'Config'=>'Cấu hình',
+    'Current Config'=>'Cấu hình hiện tại',
+    'Company Information'=>'Thông tin công ty',
+    'Company name'=>'Tên công ty',
+    'Quantity information on page'=>'Số lượng tin trên trang',
+    'Quantity instock warning'=>'Số lượng tồn cảnh báo',
+    'Days warning customer\'s birthday'=>'Số ngày cảnh báo sinh nhật khách hàng',
+    'Support Email'=>'Email hỗ trợ',
+
 
 
 );

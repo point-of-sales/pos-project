@@ -6,9 +6,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url'=>array('xuat', 'id' => $model->id)),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('danhsach'), 'visible' => Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.DanhSach')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Import gift product'), 'url' => array('phieuNhap/nhapsanphamtang'), 'visible' => Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.NhapSanPhamTang')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat', 'id' => $model->id), 'visible' => Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.Xuat')),
 );
 ?>
 
@@ -19,28 +19,28 @@ $this->menu = array(
     'data' => $model,
     'attributes' => array(
         array(
-            'name' =>Yii::t('viLib','Voucher code'),
+            'name' => Yii::t('viLib', 'Voucher code'),
             'type' => 'raw',
             'value' => $model->baseModel->ma_chung_tu,
         ),
         array(
-            'name' => Yii::t('viLib','Created date'),
+            'name' => Yii::t('viLib', 'Created date'),
             'type' => 'raw',
             'value' => $model->baseModel->ngay_lap,
         ),
 
         array(
-            'name' => Yii::t('viLib','Created employee'),
+            'name' => Yii::t('viLib', 'Created employee'),
             'type' => 'raw',
             'value' => $model->baseModel->nhanVien->ho_ten,
         ),
         array(
-            'name' =>Yii::t('viLib','Import branch'),
+            'name' => Yii::t('viLib', 'Import branch'),
             'type' => 'raw',
             'value' => $model->baseModel->chiNhanh->ten_chi_nhanh,
         ),
         array(
-            'name' =>Yii::t('viLib','Import type'),
+            'name' => Yii::t('viLib', 'Import type'),
             'type' => 'raw',
             'value' => $model->layTenLoaiNhapSanPhamTang(),
         ),
@@ -50,7 +50,7 @@ $this->menu = array(
             'value' => $model->chiNhanhXuat->ten_chi_nhanh,
         ),
         array(
-            'name' => Yii::t('viLib','Total'),
+            'name' => Yii::t('viLib', 'Total'),
             'type' => 'raw',
             'value' => $model->baseModel->tri_gia,
         ),

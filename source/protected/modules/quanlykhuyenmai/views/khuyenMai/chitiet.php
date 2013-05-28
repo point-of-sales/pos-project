@@ -6,14 +6,14 @@ $this->breadcrumbs = array(
     Yii::t('viLib', 'Detail') => array(),
     GxHtml::valueEx($model, "ten_chuong_trinh"),
 );
-if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) {
-    $this->menu = array(
-        array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('danhsach')),
-        array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them')),
-        array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('capnhat', 'id' => $model->id)),
-        array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?'))),
-    );
-}
+
+$this->menu = array(
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.Them')),
+    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => array('capnhat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.CapNhat')),
+    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib', 'Promotion'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?')),'visible'=>Yii::app()->user->checkAccess('Quanlykhuyenmai.KhuyenMai.Xoa')),
+);
+
 ?>
 
 

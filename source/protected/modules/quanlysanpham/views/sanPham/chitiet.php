@@ -14,13 +14,13 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' . $model->label(), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Product'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' .Yii::t('viLib','Product'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Them')),
     array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Price checkpoint'), 'url' => array('mocGia/them', 'spid' => $model->id)),
-    array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Sales ????? '), 'url' => array('')),
-    array('label' => Yii::t('viLib', 'Update') . ' ' . $model->label(), 'url' => array('capnhat', 'id' => $model->id)),
-    array('label' => Yii::t('viLib', 'Delete') . ' ' . $model->label(), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?'))),
-    array('label'=>Yii::t('viLib', 'Export') .' '. Yii::t('viLib', 'Price checkpoint') .' '. Yii::t('viLib','File Excel'), 'url'=>array('mocGia/xuat')),
+    //array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Sales ????? '), 'url' => array('')),
+    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib','Product'), 'url' => array('capnhat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.CapNhat')),
+    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib','Product'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?')),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Xoa')),
+    array('label'=>Yii::t('viLib', 'Export') .' '. Yii::t('viLib', 'Price checkpoint') .' '. Yii::t('viLib','File Excel'), 'url'=>array('mocGia/xuat'),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.MocGia.Xuat')),
 );
 ?>
 
