@@ -7,9 +7,20 @@ class HoaDonTraHang extends BaseHoaDonTraHang
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
+    
+    public function rules() {
+		return array(
+			array('id, hoa_don_ban_id, ly_do_tra_hang', 'required'),
+			array('id, hoa_don_ban_id', 'numerical', 'integerOnly'=>true),
+			array('ly_do_tra_hang', 'safe'),
+			array('ly_do_tra_hang', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, ly_do_tra_hang, hoa_don_ban_id', 'safe', 'on'=>'search'),
+		);
+	}
 
 
     public function them($params) {
+        /*
         // kiem tra du lieu con bi trung hay chua
 
         if(!$this->kiemTraTonTai($params)) {
@@ -23,7 +34,46 @@ class HoaDonTraHang extends BaseHoaDonTraHang
             else
                 return 'fail';
         } else
-                return 'dup-error';
+                return 'dup-error';*/
+        
+        // kiem tra du lieu con bi trung hay chua
+
+        if (!$this->kiemTraTonTai($params)) {
+            //neu khoa chua ton tai
+            $this->setAttributes($params);
+            if (!empty($params['ChiTietHoaDonTra'])) {
+                $cthd_tra = Helpers::formatArray($params['ChiTietHoaDonTra']);
+                $relatedData = array(
+                    // fill related with data from the Session
+                    'tblSanPhams' => $cthd_tra,
+                );
+            } else
+                return 'detail-error';
+
+            if ($this->saveWithRelated($relatedData)) {
+
+                // Tru vao so luong tung chi nhanh tblSanPhamChiNhanh
+                $chiNhanh = ChiNhanh::model()->findByPk($this->baseModel->chi_nhanh_id);
+
+                foreach ($cthd_tra as $key => $itemsInfo) {
+
+                    $product = SanPham::model()->findByPk($key); // update scenario
+                    $product->chi_nhanh_id = $this->baseModel->chi_nhanh_id;
+                    $currentQuantity = $product->laySoLuongTonHienTai();
+                    $newQuantity = $currentQuantity - $itemsInfo['so_luong'];
+                    $relatedQuantitySanPhams[$key] = array('so_ton' => $newQuantity, 'trang_thai' => 1);
+                }
+
+                $relatedQuantityData = array(
+                    'tblSanPhams' => $relatedQuantitySanPhams,
+                );
+
+                if ($chiNhanh->saveWithRelated($relatedQuantityData, false, null, array(), true, true))
+                    return 'ok';
+            } else
+                return 'fail';
+        } else
+            return 'dup-error';
     }
 
     public function capNhat($params) {

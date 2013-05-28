@@ -9,6 +9,15 @@ function del_format(number){
     return parseInt(number); 
 }
 
+function enableInput(id,enable){
+    if(enable){
+        $(id).removeAttr('readonly');   
+    }
+    else{
+        $(id).attr('readonly','readonly');
+    }
+}
+
 function number_format( number, decimals, dec_point, thousands_sep ) {   
     var n = number, c = isNaN(decimals = Math.abs(decimals)) ? 2 : decimals;
     var d = dec_point == undefined ? "," : dec_point;

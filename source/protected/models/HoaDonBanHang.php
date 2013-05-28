@@ -175,14 +175,15 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         return $str;
     }
     
-    	public function search() {
+    public function search() {
 		$criteria = new CDbCriteria;
         $criteria->with = 'chungTu';
         $criteria->together = true;
 		$criteria->compare('id', $this->id);
 		$criteria->compare('chiet_khau', $this->chiet_khau);
 		$criteria->compare('khach_hang_id', $this->khach_hang_id);
-        $criteria->order = 'chungTu.ngay_lap DESC';
+        //$criteria->order = 'chungTu.ngay_lap DESC';
+        $criteria->order = 'chungTu.ma_chung_tu DESC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

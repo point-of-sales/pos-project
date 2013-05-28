@@ -8,14 +8,23 @@ class HoaDonBanHangController extends CPOSController {
 			'model' => $this->loadModel($id, 'HoaDonBanHang'),
 		));
         */
+        //hoa don ban hang
         $model = $this->loadModel($id, 'HoaDonBanHang');
+        //chi tiet hoa don ban hang
         $criteria = new CDbCriteria();
         $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
         $criteria->params = array(':hoa_don_ban_id' => $id);
-        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        $chiTietHangBanProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        //chi tiet hang tang
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $chiTietHangTangProvider = new CActiveDataProvider('ChiTietHoaDonTang', array('criteria' => $criteria));
+        
         $this->render('chitiet', array(
             'model' => $model,
-            'dataProvider' => $chiTietDataProvider,
+            'chiTietHangBanProvider' => $chiTietHangBanProvider,
+            'chiTietHangTangProvider' => $chiTietHangTangProvider,
         ));
 	}
 
@@ -51,7 +60,12 @@ class HoaDonBanHangController extends CPOSController {
                     'so_luong' => $item['so_luong'],
                 );
             }
-            $result = $model->them($post);
+            if($hd_ban_hang['tien_nhan']<=0){
+                $result = 'fail-money';
+            }
+            else{
+                $result = $model->them($post);   
+            }
             //$result = 'ok';
             switch($result) {
                 case 'ok':{
@@ -84,6 +98,9 @@ class HoaDonBanHangController extends CPOSController {
                 case 'fail':{
                     Yii::app()->user->setFlash('info-board','Lưu hóa đơn thất bại');
                 }break;
+                case 'fail-money':{
+                    Yii::app()->user->setFlash('info-board','Vui lòng nhập số tiền nhận');
+                }break;
                 case 'dup-error':{
                     Yii::app()->user->setFlash('info-board','dup-error');
                 }break;
@@ -94,21 +111,42 @@ class HoaDonBanHangController extends CPOSController {
             $this->actionHoaDonMoi();
         }
 
-
-
         $this->layout = '//layouts/column1';
 		$this->render('them', array( 'model' => $model));
 	}
 
-	public function actionCapNhat($id) {
-		$model = $this->loadModel($id, 'HoaDonBanHang');
-
-
-		if (isset($_POST['HoaDonBanHang'])) {
-            $result = $model->capNhat($_POST['HoaDonBanHang']);
+	public function actionTraHang($id) {
+	   
+        $model = $this->loadModel($id, 'HoaDonBanHang');
+        $model->hoaDonTraHangs = new HoaDonTraHang();
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+		if(!empty($_POST)){
+            //$model_hd_tra_hang = new HoaDonTraHang;
+            $post = array(
+                'HoaDonTraHang' => array(
+                    'id'=>$_POST['HoaDonTraHang']['id'],
+                    'ly_do_tra_hang'=>$_POST['ly_do_tra_hang'],
+                    'hoa_don_ban_id'=>$_POST['hoa_don_ban_id'],
+                ),
+            );
+            foreach($_POST['so_luong'] as $key=>$value){
+                $post['ChiTietHoaDonTra'][] = array(
+                    'san_pham_id' => $key,
+                    'so_luong' => $value,
+                    'don_gia' => $_POST['don_gia'][$key],
+                );
+            }
+            var_dump($post);exit;
+            $result = $model->hoaDonTraHangs->them($post);
             switch($result) {
                 case 'ok': {
-                    $this->redirect(array('chitiet', 'id' => $id));
+                    //cap nhat trang thai hoa don
+                    $result = $model->saveAttributes(array("trang_thai"=>1));
+                    
+                    $this->redirect(array('danhsach'));
                     break;
                 }
                 case 'dup-error': {
@@ -121,7 +159,10 @@ class HoaDonBanHangController extends CPOSController {
                 }
             }
 		}
-		$this->render('capnhat', array( 'model' => $model));
+		$this->render('trahang', array(
+            'model' => $model,
+            'dataProvider' => $chiTietDataProvider,
+        ));
 	}
 
     public function actionXoaGrid($id) {
@@ -728,5 +769,11 @@ class HoaDonBanHangController extends CPOSController {
     }
 
     /////////////////////////////////////////////////// END HELPER ////////////////////////////////////////////////
+    
+    /////////////////////////////////////////////////// TRA HANG ////////////////////////////////////////////////
+    
+    public function actionXoaGridTraHang($id){
+        
+    }
     
 }
