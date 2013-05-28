@@ -4,9 +4,19 @@ class HoaDonBanHangController extends CPOSController {
     public $layout = '//layouts/column2';
 
 	public function actionChiTiet($id) {
-		$this->render('chitiet', array(
+		/*$this->render('chitiet', array(
 			'model' => $this->loadModel($id, 'HoaDonBanHang'),
 		));
+        */
+        $model = $this->loadModel($id, 'HoaDonBanHang');
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        $this->render('chitiet', array(
+            'model' => $model,
+            'dataProvider' => $chiTietDataProvider,
+        ));
 	}
 
 	public function actionThem() {
@@ -45,7 +55,25 @@ class HoaDonBanHangController extends CPOSController {
             //$result = 'ok';
             switch($result) {
                 case 'ok':{
-                    //var_dump(LoaiKhachHang::layLoaiKhachHangHienTai($hd_ban_hang['tri_gia']));exit;
+                    //cap nhat thong tin khach hang
+                    $result_kh = KhachHang::capNhatTriGia($hd_ban_hang['khach_hang']['id'],$hd_ban_hang['tri_gia']);
+                    switch($result_kh){
+                        case 'ok':{
+                            
+                        }break;
+                        case 'ok-up':{
+                            Yii::app()->session['up_level'] = true;
+                            $ma_khach_hang = Yii::app()->CPOSSessionManager->getItem('hd_ban_hang',array('khach_hang','ma_khach_hang'));
+                            $ten_loai_kh = KhachHang::layTenLoaiKhachHang($ma_khach_hang);
+                            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$ten_loai_kh,array('khach_hang','ten_loai'));
+                        };break;
+                        case 'kl':{
+                            
+                        }break;
+                        case 'fail':{
+                            
+                        }break;
+                    }
                     $this->actionInHoaDon(true);
                     $this->actionHoaDonMoi();
                     $this->redirect(array('them'));
@@ -291,22 +319,31 @@ class HoaDonBanHangController extends CPOSController {
                 $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
                 if(!empty($model)){
                     if($this->kiemTraSoLuongHangBan($ma_vach,$chi_nhanh,$so_luong)){
-                        $item = array(
-                            'id' => $model->getAttribute('id'), 
-                            'ma_vach' => $model->getAttribute('ma_vach'),
-                            'ten_san_pham' => $model->getAttribute('ten_san_pham'),
-                            'don_gia'=> $model->layGiaHienTaiKemKhuyenMai(),
-                            'so_luong' => 1,
-                            'thanh_tien' => 0,
-                        );
-                        $cthd_ban_hang[] = $item;
-                        //cap nhat session cthd ban
-                        Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
-                        
-                        $result = array(
-                            'status' => 'ok',
-                            'msg' => 'ok'
-                        );
+                        $don_gia = $model->layGiaHienTaiKemKhuyenMai();
+                        if(is_numeric($don_gia)){
+                            $item = array(
+                                'id' => $model->getAttribute('id'), 
+                                'ma_vach' => $model->getAttribute('ma_vach'),
+                                'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+                                'don_gia'=> $don_gia,
+                                'so_luong' => 1,
+                                'thanh_tien' => 0,
+                            );
+                            $cthd_ban_hang[] = $item;
+                            //cap nhat session cthd ban
+                            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
+                            
+                            $result = array(
+                                'status' => 'ok',
+                                'msg' => 'ok'
+                            );   
+                        }
+                        else{
+                            $result = array(
+                                'status' => 'error',
+                                'msg' => 'Sản phẩm chưa có mốc giá',
+                            );   
+                        }
                     }
                     else{
                         $result = array(
@@ -384,6 +421,8 @@ class HoaDonBanHangController extends CPOSController {
     public function actionHoaDonMoi(){
         //lay khach hang mac dinh la khach mua le
         $ma_khach_hang = 'KHBT';   
+        $nhan_vien_id = 2;
+        $nhan_vien = NhanVien::model()->findByAttributes(array('id'=>$nhan_vien_id));
         $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
         if(!empty($model)){
             $khach_hang = array(
@@ -392,6 +431,7 @@ class HoaDonBanHangController extends CPOSController {
                 'ho_ten' => $model->getAttribute('ho_ten'),
                 'diem_tich_luy' => $model->getAttribute('diem_tich_luy'),
                 'loai_khach_hang_id' => $model->getAttribute('loai_khach_hang_id'),
+                'ten_loai' => $model->loaiKhachHang->ten_loai,
                 'dien_thoai' => $model->getAttribute('dien_thoai'),
                 'dia_chi' => $model->getAttribute('dia_chi'),
             );
@@ -409,7 +449,8 @@ class HoaDonBanHangController extends CPOSController {
             'tien_nhan' => 0,
             'tien_du' => 0,
             'ghi_chu' => '',
-            'nhan_vien_id' => 2,
+            'nhan_vien_id' => $nhan_vien_id,
+            'nhan_vien_ho_ten' => $nhan_vien->getAttribute('ho_ten'),
             'chi_nhanh_id' => 10,
         );
         Yii::app()->session['hd_ban_hang'] = $hd_ban_hang;
@@ -613,6 +654,7 @@ class HoaDonBanHangController extends CPOSController {
                     'dien_thoai' => $model->getAttribute('dien_thoai'),
                     'dia_chi' => $model->getAttribute('dia_chi'),
                     'loai_khach_hang_id' => $model->getAttribute('loai_khach_hang_id'),
+                    'ten_loai' => $model->loaiKhachHang->ten_loai,
                 );
                 Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$khach_hang,array('khach_hang'));
                 //set giam gia cho hd ban hang

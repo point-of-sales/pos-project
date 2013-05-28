@@ -2,110 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39d7da02-e886-479a-8938-f9dbc955d447" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/admin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/capnhat.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/capnhat.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/mocGia/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/_view.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/test.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" afterPath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/AuthAssignment.php" afterPath="$PROJECT_DIR$/source/protected/models/AuthAssignment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/_base/BaseCauHinh.php" afterPath="$PROJECT_DIR$/source/protected/models/_base/BaseCauHinh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/_base/BaseThongTinCongTy.php" afterPath="$PROJECT_DIR$/source/protected/models/_base/BaseThongTinCongTy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/CPOSActiveRecord.php" afterPath="$PROJECT_DIR$/source/protected/components/CPOSActiveRecord.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/CauHinh.php" afterPath="$PROJECT_DIR$/source/protected/models/CauHinh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/ChiNhanh.php" afterPath="$PROJECT_DIR$/source/protected/models/ChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/KhuVuc.php" afterPath="$PROJECT_DIR$/source/protected/models/KhuVuc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/LoaiChiNhanh.php" afterPath="$PROJECT_DIR$/source/protected/models/LoaiChiNhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/components/Rights.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/components/Rights.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/ThongTinCongTy.php" afterPath="$PROJECT_DIR$/source/protected/models/ThongTinCongTy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/_form.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/views/partials/_main_nav.php" afterPath="$PROJECT_DIR$/source/themes/asia/views/partials/_main_nav.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangchinhanh.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangchinhanh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangsanpham.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangsanpham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangtop.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangtop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/chiNhanh/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/chiNhanh/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/chitietnhapsanphamtang.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/chitietnhapsanphamtang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/chitietxuatsanphamtang.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/chitietxuatsanphamtang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/chiNhanh/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/chiNhanh/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/css/general.css" afterPath="$PROJECT_DIR$/source/themes/asia/css/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/khuyenmaisanpham.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/khuyenmaisanpham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/config/main.php" afterPath="$PROJECT_DIR$/source/protected/config/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/khuVuc/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/loaiChiNhanh/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/loaiKhachHang/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/views/nhaCungCap/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/loaiNhanVien/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/loaiSanPham/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/them.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/them.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/themes/asia/images/icons/print.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/themes/asia/images/icons/return.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" afterPath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/ChiTietHoaDonBan.php" afterPath="$PROJECT_DIR$/source/protected/models/ChiTietHoaDonBan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/ChiTietHoaDonTang.php" afterPath="$PROJECT_DIR$/source/protected/models/ChiTietHoaDonTang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/ChungTu.php" afterPath="$PROJECT_DIR$/source/protected/models/ChungTu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/Helpers.php" afterPath="$PROJECT_DIR$/source/protected/components/Helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" afterPath="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/KhachHang.php" afterPath="$PROJECT_DIR$/source/protected/models/KhachHang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/js/banhang.js" afterPath="$PROJECT_DIR$/source/themes/asia/js/banhang.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/chitiet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/hoadon.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/hoadon.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/xuat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPhamTang/xuat.php" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369712478392" ignored="false" />
+    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369734819753" ignored="false" />
     <file path="/KhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1368969813409" ignored="false" />
     <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369732351222" ignored="false" />
     <file path="/BaoCaoController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369064835894" ignored="false" />
@@ -192,8 +107,10 @@
       <file leaf-file-name="_main_nav.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/themes/asia/views/partials/_main_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="140" selection-start="983" selection-end="983" vertical-scroll-proportion="0.27480915">
-              <folding />
+            <state line="15" column="33" selection-start="1568" selection-end="1568" vertical-scroll-proportion="-0.099236645">
+              <folding>
+                <marker date="1369734895692" expanded="true" signature="2110:2115" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -210,7 +127,7 @@
       <file leaf-file-name="CPOSRequireLogin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -219,7 +136,7 @@
       <file leaf-file-name="capnhat.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1369720178691" expanded="true" signature="116:190" placeholder="..." />
               </folding>
@@ -230,7 +147,7 @@
       <file leaf-file-name="Rights.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/components/Rights.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="376" column="51" selection-start="13513" selection-end="13537" vertical-scroll-proportion="-7.111111">
+            <state line="376" column="51" selection-start="13513" selection-end="13537" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -239,7 +156,7 @@
       <file leaf-file-name="chitiet.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/chitiet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1369720299363" expanded="true" signature="117:192" placeholder="..." />
                 <marker date="1369720299363" expanded="true" signature="2892:6672" placeholder="..." />
@@ -251,7 +168,7 @@
       <file leaf-file-name="danhsach.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/danhsach.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1369720644505" expanded="true" signature="1733:1828" placeholder="..." />
               </folding>
@@ -262,7 +179,7 @@
       <file leaf-file-name="them.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/them.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -271,7 +188,7 @@
       <file leaf-file-name="xuat.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/xuat.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="33" selection-start="697" selection-end="697" vertical-scroll-proportion="-14.666667">
+            <state line="22" column="33" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -280,7 +197,7 @@
       <file leaf-file-name="HoaDonBanHangController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -358,6 +275,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -594,15 +512,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../yii13/framework" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -655,11 +572,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32440946" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2862969" sideWeight="0.6755906" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29119086" sideWeight="0.6755906" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32598424" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -668,6 +584,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32440946" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -736,44 +653,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/chitietnhapsanphamtang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="41.925926">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="41.925926" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/danhsach.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/them.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/danhsach.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/them.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/thaydoimatkhau.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/capnhat.php">
@@ -813,7 +718,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/views/chiNhanh/xuat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="33" selection-start="697" selection-end="697" vertical-scroll-proportion="-14.666667">
+        <state line="22" column="33" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -827,7 +732,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/components/Rights.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="376" column="51" selection-start="13513" selection-end="13537" vertical-scroll-proportion="-7.111111">
+        <state line="376" column="51" selection-start="13513" selection-end="13537" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -848,8 +753,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/themes/asia/views/partials/_main_nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="140" selection-start="983" selection-end="983" vertical-scroll-proportion="0.27480915">
-          <folding />
+        <state line="15" column="33" selection-start="1568" selection-end="1568" vertical-scroll-proportion="-0.099236645">
+          <folding>
+            <marker date="1369734895692" expanded="true" signature="2110:2115" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

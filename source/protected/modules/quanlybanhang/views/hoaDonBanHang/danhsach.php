@@ -1,12 +1,11 @@
 <?php
-
 $this->breadcrumbs = array(
-	$model->label(1),
-	Yii::t('viLib', 'List'),
+	'Quản lý bán hàng' => array('hoaDonBanHang/danhsach'),
+    'Danh sách hóa đơn bán' => array(),
 );
 
 $this->menu = array(
-array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
+array('label'=>Yii::t('viLib', 'Create') . ' ' . 'Hóa đơn bán hàng', 'url'=>array('them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -19,7 +18,7 @@ return false;
 ");
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . 'Hóa Đơn Bán Hàng' ?></h1>
 
 
 <div class="search-form">
@@ -33,30 +32,42 @@ return false;
 'dataProvider' => $model->search(),
 'columns' => array(
 		array(
-				'name'=>'id',
+				'name'=>'Mã chứng từ',
 				'value'=>'GxHtml::valueEx($data->chungTu)',
 				'filter'=>GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)),
 				),
-		'chiet_khau',
-		'khach_hang_id',
+        array(
+            'name'=>'Khách hàng',
+            'value'=>'GxHtml::valueEx($data->khachHang)." --- ".$data->khachHang["ho_ten"]',
+			'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
+        ),
+        array(
+            'name'=>'Ngày lập',
+            'value' => 'date("d/m/Y - h:i:s",strtotime($data->getBaseModel()->ngay_lap))',
+        ),
+        array(
+            'name'=>'Trị giá',
+            'value' => '$data->getBaseModel()->tri_gia'
+        ),
 array(
     'class' => 'CButtonColumn',
-    'template'=>'{view}{update}{delete}',
+    'template'=>'{view}{print}{return}',
     'buttons'=>array(
         'view'=>array(
             'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
         ),
-        'update'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Update'),
+        'print'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","hoadon",array("id"=>$data->id))',
+            //'url'=>'Yii::app()->createUrl("hoaDonBanHang/hoadon",array("id"=>$data->id,"target"=>"_blank"))',
+            'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/print.png',
+            'options'=>array('target'=>'_blank'),
         ),
-        'delete'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Delete'),
-            'click' =>Helpers::deleteButtonClick(),
+        'return'=>array(
+            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
+            'label'=>'Trả Hàng',
+            'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/return.png',
         ),
-
     ),
     ),
 ),

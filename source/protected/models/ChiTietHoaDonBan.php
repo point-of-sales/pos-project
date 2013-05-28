@@ -7,6 +7,13 @@ class ChiTietHoaDonBan extends BaseChiTietHoaDonBan
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
+    
+    public function relations() {
+        return array(
+            'hoaDonBanHang'=>array(self::BELONGS_TO,'hoaDonBanHang','hoa_don_ban_id'),
+            'sanPham'=>array(self::BELONGS_TO,'SanPham','san_pham_id'),
+        );
+    }
 
 
     public function them($params) {

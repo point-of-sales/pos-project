@@ -105,22 +105,46 @@ class KhachHang extends BaseKhachHang
             'criteria' => $criteria,
         ));
     }
+    
+    public static function layTenLoaiKhachHang($ma_khach_hang){
+        $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
+        if(!empty($model)){
+            return $model->loaiKhachHang->ten_loai;
+        }
+        return false;
+    }
 
     public static function capNhatTriGia($id,$tri_gia){ 
         $model = KhachHang::model()->findByAttributes(array('id'=>$id));
         if(!empty($model)){
-            $diem_tich_luy_hien_tai = $model->getAttribute('diem_tich_luy');
-            $loai_khach_hang_hien_tai = $model->loaiKhachHang->id;
-            $doanh_so_hien_tai = $model->loaiKhachHang->doanh_so;
-            
-            $diem_tich_luy = $tri_gia+$diem_tich_luy_hien_tai;
-            //up level cho khach hang
-            if($diem_tich_luy >= $doanh_so_hien_tai){
-                
+            //truong hop le khach hang mua le
+            $ma_khach_hang_mua_le = 'KHBT';
+            if($model->getAttribute('ma_khach_hang')==$ma_khach_hang_mua_le){
+                return 'kl';
             }
             
+            $diem_tich_luy_hien_tai = $model->getAttribute('diem_tich_luy');
+            $diem_tich_luy = $tri_gia + $diem_tich_luy_hien_tai;
+            
+            $id_loai_khach_hang_hien_tai = $model->loaiKhachHang->id;
+            $loai_khach_hang_cap_nhat = LoaiKhachHang::layLoaiKhachHangHienTai($diem_tich_luy);
+            
             $model->setAttribute('diem_tich_luy',$diem_tich_luy);
-            $model->save();
+            //up level cho khach hang
+            $up_level = false;
+            if($id_loai_khach_hang_hien_tai != $loai_khach_hang_cap_nhat['id']){
+                $model->setAttribute('loai_khach_hang_id',$loai_khach_hang_cap_nhat['id']);
+                $up_level = true;      
+            }   
+            if($model->save()){
+                if($up_level)
+                    return 'ok-up';
+                else
+                    return 'ok';
+            }
+            else{
+                return 'fail';
+            }
         }
         else{
             return 'fail';

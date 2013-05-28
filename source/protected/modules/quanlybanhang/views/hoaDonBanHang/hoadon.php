@@ -1,6 +1,9 @@
 <?php
-$hd_ban_hang = Yii::app()->session['hoa_don'];
-//var_dump($hd_ban_hang);
+if(isset($_GET['id'])){
+    $hd_ban_hang = HoaDonBanHang::layHoaDonBanHang($_GET['id']);
+}else{
+    $hd_ban_hang = Yii::app()->session['hoa_don'];   
+}
 $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
 $cthd_hang_tang = $hd_ban_hang['cthd_hang_tang'];
 $khach_hang = $hd_ban_hang['khach_hang'];
@@ -50,11 +53,11 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
                 </tr>
                 <tr>
                     <td>Ngày lập</td>
-                    <td><?php echo $hd_ban_hang['ngay_lap']?></td>
+                    <td><?php echo date('d/m/Y - h:i:s',strtotime($hd_ban_hang['ngay_lap']))?></td>
                 </tr>
                 <tr>
                     <td>Nhân viên bán hàng</td>
-                    <td><?php echo $hd_ban_hang['nhan_vien_id']?></td>
+                    <td><?php echo $hd_ban_hang['nhan_vien_ho_ten']?></td>
                 </tr>
             </table>
         </div>
@@ -129,7 +132,15 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
     var tri_gia = del_format(document.getElementById("tri-gia").textContent);
     var bang_chu = document.getElementById("bang-chu");
     bang_chu.textContent = docso(tri_gia)+' đồng';
-    
+    <?php
+    if(isset(Yii::app()->session['up_level'])){
+        if(Yii::app()->session['up_level']){
+            Yii::app()->session['up_level'] = false;
+            $msg = 'Chúc mừng khách hàng '.$khach_hang['ho_ten'].' bạn đã được lên loại khách hàng: '.$khach_hang['ten_loai'];    
+            echo "alert('$msg');";
+        }
+    }
+    ?>
     window.print();
     window.close();
 </script>

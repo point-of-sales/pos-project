@@ -4,6 +4,7 @@ Yii::import('application.models._base.BaseHoaDonBanHang');
 
 class HoaDonBanHang extends BaseHoaDonBanHang
 {
+    
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -25,6 +26,8 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
             'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'hoa_don_ban_id'),
             'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietHoaDonTang(hoa_don_ban_id,san_pham_tang_id)'),
+            'chiTietHoaDonBan' => array(self::HAS_MANY,'ChiTietHoaDonBan','hoa_don_ban_id'),
+            'chiTietHoaDonTang' => array(self::HAS_MANY,'ChiTietHoaDonTang','hoa_don_ban_id'),
         );
     }
 
@@ -48,7 +51,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 } else {
                     $relatedData = array(
                         // fill related with data from the Session
-                        'tblSanPhams' => Helpers::formatArray($cthd_hang_ban),
+                        'tblSanPhams' => $cthd_hang_ban,
                     );
                 }
             } else
@@ -171,5 +174,78 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         }
         return $str;
     }
+    
+    	public function search() {
+		$criteria = new CDbCriteria;
+        $criteria->with = 'chungTu';
+        $criteria->together = true;
+		$criteria->compare('id', $this->id);
+		$criteria->compare('chiet_khau', $this->chiet_khau);
+		$criteria->compare('khach_hang_id', $this->khach_hang_id);
+        $criteria->order = 'chungTu.ngay_lap DESC';
+
+		return new CActiveDataProvider($this, array(
+			'criteria' => $criteria,
+		));
+	}
+    
+    public static function layHoaDonBanHang($id){
+        $model = HoaDonBanHang::model()->findByAttributes(array('id'=>$id));
+        $hd_ban_hang = array();
+        if(!empty($model)){
+            $khach_hang = array(
+                'id' => $model->khachHang->id,
+                'ma_khach_hang' => $model->khachHang->ma_khach_hang,
+                'ho_ten' => $model->khachHang->ho_ten,
+                'diem_tich_luy' => $model->khachHang->diem_tich_luy,
+                'loai_khach_hang_id' => $model->khachHang->loaiKhachHang->id,
+                'ten_loai' => $model->khachHang->loaiKhachHang->ten_loai,
+                'dien_thoai' => $model->khachHang->dien_thoai,
+                'dia_chi' => $model->khachHang->dia_chi,
+            );
+            $model_cthd = $model->chiTietHoaDonBan;
+            $cthd_ban_hang = array();
+            $tong = 0;
+            foreach($model_cthd as $md){
+                $cthd_ban_hang[] = array(
+                    'id' => $md->getAttribute('id'), 
+                    'ma_vach' => $md->sanPham->getAttribute('ma_vach'),
+                    'ten_san_pham' => $md->sanPham->getAttribute('ten_san_pham'),
+                    'don_gia'=> $md->don_gia,
+                    'so_luong' => $md->so_luong,
+                    'thanh_tien' => ($md->don_gia*$md->so_luong),
+                );
+                $tong += $md->don_gia*$md->so_luong;
+            }
+            $model_hang_tang = $model->chiTietHoaDonTang;
+            $cthd_hang_tang = array();
+            foreach($model_hang_tang as $md){
+                $cthd_hang_tang[] = array(
+                    'ma_vach' => $md->sanPhamTang->getAttribute('ma_vach'),
+                    'ten_san_pham' => $md->sanPhamTang->getAttribute('ten_san_pham'),
+                    'so_luong' => $md->getAttribute('so_luong'),
+                );
+            }
+            
+            $hd_ban_hang = array(
+                'cthd_ban_hang' => $cthd_ban_hang,
+                'cthd_hang_tang' => $cthd_hang_tang,
+                'khach_hang' => $khach_hang,
+                'chiet_khau' => $model->chiet_khau,
+                'ma_chung_tu' => $model->getBaseModel()->ma_chung_tu,
+                'ngay_lap' => $model->getBaseModel()->ngay_lap,
+                'tri_gia' => $model->getBaseModel()->tri_gia,
+                'tong' => $tong,
+                'tien_nhan' => 0,
+                'tien_du' => 0,
+                'ghi_chu' => $model->getBaseModel()->ghi_chu,
+                'nhan_vien_id' => $model->getBaseModel()->nhan_vien_id,
+                'nhan_vien_ho_ten' => $model->getBaseModel()->nhanVien->ho_ten,
+                'chi_nhanh_id' => $model->getBaseModel()->chi_nhanh_id,
+            );
+        }
+        return $hd_ban_hang;
+    }
+
 
 }
