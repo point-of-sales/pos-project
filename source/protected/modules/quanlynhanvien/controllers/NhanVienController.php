@@ -260,10 +260,25 @@ class NhanVienController extends CPOSController
 
             if (isset($_POST['CPOSThayDoiMatKhauForm'])) {
                 $result  = $modelForm->capNhatMatKhau($_POST['CPOSThayDoiMatKhauForm']);
+                switch($result) {
+                    case 'ok': {
+                        $this->redirect(array('danhsach'));
+                        break;
+                    }
+                    case 'fail': {
+                        Yii::app()->user->setFlash('info-board',Yii::t('viLib', 'Some errors occur in delete process. Please check your DBMS!'));
+                        break;
+                    }
+                    case 'override-update-error':{
+                        Yii::app()->user->setFlash('info-board',Yii::t('viLib', 'Can not update this user.This user may be an Administrator or current login user'));
+                        break;
+                    }
+                }
+
                 if($result=='ok') {
-                    $this->redirect(array('danhsach'));
+
                 } else {
-                    Yii::app()->user->setFlash('info-board',Yii::t('viLib', 'Some errors occur in delete process. Please check your DBMS!'));
+
                 }
             }
             $this->render('thaydoimatkhau', array('model' => $modelForm));

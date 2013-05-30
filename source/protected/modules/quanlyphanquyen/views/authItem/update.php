@@ -7,19 +7,16 @@
 
 <?php
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Roles'),  'url' => array('authItem/roles')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Tasks'),  'url' => array('authItem/tasks')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operations'),  'url' => array('authItem/operations')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Role'),  'url' => array('authItem/roles')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Task'),  'url' => array('authItem/tasks')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operation'),  'url' => array('authItem/operations')),
 );
 
 ?>
 
-<h1><?php echo Rights::t('core', 'Update :name', array(
-        ':name'=>$model->name,
-        ':type'=>Rights::getAuthItemTypeName($model->type),
-    )); ?></h1>
+<h1><?php echo Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib',Rights::getAuthItemTypeName($_GET['type'])); ?></h1>
 
-<div id="updatedAuthItem" class="cus-rights-content">
+<div id="updatedAuthItem">
 
     <?php $this->renderPartial('_form', array('model'=>$formModel,'currentWeight'=>$currentWeight)); ?>
 
@@ -33,7 +30,7 @@ $this->menu = array(
 
             <div class="parents">
 
-                <h4><?php echo Rights::t('core', 'Parents'); ?></h4>
+                <h4><?php echo Yii::t('viLib', 'Parent item'); ?></h4>
 
                 <?php $this->widget('zii.widgets.grid.CGridView', array(
                     'dataProvider'=>$parentDataProvider,
@@ -69,13 +66,13 @@ $this->menu = array(
 
             <div class="children">
 
-                <h4><?php echo Rights::t('core', 'Children'); ?></h4>
+                <h4><?php echo Yii::t('viLib', 'Children item'); ?></h4>
 
                 <?php $this->widget('zii.widgets.grid.CGridView', array(
                     'dataProvider'=>$childDataProvider,
                     'template'=>'{items}',
                     'hideHeader'=>true,
-                    'emptyText'=>Rights::t('core', 'This item has no children.'),
+                    'emptyText'=>Yii::t('viLib', 'This item has no children.'),
                     'htmlOptions'=>array('class'=>'grid-view parent-table mini'),
                     'columns'=>array(
                         array(
@@ -105,7 +102,7 @@ $this->menu = array(
 
             <div class="addChild">
 
-                <h5><?php echo Rights::t('core', 'Add Child'); ?></h5>
+                <h5><?php echo Yii::t('viLib', 'Children item'); ?></h5>
 
                 <?php if( $childFormModel!==null ): ?>
 
@@ -116,7 +113,7 @@ $this->menu = array(
 
                 <?php else: ?>
 
-                <p class="info"><?php echo Rights::t('core', 'No children available to be added to this item.'); ?>
+                <p class="info"><?php echo Yii::t('viLib', 'No children available to be added to this item.'); ?>
 
                     <?php endif; ?>
 
@@ -125,8 +122,8 @@ $this->menu = array(
         <?php else: ?>
 
             <p class="info">
-                <?php echo Rights::t('core', 'No relations need to be set for the superuser role.'); ?><br />
-                <?php echo Rights::t('core', 'Super users are always granted access implicitly.'); ?>
+                <?php echo Yii::t('viLib', 'No relations need to be set for the superuser role.'); ?><br />
+                <?php echo Yii::t('viLib', 'Super users are always granted access implicitly.'); ?>
             </p>
 
         <?php endif; ?>

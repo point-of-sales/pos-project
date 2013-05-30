@@ -74,17 +74,17 @@ class LoaiSanPham extends BaseLoaiSanPham
     public function xuatFileExcel()
     {
         $criteria = new CDbCriteria;
-
+        $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->compare('id', $this->id);
         $criteria->compare('ma_loai', $this->ma_loai, true);
         $criteria->compare('ten_loai', $this->ten_loai, true);
 
-        /*$event = new CPOSSessionEvent();
-        $event->currentSession = Yii::app()->session['LoaiSanPham'];
-        $this->onAfterExport($event);*/
-
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
         ));
     }
 

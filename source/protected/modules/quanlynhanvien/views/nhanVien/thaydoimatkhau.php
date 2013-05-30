@@ -8,6 +8,10 @@ $this->breadcrumbs = array(
 
 );
 
+$this->menu = array(
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('danhsach')),
+);
+
 ?>
 
     <h1><?php echo Yii::t('viLib', 'Update password') . ' ' . Yii::t('viLib', 'Employee') . ' ' . GxHtml::encode(GxHtml::valueEx($model->nhanVien,"ho_ten")); ?></h1>

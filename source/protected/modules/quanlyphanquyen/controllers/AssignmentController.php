@@ -63,9 +63,11 @@ class AssignmentController extends RController
     {
         // Create a data provider for listing the users
         if (Yii::app()->user->checkAccess('Quanlyphanquyen.Assignment.DanhSach')) {
+            $cauHinh = CauHinh::model()->findByPk(1);
+            $numberRecords = $cauHinh->so_muc_tin_tren_trang;
             $dataProvider = new RAssignmentDataProvider(array(
                 'pagination' => array(
-                    'pageSize' => 50,
+                    'pageSize' => $numberRecords,
                 ),
             ));
 

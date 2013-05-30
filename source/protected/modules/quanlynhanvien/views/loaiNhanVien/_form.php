@@ -24,11 +24,6 @@
 		<?php echo $form->textField($model, 'ten_loai', array('maxlength' => 100)); ?>
 		<?php echo $form->error($model,'ten_loai'); ?>
 		</div><!-- row -->
-        <div class="row cus-row">
-            <?php echo $form->labelEx($model,'lop'); ?>
-            <?php echo $form->dropDownList($model, 'lop', LoaiNhanVien::layDanhSachLop()); ?>
-            <?php echo $form->error($model,'lop'); ?>
-        </div><!-- row -->
 
         <div class="btn-save">
             <?php

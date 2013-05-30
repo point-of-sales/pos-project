@@ -178,7 +178,7 @@ class ChiNhanh extends BaseChiNhanh
     public function search()
     {
         $criteria = new CDbCriteria;
-
+        $cauHinh = CauHinh::model()->findByPk(1);
 
         $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
         $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
@@ -192,16 +192,19 @@ class ChiNhanh extends BaseChiNhanh
             $criteria->together = true;
             $criteria->compare('tblSanPhams.id', $this->san_pham_id, true);
         }
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
         ));
     }
 
     public function searchChiNhanhKichHoat()
     {
         $criteria = new CDbCriteria;
-
 
         $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
         $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);

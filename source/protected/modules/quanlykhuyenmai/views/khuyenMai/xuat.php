@@ -2,10 +2,10 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Sample_name' . time(),
+    'title'=>'Danh_sach_khuyen_mai_' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>'Sample_name',
+    'documentTitle'=>Yii::t('viLib','Promotion List'),
     'columns'=>array(
         'ma_chuong_trinh',
         'ten_chuong_trinh',
@@ -17,10 +17,6 @@ $this->widget('CPOSEExcelView', array(
             'value' => '$data->layTenTrangThai()',
         ),
 
-        array(
-            'name' => 'chi_nhanh_id',
-            'value' => '$data->chiNhanh->ten_chi_nhanh',
-        ),
     ),
 ));
 ?>

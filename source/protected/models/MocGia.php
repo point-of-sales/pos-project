@@ -105,6 +105,25 @@ class MocGia extends BaseMocGia
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->compare('id', $this->id);
+        $criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
+        $criteria->compare('gia_ban', $this->gia_ban);
+        $criteria->compare('san_pham_id', $this->san_pham_id);
+
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+
+    }
+
     public function layThoiGianKeTiep()
     {
         $thoi_gian_bat_dau = date('Y--m-d',strtotime($this->thoi_gian_bat_dau));

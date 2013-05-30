@@ -75,6 +75,22 @@ class NhaCungCap extends BaseNhaCungCap
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->compare('ma_nha_cung_cap', $this->ma_nha_cung_cap, true);
+        $criteria->compare('ten_nha_cung_cap', $this->ten_nha_cung_cap, true);
+        $criteria->compare('trang_thai', $this->trang_thai);
+
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
 
     public function xuatFileExcel()
     {

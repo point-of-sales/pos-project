@@ -10,6 +10,7 @@ $this->menu = array(
     array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('loaiNhanVien/danhsach'),'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.LoaiNhanVien.DanhSach')),
     array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('them'),'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.NhanVien.Them')),
     array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Employee type'), 'url' => array('loaiNhanVien/them'), 'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.LoaiNhanVien.Them')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('xuat'), 'visible' => Yii::app()->user->checkAccess('Quanlynhanvien.NhanVien.Xuat')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

@@ -125,6 +125,22 @@ class SanPhamTang extends BaseSanPhamTang
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->compare('ma_vach', $this->ma_vach, true);
+        $criteria->compare('ten_san_pham', $this->ten_san_pham, true);
+        $criteria->compare('gia_tang', $this->gia_tang);
+
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
 
     public function xuatFileExcel()
     {

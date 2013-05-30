@@ -154,8 +154,8 @@ class SanPham extends BaseSanPham
     {
 
         $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
 
-        $criteria->compare('id', $this->id);
         $criteria->compare('ma_vach', $this->ma_vach, true);
         $criteria->compare('ten_san_pham', $this->ten_san_pham, true);
         $criteria->compare('ten_tieng_viet', $this->ten_tieng_viet, true);
@@ -170,9 +170,13 @@ class SanPham extends BaseSanPham
             $criteria->together = true;
             $criteria->compare('tblChiNhanhs.id', $this->chi_nhanh_id, true);
         }
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
         ));
     }
 
@@ -182,9 +186,17 @@ class SanPham extends BaseSanPham
     public function layDanhSachMocGia()
     {
         $criteria = new CDbCriteria();
+        $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->compare('san_pham_id', $this->id, true);
         $criteria->order = 'thoi_gian_bat_dau ASC';
-        $this->danhSachMocGia = new CActiveDataProvider('MocGia', array('criteria' => $criteria));
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        $this->danhSachMocGia = new CActiveDataProvider('MocGia',
+            array('criteria' => $criteria,
+                  'pagination'=>array(
+                    'pageSize'=>$numberRecords,
+                  ),
+            ));
         return $this->danhSachMocGia;
 
     }
@@ -324,7 +336,7 @@ class SanPham extends BaseSanPham
         $criteria2->with = 'chungTu';
         $criteria2->together = true;
         $criteria2->compare('chungTu.chi_nhanh_id', $this->chi_nhanh_id);
-        $criteria2->compare('chungTu.ngay_lap', date('Y-m-d', strtotime($thoi_gian_bat_dau)), false, '<');
+        $criteria2->addCondition('chungTu.ngay_lap' . '<' . "'" . date('Y-m-d', strtotime($thoi_gian_bat_dau)) . "'");
         $danhSachPhieuNhapDauKy = PhieuNhap::model()->findAll($criteria2);
 
         foreach ($danhSachPhieuNhapDauKy as $phieuNhapDauKy) {

@@ -112,7 +112,7 @@ class KhuyenMai extends BaseKhuyenMai
     public function search()
     {
         $criteria = new CDbCriteria;
-
+        $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->compare('id', $this->id);
         $criteria->compare('ma_chuong_trinh', $this->ma_chuong_trinh, true);
         $criteria->compare('ten_chuong_trinh', $this->ten_chuong_trinh, true);
@@ -152,10 +152,13 @@ class KhuyenMai extends BaseKhuyenMai
         }
 
         $criteria->compare('trang_thai', $this->trang_thai);
-
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
         ));
     }
 

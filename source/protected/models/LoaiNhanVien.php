@@ -12,11 +12,11 @@ class LoaiNhanVien extends BaseLoaiNhanVien
     public function rules()
     {
         return array(
-            array('ma_loai_nhan_vien,lop', 'required'),
+            array('ma_loai_nhan_vien,ten_loai', 'required'),
             array('ma_loai_nhan_vien', 'length', 'max' => 15),
             array('ten_loai', 'length', 'max' => 100),
             array('ten_loai', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, ma_loai_nhan_vien, ten_loai,lop', 'safe', 'on' => 'search'),
+            array('id, ma_loai_nhan_vien, ten_loai', 'safe', 'on' => 'search'),
         );
     }
 
@@ -83,6 +83,21 @@ class LoaiNhanVien extends BaseLoaiNhanVien
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->compare('id', $this->id);
+        $criteria->compare('ma_loai_nhan_vien', $this->ma_loai_nhan_vien, true);
+        $criteria->compare('ten_loai', $this->ten_loai, true);
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
+
 
     public function xuatFileExcel()
     {
@@ -120,16 +135,7 @@ class LoaiNhanVien extends BaseLoaiNhanVien
         }
     }
 
-    public static function layDanhSachLop()
-    {
-        return array(Yii::t('viLib', 'Normal Employee'), Yii::t('viLib', 'Manager'), Yii::t('viLib', 'Administrator'));
-    }
 
-    public function layTenLop()
-    {
-        $danhSachLop = LoaiNhanVien::layDanhSachLop();
-        return $danhSachLop[$this->lop];
-    }
 
 
 }

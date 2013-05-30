@@ -2,10 +2,10 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Sample_name' . time(),
+    'title'=>'Danh_sach_san_pham_khuyen_mai' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>'Sample_name',
+    'documentTitle'=>Yii::t('viLib','Promotion Product List'),
     'columns'=>array(
         array(
             'name'=>'STT',

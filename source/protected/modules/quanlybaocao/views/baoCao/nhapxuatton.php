@@ -1,3 +1,4 @@
+
 <?php
 /**
  * User: ${Cristazn}
@@ -6,6 +7,7 @@
  * Email: crist.azn@gmail.com | Phone : 0963-500-980
  */
 
+
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Report management') => array('baoCao/danhsach'),
     Yii::t('viLib', 'Report') => array('baoCao/baocao'),
@@ -13,10 +15,10 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.NhapXuatTon')),
-    array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangChiNhanh')),
-    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangSanPham')),
-    array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangTop')),
+    array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.NhapXuatTon')),
+    array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangChiNhanh')),
+    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangSanPham')),
+    array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangTop')),
 );
 
 ?>
@@ -65,10 +67,39 @@ $this->menu = array(
 
 
         ?>
+
+        <div class="total">
+            <?php if (isset($model)): ?>
+                <?php
+                $danhSachSanPham = $model->getData();
+                $tongSoTonDauKy = 0;
+                $tongSoNhapTrongKy = 0;
+                $tongSoXuatTrongKy = 0;
+                $tongSoHangBan = 0;
+                $tongSoThucTon = 0;
+                foreach ($danhSachSanPham as $sanPham) {
+                    $tongSoTonDauKy = $tongSoTonDauKy + $sanPham->ton_dau_ky;
+                    $tongSoNhapTrongKy = $tongSoNhapTrongKy + $sanPham->so_luong_nhap;
+                    $tongSoHangBan = $tongSoHangBan + $sanPham->so_luong_ban;
+                    $tongSoXuatTrongKy = $tongSoXuatTrongKy + $sanPham->so_luong_xuat;
+                    $tongSoThucTon = $tongSoThucTon + $sanPham->so_luong_thuc_ton;
+                }
+                ?>
+
+                <p><?php echo Yii::t('viLib', 'Total Beginning Instock') . ' : ' . $tongSoTonDauKy ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Import') . ' : ' . $tongSoNhapTrongKy ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Export') . ' : ' . $tongSoXuatTrongKy ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Sale') . ' : ' . $tongSoHangBan ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Real Instock') . ' : ' . $tongSoThucTon ?></p>
+
+            <?php endif; ?>
+
+        </div>
+
         <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
             <div
                 class="response-msg error ui-corner-all info-board">
-            <?php echo Yii::app()->user->getFlash('info-board'); ?>
+                <?php echo Yii::app()->user->getFlash('info-board'); ?>
             </div>
         <?php } ?>
 
@@ -116,3 +147,13 @@ $this->menu = array(
     }
     ?>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var showLink = <?php echo isset($model)?1:0;?>;
+        if (!showLink) {
+            $(".export-link").hide();
+        } else
+            $(".export-link").show();
+    });
+</script>

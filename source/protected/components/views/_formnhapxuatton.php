@@ -7,10 +7,13 @@
  */
 ?>
 
+
 <div class="form-portlet">
     <?php $form = $this->beginWidget('GxActiveForm',array(
-        'id'=>'nhap-xuat-ton'
+        'id'=>'nhap-xuat-ton',
     )); ?>
+
+
 
     <?php echo $form->errorSummary($model);?>
 
@@ -48,7 +51,7 @@
         $form->widget('zii.widgets.jui.CJuiDatePicker', array(
             'model' => $model,
             'attribute' => 'thoi_gian_ket_thuc',
-            'value' => $model->thoi_gian_bat_dau,
+            'value' => $model->thoi_gian_ket_thuc,
             'options' => array(
                 'showButtonPanel' => true,
                 'changeYear' => true,
@@ -64,6 +67,10 @@
 
     <?php
         echo GxHtml::submitButton(Yii::t('viLib', 'Search'));
+    ?>
+
+    <?php
+        echo GxHtml::link(Yii::t('viLib', 'Export') . ' '  . Yii::t('viLib','Excel'),array('xuatexcelnhapxuatton'),array('target'=>'_blank','class'=>'export-link'));
         $this->endWidget();
     ?>
 

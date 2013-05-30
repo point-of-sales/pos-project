@@ -195,21 +195,11 @@ class NhanVien extends BaseNhanVien
 
     public function search() {
         $criteria = new CDbCriteria;
-
+        $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->compare('ma_nhan_vien', $this->ma_nhan_vien, true);
         $criteria->compare('ho_ten', $this->ho_ten, true);
-        $criteria->compare('email', $this->email, true);
-        $criteria->compare('dien_thoai', $this->dien_thoai, true);
-        $criteria->compare('dia_chi', $this->dia_chi, true);
         $criteria->compare('gioi_tinh', $this->gioi_tinh);
-        $criteria->compare('ngay_sinh', $this->ngay_sinh, true);
-        $criteria->compare('trinh_do', $this->trinh_do, true);
-        $criteria->compare('luong_co_ban', $this->luong_co_ban);
-        $criteria->compare('chuyen_mon', $this->chuyen_mon, true);
         $criteria->compare('trang_thai', $this->trang_thai);
-        $criteria->compare('mat_khau', $this->mat_khau, true);
-        $criteria->compare('ngay_vao_lam', $this->ngay_vao_lam, true);
-        $criteria->compare('lan_dang_nhap_cuoi', $this->lan_dang_nhap_cuoi, true);
         $criteria->compare('loai_nhan_vien_id', $this->loai_nhan_vien_id);
         $criteria->compare('chi_nhanh_id', $this->chi_nhanh_id);
 
@@ -217,9 +207,13 @@ class NhanVien extends BaseNhanVien
             $nhanVien = NhanVien::model()->findByPk(Yii::app()->user->id);
             $criteria->compare('chi_nhanh_id', $nhanVien->chiNhanh->id);
         }                                                        // neu nguoi dung la quan ly chi nhanh chi cho phep xem nhan vien trong chi nhanh cua minh
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
         ));
     }
 
