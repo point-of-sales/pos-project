@@ -10,7 +10,7 @@ class HoaDonTraHang extends BaseHoaDonTraHang
     
     public function rules() {
 		return array(
-			array('id, hoa_don_ban_id, ly_do_tra_hang', 'required'),
+			array('hoa_don_ban_id, ly_do_tra_hang', 'required'),
 			array('id, hoa_don_ban_id', 'numerical', 'integerOnly'=>true),
 			array('ly_do_tra_hang', 'safe'),
 			array('ly_do_tra_hang', 'default', 'setOnEmpty' => true, 'value' => null),
@@ -38,10 +38,10 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         
         // kiem tra du lieu con bi trung hay chua
         
-        //var_dump($params);exit;
-        if (!$this->kiemTraTonTai($params)) {
+        //var_dump($this);exit;
+        if (!$this->kiemTraTonTai($params['ChungTu'])) {
             //neu khoa chua ton tai
-            $this->setAttributes($params);
+            $this->setAttributes($params['HoaDonTraHang']);
             if (!empty($params['ChiTietHoaDonTra'])) {
                 $cthd_tra = Helpers::formatArray($params['ChiTietHoaDonTra']);
                 $relatedData = array(

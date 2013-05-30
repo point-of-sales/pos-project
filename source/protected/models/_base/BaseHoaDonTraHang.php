@@ -17,7 +17,7 @@
  * @property ChungTu $id0
  * @property HoaDonBanHang $hoaDonBan
  */
-abstract class BaseHoaDonTraHang extends ChungTu {
+abstract class BaseHoaDonTraHang extends CPOSBaseChungTu {
 
 	public static function model($className=__CLASS__) {
 		return parent::model($className);

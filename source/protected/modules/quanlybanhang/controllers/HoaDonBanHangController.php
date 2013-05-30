@@ -45,6 +45,7 @@ class HoaDonBanHangController extends CPOSController {
                     'hoa_don_ban_id'=>$_POST['hoa_don_ban_id'],
                 ),
                 'ChungTu' => array(
+                    'id' => '',
                     'ma_chung_tu' => HoaDonTraHang::layMaHoaDonMoi(),
                     'ngay_lap' => date('d-m-Y H:i:s'),
                     'tri_gia' => $_POST['tri_gia'],
@@ -55,7 +56,7 @@ class HoaDonBanHangController extends CPOSController {
             );
             foreach($_POST['so_luong'] as $key=>$value){
                 $post['ChiTietHoaDonTra'][] = array(
-                    'san_pham_id' => $key,
+                    'id' => $key,
                     'so_luong' => $value,
                     'don_gia' => $_POST['don_gia'][$key],
                 );

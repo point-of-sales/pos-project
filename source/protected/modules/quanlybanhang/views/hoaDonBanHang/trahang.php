@@ -134,4 +134,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 function xoa_grid(id){
     $("#row_"+id).remove();
 }
+function capNhatTriGia(){
+    
+}
 </script>
