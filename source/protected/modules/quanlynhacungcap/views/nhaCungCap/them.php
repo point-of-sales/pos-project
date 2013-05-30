@@ -8,7 +8,7 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
+	array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Supplier'), 'url' => array('danhsach'),'visible' => Yii::app()->user->checkAccess('Quanlynhacungcap.NhaCungCap.DanhSach')),
 );
 ?>
 

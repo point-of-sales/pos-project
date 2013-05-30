@@ -8,9 +8,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Export form'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat', 'id' => $model->id)),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Export form'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Export gift product'), 'url' => array('phieuXuat/xuatsanphamtang'),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.XuatSanPhamTang')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.Xuat')),
 );
 ?>
 

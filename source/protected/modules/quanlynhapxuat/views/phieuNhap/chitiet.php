@@ -6,9 +6,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('danhsach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('them')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url'=>array('xuat', 'id' => $model->id)),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Import form'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.Them')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url'=>array('xuat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.Xuat')),
 );
 ?>
 

@@ -108,6 +108,10 @@ return array(
             'cssFile'=>'rights.css', // Style sheet file to use for Rights.
             'debug'=>false, // Whether to enable debug mode.
         ),
+
+        'quanlycauhinh'=>array(
+
+        ),
                     
 	),
 

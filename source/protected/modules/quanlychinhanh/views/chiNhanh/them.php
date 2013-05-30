@@ -7,8 +7,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label'=>Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url' => array('danhsach')),
-	array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Area'), 'url' => array('khuVuc/them')),
+	array('label'=>Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.DanhSach')),
+	array('label'=>Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Area'), 'url' => array('khuVuc/them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.KhuVuc.Them')),
 );
 ?>
 

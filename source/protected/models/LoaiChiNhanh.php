@@ -80,5 +80,15 @@ class LoaiChiNhanh extends BaseLoaiChiNhanh
         ));
     }
 
+    public static function layDanhSachLoaiChiNhanh()
+    {
+        $danhSachLoaiChiNhanhModel = LoaiChiNhanh::model()->findAll();
+        $danhSachLoaiChiNhanh = array();
+        foreach ($danhSachLoaiChiNhanhModel as $loai) {
+            $danhSachLoaiChiNhanh[$loai->id] = $loai->ten_loai_chi_nhanh;
+        }
+        return $danhSachLoaiChiNhanh;
+
+    }
 
 }

@@ -8,10 +8,9 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-	array('label' => Yii::t('viLib', 'List') . ' ' . $model->label(2), 'url'=>array('danhsach')),
-	array('label' => Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
-	array('label' => Yii::t('viLib', 'View') . ' ' . $model->label(), 'url'=>array('chitiet', 'id' => GxActiveRecord::extractPkValue($model, true))),
-	array('label' => Yii::t('viLib', 'Manage') . ' ' . $model->label(2), 'url'=>array('admin')),
+	array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Branch type'), 'url'=>array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.LoaiChiNhanh.DanhSach')),
+	array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Branch type'), 'url'=>array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.LoaiChiNhanh.Them')),
+	array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib','Branch type'), 'url'=>array('chitiet', 'id' => GxActiveRecord::extractPkValue($model, true)),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.LoaiChiNhanh.ChiTiet')),
 );
 ?>
 

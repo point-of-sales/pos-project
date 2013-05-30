@@ -8,8 +8,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('nhanVien/danhsach')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('nhanVien/danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlynhanvien.NhanVien.DanhSach')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib','Employee type'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlynhanvien.LoaiNhanVien.Them')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

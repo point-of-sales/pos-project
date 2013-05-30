@@ -9,10 +9,11 @@
  * Columns in table "tbl_CauHinh" available as properties of the model,
  * and there are no model relations.
  *
+ * @property integer $id
  * @property integer $so_san_pham_tren_trang
- * @property integer $so_phan_trang
- * @property integer $bat_buoc_thong_tin_khach_hang
  * @property integer $so_luong_ton_canh_bao
+ * @property integer $so_ngay_canh_bao_sinh_nhat_khach_hang
+ * @property string $email_ho_tro
  *
  */
 abstract class BaseCauHinh extends CPOSActiveRecord {
@@ -34,14 +35,15 @@ abstract class BaseCauHinh extends CPOSActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return 'so_san_pham_tren_trang';
+		return 'email_ho_tro';
 	}
 
 	public function rules() {
 		return array(
-			array('so_san_pham_tren_trang, so_phan_trang, bat_buoc_thong_tin_khach_hang, so_luong_ton_canh_bao', 'numerical', 'integerOnly'=>true),
-			array('so_san_pham_tren_trang, so_phan_trang, bat_buoc_thong_tin_khach_hang, so_luong_ton_canh_bao', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('so_san_pham_tren_trang, so_phan_trang, bat_buoc_thong_tin_khach_hang, so_luong_ton_canh_bao', 'safe', 'on'=>'search'),
+			array('so_san_pham_tren_trang, so_luong_ton_canh_bao, so_ngay_canh_bao_sinh_nhat_khach_hang', 'numerical', 'integerOnly'=>true),
+			array('email_ho_tro', 'length', 'max'=>100),
+			array('so_san_pham_tren_trang, so_luong_ton_canh_bao, so_ngay_canh_bao_sinh_nhat_khach_hang, email_ho_tro', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, so_san_pham_tren_trang, so_luong_ton_canh_bao, so_ngay_canh_bao_sinh_nhat_khach_hang, email_ho_tro', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,20 +59,22 @@ abstract class BaseCauHinh extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'so_san_pham_tren_trang' => Yii::t('viLib', 'So San Pham Tren Trang'),
-			'so_phan_trang' => Yii::t('viLib', 'So Phan Trang'),
-			'bat_buoc_thong_tin_khach_hang' => Yii::t('viLib', 'Bat Buoc Thong Tin Khach Hang'),
-			'so_luong_ton_canh_bao' => Yii::t('viLib', 'So Luong Ton Canh Bao'),
+			'id' => Yii::t('app', 'ID'),
+			'so_san_pham_tren_trang' => Yii::t('app', 'So San Pham Tren Trang'),
+			'so_luong_ton_canh_bao' => Yii::t('app', 'So Luong Ton Canh Bao'),
+			'so_ngay_canh_bao_sinh_nhat_khach_hang' => Yii::t('app', 'So Ngay Canh Bao Sinh Nhat Khach Hang'),
+			'email_ho_tro' => Yii::t('app', 'Email Ho Tro'),
 		);
 	}
 
 	public function search() {
 		$criteria = new CDbCriteria;
 
+		$criteria->compare('id', $this->id);
 		$criteria->compare('so_san_pham_tren_trang', $this->so_san_pham_tren_trang);
-		$criteria->compare('so_phan_trang', $this->so_phan_trang);
-		$criteria->compare('bat_buoc_thong_tin_khach_hang', $this->bat_buoc_thong_tin_khach_hang);
 		$criteria->compare('so_luong_ton_canh_bao', $this->so_luong_ton_canh_bao);
+		$criteria->compare('so_ngay_canh_bao_sinh_nhat_khach_hang', $this->so_ngay_canh_bao_sinh_nhat_khach_hang);
+		$criteria->compare('email_ho_tro', $this->email_ho_tro, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

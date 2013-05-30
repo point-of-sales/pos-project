@@ -9,6 +9,7 @@
  * Columns in table "tbl_ThongTinCongTy" available as properties of the model,
  * and there are no model relations.
  *
+ * @property integer $id
  * @property string $ten_cong_ty
  * @property string $dia_chi
  * @property string $dien_thoai
@@ -44,7 +45,7 @@ abstract class BaseThongTinCongTy extends CPOSActiveRecord {
 			array('ten_cong_ty, dia_chi, email, website', 'length', 'max'=>100),
 			array('dien_thoai, fax', 'length', 'max'=>15),
 			array('ten_cong_ty, dia_chi, dien_thoai, fax, email, website', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('ten_cong_ty, dia_chi, dien_thoai, fax, email, website', 'safe', 'on'=>'search'),
+			array('id, ten_cong_ty, dia_chi, dien_thoai, fax, email, website', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,18 +61,20 @@ abstract class BaseThongTinCongTy extends CPOSActiveRecord {
 
 	public function attributeLabels() {
 		return array(
-			'ten_cong_ty' => Yii::t('viLib', 'Ten Cong Ty'),
-			'dia_chi' => Yii::t('viLib', 'Dia Chi'),
-			'dien_thoai' => Yii::t('viLib', 'Dien Thoai'),
-			'fax' => Yii::t('viLib', 'Fax'),
-			'email' => Yii::t('viLib', 'Email'),
-			'website' => Yii::t('viLib', 'Website'),
+			'id' => Yii::t('app', 'ID'),
+			'ten_cong_ty' => Yii::t('app', 'Ten Cong Ty'),
+			'dia_chi' => Yii::t('app', 'Dia Chi'),
+			'dien_thoai' => Yii::t('app', 'Dien Thoai'),
+			'fax' => Yii::t('app', 'Fax'),
+			'email' => Yii::t('app', 'Email'),
+			'website' => Yii::t('app', 'Website'),
 		);
 	}
 
 	public function search() {
 		$criteria = new CDbCriteria;
 
+		$criteria->compare('id', $this->id);
 		$criteria->compare('ten_cong_ty', $this->ten_cong_ty, true);
 		$criteria->compare('dia_chi', $this->dia_chi, true);
 		$criteria->compare('dien_thoai', $this->dien_thoai, true);
