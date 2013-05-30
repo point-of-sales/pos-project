@@ -2,33 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39d7da02-e886-479a-8938-f9dbc955d447" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/themes/asia/images/icons/delete.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_search.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/chitiet.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/danhsach.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/trahang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/xuat.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/admin.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/capnhat.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/capnhat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php" afterPath="$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" afterPath="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php" afterPath="$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/css/banhang.css" afterPath="$PROJECT_DIR$/source/themes/asia/css/banhang.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/js/banhang.js" afterPath="$PROJECT_DIR$/source/themes/asia/js/banhang.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/css/custom.css" afterPath="$PROJECT_DIR$/source/themes/asia/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/js/hd-format.js" afterPath="$PROJECT_DIR$/source/themes/asia/js/hd-format.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/them.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/them.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369917175036" ignored="false" />
+    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369938028173" ignored="false" />
     <file path="/KhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1368969813409" ignored="false" />
     <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369836344913" ignored="false" />
     <file path="/BaoCaoController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369918152327" ignored="false" />
@@ -135,7 +113,7 @@
       <file leaf-file-name="HoaDonTraHangController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="16.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -144,7 +122,7 @@
       <file leaf-file-name="HoaDonBanHangController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="48" selection-start="2771" selection-end="2771" vertical-scroll-proportion="-5.4038463">
+            <state line="64" column="48" selection-start="2771" selection-end="2771" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,7 +131,7 @@
       <file leaf-file-name="PhieuXuatController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,7 +140,7 @@
       <file leaf-file-name="PhieuNhapController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="36" selection-start="2211" selection-end="2211" vertical-scroll-proportion="-10.0">
+            <state line="48" column="36" selection-start="2211" selection-end="2211" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,7 +149,7 @@
       <file leaf-file-name="HoaDonTraHang.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="33" selection-start="318" selection-end="318" vertical-scroll-proportion="-0.7582418">
+            <state line="87" column="0" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.82417583">
               <folding />
             </state>
           </provider>
@@ -180,7 +158,7 @@
       <file leaf-file-name="Helpers.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/components/Helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="27" selection-start="8077" selection-end="8077" vertical-scroll-proportion="-6.740741">
+            <state line="246" column="27" selection-start="8077" selection-end="8077" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -258,7 +236,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -707,14 +684,15 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../yii13/framework" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -772,7 +750,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3075041" sideWeight="0.6755906" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3132137" sideWeight="0.6755906" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32598424" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -850,60 +828,42 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/source/protected/messages/vi/viLib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="309" column="23" selection-start="13973" selection-end="13991" vertical-scroll-proportion="-8.038462">
-          <folding />
-        </state>
+        <state line="309" column="23" selection-start="13973" selection-end="13991" vertical-scroll-proportion="-8.038462" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/models/ChiNhanh.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="12" selection-start="138" selection-end="146" vertical-scroll-proportion="-5.3333335">
-          <folding />
-        </state>
+        <state line="8" column="12" selection-start="138" selection-end="146" vertical-scroll-proportion="-5.3333335" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangchinhanh.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="54" selection-start="4429" selection-end="4444" vertical-scroll-proportion="-14.666667">
-          <folding />
-        </state>
+        <state line="108" column="54" selection-start="4429" selection-end="4444" vertical-scroll-proportion="-14.666667" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/xuatexcelnhapxuatton.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="14" selection-start="952" selection-end="952" vertical-scroll-proportion="-18.666666">
-          <folding />
-        </state>
+        <state line="33" column="14" selection-start="952" selection-end="952" vertical-scroll-proportion="-18.666666" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/xuatexcelbanhangchinhanh.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="32" selection-start="322" selection-end="337" vertical-scroll-proportion="-3.2222223">
-          <folding>
-            <element signature="e#6#121#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="13" column="32" selection-start="322" selection-end="337" vertical-scroll-proportion="-3.2222223" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/themes/asia/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="19" selection-start="3433" selection-end="3433" vertical-scroll-proportion="0.697479">
-          <folding />
-        </state>
+        <state line="234" column="19" selection-start="3433" selection-end="3433" vertical-scroll-proportion="0.697479" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="587" column="40" selection-start="24030" selection-end="24030" vertical-scroll-proportion="-9.703704">
-          <folding />
-        </state>
+        <state line="587" column="40" selection-start="24030" selection-end="24030" vertical-scroll-proportion="-9.703704" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSActiveRecord.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="23" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.34981686">
-          <folding />
-        </state>
+        <state line="55" column="23" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.34981686" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php">
@@ -915,49 +875,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/models/PhieuNhap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="47" selection-start="2540" selection-end="2540" vertical-scroll-proportion="0.5896947">
-          <folding />
-        </state>
+        <state line="65" column="47" selection-start="2540" selection-end="2540" vertical-scroll-proportion="0.5896947" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/components/Helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="27" selection-start="8077" selection-end="8077" vertical-scroll-proportion="-6.740741">
+        <state line="246" column="27" selection-start="8077" selection-end="8077" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="16.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="21" selection-start="289" selection-end="289" vertical-scroll-proportion="0.46153846">
-          <folding />
-        </state>
+        <state line="14" column="21" selection-start="289" selection-end="289" vertical-scroll-proportion="0.46153846" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="36" selection-start="2211" selection-end="2211" vertical-scroll-proportion="-10.0">
+        <state line="48" column="36" selection-start="2211" selection-end="2211" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="48" selection-start="2771" selection-end="2771" vertical-scroll-proportion="-5.4038463">
+        <state line="64" column="48" selection-start="2771" selection-end="2771" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="318" selection-end="318" vertical-scroll-proportion="-0.7582418">
+        <state line="87" column="0" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.82417583">
           <folding />
         </state>
       </provider>
