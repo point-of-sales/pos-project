@@ -9,7 +9,8 @@ class HoaDonTraHangController extends CPOSController {
 		));
 	}
 
-	public function actionThem() {
+	public function actionThem($id) {
+	   /*
 		$model = new HoaDonTraHang;
 
 		if (isset($_POST['HoaDonTraHang'])) {
@@ -33,6 +34,7 @@ class HoaDonTraHangController extends CPOSController {
             }
 		}
 		$this->render('them', array( 'model' => $model));
+        */
 	}
 
 	public function actionCapNhat($id) {

@@ -81,8 +81,12 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
 )); ?>
 <div style="margin-bottom: 10px;text-align: center;">
     <span style="font-weight: bold;">Lý do trả hàng: </span>
-    <input name="ly_do_tra_hang" type="text" style="width: 500px;" />
+    <?php echo $form->textField($model->hoaDonTraHangs, 'ly_do_tra_hang',array("style"=>"width:500px")); ?>
+    <?php echo $form->error($model->hoaDonTraHangs, 'ly_do_tra_hang'); ?>
+    <span style="font-weight: bold;">Trị giá mới: </span>
+    <input type="text" readonly="readonly" value="0" name="tri_gia" />
     <input type="hidden" name="hoa_don_ban_id" value="<?php echo $model->id?>" />
+    <span>VNĐ</span>
 </div>
 <h2>Chi tiết hàng bán</h2>
 <?php

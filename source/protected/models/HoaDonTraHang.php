@@ -37,7 +37,8 @@ class HoaDonTraHang extends BaseHoaDonTraHang
                 return 'dup-error';*/
         
         // kiem tra du lieu con bi trung hay chua
-
+        
+        //var_dump($params);exit;
         if (!$this->kiemTraTonTai($params)) {
             //neu khoa chua ton tai
             $this->setAttributes($params);
@@ -130,6 +131,25 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         'criteria' => $criteria,
         ));
         }
+        
+    public static function layMaHoaDonMoi()
+    {
+
+        $maxId = Yii::app()->db->createCommand()
+            ->select('max(id)')
+            ->from('tbl_HoaDonTraHang')
+            ->queryScalar();
+
+        $model = HoaDonTraHang::model()->findByPk($maxId);
+        if (isset($model)) {
+
+            $ma_chung_tu = $model->getBaseModel()->ma_chung_tu;
+            $str = parent::taoMaChungTuMoi($ma_chung_tu, 'TH', 13);
+        } else {
+            $str = parent::taoMaChungTuMoi('', 'TH', 13);
+        }
+        return $str;
+    }
 
 
 }

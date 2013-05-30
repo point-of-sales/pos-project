@@ -27,6 +27,63 @@ class HoaDonBanHangController extends CPOSController {
             'chiTietHangTangProvider' => $chiTietHangTangProvider,
         ));
 	}
+    
+    public function actionTraHang($id){
+        $chi_nhanh_id = 10;
+        $model = $this->loadModel($id, 'HoaDonBanHang');
+        $model->hoaDonTraHangs = new HoaDonTraHang();
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+		if(!empty($_POST)){
+            //$model_hd_tra_hang = new HoaDonTraHang;
+            $post = array(
+                'HoaDonTraHang' => array(
+                    //'id'=>$_POST['HoaDonTraHang']['id'],
+                    'ly_do_tra_hang'=>$_POST['HoaDonTraHang']['ly_do_tra_hang'],
+                    'hoa_don_ban_id'=>$_POST['hoa_don_ban_id'],
+                ),
+                'ChungTu' => array(
+                    'ma_chung_tu' => HoaDonTraHang::layMaHoaDonMoi(),
+                    'ngay_lap' => date('d-m-Y H:i:s'),
+                    'tri_gia' => $_POST['tri_gia'],
+                    'ghi_chu' => '',
+                    'nhan_vien_id' => Yii::app()->user->id,
+                    'chi_nhanh_id' => $chi_nhanh_id,
+                ),
+            );
+            foreach($_POST['so_luong'] as $key=>$value){
+                $post['ChiTietHoaDonTra'][] = array(
+                    'san_pham_id' => $key,
+                    'so_luong' => $value,
+                    'don_gia' => $_POST['don_gia'][$key],
+                );
+            }
+            $result = $model->hoaDonTraHangs->them($post);
+            switch($result) {
+                case 'ok': {
+                    //cap nhat trang thai hoa don
+                    $result = $model->saveAttributes(array("trang_thai"=>1));
+                    
+                    $this->redirect(array('danhsach'));
+                    break;
+                }
+                case 'dup-error': {
+                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
+                    break;
+                }
+                case 'fail': {
+                    // co the lam them canh bao cho nguoi dung
+                    break;
+                }
+            }
+		}
+		$this->render('trahang', array(
+            'model' => $model,
+            'dataProvider' => $chiTietDataProvider,
+        ));
+    }
 
 	public function actionThem() {
 		$model = new HoaDonBanHang;
@@ -113,56 +170,6 @@ class HoaDonBanHangController extends CPOSController {
 
         $this->layout = '//layouts/column1';
 		$this->render('them', array( 'model' => $model));
-	}
-
-	public function actionTraHang($id) {
-	   
-        $model = $this->loadModel($id, 'HoaDonBanHang');
-        $model->hoaDonTraHangs = new HoaDonTraHang();
-        $criteria = new CDbCriteria();
-        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
-        $criteria->params = array(':hoa_don_ban_id' => $id);
-        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
-		if(!empty($_POST)){
-            //$model_hd_tra_hang = new HoaDonTraHang;
-            $post = array(
-                'HoaDonTraHang' => array(
-                    'id'=>$_POST['HoaDonTraHang']['id'],
-                    'ly_do_tra_hang'=>$_POST['ly_do_tra_hang'],
-                    'hoa_don_ban_id'=>$_POST['hoa_don_ban_id'],
-                ),
-            );
-            foreach($_POST['so_luong'] as $key=>$value){
-                $post['ChiTietHoaDonTra'][] = array(
-                    'san_pham_id' => $key,
-                    'so_luong' => $value,
-                    'don_gia' => $_POST['don_gia'][$key],
-                );
-            }
-            var_dump($post);exit;
-            $result = $model->hoaDonTraHangs->them($post);
-            switch($result) {
-                case 'ok': {
-                    //cap nhat trang thai hoa don
-                    $result = $model->saveAttributes(array("trang_thai"=>1));
-                    
-                    $this->redirect(array('danhsach'));
-                    break;
-                }
-                case 'dup-error': {
-                    Yii::app()->user->setFlash('info-board',Yii::t('viLib','Data existed in sytem. Please try another one!'));
-                    break;
-                }
-                case 'fail': {
-                    // co the lam them canh bao cho nguoi dung
-                    break;
-                }
-            }
-		}
-		$this->render('trahang', array(
-            'model' => $model,
-            'dataProvider' => $chiTietDataProvider,
-        ));
 	}
 
     public function actionXoaGrid($id) {
