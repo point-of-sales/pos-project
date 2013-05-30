@@ -113,13 +113,12 @@ function keypressInputMa(e){
             e.preventDefault();
             $(idDialogTimKH).dialog('open');
         }break;
-        case sKey.f2:{   //them khach hang
-            e.preventDefault();
-            $(idDialogThemKH).dialog('open');
-        }break;
-        case sKey.f3:{   //hang tang
+        case sKey.f2:{   //hang tang
             e.preventDefault();
             $(idDialogHangTang).dialog('open');
+        }break;
+        case sKey.f3:{
+            
         }break;
     }
 }
@@ -175,15 +174,6 @@ function xoaGrid(){
         '<th>Thành tiền</th>'+
         '<th></th>'+
     '</tr>');
-}
-
-function enableInput(id,enable){
-    if(enable){
-        $(id).removeAttr('readonly');   
-    }
-    else{
-        $(id).attr('readonly','readonly');
-    }
 }
 
 //== so sanh bang ve gia tri === so sanh bang ve gia tri va kieu du lieu
@@ -300,10 +290,10 @@ function dongBoDuLieu(){
                             '<input type="hidden" value="' + cthd[i].id + '" id="" />' +
                             '<td id="mv_'+cthd[i].id+'">' + cthd[i].ma_vach + '</td>' +
                             '<td>' + cthd[i].ten_san_pham + '</td>' +
-                            '<td><input type="text" id="sl_'+cthd[i].id+'" class="" value="'+cthd[i].so_luong+'" onkeypress="capNhatSoLuongGrid(event,'+cthd[i].id+')" /></td>' +
+                            '<td class="td-center"><input type="text" id="sl_'+cthd[i].id+'" class="" value="'+cthd[i].so_luong+'" onkeypress="capNhatSoLuongGrid(event,'+cthd[i].id+')" style="width:50px;text-align:center;" /></td>' +
                             '<td id="gb_'+cthd[i].id+'">' + vnd_format(cthd[i].don_gia) + '</td>' +
                             '<td id="tt_'+cthd[i].id+'">' + '</td>' +
-                            '<td>'+'<a title="Xóa" href="javascript:;" onclick="xoaSanPhamBan('+cthd[i].id+')">'+
+                            '<td class="td-center">'+'<a title="Xóa" href="javascript:;" onclick="xoaSanPhamBan('+cthd[i].id+')">'+
                                 '<img alt="Xóa" src="'+baseUrl+'/themes/asia/images/delete.png" />'+'</a>'+
                             '</td>'+
                         '</tr>';

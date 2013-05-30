@@ -592,7 +592,7 @@ class CPOSEExcelView extends EExcelView
 
         $tmp = $this->dataProvider->getData();
         foreach($tmp as $t) {
-            
+
         }
 
     }

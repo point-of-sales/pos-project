@@ -175,6 +175,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         return $str;
     }
 
+
     public function search()
     {
         $criteria = new CDbCriteria;
@@ -185,7 +186,6 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         $criteria->compare('chiet_khau', $this->chiet_khau);
         $criteria->compare('khach_hang_id', $this->khach_hang_id);
         $criteria->order = 'chungTu.ngay_lap DESC';
-
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

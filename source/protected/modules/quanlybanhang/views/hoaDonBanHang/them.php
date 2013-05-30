@@ -106,8 +106,8 @@ echo '</pre>';
     </div>
     <div id="form-hd-ban-command">
     	<div id="form-hd-ban-button">
-            <input class="" type="button" value="Hóa đơn mới" onclick="hoaDonMoi()" />
-            <input class="" type="submit" value="In hóa đơn" />
+            <input class="button" type="button" value="Hóa đơn mới" onclick="hoaDonMoi()" />
+            <input class="button" type="submit" value="In hóa đơn" />
         </div>
     </div>
     
