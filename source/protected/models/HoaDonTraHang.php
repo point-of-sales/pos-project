@@ -5,28 +5,23 @@ Yii::import('application.models._base.BaseHoaDonTraHang');
 class HoaDonTraHang extends BaseHoaDonTraHang
 {
 
-    public static function model($className = __CLASS__)
-    {
-        return parent::model($className);
-    }
+	public static function model($className=__CLASS__) {
+		return parent::model($className);
+	}
+    
+    public function rules() {
+		return array(
+			array('hoa_don_ban_id, ly_do_tra_hang', 'required'),
+			array('id, hoa_don_ban_id', 'numerical', 'integerOnly'=>true),
+			array('ly_do_tra_hang', 'safe'),
+			array('ly_do_tra_hang', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, ly_do_tra_hang, hoa_don_ban_id', 'safe', 'on'=>'search'),
+		);
+	}
 
 
-    public function rules()
-    {
-        return array(
-            array('hoa_don_ban_id', 'required'),
-            array('id, hoa_don_ban_id', 'numerical', 'integerOnly' => true),
-            array('ly_do_tra_hang', 'safe'),
-            array('ly_do_tra_hang', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, ly_do_tra_hang, hoa_don_ban_id', 'safe', 'on' => 'search'),
-        );
-    }
-
-
-    public function them($params)
-    {
+    public function them($params) {
         /*
->>>>>>> 60a98af149545c0faed4529ab1d6020dc36571a9
         // kiem tra du lieu con bi trung hay chua
 
         if (!$this->kiemTraTonTai($params)) {
@@ -40,16 +35,12 @@ class HoaDonTraHang extends BaseHoaDonTraHang
             else
                 return 'fail';
         } else
-<<<<<<< HEAD
-=======
                 return 'dup-error';*/
 
         // kiem tra du lieu con bi trung hay chua
-
-        //var_dump($params);exit;
         if (!$this->kiemTraTonTai($params['ChungTu'])) {
             //neu khoa chua ton tai
-            $this->setAttributes($params);
+            $this->setAttributes($params['HoaDonTraHang']);
             if (!empty($params['ChiTietHoaDonTra'])) {
                 //print_r($params);exit;
                 $cthd_tra = Helpers::formatArray($params['ChiTietHoaDonTra']);

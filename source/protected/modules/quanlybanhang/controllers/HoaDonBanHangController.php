@@ -45,7 +45,7 @@ class HoaDonBanHangController extends CPOSController {
                     'hoa_don_ban_id'=>$id,
                 ),
                 'ChungTu' => array(
-                    'id'=>'',
+                    'id' => '',
                     'ma_chung_tu' => HoaDonTraHang::layMaHoaDonMoi(),
                     'ngay_lap' => date('d-m-Y H:i:s'),
                     'tri_gia' => $_POST['tri_gia'],
