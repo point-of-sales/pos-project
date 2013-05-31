@@ -36,7 +36,7 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'chi_nhanh_id'); ?>
-        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,"ten_chi_nhanh"), array('prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(),null,"ten_chi_nhanh"), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row buttons btn-search">

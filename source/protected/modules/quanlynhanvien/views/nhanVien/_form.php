@@ -31,7 +31,7 @@
     <!-- row -->
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'chi_nhanh_id'); ?>
-        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,"ten_chi_nhanh")); ?>
+        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(),null,"ten_chi_nhanh")); ?>
         <?php echo $form->error($model, 'chi_nhanh_id'); ?>
     </div>
 

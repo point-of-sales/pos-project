@@ -85,7 +85,7 @@
     <label><?php echo GxHtml::encode(Yii::t('viLib', 'Approve branch')); ?></label>
 
     <div class="khuyen-mai-chi-nhanh">
-        <?php echo $form->checkBoxList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,"ten_chi_nhanh"), false, true)); ?>
+        <?php echo $form->checkBoxList($model, 'tblChiNhanhs', GxHtml::encodeEx(GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(),null,"ten_chi_nhanh"), false, true)); ?>
     </div>
     <div class="btn-save">
         <?php

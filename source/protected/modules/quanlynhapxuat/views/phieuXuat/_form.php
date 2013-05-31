@@ -29,16 +29,21 @@
         <!-- row -->
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ngay_lap'); ?>
-            <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+            <?php /*$form->widget('zii.widgets.jui.CJuiDatePicker', array(
                 'model' => $model->baseModel,
                 'attribute' => 'ngay_lap',
                 'value' => (!empty($model->baseModel->ngay_lap)) ? $model->baseModel->ngay_lap : $model->baseModel->setAttribute('ngay_lap', date('d-m-Y', time())),
                 'options' => array(
-                    'showButtonPanel' => true,
-                    'changeYear' => true,
+                    'showButtonPanel' => false,
+                    'changeYear' => false,
                     'dateFormat' => 'dd-mm-yy',
+                    'autoOpen'=>false,
                 ),
-            ));; ?>
+
+                'htmlOptions'=>array('readonly'=>"readonly"),
+
+            ));; */?>
+            <?php echo $form->textField($model->baseModel,'ngay_lap',array('value'=>!empty($model->baseModel->ngay_lap) ? $model->baseModel->ngay_lap :  date('d-m-Y', time()),'readonly'=>'readonly'))?>
             <?php echo $form->error($model->baseModel, 'ngay_lap'); ?>
         </div>
 
@@ -51,14 +56,14 @@
         <?php if(RightsWeight::getRoleWeight(Yii::app()->user->id)==999):?>
             <div class="row cus-row">
                 <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-                <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array($id => array("selected" => "selected")))); ?>
+                <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, "ten_chi_nhanh"), array("options" => array($id => array("selected" => "selected")))); ?>
                 <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
             </div>
         <?php else : ?>
 
             <div class="row cus-row">
                 <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-                <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array(NhanVien::model()->findByPk(Yii::app()->user->id)->chiNhanh->id => array("selected" => "selected")))); ?>
+                <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, "ten_chi_nhanh"), array("options" => array(NhanVien::model()->findByPk(Yii::app()->user->id)->chiNhanh->id => array("selected" => "selected")))); ?>
                 <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
             </div>
         <?php endif ?>
@@ -73,7 +78,6 @@
                 echo $form->textField($model->baseModel, 'tri_gia', array('class'=>'number','value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
             <?php echo $form->error($model->baseModel, 'tri_gia'); ?>
         </div>
-
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'chi_nhanh_nhap_id'); ?>

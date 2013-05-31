@@ -257,6 +257,15 @@ class ChiNhanh extends BaseChiNhanh
         return ChiNhanh::model()->findAll($criteria);
     }
 
+    public static function layDanhSachChiNhanhKichHoatTrongHeThong()
+    {
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('trang_thai=1');
+        $criteria->order = 'id DESC';
+        $criteria->addCondition('id>1');
+        return ChiNhanh::model()->findAll($criteria);
+    }
+
     public function layTenTrangThaiSanPhamOChiNhanh()
     {
         $danhSachTrangThaiSanPhamOChiNhanh = $this->layDanhSachTrangThai();
@@ -270,7 +279,7 @@ class ChiNhanh extends BaseChiNhanh
     }
 
 
-    public static function layDanhSachChiNhanhKichHoatTrongHeThong()
+    public static function layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung()
     {
         $currentUserId = Yii::app()->user->id;
         if (RightsWeight::getRoleWeight($currentUserId) == 999) {

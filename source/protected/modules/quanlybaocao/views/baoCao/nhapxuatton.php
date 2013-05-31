@@ -152,8 +152,8 @@ $this->menu = array(
     $(document).ready(function () {
         var showLink = <?php echo isset($model)?1:0;?>;
         if (!showLink) {
-            $(".export-link").hide();
+            $(".cus-link").hide();
         } else
-            $(".export-link").show();
+            $(".cus-link").show();
     });
 </script>

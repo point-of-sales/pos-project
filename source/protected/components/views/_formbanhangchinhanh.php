@@ -17,7 +17,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'chi_nhanh_id')?>
-        <?php echo $form->dropDownList($model,'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(),null,'ten_chi_nhanh'),array('class'=>'chi-nhanh-dropdownlist-report','prompt'=>Yii::t('viLib','All'))); ?>
+        <?php echo $form->dropDownList($model,'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(),null,'ten_chi_nhanh'),array('class'=>'chi-nhanh-dropdownlist-report','prompt'=>Yii::t('viLib','All'))); ?>
         <?php $form->error($model,'chi_nhanh_id') ?>
     </div>
 
@@ -68,7 +68,7 @@
     ?>
 
     <?php
-    echo GxHtml::link(Yii::t('viLib', 'Export') . ' '  . Yii::t('viLib','Excel'),array('xuatexcelbanhangchinhanh'),array('target'=>'_blank','class'=>'export-link'));
+    echo GxHtml::link(Yii::t('viLib', 'Export') . ' '  . Yii::t('viLib','Excel'),array('xuatexcelbanhangchinhanh'),array('target'=>'_blank','class'=>'cus-link'));
     $this->endWidget();
     ?>
 

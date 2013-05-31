@@ -32,9 +32,11 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
             }
         });
 
+        <?php if(RightsWeight::getRoleWeight(Yii::app()->user->id)<999):?>
         $('#ChungTu_chi_nhanh_id').focus(function(e){
             $(this).blur();
         });
+        <?php endif;?>
 
         $('#ChungTu_nhan_vien_id').focus(function(e){
             $(this).blur();
@@ -270,6 +272,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         ajaxTransferDataObject.syncSession(ajaxTransferDataObject.url);
         calTotal();
     }
+
+
 
     function checkEnableSupplier(exportBranchHTMLSelectObject) {
         var exportSelectedValue = exportBranchHTMLSelectObject.options[exportBranchHTMLSelectObject.selectedIndex].value;

@@ -6,8 +6,7 @@
 
 .form {
     padding:30px 30px 0px 30px;
-    border:1px solid #5b77cc;
-     margin-top: -40px;
+    margin-top: -75px;
 
 }
 .form .cus-row label {
@@ -34,20 +33,18 @@
 }
 
 .header-voucher-info {
-    border-radius:10px;
     overflow:hidden;
     padding-left:15px;
-    background-color:#E6F1F6;
+    background-color:#E8E2D6;
     border:1px solid #C5D5DD;
     height:160px;
 }
 .product-voucher-info {
     margin-top:10px;
     margin-bottom:10px;
-    background-color:#a5dde2;
+    background-color:#bab7af;
     border:1px solid #C5D5DD;
     overflow:hidden;
-    border-radius:10px;
     padding-left:20px;
 
 }

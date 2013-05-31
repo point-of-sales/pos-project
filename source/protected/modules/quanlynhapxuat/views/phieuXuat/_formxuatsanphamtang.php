@@ -50,7 +50,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array(NhanVien::model()->findByPk(Yii::app()->user->id)->chiNhanh->id => array("selected" => "selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, "ten_chi_nhanh"), array("options" => array(NhanVien::model()->findByPk(Yii::app()->user->id)->chiNhanh->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
         </div>
 
@@ -68,7 +68,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'chi_nhanh_nhap_id'); ?>
-            <?php echo $form->dropDownList($model, 'chi_nhanh_nhap_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh")); ?>
+            <?php echo $form->dropDownList($model, 'chi_nhanh_nhap_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, "ten_chi_nhanh")); ?>
             <?php echo $form->error($model, 'chi_nhanh_nhap_id'); ?>
         </div>
 

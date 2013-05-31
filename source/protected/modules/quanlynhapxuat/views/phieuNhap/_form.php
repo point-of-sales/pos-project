@@ -29,7 +29,7 @@
         <!-- row -->
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ngay_lap'); ?>
-            <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+            <?php /*$form->widget('zii.widgets.jui.CJuiDatePicker', array(
                 'model' => $model->baseModel,
                 'attribute' => 'ngay_lap',
                 'value' => (!empty($model->baseModel->ngay_lap)) ? $model->baseModel->ngay_lap : $model->baseModel->setAttribute('ngay_lap', date('d-m-Y', time())),
@@ -38,7 +38,8 @@
                     'changeYear' => true,
                     'dateFormat' => 'dd-mm-yy',
                 ),
-            ));; ?>
+            ));; */?>
+            <?php echo $form->textField($model->baseModel,'ngay_lap',array('value'=>!empty($model->baseModel->ngay_lap) ? $model->baseModel->ngay_lap :  date('d-m-Y', time()),'readonly'=>'readonly'))?>
             <?php echo $form->error($model->baseModel, 'ngay_lap'); ?>
         </div>
 
@@ -50,7 +51,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThong(), null, "ten_chi_nhanh"), array("options" => array($id => array("selected" => "selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, "ten_chi_nhanh"), array("options" => array($id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
         </div>
 
@@ -122,10 +123,9 @@
             <div id="ajax-link">
             <?php
             echo CHtml::ajaxLink(Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Product'), Yii::app()->createUrl('/quanlysanpham/sanPham/themajax'), array(
-                'onclick' => '$("#new-product-form-dialog").dialog("open"); return false;',
-                'update' => '#new-product-form-dialog',
-                array('id'=>'show-new-product-form')
-            ));
+                'onclick' => '$("#new-product-form-dialog").dialog("open"); return false;','update' => '#new-product-form-dialog'),
+                array('id'=>'show-new-product-form', 'class'=>'cus-link')
+            );
             ?>
             </div>
             <div id="new-product-form-dialog"></div>

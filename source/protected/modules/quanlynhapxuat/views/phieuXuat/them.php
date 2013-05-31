@@ -31,9 +31,12 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                 $('#price').val(preGetItem.gia_goc);
             }
         });
+
+        <?php if(RightsWeight::getRoleWeight(Yii::app()->user->id)<999):?>
         $('#ChungTu_chi_nhanh_id').focus(function(e){
             $(this).blur();
         });
+        <?php endif;?>
 
         $('#ChungTu_nhan_vien_id').focus(function(e){
             $(this).blur();
