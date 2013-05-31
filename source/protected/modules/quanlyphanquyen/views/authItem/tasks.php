@@ -1,20 +1,20 @@
 <?php $this->breadcrumbs = array(
     Yii::t('viLib', 'Decentralization management') => array('authItem/roles'),
     Yii::t('viLib', 'Authentication item') => array('authItem/roles'),
-    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Tasks'),
+    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Task'),
 ); ?>
 
 <?php
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Roles'),  'url' => array('authItem/roles')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operations'),  'url' => array('authItem/operations')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Role'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_ROLE)),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Task'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_TASK)),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Operation'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_OPERATION)),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Role'),  'url' => array('authItem/roles')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operation'),  'url' => array('authItem/operations')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Role'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_ROLE)),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Task'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_TASK)),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Operation'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_OPERATION)),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Tasks') ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Task') ?></h1>
 
 <div id="tasks" class="cus-rights-content">
 
@@ -26,20 +26,20 @@ $this->menu = array(
 	    'columns'=>array(
     		array(
     			'name'=>'name',
-    			'header'=>Rights::t('core', 'Name'),
+    			'header'=>Yii::t('viLib', 'Task name'),
     			'type'=>'raw',
     			'htmlOptions'=>array('class'=>'name-column'),
     			'value'=>'$data->owner->name',
     		),
     		array(
     			'name'=>'description',
-    			'header'=>Rights::t('core', 'Description'),
+    			'header'=>Yii::t('viLib', 'Description'),
     			'type'=>'raw',
     			'htmlOptions'=>array('class'=>'description-column'),
     		),
     		array(
     			'name'=>'bizRule',
-    			'header'=>Rights::t('core', 'Business rule'),
+    			'header'=>Yii::t('viLib', 'Business rule'),
     			'type'=>'raw',
     			'htmlOptions'=>array('class'=>'bizrule-column'),
     			'visible'=>Rights::module()->enableBizRule===true,
@@ -60,7 +60,7 @@ $this->menu = array(
                         'label' => Yii::t('viLib', 'delete'),
                     ),
                     'update' => array(
-                        'url' => 'Helpers::urlRouting(Yii::app()->controller,"","update",array("name"=>$data->owner->name))',
+                        'url' => 'Helpers::urlRouting(Yii::app()->controller,"","update",array("name"=>$data->owner->name,"type"=>1))',
                         'label' => Yii::t('viLib', 'update'),
                     ),
                 ),

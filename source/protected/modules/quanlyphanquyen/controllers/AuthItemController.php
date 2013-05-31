@@ -353,7 +353,7 @@ class AuthItemController extends RController
                         $rightModel = RightsWeight::model()->find('itemname=:itemname', array(':itemname' => $itemName));
                         $rightModel->itemname = $formModel->name;
                         $rightModel->type = 2;
-                        if($currentWeight < 999)
+                        if ($currentWeight < 999)
                             $rightModel->weight = $formModel->weight;
                         else
                             $rightModel->weight = 999;
@@ -438,22 +438,21 @@ class AuthItemController extends RController
             // We only allow deletion via POST request
             if (Yii::app()->request->isPostRequest === true) {
                 $itemName = $this->getItemName();
+                $weight = RightsWeight::getRoleWeightFromItemname($itemName);
+                if ($weight < 999) {
+                    // Load the item and save the name for later use
+                    $item = $this->_authorizer->authManager->getAuthItem($itemName);
+                    $item = $this->_authorizer->attachAuthItemBehavior($item);
 
-                // Load the item and save the name for later use
-                $item = $this->_authorizer->authManager->getAuthItem($itemName);
-                $item = $this->_authorizer->attachAuthItemBehavior($item);
+                    // Delete the item
+                    $this->_authorizer->authManager->removeAuthItem($itemName);
 
-                // Delete the item
-                $this->_authorizer->authManager->removeAuthItem($itemName);
-
-                // Set a flash message for deleting the item
-                Yii::app()->user->setFlash($this->module->flashSuccessKey,
-                    Rights::t('core', ':name deleted.', array(':name' => $item->getNameText()))
-                );
-
-                // If AJAX request, we should not redirect the browser
-                if (isset($_POST['ajax']) === false)
-                    $this->redirect(Yii::app()->user->getRightsReturnUrl(array('authItem/permissions')));
+                    // If AJAX request, we should not redirect the browser
+                    if (isset($_POST['ajax']) === false)
+                        $this->redirect(Yii::app()->user->getRightsReturnUrl(array('authItem/permissions')));
+                } else {   // user is Quan Ly He Thong Khong duoc xoa
+                    echo Yii::t('viLib', 'Can not delete the Administrative role');
+                }
             } else {
                 throw new CHttpException(400, Rights::t('core', 'Invalid request. Please do not repeat this request again.'));
             }

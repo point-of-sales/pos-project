@@ -195,17 +195,18 @@ class PhieuXuat extends BasePhieuXuat
     public function search()
     {
         $criteria = new CDbCriteria;
-
+        $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->compare('id', $this->id);
-        $criteria->compare('ly_do_xuat', $this->ly_do_xuat, true);
         $criteria->compare('loai_xuat_ra', $this->loai_xuat_ra);
         $criteria->compare('chi_nhanh_nhap_id', $this->chi_nhanh_nhap_id);
-        /* $event = new CPOSSessionEvent();
-         $event->currentSession = Yii::app()->session['PhieuXuat'];
-         $this->onAfterExport($event);*/
+
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
         ));
     }
 

@@ -42,7 +42,7 @@ class HoaDonBanHangController extends CPOSController {
                 'HoaDonTraHang' => array(
                     //'id'=>$_POST['HoaDonTraHang']['id'],
                     'ly_do_tra_hang'=>$_POST['HoaDonTraHang']['ly_do_tra_hang'],
-                    'hoa_don_ban_id'=>$_POST['hoa_don_ban_id'],
+                    'hoa_don_ban_id'=>$id,
                 ),
                 'ChungTu' => array(
                     'id' => '',
@@ -61,6 +61,7 @@ class HoaDonBanHangController extends CPOSController {
                     'don_gia' => $_POST['don_gia'][$key],
                 );
             }
+            //print_r($post);exit;
             $result = $model->hoaDonTraHangs->them($post);
             switch($result) {
                 case 'ok': {

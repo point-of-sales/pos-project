@@ -23,6 +23,5 @@ $this->menu = array(
     'attributes' => array(
         'ma_loai_nhan_vien',
         'ten_loai',
-        'lop'
     ),
 )); ?>

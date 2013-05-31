@@ -475,8 +475,36 @@ div.search-form {
     margin-left: -100px;
     margin-top:-80px
 }
+/* end error 403 */
+
+.total {
+    border:1px solid;
+    overflow:hidden;
+    margin-top:10px;
+    overflow:hidden;
+    background-color: #EEEEEE;
+}
 
 
+.total p {
+    float:left;
+    padding-left:50px;
+    font-weight:bold;
+}
+
+.export-link {
+    font-weight:bold;
+    padding-left:15px;
+}
+
+a.export-link {
+    color:#0038a8;
+}
+
+a.export-link:hover {
+    color:red;
+    text-decoration:underline;
+}
 /* end error 403 */
 
 .td-center{

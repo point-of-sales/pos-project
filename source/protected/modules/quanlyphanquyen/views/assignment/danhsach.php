@@ -6,17 +6,17 @@
 
 <?php
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Roles'),  'url' => array('authItem/roles')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Tasks'),  'url' => array('authItem/tasks')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operations'),  'url' => array('authItem/operations')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Role'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_ROLE)),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Task'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_TASK)),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Operation'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_OPERATION)),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Role'),  'url' => array('authItem/roles')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Task'),  'url' => array('authItem/tasks')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operation'),  'url' => array('authItem/operations')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Role'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_ROLE)),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Task'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_TASK)),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Operation'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_OPERATION)),
 );
 
 ?>
 
-<h1><?php echo Rights::t('core', 'Assignments'); ?></h1>
+<h1><?php echo Yii::t('viLib','List') . ' ' . Yii::t('viLib', 'Assignment'); ?></h1>
 
 <div id="assignments" class="cus-rights-content">
 
@@ -40,27 +40,23 @@ $this->menu = array(
                 'htmlOptions'=>array('class'=>'name-column'),
                 'value'=>'$data->ho_ten',
             ),
+
+            array(
+                'name'=>'name',
+                'header'=>Yii::t('viLib','Branch name'),
+                'type'=>'raw',
+                'htmlOptions'=>array('class'=>'name-column'),
+                'value'=>'$data->chiNhanh->ten_chi_nhanh',
+            ),
+
     		array(
     			'name'=>'assignments',
-    			'header'=>Rights::t('core', 'Roles'),
+    			'header'=>Yii::t('viLib', 'Role'),
     			'type'=>'raw',
     			'htmlOptions'=>array('class'=>'role-column'),
     			'value'=>'$data->getAssignmentsValueText(CAuthItem::TYPE_ROLE)',
     		),
-			array(
-    			'name'=>'assignments',
-    			'header'=>Rights::t('core', 'Tasks'),
-    			'type'=>'raw',
-    			'htmlOptions'=>array('class'=>'task-column'),
-    			'value'=>'$data->getAssignmentsText(CAuthItem::TYPE_TASK)',
-    		),
-			array(
-    			'name'=>'assignments',
-    			'header'=>Rights::t('core', 'Operations'),
-    			'type'=>'raw',
-    			'htmlOptions'=>array('class'=>'operation-column'),
-    			'value'=>'$data->getAssignmentsText(CAuthItem::TYPE_OPERATION)',
-    		),
+
 
             array(
                 'class' => 'CButtonColumn',

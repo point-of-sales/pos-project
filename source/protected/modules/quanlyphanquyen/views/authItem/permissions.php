@@ -1,34 +1,28 @@
 <?php $this->breadcrumbs = array(
-	'Rights'=>Rights::getBaseUrl(),
-	Rights::t('core', 'Permissions'),
-); ?>
+    Yii::t('viLib', 'Decentralization management') => array('authItem/roles'),
+    Yii::t('viLib', 'Authentication item')=>array(),
+    Yii::t('viLib', 'Assign permission')
+);
 
-<div id="permissions">
+$this->menu = array(
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Role'),  'url' => array('authItem/roles')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Task'),  'url' => array('authItem/tasks')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operation'),  'url' => array('authItem/operations')),
+);
 
-	<h2><?php echo Rights::t('core', 'Permissions'); ?></h2>
+?>
 
-	<p>
-		<?php echo Rights::t('core', 'Here you can view and manage the permissions assigned to each role.'); ?><br />
-		<?php echo Rights::t('core', 'Authorization items can be managed under {roleLink}, {taskLink} and {operationLink}.', array(
-			'{roleLink}'=>CHtml::link(Rights::t('core', 'Roles'), array('authItem/roles')),
-			'{taskLink}'=>CHtml::link(Rights::t('core', 'Tasks'), array('authItem/tasks')),
-			'{operationLink}'=>CHtml::link(Rights::t('core', 'Operations'), array('authItem/operations')),
-		)); ?>
-	</p>
+<h1><?php echo Yii::t('viLib','List') . ' ' . Yii::t('viLib', 'Assign permission'); ?></h1>
 
-	<p><?php echo CHtml::link(Rights::t('core', 'Generate items for controller actions'), array('authItem/generate'), array(
-	   	'class'=>'generator-link',
-	)); ?></p>
-
+<div id="permissions" class="cus-rights-content">
 	<?php $this->widget('zii.widgets.grid.CGridView', array(
 		'dataProvider'=>$dataProvider,
 		'template'=>'{items}',
 		'emptyText'=>Rights::t('core', 'No authorization items found.'),
 		'htmlOptions'=>array('class'=>'grid-view permission-table'),
 		'columns'=>$columns,
-	)); ?>
 
-	<p class="info">*) <?php echo Rights::t('core', 'Hover to see from where the permission is inherited.'); ?></p>
+	)); ?>
 
 	<script type="text/javascript">
 
@@ -49,5 +43,7 @@
 		});
 
 	</script>
+
+
 
 </div>

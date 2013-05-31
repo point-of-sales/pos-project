@@ -73,6 +73,16 @@ class LoaiKhachHang extends BaseLoaiKhachHang
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('ma_loai_khach_hang', $this->ma_loai_khach_hang, true);
+        $criteria->compare('ten_loai', $this->ten_loai, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
     public function xuatFileExcel()
     {

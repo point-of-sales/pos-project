@@ -65,7 +65,12 @@
 
     <?php
     echo GxHtml::submitButton(Yii::t('viLib', 'Search'));
+    ?>
+
+    <?php
+    echo GxHtml::link(Yii::t('viLib', 'Export') . ' '  . Yii::t('viLib','Excel'),array('xuatexcelbanhangchinhanh'),array('target'=>'_blank','class'=>'export-link'));
     $this->endWidget();
     ?>
+
 
 </div>

@@ -176,6 +176,23 @@ class PhieuNhap extends BasePhieuNhap
         }
     }
 
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->compare('id', $this->id);
+        $criteria->compare('loai_nhap_vao', $this->loai_nhap_vao);
+        $criteria->compare('chi_nhanh_xuat_id', $this->chi_nhanh_xuat_id);
+
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
 
     public function xuatFileExcel()
     {

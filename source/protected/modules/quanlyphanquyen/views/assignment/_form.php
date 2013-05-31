@@ -8,7 +8,7 @@
 	</div>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton(Rights::t('core', 'Assign')); ?>
+		<?php echo CHtml::submitButton(Yii::t('viLib', 'Assign')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

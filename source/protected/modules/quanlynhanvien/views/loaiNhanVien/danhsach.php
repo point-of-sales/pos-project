@@ -37,9 +37,7 @@ return false;
     'columns' => array(
         'ma_loai_nhan_vien',
         'ten_loai',
-        array('name' => 'lop',
-            'value'=>'$data->layTenLop()',
-        ),
+
 array(
     'class' => 'CButtonColumn',
     'template' => '{view}{update}{delete}',

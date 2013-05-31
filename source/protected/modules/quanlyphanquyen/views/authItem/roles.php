@@ -1,44 +1,47 @@
 <?php $this->breadcrumbs = array(
     Yii::t('viLib', 'Decentralization management') => array('authItem/roles'),
     Yii::t('viLib', 'Authentication item') => array('authItem/roles'),
-    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Roles'),
+    Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Role'),
 ); ?>
 
 <?php
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Tasks'),  'url' => array('authItem/tasks')),
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operations'),  'url' => array('authItem/operations')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Role'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_ROLE)),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Task'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_TASK)),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'New Operation'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_OPERATION)),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Task'),  'url' => array('authItem/tasks')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Operation'),  'url' => array('authItem/operations')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Role'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_ROLE)),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Task'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_TASK)),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Operation'), 'url' => array('authItem/create', 'type' => CAuthItem::TYPE_OPERATION)),
 );
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Roles'); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Role'); ?></h1>
 
-<div id="roles" class="cus-rights-content">
+<div class="search-form">
+</div><!-- search-form -->
+<div id="roles">
     <?php $this->widget('zii.widgets.grid.CGridView', array(
         'dataProvider' => $dataProvider,
         'template' => '{items}',
         'emptyText' => Rights::t('core', 'No roles found.'),
         'htmlOptions' => array('class' => 'grid-view role-table'),
+        'id'=>'grid',
         'columns' => array(
             array(
                 'name' => 'name',
-                'header' => Rights::t('core', 'Name'),
+                'header' => Yii::t('viLib', 'Role name'),
                 'type' => 'raw',
                 'htmlOptions' => array('class' => 'name-column'),
                 'value' => '$data->getGridNameLink()',
             ),
             array(
                 'name' => 'description',
-                'header' => Rights::t('core', 'Description'),
+                'header' => Yii::t('viLib', 'Description'),
                 'type' => 'raw',
                 'htmlOptions' => array('class' => 'description-column'),
             ),
             array(
                 'name' => 'bizRule',
-                'header' => Rights::t('core', 'Business rule'),
+                'header' => Yii::t('viLib', 'Business rule'),
                 'type' => 'raw',
                 'htmlOptions' => array('class' => 'bizrule-column'),
                 'visible' => Rights::module()->enableBizRule === true,
@@ -58,9 +61,10 @@ $this->menu = array(
                     'delete' => array(
                         'url' => 'Helpers::urlRouting(Yii::app()->controller,"","delete",array("name"=>$data->owner->name))',
                         'label' => Yii::t('viLib', 'delete'),
+                        'click' => Helpers::deleteButtonClick(),
                     ),
                     'update' => array(
-                        'url' => 'Helpers::urlRouting(Yii::app()->controller,"","update",array("name"=>$data->owner->name))',
+                        'url' => 'Helpers::urlRouting(Yii::app()->controller,"","update",array("name"=>$data->owner->name,"type"=>2))',
                         'label' => Yii::t('viLib', 'update'),
                     ),
                 ),

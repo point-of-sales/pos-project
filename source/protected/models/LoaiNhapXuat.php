@@ -62,6 +62,19 @@ class LoaiNhapXuat extends BaseLoaiNhapXuat
         }
     }
 
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('ma_loai_nhap_xuat', $this->ma_loai_nhap_xuat, true);
+        $criteria->compare('ten_loai_nhap_xuat', $this->ten_loai_nhap_xuat, true);
+        $criteria->compare('loai', $this->loai);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
     public function xuatFileExcel()
     {

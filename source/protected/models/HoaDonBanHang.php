@@ -4,7 +4,7 @@ Yii::import('application.models._base.BaseHoaDonBanHang');
 
 class HoaDonBanHang extends BaseHoaDonBanHang
 {
-    
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -26,8 +26,8 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             'khachHang' => array(self::BELONGS_TO, 'KhachHang', 'khach_hang_id'),
             'hoaDonTraHangs' => array(self::HAS_MANY, 'HoaDonTraHang', 'hoa_don_ban_id'),
             'tblSanPhamTangs' => array(self::MANY_MANY, 'SanPhamTang', 'tbl_ChiTietHoaDonTang(hoa_don_ban_id,san_pham_tang_id)'),
-            'chiTietHoaDonBan' => array(self::HAS_MANY,'ChiTietHoaDonBan','hoa_don_ban_id'),
-            'chiTietHoaDonTang' => array(self::HAS_MANY,'ChiTietHoaDonTang','hoa_don_ban_id'),
+            'chiTietHoaDonBan' => array(self::HAS_MANY, 'ChiTietHoaDonBan', 'hoa_don_ban_id'),
+            'chiTietHoaDonTang' => array(self::HAS_MANY, 'ChiTietHoaDonTang', 'hoa_don_ban_id'),
         );
     }
 
@@ -174,26 +174,32 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         }
         return $str;
     }
-    
-    public function search() {
-		$criteria = new CDbCriteria;
+
+
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->with = 'chungTu';
         $criteria->together = true;
-		$criteria->compare('id', $this->id);
-		$criteria->compare('chiet_khau', $this->chiet_khau);
-		$criteria->compare('khach_hang_id', $this->khach_hang_id);
-        //$criteria->order = 'chungTu.ngay_lap DESC';
-        $criteria->order = 'chungTu.ma_chung_tu DESC';
+        $criteria->compare('id', $this->id);
+        $criteria->compare('chiet_khau', $this->chiet_khau);
+        $criteria->compare('khach_hang_id', $this->khach_hang_id);
+        $criteria->order = 'chungTu.ngay_lap DESC';
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => $numberRecords,
+            ),
+        ));
+    }
 
-		return new CActiveDataProvider($this, array(
-			'criteria' => $criteria,
-		));
-	}
-    
-    public static function layHoaDonBanHang($id){
-        $model = HoaDonBanHang::model()->findByAttributes(array('id'=>$id));
+    public static function layHoaDonBanHang($id)
+    {
+        $model = HoaDonBanHang::model()->findByAttributes(array('id' => $id));
         $hd_ban_hang = array();
-        if(!empty($model)){
+        if (!empty($model)) {
             $khach_hang = array(
                 'id' => $model->khachHang->id,
                 'ma_khach_hang' => $model->khachHang->ma_khach_hang,
@@ -207,27 +213,27 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             $model_cthd = $model->chiTietHoaDonBan;
             $cthd_ban_hang = array();
             $tong = 0;
-            foreach($model_cthd as $md){
+            foreach ($model_cthd as $md) {
                 $cthd_ban_hang[] = array(
-                    'id' => $md->getAttribute('id'), 
+                    'id' => $md->getAttribute('id'),
                     'ma_vach' => $md->sanPham->getAttribute('ma_vach'),
                     'ten_san_pham' => $md->sanPham->getAttribute('ten_san_pham'),
-                    'don_gia'=> $md->don_gia,
+                    'don_gia' => $md->don_gia,
                     'so_luong' => $md->so_luong,
-                    'thanh_tien' => ($md->don_gia*$md->so_luong),
+                    'thanh_tien' => ($md->don_gia * $md->so_luong),
                 );
-                $tong += $md->don_gia*$md->so_luong;
+                $tong += $md->don_gia * $md->so_luong;
             }
             $model_hang_tang = $model->chiTietHoaDonTang;
             $cthd_hang_tang = array();
-            foreach($model_hang_tang as $md){
+            foreach ($model_hang_tang as $md) {
                 $cthd_hang_tang[] = array(
                     'ma_vach' => $md->sanPhamTang->getAttribute('ma_vach'),
                     'ten_san_pham' => $md->sanPhamTang->getAttribute('ten_san_pham'),
                     'so_luong' => $md->getAttribute('so_luong'),
                 );
             }
-            
+
             $hd_ban_hang = array(
                 'cthd_ban_hang' => $cthd_ban_hang,
                 'cthd_hang_tang' => $cthd_hang_tang,

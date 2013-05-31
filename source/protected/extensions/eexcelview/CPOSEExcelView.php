@@ -56,6 +56,7 @@ class CPOSEExcelView extends EExcelView
             ->setCategory($this->category);
 
         //$this->initColumns();
+
     }
 
     public function renderCompanyInfoHeader($startColumn = 'A', $row = 1)
@@ -159,7 +160,7 @@ class CPOSEExcelView extends EExcelView
                 $head = 'Số TT'; // replace ID with So TT
 
             self::$activeSheet->setCellValue($this->columnName($i) . $row, $head);
-            $this->setCellFormatStyle($this->columnName($i), $row, array('bold' => true),'pro',PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_MEDIUM);
+            $this->setCellFormatStyle($this->columnName($i), $row, array('bold' => true), 'pro', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_MEDIUM);
         }
 
 
@@ -170,7 +171,7 @@ class CPOSEExcelView extends EExcelView
     {
 
         if ($this->disablePaging) //if needed disable paging to export all data
-            $this->enablePagination = false;
+        $this->enablePagination = false;
 
         self::$data = $this->dataProvider->getData();
         $n = count(self::$data);
@@ -183,7 +184,7 @@ class CPOSEExcelView extends EExcelView
             }
     }
 
-    public function renderRow($rowNo,$startColumn,$row)
+    public function renderRow($rowNo, $startColumn, $row)
     {
         if (isset($startColumn)) {
             $i = $this->columnIndex($startColumn);
@@ -256,21 +257,20 @@ class CPOSEExcelView extends EExcelView
             $c1 = count($dateF);
 
             if ($c1 == 3 && $dateF[0] < 9000 && $dateF[1] < 13 && $dateF[2] < 32) //{}
-                $value = $dateF[2] . '/' . $dateF[1] . '/' . $dateF[0];
+            $value = $dateF[2] . '/' . $dateF[1] . '/' . $dateF[0];
             //end of date
 
             $value = $value === null ? "" : $column->grid->getFormatter()->format($value, $column->type);
 
             // Write to the cell (and advance to the next)
-            if($column->name=='id' || $column->name=='ID' || $column->name=='STT') {
-                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), ($rowNo+1));
+            if ($column->name == 'id' || $column->name == 'ID' || $column->name == 'STT') {
+                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row + $rowNo), ($rowNo + 1));
                 //$this->setCellFormatStyle($this->columnName($i),$row+$rowNo,array(),null,PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true,'right'=>true,'bottom'=>true,'left'=>true,PHPExcel_Style_Border::BORDER_DASHED));
-                $this->setCellFormatStyle($this->columnName($i), $row+$rowNo, array(),null,PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_DASHED);
-            }
-            else {
-                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row+$rowNo), $value);
+                $this->setCellFormatStyle($this->columnName($i), $row + $rowNo, array(), null, PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_DASHED);
+            } else {
+                self::$activeSheet->setCellValue($this->columnName(++$i) . ($row + $rowNo), $value);
 
-                $this->setCellFormatStyle($this->columnName($i), $row+$rowNo, array(),null,PHPExcel_Style_Alignment::HORIZONTAL_GENERAL,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_DASHED);
+                $this->setCellFormatStyle($this->columnName($i), $row + $rowNo, array(), null, PHPExcel_Style_Alignment::HORIZONTAL_GENERAL, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_DASHED);
             }
         endforeach;
 
@@ -312,7 +312,7 @@ class CPOSEExcelView extends EExcelView
      $borderStyle : line style for cell default is thin
      */
 
-    public function setCellFormatStyle($columnStartName, $row, $textStyles = array(), $bgColor = null, $align = PHPExcel_Style_Alignment::HORIZONTAL_CENTER, $borderPosition=array('top'=>false,'right'=>false,'bottom'=>false,'left'=>false), $borderStyle=PHPExcel_Style_Border::BORDER_NONE)
+    public function setCellFormatStyle($columnStartName, $row, $textStyles = array(), $bgColor = null, $align = PHPExcel_Style_Alignment::HORIZONTAL_CENTER, $borderPosition = array('top' => false, 'right' => false, 'bottom' => false, 'left' => false), $borderStyle = PHPExcel_Style_Border::BORDER_NONE)
     {
         $bold = false;
         $italic = false;
@@ -371,11 +371,11 @@ class CPOSEExcelView extends EExcelView
                 'size' => $size,
                 'color' => array('rgb' => $textColor),
             ),
-            'borders'=>array(
-                'top'=> ($borderPosition['top'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
-                'right'=>($borderPosition['right'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
-                'bottom'=>($borderPosition['bottom'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
-                'left'=>($borderPosition['left'])?array('style'=>$borderStyle):array('style'=>PHPExcel_Style_Border::BORDER_NONE),
+            'borders' => array(
+                'top' => ($borderPosition['top']) ? array('style' => $borderStyle) : array('style' => PHPExcel_Style_Border::BORDER_NONE),
+                'right' => ($borderPosition['right']) ? array('style' => $borderStyle) : array('style' => PHPExcel_Style_Border::BORDER_NONE),
+                'bottom' => ($borderPosition['bottom']) ? array('style' => $borderStyle) : array('style' => PHPExcel_Style_Border::BORDER_NONE),
+                'left' => ($borderPosition['left']) ? array('style' => $borderStyle) : array('style' => PHPExcel_Style_Border::BORDER_NONE),
             ),
 
             'alignment' => array(
@@ -391,7 +391,8 @@ class CPOSEExcelView extends EExcelView
         self::$objPHPExcel->getActiveSheet()->getStyle($columnStartName . $row)->applyFromArray($styleArray);
     }
 
-    public function fixColumnsWidth() {
+    public function fixColumnsWidth()
+    {
         self::$activeSheet->getColumnDimension("A")->setWidth(6);
         self::$activeSheet->getColumnDimension("B")->setWidth(14);
         self::$activeSheet->getColumnDimension("C")->setWidth(13);
@@ -404,7 +405,7 @@ class CPOSEExcelView extends EExcelView
     }
 
 
-    public function renderPhieuNhapInfo($startColumn=null, $row=6)
+    public function renderPhieuNhapInfo($startColumn = null, $row = 6)
     {
         //custom column and row
         if (isset($startColumn)) {
@@ -420,16 +421,21 @@ class CPOSEExcelView extends EExcelView
         $chiNhanhNhap = $chiTietPhieuNhap->phieuNhap->chungTu->chiNhanh->ten_chi_nhanh;
         $chiNhanhXuat = $chiTietPhieuNhap->phieuNhap->chiNhanhXuat->ten_chi_nhanh;
 
-        self::$activeSheet->setCellValue('B8', Yii::t('viLib','Voucher code')); self::$activeSheet->setCellValue('C8', $maChungTu);
-        self::$activeSheet->setCellValue('B9', Yii::t('viLib','Created date')); self::$activeSheet->setCellValue('C9', $ngayLap);
-        self::$activeSheet->setCellValue('B10', Yii::t('viLib','Employee')); self::$activeSheet->setCellValue('C10', $nhanVien);
-        self::$activeSheet->setCellValue('B11', Yii::t('viLib','Export branch')); self::$activeSheet->setCellValue('C11', $chiNhanhXuat);
-        self::$activeSheet->setCellValue('B12', Yii::t('viLib','Import branch')); self::$activeSheet->setCellValue('C12', $chiNhanhNhap);
-        self::$activeSheet->setCellValue('B13', Yii::t('viLib','Shipper'));
+        self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
+        self::$activeSheet->setCellValue('C8', $maChungTu);
+        self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
+        self::$activeSheet->setCellValue('C9', $ngayLap);
+        self::$activeSheet->setCellValue('B10', Yii::t('viLib', 'Employee'));
+        self::$activeSheet->setCellValue('C10', $nhanVien);
+        self::$activeSheet->setCellValue('B11', Yii::t('viLib', 'Export branch'));
+        self::$activeSheet->setCellValue('C11', $chiNhanhXuat);
+        self::$activeSheet->setCellValue('B12', Yii::t('viLib', 'Import branch'));
+        self::$activeSheet->setCellValue('C12', $chiNhanhNhap);
+        self::$activeSheet->setCellValue('B13', Yii::t('viLib', 'Shipper'));
 
     }
 
-    public function renderPhieuXuatInfo($startColumn=null, $row=6)
+    public function renderPhieuXuatInfo($startColumn = null, $row = 6)
     {
         //custom column and row
         if (isset($startColumn)) {
@@ -445,16 +451,22 @@ class CPOSEExcelView extends EExcelView
         $chiNhanhXuat = $chiTietPhieuXuat->phieuXuat->chungTu->chiNhanh->ten_chi_nhanh;
         $chiNhanhNhap = $chiTietPhieuXuat->phieuXuat->chiNhanhNhap->ten_chi_nhanh;
 
-        self::$activeSheet->setCellValue('B8', Yii::t('viLib','Voucher code')); self::$activeSheet->setCellValue('C8', $maChungTu);
-        self::$activeSheet->setCellValue('B9', Yii::t('viLib','Created date')); self::$activeSheet->setCellValue('C9', $ngayLap);
-        self::$activeSheet->setCellValue('B10', Yii::t('viLib','Employee')); self::$activeSheet->setCellValue('C10', $nhanVien);
-        self::$activeSheet->setCellValue('B11', Yii::t('viLib','Export from : ')); self::$activeSheet->setCellValue('C11', $chiNhanhXuat);
-        self::$activeSheet->setCellValue('B12', Yii::t('viLib','Import branch')); self::$activeSheet->setCellValue('C12', $chiNhanhNhap);
-        self::$activeSheet->setCellValue('B13', Yii::t('viLib','Shipper'));
+        self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
+        self::$activeSheet->setCellValue('C8', $maChungTu);
+        self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
+        self::$activeSheet->setCellValue('C9', $ngayLap);
+        self::$activeSheet->setCellValue('B10', Yii::t('viLib', 'Employee'));
+        self::$activeSheet->setCellValue('C10', $nhanVien);
+        self::$activeSheet->setCellValue('B11', Yii::t('viLib', 'Export from : '));
+        self::$activeSheet->setCellValue('C11', $chiNhanhXuat);
+        self::$activeSheet->setCellValue('B12', Yii::t('viLib', 'Import branch'));
+        self::$activeSheet->setCellValue('C12', $chiNhanhNhap);
+        self::$activeSheet->setCellValue('B13', Yii::t('viLib', 'Shipper'));
 
     }
 
-    public function renderTotal($startColum=null,$rowStartColumTitles=0) {
+    public function renderTotal($startColumn = null, $rowStartColumnTitles = 0)
+    {
         //custom column and row
         if (isset($startColumn)) {
             $startIndex = $this->columnIndex($startColumn);
@@ -464,31 +476,126 @@ class CPOSEExcelView extends EExcelView
 
         $tmp = $this->dataProvider->getData();
         $toTal = 0;
-        foreach($tmp as $t) {
+        foreach ($tmp as $t) {
             $arr = $t->getAttributes();
             $gia = 0;
-            foreach($arr as $key=>$value) {
-                if(substr($key,0,4)=='gia_') {
+            foreach ($arr as $key => $value) {
+                if (substr($key, 0, 4) == 'gia_') {
                     $gia = $value;
                     break;
                 }
             }
             $toTal = $toTal + $t->so_luong * $gia;
         }
-        $rowNum = count($tmp)+ 1 + $rowStartColumTitles;
+        $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
         $a = $tmp[0];
 
-        $columNum = count($a->getAttributes())+1;
-        $endIndex = $startIndex + $columNum;
+        $columnNum = count($a->getAttributes()) + 1;
+        $endIndex = $startIndex + $columnNum;
         $endColumn = $this->columnName($endIndex);
-        self::$activeSheet->setCellValue($startColum . $rowNum, Yii::t('viLib','Total'));
-        self::$activeSheet->setCellValue($this->columnName($endIndex+1) . $rowNum, $toTal);
-        $this->setCellFormatStyle($startColum, $rowNum, array('bold'=>true),'#f2ef87',PHPExcel_Style_Alignment::HORIZONTAL_CENTER,array('top'=>true, 'right'=>true, 'bottom'=>true, 'left'=>true),PHPExcel_Style_Border::BORDER_NONE);
-        self::$activeSheet->mergeCells($startColum . $rowNum  . ":"  . $endColumn . $rowNum);
+        self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
+        self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), '#f2ef87', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
 
     }
 
+    public function renderImportExportTotal($startColumn = null, $rowStartColumnTitles = 0)
+    {
+        //custom column and row
 
+        if (isset($startColumn)) {
+            $startIndex = $this->columnIndex($startColumn);
+        } else {
+            $startIndex = 0;
+        }
+
+        $tmp = $this->dataProvider->getData();
+        $tong_ton_dau_ky = 0;
+        $tong_nhap_trong_ky = 0;
+        $tong_xuat_trong_ky = 0;
+        $tong_ban_trong_ky = 0;
+        $tong_thuc_ton = 0;
+        $position = 0;
+        $endTotalIndex = array(); //end index cua cot Tong Cong
+
+
+        foreach ($tmp as $t) {
+            $tong_ton_dau_ky = $tong_ton_dau_ky + $t->ton_dau_ky;
+            $tong_nhap_trong_ky = $tong_nhap_trong_ky + $t->so_luong_nhap;
+            $tong_ban_trong_ky = $tong_ban_trong_ky + $t->so_luong_ban;
+            $tong_xuat_trong_ky = $tong_xuat_trong_ky + $t->so_luong_xuat;
+            $tong_thuc_ton = $tong_thuc_ton + $t->so_luong_thuc_ton;
+        }
+
+        $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
+        $a = $tmp[0];
+        $columnNum = count($a->getAttributes()) + 1;
+
+
+        self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), '#f2ef87', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+
+        foreach ($this->columns as $n => $column) {
+            $position++;
+            if ($column->name !== null) {
+                switch ($column->name) {
+                    case 'ton_dau_ky':
+                    {
+                        self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_ton_dau_ky);
+                        $endTotalIndex[] = $position;
+                        break;
+                    }
+                    case 'so_luong_nhap':
+                    {
+                        self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_nhap_trong_ky);
+                        $endTotalIndex[] = $position;
+                        break;
+                    }
+                    case 'so_luong_xuat':
+                    {
+                        self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_xuat_trong_ky);
+                        $endTotalIndex[] = $position;
+                        break;
+                    }
+                    case 'so_luong_ban':
+                    {
+                        self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_ban_trong_ky);
+                        $endTotalIndex[] = $position;
+                        break;
+                    }
+                    case 'so_luong_thuc_ton':
+                    {
+                        self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_thuc_ton);
+                        $endTotalIndex[] = $position;
+                        break;
+                    }
+
+
+                }
+            }
+        }
+        $minTotalIndex = min($endTotalIndex);
+        $endColumn = $this->columnName($minTotalIndex - 1);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
+    }
+
+    public function renderSaleBranch($startColumn = null, $rowStartColumnTitles = 0)
+    {
+        //custom column and row
+
+        if (isset($startColumn)) {
+            $startIndex = $this->columnIndex($startColumn);
+        } else {
+            $startIndex = 0;
+        }
+
+        $tmp = $this->dataProvider->getData();
+        foreach($tmp as $t) {
+
+        }
+
+    }
 
     public function run()
     {
@@ -498,20 +605,39 @@ class CPOSEExcelView extends EExcelView
         $this->renderDocumentTitle();
 
         switch ($this->template) {
-            case 'PhieuNhap': {
-                $this->renderTitleColumns('A',15);
+            case 'PhieuNhap':
+            {
+                $this->renderTitleColumns('A', 15);
                 $this->renderPhieuNhapInfo();
-                $this->renderBody('A',16);
-                $this->renderTotal('A',15);
+                $this->renderBody('A', 16);
+                $this->renderTotal('A', 15);
                 break;
             }
-            case 'PhieuXuat': {
-                $this->renderTitleColumns('A',15);
+            case 'PhieuXuat':
+            {
+                $this->renderTitleColumns('A', 15);
                 $this->renderPhieuXuatInfo();
-                $this->renderBody('A',16);
-                $this->renderTotal('A',15);
+                $this->renderBody('A', 16);
+                $this->renderTotal('A', 15);
                 break;
             }
+            case 'XuatNhapTon':
+            {
+                $this->renderTitleColumns('A', 10);
+                $this->renderBody('A', 11);
+                $this->renderImportExportTotal('A', 10);
+                // render total
+
+                break;
+            }
+            case 'BanHangChiNhanh':
+            {
+                $this->renderTitleColumns('A', 10);
+                $this->renderBody('A', 11);
+                $this->renderSaleBranch('A',10);
+                break;
+            }
+
             default : {
                 $this->renderCreatedDate();
                 $this->renderTitleColumns();
@@ -532,14 +658,25 @@ class CPOSEExcelView extends EExcelView
         {
             if (!$this->filename)
                 $this->filename = $this->title;
-            ob_end_clean();
+            $this->cleanOutput();
+            header('Set-Cookie: fileDownload=true; path=/'); //new for ajax download
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Pragma: public');
             header('Content-type: ' . $this->mimeTypes[$this->exportType]['Content-type']);
             header('Content-Disposition: attachment; filename="' . $this->filename . '.' . $this->mimeTypes[$this->exportType]['extension'] . '"');
             header('Cache-Control: max-age=0');
             $objWriter->save('php://output');
+            ob_start();
             Yii::app()->end();
+            ob_end_clean();
+
+        }
+    }
+
+    private static function cleanOutput()
+    {
+        for ($level = ob_get_level(); $level > 0; --$level) {
+            @ob_end_clean();
         }
     }
 

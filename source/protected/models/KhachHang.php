@@ -80,6 +80,22 @@ class KhachHang extends BaseKhachHang
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->compare('ma_khach_hang', $this->ma_khach_hang, true);
+        $criteria->compare('ho_ten', $this->ho_ten, true);
+        $criteria->compare('loai_khach_hang_id', $this->loai_khach_hang_id);
+
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
 
     public function xuatFileExcel()
     {

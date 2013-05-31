@@ -74,6 +74,21 @@ class KhuVuc extends BaseKhuVuc
         }
     }
 
+    public function search() {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+
+        $criteria->compare('ma_khu_vuc', $this->ma_khu_vuc, true);
+        $criteria->compare('ten_khu_vuc', $this->ten_khu_vuc, true);
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
+
     public function xuatFileExcel() {
         $criteria = new CDbCriteria;
 
