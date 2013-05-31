@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 27, 2013 at 10:08 AM
+-- Generation Time: May 31, 2013 at 05:53 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -46,7 +46,8 @@ INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 ('NVThuKho', '5', NULL, 'N;'),
 ('NVThuKho', '6', NULL, 'N;'),
 ('QuanLyHeThong', '1', NULL, NULL),
-('QuanLyHeThong', '16', NULL, NULL);
+('QuanLyHeThong', '16', NULL, NULL),
+('QuanLyHeThong', '17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -71,9 +72,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('NVBanHang', 2, 'Bán hàng', NULL, 'N;'),
 ('NVChiNhanh', 2, 'Quản lý chi nhánh', NULL, 'N;'),
 ('NVThuKho', 2, 'Thủ kho', NULL, 'N;'),
-('QuanLyBanHang', 1, 'Đại diện cho nhiệm vụ quản lý bán hàng.', NULL, 'N;'),
-('Quanlybanhang.HoaDonBanHang.*', 1, NULL, NULL, 'N;'),
-('Quanlybanhang.HoaDonBanHang.Admin', 0, NULL, NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.CapNhatSoLuong', 0, NULL, NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.CapNhatTienNhan', 0, NULL, NULL, 'N;'),
@@ -91,15 +89,19 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlybanhang.HoaDonBanHang.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.XoaSanPhamBan', 0, NULL, NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.Xuat', 0, NULL, NULL, 'N;'),
-('QuanLyBaoCao', 1, 'Đại diện cho nhiệm vụ quản lý các thông tin về báo cáo trong hệ thống.', NULL, 'N;'),
-('Quanlybaocao.BaoCao.*', 1, NULL, NULL, 'N;'),
 ('Quanlybaocao.BaoCao.BanHangChiNhanh', 0, NULL, NULL, 'N;'),
 ('Quanlybaocao.BaoCao.BanHangSanPham', 0, NULL, NULL, 'N;'),
 ('Quanlybaocao.BaoCao.BanHangTop', 0, NULL, NULL, 'N;'),
 ('Quanlybaocao.BaoCao.DanhSach', 0, NULL, NULL, 'N;'),
 ('Quanlybaocao.BaoCao.NhapXuatTon', 0, NULL, NULL, 'N;'),
-('QuanLyChiNhanh', 1, 'Đại diện cho nhiệm vụ quản lý các thông tin về chi nhánh.', NULL, 'N;'),
-('Quanlychinhanh.ChiNhanh.*', 1, NULL, NULL, 'N;'),
+('Quanlycauhinh.CauHinh.CapNhat', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.CauHinh.ChiTiet', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.CauHinh.DanhSach', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.CauHinh.Them', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.ThongTinCongTy.CapNhat', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.ThongTinCongTy.ChiTiet', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.ThongTinCongTy.DanhSach', 0, NULL, NULL, 'N;'),
+('Quanlycauhinh.ThongTinCongTy.Them', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.ChiTiet', 0, NULL, NULL, 'N;'),
@@ -108,7 +110,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlychinhanh.ChiNhanh.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlychinhanh.KhuVuc.*', 1, NULL, NULL, 'N;'),
 ('Quanlychinhanh.KhuVuc.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.KhuVuc.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.KhuVuc.DanhSach', 0, NULL, NULL, 'N;'),
@@ -116,7 +117,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlychinhanh.KhuVuc.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.KhuVuc.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.KhuVuc.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlychinhanh.LoaiChiNhanh.*', 1, NULL, NULL, 'N;'),
 ('Quanlychinhanh.LoaiChiNhanh.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.LoaiChiNhanh.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.LoaiChiNhanh.DanhSach', 0, NULL, NULL, 'N;'),
@@ -125,8 +125,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlychinhanh.LoaiChiNhanh.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.LoaiChiNhanh.Xuat', 0, NULL, NULL, 'N;'),
 ('QuanLyHeThong', 2, 'Quản lý hệ thống', NULL, 'N;'),
-('QuanLyKhachHang', 1, 'Đại diện cho nhiệm vụ quản lý khách hàng.', NULL, 'N;'),
-('Quanlykhachhang.KhachHang.*', 1, NULL, NULL, 'N;'),
 ('Quanlykhachhang.KhachHang.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.KhachHang.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.KhachHang.DanhSach', 0, NULL, NULL, 'N;'),
@@ -134,7 +132,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlykhachhang.KhachHang.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.KhachHang.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.KhachHang.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlykhachhang.LoaiKhachHang.*', 1, NULL, NULL, 'N;'),
 ('Quanlykhachhang.LoaiKhachHang.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.LoaiKhachHang.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.LoaiKhachHang.DanhSach', 0, NULL, NULL, 'N;'),
@@ -142,9 +139,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlykhachhang.LoaiKhachHang.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.LoaiKhachHang.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlykhachhang.LoaiKhachHang.Xuat', 0, NULL, NULL, 'N;'),
-('QuanLyKho', 1, 'Đại diện cho nhiệm vụ quản lý kho.', NULL, 'N;'),
-('QuanLyKhuyenMai', 1, 'Đại diện cho nhiệm vụ quản lý khuyến mãi.', NULL, 'N;'),
-('Quanlykhuyenmai.KhuyenMai.*', 1, NULL, NULL, 'N;'),
 ('Quanlykhuyenmai.KhuyenMai.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlykhuyenmai.KhuyenMai.CapNhatKhuyenMai', 0, NULL, NULL, 'N;'),
 ('Quanlykhuyenmai.KhuyenMai.ChiTiet', 0, NULL, NULL, 'N;'),
@@ -156,8 +150,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlykhuyenmai.KhuyenMai.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlykhuyenmai.KhuyenMai.Xuat', 0, NULL, NULL, 'N;'),
 ('Quanlykhuyenmai.KhuyenMai.XuatKhuyenMaiSanPham', 0, NULL, NULL, 'N;'),
-('QuanLyNhaCungCap', 1, 'Đại diện cho nhiệm vụ quản lý các đối tác bên ngoài.', NULL, 'N;'),
-('Quanlynhacungcap.NhaCungCap.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhacungcap.NhaCungCap.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlynhacungcap.NhaCungCap.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlynhacungcap.NhaCungCap.DanhSach', 0, NULL, NULL, 'N;'),
@@ -165,7 +157,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlynhacungcap.NhaCungCap.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlynhacungcap.NhaCungCap.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlynhacungcap.NhaCungCap.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlynhanvien.LoaiNhanVien.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhanvien.LoaiNhanVien.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.LoaiNhanVien.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.LoaiNhanVien.DanhSach', 0, NULL, NULL, 'N;'),
@@ -173,7 +164,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlynhanvien.LoaiNhanVien.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.LoaiNhanVien.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.LoaiNhanVien.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlynhanvien.NhanVien.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhanvien.NhanVien.AjaxActive', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.NhanVien.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.NhanVien.ChiTiet', 0, NULL, NULL, 'N;'),
@@ -182,12 +172,9 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlynhanvien.NhanVien.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.NhanVien.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlynhanvien.NhanVien.Xuat', 0, NULL, NULL, 'N;'),
-('QuanLyNhapXuat', 1, 'Đại diện cho nhiệm vụ nhập xuất sản phẩm trong kho.', NULL, 'N;'),
-('Quanlynhapxuat.ChiNhanh.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.ChiNhanh.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.ChiNhanh.DanhSach', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.ChiNhanh.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlynhapxuat.PhieuNhap.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.ChiTietXuatSanPhamTang', 0, NULL, NULL, 'N;'),
@@ -199,7 +186,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlynhapxuat.PhieuNhap.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuNhap.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlynhapxuat.PhieuXuat.*', 1, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuXuat.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuXuat.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuXuat.ChiTietXuatSanPhamTang', 0, NULL, NULL, 'N;'),
@@ -213,12 +199,9 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlynhapxuat.PhieuXuat.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuXuat.Xuat', 0, NULL, NULL, 'N;'),
 ('Quanlynhapxuat.PhieuXuat.XuatSanPhamTang', 0, NULL, NULL, 'N;'),
-('QuanLyPhanQuyen', 1, 'Đại diện cho nhiệm vu quản lý các quyền hạn trong hệ thống.', NULL, 'N;'),
-('Quanlyphanquyen.Assignment.*', 1, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Assignment.DanhSach', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Assignment.PhanQuyen', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Assignment.Revoke', 0, NULL, NULL, 'N;'),
-('Quanlyphanquyen.AuthItem.*', 1, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.AuthItem.Assign', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.AuthItem.Create', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.AuthItem.Delete', 0, NULL, NULL, 'N;'),
@@ -231,13 +214,10 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlyphanquyen.AuthItem.Sortable', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.AuthItem.Tasks', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.AuthItem.Update', 0, NULL, NULL, 'N;'),
-('Quanlyphanquyen.Install.*', 1, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Install.Confirm', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Install.Error', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Install.Ready', 0, NULL, NULL, 'N;'),
 ('Quanlyphanquyen.Install.Run', 0, NULL, NULL, 'N;'),
-('QuanLySanPham', 1, 'Đại diện cho nhiệm vụ quản lý sản phẩm', NULL, 'N;'),
-('Quanlysanpham.LoaiSanPham.*', 1, NULL, NULL, 'N;'),
 ('Quanlysanpham.LoaiSanPham.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.LoaiSanPham.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.LoaiSanPham.DanhSach', 0, NULL, NULL, 'N;'),
@@ -245,13 +225,11 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlysanpham.LoaiSanPham.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.LoaiSanPham.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.LoaiSanPham.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlysanpham.MocGia.*', 1, NULL, NULL, 'N;'),
 ('Quanlysanpham.MocGia.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.MocGia.Them', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.MocGia.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.MocGia.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.MocGia.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlysanpham.SanPham.*', 1, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPham.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPham.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPham.DanhSach', 0, NULL, NULL, 'N;'),
@@ -260,7 +238,6 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlysanpham.SanPham.Xoa', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPham.XoaGrid', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPham.Xuat', 0, NULL, NULL, 'N;'),
-('Quanlysanpham.SanPhamTang.*', 1, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPhamTang.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPhamTang.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlysanpham.SanPhamTang.DanhSach', 0, NULL, NULL, 'N;'),
@@ -294,8 +271,6 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
 INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVChiNhanh', 'NVBanHang'),
 ('NVChiNhanh', 'NVThuKho'),
-('NVBanHang', 'QuanLyBanHang'),
-('NVBanHang', 'Quanlybanhang.HoaDonBanHang.Admin'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.CapNhat'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.CapNhatSoLuong'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.CapNhatTienNhan'),
@@ -322,11 +297,11 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVThuKho', 'Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct'),
 ('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.ChiTiet'),
 ('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.DanhSach'),
+('NVThuKho', 'Quanlychinhanh.ChiNhanh.DanhSach'),
 ('NVChiNhanh', 'Quanlychinhanh.KhuVuc.ChiTiet'),
 ('NVChiNhanh', 'Quanlychinhanh.KhuVuc.DanhSach'),
 ('NVChiNhanh', 'Quanlychinhanh.LoaiChiNhanh.ChiTiet'),
 ('NVChiNhanh', 'Quanlychinhanh.LoaiChiNhanh.DanhSach'),
-('NVBanHang', 'QuanLyKhachHang'),
 ('NVBanHang', 'Quanlykhachhang.KhachHang.CapNhat'),
 ('NVBanHang', 'Quanlykhachhang.KhachHang.ChiTiet'),
 ('NVBanHang', 'Quanlykhachhang.KhachHang.DanhSach'),
@@ -340,7 +315,6 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.Xoa'),
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.XoaGrid'),
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.Xuat'),
-('NVThuKho', 'QuanLyKho'),
 ('NVChiNhanh', 'Quanlykhuyenmai.KhuyenMai.ChiTiet'),
 ('NVChiNhanh', 'Quanlykhuyenmai.KhuyenMai.DanhSach'),
 ('NVChiNhanh', 'Quanlynhacungcap.NhaCungCap.DanhSach'),
@@ -353,7 +327,6 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVChiNhanh', 'Quanlynhanvien.NhanVien.Xoa'),
 ('NVChiNhanh', 'Quanlynhanvien.NhanVien.XoaGrid'),
 ('NVChiNhanh', 'Quanlynhanvien.NhanVien.Xuat'),
-('QuanLyKho', 'QuanLyNhapXuat'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.ChiTiet'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.DanhSach'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.Xuat'),
@@ -381,7 +354,6 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVThuKho', 'Quanlynhapxuat.PhieuXuat.XoaGrid'),
 ('NVThuKho', 'Quanlynhapxuat.PhieuXuat.Xuat'),
 ('NVThuKho', 'Quanlynhapxuat.PhieuXuat.XuatSanPhamTang'),
-('QuanLyKho', 'QuanLySanPham'),
 ('NVThuKho', 'Quanlysanpham.LoaiSanPham.CapNhat'),
 ('NVThuKho', 'Quanlysanpham.LoaiSanPham.ChiTiet'),
 ('NVThuKho', 'Quanlysanpham.LoaiSanPham.DanhSach'),
@@ -407,6 +379,7 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVChiNhanh', 'Quanlysanpham.SanPhamTang.DanhSach'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.DanhSach'),
 ('NVChiNhanh', 'Quanlysanpham.SanPhamTang.Them'),
+('NVThuKho', 'Quanlysanpham.SanPhamTang.Them'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.Xuat'),
 ('NVBanHang', 'Site.*'),
 ('NVThuKho', 'Site.*');
@@ -441,11 +414,20 @@ INSERT INTO `Rights` (`itemname`, `type`, `weight`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_CauHinh` (
-  `so_san_pham_tren_trang` tinyint(4) DEFAULT NULL,
-  `so_phan_trang` tinyint(4) DEFAULT NULL,
-  `bat_buoc_thong_tin_khach_hang` tinyint(4) DEFAULT NULL,
-  `so_luong_ton_canh_bao` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `so_muc_tin_tren_trang` tinyint(4) DEFAULT NULL,
+  `so_luong_ton_canh_bao` tinyint(4) DEFAULT NULL,
+  `so_ngay_canh_bao_sinh_nhat_khach_hang` tinyint(4) DEFAULT NULL,
+  `email_ho_tro` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_CauHinh`
+--
+
+INSERT INTO `tbl_CauHinh` (`id`, `so_muc_tin_tren_trang`, `so_luong_ton_canh_bao`, `so_ngay_canh_bao_sinh_nhat_khach_hang`, `email_ho_tro`) VALUES
+(1, 3, 30, 12, 'pos_support@hcm.vnn.vn');
 
 -- --------------------------------------------------------
 
@@ -552,6 +534,13 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonTra` (
   KEY `FKtbl_ChiTie916439` (`san_pham_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `tbl_ChiTietHoaDonTra`
+--
+
+INSERT INTO `tbl_ChiTietHoaDonTra` (`san_pham_id`, `hoa_don_tra_id`, `so_luong`, `don_gia`) VALUES
+(10, 56765, 6, 48000);
+
 -- --------------------------------------------------------
 
 --
@@ -581,6 +570,7 @@ INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, 
 (10, 56719, 600, 45000),
 (10, 56721, 200, 45000),
 (10, 56725, 230, 45000),
+(10, 56764, 120, 45000),
 (11, 56721, 120, 430000),
 (12, 56761, 600, 150000),
 (17, 56730, 3730, 50000),
@@ -589,7 +579,8 @@ INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, 
 (18, 56760, 500, 48000),
 (18, 56762, 120, 48000),
 (20, 56730, 34550, 520000),
-(20, 56760, 200, 520000);
+(20, 56760, 200, 520000),
+(21, 56766, 112, 15000);
 
 -- --------------------------------------------------------
 
@@ -669,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ChungTu` (
   UNIQUE KEY `ma_chung_tu` (`ma_chung_tu`),
   KEY `FKtbl_ChungT392230` (`nhan_vien_id`),
   KEY `FKtbl_ChungT837946` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56764 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56767 ;
 
 --
 -- Dumping data for table `tbl_ChungTu`
@@ -692,7 +683,10 @@ INSERT INTO `tbl_ChungTu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`
 (56760, 'PN432428', '2013-05-20 00:00:00', 128000000, NULL, 6, 29),
 (56761, 'PN949484', '2013-05-20 00:00:00', 90000000, NULL, 6, 10),
 (56762, 'PN00000949485', '2013-05-22 00:00:00', 10760000, NULL, 5, 26),
-(56763, 'PN00000949486', '2013-05-22 00:00:00', 3060000000, NULL, 5, 26);
+(56763, 'PN00000949486', '2013-05-22 00:00:00', 3060000000, NULL, 5, 26),
+(56764, 'PN00000949487', '2013-05-31 12:00:00', 5400000, NULL, 1, 10),
+(56765, 'TH00000000001', '2013-05-31 01:51:30', 0, NULL, 1, 10),
+(56766, 'PN00000949488', '2013-05-31 12:00:00', 1680000, NULL, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -704,6 +698,7 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
   `id` int(10) NOT NULL,
   `chiet_khau` int(10) DEFAULT NULL,
   `khach_hang_id` int(10) NOT NULL,
+  `trang_thai` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `khach_hang_id` (`khach_hang_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -712,12 +707,12 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
 -- Dumping data for table `tbl_HoaDonBanHang`
 --
 
-INSERT INTO `tbl_HoaDonBanHang` (`id`, `chiet_khau`, `khach_hang_id`) VALUES
-(56727, 0, 2),
-(56728, 0, 2),
-(56731, 0, 2),
-(56755, 0, 2),
-(56759, 0, 2);
+INSERT INTO `tbl_HoaDonBanHang` (`id`, `chiet_khau`, `khach_hang_id`, `trang_thai`) VALUES
+(56727, 0, 2, NULL),
+(56728, 0, 2, NULL),
+(56731, 0, 2, NULL),
+(56755, 0, 2, NULL),
+(56759, 0, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -733,6 +728,13 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonTraHang` (
   KEY `FKtbl_HoaDon976146` (`hoa_don_ban_id`),
   KEY `FKtbl_HoaDon696201` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_HoaDonTraHang`
+--
+
+INSERT INTO `tbl_HoaDonTraHang` (`id`, `ly_do_tra_hang`, `hoa_don_ban_id`) VALUES
+(56765, 'adsad', 56759);
 
 -- --------------------------------------------------------
 
@@ -815,7 +817,7 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuyenMai` (
 
 INSERT INTO `tbl_KhuyenMai` (`id`, `ma_chuong_trinh`, `ten_chuong_trinh`, `mo_ta`, `gia_giam`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `trang_thai`) VALUES
 (4, 'KM33', 'Khuyến mãi tặng 33%', NULL, 33, '2013-05-10', '2013-06-30', 1),
-(5, 'KM44', 'Khuyến mãi tặng 44%', NULL, 44, '2013-05-15', '2013-05-30', 0),
+(5, 'KM44', 'Khuyến mãi tặng 44%', NULL, 44, '2013-05-15', '2013-05-30', 1),
 (6, 'KM50', 'Khuyến mãi tặng 50%', NULL, 50, '2013-05-30', '2013-08-30', 1),
 (7, 'KM90', 'Khuyến mãi tặng 90%', NULL, 90, '2013-07-18', '2013-09-27', 0);
 
@@ -906,7 +908,6 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiNhanVien` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ma_loai_nhan_vien` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_loai` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lop` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai_nhan_vien` (`ma_loai_nhan_vien`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
@@ -915,12 +916,12 @@ CREATE TABLE IF NOT EXISTS `tbl_LoaiNhanVien` (
 -- Dumping data for table `tbl_LoaiNhanVien`
 --
 
-INSERT INTO `tbl_LoaiNhanVien` (`id`, `ma_loai_nhan_vien`, `ten_loai`, `lop`) VALUES
-(1, 'TK1', 'Kế toán 1', 0),
-(3, 'QLCN', 'Quản lý chi nhánh', 1),
-(4, 'BH', 'Bán hàng ', 0),
-(5, 'TK', 'Thủ kho ', 0),
-(6, 'QTHT', 'Quản trị hệ thống', 2);
+INSERT INTO `tbl_LoaiNhanVien` (`id`, `ma_loai_nhan_vien`, `ten_loai`) VALUES
+(1, 'TK1', 'Kế toán 1'),
+(3, 'QLCN', 'Quản lý chi nhánh'),
+(4, 'BH', 'Bán hàng '),
+(5, 'TK', 'Thủ kho '),
+(6, 'QTHT', 'Quản trị hệ thống');
 
 -- --------------------------------------------------------
 
@@ -1068,7 +1069,7 @@ CREATE TABLE IF NOT EXISTS `tbl_NhanVien` (
   KEY `ngay_vao_lam` (`ngay_vao_lam`),
   KEY `FKtbl_NhanVi521022` (`loai_nhan_vien_id`),
   KEY `FKtbl_NhanVi835155` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `tbl_NhanVien`
@@ -1076,11 +1077,12 @@ CREATE TABLE IF NOT EXISTS `tbl_NhanVien` (
 
 INSERT INTO `tbl_NhanVien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai`, `dia_chi`, `gioi_tinh`, `ngay_sinh`, `trinh_do`, `luong_co_ban`, `chuyen_mon`, `trang_thai`, `mat_khau`, `ngay_vao_lam`, `lan_dang_nhap_cuoi`, `loai_nhan_vien_id`, `chi_nhanh_id`) VALUES
 (1, 'QTHT0001', 'Lê Đình Long', NULL, NULL, NULL, 0, '1984-05-08', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '1970-01-01', '1970-01-01', 6, 10),
-(2, 'BH001', 'Trần Thụy Diễm My ', NULL, '0974354980', '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3200000, 'Bán hàng', 1, 'c26be8aaf53b15054896983b43eb6a65', '2010-08-11', '1970-01-01', 4, 26),
+(2, 'BH001', 'Trần Thụy Diễm My ', NULL, '0974354980', '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3200000, 'Bán hàng', 1, '202cb962ac59075b964b07152d234b70', '2010-08-11', '1970-01-01', 4, 26),
 (5, 'KT00322', 'Lê Quốc Nam', 'quocnam@hcm.vnn.vn', '4432432', '78/3/2 Thích Quảng Đức - Gò Vấp', 0, '0000-00-00', 'Cao đẳng', 5000000, 'Kế toán kho', 1, '202cb962ac59075b964b07152d234b70', '0000-00-00', '0000-00-00', 1, 26),
-(6, 'TK03123', 'Nguyễn Thành Trung', NULL, NULL, '675/3 Trần Xuân Soạn - Q7', 0, '1982-05-21', NULL, NULL, NULL, 1, '14e1b600b1fd579f47433b88e8d85291', '2013-05-23', '1970-01-01', 5, 10),
+(6, 'TK03123', 'Nguyễn Thành Trung', NULL, NULL, '675/3 Trần Xuân Soạn - Q7', 0, '1982-05-21', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '2013-05-23', '1970-01-01', 5, 10),
 (8, 'QLCN001', 'Mai Thanh An', NULL, NULL, NULL, 1, '1984-11-16', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '2009-01-10', '1970-01-01', 3, 10),
-(16, 'QTHT002', 'Tăng Ngọc Phượng', NULL, NULL, NULL, 1, '1980-01-30', NULL, NULL, NULL, 1, 'b58c50e209762c24adb9f29daffe249c', '2004-06-18', '1970-01-01', 6, 10);
+(16, 'QTHT002', 'Tăng Ngọc Phượng', NULL, NULL, NULL, 1, '1980-01-30', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '2004-06-18', '1970-01-01', 6, 10),
+(17, 'QTHT0002', 'Lê Trúc Quỳnh Giang', NULL, NULL, NULL, 1, '1970-01-01', NULL, NULL, NULL, 1, '81dc9bdb52d04dc20036dbd8313ed055', '1970-01-01', '1970-01-01', 6, 27);
 
 -- --------------------------------------------------------
 
@@ -1115,7 +1117,9 @@ INSERT INTO `tbl_PhieuNhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cu
 (56760, 1, 1, 8),
 (56761, 1, 1, 3),
 (56762, 1, 29, NULL),
-(56763, 1, 1, 7);
+(56763, 1, 1, 7),
+(56764, 1, 1, 4),
+(56766, 1, 29, NULL);
 
 -- --------------------------------------------------------
 
@@ -1210,11 +1214,12 @@ INSERT INTO `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `tra
 (10, 6, 2000, 1),
 (10, 8, 550, 1),
 (10, 9, 50, 1),
-(10, 10, 359, 1),
+(10, 10, 473, 1),
 (10, 12, 600, 1),
 (10, 17, 3722, 1),
 (10, 18, 2999, 1),
 (10, 20, 34550, 1),
+(10, 21, 112, 1),
 (26, 7, 450, 1),
 (26, 10, 230, 0),
 (26, 17, 100, 1),
@@ -1279,20 +1284,22 @@ INSERT INTO `tbl_SanPhamTangChiNhanh` (`san_pham_tang_id`, `chi_nhanh_id`, `so_t
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_ThongTinCongTy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `ten_cong_ty` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dia_chi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dien_thoai` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fax` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `website` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `website` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `tbl_ThongTinCongTy`
 --
 
-INSERT INTO `tbl_ThongTinCongTy` (`ten_cong_ty`, `dia_chi`, `dien_thoai`, `fax`, `email`, `website`) VALUES
-('Công ty TNHH An Phước ', '45 Nguyễn Trãi - P5 - Q10 ', '(08) 3848439', '(08) 3848440', 'anphuoc@hcm.vn', 'www.anphuoc.vn ');
+INSERT INTO `tbl_ThongTinCongTy` (`id`, `ten_cong_ty`, `dia_chi`, `dien_thoai`, `fax`, `email`, `website`) VALUES
+(1, 'Công ty TNHH An Phước ', '45 Nguyễn Trãi - P5 - Q5', '(08) 3848441', '(08) 3848440', 'anphuoc@hcm.vnn.vn', 'www.anphuoc.com.vn');
 
 --
 -- Constraints for dumped tables
