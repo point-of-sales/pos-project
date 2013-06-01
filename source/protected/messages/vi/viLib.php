@@ -309,4 +309,12 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Total Sale'=>'Tổng bán trong kỳ',
     'Total Real Instock'=>'Tổng thực tồn',
     'Import Export Instock List'=>'Danh sách xuất nhập tồn',
+    'Amount in text'=>'Số tiền bằng chữ',
+    'Sale Branch Status List Report'=>'Báo cáo tình trạng doanh thu',
+    'From'=>'Từ',
+    'To'=>'Đến',
+    'Product not found'=>'Không tìm thấy sản phẩm',
+    'Top Product List'=>'Danh sách sản phẩm TOP',
+    'Supplier List'=>'Danh sách nhà cung cấp',
+    'Price with promotion'=>'Giá kèm khuyến mãi',
 );

@@ -7,6 +7,7 @@ $this->widget('CPOSEExcelView', array(
     'category'=>'',
     'documentTitle'=>Yii::t('viLib','Promotion List'),
     'columns'=>array(
+        'id',
         'ma_chuong_trinh',
         'ten_chuong_trinh',
         'gia_giam',

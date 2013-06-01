@@ -8,29 +8,30 @@
 
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Danh_sach_doanh_so_ban_hang_chi_nhanh_' . time(),
+    'title'=>'Danh_sach_san_pham_top_' . time(),
     'autoWidth'=>true,
     'category'=>'',
     'fromDate'=>$khoangThoiGian['thoi_gian_bat_dau'],
     'toDate'=>$khoangThoiGian['thoi_gian_ket_thuc'],
-    'template'=>'BanHangChiNhanh',
-    'documentTitle'=>Yii::t('viLib','Sale Branch Status List Report'),
+    'template'=>'BanHangTop',
+    'documentTitle'=>Yii::t('viLib','Top Product List'),
     'columns'=>array(
         'id',
-        'ma_chi_nhanh',
-        'ten_chi_nhanh',
-        'dia_chi',
+        'ma_vach',
+        'ten_san_pham',
+        'don_vi_tinh',
+        array(
+            'name'=>'nha_cung_cap_id',
+            'value'=>'$data->nhaCungCap->ten_nha_cung_cap',
+        ),
         'trang_thai'=>array(
             'name'=>'trang_thai',
             'value'=>'$data->layTenTrangThai()',
         ),
-        'khu_vuc'=>array(
-            'name'=>Yii::t('viLib','Area'),
-            'value'=>'$data->layTenKhuVuc()',
+        array(
+           'name'=>Yii::t('viLib','Sales'),
+           'value'=>'array_sum($data->layDanhSachDoanhSo())'
         ),
-        'doanh_so'=>array(
-            'name'=>Yii::t('viLib','Sales'),
-            'value'=>'$data->tinhTongDoanhSo()',
-        )
+
     )
 ));

@@ -11,6 +11,8 @@ $this->widget('CPOSEExcelView', array(
     'title'=>'Danh_sach_nhap_xuat_ton_' . time(),
     'autoWidth'=>true,
     'category'=>'',
+    'fromDate'=>$khoangThoiGian['thoi_gian_bat_dau'],
+    'toDate'=>$khoangThoiGian['thoi_gian_ket_thuc'],
     'template'=>'XuatNhapTon',
     'documentTitle'=>Yii::t('viLib','Import Export Instock List'),
     'columns'=>array(

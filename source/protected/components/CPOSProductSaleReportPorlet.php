@@ -12,6 +12,12 @@ class CPOSProductSaleReportPorlet extends CPortlet {
 
     protected  function renderContent() {
         $form = new CPOSBanHangSanPhamForm();
+        if(isset($_POST['CPOSBanHangSanPhamForm'])) {
+            $form->ma_vach = $_POST['CPOSBanHangSanPhamForm']['ma_vach'];
+            $form->chi_nhanh_id = $_POST['CPOSBanHangSanPhamForm']['chi_nhanh_id'];
+            $form->thoi_gian_bat_dau = $_POST['CPOSBanHangSanPhamForm']['thoi_gian_bat_dau'];
+            $form->thoi_gian_ket_thuc = $_POST['CPOSBanHangSanPhamForm']['thoi_gian_ket_thuc'];
+        }
         $this->render('_formbanhangsanpham',array('model'=>$form));
     }
 

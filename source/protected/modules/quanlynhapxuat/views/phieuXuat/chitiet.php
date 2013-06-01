@@ -53,7 +53,7 @@ $this->menu = array(
         array(
             'name' => Yii::t('viLib', 'Total'),
             'type' => 'raw',
-            'value' => $model->baseModel->tri_gia,
+            'value' => number_format(floatval($model->baseModel->tri_gia),0,".",","),
         ),
     ),
 )); ?>
@@ -73,11 +73,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => Yii::t('viLib', 'Quantity'),
-            'value' => '$data->so_luong',
+            'value' => 'number_format(floatval($data->so_luong),0,".",",")',
         ),
         array(
             'name' => Yii::t('viLib', 'Export price'),
-            'value' => '$data->gia_xuat',
+            'value' => 'number_format(floatval($data->gia_xuat),0,".",",")',
         )
     )
 )); ?>

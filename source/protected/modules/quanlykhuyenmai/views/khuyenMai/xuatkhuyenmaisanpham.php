@@ -7,13 +7,9 @@ $this->widget('CPOSEExcelView', array(
     'category'=>'',
     'documentTitle'=>Yii::t('viLib','Promotion Product List'),
     'columns'=>array(
-        array(
-            'name'=>'STT',
-            'value'=>'',
-        ),
+        'id',
         'ma_vach',
         'ten_san_pham',
-        'han_dung',
         array(
             'name'=>'nha_cung_cap_id',
             'value'=>'$data->nhaCungCap->ten_nha_cung_cap',

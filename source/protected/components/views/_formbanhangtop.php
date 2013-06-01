@@ -8,27 +8,27 @@
 ?>
 
 <div class="form-portlet">
-    <?php $form = $this->beginWidget('GxActiveForm',array(
-        'id'=>'ban-hang-top'
+    <?php $form = $this->beginWidget('GxActiveForm', array(
+        'id' => 'ban-hang-top'
     )); ?>
 
 
-    <?php echo $form->errorSummary($model);?>
+    <?php echo $form->errorSummary($model); ?>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'top')?>
-        <?php echo $form->dropDownList($model,'top',array('5'=>5,'10'=>10,'15'=>15,'20'=>20)); ?>
-        <?php $form->error($model,'top') ?>
+        <?php echo $form->labelEx($model, 'top') ?>
+        <?php echo $form->dropDownList($model, 'top', array('5' => 5, '10' => 10, '15' => 15, '20' => 20,'30'=>30,'50'=>50)); ?>
+        <?php $form->error($model, 'top') ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'chi_nhanh_id')?>
-        <?php echo $form->dropDownList($model,'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(),null,'ten_chi_nhanh'),array('class'=>'chi-nhanh-dropdownlist-report','prompt'=>Yii::t('viLib','All'))); ?>
-        <?php $form->error($model,'chi_nhanh_id') ?>
+        <?php echo $form->labelEx($model, 'chi_nhanh_id') ?>
+        <?php echo $form->dropDownList($model, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, 'ten_chi_nhanh'), array('class' => 'chi-nhanh-dropdownlist-report', 'prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php $form->error($model, 'chi_nhanh_id') ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'thoi_gian_bat_dau'); ?>
+        <?php echo $form->labelEx($model, 'thoi_gian_bat_dau'); ?>
         <?php
 
         $form->widget('zii.widgets.jui.CJuiDatePicker', array(
@@ -41,15 +41,15 @@
                 'dateFormat' => 'dd-mm-yy',
 
             ),
-        ));
-        ;
+        ));;
 
         ?>
-        <?php echo $form->error($model,'thoi_gian_bat_dau');  ?>
-    </div><!-- row -->
+        <?php echo $form->error($model, 'thoi_gian_bat_dau'); ?>
+    </div>
+    <!-- row -->
 
     <div class="row">
-        <?php echo $form->labelEx($model,'thoi_gian_ket_thuc'); ?>
+        <?php echo $form->labelEx($model, 'thoi_gian_ket_thuc'); ?>
         <?php
 
         $form->widget('zii.widgets.jui.CJuiDatePicker', array(
@@ -62,15 +62,19 @@
                 'dateFormat' => 'dd-mm-yy',
 
             ),
-        ));
-        ;
+        ));;
 
         ?>
-        <?php echo $form->error($model,'thoi_gian_ket_thuc');  ?>
-    </div><!-- row -->
+        <?php echo $form->error($model, 'thoi_gian_ket_thuc'); ?>
+    </div>
+    <!-- row -->
 
     <?php
     echo GxHtml::submitButton(Yii::t('viLib', 'Search'));
+    ?>
+
+    <?php
+    echo GxHtml::link(Yii::t('viLib', 'Export') . ' '  . Yii::t('viLib','Excel'),array('xuatexcelbanhangtop'),array('target'=>'_blank','class'=>'cus-link'));
     $this->endWidget();
     ?>
 

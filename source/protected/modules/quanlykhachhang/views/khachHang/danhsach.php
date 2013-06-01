@@ -45,7 +45,10 @@ return false;
         'ngay_sinh',
         'dia_chi',
         'thanh_pho',
-        'diem_tich_luy',
+        'diem_tich_luy'=>array(
+            'name'=>'diem_tich_luy',
+            'value'=>'number_format(floatval($data->diem_tich_luy),0,".",",")'
+        ),
 
         /*
         'dien_thoai',

@@ -17,8 +17,8 @@ $this->breadcrumbs = array(
 $this->menu = array(
     array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.NhapXuatTon')),
     array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangChiNhanh')),
-    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangSanPham')),
     array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangTop')),
+    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangSanPham')),
 );
 
 ?>
@@ -118,27 +118,27 @@ $this->menu = array(
                     'ten_san_pham',
                     array(
                         'name' => Yii::t('viLib', 'Current price'),
-                        'value' => '$data->layGiaHienTai()',
+                        'value' => 'number_format(floatval($data->layGiaHienTai()),0,".",",")',
                     ),
                     array(
                         'name' => Yii::t('viLib', 'Beginning instock'),
-                        'value' => '$data->ton_dau_ky',
+                        'value' => 'number_format(floatval($data->ton_dau_ky),0,".",",")',
                     ),
                     array(
                         'name' => Yii::t('viLib', 'Import quantity'),
-                        'value' => '$data->so_luong_nhap',
+                        'value' => 'number_format(floatval($data->so_luong_nhap),0,".",",")',
                     ),
                     array(
                         'name' => Yii::t('viLib', 'Export quantity'),
-                        'value' => '$data->so_luong_xuat',
+                        'value' => 'number_format(floatval($data->so_luong_xuat),0,".",",")',
                     ),
                     array(
                         'name' => Yii::t('viLib', 'Sale quantity'),
-                        'value' => '$data->so_luong_ban',
+                        'value' => 'number_format(floatval($data->so_luong_ban),0,".",",")',
                     ),
                     array(
                         'name' => Yii::t('viLib', 'Real instock'),
-                        'value' => '$data->so_luong_thuc_ton',
+                        'value' => 'number_format(floatval($data->so_luong_thuc_ton),0,".",",")',
                     ),
 
                 )

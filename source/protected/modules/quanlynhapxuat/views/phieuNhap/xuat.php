@@ -2,10 +2,10 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Sample_name' . time(),
+    'title'=>'Phieu_Nhap_' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>'Sample_name',
+    'documentTitle'=>Yii::t('viLib',''),
     'template'=>'PhieuNhap',
     'columns' => array(
 

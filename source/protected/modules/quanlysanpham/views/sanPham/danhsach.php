@@ -51,12 +51,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
         array('name' => Yii::t('viLib', 'Base price'),
             'type' => 'raw',
-            'value' => '$data->gia_goc',
+            'value' => 'number_format(floatval($data->gia_goc),0,".",",")',
         ),
 
         array('name' => Yii::t('viLib', 'Current price'),
             'type' => 'raw',
-            'value' => '$data->layGiaHienTai()',
+            'value' => 'is_numeric($data->layGiaHienTai())?number_format(floatval($data->layGiaHienTai()),0,".",","):$data->layGiaHienTai()',
         ),
 
         array('name' => Yii::t('viLib', 'Promotion'),
@@ -66,7 +66,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
         array(
             'name' => Yii::t('viLib', 'Total instock'),
-            'value' => '$data->layTongSoLuongTon()',
+            'value' => 'number_format(floatval($data->layTongSoLuongTon()),0,".",",")',
         ),
         array(
             'name' => 'trang_thai',

@@ -2,7 +2,7 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Sample_name_' . time(),
+    'title'=>'Phi_' . time(),
     'autoWidth'=>true,
     'category'=>'',
     'documentTitle'=>Yii::t('viLib','Export form'),

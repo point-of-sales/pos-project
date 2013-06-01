@@ -16,6 +16,7 @@ class BaoCaoController extends CPOSController
     {
         if (Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.NhapXuatTon')) {
             Yii::app()->CPOSSessionManager->clearKey('DanhSachSanPham');
+            Yii::app()->CPOSSessionManager->clearKey('KhoangThoiGian');
             if (isset($_POST['CPOSNhapXuatTonForm'])) {
 
                 $chi_nhanh_id = $_POST['CPOSNhapXuatTonForm']['chi_nhanh_id'];
@@ -36,6 +37,7 @@ class BaoCaoController extends CPOSController
                         $sanPham->tinhNhapXuatTon($thoi_gian_bat_dau, $thoi_gian_ket_thuc);
                     }
                     Yii::app()->CPOSSessionManager->setItem('DanhSachSanPham', $danhSachSanPham);
+                    Yii::app()->CPOSSessionManager->setItem('KhoangThoiGian', array('thoi_gian_bat_dau'=>$thoi_gian_bat_dau,'thoi_gian_ket_thuc'=>$thoi_gian_ket_thuc));
                 } else
                     Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Time period is wrong format'));
 
@@ -53,6 +55,7 @@ class BaoCaoController extends CPOSController
     {
         if (Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangChiNhanh')) {
             Yii::app()->CPOSSessionManager->clearKey('BanHangChiNhanh');
+            Yii::app()->CPOSSessionManager->clearKey('KhoangThoiGian');
             if (isset($_POST['CPOSBanHangChiNhanhForm'])) {
                 $chi_nhanh_id = $_POST['CPOSBanHangChiNhanhForm']['chi_nhanh_id'];
                 $thoi_gian_bat_dau = $_POST['CPOSBanHangChiNhanhForm']['thoi_gian_bat_dau'];
@@ -76,6 +79,7 @@ class BaoCaoController extends CPOSController
 
                     }
                     Yii::app()->CPOSSessionManager->setItem('BanHangChiNhanh',$danhSachChiNhanh);
+                    Yii::app()->CPOSSessionManager->setItem('KhoangThoiGian', array('thoi_gian_bat_dau'=>$thoi_gian_bat_dau,'thoi_gian_ket_thuc'=>$thoi_gian_ket_thuc));
                 } else
                     Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Time period is wrong format'));
             }
@@ -146,6 +150,8 @@ class BaoCaoController extends CPOSController
         if (Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangTop')) {
 
             // find top 10 products in branch or all branchs
+            Yii::app()->CPOSSessionManager->clearKey('BanHangTop');
+            Yii::app()->CPOSSessionManager->clearKey('KhoangThoiGian');
             if (isset($_POST['CPOSBanHangTopForm'])) {
 
                 $top = $_POST['CPOSBanHangTopForm']['top'];
@@ -176,8 +182,8 @@ class BaoCaoController extends CPOSController
                             $criteria->compare('id', $row['san_pham_id'], false, 'OR');
                         $criteria->limit = $top;
                         $sanPham = new CActiveDataProvider('SanPham', array('criteria' => $criteria));
-                        $danhSachSanPham = $sanPham->getData();
-                        foreach ($danhSachSanPham as $sp) {
+                        $danhSachSanPhamData = $sanPham->getData();
+                        foreach ($danhSachSanPhamData as $sp) {
                             $sp->chi_nhanh_id = $chi_nhanh_id;
                             $sp->tinhDoanhSoTheoKhoangThoiGian($thoi_gian_bat_dau, $thoi_gian_ket_thuc);
                         }
@@ -201,10 +207,13 @@ class BaoCaoController extends CPOSController
                             $criteria->compare('id', $row['san_pham_id'], false, 'OR');
                         $criteria->limit = $top;
                         $sanPham = new CActiveDataProvider('SanPham', array('criteria' => $criteria));
-                        $danhSachSanPham = $sanPham->getData();
-                        foreach ($danhSachSanPham as $sp)
+                        $danhSachSanPhamData = $sanPham->getData();
+                        foreach ($danhSachSanPhamData as $sp)
                             $sp->tinhDoanhSoSanPhamTheoKhoangThoiGianTrenCacChiNhanh($thoi_gian_bat_dau, $thoi_gian_ket_thuc);
                     }
+
+                    Yii::app()->CPOSSessionManager->setItem('BanHangTop',$sanPham);
+                    Yii::app()->CPOSSessionManager->setItem('KhoangThoiGian', array('thoi_gian_bat_dau'=>$thoi_gian_bat_dau,'thoi_gian_ket_thuc'=>$thoi_gian_ket_thuc));
                 } else {
                     Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Time period is wrong format'));
                 }
@@ -218,22 +227,39 @@ class BaoCaoController extends CPOSController
     public function actionXuatExcelNhapXuatTon()
     {
 
-        if (!Yii::app()->CPOSSessionManager->isEmpty('DanhSachSanPham')) {
+        if (!Yii::app()->CPOSSessionManager->isEmpty('DanhSachSanPham') && !Yii::app()->CPOSSessionManager->isEmpty('KhoangThoiGian')) {
             $data = Yii::app()->CPOSSessionManager->getItem('DanhSachSanPham');
+            $data1=  Yii::app()->CPOSSessionManager->getItem('KhoangThoiGian');
             $danhSachSanPham = $data[0];
+            $khoangThoiGian = $data1[0];
         }
 
-        isset($danhSachSanPham) ? $this->render('xuatexcelnhapxuatton', array('dataProvider' => $danhSachSanPham)) : $this->render('_blank');
+        isset($danhSachSanPham) ? $this->render('xuatexcelnhapxuatton', array('dataProvider' => $danhSachSanPham,'khoangThoiGian'=>$khoangThoiGian)) : $this->render('_blank');
     }
 
     public function actionXuatExcelBanHangChiNhanh() {
-        if (!Yii::app()->CPOSSessionManager->isEmpty('BanHangChiNhanh')) {
+        if (!Yii::app()->CPOSSessionManager->isEmpty('BanHangChiNhanh') && !Yii::app()->CPOSSessionManager->isEmpty('KhoangThoiGian')) {
             $data = Yii::app()->CPOSSessionManager->getItem('BanHangChiNhanh');
+            $data1=  Yii::app()->CPOSSessionManager->getItem('KhoangThoiGian');
             $danhSachChiNhanh = $data[0];
+            $khoangThoiGian = $data1[0];
         }
 
-        isset($danhSachChiNhanh) ? $this->render('xuatexcelbanhangchinhanh', array('dataProvider' => $danhSachChiNhanh)) : $this->render('_blank');
+        isset($danhSachChiNhanh) ? $this->render('xuatexcelbanhangchinhanh', array('dataProvider' => $danhSachChiNhanh,'khoangThoiGian'=>$khoangThoiGian)) : $this->render('_blank');
     }
+
+    public function actionXuatExcelBanHangTop() {
+
+        if (!Yii::app()->CPOSSessionManager->isEmpty('BanHangTop') && !Yii::app()->CPOSSessionManager->isEmpty('KhoangThoiGian')) {
+            $data = Yii::app()->CPOSSessionManager->getItem('BanHangTop');
+            $data1=  Yii::app()->CPOSSessionManager->getItem('KhoangThoiGian');
+            $danhSachSanPham = $data[0];
+            $khoangThoiGian = $data1[0];
+        }
+
+        isset($danhSachSanPham) ? $this->render('xuatexcelbanhangtop', array('dataProvider' => $danhSachSanPham,'khoangThoiGian'=>$khoangThoiGian)) : $this->render('_blank');
+    }
+
 
 
 

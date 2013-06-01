@@ -38,6 +38,7 @@ return false;
     'columns' => array(
         'ma_nha_cung_cap',
         'ten_nha_cung_cap',
+        'fax',
         'dien_thoai',
         'email',
         array(
