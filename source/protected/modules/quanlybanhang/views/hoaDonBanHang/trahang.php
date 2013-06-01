@@ -1,5 +1,6 @@
 <?php
-
+Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/trahang.js');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/hd-format.js');
 $this->breadcrumbs = array(
 	'Quản lý bán hàng' => array('danhsach'),
 	'Trả hàng hóa đơn '.GxHtml::valueEx($model),
@@ -13,7 +14,8 @@ $this->menu = array(
 ?>
 
 <h1><?php echo 'Trả hàng hóa đơn '.GxHtml::valueEx($model); ?></h1>
-
+<?php  if(Yii::app()->user->hasFlash('info-board')) {?>    <div class="response-msg error ui-corner-all info-board">        <?php echo Yii::app()->user->getFlash('info-board');?>    </div><?php } ?>
+<div id="msg-box" ></div>
 <?php $form = $this->beginWidget('GxActiveForm', array(
 	'enableAjaxValidation' => false,
     'id' => 'form',
@@ -83,8 +85,8 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
     <span style="font-weight: bold;">Lý do trả hàng: </span>
     <?php echo $form->textField($model->hoaDonTraHangs, 'ly_do_tra_hang',array("style"=>"width:500px")); ?>
     <?php echo $form->error($model->hoaDonTraHangs, 'ly_do_tra_hang'); ?>
-    <span style="font-weight: bold;">Trị giá mới: </span>
-    <input type="text" readonly="readonly" value="0" name="tri_gia" />
+    <span style="font-weight: bold;">Trị giá hóa đơn trả: </span>
+    <input id="tri_gia" type="text" readonly="readonly" value="0" name="tri_gia" />
     <input type="hidden" name="hoa_don_ban_id" value="<?php echo $model->id?>" />
     <span>VNĐ</span>
 </div>
@@ -108,18 +110,18 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'name' => Yii::t('viLib', 'Quantity'),
             'type' =>'raw',
-            'value' => 'CHtml::textField("so_luong[$data->san_pham_id]",$data->so_luong,array("id"=>"sl_".$data->san_pham_id,"style"=>"width:50px;text-align:center;"))',
+            'value' => 'CHtml::textField("so_luong[$data->san_pham_id]",$data->so_luong,array("id"=>"sl_".$data->san_pham_id,"disabled"=>"disabled","onkeypress"=>"capNhatInput(event)","onblur"=>"capNhatTriGia()","style"=>"width:50px;text-align:center;"))."(".$data->so_luong.")"',
             'htmlOptions'=>array("class"=>"td-center"),
         ),
         array(
             'name' => 'Đơn giá',
             'type' => 'raw',
-            'value' => 'CHtml::textField("don_gia[$data->san_pham_id]",$data->don_gia,array("readonly"=>"readonly"))',
+            'value' => 'CHtml::textField("don_gia[$data->san_pham_id]",$data->don_gia,array("id"=>"dg_".$data->san_pham_id,"disabled"=>"disabled","readonly"=>"readonly"))',
         ),
         array(
-            'name' => 'Xóa',
+            'name' => 'Sản phẩm trả',
             'type' =>'raw',
-            'value' => 'CHtml::checkBox("chk[]",false,array("id"=>$data->san_pham_id,"value"=>$data->san_pham_id,"onclick"=>"xoa_grid($data->san_pham_id)"))',
+            'value' => 'CHtml::checkBox("check[$data->san_pham_id]",false,array("id"=>"chk_".$data->san_pham_id,"value"=>$data->so_luong,"onclick"=>"autoInput($data->san_pham_id)"))',
             'htmlOptions'=>array("class"=>"td-center"),
         ),
     ),
@@ -129,11 +131,3 @@ $this->widget('zii.widgets.grid.CGridView', array(
     <input type="submit" value="In hóa đơn" class="button" />
 </div>
 <?php $this->endWidget();?>
-<script type="text/javascript">
-function xoa_grid(id){
-    $("#row_"+id).remove();
-}
-function capNhatTriGia(){
-    
-}
-</script>

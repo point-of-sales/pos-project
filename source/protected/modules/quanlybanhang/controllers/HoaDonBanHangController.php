@@ -42,6 +42,25 @@ class HoaDonBanHangController extends CPOSController {
         $chiTietDataProvider = $model->layChiTietHoaDon();
 		if(!empty($_POST)){
             //$model_hd_tra_hang = new HoaDonTraHang;
+            if(!isset($_POST['so_luong'])){
+                Yii::app()->user->setFlash('info-board','Vui lòng nhập đầy đủ thông tin');
+                $this->render('trahang', array(
+                    'model' => $model,
+                    'dataProvider' => $chiTietDataProvider,
+                ));
+                return;
+            }
+            //kiem tra so luong
+            foreach($_POST['so_luong'] as $key=>$value){
+                if(is_numeric($value)==false||$value<=0||$value>$_POST['check'][$key]){
+                    Yii::app()->user->setFlash('info-board','Số lượng không hợp lệ');
+                    $this->render('trahang', array(
+                        'model' => $model,
+                        'dataProvider' => $chiTietDataProvider,
+                    ));
+                    return;
+                }
+            }
             $post = array(
                 'HoaDonTraHang' => array(
                     //'id'=>$_POST['HoaDonTraHang']['id'],
@@ -58,13 +77,16 @@ class HoaDonBanHangController extends CPOSController {
                     'chi_nhanh_id' => $chi_nhanh_id,
                 ),
             );
+            $tri_gia = 0;
             foreach($_POST['so_luong'] as $key=>$value){
                 $post['ChiTietHoaDonTra'][] = array(
                     'id' => $key,
                     'so_luong' => $value,
                     'don_gia' => $_POST['don_gia'][$key],
                 );
+                $tri_gia += $value*$_POST['don_gia'][$key];
             }
+            $post['ChungTu']['tri_gia'] = $tri_gia;
             //print_r($post);exit;
             $result = $model->hoaDonTraHangs->them($post);
             switch($result) {
