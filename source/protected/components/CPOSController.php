@@ -82,6 +82,8 @@ abstract class CPOSController extends GxController
             $columnSchema = $tableSchema->getColumn($column);
             if ($columnSchema->dbType == 'date')
                 $model->formatDate($column);
+            if ($columnSchema->dbType == 'datetime')
+                $model->formatDate($column,'d-m-Y h:i:s');
 
         }
 

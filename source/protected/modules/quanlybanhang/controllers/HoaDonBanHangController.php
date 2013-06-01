@@ -20,11 +20,18 @@ class HoaDonBanHangController extends CPOSController {
         $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
         $criteria->params = array(':hoa_don_ban_id' => $id);
         $chiTietHangTangProvider = new CActiveDataProvider('ChiTietHoaDonTang', array('criteria' => $criteria));
+        //chi tiet hoa don tra
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $hdTraProvider = new CActiveDataProvider('HoaDonTraHang', array('criteria' => $criteria));
+        
         
         $this->render('chitiet', array(
             'model' => $model,
             'chiTietHangBanProvider' => $chiTietHangBanProvider,
             'chiTietHangTangProvider' => $chiTietHangTangProvider,
+            'hdTraProvider' => $hdTraProvider,
         ));
 	}
     
@@ -32,10 +39,7 @@ class HoaDonBanHangController extends CPOSController {
         $chi_nhanh_id = 10;
         $model = $this->loadModel($id, 'HoaDonBanHang');
         $model->hoaDonTraHangs = new HoaDonTraHang();
-        $criteria = new CDbCriteria();
-        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
-        $criteria->params = array(':hoa_don_ban_id' => $id);
-        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        $chiTietDataProvider = $model->layChiTietHoaDon();
 		if(!empty($_POST)){
             //$model_hd_tra_hang = new HoaDonTraHang;
             $post = array(
@@ -370,7 +374,7 @@ class HoaDonBanHangController extends CPOSController {
                 if(!empty($model)){
                     if($this->kiemTraSoLuongHangBan($ma_vach,$chi_nhanh,$so_luong)){
                         $don_gia = $model->layGiaHienTaiKemKhuyenMai();
-                        if(is_numeric($don_gia)){
+                        if(is_numeric($model->layGiaHienTai())){
                             $item = array(
                                 'id' => $model->getAttribute('id'), 
                                 'ma_vach' => $model->getAttribute('ma_vach'),

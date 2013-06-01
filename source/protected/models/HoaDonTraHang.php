@@ -18,6 +18,17 @@ class HoaDonTraHang extends BaseHoaDonTraHang
 			array('id, ly_do_tra_hang, hoa_don_ban_id', 'safe', 'on'=>'search'),
 		);
 	}
+    
+    public function relations() {
+		return array(
+            'sanPham' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietHoaDonTra(hoa_don_tra_id, san_pham_id)'),
+			'tblSanPhams' => array(self::MANY_MANY, 'SanPham', 'tbl_ChiTietHoaDonTra(hoa_don_tra_id, san_pham_id)'),
+			'id0' => array(self::BELONGS_TO, 'ChungTu', 'id'),
+			'hoaDonBan' => array(self::BELONGS_TO, 'HoaDonBanHang', 'hoa_don_ban_id'),
+            'chungTu' => array(self::BELONGS_TO,'ChungTu','id'),
+            'chiTietHoaDonTra' => array(self::HAS_MANY, 'ChiTietHoaDonTra', 'hoa_don_tra_id'),
+		);
+	}
 
 
     public function them($params) {
@@ -40,7 +51,8 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         // kiem tra du lieu con bi trung hay chua
         if (!$this->kiemTraTonTai($params['ChungTu'])) {
             //neu khoa chua ton tai
-            $this->setAttributes($params['HoaDonTraHang']);
+            //$this->setAttributes($params['HoaDonTraHang']);
+            $this->setAttributes($params);
             if (!empty($params['ChiTietHoaDonTra'])) {
                 //print_r($params);exit;
                 $cthd_tra = Helpers::formatArray($params['ChiTietHoaDonTra']);
@@ -171,6 +183,29 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         }
         return $str;
     }
-
+    
+    public function layChiTietHoaDonTraMoiNhat($id){
+        /*$criteria = new CDbCriteria();
+        $criteria->with = 'chungTu';
+        $criteria->together = true;
+        $criteria->addCondition('hoa_don_ban_id=:hoa_don_ban_id');
+        $criteria->having = 'MAX(chungTu.ngay_lap)';
+        $criteria->params = array(':hoa_don_ban_id' => $id);*/
+        
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('hoa_don_ban_id=:hoa_don_ban_id');
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $model = HoaDonTraHang::model()->findAll($criteria); 
+        var_dump($model);exit;
+        
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('hoa_don_tra_id=:hoa_don_tra_id');
+        $criteria->params = array(':hoa_don_tra_id' => $hoa_don_tra_id);
+        $model = HoaDonTraHang::model()->find($criteria); 
+        $hoa_don_tra_id = $model->id;
+        
+        var_dump($bbb->getAttributes());exit;
+        return $chiTietDataProvider;
+    }
 
 }

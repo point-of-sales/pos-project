@@ -1,8 +1,8 @@
 <?php
 
 $this->breadcrumbs = array(
-	$model->label(1),
-	Yii::t('viLib', 'List'),
+	'Quản lý bán hàng' => array('hoaDonBanHang/danhsach'),
+	'Danh sách hóa đơn trả',
 );
 
 $this->menu = array(
@@ -20,7 +20,7 @@ return false;
 ");
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . GxHtml::encode($model->label(2)); ?></h1>
+<h1><?php echo Yii::t('viLib', 'List') . ' ' . 'Hóa Đơn Trả Hàng'; ?></h1>
 
 
 <div class="search-form">
@@ -34,34 +34,35 @@ return false;
 'dataProvider' => $model->search(),
 'columns' => array(
 		array(
-				'name'=>'id',
+				'name'=>'Mã HĐ trả',
 				'value'=>'GxHtml::valueEx($data->id0)',
 				'filter'=>GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)),
 				),
-		'ly_do_tra_hang',
-		array(
-				'name'=>'hoa_don_ban_id',
-				'value'=>'GxHtml::valueEx($data->hoaDonBan)',
-				'filter'=>GxHtml::listDataEx(HoaDonBanHang::model()->findAllAttributes(null, true)),
-				),
+        array(
+            'name'=>'Mã HĐ bán',
+            'value' => '$data->hoaDonBan->getBaseModel()->ma_chung_tu',
+        ),
+        array(
+            'name'=>'Khách hàng',
+            'value'=>'GxHtml::valueEx($data->hoaDonBan->khachHang)." --- ".$data->hoaDonBan->khachHang["ho_ten"]',
+			'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
+        ),
+        array(
+            'name'=>'Lý do trả hàng',
+            'value'=>'$data->ly_do_tra_hang',
+        ),
+        array(
+            'name'=>'Ngày lập',
+            'value' => 'date("d/m/Y - h:i:s",strtotime($data->getBaseModel()->ngay_lap))',
+        ),
 array(
     'class' => 'CButtonColumn',
-    'template'=>'{view}{update}{delete}',
+    'template'=>'{view}',
     'buttons'=>array(
             'view'=>array(
             'url'=>'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
             'label'=>Yii::t('viLib','View'),
             ),
-            'update'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","capnhat",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Update'),
-            ),
-            'delete'=>array(
-            'url'=>'Helpers::urlRouting(Yii::app()->controller,"","xoagrid",array("id"=>$data->id))',
-            'label'=>Yii::t('viLib','Delete'),
-            'click' => Helpers::deleteButtonClick(),
-            ),
-
     ),
     ),
 ),

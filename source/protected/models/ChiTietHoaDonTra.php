@@ -7,6 +7,12 @@ class ChiTietHoaDonTra extends BaseChiTietHoaDonTra
 	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
+    
+    public function relations() {
+		return array(
+            'sanPham'=>array(self::BELONGS_TO,'SanPham','san_pham_id'),
+		);
+	}
 
 
     public function them($params) {
