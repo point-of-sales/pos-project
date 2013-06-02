@@ -43,7 +43,7 @@ class HoaDonBanHangController extends CPOSController {
 		if(!empty($_POST)){
             //$model_hd_tra_hang = new HoaDonTraHang;
             if(!isset($_POST['so_luong'])){
-                Yii::app()->user->setFlash('info-board','Vui lòng nhập đầy đủ thông tin');
+                Yii::app()->user->setFlash('info-board','Tạo hóa đơn trả không hợp lệ');
                 $this->render('trahang', array(
                     'model' => $model,
                     'dataProvider' => $chiTietDataProvider,

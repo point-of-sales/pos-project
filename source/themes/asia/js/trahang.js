@@ -30,16 +30,16 @@ function xoa_grid(id){
 }
 function capNhatTriGia(){
     var tri_gia=0;
-    //if(kiemTraSoLuong()){
+    if(kiemTraSoLuong()){
         for(var i=0;i<arr_id_hang_ban.length;i++){
             tri_gia += parseInt($("#sl_"+arr_id_hang_ban[i]).val()) * parseInt($("#dg_"+arr_id_hang_ban[i]).val());
         }
         $("#tri_gia").val(tri_gia);
         $(idMsgBox).text('');   
-    //}
-    //else{
-      //  $(idMsgBox).text('Số lượng không hợp lệ');
-    //}
+    }
+    else{
+        $(idMsgBox).text('Số lượng không hợp lệ');
+    }
 }
 function capNhatInput(e){
     if(e.keyCode==sKey.enter){
@@ -48,10 +48,9 @@ function capNhatInput(e){
 }
 function kiemTraSoLuong(){
     for(var i=0;i<arr_id_hang_ban.length;i++){
-        var sl = $("#chk_"+arr_id_hang_ban[i]).val();
-        var sl_parse = parseInt($("#chk_"+arr_id_hang_ban[i]).val());
-        //if(isInteger(sl)==false||sl_parse<=0||sl_parse>$("#sl_"+arr_id_hang_ban[i]).val())
-        if(isInteger(sl)==false)
+        var sl = $("#sl_"+arr_id_hang_ban[i]).val();
+        var sl_parse = parseInt($("#sl_"+arr_id_hang_ban[i]).val());
+        if(isInteger(sl)==false||sl_parse<=0||sl_parse>$("#chk_"+arr_id_hang_ban[i]).val())
             return false;
     }
     return true;

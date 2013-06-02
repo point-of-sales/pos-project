@@ -4,8 +4,23 @@ class HoaDonTraHangController extends CPOSController {
 
 
 	public function actionChiTiet($id) {
+        $model = $this->loadModel($id, 'HoaDonTraHang');
+       
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_tra_id=:hoa_don_tra_id';
+        $criteria->params = array(':hoa_don_tra_id' => $id);
+        $chiTietHangTraProvider = new CActiveDataProvider('ChiTietHoaDonTra', array('criteria' => $criteria));
+        
+        $criteria = new CDbCriteria();
+        $hoa_don_ban_id = $model->hoa_don_ban_id;
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $hoa_don_ban_id);
+        $chiTietHangBanProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+       
 		$this->render('chitiet', array(
-			'model' => $this->loadModel($id, 'HoaDonTraHang'),
+			'model' => $model,
+            'chiTietHangBanProvider' => $chiTietHangBanProvider,
+            'chiTietHangTraProvider' => $chiTietHangTraProvider,
 		));
 	}
 

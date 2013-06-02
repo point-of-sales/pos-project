@@ -54,6 +54,16 @@ return false;
             'name'=>'Trị giá',
             'value' => '$data->getBaseModel()->tri_gia'
         ),
+        array(
+            'header'=>'Có HĐ trả',
+            'class' => 'CButtonColumn',
+            'template'=>'{return}',
+            'buttons'=>array(
+                'return'=>array(
+                    'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/return.png',
+                ),
+            ),
+        ),
     array(
         'class' => 'CButtonColumn',
         'template'=>'{view}{print}{return}',

@@ -184,28 +184,54 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         return $str;
     }
     
-    public function layChiTietHoaDonTraMoiNhat($id){
-        /*$criteria = new CDbCriteria();
-        $criteria->with = 'chungTu';
-        $criteria->together = true;
-        $criteria->addCondition('hoa_don_ban_id=:hoa_don_ban_id');
-        $criteria->having = 'MAX(chungTu.ngay_lap)';
-        $criteria->params = array(':hoa_don_ban_id' => $id);*/
+    public function layChiTietHoaDonTraMoiNhat($hoa_don_ban_id){
+        
+        $hoa_don_tra_id = Yii::app()->db->createCommand()
+            ->select('hd.id')
+            ->from('tbl_HoaDonTraHang hd, tbl_ChungTu ct')
+            ->where('hoa_don_ban_id = :hoa_don_ban_id AND hd.id=ct.id',array(':hoa_don_ban_id'=>$hoa_don_ban_id))
+            ->having('MAX(ngay_lap)')
+            ->queryScalar();   
         
         $criteria = new CDbCriteria();
-        $criteria->addCondition('hoa_don_ban_id=:hoa_don_ban_id');
-        $criteria->params = array(':hoa_don_ban_id' => $id);
-        $model = HoaDonTraHang::model()->findAll($criteria); 
-        var_dump($model);exit;
-        
-        $criteria = new CDbCriteria();
-        $criteria->addCondition('hoa_don_tra_id=:hoa_don_tra_id');
+        $criteria->condition = 'hoa_don_tra_id=:hoa_don_tra_id';
         $criteria->params = array(':hoa_don_tra_id' => $hoa_don_tra_id);
-        $model = HoaDonTraHang::model()->find($criteria); 
-        $hoa_don_tra_id = $model->id;
         
-        var_dump($bbb->getAttributes());exit;
+        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonTra', array('criteria' => $criteria));
         return $chiTietDataProvider;
+    }
+    
+    public function layChiTietHoaDonHienTai($hoa_don_ban_id){
+        $arr_sp_hd_tra = Yii::app()->db->createCommand()
+            ->select('sum(so_luong) so_luong,san_pham_id')
+            ->from('tbl_ChiTietHoaDonTra ct, tbl_HoaDonTraHang hd')
+            ->where('hd.id = hoa_don_tra_id and hoa_don_ban_id = :hoa_don_ban_id',array(':hoa_don_ban_id'=>$hoa_don_ban_id))
+            ->group('hoa_don_ban_id,san_pham_id')
+            ->having('sum(so_luong)')
+            ->queryAll();
+        
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $hoa_don_ban_id);
+        
+        $ct_hd_ban_goc = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        $data_ct_hd_ban_goc = $ct_hd_ban_goc->getData();
+        foreach($data_ct_hd_ban_goc as $key=>$value){
+            $san_pham_id = $value->san_pham_id;
+            foreach($arr_sp_hd_tra as $row){
+                if($san_pham_id == $row['san_pham_id']){
+                    $value->so_luong -= $row['so_luong'];
+                    //voi truong hop tra het hang
+                    if($value->so_luong<=0){
+                        unset($data_ct_hd_ban_goc[$key]);
+                    }
+                    break;
+                }
+            }
+        }
+        $data_ct_hd_ban_goc = array_values($data_ct_hd_ban_goc);
+        $ct_hd_ban_goc->setData($data_ct_hd_ban_goc);
+        return $ct_hd_ban_goc;
     }
 
 }

@@ -257,11 +257,11 @@ class HoaDonBanHang extends BaseHoaDonBanHang
     //neu co hoa don tra lay chi tiet hoa don tra
     public function layChiTietHoaDon(){
         $criteria = new CDbCriteria();
-        /*if(isset($this->trang_thai)){
+        if(isset($this->trang_thai)){
             $hd_tra_hang = new HoaDonTraHang;
-            return $hd_tra_hang->layChiTietHoaDonTraMoiNhat($this->id);  
+            return $hd_tra_hang->layChiTietHoaDonHienTai($this->id);  
         }
-        else*/{
+        else{
             $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
             $criteria->params = array(':hoa_don_ban_id' => $this->id);
             $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));

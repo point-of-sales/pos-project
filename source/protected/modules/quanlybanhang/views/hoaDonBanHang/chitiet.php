@@ -7,6 +7,7 @@ $this->breadcrumbs = array(
 $this->menu = array(
     array('label' => Yii::t('viLib', 'List') . ' ' . 'Hóa đơn bán', 'url' => array('danhsach')),
     array('label' => Yii::t('viLib', 'Add') . ' ' . 'Hóa đơn bán', 'url' => array('them')),
+    array('label' => 'Trả hàng' . ' ' . 'Hóa đơn bán', 'url' => array('trahang','id'=>$model->id)),
     array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url'=>array('xuat', 'id' => $model->id)),
 );
 ?>
@@ -130,6 +131,7 @@ if(count($chiTietHangTangProvider->getData())!=0){
 if(count($hdTraProvider->getData())!=0){
     echo '<h2>Hóa đơn trả</h2>';
     foreach($hdTraProvider->getData() as $item){
+        echo '<hr style="margin:10px 0 !important"/>';
         $item->getBaseModel();
         $this->widget('ext.custom-widgets.DetailView4Col', array(
             'data' => $hdTraProvider,

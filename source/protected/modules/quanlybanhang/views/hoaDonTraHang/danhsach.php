@@ -6,7 +6,6 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-array('label'=>Yii::t('viLib', 'Create') . ' ' . $model->label(), 'url'=>array('them')),
 array('label'=>Yii::t('viLib', 'Export') . ' ' . $model->label(), 'url'=>array('xuat')),
 );
 
