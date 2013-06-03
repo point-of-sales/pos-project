@@ -7,8 +7,16 @@ class KhachHangController extends CPOSController
     public function actionChiTiet($id)
     {
         if (Yii::app()->user->checkAccess('Quanlykhachhang.KhachHang.ChiTiet')) {
+            
+            //hoa don ban hang
+            $criteria = new CDbCriteria();
+            $criteria->condition = 'khach_hang_id=:khach_hang_id';
+            $criteria->params = array(':khach_hang_id' => $id);
+            $hoaDonBan = new CActiveDataProvider('HoaDonBanHang', array('criteria' => $criteria));
+            
             $this->render('chitiet', array(
                 'model' => $this->loadModel($id, 'KhachHang'),
+                'hoa_don_ban' => $hoaDonBan,
             ));
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
@@ -151,6 +159,7 @@ class KhachHangController extends CPOSController
     {
 
         if (Yii::app()->user->checkAccess('Quanlykhachhang.KhachHang.DanhSach')) {
+            
             $model = new KhachHang('search');
             $model->unsetAttributes();
             Yii::app()->CPOSSessionManager->clearKey('ExportData');
@@ -178,6 +187,26 @@ class KhachHangController extends CPOSController
             $this->render('xuat', array('dataProvider' => new CActiveDataProvider('KhachHang')));
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+    }
+    
+    /////////////////////////////////////////////////// CUSTOM GRID ////////////////////////////////////////////////
+    
+    public function gridCoHoaDonTra($data,$row){
+        $result = '';
+        if($data->trang_thai){
+            $result = '<img alt="Trả Hàng" src="'.Yii::app()->theme->baseUrl.'/images/icons/return.png"/>';
+        }
+        return $result;
+    }
+    
+    public function gridSoSanPhamThuc($data,$row){
+        $result = '';
+        $ct_hd_thuc = HoaDonBanHang::layChiTietHoaDonHienTai($data->id)->getData();
+        return count($ct_hd_thuc);
+    }
+    
+    public function gridTriGiaThuc($data,$row){
+        return HoaDonBanHang::layTriGiaHoaDonThuc($data->id);
     }
 
 }

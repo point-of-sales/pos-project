@@ -37,7 +37,6 @@ function inHoaDon(){
         var url = location.href;
         var index = url.indexOf('hoaDonBanHang');
         url = url.substring(0,index) + 'hoaDonTraHang/';
-        //url += 'hoaDonTraHang/hoadontra/id/'+$(idHoaDonTra).val();
         this.submit();  //k dung jquery o day de tranh lap vo tan
         $.ajax({
             url:url+'inhoadon',

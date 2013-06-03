@@ -63,7 +63,7 @@ array(
             'label'=>Yii::t('viLib','View'),
             ),
             'print'=>array(
-                'url'=>'Helpers::urlRouting(Yii::app()->controller,"","hoadontra",array("id"=>$data->id))',
+                'url'=>'Helpers::urlRouting(Yii::app()->controller,"","hoadontra",array("id"=>$data->id,"p"=>"false"))',
                 //'url'=>'Yii::app()->createUrl("hoaDonBanHang/hoadon",array("id"=>$data->id,"target"=>"_blank"))',
                 'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/print.png',
                 'options'=>array('target'=>'_blank'),

@@ -28,7 +28,8 @@ return false;
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php 
+$this->widget('zii.widgets.grid.CGridView', array(
 'id' => 'grid',
 'dataProvider' => $model->search(),
 'columns' => array(
@@ -39,30 +40,38 @@ return false;
 				),
         array(
             'name'=>'Khách hàng',
-            'value'=>'GxHtml::valueEx($data->khachHang)." --- ".$data->khachHang["ho_ten"]',
-			'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
+            //'value'=>'GxHtml::valueEx($data->khachHang)." --- ".$data->khachHang["ho_ten"]',
+			//'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
+            'value'=>array($this,'gridKhachHang'),
+            'type'=>'raw',
         ),
         array(
             'name'=>'Ngày lập',
             'value' => 'date("d/m/Y - h:i:s",strtotime($data->getBaseModel()->ngay_lap))',
         ),
         array(
-            'name'=>'Số sản phẩm',
-            'value' => 'count($data->chiTietHoaDonBan)'
+            'name'=>'Số SP gốc',
+            'value' => 'count($data->chiTietHoaDonBan)',
+            'htmlOptions'=>array('class'=>'center'),
         ),
         array(
-            'name'=>'Trị giá',
+            'name'=>'Trị giá gốc',
             'value' => '$data->getBaseModel()->tri_gia'
         ),
         array(
-            'header'=>'Có HĐ trả',
-            'class' => 'CButtonColumn',
-            'template'=>'{return}',
-            'buttons'=>array(
-                'return'=>array(
-                    'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/return.png',
-                ),
-            ),
+            'name'=>'Số SP thực',
+            'value' => array($this,'gridSoSanPhamThuc'),
+            'htmlOptions'=>array('class'=>'center'),
+        ),
+        array(
+            'name'=>'Trị giá thực',
+            'value' => array($this,'gridTriGiaThuc'),
+        ),
+        array(
+            'name'=>'Có HĐ trả',
+            'type'=>'raw',
+            'value'=>array($this,'gridCoHoaDonTra'),
+            'htmlOptions'=>array('class'=>'center'),
         ),
     array(
         'class' => 'CButtonColumn',
@@ -89,18 +98,19 @@ return false;
 )); ?>
 
 <script type="text/javascript">
-//edit url den controller
-var url = location.href;
-var index = url.indexOf('danhsach');
-url = url.substring(0,index);
-$.ajax({
-    url:url+'inhoadon',
-    type:"POST",
-    async:false,
-    success:function(data){
-        if(data!='false'){
-            window.open(url+'hoadontra/id/'+data);   
-        }
-    },
+$(document).ready(function(){
+    var url = location.href;
+    var index = url.indexOf('hoaDonBanHang');
+    url = url.substring(0,index) + 'hoaDonTraHang/';
+    $.ajax({
+        url:url+'inhoadon',
+        type:"POST",
+        //async:false,
+        success:function(data){
+            if(data!='false'){
+                window.open(url+'hoadontra/id/'+data);   
+            }
+        },
+    });
 });
 </script>

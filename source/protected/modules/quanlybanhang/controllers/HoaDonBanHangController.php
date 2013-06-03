@@ -818,4 +818,30 @@ class HoaDonBanHangController extends CPOSController {
         
     }
     
+    /////////////////////////////////////////////////// CUSTOM GRID ////////////////////////////////////////////////
+    
+    public function gridCoHoaDonTra($data,$row){
+        $result = '';
+        if($data->trang_thai){
+            $result = '<img alt="Trả Hàng" src="'.Yii::app()->theme->baseUrl.'/images/icons/return.png"/>';
+        }
+        return $result;
+    }
+    
+    public function gridSoSanPhamThuc($data,$row){
+        $result = '';
+        $ct_hd_thuc = HoaDonBanHang::layChiTietHoaDonHienTai($data->id)->getData();
+        return count($ct_hd_thuc);
+    }
+    
+    public function gridKhachHang($data,$row){
+        $result = '<a href="'.Yii::app()->baseUrl.'/quanlykhachhang/khachHang/chitiet/id/'.$data->khachHang->id.'">'.$data->khachHang->ma_khach_hang.'</a>';
+        $result .= ' -- <span>'.$data->khachHang->ho_ten.'</span>';
+        return $result;
+    }
+    
+    public function gridTriGiaThuc($data,$row){
+        return HoaDonBanHang::layTriGiaHoaDonThuc($data->id);
+    }
+    
 }

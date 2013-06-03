@@ -14,6 +14,7 @@ $chi_tiet_hang_tang = $chiTietHangTang->getData();
 </head>
 
 <body>
+<input id="p" type="hidden" value="<?php if(isset($_GET['p'])) echo $_GET['p']?>" />
 <div id="hoa-don">
     <div id="hoa-don-header">
         <div id="hoa-don-header-company">
@@ -58,6 +59,9 @@ $chi_tiet_hang_tang = $chiTietHangTang->getData();
         </div>
         <div class="clear"></div>
         <div id="hoa-don-body-detail">
+        <?php
+        if(!isset($_GET['p'])){
+        ?>
             <table border="1" cellspacing="0" >
                 <tr class="header">
                     <td>STT</td>
@@ -94,11 +98,11 @@ $chi_tiet_hang_tang = $chiTietHangTang->getData();
                 <tr>
                     <td><?php echo $i;?></td>
                     <td>
-                        <?php //echo $cthd['ma_vach'];?>
+                        <?php echo $cthd->sanPhamTang->ma_vach;?>
                         <br />
-                        <?php //echo $cthd['ten_san_pham'];?>
+                        <?php echo $cthd->sanPhamTang->ten_san_pham;?>
                     </td>
-                    <td><?php //echo $cthd['so_luong'];?></td>
+                    <td><?php echo $cthd->so_luong;?></td>
                     <td colspan="2">Hàng tặng</td>
                 </tr>
                 <?php
@@ -121,8 +125,12 @@ $chi_tiet_hang_tang = $chiTietHangTang->getData();
                     <td colspan="5">Bằng chữ: <span class="float-right" id="bang-chu"></span></td>
                 </tr>
             </table>
+        <?php
+        }
+        ?>
             
             <div style="text-align: center;">Sản phẩm trả: <?php echo count($chi_tiet_hd_tra)?></div>
+            <div>Lý do trả hàng: <?php echo $model->ly_do_tra_hang?></div>
             <table border="1" cellspacing="0" >
                 <tr class="header">
                     <td>STT</td>
@@ -167,14 +175,16 @@ $chi_tiet_hang_tang = $chiTietHangTang->getData();
 </body>
 </html>
 <script type="text/javascript">
+    var p = document.getElementById("p").value;
+    if(p==""){
+        var tri_gia = del_format(document.getElementById("tri-gia").textContent);
+        var bang_chu = document.getElementById("bang-chu");
+        bang_chu.textContent = docso(tri_gia)+' đồng';
+    }
     var tri_gia_tien_tra = del_format(document.getElementById("tri-gia-tien-tra").textContent);
     var bang_chu = document.getElementById("tien-tra-bang-chu");
     bang_chu.textContent = docso(tri_gia_tien_tra)+' đồng';
     
-    var tri_gia = del_format(document.getElementById("tri-gia").textContent);
-    var bang_chu = document.getElementById("bang-chu");
-    bang_chu.textContent = docso(tri_gia)+' đồng';
-    
-    //window.print();
-    //window.close();
+    window.print();
+    window.close();
 </script>

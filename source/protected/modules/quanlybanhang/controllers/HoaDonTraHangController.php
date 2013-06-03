@@ -159,29 +159,29 @@ class HoaDonTraHangController extends CPOSController {
     }
     
     public function actionHoaDonTra($id){
+        $model = $this->loadModel($id, 'HoaDonTraHang');
         
         $criteria = new CDbCriteria();
         $criteria->condition = 'hoa_don_tra_id=:hoa_don_tra_id';
         $criteria->params = array(':hoa_don_tra_id' => $id);
         $chiTietHoaDonTra = new CActiveDataProvider('ChiTietHoaDonTra', array('criteria' => $criteria));
         
-        //chi tiet hang tang
-        $criteria = new CDbCriteria();
-        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
-        $criteria->params = array(':hoa_don_ban_id' => $id);
-        $chiTietHangTang = new CActiveDataProvider('ChiTietHoaDonTang', array('criteria' => $criteria));
-        
         //thong tin cty
         $thong_tin = ThongTinCongTy::model()->findByPk(1);
         
-        $model = $this->loadModel($id, 'HoaDonTraHang');
+        //chi tiet hang tang
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $model->hoaDonBan->id);
+        $chiTietHangTang = new CActiveDataProvider('ChiTietHoaDonTang', array('criteria' => $criteria));
+    
         $this->renderPartial('hoadontra',array(
             'model' => $model,
             'chiTietHoaDonTra' => $chiTietHoaDonTra,
-            'chiTietHoaDonHienTai' => $model->layChiTietHoaDonHienTai($model->hoaDonBan->id),
+            'chiTietHoaDonHienTai' => HoaDonBanHang::layChiTietHoaDonHienTai($model->hoaDonBan->id),
             'chiTietHangTang' => $chiTietHangTang,
             'thong_tin' => $thong_tin,
-        ));
+        ));      
     }
     
     public function actionInHoaDon(){
