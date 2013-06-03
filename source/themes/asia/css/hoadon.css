@@ -29,8 +29,14 @@
     width:600px;
     border-collapse: collapse;
 }
+.header{
+    background-color: #CCC;
+}
 #hoa-don-footer{
 	text-align:center;
 	font-size:14px;
 	font-style:italic;
+}
+.float-right{
+    float: right;
 }

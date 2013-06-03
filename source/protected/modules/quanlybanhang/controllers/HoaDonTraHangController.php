@@ -157,6 +157,42 @@ class HoaDonTraHangController extends CPOSController {
         }
         $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('HoaDonTraHang')));
     }
+    
+    public function actionHoaDonTra($id){
+        
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_tra_id=:hoa_don_tra_id';
+        $criteria->params = array(':hoa_don_tra_id' => $id);
+        $chiTietHoaDonTra = new CActiveDataProvider('ChiTietHoaDonTra', array('criteria' => $criteria));
+        
+        //chi tiet hang tang
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $chiTietHangTang = new CActiveDataProvider('ChiTietHoaDonTang', array('criteria' => $criteria));
+        
+        //thong tin cty
+        $thong_tin = ThongTinCongTy::model()->findByPk(1);
+        
+        $model = $this->loadModel($id, 'HoaDonTraHang');
+        $this->renderPartial('hoadontra',array(
+            'model' => $model,
+            'chiTietHoaDonTra' => $chiTietHoaDonTra,
+            'chiTietHoaDonHienTai' => $model->layChiTietHoaDonHienTai($model->hoaDonBan->id),
+            'chiTietHangTang' => $chiTietHangTang,
+            'thong_tin' => $thong_tin,
+        ));
+    }
+    
+    public function actionInHoaDon(){
+        if(!Yii::app()->session['inhoadontra']){
+            echo 'false';
+        }
+        else{
+            echo Yii::app()->session['inhoadontra'];
+            Yii::app()->session['inhoadontra'] = false;
+        }
+    }
 
 
 }

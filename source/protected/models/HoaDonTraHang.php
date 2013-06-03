@@ -133,9 +133,12 @@ class HoaDonTraHang extends BaseHoaDonTraHang
     {
         $criteria = new CDbCriteria;
         $cauHinh = CauHinh::model()->findByPk(1);
+        $criteria->with = 'chungTu';
+        $criteria->together = true;
         $criteria->compare('id', $this->id);
         $criteria->compare('ly_do_tra_hang', $this->ly_do_tra_hang, true);
         $criteria->compare('hoa_don_ban_id', $this->hoa_don_ban_id);
+        $criteria->order = 'chungTu.ngay_lap DESC';
 
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
         return new CActiveDataProvider($this, array(

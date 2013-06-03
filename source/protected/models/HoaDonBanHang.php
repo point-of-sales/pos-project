@@ -268,5 +268,9 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             return $chiTietDataProvider;  
         }
     }
+    
+    public function layTriGiaHoaDonThuc(){
+        
+    }
 
 }

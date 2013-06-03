@@ -264,7 +264,7 @@ function dongBoDuLieu(){
             var cthd_hang_tang = hd.cthd_hang_tang;
             //set ma hoa don
             $(idMaHoaDon).text(hd.ma_chung_tu);
-            $(idChiNhanh).text(hd.chi_nhanh_id);
+            $(idChiNhanh).text(hd.ten_chi_nhanh);
             $(idHoTenNV).text(hd.nhan_vien_ho_ten);
             $(idTriGia).text(vnd_format(hd.tri_gia));
             $(idTong).text(vnd_format(hd.tong));

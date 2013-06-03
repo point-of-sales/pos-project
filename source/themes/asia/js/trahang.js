@@ -15,6 +15,9 @@ var sKey = {
     f6 : 117,
     f7 : 118,
 };
+var idForm = '#form-tra-hang';
+var idInHoaDon = '#in-hoa-don';
+var idHoaDonTra = '#id-hd-tra';
 //chong reload page khi enter input text
 function stopRKey(evt) {
   var evt = (evt) ? evt : ((event) ? event : null);
@@ -23,6 +26,32 @@ function stopRKey(evt) {
 }
 
 document.onkeypress = stopRKey;
+$(document).ready(function(){
+    inHoaDon();
+});
+
+function inHoaDon(){   
+    $(idForm).submit(function(e){
+        e.preventDefault();
+        //edit url den controller
+        var url = location.href;
+        var index = url.indexOf('hoaDonBanHang');
+        url = url.substring(0,index) + 'hoaDonTraHang/';
+        //url += 'hoaDonTraHang/hoadontra/id/'+$(idHoaDonTra).val();
+        this.submit();  //k dung jquery o day de tranh lap vo tan
+        $.ajax({
+            url:url+'inhoadon',
+            type:"POST",
+            async:false,
+            success:function(data){
+                if(data!='false'){
+                    window.open(url+'hoadontra/id/'+data);   
+                }
+            },
+        });
+    });
+}
+
 var arr_id_hang_ban = new Array();
 var idMsgBox = "#msg-box";
 function xoa_grid(id){

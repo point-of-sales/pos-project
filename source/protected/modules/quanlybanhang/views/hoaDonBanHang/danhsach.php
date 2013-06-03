@@ -87,3 +87,20 @@ return false;
     ),
 ),
 )); ?>
+
+<script type="text/javascript">
+//edit url den controller
+var url = location.href;
+var index = url.indexOf('danhsach');
+url = url.substring(0,index);
+$.ajax({
+    url:url+'inhoadon',
+    type:"POST",
+    async:false,
+    success:function(data){
+        if(data!='false'){
+            window.open(url+'hoadontra/id/'+data);   
+        }
+    },
+});
+</script>

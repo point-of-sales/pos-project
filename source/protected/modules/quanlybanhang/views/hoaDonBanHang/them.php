@@ -16,6 +16,7 @@ echo '</pre>';
     'id' => 'form',
 ));
 ?>
+<?php echo $form->hiddenField($model, 'id') ?>
 	<div id="form-hd-ban-header">
     	<div id="form-hd-ban-header-left">
             <table id="form-hd-ban-table">
@@ -35,27 +36,12 @@ echo '</pre>';
         <div id="form-hd-ban-header-right">
             <table id="form-hd-ban-header-table">
             	<tr>
-                	<td>Họ tên NV</td>
+                	<td>Họ tên nhân viên</td>
                     <td>
                         <span id="form-hd-ban-ho-ten-nv"></span>
                     </td>
                 </tr>
-                <tr>
-                	<td>Ngày Lập</td>
-                    <td id="form-hd-ban-ngay-lap">
-                    <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
-                    			'model' => $model,
-                    			'attribute' => 'ngay_lap',
-                    			'value' => $model->baseModel->setAttribute('ngay_lap',date("d-m-Y",time())),
-                    			'options' => array(
-                    				'showButtonPanel' => true,
-                    				'changeYear' => true,
-                    				'dateFormat' => 'dd-mm-yy',
-                    				),
-                    			)); 
-                    ?>
-                    </td>
-                </tr>
+                
             </table>
         </div>
     </div>
@@ -111,11 +97,17 @@ echo '</pre>';
         </div>
     </div>
     
-    <div id="form-hd-ban-footer">
-        Z: MÃ VẠCH -- X: KHÁCH HÀNG -- C: TIỀN NHẬN -- F1: TÌM KHÁCH HÀNG -- F2: THÊM KHÁCH HÀNG -- F3: HÀNG TẶNG
-    </div>
-    
     <?php $this->endWidget();?>
+</div>
+
+<div id="form-hd-ban-footer">
+    <ul>
+        <li><span class="label">Z</span>: MÃ VẠCH</li>
+        <li><span class="label">X</span>: KHÁCH HÀNG</li>
+        <li><span class="label">C</span>: TIỀN NHẬN</li>
+        <li><span class="label">F1</span>: TÌM KHÁCH HÀNG</li>
+        <li><span class="label">F2</span>: HÀNG TẶNG</li>
+    </ul>
 </div>
 
 <div id="dialog-tim-khach-hang" title="Tìm khách hàng"></div>

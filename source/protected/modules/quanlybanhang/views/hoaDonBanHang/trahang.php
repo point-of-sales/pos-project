@@ -18,13 +18,17 @@ $this->menu = array(
 <div id="msg-box" ></div>
 <?php $form = $this->beginWidget('GxActiveForm', array(
 	'enableAjaxValidation' => false,
-    'id' => 'form',
+    'id' => 'form-tra-hang',
+    'htmlOptions'=>array(
+        //'target'=>'_blank',
+    ),
 ));
 ?>
 
 <div class="row cus-row">
 		<?php echo $form->hiddenField($model->hoaDonTraHangs, 'id') ?>
 </div>
+<input type="hidden" id="id-hd-tra" value="<?php echo $model->id?>" />
 <?php
 $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
@@ -128,6 +132,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
 )); 
 ?>
 <div style="text-align: right;">
-    <input type="submit" value="In hóa đơn" class="button" />
+    <input id="in-hoa-don" type="submit" value="In hóa đơn" class="button" />
 </div>
 <?php $this->endWidget();?>
