@@ -253,6 +253,69 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         }
         return $hd_ban_hang;
     }
-
+    
+    //neu co hoa don tra lay chi tiet hoa don tra
+    public function layChiTietHoaDon(){
+        $criteria = new CDbCriteria();
+        if(isset($this->trang_thai)){
+            return HoaDonBanHang::layChiTietHoaDonHienTai($this->id);  
+        }
+        else{
+            $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+            $criteria->params = array(':hoa_don_ban_id' => $this->id);
+            $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+            return $chiTietDataProvider;  
+        }
+    }
+    
+    public static function layChiTietHoaDonHienTai($hoa_don_ban_id){
+        $arr_sp_hd_tra = Yii::app()->db->createCommand()
+            ->select('sum(so_luong) so_luong,san_pham_id')
+            ->from('tbl_ChiTietHoaDonTra ct, tbl_HoaDonTraHang hd')
+            ->where('hd.id = hoa_don_tra_id and hoa_don_ban_id = :hoa_don_ban_id',array(':hoa_don_ban_id'=>$hoa_don_ban_id))
+            ->group('hoa_don_ban_id,san_pham_id')
+            ->having('sum(so_luong)')
+            ->queryAll();
+        
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $hoa_don_ban_id);
+        
+        $ct_hd_ban_goc = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        $data_ct_hd_ban_goc = $ct_hd_ban_goc->getData();
+        foreach($data_ct_hd_ban_goc as $key=>$value){
+            $san_pham_id = $value->san_pham_id;
+            foreach($arr_sp_hd_tra as $row){
+                if($san_pham_id == $row['san_pham_id']){
+                    $value->so_luong -= $row['so_luong'];
+                    //voi truong hop tra het hang
+                    if($value->so_luong<=0){
+                        unset($data_ct_hd_ban_goc[$key]);
+                    }
+                    break;
+                }
+            }
+        }
+        $data_ct_hd_ban_goc = array_values($data_ct_hd_ban_goc);
+        $ct_hd_ban_goc->setData($data_ct_hd_ban_goc);
+        return $ct_hd_ban_goc;
+    }
+    
+    //tri gia hoa don hien tai da tinh chiet khau
+    public static function layTriGiaHoaDonThuc($hoa_don_ban_id){
+        $model = HoaDonBanHang::model()->findByAttributes(array('id'=>$hoa_don_ban_id));
+        $tri_gia_goc = $model->getBaseModel()->tri_gia;
+        if($model->trang_thai==1){
+            $tri_gia = Yii::app()->db->createCommand()
+                ->select('sum(tri_gia) tri_gia')
+                ->from('tbl_HoaDonTraHang hd,tbl_ChungTu ct')
+                ->where('hd.id=ct.id AND hoa_don_ban_id = :hoa_don_ban_id',array(':hoa_don_ban_id'=>$hoa_don_ban_id))
+                ->queryScalar();
+            return $tri_gia_goc-$tri_gia;
+        }
+        else{
+            return $tri_gia_goc;
+        }
+    }
 
 }

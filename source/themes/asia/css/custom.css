@@ -533,3 +533,7 @@ a.cus-link:hover {
 	position:relative;
 	top:1px;
 }
+
+.center{
+    text-align: center;
+}

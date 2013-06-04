@@ -8,6 +8,8 @@ $cthd_ban_hang = $hd_ban_hang['cthd_ban_hang'];
 $cthd_hang_tang = $hd_ban_hang['cthd_hang_tang'];
 $khach_hang = $hd_ban_hang['khach_hang'];
 $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
+
+$thong_tin = ThongTinCongTy::model()->findByPk(1);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,9 +24,9 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
 <div id="hoa-don">
     <div id="hoa-don-header">
         <div id="hoa-don-header-company">
-        	CTY TNHH một đống thành viên ABC<br />
-            123 heaven<br />
-            01667123456<br />
+        	<?php echo $thong_tin->ten_cong_ty?><br />
+            <?php echo $thong_tin->dia_chi?><br />
+            <?php echo $thong_tin->dien_thoai?><br />
         </div>
         <div id="hoa-don-header-title">HÓA ĐƠN BÁN LẺ</div>
     </div>
@@ -64,7 +66,7 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
         <div class="clear"></div>
         <div id="hoa-don-body-detail">
             <table border="1" cellspacing="0" >
-                <tr>
+                <tr class="header">
                     <td>STT</td>
                     <td>Tên</td>
                     <td>Số lượng</td>
@@ -119,7 +121,7 @@ $giam_gia = $hd_ban_hang['tong']*($hd_ban_hang['chiet_khau']/100);
                     <td><span id="tri-gia"><?php echo number_format($hd_ban_hang['tri_gia'],0,'.',',');?></span></td>
                 </tr>
                 <tr>
-                    <td colspan="5">Bằng chữ: <span id="bang-chu"></span></td>
+                    <td colspan="5">Bằng chữ: <span class="float-right" id="bang-chu"></span></td>
                 </tr>
             </table>
         </div>

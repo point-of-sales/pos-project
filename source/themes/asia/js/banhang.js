@@ -176,12 +176,6 @@ function xoaGrid(){
     '</tr>');
 }
 
-//== so sanh bang ve gia tri === so sanh bang ve gia tri va kieu du lieu
-function isInteger(value){
-    var er = /^[0-9]+$/;
-    return ( er.test(value) ) ? true : false;
-}
-
 /////////////////////////////////////////////////// END FORM////////////////////////////////////////////////
 
 /////////////////////////////////////////////////// START HOA DON////////////////////////////////////////////////
@@ -270,7 +264,7 @@ function dongBoDuLieu(){
             var cthd_hang_tang = hd.cthd_hang_tang;
             //set ma hoa don
             $(idMaHoaDon).text(hd.ma_chung_tu);
-            $(idChiNhanh).text(hd.chi_nhanh_id);
+            $(idChiNhanh).text(hd.ten_chi_nhanh);
             $(idHoTenNV).text(hd.nhan_vien_ho_ten);
             $(idTriGia).text(vnd_format(hd.tri_gia));
             $(idTong).text(vnd_format(hd.tong));

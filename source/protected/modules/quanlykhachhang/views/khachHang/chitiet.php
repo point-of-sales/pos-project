@@ -1,5 +1,4 @@
 <?php
-
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Customer management') => array('khachHang/danhsach'),
     Yii::t('viLib', 'Customer') => array('khachHang/danhsach'),
@@ -19,7 +18,7 @@ $this->menu = array(
 
 <h1><?php echo Yii::t('viLib', 'View') . ' ' .  Yii::t('viLib', 'Customer') . ' ' . GxHtml::encode(GxHtml::valueEx($model,"ho_ten")); ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
     'attributes' => array(
         'ma_khach_hang',
@@ -39,3 +38,63 @@ $this->menu = array(
     ),
 )); ?>
 
+<?php 
+$this->widget('zii.widgets.grid.CGridView', array(
+'id' => 'grid',
+'dataProvider' => $hoa_don_ban,
+'columns' => array(
+		array(
+				'name'=>'Mã chứng từ',
+				'value'=>'GxHtml::valueEx($data->chungTu)',
+				'filter'=>GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)),
+				),
+        array(
+            'name'=>'Ngày lập',
+            'value' => 'date("d/m/Y - h:i:s",strtotime($data->getBaseModel()->ngay_lap))',
+        ),
+        array(
+            'name'=>'Số SP gốc',
+            'value' => 'count($data->chiTietHoaDonBan)',
+            'htmlOptions'=>array('class'=>'center'),
+        ),
+        array(
+            'name'=>'Trị giá gốc',
+            'value' => '$data->getBaseModel()->tri_gia'
+        ),
+        array(
+            'name'=>'Số SP thực',
+            'value' => array($this,'gridSoSanPhamThuc'),
+            'htmlOptions'=>array('class'=>'center'),
+        ),
+        array(
+            'name'=>'Trị giá thực',
+            'value' => array($this,'gridTriGiaThuc'),
+        ),
+        array(
+            'name'=>'Có HĐ trả',
+            'type'=>'raw',
+            'value'=>array($this,'gridCoHoaDonTra'),
+            'htmlOptions'=>array('class'=>'center'),
+        ),
+    array(
+        'class' => 'CButtonColumn',
+        'template'=>'{view}{print}{return}',
+        'buttons'=>array(
+            'view'=>array(
+                'url'=>'Yii::app()->baseUrl."/quanlybanhang/hoaDonBanHang/chitiet/id/".$data->id',
+                'label'=>Yii::t('viLib','View'),
+            ),
+            'print'=>array(
+                'url'=>'Yii::app()->baseUrl."/quanlybanhang/hoaDonBanHang/hoadon/id/".$data->id',
+                'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/print.png',
+                'options'=>array('target'=>'_blank'),
+            ),
+            'return'=>array(
+                'url'=>'Yii::app()->baseUrl."/quanlybanhang/hoaDonBanHang/trahang/id/".$data->id',
+                'label'=>'Trả Hàng',
+                'imageUrl'=>Yii::app()->theme->baseUrl . '/images/icons/return.png',
+            ),
+        ),
+    ),
+),
+)); ?>

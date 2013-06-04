@@ -114,7 +114,22 @@
 	width:100%;
 	border-bottom:#000 solid 2px;
 	border-top:#000 solid 2px;
-    background-color: #6D91B9;
+    background-color: #69A8CD;
+}
+#form-hd-ban-footer ul{
+    float: left !important;
+}
+#form-hd-ban-footer ul li{
+    float: left !important;
+    display: inline !important;
+    clear: none !important;
+    margin: 6px 10px;
+    font-size: 16px;
+    color: white;
+}
+#form-hd-ban-footer ul li .label{
+    color: red;
+    font-weight: bold;
 }
 /*end form hoa don ban hang */
 

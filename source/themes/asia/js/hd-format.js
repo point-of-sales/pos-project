@@ -18,6 +18,12 @@ function enableInput(id,enable){
     }
 }
 
+//== so sanh bang ve gia tri === so sanh bang ve gia tri va kieu du lieu
+function isInteger(value){
+    var er = /^[0-9]+$/;
+    return ( er.test(value) ) ? true : false;
+}
+
 function number_format( number, decimals, dec_point, thousands_sep ) {   
     var n = number, c = isNaN(decimals = Math.abs(decimals)) ? 2 : decimals;
     var d = dec_point == undefined ? "," : dec_point;

@@ -20,11 +20,18 @@ class HoaDonBanHangController extends CPOSController {
         $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
         $criteria->params = array(':hoa_don_ban_id' => $id);
         $chiTietHangTangProvider = new CActiveDataProvider('ChiTietHoaDonTang', array('criteria' => $criteria));
+        //chi tiet hoa don tra
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+        $criteria->params = array(':hoa_don_ban_id' => $id);
+        $hdTraProvider = new CActiveDataProvider('HoaDonTraHang', array('criteria' => $criteria));
+        
         
         $this->render('chitiet', array(
             'model' => $model,
             'chiTietHangBanProvider' => $chiTietHangBanProvider,
             'chiTietHangTangProvider' => $chiTietHangTangProvider,
+            'hdTraProvider' => $hdTraProvider,
         ));
 	}
     
@@ -32,12 +39,28 @@ class HoaDonBanHangController extends CPOSController {
         $chi_nhanh_id = 10;
         $model = $this->loadModel($id, 'HoaDonBanHang');
         $model->hoaDonTraHangs = new HoaDonTraHang();
-        $criteria = new CDbCriteria();
-        $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
-        $criteria->params = array(':hoa_don_ban_id' => $id);
-        $chiTietDataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+        $chiTietDataProvider = $model->layChiTietHoaDon();
 		if(!empty($_POST)){
             //$model_hd_tra_hang = new HoaDonTraHang;
+            if(!isset($_POST['so_luong'])){
+                Yii::app()->user->setFlash('info-board','Tạo hóa đơn trả không hợp lệ');
+                $this->render('trahang', array(
+                    'model' => $model,
+                    'dataProvider' => $chiTietDataProvider,
+                ));
+                return;
+            }
+            //kiem tra so luong
+            foreach($_POST['so_luong'] as $key=>$value){
+                if(is_numeric($value)==false||$value<=0||$value>$_POST['check'][$key]){
+                    Yii::app()->user->setFlash('info-board','Số lượng không hợp lệ');
+                    $this->render('trahang', array(
+                        'model' => $model,
+                        'dataProvider' => $chiTietDataProvider,
+                    ));
+                    return;
+                }
+            }
             $post = array(
                 'HoaDonTraHang' => array(
                     //'id'=>$_POST['HoaDonTraHang']['id'],
@@ -54,19 +77,25 @@ class HoaDonBanHangController extends CPOSController {
                     'chi_nhanh_id' => $chi_nhanh_id,
                 ),
             );
+            $tri_gia = 0;
             foreach($_POST['so_luong'] as $key=>$value){
                 $post['ChiTietHoaDonTra'][] = array(
                     'id' => $key,
                     'so_luong' => $value,
                     'don_gia' => $_POST['don_gia'][$key],
                 );
+                $tri_gia += $value*$_POST['don_gia'][$key];
             }
+            $post['ChungTu']['tri_gia'] = $tri_gia;
             //print_r($post);exit;
             $result = $model->hoaDonTraHangs->them($post);
             switch($result) {
                 case 'ok': {
                     //cap nhat trang thai hoa don
                     $result = $model->saveAttributes(array("trang_thai"=>1));
+                    
+                    //in hoa don tra hang
+                    Yii::app()->session['inhoadontra'] = $model->hoaDonTraHangs->id;
                     
                     $this->redirect(array('danhsach'));
                     break;
@@ -90,11 +119,12 @@ class HoaDonBanHangController extends CPOSController {
 	public function actionThem() {
 		$model = new HoaDonBanHang;
         if (isset($_POST['HoaDonBanHang'])) {
+            
             $hd_ban_hang = Yii::app()->CPOSSessionManager->getKey('hd_ban_hang');
             $post = array(
                 'ChungTu' => array(
                     'ma_chung_tu' => $hd_ban_hang['ma_chung_tu'],
-                    'ngay_lap' => $hd_ban_hang['ngay_lap'],
+                    'ngay_lap' => date('d-m-Y H:i:s'),
                     'tri_gia' => $hd_ban_hang['tri_gia'],
                     'ghi_chu' => $hd_ban_hang['ghi_chu'],
                     'nhan_vien_id' => $hd_ban_hang['nhan_vien_id'],
@@ -103,6 +133,7 @@ class HoaDonBanHangController extends CPOSController {
                 'HoaDonBanHang' => array(
                     'chiet_khau' => $hd_ban_hang['chiet_khau'],
                     'khach_hang_id' => $hd_ban_hang['khach_hang']['id'],
+                    'trang_thai' => 0,
                 ),
             );
             foreach($hd_ban_hang['cthd_ban_hang'] as $item){
@@ -369,7 +400,7 @@ class HoaDonBanHangController extends CPOSController {
                 if(!empty($model)){
                     if($this->kiemTraSoLuongHangBan($ma_vach,$chi_nhanh,$so_luong)){
                         $don_gia = $model->layGiaHienTaiKemKhuyenMai();
-                        if(is_numeric($don_gia)){
+                        if(is_numeric($model->layGiaHienTai())){
                             $item = array(
                                 'id' => $model->getAttribute('id'), 
                                 'ma_vach' => $model->getAttribute('ma_vach'),
@@ -471,7 +502,9 @@ class HoaDonBanHangController extends CPOSController {
         //lay khach hang mac dinh la khach mua le
         $ma_khach_hang = 'KHBT';   
         $nhan_vien_id = 2;
+        $chi_nhanh_id = 10;
         $nhan_vien = NhanVien::model()->findByAttributes(array('id'=>$nhan_vien_id));
+        $chi_nhanh = ChiNhanh::model()->findByAttributes(array('id'=>$chi_nhanh_id));
         $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
         if(!empty($model)){
             $khach_hang = array(
@@ -492,7 +525,7 @@ class HoaDonBanHangController extends CPOSController {
             'khach_hang' => $khach_hang,
             'chiet_khau' => 0,
             'ma_chung_tu' => HoaDonBanHang::layMaHoaDonMoi(),
-            'ngay_lap' => date('Y-m-d'),
+            'ngay_lap' => date('d-m-Y H:i:s'),
             'tri_gia' => 0,
             'tong' => 0,
             'tien_nhan' => 0,
@@ -500,7 +533,8 @@ class HoaDonBanHangController extends CPOSController {
             'ghi_chu' => '',
             'nhan_vien_id' => $nhan_vien_id,
             'nhan_vien_ho_ten' => $nhan_vien->getAttribute('ho_ten'),
-            'chi_nhanh_id' => 10,
+            'chi_nhanh_id' => $chi_nhanh_id,
+            'ten_chi_nhanh' => $chi_nhanh->getAttribute('ten_chi_nhanh'),
         );
         Yii::app()->session['hd_ban_hang'] = $hd_ban_hang;
         //Yii::app()->CPOSSessionManager->clear('hd_ban_hang');
@@ -782,6 +816,32 @@ class HoaDonBanHangController extends CPOSController {
     
     public function actionXoaGridTraHang($id){
         
+    }
+    
+    /////////////////////////////////////////////////// CUSTOM GRID ////////////////////////////////////////////////
+    
+    public function gridCoHoaDonTra($data,$row){
+        $result = '';
+        if($data->trang_thai){
+            $result = '<img alt="Trả Hàng" src="'.Yii::app()->theme->baseUrl.'/images/icons/return.png"/>';
+        }
+        return $result;
+    }
+    
+    public function gridSoSanPhamThuc($data,$row){
+        $result = '';
+        $ct_hd_thuc = HoaDonBanHang::layChiTietHoaDonHienTai($data->id)->getData();
+        return count($ct_hd_thuc);
+    }
+    
+    public function gridKhachHang($data,$row){
+        $result = '<a href="'.Yii::app()->baseUrl.'/quanlykhachhang/khachHang/chitiet/id/'.$data->khachHang->id.'">'.$data->khachHang->ma_khach_hang.'</a>';
+        $result .= ' -- <span>'.$data->khachHang->ho_ten.'</span>';
+        return $result;
+    }
+    
+    public function gridTriGiaThuc($data,$row){
+        return HoaDonBanHang::layTriGiaHoaDonThuc($data->id);
     }
     
 }

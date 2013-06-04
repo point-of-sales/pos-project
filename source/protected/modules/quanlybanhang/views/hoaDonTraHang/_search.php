@@ -11,11 +11,6 @@
         </div>
 
                     <div class="row cus-row">
-            <?php echo $form->label($model, 'ly_do_tra_hang'); ?>
-            <?php echo $form->textArea($model, 'ly_do_tra_hang'); ?>
-        </div>
-
-                    <div class="row cus-row">
             <?php echo $form->label($model, 'hoa_don_ban_id'); ?>
             <?php echo $form->dropDownList($model, 'hoa_don_ban_id', GxHtml::listDataEx(HoaDonBanHang::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('app', 'All'))); ?>
         </div>
