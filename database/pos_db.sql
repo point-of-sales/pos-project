@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 31, 2013 at 05:53 PM
+-- Generation Time: Jun 04, 2013 at 11:20 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -42,9 +42,9 @@ INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 ('NVBanHang', '11', NULL, NULL),
 ('NVBanHang', '13', NULL, NULL),
 ('NVBanHang', '2', NULL, 'N;'),
-('NVChiNhanh', '8', NULL, 'N;'),
 ('NVThuKho', '5', NULL, 'N;'),
 ('NVThuKho', '6', NULL, 'N;'),
+('QuanLyChiNhanh', '8', NULL, 'N;'),
 ('QuanLyHeThong', '1', NULL, NULL),
 ('QuanLyHeThong', '16', NULL, NULL),
 ('QuanLyHeThong', '17', NULL, NULL);
@@ -70,7 +70,6 @@ CREATE TABLE IF NOT EXISTS `AuthItem` (
 
 INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('NVBanHang', 2, 'Bán hàng', NULL, 'N;'),
-('NVChiNhanh', 2, 'Quản lý chi nhánh', NULL, 'N;'),
 ('NVThuKho', 2, 'Thủ kho', NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlybanhang.HoaDonBanHang.CapNhatSoLuong', 0, NULL, NULL, 'N;'),
@@ -102,6 +101,7 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Quanlycauhinh.ThongTinCongTy.ChiTiet', 0, NULL, NULL, 'N;'),
 ('Quanlycauhinh.ThongTinCongTy.DanhSach', 0, NULL, NULL, 'N;'),
 ('Quanlycauhinh.ThongTinCongTy.Them', 0, NULL, NULL, 'N;'),
+('QuanLyChiNhanh', 2, 'Quản lý chi nhánh', NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.CapNhat', 0, NULL, NULL, 'N;'),
 ('Quanlychinhanh.ChiNhanh.ChiTiet', 0, NULL, NULL, 'N;'),
@@ -269,8 +269,8 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
 --
 
 INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
-('NVChiNhanh', 'NVBanHang'),
-('NVChiNhanh', 'NVThuKho'),
+('QuanLyChiNhanh', 'NVBanHang'),
+('QuanLyChiNhanh', 'NVThuKho'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.CapNhat'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.CapNhatSoLuong'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.CapNhatTienNhan'),
@@ -288,20 +288,20 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.XoaGrid'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.XoaSanPhamBan'),
 ('NVBanHang', 'Quanlybanhang.HoaDonBanHang.Xuat'),
-('NVChiNhanh', 'Quanlybaocao.BaoCao.BanHangChiNhanh'),
-('NVChiNhanh', 'Quanlybaocao.BaoCao.BanHangSanPham'),
-('NVChiNhanh', 'Quanlybaocao.BaoCao.BanHangTop'),
-('NVChiNhanh', 'Quanlybaocao.BaoCao.DanhSach'),
-('NVChiNhanh', 'Quanlybaocao.BaoCao.NhapXuatTon'),
-('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct'),
+('QuanLyChiNhanh', 'Quanlybaocao.BaoCao.BanHangChiNhanh'),
+('QuanLyChiNhanh', 'Quanlybaocao.BaoCao.BanHangSanPham'),
+('QuanLyChiNhanh', 'Quanlybaocao.BaoCao.BanHangTop'),
+('QuanLyChiNhanh', 'Quanlybaocao.BaoCao.DanhSach'),
+('QuanLyChiNhanh', 'Quanlybaocao.BaoCao.NhapXuatTon'),
 ('NVThuKho', 'Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct'),
-('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.ChiTiet'),
-('NVChiNhanh', 'Quanlychinhanh.ChiNhanh.DanhSach'),
+('QuanLyChiNhanh', 'Quanlychinhanh.ChiNhanh.AjaxActiveStatusProduct'),
+('QuanLyChiNhanh', 'Quanlychinhanh.ChiNhanh.ChiTiet'),
 ('NVThuKho', 'Quanlychinhanh.ChiNhanh.DanhSach'),
-('NVChiNhanh', 'Quanlychinhanh.KhuVuc.ChiTiet'),
-('NVChiNhanh', 'Quanlychinhanh.KhuVuc.DanhSach'),
-('NVChiNhanh', 'Quanlychinhanh.LoaiChiNhanh.ChiTiet'),
-('NVChiNhanh', 'Quanlychinhanh.LoaiChiNhanh.DanhSach'),
+('QuanLyChiNhanh', 'Quanlychinhanh.ChiNhanh.DanhSach'),
+('QuanLyChiNhanh', 'Quanlychinhanh.KhuVuc.ChiTiet'),
+('QuanLyChiNhanh', 'Quanlychinhanh.KhuVuc.DanhSach'),
+('QuanLyChiNhanh', 'Quanlychinhanh.LoaiChiNhanh.ChiTiet'),
+('QuanLyChiNhanh', 'Quanlychinhanh.LoaiChiNhanh.DanhSach'),
 ('NVBanHang', 'Quanlykhachhang.KhachHang.CapNhat'),
 ('NVBanHang', 'Quanlykhachhang.KhachHang.ChiTiet'),
 ('NVBanHang', 'Quanlykhachhang.KhachHang.DanhSach'),
@@ -315,18 +315,18 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.Xoa'),
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.XoaGrid'),
 ('NVBanHang', 'Quanlykhachhang.LoaiKhachHang.Xuat'),
-('NVChiNhanh', 'Quanlykhuyenmai.KhuyenMai.ChiTiet'),
-('NVChiNhanh', 'Quanlykhuyenmai.KhuyenMai.DanhSach'),
-('NVChiNhanh', 'Quanlynhacungcap.NhaCungCap.DanhSach'),
-('NVChiNhanh', 'Quanlynhacungcap.NhaCungCap.Xuat'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.AjaxActive'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.CapNhat'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.ChiTiet'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.DanhSach'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.Them'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.Xoa'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.XoaGrid'),
-('NVChiNhanh', 'Quanlynhanvien.NhanVien.Xuat'),
+('QuanLyChiNhanh', 'Quanlykhuyenmai.KhuyenMai.ChiTiet'),
+('QuanLyChiNhanh', 'Quanlykhuyenmai.KhuyenMai.DanhSach'),
+('QuanLyChiNhanh', 'Quanlynhacungcap.NhaCungCap.DanhSach'),
+('QuanLyChiNhanh', 'Quanlynhacungcap.NhaCungCap.Xuat'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.AjaxActive'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.CapNhat'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.ChiTiet'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.DanhSach'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.Them'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.Xoa'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.XoaGrid'),
+('QuanLyChiNhanh', 'Quanlynhanvien.NhanVien.Xuat'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.ChiTiet'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.DanhSach'),
 ('NVThuKho', 'Quanlynhapxuat.ChiNhanh.Xuat'),
@@ -361,25 +361,26 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('NVThuKho', 'Quanlysanpham.LoaiSanPham.Xoa'),
 ('NVThuKho', 'Quanlysanpham.LoaiSanPham.XoaGrid'),
 ('NVThuKho', 'Quanlysanpham.LoaiSanPham.Xuat'),
-('NVChiNhanh', 'Quanlysanpham.MocGia.CapNhat'),
-('NVChiNhanh', 'Quanlysanpham.MocGia.Them'),
-('NVChiNhanh', 'Quanlysanpham.MocGia.Xoa'),
-('NVChiNhanh', 'Quanlysanpham.MocGia.XoaGrid'),
-('NVChiNhanh', 'Quanlysanpham.MocGia.Xuat'),
-('NVChiNhanh', 'Quanlysanpham.SanPham.CapNhat'),
+('QuanLyChiNhanh', 'Quanlysanpham.MocGia.CapNhat'),
+('QuanLyChiNhanh', 'Quanlysanpham.MocGia.Them'),
+('QuanLyChiNhanh', 'Quanlysanpham.MocGia.Xoa'),
+('QuanLyChiNhanh', 'Quanlysanpham.MocGia.XoaGrid'),
+('QuanLyChiNhanh', 'Quanlysanpham.MocGia.Xuat'),
+('QuanLyChiNhanh', 'Quanlysanpham.SanPham.CapNhat'),
 ('NVThuKho', 'Quanlysanpham.SanPham.ChiTiet'),
 ('NVBanHang', 'Quanlysanpham.SanPham.DanhSach'),
 ('NVThuKho', 'Quanlysanpham.SanPham.DanhSach'),
-('NVChiNhanh', 'Quanlysanpham.SanPham.Them'),
+('QuanLyChiNhanh', 'Quanlysanpham.SanPham.Them'),
 ('NVThuKho', 'Quanlysanpham.SanPham.ThemAjax'),
 ('NVThuKho', 'Quanlysanpham.SanPham.Xuat'),
-('NVChiNhanh', 'Quanlysanpham.SanPhamTang.CapNhat'),
-('NVChiNhanh', 'Quanlysanpham.SanPhamTang.ChiTiet'),
+('QuanLyChiNhanh', 'Quanlysanpham.SanPhamTang.CapNhat'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.ChiTiet'),
-('NVChiNhanh', 'Quanlysanpham.SanPhamTang.DanhSach'),
+('QuanLyChiNhanh', 'Quanlysanpham.SanPhamTang.ChiTiet'),
+('NVBanHang', 'Quanlysanpham.SanPhamTang.DanhSach'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.DanhSach'),
-('NVChiNhanh', 'Quanlysanpham.SanPhamTang.Them'),
+('QuanLyChiNhanh', 'Quanlysanpham.SanPhamTang.DanhSach'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.Them'),
+('QuanLyChiNhanh', 'Quanlysanpham.SanPhamTang.Them'),
 ('NVThuKho', 'Quanlysanpham.SanPhamTang.Xuat'),
 ('NVBanHang', 'Site.*'),
 ('NVThuKho', 'Site.*');
@@ -403,8 +404,8 @@ CREATE TABLE IF NOT EXISTS `Rights` (
 
 INSERT INTO `Rights` (`itemname`, `type`, `weight`) VALUES
 ('NVBanHang', 2, 1),
-('NVChiNhanh', 2, 3),
 ('NVThuKho', 2, 2),
+('QuanLyChiNhanh', 2, 3),
 ('QuanLyHeThong', 2, 999);
 
 -- --------------------------------------------------------
@@ -427,7 +428,7 @@ CREATE TABLE IF NOT EXISTS `tbl_CauHinh` (
 --
 
 INSERT INTO `tbl_CauHinh` (`id`, `so_muc_tin_tren_trang`, `so_luong_ton_canh_bao`, `so_ngay_canh_bao_sinh_nhat_khach_hang`, `email_ho_tro`) VALUES
-(1, 3, 30, 12, 'pos_support@hcm.vnn.vn');
+(1, 10, 30, 12, 'pos_support@hcm.vnn.vn');
 
 -- --------------------------------------------------------
 
@@ -527,8 +528,8 @@ INSERT INTO `tbl_ChiTietHoaDonTang` (`san_pham_tang_id`, `hoa_don_ban_id`, `so_l
 CREATE TABLE IF NOT EXISTS `tbl_ChiTietHoaDonTra` (
   `san_pham_id` int(10) NOT NULL,
   `hoa_don_tra_id` int(10) NOT NULL,
-  `so_luong` int(10) DEFAULT NULL,
-  `don_gia` double DEFAULT NULL,
+  `so_luong` int(10) NOT NULL,
+  `don_gia` double NOT NULL,
   PRIMARY KEY (`san_pham_id`,`hoa_don_tra_id`),
   KEY `FKtbl_ChiTie11581` (`hoa_don_tra_id`),
   KEY `FKtbl_ChiTie916439` (`san_pham_id`)
@@ -550,8 +551,8 @@ INSERT INTO `tbl_ChiTietHoaDonTra` (`san_pham_id`, `hoa_don_tra_id`, `so_luong`,
 CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhap` (
   `san_pham_id` int(10) NOT NULL,
   `phieu_nhap_id` int(10) NOT NULL,
-  `so_luong` int(10) DEFAULT NULL,
-  `gia_nhap` double DEFAULT NULL,
+  `so_luong` int(10) NOT NULL,
+  `gia_nhap` double NOT NULL,
   PRIMARY KEY (`san_pham_id`,`phieu_nhap_id`),
   KEY `FKtbl_ChiTie125902` (`san_pham_id`),
   KEY `FKtbl_ChiTie280924` (`phieu_nhap_id`)
@@ -591,7 +592,7 @@ INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, 
 CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhapSanPhamTang` (
   `san_pham_tang_id` int(10) NOT NULL,
   `phieu_nhap_id` int(10) NOT NULL,
-  `so_luong` int(10) DEFAULT NULL,
+  `so_luong` int(10) NOT NULL,
   PRIMARY KEY (`san_pham_tang_id`,`phieu_nhap_id`),
   KEY `FKtbl_ChiTie125142` (`san_pham_tang_id`),
   KEY `FKtbl_ChiTie280143` (`phieu_nhap_id`)
@@ -613,8 +614,8 @@ INSERT INTO `tbl_ChiTietPhieuNhapSanPhamTang` (`san_pham_tang_id`, `phieu_nhap_i
 CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuat` (
   `san_pham_id` int(10) NOT NULL,
   `phieu_xuat_id` int(10) NOT NULL,
-  `so_luong` int(10) DEFAULT NULL,
-  `gia_xuat` double DEFAULT NULL,
+  `so_luong` int(10) NOT NULL,
+  `gia_xuat` double NOT NULL,
   PRIMARY KEY (`san_pham_id`,`phieu_xuat_id`),
   KEY `FKtbl_ChiTie815494` (`san_pham_id`),
   KEY `FKtbl_ChiTie259107` (`phieu_xuat_id`)
@@ -636,7 +637,7 @@ INSERT INTO `tbl_ChiTietPhieuXuat` (`san_pham_id`, `phieu_xuat_id`, `so_luong`, 
 CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuatSanPhamTang` (
   `san_pham_tang_id` int(10) NOT NULL,
   `phieu_xuat_id` int(10) NOT NULL,
-  `so_luong` int(10) DEFAULT NULL,
+  `so_luong` int(10) NOT NULL,
   PRIMARY KEY (`san_pham_tang_id`,`phieu_xuat_id`),
   KEY `FKtbl_ChiTie125144` (`san_pham_tang_id`),
   KEY `FKtbl_ChiTie280145` (`phieu_xuat_id`)
@@ -698,7 +699,7 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
   `id` int(10) NOT NULL,
   `chiet_khau` int(10) DEFAULT NULL,
   `khach_hang_id` int(10) NOT NULL,
-  `trang_thai` tinyint(4) DEFAULT NULL,
+  `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `khach_hang_id` (`khach_hang_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -708,11 +709,11 @@ CREATE TABLE IF NOT EXISTS `tbl_HoaDonBanHang` (
 --
 
 INSERT INTO `tbl_HoaDonBanHang` (`id`, `chiet_khau`, `khach_hang_id`, `trang_thai`) VALUES
-(56727, 0, 2, NULL),
-(56728, 0, 2, NULL),
-(56731, 0, 2, NULL),
-(56755, 0, 2, NULL),
-(56759, 0, 2, NULL);
+(56727, 0, 2, 0),
+(56728, 0, 2, 0),
+(56731, 0, 2, 0),
+(56755, 0, 2, 0),
+(56759, 0, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -722,7 +723,7 @@ INSERT INTO `tbl_HoaDonBanHang` (`id`, `chiet_khau`, `khach_hang_id`, `trang_tha
 
 CREATE TABLE IF NOT EXISTS `tbl_HoaDonTraHang` (
   `id` int(10) NOT NULL,
-  `ly_do_tra_hang` text COLLATE utf8_unicode_ci,
+  `ly_do_tra_hang` text COLLATE utf8_unicode_ci NOT NULL,
   `hoa_don_ban_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKtbl_HoaDon976146` (`hoa_don_ban_id`),
@@ -803,9 +804,9 @@ CREATE TABLE IF NOT EXISTS `tbl_KhuyenMai` (
   `ma_chuong_trinh` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `ten_chuong_trinh` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `mo_ta` text COLLATE utf8_unicode_ci,
-  `gia_giam` int(10) DEFAULT NULL,
-  `thoi_gian_bat_dau` date DEFAULT NULL,
-  `thoi_gian_ket_thuc` date DEFAULT NULL,
+  `gia_giam` int(10) NOT NULL,
+  `thoi_gian_bat_dau` date NOT NULL,
+  `thoi_gian_ket_thuc` date NOT NULL,
   `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_chuong_trinh` (`ma_chuong_trinh`)
@@ -1066,7 +1067,6 @@ CREATE TABLE IF NOT EXISTS `tbl_NhanVien` (
   `chi_nhanh_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_nhan_vien` (`ma_nhan_vien`),
-  KEY `ngay_vao_lam` (`ngay_vao_lam`),
   KEY `FKtbl_NhanVi521022` (`loai_nhan_vien_id`),
   KEY `FKtbl_NhanVi835155` (`chi_nhanh_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
@@ -1094,7 +1094,7 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuNhap` (
   `id` int(10) NOT NULL,
   `loai_nhap_vao` int(10) NOT NULL,
   `chi_nhanh_xuat_id` int(10) NOT NULL,
-  `nha_cung_cap_id` int(10) DEFAULT NULL,
+  `nha_cung_cap_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKtbl_PhieuN364331` (`chi_nhanh_xuat_id`),
   KEY `FKtbl_PhieuN233283` (`id`),
@@ -1110,16 +1110,16 @@ INSERT INTO `tbl_PhieuNhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cu
 (56719, 1, 1, 5),
 (56720, 4, 1, 4),
 (56721, 1, 1, 4),
-(56725, 1, 10, NULL),
+(56725, 1, 10, 4),
 (56726, 1, 1, 5),
 (56729, 1, 1, 6),
 (56730, 1, 1, 8),
 (56760, 1, 1, 8),
 (56761, 1, 1, 3),
-(56762, 1, 29, NULL),
+(56762, 1, 29, 4),
 (56763, 1, 1, 7),
 (56764, 1, 1, 4),
-(56766, 1, 29, NULL);
+(56766, 1, 29, 4);
 
 -- --------------------------------------------------------
 
@@ -1162,7 +1162,7 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
   `huong_dan_su_dung` text COLLATE utf8_unicode_ci,
   `mo_ta` text COLLATE utf8_unicode_ci,
   `gia_goc` double NOT NULL,
-  `trang_thai` tinyint(4) DEFAULT NULL,
+  `trang_thai` tinyint(4) NOT NULL,
   `nha_cung_cap_id` int(10) NOT NULL,
   `loai_san_pham_id` int(10) NOT NULL,
   `khuyen_mai_id` int(10) DEFAULT NULL,
@@ -1178,7 +1178,7 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPham` (
 --
 
 INSERT INTO `tbl_SanPham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `han_dung`, `don_vi_tinh`, `ton_toi_thieu`, `huong_dan_su_dung`, `mo_ta`, `gia_goc`, `trang_thai`, `nha_cung_cap_id`, `loai_san_pham_id`, `khuyen_mai_id`) VALUES
-(6, '040284', 'Bộ bình trà 16 món - Moriitalia ', 'Bộ bình trà 16 món - Moriitalia ', 0, 'Bộ', 50, NULL, '* Bộ bình trà Moriitalia 16 món.\r\n- Bộ gồm 16 món.\r\n   + 01 Bình trà.\r\n   + 06 Tách trà.\r\n   + 06 Cốc.\r\n   + 01 Hũ đựng đường.\r\n- Thành phần: Sứ cao cấp sản xuất theo tiêu chuẩn của Moriitalia.\r\n- Có thể sử dụng làm quà tặng, rất có ý nghĩa.\r\n- Nhãn hiệu: Morriitalia - Moriitalia chuyên cung cấp đa dạng các sản phẩm hàng gia dụng, đồ dùng nhà bếp, điện gia dụng, quà tặng, đồ trang trí , sản phẩm dùng cho du lịch, dã ngoại ….nổi tiếng thế giới với mức giá cạnh tranh nhất.\r\n- Xuất xứ: Trung Quốc - Sản phẩm được thiết kế và sản xuất theo công nghệ của Italia.', 230000, 1, 6, 6, 4),
+(6, '040284', 'Bộ bình trà 16 món - Moriitalia ', 'Bộ bình trà 16 món - Moriitalia ', 0, 'Bộ', 50, NULL, '* Bộ bình trà Moriitalia 16 món.\r\n- Bộ gồm 16 món.\r\n   + 01 Bình trà.\r\n   + 06 Tách trà.\r\n   + 06 Cốc.\r\n   + 01 Hũ đựng đường.\r\n- Thành phần: Sứ cao cấp sản xuất theo tiêu chuẩn của Moriitalia.\r\n- Có thể sử dụng làm quà tặng, rất có ý nghĩa.\r\n- Nhãn hiệu: Morriitalia - Moriitalia chuyên cung cấp đa dạng các sản phẩm hàng gia dụng, đồ dùng nhà bếp, điện gia dụng, quà tặng, đồ trang trí , sản phẩm dùng cho du lịch, dã ngoại ….nổi tiếng thế giới với mức giá cạnh tranh nhất.\r\n- Xuất xứ: Trung Quốc - Sản phẩm được thiết kế và sản xuất theo công nghệ của Italia.', 230000, 1, 6, 6, NULL),
 (7, '040207', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 24, 'Cái', 13, NULL, '* Máy xay sinh tố  Osaka BL619.\r\n- Công suất: 300W.\r\n- Dung tích: 1.5 lít.\r\n- Mô tả:\r\n    + Cối được làm bằng hợp chất không bể, không trầy xước.\r\n    + 03 tốc độ.\r\n    + Lọc bằng inox.\r\n    + Motor thế hệ mới vận hành êm.\r\n    + Tự động tắt máy khi quá tải.\r\n    + Xay nhuyễn được đá.\r\n    + Cối nhỏ xay khô.\r\n    + Vỏ nhựa tổng hợp, bền chắc và dễ lau chùi.\r\n- Tính năng: Xay sinh tố. Có cối nhỏ xay khô, có lọc làm sữa đậu nành.\r\n- Sử dụng dễ dàng và nhanh chóng, thời gian thực hiện chỉ tính bằng giây.\r\n- Màu sắc: Màu trắng.\r\n- Bảo hành: 12 tháng.\r\n- Nhãn hiệu: Osaka. Công ty Osaka là công ty chuyên sản xuất các sản phẩm điện gia dụng cao cấp.\r\n- Sản xuất tại Trung Quốc - Sản phẩm được sản xuất theo tiêu chuẩn CE (Châu Âu), và GS (Mỹ).', 6800000, 1, 7, 1, NULL),
 (8, '040176', 'Bia Heineken ', 'Bia Heineken ', 12, 'Thùng', 127, NULL, '- Bia Heineken\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Cách thức chế biến: Lên men tự nhiên\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Heineken\r\n- Xuất xứ: Việt Nam', 390000, 1, 5, 5, NULL),
 (9, '900053', 'Bia Sài Gòn 333', 'Bia Sài Gòn 333', 12, 'Thùng', 127, NULL, '- Bia Sài Gòn 333\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Bia Sài Gòn 333\r\n- Xuất xứ: Việt Nam', 200000, 1, 5, 5, 6),
@@ -1200,7 +1200,7 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamChiNhanh` (
   `chi_nhanh_id` int(10) NOT NULL DEFAULT '0',
   `san_pham_id` int(10) NOT NULL DEFAULT '0',
   `so_ton` int(10) DEFAULT NULL,
-  `trang_thai` tinyint(4) DEFAULT NULL,
+  `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`chi_nhanh_id`,`san_pham_id`),
   KEY `FKtbl_SanPha834242` (`chi_nhanh_id`),
   KEY `FKtbl_SanPha228435` (`san_pham_id`)
@@ -1264,7 +1264,7 @@ INSERT INTO `tbl_SanPhamTang` (`id`, `ma_vach`, `ten_san_pham`, `gia_tang`, `tho
 CREATE TABLE IF NOT EXISTS `tbl_SanPhamTangChiNhanh` (
   `san_pham_tang_id` int(10) NOT NULL DEFAULT '0',
   `chi_nhanh_id` int(10) NOT NULL,
-  `so_ton` int(10) DEFAULT NULL,
+  `so_ton` int(10) NOT NULL,
   PRIMARY KEY (`san_pham_tang_id`,`chi_nhanh_id`),
   KEY `FKtbl_SanPha299705` (`san_pham_tang_id`),
   KEY `FKtbl_SanPha601534` (`chi_nhanh_id`)

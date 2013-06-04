@@ -396,9 +396,8 @@ class AuthItemController extends RController
                         Yii::app()->user->setFlash($this->module->flashSuccessKey,
                             Rights::t('core', 'Child :name added.', array(':name' => $child->getNameText()))
                         );
-
                         // Reidrect to the same page
-                        $this->redirect(array('authItem/update', 'name' => urlencode($itemName)));
+                        $this->redirect(array('authItem/update', 'name' => urlencode($itemName),'type'=>$model->type));
                     }
                 }
             } else {
@@ -470,6 +469,7 @@ class AuthItemController extends RController
             if (Yii::app()->request->isPostRequest === true) {
                 $itemName = $this->getItemName();
                 $childName = $this->getChildName();
+                $model = $this->loadModel();
 
                 // Remove the child and load it
                 $this->_authorizer->authManager->removeItemChild($itemName, $childName);
@@ -483,7 +483,7 @@ class AuthItemController extends RController
 
                 // If AJAX request, we should not redirect the browser
                 if (isset($_POST['ajax']) === false)
-                    $this->redirect(array('authItem/update', 'name' => urlencode($itemName)));
+                    $this->redirect(array('authItem/update', 'name' => urlencode($itemName),'type'=>$model->type));
             } else {
                 throw new CHttpException(400, Rights::t('core', 'Invalid request. Please do not repeat this request again.'));
             }

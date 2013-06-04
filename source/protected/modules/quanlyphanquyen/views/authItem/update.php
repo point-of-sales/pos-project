@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <?php $this->breadcrumbs = array(
     Yii::t('viLib', 'Decentralization management') => array('authItem/roles'),
     Yii::t('viLib', 'Authentication item')=>array(),
