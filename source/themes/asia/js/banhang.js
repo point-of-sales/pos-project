@@ -46,6 +46,7 @@ var idTienDu = "#form-hd-ban-tien-du";
 var idGridHangTang = '#gridHangTang';
 var idHangTangError = '#dialog-hang-tang-error';
 var idHangTangList = '#dialog-hang-tang-list';
+var idHangTangMa = '#dialog-hang-tang-ma-input';
 var baseUrl = "";
 var curAction = "";
 var cur_ma_vach = "";
@@ -109,11 +110,12 @@ function keypressInputMa(e){
             e.preventDefault();
             chuyenDoiThaoTac(sAction.tienNhan);
         }break;
+        /*
         case sKey.f1:{   //tim khach hang
             e.preventDefault();
             $(idDialogTimKH).dialog('open');
-        }break;
-        case sKey.f2:{   //hang tang
+        }break;*/
+        case sKey.f1:{   //hang tang
             e.preventDefault();
             $(idDialogHangTang).dialog('open');
         }break;
@@ -441,9 +443,42 @@ function dialogHangTang(){
             arr_id_hang_tang = new Array();
             $(idHangTangError).html('');
             $(idHangTangList).html('');
+            $(idHangTangMa).focus();
         }
     });
 }
+
+function keypressInputMaHT(e){
+    var key = e.charCode||e.keyCode;
+    var ma_hang_tang = $(idHangTangMa).val();
+    if(key == sKey.enter){
+        $.ajax({
+            url: 'layhangtangtheoma',
+            type: 'POST',
+            data: {ma_hang_tang: ma_hang_tang},
+            success: function(data,status){
+                var hang_tang = $.parseJSON(data);
+                if(hang_tang!=null){
+                    if($("#chk_d_"+hang_tang.id).length > 0){
+                        $("#chk_d_"+hang_tang.id).attr('checked','checked');
+                        checkHangTang(hang_tang.id);
+                        $(idHangTangMa).val('');
+                        $(idHangTangMa).focus();
+                        $(idHangTangError).text('');
+                    }
+                    else{
+                        $(idHangTangError).text('Hàng tặng không phù hợp với trị giá hòa đơn này');
+                    }
+                }
+                else{
+                    $(idHangTangError).text('Mã hàng tặng không chính xác');
+                }
+            }
+        });
+    }
+}
+
+
 
 function layHangTang(){
     var tri_gia = del_format($(idTriGia).text());

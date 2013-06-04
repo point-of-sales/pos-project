@@ -130,9 +130,12 @@ if(count($chiTietHangTangProvider->getData())!=0){
 <?php
 if(count($hdTraProvider->getData())!=0){
     echo '<h2>Hóa đơn trả</h2>';
+    echo '<div id="accordion">';
     foreach($hdTraProvider->getData() as $item){
-        echo '<hr style="margin:10px 0 !important"/>';
+        //echo '<hr style="margin:10px 0 !important"/>';
         $item->getBaseModel();
+        echo '<h3>'.'Mã CT: <span class="content-accordion">'.$item->baseModel->ma_chung_tu.'</span> Ngày lập: <span class="content-accordion">'.date('d/m/Y - h:i:s',strtotime($item->baseModel->ngay_lap)).'</span>Trị giá: <span class="content-accordion">'.$item->baseModel->tri_gia.'</span></h3>';
+        echo '<div>';
         $this->widget('ext.custom-widgets.DetailView4Col', array(
             'data' => $hdTraProvider,
             'attributes' => array(
@@ -196,9 +199,22 @@ if(count($hdTraProvider->getData())!=0){
                 ),
             )
         ));
+        echo '</div>';
     }
+    echo '</div>';
 }
 ?>
+<script type="text/javascript">
+$(function(){
+    $('#accordion').accordion({
+        collapsible: true, 
+        active: false,
+        icons: false,
+        heightStyle: 'fill',
+        header: 'h2', 
+    });
+});
+</script>
 
     <!--
 <h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblSanPhams')); */?></h2>

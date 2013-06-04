@@ -501,7 +501,7 @@ class HoaDonBanHangController extends CPOSController {
     public function actionHoaDonMoi(){
         //lay khach hang mac dinh la khach mua le
         $ma_khach_hang = 'KHBT';   
-        $nhan_vien_id = 2;
+        $nhan_vien_id = Yii::app()->user->id;
         $chi_nhanh_id = 10;
         $nhan_vien = NhanVien::model()->findByAttributes(array('id'=>$nhan_vien_id));
         $chi_nhanh = ChiNhanh::model()->findByAttributes(array('id'=>$chi_nhanh_id));
@@ -588,6 +588,29 @@ class HoaDonBanHangController extends CPOSController {
         }
         else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));       
+    }
+    
+    public function actionLayHangTangTheoMa(){
+        if (Yii::app()->getRequest()->getIsAjaxRequest()) {
+            if(isset($_POST['ma_hang_tang'])){
+                $ma_hang_tang = $_POST['ma_hang_tang'];
+                $model = SanPhamTang::model()->findByAttributes(array('ma_vach'=>$ma_hang_tang));
+                if(isset($model)){
+                    $san_pham_tang = array(
+                        'id' => $model->id,
+                        'ma_vach' => $model->ma_vach,
+                        'ten_san_pham' => $model->ten_san_pham,
+                        'gia_tang' => $model->gia_tang,  
+                    );
+                    echo json_encode($san_pham_tang);   
+                }
+                else{
+                    echo 'null';
+                }
+            }
+        }
+        else
+            throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }
     
     private function kiemTraSoLuongHangTang($ma_vach,$chi_nhanh,$so_luong){

@@ -6,8 +6,8 @@
 )); ?>
 
                     <div class="row cus-row">
-            <?php echo $form->label($model, 'id'); ?>
-            <?php echo $form->dropDownList($model, 'id', GxHtml::listDataEx(ChungTu::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
+            <?php echo $form->label($model, 'ma_chung_tu'); ?>
+            <?php echo $form->textField($model, 'ma_chung_tu'); ?>
         </div>
 
                     <div class="row cus-row">
