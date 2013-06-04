@@ -89,7 +89,6 @@ class HoaDonBanHangController extends CPOSController {
 
 	public function actionThem() {
 		$model = new HoaDonBanHang;
-
         if (isset($_POST['HoaDonBanHang'])) {
             $hd_ban_hang = Yii::app()->CPOSSessionManager->getKey('hd_ban_hang');
             $post = array(

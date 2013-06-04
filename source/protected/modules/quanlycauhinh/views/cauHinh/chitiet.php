@@ -13,7 +13,7 @@ $this->menu = array(
 ?>
 
 
-<h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('t','Config'); ?></h1>
+<h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib','Config'); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
     'data' => $model,
