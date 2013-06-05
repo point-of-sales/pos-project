@@ -193,6 +193,12 @@ class HoaDonTraHangController extends CPOSController {
             Yii::app()->session['inhoadontra'] = false;
         }
     }
+    
+    public function gridKhachHang($data,$row){
+        $result = '<a href="'.Yii::app()->baseUrl.'/quanlykhachhang/khachHang/chitiet/id/'.$data->hoaDonBan->khachHang->id.'">'.$data->hoaDonBan->khachHang->ma_khach_hang.'</a>';
+        $result .= ' -- <span>'.$data->hoaDonBan->khachHang->ho_ten.'</span>';
+        return $result;
+    }
 
 
 }

@@ -13,13 +13,22 @@
     </div>
 
     <div class="row cus-row">
-        <?php echo $form->label($model, 'chiet_khau'); ?>
-        <?php echo $form->textField($model, 'chiet_khau'); ?>
+        Khách hàng
+        <?php echo $form->textField($model->khachHang, 'ma_khach_hang'); ?>
     </div>
-
+    
     <div class="row cus-row">
-        <?php echo $form->label($model, 'khach_hang_id'); ?>
-        <?php echo $form->textField($model, 'khach_hang_id'); ?>
+        Ngày bắt đầu
+        <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+            'model' => $model->getBaseModel(),
+            'attribute' => 'ngay_lap',
+            //'value' => $model->ngay_sinh,
+            'options' => array(
+                'showButtonPanel' => true,
+                'changeYear' => true,
+                'dateFormat' => 'dd-mm-yy',
+            ),
+        ));; ?>
     </div>
 
     <div class="row buttons btn-search">

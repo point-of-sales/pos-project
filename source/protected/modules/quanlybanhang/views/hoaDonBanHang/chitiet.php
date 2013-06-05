@@ -67,7 +67,7 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
         array(
             'name' => 'Trị giá',
             'type' => 'raw',
-            'value' => $model->baseModel->tri_gia,
+            'value' => number_format($model->baseModel->tri_gia,0,".",","),
         ),
     ),
 )); 
@@ -95,7 +95,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'Đơn giá',
-            'value' => '$data->don_gia',
+            'value' => 'number_format($data->don_gia,0,".",",")',
         ),
     )
 ));
@@ -120,7 +120,7 @@ if(count($chiTietHangTangProvider->getData())!=0){
             ),
             array(
                 'name' => 'Đơn giá tặng',
-                'value' => '$data->sanPhamTang->gia_tang',
+                'value' => 'number_format($data->sanPhamTang->gia_tang,0,".",",")',
             ),
         )
     ));
@@ -134,7 +134,7 @@ if(count($hdTraProvider->getData())!=0){
     foreach($hdTraProvider->getData() as $item){
         //echo '<hr style="margin:10px 0 !important"/>';
         $item->getBaseModel();
-        echo '<h3>'.'Mã CT: <span class="content-accordion">'.$item->baseModel->ma_chung_tu.'</span> Ngày lập: <span class="content-accordion">'.date('d/m/Y - h:i:s',strtotime($item->baseModel->ngay_lap)).'</span>Trị giá: <span class="content-accordion">'.$item->baseModel->tri_gia.'</span></h3>';
+        echo '<h3>'.'Mã CT: <span class="content-accordion">'.$item->baseModel->ma_chung_tu.'</span> Ngày lập: <span class="content-accordion">'.date('d/m/Y - h:i:s',strtotime($item->baseModel->ngay_lap)).'</span>Trị giá: <span class="content-accordion">'.number_format($item->baseModel->tri_gia,0,".",",").'</span></h3>';
         echo '<div>';
         $this->widget('ext.custom-widgets.DetailView4Col', array(
             'data' => $hdTraProvider,
@@ -157,7 +157,7 @@ if(count($hdTraProvider->getData())!=0){
                 array(
                     'name' => 'Trị giá',
                     'type' => 'raw',
-                    'value' => $item->baseModel->tri_gia,
+                    'value' => number_format($item->baseModel->tri_gia,0,".",","),
                 ),
                 array(
                     'name' => 'Lý do trả hàng',
@@ -195,7 +195,7 @@ if(count($hdTraProvider->getData())!=0){
                 ),
                 array(
                     'name' => 'Đơn giá',
-                    'value' => '$data->don_gia',
+                    'value' => 'number_format($data->don_gia,0,".",",")',
                 ),
             )
         ));

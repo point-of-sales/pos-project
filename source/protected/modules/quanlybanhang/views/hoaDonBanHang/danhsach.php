@@ -41,8 +41,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
 				),
         array(
             'name'=>'Khách hàng',
-            //'value'=>'GxHtml::valueEx($data->khachHang)." --- ".$data->khachHang["ho_ten"]',
-			//'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
             'value'=>array($this,'gridKhachHang'),
             'type'=>'raw',
         ),
@@ -57,7 +55,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name'=>'Trị giá gốc',
-            'value' => '$data->getBaseModel()->tri_gia'
+            'value' => 'number_format($data->getBaseModel()->tri_gia,0,".",",")'
         ),
         array(
             'name'=>'Số SP thực',

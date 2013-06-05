@@ -264,6 +264,7 @@ class HoaDonBanHangController extends CPOSController {
 	public function actionDanhSach() {
 
         $model = new HoaDonBanHang('search');
+        $model->khachHang = new KhachHang;
         $model->unsetAttributes();
         if (isset($_GET['ChungTu']))
         {
@@ -864,7 +865,7 @@ class HoaDonBanHangController extends CPOSController {
     }
     
     public function gridTriGiaThuc($data,$row){
-        return HoaDonBanHang::layTriGiaHoaDonThuc($data->id);
+        return number_format(HoaDonBanHang::layTriGiaHoaDonThuc($data->id),0,".",",");
     }
     
 }

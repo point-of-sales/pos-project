@@ -43,8 +43,8 @@ return false;
         ),
         array(
             'name'=>'Khách hàng',
-            'value'=>'GxHtml::valueEx($data->hoaDonBan->khachHang)." --- ".$data->hoaDonBan->khachHang["ho_ten"]',
-			'filter'=>GxHtml::listDataEx(KhachHang::model()->findAllAttributes(null, true)),
+            'value'=>array($this,'gridKhachHang'),
+            'type'=>'raw',
         ),
         array(
             'name'=>'Lý do trả hàng',
