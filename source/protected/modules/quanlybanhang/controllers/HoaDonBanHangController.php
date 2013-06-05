@@ -36,7 +36,7 @@ class HoaDonBanHangController extends CPOSController {
 	}
     
     public function actionTraHang($id){
-        $chi_nhanh_id = 10;
+        $chi_nhanh_id = Yii::app()->user->getCurrentUserBranchId();
         $model = $this->loadModel($id, 'HoaDonBanHang');
         $model->hoaDonTraHangs = new HoaDonTraHang();
         $chiTietDataProvider = $model->layChiTietHoaDon();
@@ -502,7 +502,7 @@ class HoaDonBanHangController extends CPOSController {
         //lay khach hang mac dinh la khach mua le
         $ma_khach_hang = 'KHBT';   
         $nhan_vien_id = Yii::app()->user->id;
-        $chi_nhanh_id = 10;
+        $chi_nhanh_id = Yii::app()->user->getCurrentUserBranchId();
         $nhan_vien = NhanVien::model()->findByAttributes(array('id'=>$nhan_vien_id));
         $chi_nhanh = ChiNhanh::model()->findByAttributes(array('id'=>$chi_nhanh_id));
         $model = KhachHang::model()->findByAttributes(array('ma_khach_hang'=>$ma_khach_hang));
