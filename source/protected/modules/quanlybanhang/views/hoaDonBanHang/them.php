@@ -105,8 +105,8 @@ echo '</pre>';
         <li><span class="label">Z</span>: MÃ VẠCH</li>
         <li><span class="label">X</span>: KHÁCH HÀNG</li>
         <li><span class="label">C</span>: TIỀN NHẬN</li>
-        <li><span class="label">F1</span>: TÌM KHÁCH HÀNG</li>
-        <li><span class="label">F2</span>: HÀNG TẶNG</li>
+        <!--<li><span class="label">F1</span>: TÌM KHÁCH HÀNG</li>-->
+        <li><span class="label">F1</span>: HÀNG TẶNG</li>
     </ul>
 </div>
 
@@ -116,7 +116,7 @@ echo '</pre>';
     <div id="dialog-hang-tang-header">
         <div id="dialog-hang-tang-ma">
             <span id="dialog-hang-tang-ma-label">Mã hàng tặng</span>
-            <input id="dialog-hang-tang-ma-input" type="text" />
+            <input id="dialog-hang-tang-ma-input" type="text" onkeypress="keypressInputMaHT(event)" />
             <span id="dialog-hang-tang-error"></span>
         </div>
         <div>

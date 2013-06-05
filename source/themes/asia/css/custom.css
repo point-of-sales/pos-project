@@ -537,3 +537,12 @@ a.cus-link:hover {
 .center{
     text-align: center;
 }
+
+.ui-accordion .ui-accordion-header{
+    padding: 10px;
+}
+
+.content-accordion{
+    color: black;
+    padding-right: 10px;
+}
