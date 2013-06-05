@@ -76,6 +76,11 @@ abstract class CPOSBaseChungTu extends CPOSActiveRecord {
 
     }
 
+    public function unsetAttributes() {
+        parent::unsetAttributes();
+        $this->baseModel->unsetAttributes();
+    }
+
     public function validate($attributes=null)
     {
         if (parent::validate($attributes)) {

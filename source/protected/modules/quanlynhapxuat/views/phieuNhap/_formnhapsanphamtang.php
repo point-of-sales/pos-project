@@ -62,7 +62,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'nha_cung_cap_id'); ?>
-            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAllAttributes(null, true)), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
+            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAll(),null,"ten_nha_cung_cap"), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
             <?php echo $form->error($model, 'nha_cung_cap_id'); ?>
         </div>
 

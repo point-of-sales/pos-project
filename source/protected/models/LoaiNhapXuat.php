@@ -133,6 +133,30 @@ class LoaiNhapXuat extends BaseLoaiNhapXuat
         return $danhSachLoaiXuatSanPhamTang;
     }
 
+    public function layTenLoaiNhapXuat() {
+       switch($this->loai) {
+           case 0: {
+               $danhSachNhapXuat = LoaiNhapXuat::layDanhSachLoaiNhapSanPhamBan();
+               break;
+           }
+           case 1: {
+               $danhSachNhapXuat = LoaiNhapXuat::layDanhSachLoaiNhapSanPhamTang();
+               break;
+           }
+           case 2: {
+               $danhSachNhapXuat = LoaiNhapXuat::layDanhSachLoaiXuatSanPhamBan();
+               break;
+           }
+           case 3: {
+               $danhSachNhapXuat = LoaiNhapXuat::layDanhSachLoaiXuatSanPhamTang();
+               break;
+           }
+       }
+
+       return $danhSachNhapXuat[$this->id];
+
+    }
+
     // bao gom ban va hang tang
     public static function layDanhSachLoaiNhap() {
         $danhSachLoaiNhapSanPhamBan = LoaiNhapXuat::layDanhSachLoaiNhapSanPhamBan();

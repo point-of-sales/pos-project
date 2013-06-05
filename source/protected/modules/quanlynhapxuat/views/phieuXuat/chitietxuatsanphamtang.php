@@ -44,7 +44,7 @@ $this->menu = array(
         array(
             'name' => Yii::t('viLib', 'Import type'),
             'type' => 'raw',
-            'value' => $model->layTenLoaiXuatSanPhamTang(),
+            'value' => $model->loaiNhapXuat->layTenLoaiNhapXuat(),
         ),
         array(
             'name' => 'chiNhanhNhap',

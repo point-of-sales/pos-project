@@ -103,8 +103,8 @@ class PhieuNhap extends BasePhieuNhap
             //neu khoa chua ton tai
 
             $this->setAttributes($params);
-            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap')) {
-                $sessionData = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhap');
+            if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhapSanPhamTang')) {
+                $sessionData = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhapSanPhamTang');
                 $items = $sessionData['items'];
                 $relatedItems = Helpers::formatArray($items);
                 $relatedData = array(

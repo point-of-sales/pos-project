@@ -317,4 +317,6 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Top Product List'=>'Danh sách sản phẩm TOP',
     'Supplier List'=>'Danh sách nhà cung cấp',
     'Price with promotion'=>'Giá kèm khuyến mãi',
+    'Detail import is not existed. Please fill it'=>'Chi tiết phiếu nhập chưa tồn tại, xin vui lòng nhập vào',
+    'Detail export is not existed. Please fill it'=>'Chi tiết phiếu xuất chưa tồn tại, xin vui lòng nhập vào',
 );

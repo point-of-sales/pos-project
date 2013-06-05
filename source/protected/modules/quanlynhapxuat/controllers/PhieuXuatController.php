@@ -240,7 +240,26 @@ class PhieuXuatController extends CPOSController
                         }
                     }
 
-                } else
+                }
+                else if (!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuatSanPhamTang')) {
+                    // check valid quantity + check enought instock
+                    $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuXuatSanPhamTang');
+                    $items = $sessionItems['items'];
+
+                    foreach ($items as $item) {
+
+                        $sanPhamTang = SanPhamTang::model()->find('id=:id', array(':id' => $item['id']));
+                        $sanPhamTang->chi_nhanh_id = $cnid;
+
+                        $soTon = ($sanPhamTang->laySoLuongTonHienTai() - $sanPhamTang->ton_toi_thieu);
+                        if ($item['so_luong'] <= 0 || $item['gia_xuat'] <= 0 || $item['so_luong'] > $soTon) {
+                            $result = 'fail';
+                            break;
+                        }
+                    }
+
+                }
+                else
                     $result = 'fail';
                 echo $result;
             } else

@@ -100,7 +100,7 @@ class PhieuNhapController extends CPOSController
                     case 'ok':
                     {
                         // clear Session
-                        Yii::app()->CPOSSessionManager->clearKey('ChiTietPhieuNhap');
+                        Yii::app()->CPOSSessionManager->clearKey('ChiTietPhieuNhapSanPhamTang');
                         if (Yii::app()->getRequest()->getIsAjaxRequest())
                             Yii::app()->end();
                         else
@@ -204,7 +204,18 @@ class PhieuNhapController extends CPOSController
                             break;
                         }
                     }
-                } else
+                }
+                else if(!Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhapSanPhamTang')) {
+                    $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhapSanPhamTang');
+                    $items = $sessionItems['items'];
+                    foreach ($items as $item) {
+                        if ($item['so_luong'] <= 0) {
+                            $result = 'fail';
+                            break;
+                        }
+                    }
+                }
+                else
                     $result = 'fail';
                 echo $result;
             } else

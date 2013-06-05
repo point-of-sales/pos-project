@@ -265,10 +265,10 @@ class HoaDonBanHangController extends CPOSController {
 
         $model = new HoaDonBanHang('search');
         $model->unsetAttributes();
-
-        if (isset($_GET['HoaDonBanHang']))
-        $model->setAttributes($_GET['HoaDonBanHang']);
-
+        if (isset($_GET['ChungTu']))
+        {
+            $model->setAttributes($_GET);
+        }
         $this->render('danhsach', array(
         'model' => $model,
         ));
