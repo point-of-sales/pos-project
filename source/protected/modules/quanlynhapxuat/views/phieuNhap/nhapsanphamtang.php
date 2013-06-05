@@ -9,10 +9,10 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     $(window).load(function () {
         // When grid is empty and data is exist on session. Fill grid again with data from the session
         if (ajaxTransferDataObject.isEmptyGrid()) {
-            var isEmptySession = <?php echo (Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhap'))?1:0?>;
+            var isEmptySession = <?php echo (Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuNhapSanPhamTang'))?1:0?>;
             if (!isEmptySession) {
                 ajaxTransferDataObject.addedItems = <?php
-                    $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhap'); echo json_encode($sessionItems)?>;
+                    $sessionItems = Yii::app()->CPOSSessionManager->getKey('ChiTietPhieuNhapSanPhamTang'); echo json_encode($sessionItems)?>;
                 // Refill grid
                 $.each(ajaxTransferDataObject.addedItems.items, function (key, value) {
                     var item = ajaxTransferDataObject.addedItems.items[key];

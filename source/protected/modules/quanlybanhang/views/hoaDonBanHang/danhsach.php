@@ -28,7 +28,8 @@ return false;
 )); ?>
 </div><!-- search-form -->
 
-<?php 
+<?php
+
 $this->widget('zii.widgets.grid.CGridView', array(
 'id' => 'grid',
 'dataProvider' => $model->search(),
@@ -110,7 +111,7 @@ $(document).ready(function(){
             if(data!='false'){
                 window.open(url+'hoadontra/id/'+data);   
             }
-        },
+        }
     });
 });
 </script>

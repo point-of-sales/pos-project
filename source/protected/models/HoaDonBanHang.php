@@ -182,12 +182,14 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->with = 'chungTu';
         $criteria->together = true;
-        $criteria->compare('id', $this->id);
+        //$criteria->compare('id', $this->id);
+        $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
         $criteria->compare('chiet_khau', $this->chiet_khau);
-        $criteria->compare('khach_hang_id', $this->khach_hang_id);
+        $criteria->compare('khach_hang_id', $this->khach_hang_id,true);
         $criteria->order = 'chungTu.ngay_lap DESC';
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
-        return new CActiveDataProvider($this, array(
+
+        return new CActiveDataProvider('HoaDonBanHang', array(
             'criteria' => $criteria,
             'pagination' => array(
                 'pageSize' => $numberRecords,
@@ -317,5 +319,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
             return $tri_gia_goc;
         }
     }
+
+
 
 }
