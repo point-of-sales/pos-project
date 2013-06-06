@@ -1,0 +1,13 @@
+﻿không hiển thị khách hàng bán lẻ trong quản lý khách hang
+làm menu 2 cấp
+==>Sản phẩm tặng
+viet hoa menu san pham tang
+==>Phiếu xuất
+viet hoa báo lỗi trong phiếu xuất
+==>Phiếu nhập:
+dialog thêm san pham chỉnh giao diện cho hiển thị hết msg box lỗi
+khi thêm thành công sản phẩm, reset dialog
+không báo lỗi khi nhập sai mã sản phẩm
+nên tab từ mã sp sang số lượng
+thêm phiếu nhập lỗi, chỉ thêm dc chứng từ
+các danh sách hóa đơn nên sort theo ngày lập giảm dần
