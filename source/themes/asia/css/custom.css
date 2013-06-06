@@ -546,3 +546,8 @@ a.cus-link:hover {
     color: black;
     padding-right: 10px;
 }
+
+.readonly-elem {
+    border:none;
+    background-color:#E8E2D6;
+}

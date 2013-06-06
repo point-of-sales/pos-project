@@ -10,11 +10,8 @@ class PhieuNhapController extends CPOSController
             $model = $this->loadModel($id, 'PhieuNhap');
             $model->getBaseModel();
             $criteria = new CDbCriteria();
-            $criteria->with = 'chungTu';
-            $criteria->together = true;
             $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
             $criteria->params = array(':phieu_nhap_id' => $id);
-            $criteria->order = 'chungTu.ngay_lap DESC';
             $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
 
             if(count($chiTietPhieuNhapDataProvider->getData())==0) {

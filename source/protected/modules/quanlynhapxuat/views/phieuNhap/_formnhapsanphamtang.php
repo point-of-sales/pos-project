@@ -23,13 +23,13 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ma_chung_tu'); ?>
-            <?php echo $form->textField($model->baseModel, 'ma_chung_tu',array('readonly'=>'readonly','style'=>'font-weight:bold')); ?>
+            <?php echo $form->textField($model->baseModel, 'ma_chung_tu',array("class"=>"readonly-elem",'style'=>'font-weight:bold')); ?>
             <?php echo $form->error($model->baseModel, 'ma_chung_tu'); ?>
         </div>
         <!-- row -->
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ngay_lap'); ?>
-            <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+            <?php /*$form->widget('zii.widgets.jui.CJuiDatePicker', array(
                 'model' => $model->baseModel,
                 'attribute' => 'ngay_lap',
                 'value' => (!empty($model->baseModel->ngay_lap)) ? $model->baseModel->ngay_lap : $model->baseModel->setAttribute('ngay_lap', date('d-m-Y', time())),
@@ -38,13 +38,14 @@
                     'changeYear' => true,
                     'dateFormat' => 'dd-mm-yy',
                 ),
-            ));; ?>
+            ));; */?>
+            <?php echo $form->textField($model->baseModel,'ngay_lap',array('value'=>!empty($model->baseModel->ngay_lap) ? $model->baseModel->ngay_lap :  date('d-m-Y', time()),"class"=>"readonly-elem"))?>
             <?php echo $form->error($model->baseModel, 'ngay_lap'); ?>
         </div>
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten"),array("options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten"),array("class"=>"readonly-elem","options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 04, 2013 at 11:20 PM
+-- Generation Time: Jun 06, 2013 at 04:25 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.3.10-1ubuntu3.6
 
@@ -568,6 +568,9 @@ INSERT INTO `tbl_ChiTietPhieuNhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, 
 (8, 56719, 250, 390000),
 (8, 56726, 300, 390000),
 (9, 56726, 50, 200000),
+(9, 56769, 100, 200000),
+(9, 56772, 100, 200000),
+(9, 56773, 200, 200000),
 (10, 56719, 600, 45000),
 (10, 56721, 200, 45000),
 (10, 56725, 230, 45000),
@@ -603,7 +606,11 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuNhapSanPhamTang` (
 --
 
 INSERT INTO `tbl_ChiTietPhieuNhapSanPhamTang` (`san_pham_tang_id`, `phieu_nhap_id`, `so_luong`) VALUES
-(1, 56720, 100);
+(1, 56720, 100),
+(1, 56770, 120),
+(1, 56774, 220),
+(3, 56767, 1000),
+(4, 56767, 1000);
 
 -- --------------------------------------------------------
 
@@ -643,6 +650,13 @@ CREATE TABLE IF NOT EXISTS `tbl_ChiTietPhieuXuatSanPhamTang` (
   KEY `FKtbl_ChiTie280145` (`phieu_xuat_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `tbl_ChiTietPhieuXuatSanPhamTang`
+--
+
+INSERT INTO `tbl_ChiTietPhieuXuatSanPhamTang` (`san_pham_tang_id`, `phieu_xuat_id`, `so_luong`) VALUES
+(4, 56768, 50);
+
 -- --------------------------------------------------------
 
 --
@@ -661,7 +675,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ChungTu` (
   UNIQUE KEY `ma_chung_tu` (`ma_chung_tu`),
   KEY `FKtbl_ChungT392230` (`nhan_vien_id`),
   KEY `FKtbl_ChungT837946` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56767 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56775 ;
 
 --
 -- Dumping data for table `tbl_ChungTu`
@@ -687,7 +701,14 @@ INSERT INTO `tbl_ChungTu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`
 (56763, 'PN00000949486', '2013-05-22 00:00:00', 3060000000, NULL, 5, 26),
 (56764, 'PN00000949487', '2013-05-31 12:00:00', 5400000, NULL, 1, 10),
 (56765, 'TH00000000001', '2013-05-31 01:51:30', 0, NULL, 1, 10),
-(56766, 'PN00000949488', '2013-05-31 12:00:00', 1680000, NULL, 1, 10);
+(56766, 'PN00000949488', '2013-05-31 12:00:00', 1680000, NULL, 1, 10),
+(56767, 'PN00000949489', '2013-06-05 12:00:00', 0, NULL, 1, 10),
+(56768, 'PX00000435454', '2013-06-05 12:00:00', 14000000, NULL, 1, 10),
+(56769, 'PN00000949490', '2013-06-06 12:00:00', 20000000, NULL, 1, 10),
+(56770, 'PN00000949491', '2013-06-06 12:00:00', 0, NULL, 1, 10),
+(56772, 'PN00000949492', '2013-06-06 12:00:00', 20000000, NULL, 1, 10),
+(56773, 'PN00000949493', '2013-06-06 12:00:00', 40000000, NULL, 1, 10),
+(56774, 'PN00000949494', '2013-06-06 12:00:00', 0, NULL, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -1027,7 +1048,7 @@ CREATE TABLE IF NOT EXISTS `tbl_NhaCungCap` (
   `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_nha_cung_cap` (`ma_nha_cung_cap`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `tbl_NhaCungCap`
@@ -1039,7 +1060,8 @@ INSERT INTO `tbl_NhaCungCap` (`id`, `ma_nha_cung_cap`, `ten_nha_cung_cap`, `mo_t
 (5, 'CC355324', 'Tập đoàn Nutifoods - Nutifoods Việt Nam', NULL, '08-4324322', NULL, NULL, 1),
 (6, 'CC9573432', 'Công ty gốm sứ Sét vàng', NULL, '08-534543', NULL, NULL, 1),
 (7, 'CC3653423', 'Điện máy Nguyễn Kim', NULL, '08-3455435', NULL, NULL, 1),
-(8, 'CC32434', 'Công ty TNHH May mặc Thiên Hà', NULL, '08-432143', NULL, NULL, 1);
+(8, 'CC32434', 'Công ty TNHH May mặc Thiên Hà', NULL, '08-432143', NULL, NULL, 1),
+(9, 'CC763838', 'Công ty TTB văn phòng phẩm Duy Hòa', NULL, '(08) 8474742', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1094,7 +1116,7 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuNhap` (
   `id` int(10) NOT NULL,
   `loai_nhap_vao` int(10) NOT NULL,
   `chi_nhanh_xuat_id` int(10) NOT NULL,
-  `nha_cung_cap_id` int(10) NOT NULL,
+  `nha_cung_cap_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKtbl_PhieuN364331` (`chi_nhanh_xuat_id`),
   KEY `FKtbl_PhieuN233283` (`id`),
@@ -1119,7 +1141,13 @@ INSERT INTO `tbl_PhieuNhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cu
 (56762, 1, 29, 4),
 (56763, 1, 1, 7),
 (56764, 1, 1, 4),
-(56766, 1, 29, 4);
+(56766, 1, 29, 4),
+(56767, 4, 1, 9),
+(56769, 1, 1, 5),
+(56770, 4, 1, 9),
+(56772, 1, 29, NULL),
+(56773, 1, 1, 5),
+(56774, 4, 29, NULL);
 
 -- --------------------------------------------------------
 
@@ -1143,7 +1171,8 @@ CREATE TABLE IF NOT EXISTS `tbl_PhieuXuat` (
 --
 
 INSERT INTO `tbl_PhieuXuat` (`id`, `ly_do_xuat`, `loai_xuat_ra`, `chi_nhanh_nhap_id`) VALUES
-(56724, 'Mượn để bán', 7, 26);
+(56724, 'Mượn để bán', 7, 26),
+(56768, 'Xuất cho chi nhánh tặng dịp 1/6 ', 9, 29);
 
 -- --------------------------------------------------------
 
@@ -1213,7 +1242,7 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamChiNhanh` (
 INSERT INTO `tbl_SanPhamChiNhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `trang_thai`) VALUES
 (10, 6, 2000, 1),
 (10, 8, 550, 1),
-(10, 9, 50, 1),
+(10, 9, 450, 1),
 (10, 10, 473, 1),
 (10, 12, 600, 1),
 (10, 17, 3722, 1),
@@ -1246,14 +1275,17 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTang` (
   `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_vach` (`ma_vach`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tbl_SanPhamTang`
 --
 
 INSERT INTO `tbl_SanPhamTang` (`id`, `ma_vach`, `ten_san_pham`, `gia_tang`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `mo_ta`, `trang_thai`) VALUES
-(1, 'TA98423', 'Gấu Panda HUAHUA', 150000, '2013-05-15', '2013-07-31', NULL, 1);
+(1, 'TA98423', 'Gấu Panda HUAHUA', 150000, '2013-05-15', '2013-07-31', NULL, 1),
+(2, '75348543', 'Poster T-ara', 300000, '2013-06-04', '2013-06-30', NULL, 1),
+(3, '324343', 'Thú mỏ vịt Luna', 150000, '2013-06-04', '2013-07-25', NULL, 1),
+(4, '8786666', 'Sổ tay CK5', 280000, '2013-06-04', '2013-06-23', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1275,7 +1307,9 @@ CREATE TABLE IF NOT EXISTS `tbl_SanPhamTangChiNhanh` (
 --
 
 INSERT INTO `tbl_SanPhamTangChiNhanh` (`san_pham_tang_id`, `chi_nhanh_id`, `so_ton`) VALUES
-(1, 10, 99);
+(1, 10, 439),
+(3, 10, 1000),
+(4, 10, 950);
 
 -- --------------------------------------------------------
 

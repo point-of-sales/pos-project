@@ -319,4 +319,7 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Price with promotion'=>'Giá kèm khuyến mãi',
     'Detail import is not existed. Please fill it'=>'Chi tiết phiếu nhập chưa tồn tại, xin vui lòng nhập vào',
     'Detail export is not existed. Please fill it'=>'Chi tiết phiếu xuất chưa tồn tại, xin vui lòng nhập vào',
+    'Import price must have greater than zero'=>'Giá nhập phải lớn hơn 0',
+    'Quantity must have greater than zero'=>'Số lượng phải lớn hơn 0',
+    'Gift price'=>'Giá tặng',
 );
