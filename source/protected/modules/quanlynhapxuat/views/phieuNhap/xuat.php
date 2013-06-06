@@ -5,7 +5,7 @@ $this->widget('CPOSEExcelView', array(
     'title'=>'Phieu_Nhap_' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>Yii::t('viLib',''),
+    'documentTitle'=>Yii::t('viLib','Import form'),
     'template'=>'PhieuNhap',
     'columns' => array(
 

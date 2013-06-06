@@ -10,9 +10,18 @@ class PhieuNhapController extends CPOSController
             $model = $this->loadModel($id, 'PhieuNhap');
             $model->getBaseModel();
             $criteria = new CDbCriteria();
+            $criteria->with = 'chungTu';
+            $criteria->together = true;
             $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
             $criteria->params = array(':phieu_nhap_id' => $id);
+            $criteria->order = 'chungTu.ngay_lap DESC';
             $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
+
+            if(count($chiTietPhieuNhapDataProvider->getData())==0) {
+                // load chi tiet cua san pham tang
+                $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhapSanPhamTang', array('criteria' => $criteria));
+
+            }
             $this->render('chitiet', array(
                 'model' => $model,
                 'dataProvider' => $chiTietPhieuNhapDataProvider,
@@ -21,7 +30,7 @@ class PhieuNhapController extends CPOSController
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
 
-    public function actionChiTietXuatSanPhamTang($id)
+    /*public function actionChiTietNhapSanPhamTang($id)
     {
         if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.ChiTietXuatSanPhamTang')) {
             $model = $this->loadModel($id, 'PhieuNhap');
@@ -30,13 +39,13 @@ class PhieuNhapController extends CPOSController
             $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
             $criteria->params = array(':phieu_nhap_id' => $id);
             $chiTietPhieuNhapSanPhamTangDataProvider = new CActiveDataProvider('ChiTietPhieuNhapSanPhamTang', array('criteria' => $criteria));
-            $this->render('chitiet', array(
+            $this->render('chitietnhapsanphamtang', array(
                 'model' => $model,
                 'dataProvider' => $chiTietPhieuNhapSanPhamTangDataProvider,
             ));
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
-    }
+    }*/
 
 
     public function actionThem($id = null)
@@ -157,6 +166,8 @@ class PhieuNhapController extends CPOSController
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
+
+
 
     public function  actionXuat($id)
     {

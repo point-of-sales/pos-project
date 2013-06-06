@@ -64,10 +64,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'columns' => array(
         array(
             'name' => Yii::t('viLib', 'Barcode'),
-            'value' => '$data->sanPham->ma_vach',
+            'value' => '($data instanceof ChiTietPhieuNhapSanPhamTang)?$data->sanPhamTang->ma_vach:$data->sanPham->ma_vach',
         ),
         array('name' => Yii::t('viLib', 'Product name'),
-            'value' => '$data->sanPham->ten_san_pham'
+            'value' => '($data instanceof ChiTietPhieuNhapSanPhamTang)?$data->sanPhamTang->ten_san_pham:$data->sanPham->ten_san_pham'
         ),
         array(
             'name' => Yii::t('viLib', 'Quantity'),
@@ -75,7 +75,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => Yii::t('viLib', 'Import price'),
-            'value' => 'number_format(floatval($data->gia_nhap),0,".",",")',
+            'value' => '($data instanceof ChiTietPhieuNhapSanPhamTang)?"":number_format(floatval($data->gia_nhap),0,".",",")',
+            'visible'=>($dataProvider->modelClass=='ChiTietPhieuNhap')?true:false,
         )
     )
 )); ?>

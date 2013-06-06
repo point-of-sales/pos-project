@@ -42,7 +42,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => Yii::t('viLib','Created date'),
-            'value' => '$data->getBaseModel()->ngay_lap'
+            'value' => 'date("d-m-Y",strtotime($data->getBaseModel()->ngay_lap))'
         ),
 
         array(
@@ -51,7 +51,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'chi_nhanh_xuat_id',
-            'value' => 'GxHtml::valueEx($data->chiNhanhXuat)',
+            'value' => '$data->chiNhanhXuat->ten_chi_nhanh',
             'filter' => GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),
         ),
         array(
