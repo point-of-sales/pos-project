@@ -15,7 +15,7 @@ $this->menu = array(
 
 <h1><?php echo 'Trả hàng hóa đơn '.GxHtml::valueEx($model); ?></h1>
 <?php  if(Yii::app()->user->hasFlash('info-board')) {?>    <div class="response-msg error ui-corner-all info-board">        <?php echo Yii::app()->user->getFlash('info-board');?>    </div><?php } ?>
-<div id="msg-box" ></div>
+<div class="" id="msg-box" ></div>
 <?php $form = $this->beginWidget('GxActiveForm', array(
 	'enableAjaxValidation' => false,
     'id' => 'form-tra-hang',

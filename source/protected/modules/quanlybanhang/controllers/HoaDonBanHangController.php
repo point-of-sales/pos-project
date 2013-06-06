@@ -868,4 +868,12 @@ class HoaDonBanHangController extends CPOSController {
         return number_format(HoaDonBanHang::layTriGiaHoaDonThuc($data->id),0,".",",");
     }
     
+    public function gridCoTraHang($data,$row){
+        $result = '';
+        if(HoaDonBanHang::kiemTraSanPhamTrongChiTietHoaDonTra($data->san_pham_id,$data->hoaDonBanHang->id)){
+            $result = '<img alt="Trả Hàng" src="'.Yii::app()->theme->baseUrl.'/images/icons/return.png"/>';
+        }
+        return $result;
+    }
+    
 }

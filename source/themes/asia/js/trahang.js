@@ -53,6 +53,16 @@ function inHoaDon(){
 
 var arr_id_hang_ban = new Array();
 var idMsgBox = "#msg-box";
+
+function messageBox(content){
+    $(idMsgBox).text(content);
+    if(content!=''){
+        $(idMsgBox).attr('class','response-msg error ui-corner-all');   
+    }
+    else{
+        $(idMsgBox).attr('class','');
+    }
+}
 function xoa_grid(id){
     $("#row_"+id).remove();
 }
@@ -63,10 +73,12 @@ function capNhatTriGia(){
             tri_gia += parseInt($("#sl_"+arr_id_hang_ban[i]).val()) * parseInt($("#dg_"+arr_id_hang_ban[i]).val());
         }
         $("#tri_gia").val(tri_gia);
-        $(idMsgBox).text('');   
+        //$(idMsgBox).text('');
+        messageBox('');   
     }
     else{
-        $(idMsgBox).text('Số lượng không hợp lệ');
+        //$(idMsgBox).text('Số lượng không hợp lệ');
+        messageBox('Số lượng không hợp lệ');
     }
 }
 function capNhatInput(e){

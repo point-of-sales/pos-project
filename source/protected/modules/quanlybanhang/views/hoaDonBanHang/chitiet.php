@@ -65,9 +65,17 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
             'value' => $model->chiet_khau.'%',
         ),
         array(
-            'name' => 'Trị giá',
+            'name' => 'Trị giá gốc',
             'type' => 'raw',
             'value' => number_format($model->baseModel->tri_gia,0,".",","),
+        ),
+        array(
+            'value' => '',
+        ),
+        array(
+            'name' => 'Trị giá hiện tại',
+            'type' => 'raw',
+            'value' => number_format(HoaDonBanHang::layTriGiaHoaDonThuc($model->id),0,".",","),
         ),
     ),
 )); 
@@ -97,6 +105,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'name' => 'Đơn giá',
             'value' => 'number_format($data->don_gia,0,".",",")',
         ),
+        array(
+            'name' => 'Trả hàng',
+            'value' => array($this,'gridCoTraHang'),
+            'type' => 'raw',
+            'htmlOptions' => array('class'=>'center'),
+        )
     )
 ));
 ?>
