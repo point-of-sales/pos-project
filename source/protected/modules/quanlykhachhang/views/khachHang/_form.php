@@ -16,6 +16,22 @@
     </p>
 
     <?php echo $form->errorSummary($model); ?>
+    
+    <?php
+    if($model->ma_khach_hang == 'KHBT'){
+        ?>
+        
+    <!-- row -->
+    <div class="row cus-row">
+        <?php echo $form->labelEx($model, 'ho_ten'); ?>
+        <?php echo $form->textField($model, 'ho_ten', array('maxlength' => 200)); ?>
+        <?php echo $form->error($model, 'ho_ten'); ?>
+    </div>
+        
+        <?php
+    }
+    else{
+    ?>
 
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'ma_khach_hang'); ?>
@@ -89,6 +105,10 @@
         <?php echo $form->error($model, 'mo_ta'); ?>
     </div>
     <!-- row -->
+
+<?php
+    }
+    ?>
 
     <div class="btn-save">
         <?php
