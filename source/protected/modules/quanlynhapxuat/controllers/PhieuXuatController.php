@@ -89,7 +89,7 @@ class PhieuXuatController extends CPOSController
             $model = new PhieuXuat;
             $model->getBaseModel()->ma_chung_tu = PhieuNhap::layMaChungTuMoi('PhieuXuat', 'PX');
             if (isset($_POST['ChungTu'])) {
-                $result = $model->xuatSanPhamTang($_POST);
+                $result = $model->themPhieuXuatSanPhamTang($_POST);
                 switch ($result) {
                     case 'ok':
                     {

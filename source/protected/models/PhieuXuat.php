@@ -92,7 +92,7 @@ class PhieuXuat extends BasePhieuXuat
     }
 
 
-    public function xuatSanPhamTang($params)
+    public function themPhieuXuatSanPhamTang($params)
     {
         // kiem tra du lieu con bi trung hay chua
 
@@ -131,46 +131,6 @@ class PhieuXuat extends BasePhieuXuat
                 return 'fail';
         } else
             return 'dup-error';
-    }
-
-    public function capNhat($params)
-    {
-        // kiem tra du lieu con bi trung hay chua
-        $relatedData = array(
-            'tblSanPhams' => $_POST['PhieuXuat']['tblSanPhams'] === '' ? null : $_POST['PhieuXuat']['tblSanPhams'],
-        );
-        if (!$this->kiemTraTonTai($params)) {
-            $this->setAttributes($params);
-            if ($this->saveWithRelated($relatedData))
-                return 'ok';
-            else
-                return 'fail';
-        } else {
-
-            // so sanh ma cu == ma moi
-            if ($this->soKhopMa($params)) {
-                $this->setAttributes($params);
-                if ($this->saveWithRelated($relatedData))
-                    return 'ok';
-                else
-                    return 'fail';
-            } else
-                return 'dup-error';
-
-        }
-    }
-
-    public function xoa()
-    {
-        $relation = $this->kiemTraQuanHe($this->id);
-        if (!$relation) {
-            if ($this->delete())
-                return 'ok';
-            else
-                return 'fail';
-        } else {
-            return 'rel-error';
-        }
     }
 
 

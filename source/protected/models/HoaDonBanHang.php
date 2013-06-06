@@ -207,7 +207,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 'ma_khach_hang' => $model->khachHang->ma_khach_hang,
                 'ho_ten' => $model->khachHang->ho_ten,
                 'diem_tich_luy' => $model->khachHang->diem_tich_luy,
-                'loai_khach_hang_id' => $model->khachHang->loaiKhachHang->id,
+                'loai_khach_hang_id' => $model->khachHangoperation->loaiKhachHang->id,
                 'ten_loai' => $model->khachHang->loaiKhachHang->ten_loai,
                 'dien_thoai' => $model->khachHang->dien_thoai,
                 'dia_chi' => $model->khachHang->dia_chi,
