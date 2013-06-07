@@ -43,6 +43,13 @@ $this->widget('CPOSEExcelView', array(
             'header'=>Yii::t('viLib','Total Sale'),
             'value'=>'$data->so_luong_ban',
         ),
+
+        array(
+            'name'=>'so_luong_tra',
+            'header' => Yii::t('viLib', 'Return quantity'),
+            'value' => 'number_format(floatval($data->so_luong_tra),0,".",",")',
+        ),
+
         array(
             'name'=>'so_luong_thuc_ton',
             'header'=>Yii::t('viLib','Total Real Instock'),

@@ -32,12 +32,21 @@ class CPOSThayDoiMatKhauForm extends  CFormModel{
         $this->setAttributes($params);
         if($this->validate()) {
             $mat_khau_moi = md5($params['mat_khau_moi_1']);
+            if($this->nhanVien->mat_khau == $mat_khau_moi)
+                return 'ok';
             if(RightsWeight::getRoleWeight($this->nhanVien->id)<999) {
                 if($this->nhanVien->saveAttributes(array('mat_khau'=>$mat_khau_moi)))
                     return 'ok';
                 else
                     return 'fail';
-            } else
+            }
+            if(Yii::app()->user->id == $this->nhanVien->id && RightsWeight::getRoleWeight($this->nhanVien->id)==999) {
+                if($this->nhanVien->saveAttributes(array('mat_khau'=>$mat_khau_moi)))
+                    return 'ok';
+                else
+                    return 'fail';
+            }
+            else
                 return 'override-update-error';
 
 

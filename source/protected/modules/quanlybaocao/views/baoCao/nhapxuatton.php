@@ -86,11 +86,11 @@ $this->menu = array(
                 }
                 ?>
 
-                <p><?php echo Yii::t('viLib', 'Total Beginning Instock') . ' : ' . $tongSoTonDauKy ?></p>
-                <p><?php echo Yii::t('viLib', 'Total Import') . ' : ' . $tongSoNhapTrongKy ?></p>
-                <p><?php echo Yii::t('viLib', 'Total Export') . ' : ' . $tongSoXuatTrongKy ?></p>
-                <p><?php echo Yii::t('viLib', 'Total Sale') . ' : ' . $tongSoHangBan ?></p>
-                <p><?php echo Yii::t('viLib', 'Total Real Instock') . ' : ' . $tongSoThucTon ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Beginning Instock') . ' : ' . number_format($tongSoTonDauKy,0,".",",") ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Import') . ' : ' . number_format($tongSoNhapTrongKy,0,".",",") ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Export') . ' : ' . number_format($tongSoXuatTrongKy,0,".",",") ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Sale') . ' : ' . number_format($tongSoHangBan,0,".",",") ?></p>
+                <p><?php echo Yii::t('viLib', 'Total Real Instock') . ' : ' . number_format($tongSoThucTon,0,".",",") ?></p>
 
             <?php endif; ?>
 
@@ -135,6 +135,10 @@ $this->menu = array(
                     array(
                         'name' => Yii::t('viLib', 'Sale quantity'),
                         'value' => 'number_format(floatval($data->so_luong_ban),0,".",",")',
+                    ),
+                    array(
+                        'name' => Yii::t('viLib', 'Return quantity'),
+                        'value' => 'number_format(floatval($data->so_luong_tra),0,".",",")',
                     ),
                     array(
                         'name' => Yii::t('viLib', 'Real instock'),

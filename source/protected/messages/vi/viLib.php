@@ -324,4 +324,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Gift price'=>'Giá tặng',
     'Gift Product'=>'Sản phẩm tặng',
     'Return'=>'Trả hàng',
+    'Return quantity'=>'Số lượng trả',
 );

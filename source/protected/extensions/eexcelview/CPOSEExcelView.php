@@ -577,6 +577,7 @@ class CPOSEExcelView extends EExcelView
         $tong_nhap_trong_ky = 0;
         $tong_xuat_trong_ky = 0;
         $tong_ban_trong_ky = 0;
+        $tong_tra_trong_ky = 0;
         $tong_thuc_ton = 0;
         $position = 0;
         $endTotalIndex = array(); //end index cua cot Tong Cong
@@ -587,6 +588,7 @@ class CPOSEExcelView extends EExcelView
             $tong_nhap_trong_ky = $tong_nhap_trong_ky + $t->so_luong_nhap;
             $tong_ban_trong_ky = $tong_ban_trong_ky + $t->so_luong_ban;
             $tong_xuat_trong_ky = $tong_xuat_trong_ky + $t->so_luong_xuat;
+            $tong_tra_trong_ky = $tong_tra_trong_ky + $t->so_luong_tra;
             $tong_thuc_ton = $tong_thuc_ton + $t->so_luong_thuc_ton;
         }
 
@@ -630,6 +632,14 @@ class CPOSEExcelView extends EExcelView
                         $endTotalIndex[] = $position;
                         break;
                     }
+                    case 'so_luong_tra':
+                    {
+                        self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_tra_trong_ky);
+                        $this->setCellFormatStyle($this->columnName($position), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+                        $endTotalIndex[] = $position;
+                        break;
+                    }
+
                     case 'so_luong_thuc_ton':
                     {
                         self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_thuc_ton);

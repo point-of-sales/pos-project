@@ -10,6 +10,7 @@ class SanPham extends BaseSanPham
     public $so_luong_nhap = 0;
     public $so_luong_xuat = 0;
     public $so_luong_ban = 0;
+    public $so_luong_tra = 0;
     public $so_luong_thuc_ton = 0;
     public $doanh_so = array();
 
@@ -331,6 +332,7 @@ class SanPham extends BaseSanPham
         $danhSachPhieuNhapTrongKy = PhieuNhap::model()->findAll($criteria);
         $danhSachPhieuXuatTrongKy = PhieuXuat::model()->findAll($criteria);
         $danhSachHoaDonBan = HoaDonBanHang::model()->findAll($criteria);
+        $danhSachHoaDonTra = HoaDonTraHang::model()->findAll($criteria);
 
         $criteria2 = new CDbCriteria();
         $criteria2->with = 'chungTu';
@@ -372,7 +374,18 @@ class SanPham extends BaseSanPham
             $this->so_luong_ban = $this->so_luong_ban + $so_luong_ban;
 
         }
-        $this->so_luong_thuc_ton = ($this->ton_dau_ky + $this->so_luong_nhap) - ($this->so_luong_ban + $this->so_luong_xuat);
+
+        foreach ($danhSachHoaDonTra as $hoaDonTra) {
+            $so_luong_tra = Yii::app()->db->createCommand()
+                ->select('so_luong')
+                ->from('tbl_ChiTietHoaDonTra')
+                ->where('hoa_don_tra_id=:hoa_don_tra_id AND san_pham_id=:san_pham_id', array(':hoa_don_tra_id' => $hoaDonTra->id, ':san_pham_id' => $this->id))
+                ->queryScalar();
+            $this->so_luong_tra = $this->so_luong_tra + $so_luong_tra;
+
+        }
+
+        $this->so_luong_thuc_ton = ($this->ton_dau_ky + $this->so_luong_nhap) - ($this->so_luong_ban + $this->so_luong_xuat) + $this->so_luong_tra;
 
     }
 

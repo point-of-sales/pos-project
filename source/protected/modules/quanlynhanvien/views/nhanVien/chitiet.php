@@ -11,6 +11,7 @@ $this->menu = array(
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('danhsach')),
     array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('them')),
     array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Employee'), 'url' => array('capnhat', 'id' => $model->id)),
+    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Password'), 'url' => array('thaydoimatkhau', 'id' => $model->id)),
 );
 ?>
 
