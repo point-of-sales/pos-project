@@ -75,6 +75,16 @@ $(document).ready(function(){
     dongBoDuLieu();
 });
 
+function messageBox(content){
+    $(idFormError).text(content);
+    if(content!=''){
+        $(idFormError).attr('class','response-msg error ui-corner-all');   
+    }
+    else{
+        $(idFormError).attr('class','');
+    }
+}
+
 $(document).keypress(function(e){
     /*var key = e.charCode||e.keyCode;
     if(key == sKey.f5){
@@ -216,19 +226,22 @@ function capNhatTienNhan(hand){
     if(hand == true){
         tien_nhan = $(idMaInput).val();
         if(isNaN(tien_nhan)==true || isInteger(tien_nhan)==false){
-            $(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
+            //$(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
+            messageBox('Số tiền nhận không hợp lệ! Vui lòng nhập lại');
             $(idMaInput).select();
             return;
         }
         tien_du = parseInt(tien_nhan) - del_format($(idTriGia).text());
         if(tien_du<0){
-            $(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
+            //$(idFormError).text("Số tiền nhận không hợp lệ! Vui lòng nhập lại");
+            messageBox('Số tiền nhận không hợp lệ! Vui lòng nhập lại');
             $(idMaInput).select();
         }
         else{
             $(idTienNhan).text(vnd_format(tien_nhan));
             $(idTienDu).text(vnd_format(tien_du));
-            $(idFormError).text("");
+            //$(idFormError).text("");
+            messageBox('');
             chuyenDoiThaoTac(sAction.maVach);   
         }   
     }
@@ -239,7 +252,8 @@ function capNhatTienNhan(hand){
             if(tien_du<0){
                 tien_du = 0;   
                 $(idTienNhan).text("0");
-                $(idFormError).text("Vui lòng nhập lại tiền nhận");
+                //$(idFormError).text("Vui lòng nhập lại tiền nhận");
+                messageBox('Vui lòng nhập lại tiền nhận');
             }
             $(idTienDu).text(vnd_format(tien_du));   
         }
@@ -386,12 +400,14 @@ function layKhachHang(){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
                 chuyenDoiThaoTac(sAction.maVach);
-                $(idFormError).html("");
+                //$(idFormError).html("");
+                messageBox('');
                 dongBoDuLieu();
             }
             else{
                 xoaMaInput();
-                $(idFormError).html(item.msg);
+                //$(idFormError).html(item.msg);
+                messageBox(item.msg);
             }   
         }
     });
@@ -575,12 +591,14 @@ function xoaHangTang(id){
         success: function(data){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
-                $(idFormError).html("");
+                //$(idFormError).html("");
+                messageBox('');
                 dongBoDuLieu();
                 xoaMaInput();
             }
             else{
-                $(idFormError).html(item.msg);
+                //$(idFormError).html(item.msg);
+                messageBox(item.msg);
             }   
         }
     }); 
@@ -602,11 +620,13 @@ function laySanPhamBan(){
         success: function(data){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
-                $(idFormError).html("");
+                //$(idFormError).html("");
+                messageBox('');
                 dongBoDuLieu();
             }
             else{
-                $(idFormError).html(item.msg);
+                //$(idFormError).html(item.msg);
+                messageBox(item.msg);
             }   
         }
     });
@@ -625,13 +645,15 @@ function capNhatSoLuongGrid(e,id){
             success: function(data){
                 var item = $.parseJSON(data);
                 if(item.status == 'ok'){
-                    $(idFormError).html("");
+                    //$(idFormError).html("");
+                    messageBox('');
                     dongBoDuLieu();
                     xoaMaInput();
                 }
                 else{
                     $('#sl_'+id).select();
-                    $(idFormError).html(item.msg);
+                    //$(idFormError).html(item.msg);
+                    messageBox(item.msg);
                 }   
             }
         });   
@@ -649,13 +671,15 @@ function capNhatSoLuong(ma_vach,so_luong){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
                 cur_ma_vach = "";
-                $(idFormError).html("");
+                //$(idFormError).html("");
+                messageBox('');
                 dongBoDuLieu();
                 chuyenDoiThaoTac(sAction.maVach);
             }
             else{
                 $(idMaInput).select();
-                $(idFormError).html(item.msg);
+                //$(idFormError).html(item.msg);
+                messageBox(item.msg);
             }   
         }
     });
@@ -673,12 +697,14 @@ function xoaSanPhamBan(id){
             var item = $.parseJSON(data);
             if(item.status == 'ok'){
                 cur_ma_vach = "";
-                $(idFormError).html("");
+                //$(idFormError).html("");
+                messageBox('');
                 dongBoDuLieu();
                 xoaMaInput();
             }
             else{
-                $(idFormError).html(item.msg);
+                //$(idFormError).html(item.msg);
+                messageBox(item.msg);
             }   
         }
     }); 

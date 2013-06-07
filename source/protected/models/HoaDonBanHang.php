@@ -307,17 +307,37 @@ class HoaDonBanHang extends BaseHoaDonBanHang
     public static function layTriGiaHoaDonThuc($hoa_don_ban_id){
         $model = HoaDonBanHang::model()->findByAttributes(array('id'=>$hoa_don_ban_id));
         $tri_gia_goc = $model->getBaseModel()->tri_gia;
+        $chiet_khau = $model->chiet_khau/100;
         if($model->trang_thai==1){
-            $tri_gia = Yii::app()->db->createCommand()
+            $tri_gia_hd_tra = Yii::app()->db->createCommand()
                 ->select('sum(tri_gia) tri_gia')
                 ->from('tbl_HoaDonTraHang hd,tbl_ChungTu ct')
                 ->where('hd.id=ct.id AND hoa_don_ban_id = :hoa_don_ban_id',array(':hoa_don_ban_id'=>$hoa_don_ban_id))
                 ->queryScalar();
-            return $tri_gia_goc-$tri_gia;
+            if($chiet_khau!=0){
+                $tri_gia_goc_chua_km = $tri_gia_goc/(1-$chiet_khau);
+                return ($tri_gia_goc_chua_km-$tri_gia_hd_tra)*(1-$chiet_khau);   
+            }
+            else{
+                return $tri_gia_goc-$tri_gia_hd_tra;
+            }
         }
         else{
             return $tri_gia_goc;
         }
+    }
+    
+    //kiem tra xem san pham nay co trong cac hoa don tra thuoc 1 hoa don ban khong
+    public static function kiemTraSanPhamTrongChiTietHoaDonTra($san_pham_id,$hoa_don_ban_id){
+        $ct_hd_tra = Yii::app()->db->createCommand()
+            ->select('*')
+            ->from('tbl_HoaDonTraHang hd,tbl_ChiTietHoaDonTra ct')
+            ->where('hd.id = ct.hoa_don_tra_id AND hoa_don_ban_id = :hoa_don_ban_id AND san_pham_id = :san_pham_id',
+                array(':hoa_don_ban_id'=>$hoa_don_ban_id,':san_pham_id'=>$san_pham_id))
+            ->queryScalar();
+        if($ct_hd_tra)
+            return true;
+        return false;
     }
 
 

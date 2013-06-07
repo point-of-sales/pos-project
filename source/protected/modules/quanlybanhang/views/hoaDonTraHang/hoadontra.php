@@ -162,7 +162,7 @@ $chi_tiet_hang_tang = $chiTietHangTang->getData();
                 ?>
                 <tr>
                     <td colspan="4">Số tiền trả lại</td>
-                    <td><span id="tri-gia-tien-tra"><?php echo number_format($tong,0,'.',',');?></span></td>
+                    <td><span id="tri-gia-tien-tra"><?php echo number_format($tong*(1-$hd_ban_hang->chiet_khau/100),0,'.',',');?></span></td>
                 </tr>
                 <tr>
                     <td colspan="5">Bằng chữ: <span class="float-right" id="tien-tra-bang-chu"></span></td>

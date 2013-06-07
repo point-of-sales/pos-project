@@ -30,9 +30,9 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
             'value' => $model->baseModel->ma_chung_tu,
         ),
         array(
-            'name' => 'Điện thoại',
+            'name' => 'Mã khách hàng',
             'type' => 'raw',
-            'value' => $model->khachHang->dien_thoai,
+            'value' => $model->khachHang->ma_khach_hang,
         ),
         array(
             'name' => Yii::t('viLib','Created date'),
@@ -40,9 +40,9 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
             'value' => date('d/m/Y - h:i:s',strtotime($model->baseModel->ngay_lap)),
         ),
         array(
-            'name' => 'Địa chỉ',
+            'name' => 'Điện thoại',
             'type' => 'raw',
-            'value' => $model->khachHang->dia_chi,
+            'value' => $model->khachHang->dien_thoai,
         ),
         array(
             'name' => Yii::t('viLib','Created employee'),
@@ -50,9 +50,9 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
             'value' => $model->baseModel->nhanVien->ho_ten,
         ),
         array(
-            'name' => 'Loại khách hàng',
+            'name' => 'Địa chỉ',
             'type' => 'raw',
-            'value' => $model->khachHang->loaiKhachHang->ten_loai,
+            'value' => $model->khachHang->dia_chi,
         ),
         array(
             'name' =>'Chi nhánh bán',
@@ -60,14 +60,24 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
             'value' => $model->baseModel->chiNhanh->ten_chi_nhanh,
         ),
         array(
+            'name' => 'Loại khách hàng',
+            'type' => 'raw',
+            'value' => $model->khachHang->loaiKhachHang->ten_loai,
+        ),
+        array(
+            'name' => 'Trị giá gốc',
+            'type' => 'raw',
+            'value' => number_format($model->baseModel->tri_gia,0,".",","),
+        ),
+        array(
             'name' => 'Giảm giá',
             'type' => 'raw',
             'value' => $model->chiet_khau.'%',
         ),
         array(
-            'name' => 'Trị giá',
+            'name' => 'Trị giá hiện tại',
             'type' => 'raw',
-            'value' => number_format($model->baseModel->tri_gia,0,".",","),
+            'value' => number_format(HoaDonBanHang::layTriGiaHoaDonThuc($model->id),0,".",","),
         ),
     ),
 )); 
@@ -97,6 +107,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'name' => 'Đơn giá',
             'value' => 'number_format($data->don_gia,0,".",",")',
         ),
+        array(
+            'name' => 'Trả hàng',
+            'value' => array($this,'gridCoTraHang'),
+            'type' => 'raw',
+            'htmlOptions' => array('class'=>'center'),
+        )
     )
 ));
 ?>
@@ -163,9 +179,6 @@ if(count($hdTraProvider->getData())!=0){
                     'name' => 'Lý do trả hàng',
                     'type' => 'raw',
                     'value' => $item->ly_do_tra_hang,
-                ),
-                array(
-                    'value' => '',
                 ),
             ),
         ));  

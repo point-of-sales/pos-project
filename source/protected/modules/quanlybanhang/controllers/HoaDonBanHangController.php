@@ -86,7 +86,7 @@ class HoaDonBanHangController extends CPOSController {
                 );
                 $tri_gia += $value*$_POST['don_gia'][$key];
             }
-            $post['ChungTu']['tri_gia'] = $tri_gia;
+            $post['ChungTu']['tri_gia'] = $tri_gia*(1-$model->chiet_khau/100);
             //print_r($post);exit;
             $result = $model->hoaDonTraHangs->them($post);
             switch($result) {
@@ -867,6 +867,14 @@ class HoaDonBanHangController extends CPOSController {
     
     public function gridTriGiaThuc($data,$row){
         return number_format(HoaDonBanHang::layTriGiaHoaDonThuc($data->id),0,".",",");
+    }
+    
+    public function gridCoTraHang($data,$row){
+        $result = '';
+        if(HoaDonBanHang::kiemTraSanPhamTrongChiTietHoaDonTra($data->san_pham_id,$data->hoaDonBanHang->id)){
+            $result = '<img alt="Trả Hàng" src="'.Yii::app()->theme->baseUrl.'/images/icons/return.png"/>';
+        }
+        return $result;
     }
     
 }

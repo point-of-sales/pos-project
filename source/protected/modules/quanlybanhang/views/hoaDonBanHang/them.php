@@ -50,7 +50,7 @@ echo '</pre>';
             <div id="form-hd-ban-ma">
             	<span id="form-hd-ban-ma-label">Mã vạch</span>
                 <span><input id="form-hd-ban-ma-input" type="text" onkeypress="keypressInputMa(event)" /></span>
-                <div id="form-hd-ban-error"></div>
+                <div class="" id="form-hd-ban-error"></div>
             </div>
         </div>
         <div id="form-hd-ban-info-right">
