@@ -447,16 +447,48 @@ class CPOSEExcelView extends EExcelView
         }
         $tmp = $this->dataProvider->getData();
         $chiTietHoaDonBan = $tmp[0];
-        $maChungTu = $chiTietHoaDonBan->hoaDonBanHang->chungTu->ma_chung_tu;
-        $ngayLap = $chiTietHoaDonBan->hoaDonBanHang->chungTu->ngay_lap;
-        $nhanVien = $chiTietHoaDonBan->hoaDonBanHang->chungTu->nhanVien->ho_ten;
+        $hoaDonBanHang = $chiTietHoaDonBan->hoaDonBanHang;
+        $khachHang = $chiTietHoaDonBan->hoaDonBanHang->khachHang;
+        
+        $maChungTu = $hoaDonBanHang->chungTu->ma_chung_tu;
+        $ngayLap = $hoaDonBanHang->chungTu->ngay_lap;
+        $giam_gia = $hoaDonBanHang->chiet_khau;
+        $nhanVien = $hoaDonBanHang->chungTu->nhanVien->ho_ten;
+        $chi_nhanh = $hoaDonBanHang->chungTu->chiNhanh->ten_chi_nhanh;
+        $tri_gia = $hoaDonBanHang->chungTu->tri_gia;
+        
+        $ma_khach_hang = $khachHang->ma_khach_hang;
+        $ten_khach_hang = $khachHang->ho_ten;
+        $dia_chi = $khachHang->dia_chi;
+        $dien_thoai = $khachHang->dien_thoai;
+        $loai_khach_hang = $khachHang->loaiKhachHang->ten_loai;
+        
 
         self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
         self::$activeSheet->setCellValue('C8', $maChungTu);
         self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
         self::$activeSheet->setCellValue('C9', $ngayLap);
-        self::$activeSheet->setCellValue('B10', Yii::t('viLib', 'Employee'));
+        self::$activeSheet->setCellValue('B10', 'Nhân viên lập hóa đơn');
         self::$activeSheet->setCellValue('C10', $nhanVien);
+        self::$activeSheet->setCellValue('B11', 'Chi nhánh bán');
+        self::$activeSheet->setCellValue('C11', $chi_nhanh);
+        //self::$activeSheet->setCellValue('B12', 'Trị giá');
+        //self::$activeSheet->setCellValue('C12', $tri_gia);
+        //self::$activeSheet->setCellValue('B12', 'Trị giá');
+        //self::$activeSheet->setCellValue('C12', $tri_gia);
+        
+        self::$activeSheet->setCellValue('D8', 'Mã khách hàng');
+        self::$activeSheet->setCellValue('E8', $ma_khach_hang);
+        self::$activeSheet->setCellValue('D9', 'Tên khách hàng');
+        self::$activeSheet->setCellValue('E9', $ten_khach_hang);
+        self::$activeSheet->setCellValue('D10', 'Điện thoại');
+        self::$activeSheet->setCellValue('E10', $dien_thoai);
+        self::$activeSheet->setCellValue('D11', 'Địa chỉ');
+        self::$activeSheet->setCellValue('E11', $dia_chi);
+        self::$activeSheet->setCellValue('D12', 'Loại khách hàng');
+        self::$activeSheet->setCellValue('E12', $loai_khach_hang);
+        //self::$activeSheet->setCellValue('D13', 'Giảm giá');
+        //self::$activeSheet->setCellValue('E13', $giam_gia);
 
     }
 

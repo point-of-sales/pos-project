@@ -27,7 +27,10 @@ $this->widget('CPOSEExcelView', array(
             'name' => 'Đơn giá',
             'value' => '$data->don_gia',
         ),
-
+        array(
+            'name' => 'Tổng cộng',
+            'value' => '$data->don_gia*$data->so_luong',
+        ),
 
     ),
 ));
