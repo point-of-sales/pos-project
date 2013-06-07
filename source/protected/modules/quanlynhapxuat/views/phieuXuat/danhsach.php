@@ -42,7 +42,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => Yii::t('viLib','Created date'),
-            'value' => '$data->getBaseModel()->ngay_lap'
+            'value' => 'date("d-m-Y",strtotime($data->getBaseModel()->ngay_lap))'
         ),
 
         array(

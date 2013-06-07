@@ -41,6 +41,11 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         $('#ChungTu_nhan_vien_id').focus(function(e){
             $(this).blur();
         });
+
+        $('.number').keypress(function(e){
+            return validKeypressNumber(e);
+        });
+
     });
 
     function keypressInputMa(e) {
@@ -60,6 +65,17 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                     calTotal();
 
                 }
+                break;
+            }
+            case 9:
+            {
+                if (ajaxTransferDataObject.checkBarCodeError()) {
+                    ajaxTransferDataObject.renderErrors();
+                    ajaxTransferDataObject.focusErrors();
+                    return false; //  ko cho thuc thi tiep
+                } else
+                    $(ajaxTransferDataObject.quantity).focus();
+                break;
             }
         }
     }
@@ -74,6 +90,28 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         this.exportBranch = "#ChungTu_chi_nhanh_id";
         this.addedItems.type = 1;  // 0. xuat tang - 1. xuat ban
     };
+
+    AjaxTransferData.prototype.checkBarCodeError = function() {
+        this.errors = new Array();
+        this.customInfoBoard = $('<div>').addClass('error');
+        if ($(this.barcode).val() === 'undefined') {
+            $('<p>', {
+                class: 'custom-error-messages'
+            }).text('<?php print(Yii::t('viLib','Product is undefined. Please type a barcode'))?>').appendTo(this.customInfoBoard);
+            this.errors.push(1);
+
+        }
+        else {
+            if (!this.getProduct(this.url, $(this.barcode).val())) {
+                // neu san pham chua co trong danh sach san pham. Lam thong bao loi dua vao trong info-message
+                $('<p>', {
+                    class: 'custom-error-messages'
+                }).text('<?php print(Yii::t('viLib','Product not found. Please try another barcode'))?>').appendTo(this.customInfoBoard);
+                this.errors.push(1);
+            }
+        }
+        return this.errors.length > 0;
+    }
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
@@ -253,8 +291,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                 '<input type="hidden" value="' + item.id + '" id="" />' +
                 '<td>' + item.ma_vach + '<input type="hidden" name="ma_vach[]" value="' + item.ma_vach + '"/>' + '</td>' +
                 '<td>' + item.ten_san_pham + '<input type="hidden" name="ten_san_pham[]" value="' + item.ten_san_pham + '"/>' + '</td>' +
-                '<td>' + '<input type="text" name="so_luong[]" onblur="return changeQuantity(' + item.id + ')" value="' + item.so_luong + '" id="sl_' + item.id + '" class="number" />' + '</td>' +
-                '<td>' + '<input type="text" name="gia_xuat[]" onblur="return changePrice(' + item.id + ')" value="' + item.gia_xuat + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<input type="text" name="so_luong[]" onkeypress="return validKeypressNumber(event)" onblur="return changeQuantity(' + item.id + ')" value="' + item.so_luong + '" id="sl_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<input type="text" name="gia_xuat[]" onkeypress="return validKeypressNumber(event)" onblur="return changePrice(' + item.id + ')" value="' + item.gia_xuat + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
                 '<td>' + '<a href="#" onclick="return ajaxTransferDataObject.removeItem(' + item.id + ')">' + '<img src="<?php echo Yii::app()->theme->baseUrl . '/images/delete.png'?>" id="cl_' + item.id + '" class="clearitems" alt="Xóa"/>' + '</a>' + '</td>' +
 
                 '</tr>';
@@ -276,8 +314,13 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         for (var i = 0; i < ajaxTransferDataObject.addedItems.items.length; i++) {
             total = total + ajaxTransferDataObject.addedItems.items[i].so_luong * ajaxTransferDataObject.addedItems.items[i].gia_xuat;
         }
+        var total_formated_number  = number_format(total,0,'.',',');
         $('#ChungTu_tri_gia').val(total);
+        $('#tri_gia_number').val(total_formated_number);
+
     }
+
+
 
     function changeQuantity(id) {
         var newData = {

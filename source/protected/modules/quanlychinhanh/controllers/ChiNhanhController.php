@@ -218,4 +218,27 @@ class ChiNhanhController extends CPOSController
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
 
+
+
+    public function actionAjaxActiveStatusGiftProduct($cnid, $spid){
+
+        if (Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.AjaxActiveStatusGiftProduct')) {
+          //  if (Yii::app()->request->isAjaxRequest) {
+                if (isset($cnid) && isset($spid)) {
+                    $sanPhamTangChiNhanh = $this->loadModel(array('san_pham_tang_id' => $spid, 'chi_nhanh_id' => $cnid), 'SanPhamTangChiNhanh');
+                    if ($sanPhamTangChiNhanh->trang_thai == '')
+                        $sanPhamTangChiNhanh->trang_thai = 1;
+                    else {
+                        $sanPhamTangChiNhanh->trang_thai = ($sanPhamTangChiNhanh->trang_thai) ? 0 : 1;
+                    }
+                    if ($sanPhamTangChiNhanh->save(false))
+                        echo 'ok';
+                }
+           /* } else
+                throw new CHttpException(404, 'Page not found');*/
+        } else
+
+            throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+    }
+
 }

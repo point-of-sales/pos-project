@@ -1,5 +1,6 @@
 <?php
 Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/BaseAjaxTransferData.js');
+
 ?>
     <script>
     // ===================================== GLOBAL AREA ============================================
@@ -10,9 +11,9 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
     $(window).load(function () {
         // When grid is empty and data is exist on session. Fill grid again with data from the session
         if (ajaxTransferDataObject.isEmptyGrid()) {
-            var isEmptySession = <?php echo (Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuat'))?1:0?>;
+            var isEmptySession = <?php echo (Yii::app()->CPOSSessionManager->isEmpty('ChiTietPhieuXuatSanPhamTang'))?1:0?>;
             if (!isEmptySession) {
-                ajaxTransferDataObject.addedItems = <?php echo json_encode(Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuXuat'))?>;
+                ajaxTransferDataObject.addedItems = <?php echo json_encode(Yii::app()->CPOSSessionManager->getItem('ChiTietPhieuXuatSanPhamTang'))?>;
                 // Refill grid
                 $.each(ajaxTransferDataObject.addedItems.items, function (key, value) {
                     var item = ajaxTransferDataObject.addedItems.items[key];
@@ -32,15 +33,23 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
             }
         });
 
-        $('#ChungTu_chi_nhanh_id').focus(function(e){
+        <?php if(RightsWeight::getRoleWeight(Yii::app()->user->id)<999):?>
+        $('#ChungTu_chi_nhanh_id').focus(function (e) {
+            $(this).blur();
+        });
+        <?php endif;?>
+
+
+        $('#ChungTu_nhan_vien_id').focus(function (e) {
             $(this).blur();
         });
 
-        $('#ChungTu_nhan_vien_id').focus(function(e){
-            $(this).blur();
+        $('.number').keypress(function (e) {
+            return validKeypressNumber(e);
         });
 
     });
+
 
     function keypressInputMa(e) {
         switch (e.keyCode) {
@@ -59,6 +68,17 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                     calTotal();
 
                 }
+                break;
+            }
+            case 9:
+            {
+                if (ajaxTransferDataObject.checkBarCodeError()) {
+                    ajaxTransferDataObject.renderErrors();
+                    ajaxTransferDataObject.focusErrors();
+                    return false; //  ko cho thuc thi tiep
+                } else
+                    $(ajaxTransferDataObject.quantity).focus();
+                break;
             }
         }
     }
@@ -71,8 +91,32 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
         this.quantity = "#quantity";
         this.price = "#price";
         this.exportBranch = "#ChungTu_chi_nhanh_id";
+        this.addedItems.type = 0;  // 0. xuat tang - 1. xuat ban
     }
     ;
+
+    AjaxTransferData.prototype.checkBarCodeError = function () {
+        this.errors = new Array();
+        this.customInfoBoard = $('<div>').addClass('error');
+        if ($(this.barcode).val() === 'undefined') {
+            $('<p>', {
+                class: 'custom-error-messages'
+            }).text('<?php print(Yii::t('viLib','Product is undefined. Please type a barcode'))?>').appendTo(this.customInfoBoard);
+            this.errors.push(1);
+
+        }
+        else {
+            if (!this.getProduct(this.url, $(this.barcode).val())) {
+                // neu san pham chua co trong danh sach san pham. Lam thong bao loi dua vao trong info-message
+                $('<p>', {
+                    class: 'custom-error-messages'
+                }).text('<?php print(Yii::t('viLib','Product not found. Please try another barcode'))?>').appendTo(this.customInfoBoard);
+                this.errors.push(1);
+            }
+        }
+        return this.errors.length > 0;
+    }
+
 
     AjaxTransferData.prototype.fillItemsToGrid = function () {
         var item = $.parseJSON(this.dataStored);
@@ -244,8 +288,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/B
                 '<input type="hidden" value="' + item.id + '" id="" />' +
                 '<td>' + item.ma_vach + '<input type="hidden" name="ma_vach[]" value="' + item.ma_vach + '"/>' + '</td>' +
                 '<td>' + item.ten_san_pham + '<input type="hidden" name="ten_san_pham[]" value="' + item.ten_san_pham + '"/>' + '</td>' +
-                '<td>' + '<input type="text" name="so_luong[]" onblur="return changeQuantity(' + item.id + ')" value="' + item.so_luong + '" id="sl_' + item.id + '" class="number" />' + '</td>' +
-                '<td>' + '<input type="text" name="gia_tang[]" onblur="return changePrice(' + item.id + ')" value="' + item.gia_tang + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<input type="text" name="so_luong[]" onkeypress="return validKeypressNumber(event)" onblur="return changeQuantity(' + item.id + ')" value="' + item.so_luong + '" id="sl_' + item.id + '" class="number" />' + '</td>' +
+                '<td>' + '<input type="text" name="gia_tang[]" onkeypress="return validKeypressNumber(event)" onblur="return changePrice(' + item.id + ')" value="' + item.gia_tang + '" id="dg_' + item.id + '" class="number" />' + '</td>' +
                 '<td>' + '<a href="#" onclick="return ajaxTransferDataObject.removeItem(' + item.id + ')">' + '<img src="<?php echo Yii::app()->theme->baseUrl . '/images/delete.png'?>" id="cl_' + item.id + '" class="clearitems" alt="Xóa"/>' + '</a>' + '</td>' +
 
                 '</tr>';

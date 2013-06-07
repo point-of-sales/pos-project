@@ -1,5 +1,4 @@
 <div class="form">
-
     <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
         <div class="response-msg error ui-corner-all info-board">
             <p><?php echo Yii::app()->user->getFlash('info-board'); ?></p>
@@ -23,13 +22,13 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ma_chung_tu'); ?>
-            <?php echo $form->textField($model->baseModel, 'ma_chung_tu',array('readonly'=>'readonly','style'=>'font-weight:bold')); ?>
+            <?php echo $form->textField($model->baseModel, 'ma_chung_tu', array("class" => "readonly-elem", 'style' => 'font-weight:bold')); ?>
             <?php echo $form->error($model->baseModel, 'ma_chung_tu'); ?>
         </div>
         <!-- row -->
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ngay_lap'); ?>
-            <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+            <?php /*$form->widget('zii.widgets.jui.CJuiDatePicker', array(
                 'model' => $model->baseModel,
                 'attribute' => 'ngay_lap',
                 'value' => (!empty($model->baseModel->ngay_lap)) ? $model->baseModel->ngay_lap : $model->baseModel->setAttribute('ngay_lap', date('d-m-Y', time())),
@@ -38,13 +37,15 @@
                     'changeYear' => true,
                     'dateFormat' => 'dd-mm-yy',
                 ),
-            ));; ?>
+            ));; */
+            ?>
+            <?php echo $form->textField($model->baseModel, 'ngay_lap', array('value' => !empty($model->baseModel->ngay_lap) ? $model->baseModel->ngay_lap : date('d-m-Y', time()), "class" => "readonly-elem")) ?>
             <?php echo $form->error($model->baseModel, 'ngay_lap'); ?>
         </div>
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten"),array("options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(), null, "ho_ten"), array("class" => "readonly-elem", "options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 
@@ -52,17 +53,6 @@
             <?php echo $form->labelEx($model->baseModel, 'chi_nhanh_id'); ?>
             <?php echo $form->dropDownList($model->baseModel, 'chi_nhanh_id', GxHtml::listDataEx(ChiNhanh::layDanhSachChiNhanhKichHoatTrongHeThongTheoNguoiDung(), null, "ten_chi_nhanh"), array("options" => array(NhanVien::model()->findByPk(Yii::app()->user->id)->chiNhanh->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'chi_nhanh_id'); ?>
-        </div>
-
-        <div class="row cus-row">
-            <?php echo $form->labelEx($model->baseModel, 'tri_gia'); ?>
-            <?php
-            if (!empty($model->baseModel->tri_gia))
-                echo $form->textField($model->baseModel, 'tri_gia', array('class' => 'number', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency');
-            else
-
-                echo $form->textField($model->baseModel, 'tri_gia', array('class' => 'number', 'value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
-            <?php echo $form->error($model->baseModel, 'tri_gia'); ?>
         </div>
 
 
@@ -108,22 +98,12 @@
         </div>
 
         <div class="row cus-row">
-            <?php echo GxHtml::label(Yii::t('viLib', 'Export price'), 'export-price') ?>
+            <?php echo GxHtml::label(Yii::t('viLib', 'Bill value for offering'), 'gift-price') ?>
             <?php echo GxHtml::textField('price', 0, array('class' => 'number', 'onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
-        <div class="row cus-row">
-            <?php /*echo GxHtml::ajaxLink(
-                Yii::t('viLib','Add product to list'),
-                Yii::app()->createUrl(array('phieuNhap/AjaxCheckProduct'),
-                // options
-
-                ))*/
-            ?>
-        </div>
-
-
     </div>
+
     <div class="detail-voucher">
         <div id="grid" class="grid-view">
             <table id="items" class="items">
@@ -131,7 +111,7 @@
                     <th id="grid_c0"><?php echo Yii::t('viLib', 'Barcode') ?></th>
                     <th id="grid_c1"><?php echo Yii::t('viLib', 'Product name') ?></th>
                     <th id="grid_c2"><?php echo Yii::t('viLib', 'Quantity') ?></th>
-                    <th id="grid_c3"><?php echo Yii::t('viLib', 'Export price') ?>
+                    <th id="grid_c3"><?php echo Yii::t('viLib', 'Gift price') ?></th>
                     <th id="grid_c4" class="button-column"></th>
                 </tr>
             </table>

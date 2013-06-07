@@ -59,10 +59,10 @@
             <?php echo $form->labelEx($model->baseModel, 'tri_gia'); ?>
             <?php
             if (!empty($model->baseModel->tri_gia))
-                echo $form->textField($model->baseModel, 'tri_gia', array('class' => 'number', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency');
+                echo $form->hiddenField($model->baseModel, 'tri_gia', array('class' => 'number', 'readOnly' => 'readOnly'));
             else
-
-                echo $form->textField($model->baseModel, 'tri_gia', array('class' => 'number', 'value' => '0', 'readOnly' => 'readOnly')) . ' ' . Yii::t('viLib', 'Currency'); ?>
+                echo $form->hiddenField($model->baseModel, 'tri_gia', array('class' => 'number', 'value' => '0', 'readOnly' => 'readOnly')); ?>
+            <?php echo CHtml::textField('tri_gia_number',0,array('class'=>'number','readonly'=>'readonly'))?>
             <?php echo $form->error($model->baseModel, 'tri_gia'); ?>
         </div>
 

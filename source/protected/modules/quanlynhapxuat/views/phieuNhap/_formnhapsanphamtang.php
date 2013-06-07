@@ -23,7 +23,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'ma_chung_tu'); ?>
-            <?php echo $form->textField($model->baseModel, 'ma_chung_tu',array("class"=>"readonly-elem",'style'=>'font-weight:bold')); ?>
+            <?php echo $form->textField($model->baseModel, 'ma_chung_tu', array("class" => "readonly-elem", 'style' => 'font-weight:bold')); ?>
             <?php echo $form->error($model->baseModel, 'ma_chung_tu'); ?>
         </div>
         <!-- row -->
@@ -38,14 +38,15 @@
                     'changeYear' => true,
                     'dateFormat' => 'dd-mm-yy',
                 ),
-            ));; */?>
-            <?php echo $form->textField($model->baseModel,'ngay_lap',array('value'=>!empty($model->baseModel->ngay_lap) ? $model->baseModel->ngay_lap :  date('d-m-Y', time()),"class"=>"readonly-elem"))?>
+            ));; */
+            ?>
+            <?php echo $form->textField($model->baseModel, 'ngay_lap', array('value' => !empty($model->baseModel->ngay_lap) ? $model->baseModel->ngay_lap : date('d-m-Y', time()), "class" => "readonly-elem")) ?>
             <?php echo $form->error($model->baseModel, 'ngay_lap'); ?>
         </div>
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model->baseModel, 'nhan_vien_id'); ?>
-            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(),null,"ho_ten"),array("class"=>"readonly-elem","options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
+            <?php echo $form->dropDownList($model->baseModel, 'nhan_vien_id', GxHtml::listDataEx(NhanVien::model()->findAll(), null, "ho_ten"), array("class" => "readonly-elem", "options" => array(Yii::app()->user->id => array("selected" => "selected")))); ?>
             <?php echo $form->error($model->baseModel, 'nhan_vien_id'); ?>
         </div>
 
@@ -63,7 +64,7 @@
 
         <div class="row cus-row">
             <?php echo $form->labelEx($model, 'nha_cung_cap_id'); ?>
-            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAll(),null,"ten_nha_cung_cap"), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
+            <?php echo $form->dropDownList($model, 'nha_cung_cap_id', GxHtml::listDataEx(NhaCungCap::model()->findAll(), null, "ten_nha_cung_cap"), array('disabled' => 'true', 'prompt' => Yii::t('viLib', 'No supplier'))); ?>
             <?php echo $form->error($model, 'nha_cung_cap_id'); ?>
         </div>
 
@@ -102,9 +103,9 @@
             <?php echo GxHtml::textField('price', 0, array('class' => 'number', 'onkeypress' => 'keypressInputMa(event)')) ?>
         </div>
 
-        <!--<label><?php /*echo GxHtml::encode($model->getRelationLabel('tblSanPhams'));*/?></label>
-        --><?php /*echo $form->checkBoxList($model, 'tblSanPhams', GxHtml::encodeEx(GxHtml::listDataEx(SanPham::model()->findAllAttributes(null, true)), false, true));  */ ?>
+
     </div>
+
     <div class="detail-voucher">
         <div id="grid" class="grid-view">
             <table id="items" class="items">
@@ -112,7 +113,7 @@
                     <th id="grid_c0"><?php echo Yii::t('viLib', 'Barcode') ?></th>
                     <th id="grid_c1"><?php echo Yii::t('viLib', 'Product name') ?></th>
                     <th id="grid_c2"><?php echo Yii::t('viLib', 'Quantity') ?></th>
-                    <th id="grid_c3"><?php echo Yii::t('viLib', 'Gift price') ?>
+                    <th id="grid_c3"><?php echo Yii::t('viLib', 'Gift price') ?></th>
                     <th id="grid_c4" class="button-column"></th>
                 </tr>
             </table>
@@ -123,7 +124,7 @@
 
     <div class="btn-save">
         <?php
-        echo GxHtml::submitButton(Yii::t('viLib', 'Save'),array('onclick'=>'return reCheckBeforeSent()'));
+        echo GxHtml::submitButton(Yii::t('viLib', 'Save'), array('onclick' => 'return reCheckBeforeSent()'));
         $this->endWidget();
         ?>
     </div>

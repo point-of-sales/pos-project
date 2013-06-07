@@ -1,3 +1,4 @@
+
 <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
     <div class="response-msg error ui-corner-all info-board">
         <?php echo Yii::app()->user->getFlash('info-board'); ?>
@@ -39,7 +40,6 @@ $this->menu = array(
             'name' => 'trang_thai',
             'value' => $model->layTenTrangThai(),
         ),
-
         array(
             'name' => 'trucThuoc',
             'type' => 'raw',

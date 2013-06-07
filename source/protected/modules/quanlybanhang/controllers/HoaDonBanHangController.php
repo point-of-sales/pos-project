@@ -268,6 +268,7 @@ class HoaDonBanHangController extends CPOSController {
         $model->unsetAttributes();
         if (isset($_GET['ChungTu']))
         {
+            $model->khachHang->ma_khach_hang = $_GET['KhachHang']['ma_khach_hang'];
             $model->setAttributes($_GET);
         }
         $this->render('danhsach', array(

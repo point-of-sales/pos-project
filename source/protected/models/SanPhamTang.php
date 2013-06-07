@@ -203,4 +203,15 @@ class SanPhamTang extends BaseSanPhamTang
             ->queryScalar();
     }
 
+    public function layDanhSachChiNhanh()
+    {
+        $chiNhanh = new ChiNhanh();
+        $chiNhanh->san_pham_id = $this->id;
+        $dataProvider = $chiNhanh->searchSanPhamTang();
+        $danhSachChiNhanh = $dataProvider->getData();
+        foreach ($danhSachChiNhanh as $chiNhanhCon)
+            $chiNhanhCon->san_pham_id = $this->id;
+
+        return $dataProvider;
+    }
 }

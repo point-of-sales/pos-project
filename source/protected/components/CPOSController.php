@@ -83,7 +83,7 @@ abstract class CPOSController extends GxController
             if ($columnSchema->dbType == 'date')
                 $model->formatDate($column);
             if ($columnSchema->dbType == 'datetime')
-                $model->formatDate($column,'d-m-Y h:i:s');
+                $model->formatDate($column, 'd-m-Y h:i:s');
 
         }
 
@@ -98,13 +98,14 @@ abstract class CPOSController extends GxController
             if (isset($ma_vach))
                 $model = SanPham::model()->findByAttributes(array('ma_vach' => $ma_vach));
 
-            $item = array(
-                'id' => $model->getAttribute('id'),
-                'ma_vach' => $model->getAttribute('ma_vach'),
-                'ten_san_pham' => $model->getAttribute('ten_san_pham'),
-                'gia_goc' => $model->getAttribute('gia_goc'),
-            );
-            echo json_encode($item);
+                $item = array(
+                    'id' => $model->getAttribute('id'),
+                    'ma_vach' => $model->getAttribute('ma_vach'),
+                    'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+                    'gia_goc' => $model->getAttribute('gia_goc'),
+                );
+                echo json_encode($item);
+
         } else
             throw new CHttpException(400, Yii::t('viLib', 'Your request is invalid.'));
     }

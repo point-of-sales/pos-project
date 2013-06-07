@@ -26,7 +26,7 @@ $this->menu = array(
         array(
             'name' => Yii::t('viLib','Created date'),
             'type' => 'raw',
-            'value' => $model->baseModel->ngay_lap,
+            'value' => date('d-m-Y',strtotime($model->baseModel->ngay_lap)),
         ),
 
         array(

@@ -12,7 +12,14 @@ class PhieuXuatController extends CPOSController
             $criteria = new CDbCriteria();
             $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
             $criteria->params = array(':phieu_xuat_id' => $id);
+
             $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
+
+            if(count($chiTietPhieuXuatDataProvider->getData())==0) {
+                // load chi tiet cua san pham tang
+                $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuatSanPhamTang', array('criteria' => $criteria));
+
+            }
             $this->render('chitiet', array(
                 'model' => $model,
                 'dataProvider' => $chiTietPhieuXuatDataProvider,
@@ -21,7 +28,7 @@ class PhieuXuatController extends CPOSController
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
 
-    public function actionChiTietXuatSanPhamTang($id)
+    /*public function actionChiTietXuatSanPhamTang($id)
     {
         if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.ChiTietXuatSanPhamTang')) {
             $model = $this->loadModel($id, 'PhieuXuat');
@@ -36,7 +43,7 @@ class PhieuXuatController extends CPOSController
             ));
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
-    }
+    }*/
 
     public function actionThem($id = null)
     {
@@ -97,7 +104,7 @@ class PhieuXuatController extends CPOSController
                         if (Yii::app()->getRequest()->getIsAjaxRequest())
                             Yii::app()->end();
                         else
-                            $this->redirect(array('chitietxuatsanphamtang', 'id' => $model->id));
+                            $this->redirect(array('chitiet', 'id' => $model->id));
                         break;
                     }
                     case 'dup-error':

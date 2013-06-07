@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs = array(
-	'Quản lý bán hàng' => array('hoaDonBanHang/danhsach'),
+    'Quản lý bán hàng' => array('hoaDonBanHang/danhsach'),
     'Danh sách hóa đơn bán',
 );
 
 $this->menu = array(
-array('label'=>Yii::t('viLib', 'Create') . ' ' . 'Hóa đơn bán hàng', 'url'=>array('them')),
-array('label'=>Yii::t('viLib', 'List') . ' ' . 'Hóa đơn trả hàng', 'url'=>array('hoaDonTraHang/danhsach')),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . 'Hóa đơn bán hàng', 'url' => array('them')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . 'Hóa đơn trả hàng', 'url' => array('hoaDonTraHang/danhsach')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -19,14 +19,14 @@ return false;
 ");
 ?>
 
-<h1><?php echo Yii::t('viLib', 'List') . ' ' . 'Hóa Đơn Bán Hàng' ?></h1>
+    <h1><?php echo Yii::t('viLib', 'List') . ' ' . 'Hóa Đơn Bán Hàng' ?></h1>
 
 
-<div class="search-form">
-    <?php $this->renderPartial('_search', array(
-	'model' => $model,
-)); ?>
-</div><!-- search-form -->
+    <div class="search-form">
+        <?php $this->renderPartial('_search', array(
+            'model' => $model,
+        )); ?>
+    </div><!-- search-form -->
 
 <?php
 

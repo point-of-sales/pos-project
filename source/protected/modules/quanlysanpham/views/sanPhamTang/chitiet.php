@@ -36,7 +36,29 @@ $this->menu = array(
 
 ?>
 
-    <h2><?php //echo GxHtml::encode($model->getRelationLabel('tblChiNhanhs')); ?></h2>
+<?php // Cua hang chua san pham ?>
+    <div class="sub-title">
+        <p><?php echo Yii::t('viLib', 'Stored at branch') ?></p>
+    </div>
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'chi-nhanh-grid',
+    'dataProvider' => $model->layDanhSachChiNhanh(),
+    'columns' => array(
+        'ma_chi_nhanh',
+        'ten_chi_nhanh',
+        array('name' => Yii::t('viLib', 'Instock'),
+            'value' => '$data->laySoLuongTonSanPhamTang()'),
+
+    ),
+
+));
+?>
+
+<?php
+echo GxHtml::encode(Yii::t('viLib','Total quantity') .' : '.  $model->layTongSoLuongTon());
+?>
+
 <?php
 /*echo GxHtml::openTag('ul');
 foreach($model->tblChiNhanhs as $relatedModel) {

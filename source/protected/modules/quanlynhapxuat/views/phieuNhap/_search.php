@@ -6,8 +6,8 @@
     )); ?>
 
     <div class="row cus-row">
-        <?php echo GxHtml::label(Yii::t('viLib','Voucher code'),'id'); ?>
-        <?php echo $form->dropDownList($model->baseModel, 'id', GxHtml::listDataEx($model->baseModel->layDanhSachChuntTuPhieuNhap()), array('prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php echo GxHtml::label(Yii::t('viLib','Voucher code'),'ma_chung_tu'); ?>
+        <?php echo $form->textField($model->baseModel, 'ma_chung_tu'); ?>
     </div>
 
     <div class="row cus-row">
@@ -17,7 +17,7 @@
 
     <div class="row cus-row">
         <?php echo $form->label($model, 'chi_nhanh_xuat_id'); ?>
-        <?php echo $form->dropDownList($model, 'chi_nhanh_xuat_id', GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)), array('prompt' => Yii::t('viLib', 'All'))); ?>
+        <?php echo $form->dropDownList($model, 'chi_nhanh_xuat_id', GxHtml::listDataEx(ChiNhanh::model()->findAll(),null,"ten_chi_nhanh"), array('prompt' => Yii::t('viLib', 'All'))); ?>
     </div>
 
     <div class="row buttons btn-search">

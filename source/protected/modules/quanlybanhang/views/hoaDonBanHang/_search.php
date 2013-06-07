@@ -31,6 +31,13 @@
         ));; ?>
     </div>
 
+    <div class="row cus-row">
+        <?php echo $form->label($model, 'trang_thai'); ?>
+        <div class="radio-list">
+            <?php echo $form->radioButtonList($model, 'trang_thai', $model->layDanhSachTrangThai()); ?>
+        </div>
+    </div>
+
     <div class="row buttons btn-search">
 
         <?php echo GxHtml::submitButton(Yii::t('viLib', 'Search')); ?>

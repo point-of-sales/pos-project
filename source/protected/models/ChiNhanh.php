@@ -170,6 +170,18 @@ class ChiNhanh extends BaseChiNhanh
         return ($soLuongTon == '') ? 0 : $soLuongTon;
     }
 
+    public function laySoLuongTonSanPhamTang()
+    {
+        $soLuongTon = $command = Yii::app()->db->createCommand()
+            ->select('so_ton')
+            ->from('tbl_ChiNhanh,tbl_SanPhamTangChiNhanh')
+            ->where('tbl_ChiNhanh.id=tbl_SanPhamTangChiNhanh.chi_nhanh_id')
+            ->andWhere('tbl_ChiNhanh.id=:id', array(':id' => $this->id))
+            ->andWhere('tbl_SanPhamTangChiNhanh.san_pham_tang_id=:san_pham_tang_id', array(':san_pham_tang_id' => $this->san_pham_id))
+            ->queryScalar();
+        return ($soLuongTon == '') ? 0 : $soLuongTon;
+    }
+
     /*
      * Kiem tra chi nhanh co khuyen mai hay khong
      */
@@ -191,6 +203,33 @@ class ChiNhanh extends BaseChiNhanh
             $criteria->with = 'tblSanPhams';
             $criteria->together = true;
             $criteria->compare('tblSanPhams.id', $this->san_pham_id, true);
+        }
+        $numberRecords = $cauHinh->so_muc_tin_tren_trang;
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>$numberRecords,
+            ),
+        ));
+    }
+
+    public function searchSanPhamTang()
+    {
+        $criteria = new CDbCriteria;
+        $cauHinh = CauHinh::model()->findByPk(1);
+
+        $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
+        $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
+
+        $criteria->compare('trang_thai', $this->trang_thai);
+        $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
+        $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
+
+        if (!empty($this->san_pham_id)) {
+            $criteria->with = 'tblSanPhamTangs';
+            $criteria->together = true;
+            $criteria->compare('tblSanPhamTangs.id', $this->san_pham_id, true);
         }
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 

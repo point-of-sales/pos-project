@@ -27,7 +27,7 @@ $this->menu = array(
         array(
             'name' => Yii::t('viLib', 'Created date'),
             'type' => 'raw',
-            'value' => $model->baseModel->ngay_lap,
+            'value' => date('d-m-Y',strtotime($model->baseModel->ngay_lap)),
         ),
 
         array(
@@ -66,10 +66,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'columns' => array(
         array(
             'name' => Yii::t('viLib', 'Barcode'),
-            'value' => '$data->sanPham->ma_vach',
+            'value' => '($data instanceof ChiTietPhieuXuatSanPhamTang)?$data->sanPhamTang->ma_vach:$data->sanPham->ma_vach',
         ),
         array('name' => Yii::t('viLib', 'Product name'),
-            'value' => '$data->sanPham->ten_san_pham'
+            'value' => '($data instanceof ChiTietPhieuXuatSanPhamTang)?$data->sanPhamTang->ten_san_pham:$data->sanPham->ten_san_pham'
         ),
         array(
             'name' => Yii::t('viLib', 'Quantity'),
@@ -77,11 +77,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => Yii::t('viLib', 'Export price'),
-            'value' => 'number_format(floatval($data->gia_xuat),0,".",",")',
+            'value' => '($data instanceof ChiTietPhieuXuatSanPhamTang)?"":number_format(floatval($data->gia_xuat),0,".",",")',
+            'visible'=>($dataProvider->modelClass=='ChiTietPhieuXuat')?true:false,
         )
     )
 )); ?>
-    <h2><?php //echo GxHtml::encode($model->getRelationLabel('tblSanPhams')); ?></h2>
 <?php
 /*echo GxHtml::openTag('ul');
 foreach($model->tblSanPhams as $relatedModel) {

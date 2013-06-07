@@ -141,10 +141,12 @@ class PhieuNhap extends BasePhieuNhap
     {
         $criteria = new CDbCriteria;
         $cauHinh = CauHinh::model()->findByPk(1);
-        $criteria->compare('id', $this->id);
+        $criteria->with = 'chungTu';
+        $criteria->together = true;
+        $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
         $criteria->compare('loai_nhap_vao', $this->loai_nhap_vao);
         $criteria->compare('chi_nhanh_xuat_id', $this->chi_nhanh_xuat_id);
-
+        $criteria->order = 'chungTu.ngay_lap DESC';
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(

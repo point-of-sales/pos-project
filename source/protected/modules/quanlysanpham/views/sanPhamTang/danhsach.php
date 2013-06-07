@@ -36,11 +36,14 @@ return false;
     'columns' => array(
         'ma_vach',
         'ten_san_pham',
-        'gia_tang',
+        array(
+            'name'=>'gia_tang',
+            'value'=>'number_format(floatval($data->gia_tang),0,".",",")',
+        ),
         'thoi_gian_bat_dau',
         'thoi_gian_ket_thuc',
         array('name' => Yii::t('viLib', 'Instock'),
-            'value' => '$data->layTongSoLuongTon()',
+            'value' => 'number_format(floatval($data->layTongSoLuongTon()),0,".",",")',
         ),
         array(
             'class' => 'CButtonColumn',

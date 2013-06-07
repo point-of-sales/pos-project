@@ -180,12 +180,12 @@ class HoaDonBanHang extends BaseHoaDonBanHang
     {
         $criteria = new CDbCriteria;
         $cauHinh = CauHinh::model()->findByPk(1);
-        $criteria->with = 'chungTu';
+        $criteria->with = array('chungTu', 'khachHang');
         $criteria->together = true;
-        //$criteria->compare('id', $this->id);
+
         $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
         $criteria->compare('chiet_khau', $this->chiet_khau);
-        $criteria->compare('khach_hang_id', $this->khach_hang_id,true);
+        $criteria->compare('khachHang.ma_khach_hang', $this->khachHang->ma_khach_hang,true);
         $criteria->order = 'chungTu.ngay_lap DESC';
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
