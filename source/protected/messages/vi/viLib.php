@@ -323,4 +323,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Quantity must have greater than zero'=>'Số lượng phải lớn hơn 0',
     'Gift price'=>'Giá tặng',
     'Gift Product'=>'Sản phẩm tặng',
+    'Return'=>'Trả hàng',
 );

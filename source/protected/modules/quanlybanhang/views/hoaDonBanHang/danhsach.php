@@ -29,7 +29,6 @@ return false;
     </div><!-- search-form -->
 
 <?php
-
 $this->widget('zii.widgets.grid.CGridView', array(
 'id' => 'grid',
 'dataProvider' => $model->search(),

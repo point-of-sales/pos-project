@@ -67,6 +67,7 @@ abstract class CPOSBaseChungTu extends CPOSActiveRecord {
 
     public function setAttributes($attributes=null,$safeOnly=true) {
         if(isset($attributes)) {
+
             parent::setAttributes($attributes[get_class($this)],$safeOnly);
             $this->baseModel->setAttributes($attributes[$this->baseTableName]);
 

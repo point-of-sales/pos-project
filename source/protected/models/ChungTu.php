@@ -4,6 +4,9 @@ Yii::import('application.models._base.BaseChungTu');
 
 class ChungTu extends BaseChungTu
 {
+
+    public $ngay_ket_thuc;   // ngay ket thuc tim kiem hoa don ban hang
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);

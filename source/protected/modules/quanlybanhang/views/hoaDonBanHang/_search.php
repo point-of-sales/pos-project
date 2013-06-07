@@ -32,7 +32,20 @@
     </div>
 
     <div class="row cus-row">
-        <?php echo $form->label($model, 'trang_thai'); ?>
+        Ngày kết thúc
+        <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
+            'name'=>'ngay_ket_thuc',
+            //'value' => $model->ngay_sinh,
+            'options' => array(
+                'showButtonPanel' => true,
+                'changeYear' => true,
+                'dateFormat' => 'dd-mm-yy',
+            ),
+        ));; ?>
+    </div>
+
+    <div class="row cus-row">
+        <?php echo Yii::t('viLib','Return'); ?>
         <div class="radio-list">
             <?php echo $form->radioButtonList($model, 'trang_thai', $model->layDanhSachTrangThai()); ?>
         </div>

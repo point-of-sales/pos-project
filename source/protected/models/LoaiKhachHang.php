@@ -108,7 +108,7 @@ class LoaiKhachHang extends BaseLoaiKhachHang
     public static function layLoaiKhachHangHienTai($doanh_so){
         return Yii::app()->db->createCommand()
             ->select('*')
-            ->from('tbl_loaikhachhang')
+            ->from('tbl_LoaiKhachHang')
             ->where('doanh_so <= :doanh_so',array(':doanh_so'=>$doanh_so))
             ->order('doanh_so DESC')
             ->limit(1)

@@ -5,6 +5,8 @@ Yii::import('application.models._base.BaseHoaDonBanHang');
 class HoaDonBanHang extends BaseHoaDonBanHang
 {
 
+
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -186,6 +188,13 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
         $criteria->compare('chiet_khau', $this->chiet_khau);
         $criteria->compare('khachHang.ma_khach_hang', $this->khachHang->ma_khach_hang,true);
+
+        if(!empty($this->getBaseModel()->ngay_lap) && !empty($this->getBaseModel()->ngay_ket_thuc)) {
+
+            $criteria->addBetweenCondition('chungTu.ngay_lap',date('Y-m-d',strtotime($this->getBaseModel()->ngay_lap)),date('Y-m-d',strtotime($this->getBaseModel()->ngay_ket_thuc)));
+
+        }
+        $criteria->compare('trang_thai',$this->trang_thai);
         $criteria->order = 'chungTu.ngay_lap DESC';
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
