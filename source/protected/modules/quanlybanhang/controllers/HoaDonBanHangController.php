@@ -94,6 +94,9 @@ class HoaDonBanHangController extends CPOSController {
                     //cap nhat trang thai hoa don
                     $result = $model->saveAttributes(array("trang_thai"=>1));
                     
+                    //cap nhat diem tich luy
+                    $result_kh = KhachHang::capNhatDiemTichLuy($model->khach_hang_id,-$post['ChungTu']['tri_gia']);
+                    
                     //in hoa don tra hang
                     Yii::app()->session['inhoadontra'] = $model->hoaDonTraHangs->id;
                     
@@ -159,7 +162,7 @@ class HoaDonBanHangController extends CPOSController {
             switch($result) {
                 case 'ok':{
                     //cap nhat thong tin khach hang
-                    $result_kh = KhachHang::capNhatTriGia($hd_ban_hang['khach_hang']['id'],$hd_ban_hang['tri_gia']);
+                    $result_kh = KhachHang::capNhatDiemTichLuy($hd_ban_hang['khach_hang']['id'],$hd_ban_hang['tri_gia']);
                     switch($result_kh){
                         case 'ok':{
                             

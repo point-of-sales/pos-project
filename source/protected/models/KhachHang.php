@@ -130,7 +130,7 @@ class KhachHang extends BaseKhachHang
         return false;
     }
 
-    public static function capNhatTriGia($id,$tri_gia){ 
+    public static function capNhatDiemTichLuy($id,$tri_gia){ 
         $model = KhachHang::model()->findByAttributes(array('id'=>$id));
         if(!empty($model)){
             //truong hop le khach hang mua le
