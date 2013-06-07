@@ -180,11 +180,6 @@ if(count($hdTraProvider->getData())!=0){
                     'type' => 'raw',
                     'value' => $item->ly_do_tra_hang,
                 ),
-                array(
-                    'name' => 'Số tiền trả',
-                    'type' => 'raw',
-                    'value' => number_format($item->baseModel->tri_gia*(1-$model->chiet_khau/100),0,".",","),
-                ),
             ),
         ));  
         //chi tiet hoa don ban hang

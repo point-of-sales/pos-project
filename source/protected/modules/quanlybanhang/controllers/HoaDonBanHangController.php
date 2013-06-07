@@ -86,7 +86,7 @@ class HoaDonBanHangController extends CPOSController {
                 );
                 $tri_gia += $value*$_POST['don_gia'][$key];
             }
-            $post['ChungTu']['tri_gia'] = $tri_gia;
+            $post['ChungTu']['tri_gia'] = $tri_gia*(1-$model->chiet_khau/100);
             //print_r($post);exit;
             $result = $model->hoaDonTraHangs->them($post);
             switch($result) {
