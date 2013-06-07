@@ -551,3 +551,15 @@ a.cus-link:hover {
     border:none;
     background-color:#E8E2D6;
 }
+
+.xuat-file-menu{
+    float: right;
+}
+.xuat-file-menu ul{
+    
+}
+.xuat-file-menu ul li{
+    float: left;
+    list-style: none;
+    margin-right: 5px;
+}

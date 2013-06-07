@@ -78,6 +78,8 @@ class LoaiKhachHang extends BaseLoaiKhachHang
 
         $criteria->compare('ma_loai_khach_hang', $this->ma_loai_khach_hang, true);
         $criteria->compare('ten_loai', $this->ten_loai, true);
+        $criteria->addCondition('ma_loai_khach_hang <> :ma_loai_khach_hang');
+        $criteria->params = array(':ma_loai_khach_hang'=>'KHBT');
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

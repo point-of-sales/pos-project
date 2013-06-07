@@ -14,7 +14,25 @@ $this->menu = array(
 
 
     <h1><?php echo 'Hóa Đơn Bán' . ' ' . $model->getBaseModel()->ma_chung_tu; ?></h1>
-
+<div class="xuat-file-menu">
+    <ul>
+        <li>
+            <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="print" target="_blank">
+                <img alt="print" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/print.png"/>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/xuatfileexcel',array('id'=>$model->id))?>" title="excel" target="_blank">
+                <img alt="excel" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/excel.png"/>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="pdf" target="_blank">
+                <img alt="pdf" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/pdf.png"/>
+            </a>
+        </li>
+    </ul>
+</div>
 <?php 
 $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
@@ -152,6 +170,27 @@ if(count($hdTraProvider->getData())!=0){
         $item->getBaseModel();
         echo '<h3>'.'Mã CT: <span class="content-accordion">'.$item->baseModel->ma_chung_tu.'</span> Ngày lập: <span class="content-accordion">'.date('d/m/Y - h:i:s',strtotime($item->baseModel->ngay_lap)).'</span>Trị giá: <span class="content-accordion">'.number_format($item->baseModel->tri_gia,0,".",",").'</span></h3>';
         echo '<div>';
+        ?>
+        <div class="xuat-file-menu">
+            <ul>
+                <li>
+                    <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonTraHang/hoadontra',array('id'=>$item->id,'p'=>'false'))?>" title="print" target="_blank">
+                        <img alt="print" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/print.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="excel" target="_blank">
+                        <img alt="excel" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/excel.png"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="pdf" target="_blank">
+                        <img alt="pdf" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/pdf.png"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <?php
         $this->widget('ext.custom-widgets.DetailView4Col', array(
             'data' => $hdTraProvider,
             'attributes' => array(
@@ -179,6 +218,9 @@ if(count($hdTraProvider->getData())!=0){
                     'name' => 'Lý do trả hàng',
                     'type' => 'raw',
                     'value' => $item->ly_do_tra_hang,
+                ),
+                array(
+                    'value' => '',
                 ),
             ),
         ));  
