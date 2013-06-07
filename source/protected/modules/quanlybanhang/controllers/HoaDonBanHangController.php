@@ -271,7 +271,7 @@ class HoaDonBanHangController extends CPOSController {
             $model->khachHang->ma_khach_hang = $_GET['KhachHang']['ma_khach_hang'];
             $model->getBaseModel()->ngay_ket_thuc = $_GET['ngay_ket_thuc'];
             $model->setAttributes($_GET);
-            $model->search();
+
         }
         $this->render('danhsach', array(
         'model' => $model,

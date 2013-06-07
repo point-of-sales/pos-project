@@ -4,17 +4,7 @@
     <list default="true" id="39d7da02-e886-479a-8938-f9dbc955d447" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/~$an_van_2007.docx" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/_base/BaseHoaDonBanHang.php" afterPath="$PROJECT_DIR$/source/protected/models/_base/BaseHoaDonBanHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/CPOSBaseChungTu.php" afterPath="$PROJECT_DIR$/source/protected/components/CPOSBaseChungTu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" afterPath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/ChungTu.php" afterPath="$PROJECT_DIR$/source/protected/models/ChungTu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" afterPath="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/LoaiKhachHang.php" afterPath="$PROJECT_DIR$/source/protected/models/LoaiKhachHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/_search.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/_search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -176,19 +166,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="danhsach.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="danhsach.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="10" selection-start="860" selection-end="860" vertical-scroll-proportion="0.82417583">
+            <state line="32" column="0" selection-start="850" selection-end="866" vertical-scroll-proportion="-16.666666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HoaDonBanHangController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HoaDonBanHangController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="273" column="29" selection-start="11397" selection-end="11397" vertical-scroll-proportion="-4.7115383">
+            <state line="280" column="18" selection-start="11478" selection-end="11478" vertical-scroll-proportion="0.6084453">
               <folding />
             </state>
           </provider>
@@ -225,9 +215,9 @@
         <option value="$PROJECT_DIR$/source/protected/components/CPOSBaseChungTu.php" />
         <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/_search.php" />
         <option value="$PROJECT_DIR$/source/protected/models/ChungTu.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" />
         <option value="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" />
         <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" />
       </list>
     </option>
   </component>
@@ -804,7 +794,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="778" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="778" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -984,16 +974,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="273" column="29" selection-start="11397" selection-end="11397" vertical-scroll-proportion="-4.7115383">
+        <state line="32" column="0" selection-start="850" selection-end="866" vertical-scroll-proportion="-16.666666">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="10" selection-start="860" selection-end="860" vertical-scroll-proportion="0.82417583">
+        <state line="280" column="18" selection-start="11478" selection-end="11478" vertical-scroll-proportion="0.6084453">
           <folding />
         </state>
       </provider>
