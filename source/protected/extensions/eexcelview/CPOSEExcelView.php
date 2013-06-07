@@ -436,6 +436,29 @@ class CPOSEExcelView extends EExcelView
         self::$activeSheet->setCellValue('B13', Yii::t('viLib', 'Shipper'));
 
     }
+    
+    public function renderHoaDonBanHangInfo($startColumn = null, $row = 6)
+    {
+        //custom column and row
+        if (isset($startColumn)) {
+            $i = $this->columnIndex($startColumn);
+        } else {
+            $i = 0;
+        }
+        $tmp = $this->dataProvider->getData();
+        $chiTietHoaDonBan = $tmp[0];
+        $maChungTu = $chiTietHoaDonBan->hoaDonBanHang->chungTu->ma_chung_tu;
+        $ngayLap = $chiTietHoaDonBan->hoaDonBanHang->chungTu->ngay_lap;
+        $nhanVien = $chiTietHoaDonBan->hoaDonBanHang->chungTu->nhanVien->ho_ten;
+
+        self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
+        self::$activeSheet->setCellValue('C8', $maChungTu);
+        self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
+        self::$activeSheet->setCellValue('C9', $ngayLap);
+        self::$activeSheet->setCellValue('B10', Yii::t('viLib', 'Employee'));
+        self::$activeSheet->setCellValue('C10', $nhanVien);
+
+    }
 
     public function renderPhieuXuatInfo($startColumn = null, $row = 6)
     {
@@ -738,6 +761,15 @@ class CPOSEExcelView extends EExcelView
                 $this->renderSaleTopTotal('A',10);
                 $this->formatThousand('A',10);
                 $this->renderTimePeriod('A',8);
+                break;
+            }
+            case 'HoaDonBanHang':
+            {
+                $this->renderTitleColumns('A', 15);
+                $this->renderHoaDonBanHangInfo();
+                $this->renderBody('A', 16);
+                $this->renderTotal('A', 15);
+                $this->formatThousand('C',15);
                 break;
             }
 

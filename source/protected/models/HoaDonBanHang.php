@@ -207,7 +207,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 'ma_khach_hang' => $model->khachHang->ma_khach_hang,
                 'ho_ten' => $model->khachHang->ho_ten,
                 'diem_tich_luy' => $model->khachHang->diem_tich_luy,
-                'loai_khach_hang_id' => $model->khachHangoperation->loaiKhachHang->id,
+                'loai_khach_hang_id' => $model->khachHang->loaiKhachHang->id,
                 'ten_loai' => $model->khachHang->loaiKhachHang->ten_loai,
                 'dien_thoai' => $model->khachHang->dien_thoai,
                 'dia_chi' => $model->khachHang->dia_chi,
@@ -314,13 +314,13 @@ class HoaDonBanHang extends BaseHoaDonBanHang
                 ->from('tbl_HoaDonTraHang hd,tbl_ChungTu ct')
                 ->where('hd.id=ct.id AND hoa_don_ban_id = :hoa_don_ban_id',array(':hoa_don_ban_id'=>$hoa_don_ban_id))
                 ->queryScalar();
-            if($chiet_khau!=0){
+            /*if($chiet_khau!=0){
                 $tri_gia_goc_chua_km = $tri_gia_goc/(1-$chiet_khau);
                 return ($tri_gia_goc_chua_km-$tri_gia_hd_tra)*(1-$chiet_khau);   
-            }
-            else{
+            }*/
+            //else{
                 return $tri_gia_goc-$tri_gia_hd_tra;
-            }
+            //}
         }
         else{
             return $tri_gia_goc;

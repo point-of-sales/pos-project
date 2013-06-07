@@ -2,11 +2,11 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Phieu_Nhap_' . time(),
+    'title'=>'Hoa_Don_Ban_Hang_' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>Yii::t('viLib','Import form'),
-    'template'=>'PhieuNhap',
+    'documentTitle'=>'Hóa đơn bán hàng',
+    'template'=>'HoaDonBanHang',
     'columns' => array(
 
         array('name'=>'STT',
@@ -24,13 +24,9 @@ $this->widget('CPOSEExcelView', array(
             'value' => '$data->so_luong',
         ),
         array(
-            'name' => Yii::t('viLib', 'Import price'),
-            'value' => '$data->gia_nhap',
+            'name' => 'Đơn giá',
+            'value' => '$data->don_gia',
         ),
-        array(
-            'name' => Yii::t('viLib', 'Total'),
-            'value' => '$data->gia_nhap * $data->so_luong',
-        )
 
 
     ),

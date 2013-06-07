@@ -287,15 +287,22 @@ class HoaDonBanHangController extends CPOSController {
 			'model' => $model,
 		));
 	}
-
-    public function  actionXuat() {
-        $model = new HoaDonBanHang('search');
-        $model->unsetAttributes();
-        if(isset($_GET['HoaDonBanHang'])) {
-        $model->setAttributes($_GET['HoaDonBanHang']);
-        $dataProvider = $model->search();
-        }
-        $this->render('xuat',array('dataProvider'=>$dataProvider));
+    
+    public function  actionXuatFileExcel($id)
+    {
+        //if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.Xuat')) {
+            if (isset($id)) {
+                $criteria = new CDbCriteria();
+                //$criteria->with = 'chiTietHoaDonBan';
+                //$criteria->together = true;
+                $criteria->condition = 'hoa_don_ban_id=:hoa_don_ban_id';
+                $criteria->params = array(':hoa_don_ban_id' => $id);
+                $dataProvider = new CActiveDataProvider('ChiTietHoaDonBan', array('criteria' => $criteria));
+                $this->render('xuat', array('dataProvider' => $dataProvider));
+            }
+            throw new CHttpException(404, 'Id not found');
+        //} else
+          //  throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
     
     public function actionCapNhatSoLuong(){
