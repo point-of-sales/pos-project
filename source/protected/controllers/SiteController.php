@@ -149,4 +149,9 @@ class SiteController extends Controller
         Yii::app()->CPOSSessionManager->clearKey('menuItems');
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+    public function actionContact() {
+        $this->render('contact');
+    }
+
 }

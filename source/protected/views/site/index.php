@@ -4,7 +4,7 @@
 $this->pageTitle = Yii::app()->name;
 ?>
 
-<h1><?php echo Yii::t('viLib', 'Welcome to Point Of Sales System Management') ?></h1>
+<h1 style="background-color:#007aa5"><?php echo Yii::t('viLib', 'Welcome to Point Of Sales System Management') ?></h1>
 <div class="main-intro">
     <div class="intro-image">
         <?php echo CHtml::image(Yii::app()->theme->baseUrl . '/images/sm.jpg') ?>

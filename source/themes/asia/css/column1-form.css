@@ -127,6 +127,10 @@
     padding-right:20px;
 }
 
+.intro-image img {
+    width:540px;
+}
+
 .intro-text {
     width:660px;
     float:left;
