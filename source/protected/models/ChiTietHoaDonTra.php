@@ -11,6 +11,7 @@ class ChiTietHoaDonTra extends BaseChiTietHoaDonTra
     public function relations() {
 		return array(
             'sanPham'=>array(self::BELONGS_TO,'SanPham','san_pham_id'),
+            'hoaDonTraHang'=>array(self::BELONGS_TO,'HoaDonTraHang','hoa_don_tra_id'),
 		);
 	}
 

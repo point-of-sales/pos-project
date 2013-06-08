@@ -59,7 +59,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name'=>'Trị giá gốc',
-            'value' => '$data->getBaseModel()->tri_gia'
+            'value' => 'number_format($data->getBaseModel()->tri_gia,0,".",",")',
         ),
         array(
             'name'=>'Số SP thực',

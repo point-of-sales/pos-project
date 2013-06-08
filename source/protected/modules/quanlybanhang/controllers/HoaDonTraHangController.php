@@ -158,6 +158,23 @@ class HoaDonTraHangController extends CPOSController {
         $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('HoaDonTraHang')));
     }
     
+    public function  actionXuatFileExcel($id)
+    {
+        //if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuNhap.Xuat')) {
+            if (isset($id)) {
+                $criteria = new CDbCriteria();
+                //$criteria->with = 'chiTietHoaDonBan';
+                //$criteria->together = true;
+                $criteria->condition = 'hoa_don_tra_id=:hoa_don_tra_id';
+                $criteria->params = array(':hoa_don_tra_id' => $id);
+                $dataProvider = new CActiveDataProvider('ChiTietHoaDonTra', array('criteria' => $criteria));
+                $this->render('xuat', array('dataProvider' => $dataProvider));
+            }
+            throw new CHttpException(404, 'Id not found');
+        //} else
+          //  throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
+    }
+    
     public function actionHoaDonTra($id){
         $model = $this->loadModel($id, 'HoaDonTraHang');
         

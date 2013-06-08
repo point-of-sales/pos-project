@@ -22,7 +22,7 @@ echo '</pre>';
             <table id="form-hd-ban-table">
                 <tr>
                     <td>Mã hóa đơn</td>
-                    <td><span id="form-hd-ban-ma-hoa-don"></span></td>
+                    <td><span style="font-size: 18px;" id="form-hd-ban-ma-hoa-don"></span></td>
                 </tr>
                 <tr>
                     <td>Chi nhánh</td>
@@ -58,14 +58,14 @@ echo '</pre>';
             	<tr>
                 	<td class="form-hd-ban-label">Họ tên</td>
                     <td><span id="form-hd-ban-ho-ten-kh"></span></td>
-                    <td class="form-hd-ban-label">Tổng</td>
+                    <td class="form-hd-ban-label" style="font-weight: bold;">Tổng</td>
                     <td><span id="form-hd-ban-tong">0</span></td>
                 </tr>
                 <tr>
                 	<td class="form-hd-ban-label">Chiết khấu</td>
                     <td><span id="form-hd-ban-chiet-khau">0</span><span>%</span></td>
-                    <td class="form-hd-ban-label">Trị giá</td>
-                    <td><span id="form-hd-ban-tri-gia">0</span></td>
+                    <td class="form-hd-ban-label" style="font-weight: bold;" >Trị giá</td>
+                    <td><span id="form-hd-ban-tri-gia" style="color: red;">0</span></td>
                 </tr>
                 <tr>
                 	<td class="form-hd-ban-label">Số tiền nhận</td>

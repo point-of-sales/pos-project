@@ -204,9 +204,8 @@ class KhachHangController extends CPOSController
         $ct_hd_thuc = HoaDonBanHang::layChiTietHoaDonHienTai($data->id)->getData();
         return count($ct_hd_thuc);
     }
-    
     public function gridTriGiaThuc($data,$row){
-        return HoaDonBanHang::layTriGiaHoaDonThuc($data->id);
+        return number_format(HoaDonBanHang::layTriGiaHoaDonThuc($data->id),0,".",",");
     }
 
 }
