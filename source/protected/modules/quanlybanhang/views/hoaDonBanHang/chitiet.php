@@ -26,11 +26,6 @@ $this->menu = array(
                 <img alt="excel" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/excel.png"/>
             </a>
         </li>
-        <li>
-            <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="pdf" target="_blank">
-                <img alt="pdf" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/pdf.png"/>
-            </a>
-        </li>
     </ul>
 </div>
 <?php 
@@ -167,7 +162,7 @@ if(count($hdTraProvider->getData())!=0){
     echo '<div id="accordion">';
     foreach($hdTraProvider->getData() as $item){
         //echo '<hr style="margin:10px 0 !important"/>';
-        $item->getBaseModel();
+        //$item->getBaseModel();
         echo '<h3>'.'Mã CT: <span class="content-accordion">'.$item->baseModel->ma_chung_tu.'</span> Ngày lập: <span class="content-accordion">'.date('d/m/Y - h:i:s',strtotime($item->baseModel->ngay_lap)).'</span>Trị giá: <span class="content-accordion">'.number_format($item->baseModel->tri_gia,0,".",",").'</span></h3>';
         echo '<div>';
         ?>
@@ -179,13 +174,8 @@ if(count($hdTraProvider->getData())!=0){
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="excel" target="_blank">
+                    <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonTraHang/xuatfileexcel',array('id'=>$item->id))?>" title="excel" target="_blank">
                         <img alt="excel" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/excel.png"/>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonBanHang/hoadon',array('id'=>$model->id))?>" title="pdf" target="_blank">
-                        <img alt="pdf" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/pdf.png"/>
                     </a>
                 </li>
             </ul>

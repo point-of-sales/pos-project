@@ -467,7 +467,62 @@ class CPOSEExcelView extends EExcelView
         self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
         self::$activeSheet->setCellValue('C8', $maChungTu);
         self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
-        self::$activeSheet->setCellValue('C9', $ngayLap);
+        self::$activeSheet->setCellValue('C9', date('d/m/Y - h:i:s',strtotime($ngayLap)));
+        self::$activeSheet->setCellValue('B10', 'Nhân viên lập hóa đơn');
+        self::$activeSheet->setCellValue('C10', $nhanVien);
+        self::$activeSheet->setCellValue('B11', 'Chi nhánh bán');
+        self::$activeSheet->setCellValue('C11', $chi_nhanh);
+        //self::$activeSheet->setCellValue('B12', 'Trị giá');
+        //self::$activeSheet->setCellValue('C12', $tri_gia);
+        //self::$activeSheet->setCellValue('B12', 'Trị giá');
+        //self::$activeSheet->setCellValue('C12', $tri_gia);
+        
+        self::$activeSheet->setCellValue('D8', 'Mã khách hàng');
+        self::$activeSheet->setCellValue('E8', $ma_khach_hang);
+        self::$activeSheet->setCellValue('D9', 'Tên khách hàng');
+        self::$activeSheet->setCellValue('E9', $ten_khach_hang);
+        self::$activeSheet->setCellValue('D10', 'Điện thoại');
+        self::$activeSheet->setCellValue('E10', $dien_thoai);
+        self::$activeSheet->setCellValue('D11', 'Địa chỉ');
+        self::$activeSheet->setCellValue('E11', $dia_chi);
+        self::$activeSheet->setCellValue('D12', 'Loại khách hàng');
+        self::$activeSheet->setCellValue('E12', $loai_khach_hang);
+        //self::$activeSheet->setCellValue('D13', 'Giảm giá');
+        //self::$activeSheet->setCellValue('E13', $giam_gia);
+
+    }
+    
+    public function renderHoaDonTraInfo($startColumn = null, $row = 6)
+    {
+        //custom column and row
+        if (isset($startColumn)) {
+            $i = $this->columnIndex($startColumn);
+        } else {
+            $i = 0;
+        }
+        $tmp = $this->dataProvider->getData();
+        $chiTietHoaDon = $tmp[0];
+        $hoaDonTra = $chiTietHoaDon->hoaDonTraHang;
+        $khachHang = $hoaDonTra->hoaDonBan->khachHang;
+        
+        $maChungTu = $hoaDonTra->chungTu->ma_chung_tu;
+        $ngayLap = $hoaDonTra->chungTu->ngay_lap;
+        //$giam_gia = $hoaDonTra->chiet_khau;
+        $nhanVien = $hoaDonTra->chungTu->nhanVien->ho_ten;
+        $chi_nhanh = $hoaDonTra->chungTu->chiNhanh->ten_chi_nhanh;
+        $tri_gia = $hoaDonTra->chungTu->tri_gia;
+        
+        $ma_khach_hang = $khachHang->ma_khach_hang;
+        $ten_khach_hang = $khachHang->ho_ten;
+        $dia_chi = $khachHang->dia_chi;
+        $dien_thoai = $khachHang->dien_thoai;
+        $loai_khach_hang = $khachHang->loaiKhachHang->ten_loai;
+        
+
+        self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
+        self::$activeSheet->setCellValue('C8', $maChungTu);
+        self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
+        self::$activeSheet->setCellValue('C9', date('d/m/Y - h:i:s',strtotime($ngayLap)));
         self::$activeSheet->setCellValue('B10', 'Nhân viên lập hóa đơn');
         self::$activeSheet->setCellValue('C10', $nhanVien);
         self::$activeSheet->setCellValue('B11', 'Chi nhánh bán');
@@ -557,6 +612,86 @@ class CPOSEExcelView extends EExcelView
 
         // render text of amount
         $amountText = Helpers::readNumber($toTal);
+        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+    }
+    
+    public function renderHoaDonBanTotal($startColumn = null, $rowStartColumnTitles = 0)
+    {
+        //custom column and row
+        if (isset($startColumn)) {
+            $startIndex = $this->columnIndex($startColumn);
+        } else {
+            $startIndex = 0;
+        }
+
+        $tmp = $this->dataProvider->getData();
+        $chiTietHoaDonBan = $tmp[0];
+        $hoaDonBanHang = $chiTietHoaDonBan->hoaDonBanHang;
+        $toTal = 0;
+        foreach ($tmp as $t) {
+            $toTal = $toTal + $t->so_luong * $t->don_gia;
+        }
+        $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
+
+        $columnNum = count($this->columns);
+        $endIndex = $startIndex + $columnNum-1;
+        $endColumn = $this->columnName($endIndex);
+        self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
+        self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
+        
+        $rowNum++;
+        $giam_gia = $toTal*($hoaDonBanHang->chiet_khau/100);
+        self::$activeSheet->setCellValue($startColumn . $rowNum, 'Giảm giá ('.$hoaDonBanHang->chiet_khau.'%)');
+        self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $giam_gia);
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
+        
+        $rowNum++;
+        $tri_gia = $hoaDonBanHang->chungTu->tri_gia;
+        self::$activeSheet->setCellValue($startColumn . $rowNum, 'Kết quả');
+        self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $tri_gia);
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
+
+        // render text of amount
+        $amountText = Helpers::readNumber($tri_gia);
+        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+    }
+    
+    public function renderHoaDonTraTotal($startColumn = null, $rowStartColumnTitles = 0)
+    {
+        //custom column and row
+        if (isset($startColumn)) {
+            $startIndex = $this->columnIndex($startColumn);
+        } else {
+            $startIndex = 0;
+        }
+
+        $tmp = $this->dataProvider->getData();
+        $chiTietHoaDon = $tmp[0];
+        $tri_gia = $chiTietHoaDon->hoaDonTraHang->chungTu->tri_gia;
+        $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
+
+        $columnNum = count($this->columns);
+        $endIndex = $startIndex + $columnNum-1;
+        $endColumn = $this->columnName($endIndex);
+        self::$activeSheet->setCellValue($startColumn . $rowNum, 'Số tiền trả lại');
+        self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $tri_gia);
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
+
+        // render text of amount
+        $amountText = Helpers::readNumber($tri_gia);
         self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
         $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
         self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
@@ -660,12 +795,16 @@ class CPOSEExcelView extends EExcelView
 
     }
 
-    public function formatThousand($startColumn = null, $rowStartColumnTitles = 0) {
+    public function formatThousand($startColumn = null, $rowStartColumnTitles = 0, $extraRow = null) {
 
         $tmp = $this->dataProvider->getData();
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
         $columnNum = count($this->columns);
-        self::$activeSheet->getStyle($startColumn . $rowStartColumnTitles . ":" . $this->columnName($columnNum) . $rowNum)->getNumberFormat()->setFormatCode("#,##0");
+        if($extraRow==null)
+            $extraRow = 0;
+             
+        self::$activeSheet->getStyle($startColumn . $rowStartColumnTitles . ":" . $this->columnName($columnNum) . ($rowNum+$extraRow))->getNumberFormat()->setFormatCode("#,##0");
+        
         //self::$activeSheet->getStyle($startColumn . $rowStartColumnTitles . ":" . $this->columnName($columnNum) . $rowNum)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
     }
@@ -810,8 +949,16 @@ class CPOSEExcelView extends EExcelView
                 $this->renderTitleColumns('A', 15);
                 $this->renderHoaDonBanHangInfo();
                 $this->renderBody('A', 16);
-                $this->renderTotal('A', 15);
-                $this->formatThousand('C',15);
+                $this->renderHoaDonBanTotal('A', 15);
+                $this->formatThousand('C',15,2);
+                break;
+            }
+            case 'HoaDonTraHang':{
+                $this->renderTitleColumns('A', 15);
+                $this->renderHoaDonTraInfo();
+                $this->renderBody('A', 16);
+                $this->renderHoaDonTraTotal('A', 15);
+                $this->formatThousand('C',15,2);
                 break;
             }
 
