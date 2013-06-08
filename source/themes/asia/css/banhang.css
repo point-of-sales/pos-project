@@ -265,3 +265,9 @@
     width: 50px;
     text-align: center;
 }
+#form-hd-ban-table tr td{
+    font-size: 14px;
+}
+#form-hd-ban-header-table tr td{
+    font-size: 14px;
+}
