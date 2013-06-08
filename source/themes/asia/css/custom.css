@@ -563,3 +563,8 @@ a.cus-link:hover {
     list-style: none;
     margin-right: 5px;
 }
+.main-intro {
+    overflow:hidden;
+    margin-top:-15px;
+    padding-bottom: 10px;
+}

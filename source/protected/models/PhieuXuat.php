@@ -158,7 +158,7 @@ class PhieuXuat extends BasePhieuXuat
         $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->with = 'chungTu';
         $criteria->together = true;
-        $criteria->compare('id', $this->id);
+        $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
         $criteria->compare('loai_xuat_ra', $this->loai_xuat_ra);
         $criteria->compare('chi_nhanh_nhap_id', $this->chi_nhanh_nhap_id);
         $criteria->order = 'chungTu.ngay_lap DESC';

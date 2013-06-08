@@ -1,7 +1,5 @@
 <div id="menu">
-			<a href="#" title="Home">Home</a>
-			<a href="#" title="Administration">Administration</a>
-			<a href="#" title="Settings">Settings</a>
-			<a href="#" title="Contact">Contact</a>
+			<a href="index" title="Site">Site index</a>
+			<a href="contact" title="Contact">Contact</a>
 		</div>
-		Copyright &copy; 2009 - Horia Simon (WebDesignChimera.com)
+        Copyright &copy; 2013 - T2 Group Develop

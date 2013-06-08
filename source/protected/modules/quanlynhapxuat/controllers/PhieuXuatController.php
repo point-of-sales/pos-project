@@ -137,7 +137,6 @@ class PhieuXuatController extends CPOSController
     {
         if (Yii::app()->user->checkAccess('Quanlynhapxuat.PhieuXuat.DanhSach')) {
             $model = new PhieuXuat('search');
-
             $model->unsetAttributes();
             Yii::app()->CPOSSessionManager->clearKey('ExportData');
             if (isset($_GET['ChungTu'])) {

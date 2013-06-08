@@ -3,22 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="39d7da02-e886-479a-8938-f9dbc955d447" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testting/~$bang_test_loi.xlsx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testting/bang_test_loi.xlsx" afterPath="$PROJECT_DIR$/testting/bang_test_loi.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/luan_van_2007.docx" afterPath="$PROJECT_DIR$/bao_cao/luan_van_2007.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/~$an_van_2007.docx" afterPath="$PROJECT_DIR$/bao_cao/~$an_van_2007.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php" afterPath="$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/CPOSThayDoiMatKhauForm.php" afterPath="$PROJECT_DIR$/source/protected/models/CPOSThayDoiMatKhauForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/SanPham.php" afterPath="$PROJECT_DIR$/source/protected/models/SanPham.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/chitiet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" afterPath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/PhieuXuat.php" afterPath="$PROJECT_DIR$/source/protected/models/PhieuXuat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/controllers/SiteController.php" afterPath="$PROJECT_DIR$/source/protected/controllers/SiteController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/views/partials/_main_footer.php" afterPath="$PROJECT_DIR$/source/themes/asia/views/partials/_main_footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/_search.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/_search.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/css/custom.css" afterPath="$PROJECT_DIR$/source/themes/asia/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/css/general.css" afterPath="$PROJECT_DIR$/source/themes/asia/css/general.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/views/site/index.php" afterPath="$PROJECT_DIR$/source/protected/views/site/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/views/layouts/main.php" afterPath="$PROJECT_DIR$/source/themes/asia/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/themes/asia/css/styles/default/ui.css" afterPath="$PROJECT_DIR$/source/themes/asia/css/styles/default/ui.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" afterPath="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/xuatexcelnhapxuatton.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/xuatexcelnhapxuatton.php" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370609609032" ignored="false" />
+    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370668811888" ignored="false" />
     <file path="/KhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1368969813409" ignored="false" />
     <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370613870833" ignored="false" />
     <file path="/BaoCaoController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370050258553" ignored="false" />
@@ -32,18 +39,18 @@
     <file path="/CPOSController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370572626751" ignored="false" />
     <file path="/_main_nav.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369749677813" ignored="false" />
     <file path="/NhanVienController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369750874061" ignored="false" />
-    <file path="/SiteController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369749570567" ignored="false" />
+    <file path="/SiteController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370627328788" ignored="false" />
     <file path="/CauHinh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369670148218" ignored="false" />
-    <file path="/main.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370361931083" ignored="false" />
+    <file path="/main.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370628352637" ignored="false" />
     <file path="/RequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369099830330" ignored="false" />
     <file path="/a.dummy" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370049739546" ignored="false" />
-    <file path="/CPOSRequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370517120473" ignored="false" />
+    <file path="/CPOSRequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370627207666" ignored="false" />
     <file path="/_main_account_info.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370362259690" ignored="false" />
     <file path="/UserIdentity.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369747989531" ignored="false" />
     <file path="/NhanVien.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369305683023" ignored="false" />
     <file path="/login.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369803025680" ignored="false" />
     <file path="/column1-form.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369115596012" ignored="false" />
-    <file path="/index.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369120274742" ignored="false" />
+    <file path="/index.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370627657932" ignored="false" />
     <file path="/danhsach.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370512034166" ignored="false" />
     <file path="/AuthItemController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370067951827" ignored="false" />
     <file path="/AssignmentController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369143017084" ignored="false" />
@@ -72,7 +79,7 @@
     <file path="/_formdoimatkhau.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369300317426" ignored="false" />
     <file path="/thaydoimatkhau.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369298272266" ignored="false" />
     <file path="/ThayDoiMatKhauForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369305209931" ignored="false" />
-    <file path="/_search.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370592346679" ignored="false" />
+    <file path="/_search.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370669315056" ignored="false" />
     <file path="/SanPham.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370612081867" ignored="false" />
     <file path="/CPOSThayDoiMatKhauForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370615422446" ignored="false" />
     <file path="/LoaiChiNhanh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369635190109" ignored="false" />
@@ -94,7 +101,7 @@
     <file path="/_childForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369760223036" ignored="false" />
     <file path="/xuat.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370051057379" ignored="false" />
     <file path="/xuatkhuyenmaisanpham.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369798798670" ignored="false" />
-    <file path="/custom.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370610195040" ignored="false" />
+    <file path="/custom.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370629516906" ignored="false" />
     <file path="/_formnhapxuatton.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369893310857" ignored="false" />
     <file path="/CPOSImportExportReportPortlet.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369818037621" ignored="false" />
     <file path="/nhapxuattonexcel.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369837027893" ignored="false" />
@@ -111,7 +118,7 @@
     <file path="/banhangtop.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370046299305" ignored="false" />
     <file path="/xuatexcelbanhangtop.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370050403506" ignored="false" />
     <file path="/khuyenmaisanpham.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370052293801" ignored="false" />
-    <file path="/_main_footer.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370360885864" ignored="false" />
+    <file path="/_main_footer.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370669002212" ignored="false" />
     <file path="/RWebUser.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370362123472" ignored="false" />
     <file path="/nhapsanphamtang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370574788678" ignored="false" />
     <file path="/LoaiNhapXuat.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370370044357" ignored="false" />
@@ -121,6 +128,7 @@
     <file path="/SanPhamTang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370517955012" ignored="false" />
     <file path="/xuatsanphamtang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370575228254" ignored="false" />
     <file path="/CModel.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370591734193" ignored="false" />
+    <file path="/ui.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370629086554" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,55 +148,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="nhapxuatton.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php">
+      <file leaf-file-name="_main_footer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/themes/asia/views/partials/_main_footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="15" selection-start="6049" selection-end="6049" vertical-scroll-proportion="-8.0">
+            <state line="4" column="45" selection-start="166" selection-end="166" vertical-scroll-proportion="-2.6666667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chitiet.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/chitiet.php">
+      <file leaf-file-name="_search.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/_search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="115" selection-start="741" selection-end="741" vertical-scroll-proportion="-8.666667">
+            <state line="21" column="135" selection-start="862" selection-end="862" vertical-scroll-proportion="-14.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CPOSThayDoiMatKhauForm.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/models/CPOSThayDoiMatKhauForm.php">
+      <file leaf-file-name="danhsach.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="28" selection-start="954" selection-end="954" vertical-scroll-proportion="-8.037037">
+            <state line="54" column="58" selection-start="1834" selection-end="1834" vertical-scroll-proportion="0.27862597">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NhanVienController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php">
+      <file leaf-file-name="danhsach.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/danhsach.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="14" selection-start="688" selection-end="688" vertical-scroll-proportion="-0.26373628">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="29.925926">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GxActiveRecord.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/extensions/giix-components/GxActiveRecord.php">
+      <file leaf-file-name="PhieuXuatController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.1153846">
+            <state line="138" column="45" selection-start="6208" selection-end="6208" vertical-scroll-proportion="-4.7115383">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CActiveRecord.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../yii13/framework/db/ar/CActiveRecord.php">
+      <file leaf-file-name="PhieuNhapController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1685" column="30" selection-start="61122" selection-end="61132" vertical-scroll-proportion="-5.0576925">
+            <state line="157" column="82" selection-start="6705" selection-end="6705" vertical-scroll-proportion="-7.480769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhieuNhap.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/models/PhieuNhap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="145" column="91" selection-start="6035" selection-end="6118" vertical-scroll-proportion="-3.0576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhieuXuat.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/models/PhieuXuat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="159" column="35" selection-start="6309" selection-end="6309" vertical-scroll-proportion="-5.4038463">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_search.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/_search.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="-4.2222223">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/views/site/pages/about.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -212,22 +256,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/protected/components/CPOSBaseChungTu.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/_search.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/ChungTu.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/danhsach.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php" />
-        <option value="$PROJECT_DIR$/source/themes/asia/css/custom.css" />
-        <option value="$PROJECT_DIR$/source/protected/models/SanPham.php" />
-        <option value="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/xuatexcelnhapxuatton.php" />
-        <option value="$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/chitiet.php" />
-        <option value="$PROJECT_DIR$/../yii13/framework/db/ar/CActiveRecord.php" />
         <option value="$PROJECT_DIR$/source/protected/models/NhanVien.php" />
         <option value="$PROJECT_DIR$/source/protected/models/CPOSThayDoiMatKhauForm.php" />
+        <option value="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
+        <option value="$PROJECT_DIR$/source/protected/controllers/SiteController.php" />
+        <option value="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" />
+        <option value="$PROJECT_DIR$/source/protected/views/site/index.php" />
+        <option value="$PROJECT_DIR$/source/themes/asia/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/source/themes/asia/css/general.css" />
+        <option value="$PROJECT_DIR$/source/themes/asia/css/styles/default/ui.css" />
+        <option value="$PROJECT_DIR$/source/themes/asia/css/custom.css" />
+        <option value="$PROJECT_DIR$/source/themes/asia/views/partials/_main_footer.php" />
+        <option value="$PROJECT_DIR$/source/protected/models/PhieuXuat.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/_search.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php" />
       </list>
     </option>
   </component>
@@ -266,7 +310,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,24 +370,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="protected" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -393,7 +418,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="quanlynhanvien" />
+              <option name="myItemId" value="quanlynhapxuat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,7 +444,109 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="quanlynhanvien" />
+              <option name="myItemId" value="quanlynhapxuat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phieuXuat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlynhapxuat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phieuNhap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlynhapxuat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chiNhanh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlynhapxuat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -445,12 +572,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -525,15 +653,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="778" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32125986" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28874388" sideWeight="0.67874014" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2985318" sideWeight="0.67874014" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32385466" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -542,6 +669,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32125986" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -608,114 +736,117 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSImportExportReportPortlet.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/messages/vi/viLib.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="328" column="29" selection-start="15007" selection-end="15007" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/views/site/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/themes/asia/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="15" selection-start="3713" selection-end="3713" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1370628361576" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1370628361576" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/themes/asia/css/general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="824" column="9" selection-start="24451" selection-end="24451" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/themes/asia/css/styles/default/ui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="324" column="14" selection-start="6699" selection-end="6699" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/themes/asia/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="365" column="1" selection-start="5328" selection-end="5328" vertical-scroll-proportion="0.0">
+        <state line="568" column="24" selection-start="8851" selection-end="8851" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/KhachHang.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/views/site/pages/about.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="35" selection-start="4437" selection-end="4437" vertical-scroll-proportion="-7.111111">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/controllers/BaoCaoController.php">
+    <entry file="file://$PROJECT_DIR$/source/themes/asia/views/partials/_main_footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="49" selection-start="1727" selection-end="1742" vertical-scroll-proportion="-8.0">
+        <state line="4" column="45" selection-start="166" selection-end="166" vertical-scroll-proportion="-2.6666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/SanPham.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/models/PhieuXuat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="30" selection-start="15890" selection-end="15890" vertical-scroll-proportion="-7.3461537">
+        <state line="159" column="35" selection-start="6309" selection-end="6309" vertical-scroll-proportion="-5.4038463">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/messages/vi/viLib.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/models/PhieuNhap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="326" column="13" selection-start="14892" selection-end="14892" vertical-scroll-proportion="-41.25926">
+        <state line="145" column="91" selection-start="6035" selection-end="6118" vertical-scroll-proportion="-3.0576923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuNhapController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="636" column="115" selection-start="28069" selection-end="28069" vertical-scroll-proportion="0.8322851">
+        <state line="157" column="82" selection-start="6705" selection-end="6705" vertical-scroll-proportion="-7.480769">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/xuatexcelnhapxuatton.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/controllers/PhieuXuatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="35" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.68515205">
+        <state line="138" column="45" selection-start="6208" selection-end="6208" vertical-scroll-proportion="-4.7115383">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/nhapxuatton.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/_search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="15" selection-start="6049" selection-end="6049" vertical-scroll-proportion="-8.0">
+        <state line="11" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="-4.2222223">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSActiveRecord.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/_search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="43" selection-start="292" selection-end="292" vertical-scroll-proportion="0.26373628">
+        <state line="21" column="135" selection-start="862" selection-end="862" vertical-scroll-proportion="-14.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuNhap/danhsach.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="27" selection-start="5989" selection-end="5996" vertical-scroll-proportion="4.940499">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="29.925926">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/chitiet.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhapxuat/views/phieuXuat/danhsach.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="115" selection-start="741" selection-end="741" vertical-scroll-proportion="-8.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../yii13/framework/db/ar/CActiveRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1685" column="30" selection-start="61122" selection-end="61132" vertical-scroll-proportion="-5.0576925">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/extensions/giix-components/GxActiveRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.1153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/CPOSThayDoiMatKhauForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="28" selection-start="954" selection-end="954" vertical-scroll-proportion="-8.037037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="14" selection-start="688" selection-end="688" vertical-scroll-proportion="-0.26373628">
+        <state line="54" column="58" selection-start="1834" selection-end="1834" vertical-scroll-proportion="0.27862597">
           <folding />
         </state>
       </provider>

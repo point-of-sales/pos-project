@@ -52,7 +52,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
         array(
             'name' => 'chi_nhanh_nhap_id',
-            'value' => 'GxHtml::valueEx($data->chiNhanhNhap)',
+            'value' => '$data->chiNhanhNhap->ten_chi_nhanh',
             'filter' => GxHtml::listDataEx(ChiNhanh::model()->findAllAttributes(null, true)),
         ),
         array(

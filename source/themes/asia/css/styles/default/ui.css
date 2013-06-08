@@ -322,6 +322,7 @@ i.note {
 	border-top:#e3e3e3 solid 6px;
 	background:#4c4c4c;
 	color:#c1c1c1;
+    height: 35px;
 }
 #footer #menu a {
 	color:#fff;

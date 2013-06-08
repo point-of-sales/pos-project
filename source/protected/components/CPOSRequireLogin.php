@@ -19,6 +19,7 @@ class CPOSRequireLogin extends CBehavior
         if (Yii::app()->user->isGuest && !in_array($_SERVER['REQUEST_URI'],array('/site/login'))) {
             Yii::app()->request->redirect('/site/login');
         }
+
     }
 
 }

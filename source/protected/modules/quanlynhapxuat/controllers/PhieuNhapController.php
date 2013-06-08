@@ -156,10 +156,8 @@ class PhieuNhapController extends CPOSController
                 Yii::app()->CPOSSessionManager->setItem('ExportData', $_GET['PhieuNhap']);
                 $model->setAttributes($_GET);
                 $model->setAttribute('id', $model->baseModel->getAttribute('id'));
-
             }
             $this->render('danhsach', array('model' => $model));
-
         } else
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }

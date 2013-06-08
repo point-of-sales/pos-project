@@ -75,9 +75,11 @@
     <?php echo $content ?>
 </div>
 <div class="clearfix"></div>
-<!--<div id="footer">
-		<?php /*$this->renderPartial('webroot.themes.asia.views.partials._main_footer');*/?>
-	</div>-->
+<?php if (Yii::app()->controller->action->id == 'index'): ?>
+    <div id="footer">
+        <?php $this->renderPartial('webroot.themes.asia.views.partials._main_footer'); ?>
+    </div>
+<?php endif; ?>
 </body>
 
 </html>

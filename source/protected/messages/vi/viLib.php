@@ -325,4 +325,12 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Gift Product'=>'Sản phẩm tặng',
     'Return'=>'Trả hàng',
     'Return quantity'=>'Số lượng trả',
+    'Reliable and Convenient'=>'Đáng tin cậy và tiện dụng',
+    'Work on Web-based 2.0'=>'Hoạt động trên nền web 2.0',
+    'Large scale easily'=>'Dễ dàng mở rộng',
+    'Central management'=>'Quản lý tập trung',
+    'Quick security update'=>'Cập nhật bảo mật nhanh chóng',
+    'Lower cost than tranditional management method'=>'Chi phí thấp hơn so với phương pháp quản lý truyền thống',
+    'Features'=>'Các tính năng',
+    'Introduction'=>'Giới thiệu',
 );
