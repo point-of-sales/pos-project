@@ -400,7 +400,7 @@ class HoaDonBanHangController extends CPOSController {
                     $result = array(
                         'status' => 'ok',
                         'msg' => 'ok'
-                    );      
+                    );          
                 }
                 else{
                     $result = array(
@@ -413,30 +413,40 @@ class HoaDonBanHangController extends CPOSController {
                 $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
                 if(!empty($model)){
                     if($this->kiemTraSoLuongHangBan($ma_vach,$chi_nhanh,$so_luong)){
-                        $don_gia = $model->layGiaHienTaiKemKhuyenMai();
-                        if(is_numeric($model->layGiaHienTai())){
-                            $item = array(
-                                'id' => $model->getAttribute('id'), 
-                                'ma_vach' => $model->getAttribute('ma_vach'),
-                                'ten_san_pham' => $model->getAttribute('ten_san_pham'),
-                                'don_gia'=> $don_gia,
-                                'so_luong' => 1,
-                                'thanh_tien' => 0,
-                            );
-                            $cthd_ban_hang[] = $item;
-                            //cap nhat session cthd ban
-                            Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
+                        if($this->kiemTraSanPhamKickHoat($ma_vach,$chi_nhanh)){
+                        
+                            $don_gia = $model->layGiaHienTaiKemKhuyenMai();
+                            if(is_numeric($model->layGiaHienTai())){
+                                $item = array(
+                                    'id' => $model->getAttribute('id'), 
+                                    'ma_vach' => $model->getAttribute('ma_vach'),
+                                    'ten_san_pham' => $model->getAttribute('ten_san_pham'),
+                                    'don_gia'=> $don_gia,
+                                    'so_luong' => 1,
+                                    'thanh_tien' => 0,
+                                );
+                                $cthd_ban_hang[] = $item;
+                                //cap nhat session cthd ban
+                                Yii::app()->CPOSSessionManager->setItem('hd_ban_hang',$cthd_ban_hang,array('cthd_ban_hang'));
+                                
+                                $result = array(
+                                    'status' => 'ok',
+                                    'msg' => 'ok'
+                                );   
                             
-                            $result = array(
-                                'status' => 'ok',
-                                'msg' => 'ok'
-                            );   
+                            }
+                            else{
+                                $result = array(
+                                    'status' => 'error',
+                                    'msg' => 'Sản phẩm chưa có mốc giá',
+                                );   
+                            }
                         }
                         else{
                             $result = array(
                                 'status' => 'error',
-                                'msg' => 'Sản phẩm chưa có mốc giá',
-                            );   
+                                'msg' => 'Sản phẩm không hợp lệ',
+                            );          
                         }
                     }
                     else{
@@ -488,6 +498,16 @@ class HoaDonBanHangController extends CPOSController {
             $model->chi_nhanh_id = $chi_nhanh;
             $so_ton = $model->laySoLuongTonHienTai();
             if($so_ton >= $so_luong)
+                return true;
+        }
+        return false;
+    }
+    
+    private function kiemTraSanPhamKickHoat($ma_vach,$chi_nhanh){
+        $model = SanPham::model()->findByAttributes(array('ma_vach'=>$ma_vach));
+        if(!empty($model)){
+            $model->chi_nhanh_id = $chi_nhanh;
+            if($model->trang_thai)
                 return true;
         }
         return false;
