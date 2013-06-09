@@ -41,7 +41,7 @@ $this->menu = array(
             'name' => 'trang_thai',
             'value' => $model->layTenTrangThai(),
         ),
-        'mat_khau',
+        //'mat_khau',
         array(
             'name' => 'ngay_vao_lam',
             'value' => $model->ngay_vao_lam,
@@ -59,6 +59,9 @@ $this->menu = array(
             'name' => 'chiNhanh',
             'type' => 'raw',
             'value' => $model->chiNhanh->ten_chi_nhanh,
+        ),
+        array(
+            'value'=>''
         ),
     ),
 )); ?>

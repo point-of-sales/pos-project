@@ -77,10 +77,11 @@ return false;
         */
         array(
             'class' => 'CButtonColumn',
-            'template' => '{view}{update}{delete}{active}{changepass}',
+            'template' => '{view}{update}{delete}{changepass}',
             'htmlOptions' => array('style' => 'width:80px'),
 
             'buttons' => array(
+            /*
                 'active' => array(
                     'label' => '',
                     'url' => 'Helpers::urlRouting(Yii::app()->controller,"","ajaxActive",array("id"=>$data->id))',
@@ -91,7 +92,7 @@ return false;
                     'imageUrl' => Yii::app()->request->baseUrl . '/themes/asia/images/icons/active.png',
                     'click' => Helpers::refreshGrid(),
 
-                ),
+                ),*/
                 'view' => array(
                     'url' => 'Helpers::urlRouting(Yii::app()->controller,"","chitiet",array("id"=>$data->id))',
                     'label' => Yii::t('viLib', 'View'),
