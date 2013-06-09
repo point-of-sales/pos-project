@@ -201,9 +201,10 @@ class SanPhamController extends CPOSController
             $model = new SanPham('search');
             $model->unsetAttributes();
             if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
-                $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
-                $tmp = Yii::app()->CPOSSessionManager->getItem('ExportData');
-                $chi_nhanh_id = $tmp['tblChiNhanhs'];
+                $dk = Yii::app()->CPOSSessionManager->getKey('ExportData');
+
+                $model->setAttributes($dk[0]);
+                $chi_nhanh_id = $dk[0]['tblChiNhanhs'];
                 $model->setAttribute('chi_nhanh_id', $chi_nhanh_id);
                 $dataProvider = $model->xuatFileExcel();
                 $this->render('xuat', array('dataProvider' => $dataProvider));

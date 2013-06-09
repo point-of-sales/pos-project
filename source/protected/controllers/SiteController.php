@@ -103,8 +103,8 @@ class SiteController extends Controller
 
                 // cap nhat lan dang nhap cuoi
                 $nhanVienModel = NhanVien::model()->findByPk(Yii::app()->user->id);
-                //$nhanVienModel->lan_dang_nhap_cuoi =
-
+                $thoi_gian_hien_hanh = date('Y-m-d h:i:s', time());
+                $nhanVienModel->saveAttributes(array('lan_dang_nhap_cuoi'=>$thoi_gian_hien_hanh));
                 $fullModuleList = array(
                     'Quanlybanhang' => array('label' => Yii::t('viLib', 'Sales management'), 'url' => array('/quanlybanhang/hoaDonBanHang/danhsach')),
                     'Quanlykhachhang' => array('label' => Yii::t('viLib', 'Customer management'), 'url' => array('/quanlykhachhang/khachHang/danhsach')),

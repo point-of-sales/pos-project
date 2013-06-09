@@ -174,7 +174,8 @@ class LoaiNhanVienController extends CPOSController
             $model = new LoaiNhanVien('search');
             $model->unsetAttributes();
             if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
-                $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
+                $dk = Yii::app()->CPOSSessionManager->getKey('ExportData');
+                $model->setAttributes($dk[0]);
                 $dataProvider = $model->xuatFileExcel();
                 $this->render('xuat', array('dataProvider' => $dataProvider));
             }

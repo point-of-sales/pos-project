@@ -5,25 +5,38 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/~$an_van_2007.docx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/testting/~$bang_test_loi.xlsx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" afterPath="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/KhachHangController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/KhachHangController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/KhuVucController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/KhuVucController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/controllers/KhuyenMaiController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/controllers/KhuyenMaiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/LoaiKhachHangController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/LoaiKhachHangController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/LoaiNhanVienController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/LoaiNhanVienController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/controllers/NhaCungCapController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/controllers/NhaCungCapController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/NhanVien.php" afterPath="$PROJECT_DIR$/source/protected/models/NhanVien.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/SanPhamController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/SanPhamController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/controllers/SiteController.php" afterPath="$PROJECT_DIR$/source/protected/controllers/SiteController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370761559499" ignored="false" />
-    <file path="/KhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1368969813409" ignored="false" />
-    <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370763490907" ignored="false" />
+    <file path="/KhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370770740475" ignored="false" />
+    <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370768024436" ignored="false" />
     <file path="/BaoCaoController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370050258553" ignored="false" />
     <file path="/error.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369110389826" ignored="false" />
     <file path="/HoaDonBanHang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370595540211" ignored="false" />
     <file path="/HoaDonBanHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370595406676" ignored="false" />
     <file path="/CPOSActiveRecord.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369638754813" ignored="false" />
-    <file path="/ChiNhanhController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370526421179" ignored="false" />
-    <file path="/KhuVucController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369056199377" ignored="false" />
+    <file path="/ChiNhanhController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771356223" ignored="false" />
+    <file path="/KhuVucController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771386175" ignored="false" />
     <file path="/PhieuXuatController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370528715686" ignored="false" />
     <file path="/CPOSController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370572626751" ignored="false" />
     <file path="/_main_nav.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369749677813" ignored="false" />
-    <file path="/NhanVienController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369750874061" ignored="false" />
-    <file path="/SiteController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370767552270" ignored="false" />
+    <file path="/NhanVienController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370769611923" ignored="false" />
+    <file path="/SiteController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370768234924" ignored="false" />
     <file path="/CauHinh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369670148218" ignored="false" />
     <file path="/main.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370628352637" ignored="false" />
     <file path="/RequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369099830330" ignored="false" />
@@ -117,6 +130,12 @@
     <file path="/MocGia.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370762363658" ignored="false" />
     <file path="/MocGiaController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370763112390" ignored="false" />
     <file path="/KhachHang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370765810383" ignored="false" />
+    <file path="/LoaiNhanVienController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370770617485" ignored="false" />
+    <file path="/NhaCungCapController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370770675079" ignored="false" />
+    <file path="/LoaiKhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771254266" ignored="false" />
+    <file path="/LoaiChiNhanhController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771400634" ignored="false" />
+    <file path="/KhuyenMaiController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771542437" ignored="false" />
+    <file path="/SanPhamController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771672203" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,91 +155,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="operations.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/operations.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="6" selection-start="814" selection-end="814" vertical-scroll-proportion="-8.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generate.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/generate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phanquyen.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/phanquyen.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="6" selection-start="1063" selection-end="1063" vertical-scroll-proportion="-10.666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="danhsach.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/danhsach.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="5" selection-start="888" selection-end="888" vertical-scroll-proportion="-8.666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="danhsach.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/danhsach.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="KhachHangController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/KhachHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="72" selection-start="6619" selection-end="6622" vertical-scroll-proportion="-3.25">
+            <state line="183" column="43" selection-start="7681" selection-end="7681" vertical-scroll-proportion="-10.666667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SiteController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/protected/controllers/SiteController.php">
+      <file leaf-file-name="LoaiKhachHangController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/LoaiKhachHangController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="18" selection-start="2510" selection-end="2510" vertical-scroll-proportion="0.6896552">
+            <state line="172" column="43" selection-start="7379" selection-end="7379" vertical-scroll-proportion="-19.62963">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KhachHang.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/models/KhachHang.php">
+      <file leaf-file-name="ChiNhanhController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="34" selection-start="2821" selection-end="2821" vertical-scroll-proportion="19.51923">
+            <state line="190" column="45" selection-start="8088" selection-end="8088" vertical-scroll-proportion="-14.814815">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KhuVucController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/KhuVucController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="186" column="43" selection-start="7951" selection-end="7951" vertical-scroll-proportion="-10.814815">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HoaDonBanHangController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="278" column="31" selection-start="11589" selection-end="11597" vertical-scroll-proportion="6.173077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KhuyenMaiController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/controllers/KhuyenMaiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="178" column="43" selection-start="7411" selection-end="7411" vertical-scroll-proportion="-8.666667">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MocGiaController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/MocGiaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="96.666664">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoaiSanPhamController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/LoaiSanPhamController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="56.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SanPhamController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/SanPhamController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="208" column="21" selection-start="8642" selection-end="8642" vertical-scroll-proportion="0.496">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoaiChiNhanhController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="175" column="45" selection-start="7355" selection-end="7355" vertical-scroll-proportion="-11.481482">
               <folding />
             </state>
           </provider>
@@ -244,22 +263,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/protected/views/site/contact.php" />
-        <option value="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/ChiTietHoaDonBan.php" />
-        <option value="$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/MocGia.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/MocGiaController.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/SanPham.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/mocGia/xuat.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/chitiet.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/roles.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/tasks.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/operations.php" />
         <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/phanquyen.php" />
         <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/danhsach.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/KhachHang.php" />
         <option value="$PROJECT_DIR$/source/protected/controllers/SiteController.php" />
+        <option value="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
+        <option value="$PROJECT_DIR$/source/protected/models/KhachHang.php" />
+        <option value="$PROJECT_DIR$/source/protected/models/NhanVien.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/LoaiNhanVienController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/controllers/NhaCungCapController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/KhachHangController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/LoaiKhachHangController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/KhuVucController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/controllers/KhuyenMaiController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/SanPhamController.php" />
       </list>
     </option>
   </component>
@@ -381,7 +400,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -461,15 +502,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="778" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32125986" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25750396" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30844155" sideWeight="0.6761453" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30844155" sideWeight="0.7424961" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32385466" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -544,116 +585,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/protected/extensions/eexcelview/CPOSEExcelView.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/models/KhachHang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="959" column="33" selection-start="45876" selection-end="45876" vertical-scroll-proportion="-5.4814816">
+        <state line="88" column="111" selection-start="2727" selection-end="2727" vertical-scroll-proportion="-0.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/views/sanPham/chitiet.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="4" selection-start="6421" selection-end="6421" vertical-scroll-proportion="-12.148149">
-          <folding>
-            <element signature="e#8253#8584#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/roles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="819" selection-end="819" vertical-scroll-proportion="-8.0">
+        <state line="229" column="0" selection-start="9860" selection-end="9860" vertical-scroll-proportion="-14.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/tasks.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="819" selection-end="819" vertical-scroll-proportion="-8.0">
+        <state line="220" column="75" selection-start="9102" selection-end="9161" vertical-scroll-proportion="-7.6153846">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/update.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/LoaiNhanVienController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="177" column="43" selection-start="7382" selection-end="7382" vertical-scroll-proportion="0.6183746">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/permissions.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/models/NhaCungCap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="48.555557">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/operations.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhacungcap/controllers/NhaCungCapController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="814" selection-end="814" vertical-scroll-proportion="-8.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/generate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/phanquyen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="1063" selection-end="1063" vertical-scroll-proportion="-10.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/danhsach.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="888" selection-end="888" vertical-scroll-proportion="-8.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhachhang/views/khachHang/danhsach.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="185" column="1" selection-start="7756" selection-end="7756" vertical-scroll-proportion="-17.62963">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/KhachHangController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="72" selection-start="6619" selection-end="6622" vertical-scroll-proportion="-3.25">
+        <state line="183" column="43" selection-start="7681" selection-end="7681" vertical-scroll-proportion="-10.666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/KhachHang.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhachhang/controllers/LoaiKhachHangController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="34" selection-start="2821" selection-end="2821" vertical-scroll-proportion="19.51923">
+        <state line="172" column="43" selection-start="7379" selection-end="7379" vertical-scroll-proportion="-19.62963">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/controllers/SiteController.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/ChiNhanhController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="18" selection-start="2510" selection-end="2510" vertical-scroll-proportion="0.6896552">
+        <state line="190" column="45" selection-start="8088" selection-end="8088" vertical-scroll-proportion="-14.814815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/LoaiChiNhanhController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="45" selection-start="7355" selection-end="7355" vertical-scroll-proportion="-11.481482">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlychinhanh/controllers/KhuVucController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="186" column="43" selection-start="7951" selection-end="7951" vertical-scroll-proportion="-10.814815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="31" selection-start="11589" selection-end="11597" vertical-scroll-proportion="6.173077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/controllers/KhuyenMaiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="43" selection-start="7411" selection-end="7411" vertical-scroll-proportion="-8.666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/MocGiaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="96.666664">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/LoaiSanPhamController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="56.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlysanpham/controllers/SanPhamController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="21" selection-start="8642" selection-end="8642" vertical-scroll-proportion="0.496">
           <folding />
         </state>
       </provider>
