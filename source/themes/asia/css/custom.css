@@ -568,3 +568,20 @@ a.cus-link:hover {
     margin-top:-15px;
     padding-bottom: 10px;
 }
+
+#contact-content {
+    width:710px;
+    overflow:hidden;
+    margin:60px auto;
+}
+
+
+#contact-content .member {    
+    background-color:#aadd6d;
+    border-radius: 5px;
+    margin:10px auto;
+    width:300px;
+    float:left;
+    margin-left:20px;
+    padding-left:30px;
+}
