@@ -27,6 +27,13 @@
         <?php echo $form->textField($model, 'ho_ten', array('maxlength' => 200)); ?>
         <?php echo $form->error($model, 'ho_ten'); ?>
     </div>
+    
+    <div class="row cus-row">
+        <?php echo $form->labelEx($model, 'ma_khach_hang'); ?>
+        <?php echo $form->hiddenField($model, 'ma_khach_hang', array('maxlength' => 10)); ?>
+        <?php echo $form->error($model, 'ma_khach_hang'); ?>
+    </div>
+    <!-- row -->
         
         <?php
     }
