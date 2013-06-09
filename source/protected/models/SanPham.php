@@ -188,7 +188,7 @@ class SanPham extends BaseSanPham
     {
         $criteria = new CDbCriteria();
         $cauHinh = CauHinh::model()->findByPk(1);
-        $criteria->compare('san_pham_id', $this->id, true);
+        $criteria->compare('san_pham_id', $this->id);
         $criteria->order = 'thoi_gian_bat_dau ASC';
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 

@@ -14,13 +14,13 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib','Product'), 'url' => array('danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.DanhSach')),
-    array('label' => Yii::t('viLib', 'Add') . ' ' .Yii::t('viLib','Product'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Them')),
+    array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('danhsach'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.DanhSach')),
+    array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('them'), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Them')),
     array('label' => Yii::t('viLib', 'Add') . ' ' . Yii::t('viLib', 'Price checkpoint'), 'url' => array('mocGia/them', 'spid' => $model->id)),
     //array('label' => Yii::t('viLib', 'View') . ' ' . Yii::t('viLib', 'Sales ????? '), 'url' => array('')),
-    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib','Product'), 'url' => array('capnhat', 'id' => $model->id),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.CapNhat')),
-    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib','Product'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?')),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Xoa')),
-    array('label'=>Yii::t('viLib', 'Export') .' '. Yii::t('viLib', 'Price checkpoint') .' '. Yii::t('viLib','File Excel'), 'url'=>array('mocGia/xuat'),'visible'=>Yii::app()->user->checkAccess('Quanlysanpham.MocGia.Xuat')),
+    array('label' => Yii::t('viLib', 'Update') . ' ' . Yii::t('viLib', 'Product'), 'url' => array('capnhat', 'id' => $model->id), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.CapNhat')),
+    array('label' => Yii::t('viLib', 'Delete') . ' ' . Yii::t('viLib', 'Product'), 'url' => '#', 'linkOptions' => array('submit' => array('xoa', 'id' => $model->id), 'confirm' => Yii::t('viLib', 'Are you sure you want to delete this item?')), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.SanPham.Xoa')),
+    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'Price checkpoint') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('mocGia/xuat', 'spid' => $model->id), 'visible' => Yii::app()->user->checkAccess('Quanlysanpham.MocGia.Xuat')),
 );
 ?>
 
@@ -30,10 +30,10 @@ $this->menu = array(
 <?php $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
     'attributes' => array(
-        'ma_vach','ten_san_pham',
-        'ten_tieng_viet','han_dung',
-        'don_vi_tinh','ton_toi_thieu',
-        'huong_dan_su_dung','mo_ta',
+        'ma_vach', 'ten_san_pham',
+        'ten_tieng_viet', 'han_dung',
+        'don_vi_tinh', 'ton_toi_thieu',
+        'huong_dan_su_dung', 'mo_ta',
         array(
             'name' => 'trang_thai',
             'type' => 'raw',
@@ -51,12 +51,15 @@ $this->menu = array(
         ),
         array('name' => Yii::t('viLib', 'Current price'),
             'type' => 'raw',
-            'value' => $model->layGiaHienTai(),
+            'value' => number_format($model->layGiaHienTai(), 0, '.', ','),
         ),
-        'gia_goc',
+        'gia_goc' => array(
+            'name' => 'gia_goc',
+            'value' => number_format($model->gia_goc, 0, '.', ','),
+        ),
         array('name' => Yii::t('viLib', 'Current price with promotion'),
             'type' => 'raw',
-            'value' => $model->layGiaHienTaiKemKhuyenMai(),
+            'value' => number_format($model->layGiaHienTaiKemKhuyenMai(), 0, '.', ','),
         ),
 
 
@@ -77,7 +80,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'header' => Yii::t('viLib', 'Times'),
             'value' => '$data->layKhoangThoiGian()',
         ),
-        'gia_ban',
+        'gia_ban' => array(
+            'name' => 'gia_ban',
+            'value' => 'number_format($data->gia_ban,0,".",",")',
+        ),
         array(
             'class' => 'CButtonColumn',
             'template' => '{update}{delete}',
@@ -111,9 +117,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
         'ma_chi_nhanh',
         'ten_chi_nhanh',
         array('name' => Yii::t('viLib', 'Instock'),
-            'value' => '$data->laySoLuongTonSanPham()'),
-        array('name'=>'trang_thai',
-              'value'=>'$data->layTenTrangThaiSanPhamOChiNhanh()'
+            'value' => 'number_format($data->laySoLuongTonSanPham(),0,".",",")'
+        ),
+        array('name' => 'trang_thai',
+            'value' => '$data->layTenTrangThaiSanPhamOChiNhanh()'
         ),
         array(
             'class' => 'CButtonColumn',
@@ -136,10 +143,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 ));
 ?>
-
-<?php
-    echo GxHtml::encode(Yii::t('viLib','Total quantity') .' : '.  $model->layTongSoLuongTon());
-?>
+<b>
+    <?php
+    echo GxHtml::encode(Yii::t('viLib', 'Total quantity') . ' : ' . number_format($model->layTongSoLuongTon(), 0, '.', ','));
+    ?>
+</b>
 
 <!--<h2><?php /*echo GxHtml::encode($model->getRelationLabel('tblHoaDonBanHangs')); */?></h2>
 <?php

@@ -37,7 +37,7 @@ class MocGia extends BaseMocGia
             array('san_pham_id', 'numerical', 'integerOnly' => true),
             array('gia_ban', 'numerical'),
             array('id, thoi_gian_bat_dau, gia_ban, san_pham_id', 'safe', 'on' => 'search'),
-            array('thoi_gian_bat_dau', 'ext.custom-validator.CPOSDateTimeValidator','on'=>'them'),
+            array('thoi_gian_bat_dau', 'ext.custom-validator.CPOSDateTimeValidator', 'on' => 'them'),
         );
     }
 
@@ -105,7 +105,8 @@ class MocGia extends BaseMocGia
         }
     }
 
-    public function search() {
+    public function search()
+    {
         $criteria = new CDbCriteria;
         $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->compare('id', $this->id);
@@ -117,8 +118,8 @@ class MocGia extends BaseMocGia
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'pagination'=>array(
-                'pageSize'=>$numberRecords,
+            'pagination' => array(
+                'pageSize' => $numberRecords,
             ),
         ));
 
@@ -126,7 +127,7 @@ class MocGia extends BaseMocGia
 
     public function layThoiGianKeTiep()
     {
-        $thoi_gian_bat_dau = date('Y--m-d',strtotime($this->thoi_gian_bat_dau));
+        $thoi_gian_bat_dau = date('Y--m-d', strtotime($this->thoi_gian_bat_dau));
         $command = Yii::app()->db->createCommand();
         $command->select = 'MIN(thoi_gian_bat_dau)';
         $command->from = 'tbl_MocGia';
@@ -141,6 +142,18 @@ class MocGia extends BaseMocGia
             return $this->thoi_gian_bat_dau . ' --> ' . date('d-m-Y', strtotime($thoiGianKetThuc) - 24 * 60 * 60);
         else
             return $this->thoi_gian_bat_dau;
+    }
+
+    public function xuatFileExcel() {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('thoi_gian_bat_dau', $this->thoi_gian_bat_dau, true);
+        $criteria->compare('gia_ban', $this->gia_ban);
+        $criteria->compare('san_pham_id', $this->san_pham_id);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
     }
 
 
