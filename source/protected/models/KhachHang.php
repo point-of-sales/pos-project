@@ -86,7 +86,7 @@ class KhachHang extends BaseKhachHang
         $criteria->compare('ma_khach_hang', $this->ma_khach_hang, true);
         $criteria->compare('ho_ten', $this->ho_ten, true);
         $criteria->compare('loai_khach_hang_id', $this->loai_khach_hang_id);
-
+        $criteria->addCondition("ma_khach_hang <> 'KHBT'");    // loai khach hang binh thuong ra khoi danh sach
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
 
         return new CActiveDataProvider($this, array(

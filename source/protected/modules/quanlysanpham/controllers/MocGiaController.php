@@ -150,13 +150,14 @@ class MocGiaController extends CPOSController
             throw new CHttpException(403, Yii::t('viLib', 'You are not allowed to access this section. Please contact to your administrator for help'));
     }
 
-    public function  actionXuat()
+    public function  actionXuat($spid)
     {
         if (Yii::app()->user->checkAccess('Quanlysanpham.MocGia.Xuat')) {
             $model = new MocGia('search');
             $model->unsetAttributes();
-            if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
+            if (isset($spid)) {
                 $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
+                $model->san_pham_id = $spid;
                 $dataProvider = $model->xuatFileExcel();
                 $this->render('xuat', array('dataProvider' => $dataProvider));
             }
