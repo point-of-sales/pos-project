@@ -51,7 +51,7 @@ $this->menu = array(
         ),
         array('name' => Yii::t('viLib', 'Current price'),
             'type' => 'raw',
-            'value' => number_format($model->layGiaHienTai(), 0, '.', ','),
+            'value' => is_double($model->layGiaHienTai())?number_format($model->layGiaHienTai(), 0, '.', ','):$model->layGiaHienTai(),
         ),
         'gia_goc' => array(
             'name' => 'gia_goc',
@@ -59,7 +59,7 @@ $this->menu = array(
         ),
         array('name' => Yii::t('viLib', 'Current price with promotion'),
             'type' => 'raw',
-            'value' => number_format($model->layGiaHienTaiKemKhuyenMai(), 0, '.', ','),
+            'value' => is_double($model->layGiaHienTaiKemKhuyenMai())?number_format($model->layGiaHienTaiKemKhuyenMai(), 0, '.', ','):$model->layGiaHienTaiKemKhuyenMai(),
         ),
 
 
