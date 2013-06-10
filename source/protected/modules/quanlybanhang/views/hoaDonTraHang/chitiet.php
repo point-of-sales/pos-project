@@ -6,13 +6,26 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
     array('label'=>Yii::t('viLib', 'List') . ' ' . 'Hóa đơn trả hàng', 'url'=>array('hoaDonTraHang/danhsach')),
-    array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url'=>array('xuat', 'id' => $model->id)),
+    //array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url'=>array('xuat', 'id' => $model->id)),
 );
 ?>
 
 
     <h1><?php echo 'Hóa Đơn Trả' . ' ' . $model->getBaseModel()->ma_chung_tu; ?></h1>
-
+<div class="xuat-file-menu">
+    <ul>
+        <li>
+            <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonTraHang/hoadontra',array('id'=>$model->id,'p'=>'false'))?>" title="print" target="_blank">
+                <img alt="print" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/print.png"/>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo Yii::app()->createUrl('quanlybanhang/hoaDonTraHang/xuatfileexcel',array('id'=>$model->id))?>" title="excel" target="_blank">
+                <img alt="excel" src="<?php echo Yii::app()->theme->baseUrl?>/images/icons/excel.png"/>
+            </a>
+        </li>
+    </ul>
+</div>
 <?php 
 $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
@@ -35,7 +48,7 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
         array(
             'name' => 'Trị giá',
             'type' => 'raw',
-            'value' => $model->tri_gia,
+            'value' => number_format($model->tri_gia,0,".",","),
         ),
         array(
             'name' => 'Lý do trả hàng',
@@ -71,12 +84,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'Đơn giá',
-            'value' => '$data->don_gia',
+            'value' => 'number_format($data->don_gia,0,".",",")',
         ),
     )
 ));
 ?>
-'<h2>Hóa đơn bán gốc</h2>';
+<h2>Hóa đơn bán gốc</h2>
 
 <?php 
 $this->widget('ext.custom-widgets.DetailView4Col', array(
@@ -130,7 +143,7 @@ $this->widget('ext.custom-widgets.DetailView4Col', array(
         array(
             'name' => 'Trị giá',
             'type' => 'raw',
-            'value' => $model->hoaDonBan->getBaseModel()->tri_gia,
+            'value' => number_format($model->hoaDonBan->getBaseModel()->tri_gia,0,".",","),
         ),
     ),
 )); 
@@ -158,7 +171,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'Đơn giá',
-            'value' => '$data->don_gia',
+            'value' => 'number_format($data->don_gia,0,".",",")',
         ),
     )
 ));
