@@ -65,7 +65,7 @@ echo '</pre>';
                 	<td class="form-hd-ban-label">Chiết khấu</td>
                     <td><span id="form-hd-ban-chiet-khau">0</span><span>%</span></td>
                     <td class="form-hd-ban-label" style="font-weight: bold;" >Trị giá</td>
-                    <td><span id="form-hd-ban-tri-gia" style="color: red;">0</span></td>
+                    <td><span id="form-hd-ban-tri-gia" style="color: red;font-weight: bold;">0</span></td>
                 </tr>
                 <tr>
                 	<td class="form-hd-ban-label">Số tiền nhận</td>
