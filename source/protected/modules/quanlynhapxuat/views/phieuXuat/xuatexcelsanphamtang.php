@@ -2,11 +2,11 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Phieu_Xuat_' . time(),
+    'title'=>'Phieu_Xuat_San_Pham_Tang_' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>Yii::t('viLib','Export form'),
-    'template'=>'PhieuXuat',
+    'documentTitle'=>Yii::t('viLib','Import form'),
+    'template'=>'PhieuXuatSanPhamTang',
     'columns' => array(
 
         array('name'=>'STT',
@@ -14,24 +14,15 @@ $this->widget('CPOSEExcelView', array(
         ),
         array(
             'name' => Yii::t('viLib', 'Barcode'),
-            'value' => '$data->sanPham->ma_vach',
+            'value' => '$data->sanPhamTang->ma_vach',
         ),
         array('name' => Yii::t('viLib', 'Product name'),
-            'value' => '$data->sanPham->ten_san_pham'
+            'value' => '$data->sanPhamTang->ten_san_pham'
         ),
         array(
             'name' => Yii::t('viLib', 'Quantity'),
             'value' => '$data->so_luong',
         ),
-        array(
-            'name' => Yii::t('viLib', 'Export price'),
-            'value' => '$data->gia_xuat',
-        ),
-        array(
-            'name' => Yii::t('viLib', 'Total'),
-            'value' => '$data->gia_xuat * $data->so_luong',
-        )
-
 
     ),
 ));

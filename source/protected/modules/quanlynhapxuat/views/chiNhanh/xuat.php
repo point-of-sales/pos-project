@@ -2,9 +2,9 @@
 <?php
 $this->widget('CPOSEExcelView', array(
     'dataProvider'=> $dataProvider,
-    'title'=>'Sample_name' . time(),
+    'title'=>'Danh_sach_chi_nhanh_' . time(),
     'autoWidth'=>true,
     'category'=>'',
-    'documentTitle'=>'Sample_name',
+    'documentTitle'=>Yii::t('viLib','Branchs list'),
 ));
 ?>

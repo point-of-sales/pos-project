@@ -65,7 +65,7 @@ $this->menu = array(
             $categories = $sp->layDanhSachThoiGian();
             $this->widget('ext.highcharts.HighchartsWidget', array(
                 'options' => array(
-                    'title' => array('text' => Yii::t('viLib', 'Product Sales Report on All Branchs ')),
+                    'title' => array('text' => Yii::t('viLib', 'Product Sales Report on All Branchs')),
                     'xAxis' => array(
                         'categories' => $categories,
                     ),

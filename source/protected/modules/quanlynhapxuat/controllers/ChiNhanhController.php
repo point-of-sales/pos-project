@@ -36,7 +36,8 @@ class ChiNhanhController extends CPOSController
             $model = new ChiNhanh('search');
             $model->unsetAttributes();
             if (!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
-                $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
+                $dk = Yii::app()->CPOSSessionManager->getItem('ExportData');
+                $model->setAttributes($dk[0]);
                 $dataProvider = $model->xuatFileExcel();
                 $this->render('xuat', array('dataProvider' => $dataProvider));
             }

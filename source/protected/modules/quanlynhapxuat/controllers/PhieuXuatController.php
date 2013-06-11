@@ -157,8 +157,15 @@ class PhieuXuatController extends CPOSController
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'phieu_xuat_id=:phieu_xuat_id';
                 $criteria->params = array(':phieu_xuat_id' => $id);
-                $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
-                $this->render('xuat', array('dataProvider' => $chiTietPhieuXuatDataProvider));
+                $phieuXuatModel = PhieuXuat::model()->findByPk($id);
+                if(!empty($phieuXuatModel->chiTietPhieuNhap)) {
+                    $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuat', array('criteria' => $criteria));
+                    $this->render('xuat', array('dataProvider' => $chiTietPhieuXuatDataProvider));
+                }
+                else {
+                    $chiTietPhieuXuatDataProvider = new CActiveDataProvider('ChiTietPhieuXuatSanPhamTang', array('criteria' => $criteria));
+                    $this->render('xuatexcelsanphamtang', array('dataProvider' => $chiTietPhieuXuatDataProvider));
+                }
             }
             throw new CException(404, 'Page not found');
         } else

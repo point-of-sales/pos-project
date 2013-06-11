@@ -171,8 +171,16 @@ class PhieuNhapController extends CPOSController
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'phieu_nhap_id=:phieu_nhap_id';
                 $criteria->params = array(':phieu_nhap_id' => $id);
-                $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
-                $this->render('xuat', array('dataProvider' => $chiTietPhieuNhapDataProvider));
+                $phieuNhapModel = PhieuNhap::model()->findByPk($id);
+                if(!empty($phieuNhapModel->chiTietPhieuNhap)) {
+                    $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhap', array('criteria' => $criteria));
+                    $this->render('xuat', array('dataProvider' => $chiTietPhieuNhapDataProvider));
+                }
+                else {
+                    $chiTietPhieuNhapDataProvider = new CActiveDataProvider('ChiTietPhieuNhapSanPhamTang', array('criteria' => $criteria));
+                    $this->render('xuatexcelsanphamtang', array('dataProvider' => $chiTietPhieuNhapDataProvider));
+                }
+
             }
             throw new CHttpException(404, 'Id not found');
         } else

@@ -9,11 +9,11 @@ $this->breadcrumbs = array(
 $this->menu = array(
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Areas') . ' ', 'url' => array('khuVuc/danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.KhuVuc.DanhSach')),
     array('label' => Yii::t('viLib', 'List') . ' ' . Yii::t('viLib', 'Branch Type') . ' ', 'url' => array('loaiChiNhanh/danhsach'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.LoaiChiNhanh.DanhSach')),
-    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Branch'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.Them'),
+    array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Branch'), 'url' => array('them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.Them')),
     array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Area') . ' ', 'url' => array('khuVuc/them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.KhuVuc.Them')),
     array('label' => Yii::t('viLib', 'Create') . ' ' . Yii::t('viLib', 'Branch Type') . ' ', 'url' => array('loaiChiNhanh/them'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.LoaiChiNhanh.Them')),
     array('label' => Yii::t('viLib', 'Export') . ' ' . Yii::t('viLib', 'File Excel'), 'url' => array('xuat'),'visible'=>Yii::app()->user->checkAccess('Quanlychinhanh.ChiNhanh.Xuat')),
-));
+);
 
 
 Yii::app()->clientScript->registerScript('search', "

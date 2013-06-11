@@ -436,7 +436,7 @@ class CPOSEExcelView extends EExcelView
         self::$activeSheet->setCellValue('B13', Yii::t('viLib', 'Shipper'));
 
     }
-    
+
     public function renderHoaDonBanHangInfo($startColumn = null, $row = 6)
     {
         //custom column and row
@@ -449,25 +449,25 @@ class CPOSEExcelView extends EExcelView
         $chiTietHoaDonBan = $tmp[0];
         $hoaDonBanHang = $chiTietHoaDonBan->hoaDonBanHang;
         $khachHang = $chiTietHoaDonBan->hoaDonBanHang->khachHang;
-        
+
         $maChungTu = $hoaDonBanHang->chungTu->ma_chung_tu;
         $ngayLap = $hoaDonBanHang->chungTu->ngay_lap;
         $giam_gia = $hoaDonBanHang->chiet_khau;
         $nhanVien = $hoaDonBanHang->chungTu->nhanVien->ho_ten;
         $chi_nhanh = $hoaDonBanHang->chungTu->chiNhanh->ten_chi_nhanh;
         $tri_gia = $hoaDonBanHang->chungTu->tri_gia;
-        
+
         $ma_khach_hang = $khachHang->ma_khach_hang;
         $ten_khach_hang = $khachHang->ho_ten;
         $dia_chi = $khachHang->dia_chi;
         $dien_thoai = $khachHang->dien_thoai;
         $loai_khach_hang = $khachHang->loaiKhachHang->ten_loai;
-        
+
 
         self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
         self::$activeSheet->setCellValue('C8', $maChungTu);
         self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
-        self::$activeSheet->setCellValue('C9', date('d/m/Y - h:i:s',strtotime($ngayLap)));
+        self::$activeSheet->setCellValue('C9', date('d/m/Y - h:i:s', strtotime($ngayLap)));
         self::$activeSheet->setCellValue('B10', 'Nhân viên lập hóa đơn');
         self::$activeSheet->setCellValue('C10', $nhanVien);
         self::$activeSheet->setCellValue('B11', 'Chi nhánh bán');
@@ -476,7 +476,7 @@ class CPOSEExcelView extends EExcelView
         //self::$activeSheet->setCellValue('C12', $tri_gia);
         //self::$activeSheet->setCellValue('B12', 'Trị giá');
         //self::$activeSheet->setCellValue('C12', $tri_gia);
-        
+
         self::$activeSheet->setCellValue('D8', 'Mã khách hàng');
         self::$activeSheet->setCellValue('E8', $ma_khach_hang);
         self::$activeSheet->setCellValue('D9', 'Tên khách hàng');
@@ -491,7 +491,7 @@ class CPOSEExcelView extends EExcelView
         //self::$activeSheet->setCellValue('E13', $giam_gia);
 
     }
-    
+
     public function renderHoaDonTraInfo($startColumn = null, $row = 6)
     {
         //custom column and row
@@ -504,25 +504,25 @@ class CPOSEExcelView extends EExcelView
         $chiTietHoaDon = $tmp[0];
         $hoaDonTra = $chiTietHoaDon->hoaDonTraHang;
         $khachHang = $hoaDonTra->hoaDonBan->khachHang;
-        
+
         $maChungTu = $hoaDonTra->chungTu->ma_chung_tu;
         $ngayLap = $hoaDonTra->chungTu->ngay_lap;
         //$giam_gia = $hoaDonTra->chiet_khau;
         $nhanVien = $hoaDonTra->chungTu->nhanVien->ho_ten;
         $chi_nhanh = $hoaDonTra->chungTu->chiNhanh->ten_chi_nhanh;
         $tri_gia = $hoaDonTra->chungTu->tri_gia;
-        
+
         $ma_khach_hang = $khachHang->ma_khach_hang;
         $ten_khach_hang = $khachHang->ho_ten;
         $dia_chi = $khachHang->dia_chi;
         $dien_thoai = $khachHang->dien_thoai;
         $loai_khach_hang = $khachHang->loaiKhachHang->ten_loai;
-        
+
 
         self::$activeSheet->setCellValue('B8', Yii::t('viLib', 'Voucher code'));
         self::$activeSheet->setCellValue('C8', $maChungTu);
         self::$activeSheet->setCellValue('B9', Yii::t('viLib', 'Created date'));
-        self::$activeSheet->setCellValue('C9', date('d/m/Y - h:i:s',strtotime($ngayLap)));
+        self::$activeSheet->setCellValue('C9', date('d/m/Y - h:i:s', strtotime($ngayLap)));
         self::$activeSheet->setCellValue('B10', 'Nhân viên lập hóa đơn');
         self::$activeSheet->setCellValue('C10', $nhanVien);
         self::$activeSheet->setCellValue('B11', 'Chi nhánh bán');
@@ -531,7 +531,7 @@ class CPOSEExcelView extends EExcelView
         //self::$activeSheet->setCellValue('C12', $tri_gia);
         //self::$activeSheet->setCellValue('B12', 'Trị giá');
         //self::$activeSheet->setCellValue('C12', $tri_gia);
-        
+
         self::$activeSheet->setCellValue('D8', 'Mã khách hàng');
         self::$activeSheet->setCellValue('E8', $ma_khach_hang);
         self::$activeSheet->setCellValue('D9', 'Tên khách hàng');
@@ -602,7 +602,7 @@ class CPOSEExcelView extends EExcelView
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
 
         $columnNum = count($this->columns);
-        $endIndex = $startIndex + $columnNum-1;
+        $endIndex = $startIndex + $columnNum - 1;
         $endColumn = $this->columnName($endIndex);
         self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
         self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
@@ -612,11 +612,39 @@ class CPOSEExcelView extends EExcelView
 
         // render text of amount
         $amountText = Helpers::readNumber($toTal);
-        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
-        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
-        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+        self::$activeSheet->setCellValue($startColumn . ($rowNum + 2), Yii::t('viLib', 'Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum + 2, array('italic' => true), '', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum + 2) . ":" . $endColumn . ($rowNum + 2));
     }
-    
+
+    public function renderTotalNumBer($startColumn = null, $rowStartColumnTitles = 0)
+    {
+        //custom column and row
+        if (isset($startColumn)) {
+            $startIndex = $this->columnIndex($startColumn);
+        } else {
+            $startIndex = 0;
+        }
+
+        $tmp = $this->dataProvider->getData();
+        $toTal = 0;
+        foreach ($tmp as $t) {
+            $toTal = $toTal + $t->so_luong;
+        }
+        $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
+
+        $columnNum = count($this->columns);
+        $endIndex = $startIndex + $columnNum - 1;
+        $endColumn = $this->columnName($endIndex);
+        self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
+        self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
+        $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
+        self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
+
+
+    }
+
     public function renderHoaDonBanTotal($startColumn = null, $rowStartColumnTitles = 0)
     {
         //custom column and row
@@ -636,22 +664,22 @@ class CPOSEExcelView extends EExcelView
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
 
         $columnNum = count($this->columns);
-        $endIndex = $startIndex + $columnNum-1;
+        $endIndex = $startIndex + $columnNum - 1;
         $endColumn = $this->columnName($endIndex);
         self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
         self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
         $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
         $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
         self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
-        
+
         $rowNum++;
-        $giam_gia = $toTal*($hoaDonBanHang->chiet_khau/100);
-        self::$activeSheet->setCellValue($startColumn . $rowNum, 'Giảm giá ('.$hoaDonBanHang->chiet_khau.'%)');
+        $giam_gia = $toTal * ($hoaDonBanHang->chiet_khau / 100);
+        self::$activeSheet->setCellValue($startColumn . $rowNum, 'Giảm giá (' . $hoaDonBanHang->chiet_khau . '%)');
         self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $giam_gia);
         $this->setCellFormatStyle($startColumn, $rowNum, array('bold' => true), 'C1B5A5', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
         $this->setCellFormatStyle($this->columnName($endIndex + 1), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
         self::$activeSheet->mergeCells($startColumn . $rowNum . ":" . $endColumn . $rowNum);
-        
+
         $rowNum++;
         $tri_gia = $hoaDonBanHang->chungTu->tri_gia;
         self::$activeSheet->setCellValue($startColumn . $rowNum, 'Kết quả');
@@ -662,11 +690,11 @@ class CPOSEExcelView extends EExcelView
 
         // render text of amount
         $amountText = Helpers::readNumber($tri_gia);
-        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
-        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
-        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+        self::$activeSheet->setCellValue($startColumn . ($rowNum + 2), Yii::t('viLib', 'Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum + 2, array('italic' => true), '', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum + 2) . ":" . $endColumn . ($rowNum + 2));
     }
-    
+
     public function renderHoaDonTraTotal($startColumn = null, $rowStartColumnTitles = 0)
     {
         //custom column and row
@@ -682,7 +710,7 @@ class CPOSEExcelView extends EExcelView
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
 
         $columnNum = count($this->columns);
-        $endIndex = $startIndex + $columnNum-1;
+        $endIndex = $startIndex + $columnNum - 1;
         $endColumn = $this->columnName($endIndex);
         self::$activeSheet->setCellValue($startColumn . $rowNum, 'Số tiền trả lại');
         self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $tri_gia);
@@ -692,9 +720,9 @@ class CPOSEExcelView extends EExcelView
 
         // render text of amount
         $amountText = Helpers::readNumber($tri_gia);
-        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
-        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
-        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+        self::$activeSheet->setCellValue($startColumn . ($rowNum + 2), Yii::t('viLib', 'Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum + 2, array('italic' => true), '', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum + 2) . ":" . $endColumn . ($rowNum + 2));
     }
 
     public function renderImportExportTotal($startColumn = null, $rowStartColumnTitles = 0)
@@ -748,7 +776,7 @@ class CPOSEExcelView extends EExcelView
                     {
                         self::$activeSheet->setCellValue($this->columnName($position) . $rowNum, $tong_nhap_trong_ky);
                         $this->setCellFormatStyle($this->columnName($position), $rowNum, array('bold' => true), 'F2EF87 ', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_THIN);
-                       // $cell = new PHPExcel_Cell($this->columnName($position),$rowNum);
+                        // $cell = new PHPExcel_Cell($this->columnName($position),$rowNum);
                         //$this->advanceBinder->bindValue($cell,$tong_nhap_trong_ky);
                         $endTotalIndex[] = $position;
                         break;
@@ -795,25 +823,27 @@ class CPOSEExcelView extends EExcelView
 
     }
 
-    public function formatThousand($startColumn = null, $rowStartColumnTitles = 0, $extraRow = null) {
+    public function formatThousand($startColumn = null, $rowStartColumnTitles = 0, $extraRow = null)
+    {
 
         $tmp = $this->dataProvider->getData();
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
         $columnNum = count($this->columns);
-        if($extraRow==null)
+        if ($extraRow == null)
             $extraRow = 0;
-             
-        self::$activeSheet->getStyle($startColumn . $rowStartColumnTitles . ":" . $this->columnName($columnNum) . ($rowNum+$extraRow))->getNumberFormat()->setFormatCode("#,##0");
-        
+
+        self::$activeSheet->getStyle($startColumn . $rowStartColumnTitles . ":" . $this->columnName($columnNum) . ($rowNum + $extraRow))->getNumberFormat()->setFormatCode("#,##0");
+
         //self::$activeSheet->getStyle($startColumn . $rowStartColumnTitles . ":" . $this->columnName($columnNum) . $rowNum)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
     }
 
-    public function renderTimePeriod($startColumn, $startRow){
+    public function renderTimePeriod($startColumn, $startRow)
+    {
         $columnNum = count($this->columns);
-        $timePeriodStr = Yii::t('viLib','From') . ' ' . $this->fromDate . ' ' . Yii::t('viLib','To') . ' '. $this->toDate;
+        $timePeriodStr = Yii::t('viLib', 'From') . ' ' . $this->fromDate . ' ' . Yii::t('viLib', 'To') . ' ' . $this->toDate;
         self::$activeSheet->setCellValue($startColumn . $startRow, $timePeriodStr);
-        $this->setCellFormatStyle($startColumn, $startRow, array('bold' => true,'italic'=>true), '', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        $this->setCellFormatStyle($startColumn, $startRow, array('bold' => true, 'italic' => true), '', PHPExcel_Style_Alignment::HORIZONTAL_CENTER, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
         self::$activeSheet->mergeCells($startColumn . $startRow . ":" . $this->columnName($columnNum) . $startRow);
 
     }
@@ -836,7 +866,7 @@ class CPOSEExcelView extends EExcelView
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
 
         $columnNum = count($this->columns);
-        $endIndex = $startIndex + $columnNum-1;
+        $endIndex = $startIndex + $columnNum - 1;
         $endColumn = $this->columnName($endIndex);
         self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
         self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
@@ -847,9 +877,9 @@ class CPOSEExcelView extends EExcelView
 
         // render text of amount
         $amountText = Helpers::readNumber($toTal);
-        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
-        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
-        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+        self::$activeSheet->setCellValue($startColumn . ($rowNum + 2), Yii::t('viLib', 'Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum + 2, array('italic' => true), '', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum + 2) . ":" . $endColumn . ($rowNum + 2));
 
     }
 
@@ -872,7 +902,7 @@ class CPOSEExcelView extends EExcelView
         $rowNum = count($tmp) + 1 + $rowStartColumnTitles;
 
         $columnNum = count($this->columns);
-        $endIndex = $startIndex + $columnNum-1;
+        $endIndex = $startIndex + $columnNum - 1;
         $endColumn = $this->columnName($endIndex);
         self::$activeSheet->setCellValue($startColumn . $rowNum, Yii::t('viLib', 'Total'));
         self::$activeSheet->setCellValue($this->columnName($endIndex + 1) . $rowNum, $toTal);
@@ -883,9 +913,9 @@ class CPOSEExcelView extends EExcelView
 
         // render text of amount
         $amountText = Helpers::readNumber($toTal);
-        self::$activeSheet->setCellValue($startColumn . ($rowNum+2), Yii::t('viLib','Amount in text') . ' : ' . $amountText);
-        $this->setCellFormatStyle($startColumn, $rowNum+2, array('italic' => true),'', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
-        self::$activeSheet->mergeCells($startColumn . ($rowNum+2) . ":" . $endColumn . ($rowNum+2));
+        self::$activeSheet->setCellValue($startColumn . ($rowNum + 2), Yii::t('viLib', 'Amount in text') . ' : ' . $amountText);
+        $this->setCellFormatStyle($startColumn, $rowNum + 2, array('italic' => true), '', PHPExcel_Style_Alignment::HORIZONTAL_LEFT, array('top' => true, 'right' => true, 'bottom' => true, 'left' => true), PHPExcel_Style_Border::BORDER_NONE);
+        self::$activeSheet->mergeCells($startColumn . ($rowNum + 2) . ":" . $endColumn . ($rowNum + 2));
 
     }
 
@@ -903,16 +933,38 @@ class CPOSEExcelView extends EExcelView
                 $this->renderPhieuNhapInfo();
                 $this->renderBody('A', 16);
                 $this->renderTotal('A', 15);
-                $this->formatThousand('A',15);
+                $this->formatThousand('A', 15);
                 break;
             }
+
+            case 'PhieuNhapSanPhamTang':
+            {
+                $this->renderTitleColumns('A', 15);
+                $this->renderPhieuNhapInfo();
+                $this->renderBody('A', 16);
+                $this->renderTotalNumBer('A', 15);
+                $this->formatThousand('C', 15);
+                break;
+            }
+
+
             case 'PhieuXuat':
             {
                 $this->renderTitleColumns('A', 15);
                 $this->renderPhieuXuatInfo();
                 $this->renderBody('A', 16);
                 $this->renderTotal('A', 15);
-                $this->formatThousand('A',15);
+                $this->formatThousand('A', 15);
+                break;
+            }
+
+            case 'PhieuXuatSanPhamTang':
+            {
+                $this->renderTitleColumns('A', 15);
+                $this->renderPhieuXuatInfo();
+                $this->renderBody('A', 16);
+                $this->renderTotalNumBer('A', 15);
+                $this->formatThousand('C', 15);
                 break;
             }
             case 'XuatNhapTon':
@@ -920,8 +972,8 @@ class CPOSEExcelView extends EExcelView
                 $this->renderTitleColumns('A', 10);
                 $this->renderBody('A', 11);
                 $this->renderImportExportTotal('A', 10);
-                $this->formatThousand('A',10);
-                $this->renderTimePeriod('A',8);
+                $this->formatThousand('A', 10);
+                $this->renderTimePeriod('A', 8);
                 // render total
                 break;
             }
@@ -930,8 +982,8 @@ class CPOSEExcelView extends EExcelView
                 $this->renderTitleColumns('A', 10);
                 $this->renderBody('A', 11);
                 $this->renderSaleBranchTotal('A', 10);
-                $this->formatThousand('A',10);
-                $this->renderTimePeriod('A',8);
+                $this->formatThousand('A', 10);
+                $this->renderTimePeriod('A', 8);
                 break;
             }
 
@@ -939,9 +991,9 @@ class CPOSEExcelView extends EExcelView
             {
                 $this->renderTitleColumns('A', 10);
                 $this->renderBody('A', 11);
-                $this->renderSaleTopTotal('A',10);
-                $this->formatThousand('A',10);
-                $this->renderTimePeriod('A',8);
+                $this->renderSaleTopTotal('A', 10);
+                $this->formatThousand('A', 10);
+                $this->renderTimePeriod('A', 8);
                 break;
             }
             case 'HoaDonBanHang':
@@ -950,24 +1002,26 @@ class CPOSEExcelView extends EExcelView
                 $this->renderHoaDonBanHangInfo();
                 $this->renderBody('A', 16);
                 $this->renderHoaDonBanTotal('A', 15);
-                $this->formatThousand('C',15,2);
+                $this->formatThousand('C', 15, 2);
                 break;
             }
-            case 'HoaDonTraHang':{
+            case 'HoaDonTraHang':
+            {
                 $this->renderTitleColumns('A', 15);
                 $this->renderHoaDonTraInfo();
                 $this->renderBody('A', 16);
                 $this->renderHoaDonTraTotal('A', 15);
-                $this->formatThousand('C',15,2);
+                $this->formatThousand('C', 15, 2);
                 break;
             }
 
-            default : {
+            default :
+                {
                 $this->renderCreatedDate();
                 $this->renderTitleColumns();
                 $this->renderBody();
-                $this->formatThousand('C',10);
-            }
+                $this->formatThousand('C', 10);
+                }
         }
         $this->fixColumnsWidth();
         //set auto width
