@@ -26,6 +26,7 @@ class SanPhamTang extends BaseSanPhamTang
 		return array(
 			'tblChiNhanhs' => array(self::MANY_MANY, 'ChiNhanh', 'tbl_SanPhamTangChiNhanh(san_pham_tang_id, chi_nhanh_id)'),
             'sanPhamTangChiNhanh'=> array(self::HAS_MANY, 'SanPhamTangChiNhanh', 'san_pham_tang_id'),
+            'nhaCungCap'=> array(self::BELONGS_TO,'NhaCungCap','nha_cung_cap_id')
 		);
     }
 /*

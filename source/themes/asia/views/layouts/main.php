@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Point Of Sales System Management</title>
-
+    <link rel="shortcut icon" href="<?php echo Yii::app()->createAbsoluteUrl(Yii::app()->theme->baseUrl . '/images/logo.png')?>">
 
     <?php
     //<!--Register core style script-->

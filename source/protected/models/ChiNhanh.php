@@ -267,21 +267,13 @@ class ChiNhanh extends BaseChiNhanh
     public function xuatFileExcel()
     {
         $criteria = new CDbCriteria;
-        $criteria->compare('id', $this->id);
+
         $criteria->compare('ma_chi_nhanh', $this->ma_chi_nhanh, true);
         $criteria->compare('ten_chi_nhanh', $this->ten_chi_nhanh, true);
-        $criteria->compare('dia_chi', $this->dia_chi, true);
-        $criteria->compare('dien_thoai', $this->dien_thoai, true);
-        $criteria->compare('fax', $this->fax, true);
-        $criteria->compare('mo_ta', $this->mo_ta, true);
+
         $criteria->compare('trang_thai', $this->trang_thai);
         $criteria->compare('truc_thuoc_id', $this->truc_thuoc_id);
         $criteria->compare('khu_vuc_id', $this->khu_vuc_id);
-        $criteria->compare('loai_chi_nhanh_id', $this->loai_chi_nhanh_id);
-        $criteria->addCondition('id>1');
-        /*$event = new CPOSSessionEvent();
-        $event->currentSession = Yii::app()->CPOSSessionManager->getItem('ChiNhanh');
-        $this->onAfterExport($event);*/
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

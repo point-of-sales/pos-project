@@ -3,7 +3,7 @@
 $this->breadcrumbs = array(
     Yii::t('viLib', 'Import/Export management') => array('chiNhanh/danhsach'),
     Yii::t('viLib', 'Export form detail') => array(),
-    GxHtml::valueEx($model),
+    $model->chungTu->ma_chung_tu,
 );
 
 $this->menu = array(
@@ -14,7 +14,7 @@ $this->menu = array(
 ?>
 
 
-    <h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib','Export form') . ' ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
+    <h1><?php echo Yii::t('viLib', 'View') . ' ' . Yii::t('viLib','Export form') . ' ' . $model->chungTu->ma_chung_tu; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
     'data' => $model,
@@ -50,11 +50,11 @@ $this->menu = array(
             'type' => 'raw',
             'value' => $model->chiNhanhNhap->ten_chi_nhanh,
         ),
-        array(
+        /*array(
             'name' => Yii::t('viLib', 'Total'),
             'type' => 'raw',
             'value' => number_format(floatval($model->baseModel->tri_gia),0,".",","),
-        ),
+        ),*/
     ),
 )); ?>
 

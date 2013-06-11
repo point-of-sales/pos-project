@@ -12,6 +12,7 @@ class ChiTietPhieuNhapSanPhamTang extends BaseChiTietPhieuNhapSanPhamTang
     public function relations() {
         return array(
             'sanPhamTang'=>array(self::BELONGS_TO,'SanPhamTang','san_pham_tang_id'),
+            'phieuNhap'=>array(self::BELONGS_TO,'PhieuNhap','phieu_nhap_id'),
         );
     }
 

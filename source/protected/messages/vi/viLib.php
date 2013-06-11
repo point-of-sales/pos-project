@@ -333,4 +333,5 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Lower cost than tranditional management method'=>'Chi phí thấp hơn so với phương pháp quản lý truyền thống',
     'Features'=>'Các tính năng',
     'Introduction'=>'Giới thiệu',
+    'Product Sales Report on All Branchs'=>'Doanh số sản phẩm trên tất cả chi nhánh'
 );
