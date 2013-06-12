@@ -41,7 +41,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array(
             'name' => 'Mã HĐ bán',
-            'value' => '$data->hoaDonBan->getBaseModel()->ma_chung_tu',
+            //'value' => '$data->hoaDonBan->getBaseModel()->ma_chung_tu',
+            'value' => array($this,'gridMaHoaDonBan'),
+            'type' => 'raw',
         ),
 
         array(

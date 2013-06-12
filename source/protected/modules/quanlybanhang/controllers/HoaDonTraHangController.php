@@ -221,6 +221,11 @@ class HoaDonTraHangController extends CPOSController {
         $result .= ' -- <span>'.$data->hoaDonBan->khachHang->ho_ten.'</span>';
         return $result;
     }
+    
+    public function gridMaHoaDonBan($data,$row){
+        $result = '<a href="'.Yii::app()->baseUrl.'/quanlybanhang/hoaDonBanHang/chitiet/id/'.$data->hoaDonBan->id.'">'.$data->hoaDonBan->getBaseModel()->ma_chung_tu.'</a>';
+        return $result;
+    }
 
 
 }
