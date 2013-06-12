@@ -19,11 +19,3 @@ $this->renderPartial('_form', array(
 		'model' => $model,
 		'buttons' => 'create'));
 ?>
-
-<script>
-    $(document).ready(function(){
-       $('#KhachHang_loai_khach_hang_id').click(function(){
-            $(this).blur();
-       });
-    });
-</script>

@@ -324,9 +324,9 @@ function dongBoDuLieu(){
                             '<td id="mvht_'+cthd_hang_tang[i].id+'">' + cthd_hang_tang[i].ma_vach + '</td>' +
                             '<td id="tht_'+cthd_hang_tang[i].ten_san_pham+'">' + cthd_hang_tang[i].ten_san_pham + '</td>' +
                             //'<td><input type="text" id="slht_'+cthd_hang_tang[i].id+'" value="'+cthd_hang_tang[i].so_luong+'" onkeypress="capNhatSoLuongHangTang(event,'+cthd_hang_tang[i].id+')" /></td>' +
-                            '<td id="slht_'+cthd_hang_tang[i].id+'">'+cthd_hang_tang[i].so_luong+'</td>'+
+                            '<td class="center" id="slht_'+cthd_hang_tang[i].id+'">'+cthd_hang_tang[i].so_luong+'</td>'+
                             '<td colspan="2">Hàng tặng</td>'+
-                            '<td>'+'<a title="Xóa" href="javascript:;" onclick="xoaHangTang('+cthd_hang_tang[i].id+')">'+
+                            '<td class="center">'+'<a title="Xóa" href="javascript:;" onclick="xoaHangTang('+cthd_hang_tang[i].id+')">'+
                                 '<img alt="Xóa" src="'+baseUrl+'/themes/asia/images/delete.png" />'+'</a>'+
                             '</td>'+
                         '</tr>';

@@ -29,7 +29,7 @@
     </div>
     
     <div class="row cus-row">
-        <?php echo $form->labelEx($model, 'ma_khach_hang'); ?>
+        <?php //echo $form->labelEx($model, 'ma_khach_hang'); ?>
         <?php echo $form->hiddenField($model, 'ma_khach_hang', array('maxlength' => 10)); ?>
         <?php echo $form->error($model, 'ma_khach_hang'); ?>
     </div>
@@ -51,13 +51,29 @@
         <?php echo $form->textField($model, 'ho_ten', array('maxlength' => 200)); ?>
         <?php echo $form->error($model, 'ho_ten'); ?>
     </div>
-    <!-- row -->
+    
+    <?php
+    //dang cap nhat
+    if($model->getAttribute('id')!=null){
+        ?>
+    <div class="row cus-row">
+        <?php echo $form->labelEx($model, 'loai_khach_hang_id'); ?>
+        <input type="text" readonly="readonly" value="<?php echo $model->loaiKhachHang->ten_loai?>" />
+        <input type="hidden" value="<?php echo $model->loai_khach_hang_id?>" id="KhachHang_loai_khach_hang_id" name="KhachHang[loai_khach_hang_id]" maxlength="200"/>
+    </div>
+        <?php
+    }
+    else{
+    ?>
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'loai_khach_hang_id'); ?>
         <?php echo $form->dropDownList($model, 'loai_khach_hang_id', GxHtml::listDataEx(LoaiKhachHang::model()->findAll(),null,"ten_loai"),array("options" => array(7 => array("selected" => "selected")))); ?>
         <?php echo $form->error($model, 'loai_khach_hang_id'); ?>
     </div>
     <!-- row -->
+    <?php
+    }
+    ?>
 
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'ngay_sinh'); ?>
