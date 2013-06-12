@@ -186,6 +186,7 @@ class HoaDonBanHang extends BaseHoaDonBanHang
         $criteria->together = true;
 
         $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
+        $criteria->compare('chungTu.chi_nhanh_id', $this->getBaseModel()->chi_nhanh_id,true);
         $criteria->compare('chiet_khau', $this->chiet_khau);
         $criteria->compare('khachHang.ma_khach_hang', $this->khachHang->ma_khach_hang,true);
 

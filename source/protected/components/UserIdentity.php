@@ -21,7 +21,7 @@ class UserIdentity extends CUserIdentity
     public function authenticate()
     {
         $record = NhanVien::model()->findByAttributes(array('ma_nhan_vien' => $this->username,'trang_thai'=>1));
-        if ($record == null)
+        if ($record == null || $record->ma_nhan_vien!=$this->username)
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         else if ($record->mat_khau != md5($this->password))
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
