@@ -135,10 +135,16 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         $cauHinh = CauHinh::model()->findByPk(1);
         $criteria->with = 'chungTu';
         $criteria->together = true;
-        $criteria->compare('id', $this->id);
-        $criteria->compare('ly_do_tra_hang', $this->ly_do_tra_hang, true);
-        $criteria->compare('hoa_don_ban_id', $this->hoa_don_ban_id);
+        // so sanh ma chung tu cua hoa don tra
+        $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
+
+        if(!empty($this->getBaseModel()->ngay_lap) && !empty($this->getBaseModel()->ngay_ket_thuc)) {
+
+            $criteria->addBetweenCondition('chungTu.ngay_lap',date('Y-m-d',strtotime($this->getBaseModel()->ngay_lap)),date('Y-m-d',strtotime($this->getBaseModel()->ngay_ket_thuc)));
+        }
+
         $criteria->order = 'chungTu.ngay_lap DESC';
+
 
         $numberRecords = $cauHinh->so_muc_tin_tren_trang;
         return new CActiveDataProvider($this, array(

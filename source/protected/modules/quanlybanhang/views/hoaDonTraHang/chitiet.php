@@ -90,8 +90,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ));
 ?>
 <h2>Hóa đơn bán gốc</h2>
-
-<?php 
+<?php
 $this->widget('ext.custom-widgets.DetailView4Col', array(
     'data' => $model,
     'attributes' => array(

@@ -136,12 +136,17 @@ class HoaDonTraHangController extends CPOSController {
     public function actionDanhSach() {
 
         $model = new HoaDonTraHang('search');
+        $model->hoaDonBan = new HoaDonBanHang();
         $model->unsetAttributes();
+        $model->hoaDonBan->unsetAttributes();
         Yii::app()->CPOSSessionManager->clearKey('ExportData');
-        if(isset($_GET['HoaDonTraHang'])) {
+        if(isset($_GET['ChungTu'])) {
             // set vao session
-            Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['HoaDonTraHang']);
-            $model->setAttributes($_GET['HoaDonTraHang']);
+            //Yii::app()->CPOSSessionManager->setItem('ExportData',$_GET['HoaDonTraHang']);
+            $model->getBaseModel()->ma_chung_tu = $_GET['ChungTu']['ma_chung_tu'];
+            $model->getBaseModel()->ngay_lap = $_GET['ChungTu']['ngay_lap'];
+            $model->getBaseModel()->ngay_ket_thuc = $_GET['ngay_ket_thuc'];
+            //$model->hoaDonBan->getBaseModel()->ma_chung_tu = $_GET['HoaDonBan'];
         }
         $this->render('danhsach',array('model'=>$model));
     }
