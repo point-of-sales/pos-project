@@ -48,17 +48,16 @@ $this->menu = array(
         array(
             'name' => 'khuVuc',
             'type' => 'raw',
-            'value' => $model->khuVuc !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->khuVuc)), array('khuVuc/view', 'id' => GxActiveRecord::extractPkValue($model->khuVuc, true))) : null,
+            'value' => $model->khuVuc->ten_khu_vuc ,
         ),
         array(
             'name' => 'loaiChiNhanh',
             'type' => 'raw',
-            'value' => $model->loaiChiNhanh !== null ? GxHtml::link(GxHtml::encode(GxHtml::valueEx($model->loaiChiNhanh)), array('loaiChiNhanh/view', 'id' => GxActiveRecord::extractPkValue($model->loaiChiNhanh, true))) : null,
+            'value' => $model->loaiChiNhanh->ten_loai_chi_nhanh,
         ),
     ),
 )); ?>
 
-    <h2><?php //echo GxHtml::encode($model->getRelationLabel('chiNhanhs')); ?></h2>
     <?php
 /*	echo GxHtml::openTag('ul');
 	foreach($model->chiNhanhs as $relatedModel) {

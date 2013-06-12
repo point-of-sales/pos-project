@@ -6,7 +6,7 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-array('label'=>Yii::t('viLib', 'Export') . ' ' . $model->label(), 'url'=>array('xuat')),
+array('label'=>Yii::t('viLib', 'Export') . ' ' . $model->label(), 'url'=>array('xuatfileexceldanhsachhoadontra')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

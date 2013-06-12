@@ -339,6 +339,7 @@ class ChiNhanh extends BaseChiNhanh
             if (strtotime($thoi_gian_ket_thuc_moc) > strtotime($thoi_gian_ket_thuc))
                 $thoi_gian_ket_thuc_moc = $thoi_gian_ket_thuc;
 
+
             $criteria = new CDbCriteria();
             $criteria->with = 'chungTu';
             $criteria->together = true;
@@ -346,10 +347,15 @@ class ChiNhanh extends BaseChiNhanh
             $criteria->compare('chungTu.chi_nhanh_id', $this->id);
             $danhSachHoaDonTrongMoc = HoaDonBanHang::model()->findAll($criteria);
             $tri_gia = 0;
-            foreach ($danhSachHoaDonTrongMoc as $hoaDon)
-                $tri_gia = $tri_gia + $hoaDon->getBaseModel()->tri_gia;
-
-            $this->doanh_so[] = array($thoi_gian_ket_thuc_moc, $tri_gia);
+            if(!empty($danhSachHoaDonTrongMoc)) {
+                foreach ($danhSachHoaDonTrongMoc as $hoaDon) {
+                    //$tri_gia = $tri_gia + $hoaDon->getBaseModel()->tri_gia;
+                    $tri_gia = $tri_gia + HoaDonBanHang::layTriGiaHoaDonThuc($hoaDon->id);
+                }
+                $this->doanh_so[] = array($thoi_gian_ket_thuc_moc, $tri_gia);
+            } else {
+                $this->doanh_so[] = array($thoi_gian_ket_thuc_moc, 0);
+            }
             $thoi_gian_bat_dau = $thoi_gian_ket_thuc_moc;
         } while (strtotime($thoi_gian_ket_thuc_moc) < strtotime($thoi_gian_ket_thuc));
     }
@@ -386,9 +392,26 @@ class ChiNhanh extends BaseChiNhanh
 
     public static function layDanhSachDoanhSoCacChiNhanh($danhSachChiNhanh)
     {
-        foreach ($danhSachChiNhanh as $chiNhanh)
+        /*foreach ($danhSachChiNhanh as $chiNhanh)
             $danhSachDoanhSo[] = $chiNhanh->tinhTongDoanhSo();
-        return $danhSachDoanhSo;
+        return $danhSachDoanhSo;*/
+
+        $doanhSoCacChiNhanhTheoTheoThoiGian = array();
+        if(!empty($danhSachChiNhanh[0])) {
+            $tmp = $danhSachChiNhanh[0];
+        }
+        $danhSachThoiGianDoanhSo = $tmp->layDanhSachThoiGianDoanhSo();
+
+        $count = count($danhSachThoiGianDoanhSo);
+        for($i=0;$i<$count;$i++) {
+            $doanhSoTongTrongKy = 0;
+            foreach($danhSachChiNhanh as $chiNhanh) {
+                $doanhSoTongTrongKy = $doanhSoTongTrongKy + $chiNhanh->doanh_so[$i][1];
+            }
+            $doanhSoCacChiNhanhTheoTheoThoiGian[] = $doanhSoTongTrongKy;
+        }
+        return $doanhSoCacChiNhanhTheoTheoThoiGian;
+
     }
 
     public static function layDanhSachThoiGianCacChiNhanh($danhSachChiNhanh)

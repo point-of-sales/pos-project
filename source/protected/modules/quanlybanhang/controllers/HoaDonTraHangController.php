@@ -146,16 +146,17 @@ class HoaDonTraHangController extends CPOSController {
         $this->render('danhsach',array('model'=>$model));
     }
 
-    public function  actionXuat() {
+    public function  actionXuatFileExcelDanhSachHoaDonTra() {
         $model = new HoaDonTraHang('search');
         $model->unsetAttributes();
 
         if(!Yii::app()->CPOSSessionManager->isEmpty('ExportData')) {
-            $model->setAttributes(Yii::app()->CPOSSessionManager->getItem('ExportData'));
+            $dk =  Yii::app()->CPOSSessionManager->getItem('ExportData');
+            $model->setAttributes($dk[0]);
             $dataProvider = $model->xuatFileExcel();
-            $this->render('xuat',array('dataProvider'=>$dataProvider));
+            $this->render('xuatfileexceldanhsachhoadontra',array('dataProvider'=>$dataProvider));
         }
-        $this->render('xuat',array('dataProvider'=>new CActiveDataProvider('HoaDonTraHang')));
+        $this->render('xuatfileexceldanhsachhoadontra',array('dataProvider'=>new CActiveDataProvider('HoaDonTraHang')));
     }
     
     public function  actionXuatFileExcel($id)

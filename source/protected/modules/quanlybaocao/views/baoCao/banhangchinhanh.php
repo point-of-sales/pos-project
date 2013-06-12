@@ -51,9 +51,11 @@ $this->menu = array(
         echo '</div>';
 
         if (count($chiNhanh->getData()) > 1) {
+
             // Xem tong quat bang Chart
             $series_data = ChiNhanh::layDanhSachDoanhSoCacChiNhanh($chiNhanh->getData());
             $categories = ChiNhanh::layDanhSachThoiGianCacChiNhanh($chiNhanh->getData());
+            //print_r($categories);exit;
             $this->widget('ext.highcharts.HighchartsWidget', array(
                 'options' => array(
                     'title' => array('text' => Yii::t('viLib', 'All Branchs Sales Report')),

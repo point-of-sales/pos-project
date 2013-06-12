@@ -10,6 +10,8 @@ Yii::import('zii.widgets.CPortlet');
 class CPOSSaleTopPortlet  extends CPortlet {
     protected  function renderContent() {
         $form = new CPOSBanHangTopForm();
+        $form->thoi_gian_bat_dau = date('d-m-Y',time()-30*24*60*60);
+        $form->thoi_gian_ket_thuc = date('d-m-Y',time());
         if(isset($_POST['CPOSBanHangTopForm'])) {
             $form->top = $_POST['CPOSBanHangTopForm']['top'];
             $form->chi_nhanh_id = $_POST['CPOSBanHangTopForm']['chi_nhanh_id'];

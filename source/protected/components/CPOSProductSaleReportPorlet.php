@@ -12,6 +12,8 @@ class CPOSProductSaleReportPorlet extends CPortlet {
 
     protected  function renderContent() {
         $form = new CPOSBanHangSanPhamForm();
+        $form->thoi_gian_bat_dau = date('d-m-Y',time()-30*24*60*60);
+        $form->thoi_gian_ket_thuc = date('d-m-Y',time());
         if(isset($_POST['CPOSBanHangSanPhamForm'])) {
             $form->ma_vach = $_POST['CPOSBanHangSanPhamForm']['ma_vach'];
             $form->chi_nhanh_id = $_POST['CPOSBanHangSanPhamForm']['chi_nhanh_id'];
