@@ -176,7 +176,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
-        /*
+
 		'log'=>array(
 
 			'class'=>'CLogRouter',
@@ -192,14 +192,14 @@ return array(
                 
 				// uncomment the following to show log messages on web pages
 
-				array(
+				/*array(
                     'class'=>'CWebLogRoute',
                     'categories'=>'system.db.CDbCommand',
                     'showInFireBug'=>true,
-				),
+				),*/
 
 			),
-		),*/
+		),
 	),
 
 	// application-level parameters that can be accessed

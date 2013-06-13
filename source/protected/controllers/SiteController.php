@@ -2,9 +2,9 @@
 
 class SiteController extends Controller
 {
-	/**
-	 * Declares class-based actions.
-	 */
+    /**
+     * Declares class-based actions.
+     */
 
     public function filters()
     {
@@ -35,76 +35,76 @@ class SiteController extends Controller
     }*/
 
 
-	public function actions()
-	{
-		return array(
-			// captcha action renders the CAPTCHA image displayed on the contact page
-			'captcha'=>array(
-				'class'=>'CCaptchaAction',
-				'backColor'=>0xFFFFFF,
-			),
-			// page action renders "static" pages stored under 'protected/views/site/pages'
-			// They can be accessed via: index.php?r=site/page&view=FileName
-			'page'=>array(
-				'class'=>'CViewAction',
-			),
-		);
-	}
+    public function actions()
+    {
+        return array(
+            // captcha action renders the CAPTCHA image displayed on the contact page
+            'captcha' => array(
+                'class' => 'CCaptchaAction',
+                'backColor' => 0xFFFFFF,
+            ),
+            // page action renders "static" pages stored under 'protected/views/site/pages'
+            // They can be accessed via: index.php?r=site/page&view=FileName
+            'page' => array(
+                'class' => 'CViewAction',
+            ),
+        );
+    }
 
-	/**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
-	 */
-	public function actionIndex()
-	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
-	}
+    /**
+     * This is the default 'index' action that is invoked
+     * when an action is not explicitly requested by users.
+     */
+    public function actionIndex()
+    {
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layout 'protected/views/layouts/main.php'
+        $this->render('index');
+    }
 
-	/**
-	 * This is the action to handle external exceptions.
-	 */
-	public function actionError()
-	{
-		if($error=Yii::app()->errorHandler->error)
-		{
-			if(Yii::app()->request->isAjaxRequest)
-				echo $error['message'];
-			else
-				$this->render('error', $error);
-		}
-	}
+    /**
+     * This is the action to handle external exceptions.
+     */
+    public function actionError()
+    {
+        if ($error = Yii::app()->errorHandler->error) {
+            if (Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+                $this->render('error', $error);
+        }
+    }
 
-	/**
-	 * Displays the login page
-	 */
-	public function actionLogin()
-	{
-        if(!Yii::app()->user->isGuest) {
-            $this->redirect('/site/index');
+    /**
+     * Displays the login page
+     */
+    public function actionLogin()
+    {
+        // redirected authenticated and authorized user when access login page
+        if (!Yii::app()->user->isGuest) {
+            $roles = Rights::getAssignedRoles(Yii::app()->user->id);
+            !empty($roles)?$this->redirect('index'):null;
         }
 
-		$model=new LoginForm;
+        $model = new LoginForm;
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
+        // if it is ajax validation request
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
 
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login()) {
+        // collect user input data
+        if (isset($_POST['LoginForm'])) {
+            $model->attributes = $_POST['LoginForm'];
+
+            // validate user input and redirect to the previous page if valid
+            if ($model->validate() && $model->login()) {
 
                 // cap nhat lan dang nhap cuoi
                 $nhanVienModel = NhanVien::model()->findByPk(Yii::app()->user->id);
                 $thoi_gian_hien_hanh = date('Y-m-d h:i:s', time());
-                $nhanVienModel->saveAttributes(array('lan_dang_nhap_cuoi'=>$thoi_gian_hien_hanh));
+                $nhanVienModel->saveAttributes(array('lan_dang_nhap_cuoi' => $thoi_gian_hien_hanh));
                 $fullModuleList = array(
                     'Quanlybanhang' => array('label' => Yii::t('viLib', 'Sales management'), 'url' => array('/quanlybanhang/hoaDonBanHang/danhsach')),
                     'Quanlykhachhang' => array('label' => Yii::t('viLib', 'Customer management'), 'url' => array('/quanlykhachhang/khachHang/danhsach')),
@@ -119,43 +119,67 @@ class SiteController extends Controller
                     'Quanlycauhinh' => array('label' => Yii::t('viLib', 'Config management'), 'url' => array('/quanlycauhinh/cauHinh/chitiet/id/1')),
                 );
 
-                if (!Yii::app()->user->isGuest) {
-                    $currentUserModuleList = Rights::getCurrentUserModuleList();
-                    $menuItems = array();
-                    $currentRoleWeight = RightsWeight::getRoleWeight(Yii::app()->user->id);
-                    if ($currentRoleWeight < 999) {
-                        foreach ($fullModuleList as $key => $value) {
-                            if (in_array($key, $currentUserModuleList)) {
-                                $menuItems[] = $value;
-                            }
-                        }
-                    } else {
-                        // render full module for quan ly he thong
-                        foreach ($fullModuleList as $key => $value) {
+                $roles = Rights::getAssignedRoles(Yii::app()->user->id);
+                if(empty($roles)) {
+                    $this->redirect('unauthorized');
+                }
+
+                $currentUserModuleList = Rights::getCurrentUserModuleList();
+                $menuItems = array();
+                $currentRoleWeight = RightsWeight::getRoleWeight(Yii::app()->user->id);
+
+                if ($currentRoleWeight < 999) {
+                    foreach ($fullModuleList as $key => $value) {
+                        if (in_array($key, $currentUserModuleList)) {
                             $menuItems[] = $value;
                         }
-
                     }
+                } else {
+                    // render full module for quan ly he thong
+                    foreach ($fullModuleList as $key => $value) {
+                        $menuItems[] = $value;
+                    }
+
                 }
-                Yii::app()->CPOSSessionManager->setItem('menuItems',$menuItems);
+
+
+                Yii::app()->CPOSSessionManager->setItem('menuItems', $menuItems);
+                // recheck to make sure that user is authorized
+                $this->redirect('index'); // default after login successfully go to index page
+
+            }
+        }
+        // display the login form
+        $this->render('login', array('model' => $model));
+    }
+
+    public function actionUnauthorized()
+    {
+        if(Yii::app()->user->isGuest)
+            $this->redirect('login');
+        else {
+            $roles = Rights::getAssignedRoles(Yii::app()->user->id);
+            if(empty($roles)) {
+                $this->render('unauthorized');
+            } else {
                 $this->redirect('index');
             }
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
+        }
 
-	/**
-	 * Logs out the current user and redirect to homepage.
-	 */
-	public function actionLogout()
-	{
-		Yii::app()->user->logout();
+    }
+
+    /**
+     * Logs out the current user and redirect to homepage.
+     */
+    public function actionLogout()
+    {
+        Yii::app()->user->logout();
         Yii::app()->CPOSSessionManager->clearKey('menuItems');
-		$this->redirect(Yii::app()->homeUrl);
-	}
+        $this->redirect(Yii::app()->homeUrl);
+    }
 
-    public function actionContact() {
+    public function actionContact()
+    {
         $this->render('contact');
     }
 

@@ -7,6 +7,8 @@
             ':username' => $model->ho_ten
         )); ?></h1>
 
+<div class="search-form"></div><!-- search-form -->
+
 <?php if (Yii::app()->user->hasFlash('info-board')) { ?>
     <div class="response-msg error ui-corner-all info-board">
         <p><?php echo Yii::app()->user->getFlash('info-board'); ?></p>
@@ -25,7 +27,7 @@ $this->menu = array(
 
 ?>
 
-<div id="userAssignments" class="cus-rights-content">
+<div id="userAssignments">
 
     <div class="add-assignment span-11 last">
 
@@ -89,6 +91,19 @@ $this->menu = array(
                         ),
 
                     ),
+                    'afterDelete' => 'function(link,success,data){
+
+                                if(data=="override-error") {
+                                    $(".search-form").after(
+                                    "<div class=error>Không thể xóa vai trò của Quản Lý Hệ Thống</div>");
+                            $(".error").addClass("response-msg");
+                            $(".error").addClass("ui-corner-all");
+                            $(".error").fadeOut(8000);
+
+                            }
+
+
+                    ; }',
                 ),
 
             )

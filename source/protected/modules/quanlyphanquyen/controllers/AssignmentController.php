@@ -87,6 +87,8 @@ class AssignmentController extends RController
 
         if (Yii::app()->user->checkAccess('Quanlyphanquyen.Assignment.PhanQuyen')) {
             // Create the user model and attach the required behavior
+
+
             $userClass = $this->module->userClass;
             $model = CActiveRecord::model($userClass)->findByPk($_GET['id']);
             $this->_authorizer->attachUserBehavior($model);
@@ -148,7 +150,8 @@ class AssignmentController extends RController
                 if (RightsWeight::getRoleWeightFromItemname($itemName) == 999) // super user
                 { // can not rewoke super user
                     // Set flash message for revoking the item
-                    Yii::app()->user->setFlash('info-board', Yii::t('viLib', 'Can not delete the Administrative role'));
+                    echo 'override-error';
+                    Yii::app()->end();
 
                 } else {
                     // Revoke the item from the user and load it

@@ -336,4 +336,7 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Product Sales Report on All Branchs'=>'Doanh số sản phẩm trên tất cả chi nhánh',
     'Update password'=>'Cập nhật mật khẩu',
     'All Branchs Sales Report'=>'Báo cáo doanh thu các chi nhánh',
+    'You are not authorized in system. Please contact your administrator for help'=>'Bạn chưa được ủy quyền trong hệ thống. Xin vui lòng liên hệ quản trị viên để được giúp đỡ',
+    'In case you have mistake when typing. You can come-back to login page here'=>'Trong trường hợp bạn nhập sai thông tin. Bạn có thể trở về trang đăng nhập tại đây',
+    'Authorization'=>'Thẩm định quyền hạn'
 );
