@@ -132,7 +132,7 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
             'class'=>'RWebUser',
-           // 'autoUpdateFlash' => false, // add this line to disable the flash counter
+            'autoUpdateFlash' => false, // add this line to disable the flash counter
 
         ),
         'authManager'=>array(
