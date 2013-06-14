@@ -67,7 +67,7 @@
     ?>
     <div class="row cus-row">
         <?php echo $form->labelEx($model, 'loai_khach_hang_id'); ?>
-        <?php echo $form->dropDownList($model, 'loai_khach_hang_id', GxHtml::listDataEx(LoaiKhachHang::model()->findAll(),null,"ten_loai"),array("options" => array(7 => array("selected" => "selected")))); ?>
+        <?php echo $form->dropDownList($model, 'loai_khach_hang_id', GxHtml::listDataEx(LoaiKhachHang::model()->findAll(),null,"ten_loai"),array("options" => array(8 => array("selected" => "selected")))); ?>
         <?php echo $form->error($model, 'loai_khach_hang_id'); ?>
     </div>
     <!-- row -->
