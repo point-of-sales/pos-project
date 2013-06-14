@@ -361,7 +361,7 @@ class AuthItemController extends RController
 
 
                     $this->_authorizer->updateAuthItem($itemName, $formModel->name, $formModel->description, $formModel->bizRule, $formModel->data);
-                    $rightModel->save();
+                    isset($rightModel)? $rightModel->save():null;
                     $item = $this->_authorizer->authManager->getAuthItem($formModel->name);
                     $item = $this->_authorizer->attachAuthItemBehavior($item);
 
@@ -447,8 +447,8 @@ class AuthItemController extends RController
                     $this->_authorizer->authManager->removeAuthItem($itemName);
 
                     // If AJAX request, we should not redirect the browser
-                    if (isset($_POST['ajax']) === false)
-                        $this->redirect(Yii::app()->user->getRightsReturnUrl(array('authItem/permissions')));
+                    /*if (isset($_POST['ajax']) === false)
+                        $this->redirect(Yii::app()->user->getRightsReturnUrl(array('authItem/permissions')));*/
                 } else {   // user is Quan Ly He Thong Khong duoc xoa
                     echo Yii::t('viLib', 'Can not delete the Administrative role');
                 }
