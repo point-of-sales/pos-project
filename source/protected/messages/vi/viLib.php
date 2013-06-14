@@ -282,7 +282,7 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Assign item'=>'Hạng mục phân quyền',
     'Assign item type'=>'Loại hạng mục',
     'Assign item name'=>'Tên hạng mục',
-    'Weight'=>'Trọng lượng vai trò',
+    'Weight'=>'Trọng số vai trò',
     'Seller'=>'Nhân viên bán hàng',
     'Storekeeper'=>'Thủ kho',
     'Branch manager'=>'Quản lý chi nhánh',
@@ -333,5 +333,10 @@ sales management purpose. Data of system is hosted in cloud and can be scale eas
     'Lower cost than tranditional management method'=>'Chi phí thấp hơn so với phương pháp quản lý truyền thống',
     'Features'=>'Các tính năng',
     'Introduction'=>'Giới thiệu',
-    'Product Sales Report on All Branchs'=>'Doanh số sản phẩm trên tất cả chi nhánh'
+    'Product Sales Report on All Branchs'=>'Doanh số sản phẩm trên tất cả chi nhánh',
+    'Update password'=>'Cập nhật mật khẩu',
+    'All Branchs Sales Report'=>'Báo cáo doanh thu các chi nhánh',
+    'You are not authorized in system. Please contact your administrator for help'=>'Bạn chưa được ủy quyền trong hệ thống. Xin vui lòng liên hệ quản trị viên để được giúp đỡ',
+    'In case you have mistake when typing. You can come-back to login page here'=>'Trong trường hợp bạn nhập sai thông tin. Bạn có thể trở về trang đăng nhập tại đây',
+    'Authorization'=>'Thẩm định quyền hạn'
 );

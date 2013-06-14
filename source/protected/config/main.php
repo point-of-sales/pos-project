@@ -132,7 +132,7 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
             'class'=>'RWebUser',
-           // 'autoUpdateFlash' => false, // add this line to disable the flash counter
+            'autoUpdateFlash' => false, // add this line to disable the flash counter
 
         ),
         'authManager'=>array(
@@ -192,7 +192,7 @@ return array(
                 
 				// uncomment the following to show log messages on web pages
 
-				array(
+				/*array(
                     'class'=>'CWebLogRoute',
                     'categories'=>'system.db.CDbCommand',
                     'showInFireBug'=>true,

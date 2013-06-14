@@ -137,7 +137,7 @@ class HoaDonTraHang extends BaseHoaDonTraHang
         $criteria->together = true;
         // so sanh ma chung tu cua hoa don tra
         $criteria->compare('chungTu.ma_chung_tu', $this->getBaseModel()->ma_chung_tu,true);
-
+        $criteria->compare('chungTu.chi_nhanh_id', $this->getBaseModel()->chi_nhanh_id,true);
         if(!empty($this->getBaseModel()->ngay_lap) && !empty($this->getBaseModel()->ngay_ket_thuc)) {
 
             $criteria->addBetweenCondition('chungTu.ngay_lap',date('Y-m-d',strtotime($this->getBaseModel()->ngay_lap)),date('Y-m-d',strtotime($this->getBaseModel()->ngay_ket_thuc)));

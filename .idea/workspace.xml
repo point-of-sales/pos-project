@@ -4,48 +4,43 @@
     <list default="true" id="39d7da02-e886-479a-8938-f9dbc955d447" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/testting/~$bang_test_loi.xlsx" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/~$an_van_2007.docx" afterPath="$PROJECT_DIR$/bao_cao/~$an_van_2007.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php" afterPath="$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_search.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/chitiet.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/chitiet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/danhsach.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/danhsach.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/luan_van_2007.docx" afterPath="$PROJECT_DIR$/bao_cao/luan_van_2007.docx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371007731880" ignored="false" />
+    <file path="/Dummy.txt" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371176804393" ignored="false" />
     <file path="/KhachHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370770740475" ignored="false" />
-    <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371010455824" ignored="false" />
+    <file path="/*.regexp" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371183029176" ignored="false" />
     <file path="/BaoCaoController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370050258553" ignored="false" />
     <file path="/error.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369110389826" ignored="false" />
-    <file path="/HoaDonBanHang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370595540211" ignored="false" />
-    <file path="/HoaDonBanHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370595406676" ignored="false" />
+    <file path="/HoaDonBanHang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371038118534" ignored="false" />
+    <file path="/HoaDonBanHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371025065988" ignored="false" />
     <file path="/CPOSActiveRecord.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369638754813" ignored="false" />
     <file path="/ChiNhanhController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370925476801" ignored="false" />
     <file path="/KhuVucController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771386175" ignored="false" />
     <file path="/PhieuXuatController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370924282210" ignored="false" />
     <file path="/CPOSController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370572626751" ignored="false" />
     <file path="/_main_nav.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369749677813" ignored="false" />
-    <file path="/NhanVienController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370769611923" ignored="false" />
-    <file path="/SiteController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370768234924" ignored="false" />
+    <file path="/NhanVienController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371176988662" ignored="false" />
+    <file path="/SiteController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371146302136" ignored="false" />
     <file path="/CauHinh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369670148218" ignored="false" />
-    <file path="/main.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370926983285" ignored="false" />
+    <file path="/main.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371121053554" ignored="false" />
     <file path="/RequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369099830330" ignored="false" />
     <file path="/a.dummy" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370049739546" ignored="false" />
     <file path="/CPOSRequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370627207666" ignored="false" />
-    <file path="/_main_account_info.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370362259690" ignored="false" />
-    <file path="/UserIdentity.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369747989531" ignored="false" />
-    <file path="/NhanVien.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369305683023" ignored="false" />
+    <file path="/_main_account_info.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371142708228" ignored="false" />
+    <file path="/UserIdentity.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371036676998" ignored="false" />
+    <file path="/NhanVien.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371180689887" ignored="false" />
     <file path="/login.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369803025680" ignored="false" />
     <file path="/column1-form.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370716877121" ignored="false" />
     <file path="/index.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370715405189" ignored="false" />
     <file path="/danhsach.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370512034166" ignored="false" />
-    <file path="/AuthItemController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370067951827" ignored="false" />
-    <file path="/AssignmentController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369143017084" ignored="false" />
+    <file path="/AuthItemController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371183801887" ignored="false" />
+    <file path="/AssignmentController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371121700932" ignored="false" />
     <file path="/Rights.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369748840528" ignored="false" />
     <file path="/AuthItemForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369755582669" ignored="false" />
-    <file path="/_form.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370919679013" ignored="false" />
+    <file path="/_form.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371041326889" ignored="false" />
     <file path="/update.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370066630647" ignored="false" />
     <file path="/CActiveRecord.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370614374865" ignored="false" />
     <file path="/them.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370919363153" ignored="false" />
@@ -59,7 +54,7 @@
     <file path="/AuthItem.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369223718050" ignored="false" />
     <file path="/RightsWeight.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369235560501" ignored="false" />
     <file path="/chitiet.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371013228287" ignored="false" />
-    <file path="/LoaiNhanVien.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369260313708" ignored="false" />
+    <file path="/LoaiNhanVien.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371041001153" ignored="false" />
     <file path="/ChiNhanh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371010698739" ignored="false" />
     <file path="/messages.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369262627046" ignored="false" />
     <file path="/capnhat.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369726208474" ignored="false" />
@@ -68,7 +63,7 @@
     <file path="/_formdoimatkhau.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369300317426" ignored="false" />
     <file path="/thaydoimatkhau.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369298272266" ignored="false" />
     <file path="/ThayDoiMatKhauForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369305209931" ignored="false" />
-    <file path="/_search.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371014577075" ignored="false" />
+    <file path="/_search.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371038020272" ignored="false" />
     <file path="/SanPham.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370763713440" ignored="false" />
     <file path="/CPOSThayDoiMatKhauForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370615422446" ignored="false" />
     <file path="/LoaiChiNhanh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369635190109" ignored="false" />
@@ -85,12 +80,12 @@
     <file path="/tasks.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369753422139" ignored="false" />
     <file path="/operations.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369753513118" ignored="false" />
     <file path="/permissions.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369754458119" ignored="false" />
-    <file path="/phanquyen.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369755494970" ignored="false" />
+    <file path="/phanquyen.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371133485997" ignored="false" />
     <file path="/create.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369755872249" ignored="false" />
     <file path="/_childForm.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369760223036" ignored="false" />
     <file path="/xuat.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370925316902" ignored="false" />
     <file path="/xuatkhuyenmaisanpham.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369798798670" ignored="false" />
-    <file path="/custom.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370629516906" ignored="false" />
+    <file path="/custom.css" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371133387419" ignored="false" />
     <file path="/_formnhapxuatton.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369893310857" ignored="false" />
     <file path="/CPOSImportExportReportPortlet.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369818037621" ignored="false" />
     <file path="/nhapxuattonexcel.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369837027893" ignored="false" />
@@ -129,8 +124,10 @@
     <file path="/KhuyenMaiController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771542437" ignored="false" />
     <file path="/SanPhamController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370771672203" ignored="false" />
     <file path="/ChiTietPhieuXuatSanPhamTang.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370924505654" ignored="false" />
-    <file path="/HoaDonTraHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371016861384" ignored="false" />
+    <file path="/HoaDonTraHangController.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371039041911" ignored="false" />
     <file path="/CPOSBranchSaleReportPorlet.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371011470107" ignored="false" />
+    <file path="/banhangsanpham.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371107625115" ignored="false" />
+    <file path="/unauthorized.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371145586413" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,35 +147,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="danhsach.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/danhsach.php">
+      <file leaf-file-name="UserIdentity.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/components/UserIdentity.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="53" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.53846157">
+            <state line="18" column="17" selection-start="581" selection-end="581" vertical-scroll-proportion="-0.6666667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HoaDonTraHangController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="14" selection-start="5695" selection-end="5695" vertical-scroll-proportion="-4.0961537">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HoaDonTraHang.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="35" selection-start="4800" selection-end="4800" vertical-scroll-proportion="-4.826923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_form.php">
+      <file leaf-file-name="CPOSRequireLogin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
@@ -186,10 +165,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_search.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_search.php">
+      <file leaf-file-name="NhanVienController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="10" selection-start="190" selection-end="190" vertical-scroll-proportion="-3.3333333">
+            <state line="106" column="40" selection-start="4183" selection-end="4186" vertical-scroll-proportion="-7.3333335">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NhanVien.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="177" column="0" selection-start="7235" selection-end="7235" vertical-scroll-proportion="-8.326923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssignmentController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AssignmentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthItemController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="362" column="60" selection-start="13276" selection-end="13276" vertical-scroll-proportion="0.2284069">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="roles.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/roles.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="50" selection-start="2995" selection-end="2995" vertical-scroll-proportion="-8.888889">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RightsWeight.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/protected/models/RightsWeight.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="100" column="0" selection-start="2599" selection-end="2599" vertical-scroll-proportion="-12.814815">
               <folding />
             </state>
           </provider>
@@ -213,22 +237,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/xuat.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/xuatfileexceldanhsachhoadontra.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangchinhanh.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/ChiNhanh.php" />
-        <option value="$PROJECT_DIR$/source/protected/components/CPOSBranchSaleReportPorlet.php" />
-        <option value="$PROJECT_DIR$/source/protected/components/CPOSImportExportReportPortlet.php" />
-        <option value="$PROJECT_DIR$/source/protected/components/CPOSProductSaleReportPorlet.php" />
-        <option value="$PROJECT_DIR$/source/protected/components/CPOSSaleTopPortlet.php" />
-        <option value="$PROJECT_DIR$/source/themes/asia/css/column1-form.css" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/views/nhanVien/_form.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/controllers/KhuyenMaiController.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangsanpham.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AssignmentController.php" />
+        <option value="$PROJECT_DIR$/source/themes/asia/css/custom.css" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/assignment/phanquyen.php" />
         <option value="$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php" />
-        <option value="$PROJECT_DIR$/source/themes/asia/css/general.css" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/chitiet.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_search.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php" />
-        <option value="$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php" />
-        <option value="$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/danhsach.php" />
+        <option value="$PROJECT_DIR$/source/themes/asia/views/partials/_main_account_info.php" />
+        <option value="$PROJECT_DIR$/source/protected/controllers/SiteController.php" />
+        <option value="$PROJECT_DIR$/source/protected/messages/vi/viLib.php" />
+        <option value="$PROJECT_DIR$/source/protected/views/site/unauthorized.php" />
+        <option value="$PROJECT_DIR$/source/protected/config/main.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php" />
+        <option value="$PROJECT_DIR$/source/protected/models/RightsWeight.php" />
+        <option value="$PROJECT_DIR$/source/protected/models/NhanVien.php" />
+        <option value="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php" />
       </list>
     </option>
   </component>
@@ -267,6 +291,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -352,6 +377,118 @@
               <option name="myItemId" value="asia" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -415,7 +552,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,40 +575,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quanlybanhang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quanlybanhang" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -475,7 +582,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hoaDonTraHang" />
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -501,7 +630,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="quanlybanhang" />
+              <option name="myItemId" value="quanlyphanquyen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlyphanquyen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlyphanquyen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -509,7 +694,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hoaDonBanHang" />
+              <option name="myItemId" value="install" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,7 +720,217 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="quanlybanhang" />
+              <option name="myItemId" value="quanlyphanquyen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authItem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlyphanquyen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlynhanvien" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlynhanvien" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlynhanvien" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlykhuyenmai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlykhuyenmai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="khuyenMai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quanlykhuyenmai" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -583,13 +978,104 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="messages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commands" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -617,11 +1103,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/themes/asia/images" />
       <recent name="$PROJECT_DIR$/source/themes/asia/js" />
       <recent name="$PROJECT_DIR$/source/protected/extensions/eexcelview" />
-      <recent name="$PROJECT_DIR$/source/themes/asia/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/protected/views/site" />
       <recent name="$PROJECT_DIR$/source/themes/asia/images/icons" />
       <recent name="$PROJECT_DIR$/source/protected/components" />
     </key>
@@ -672,7 +1159,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33116883" sideWeight="0.7433071" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28246754" sideWeight="0.7433071" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32385466" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -747,114 +1234,100 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/protected/models/ChiNhanh.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlykhuyenmai/views/khuyenMai/_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="364" column="25" selection-start="12903" selection-end="12903" vertical-scroll-proportion="0.33333334">
+        <state line="89" column="16" selection-start="3479" selection-end="3487" vertical-scroll-proportion="0.6043956" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/themes/asia/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="31.777779" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="49" selection-start="6379" selection-end="6379" vertical-scroll-proportion="-41.555557" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/messages/vi/viLib.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="340" column="18" selection-start="15920" selection-end="15933" vertical-scroll-proportion="-8.288462" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/views/site/unauthorized.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="44" selection-start="279" selection-end="279" vertical-scroll-proportion="0.47985348" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/views/site/error.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="20" selection-start="509" selection-end="509" vertical-scroll-proportion="0.60211265" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/components/UserIdentity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="17" selection-start="581" selection-end="581" vertical-scroll-proportion="-0.6666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/views/baoCao/banhangchinhanh.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="89" selection-start="2133" selection-end="2133" vertical-scroll-proportion="0.6971831">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/themes/asia/css/column1-form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="13" selection-start="1957" selection-end="1957" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/themes/asia/css/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="547" column="17" selection-start="18898" selection-end="18898" vertical-scroll-proportion="0.45898777">
-          <folding />
-        </state>
+        <state line="4" column="0" selection-start="113" selection-end="113" vertical-scroll-proportion="0.12676056" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="9" selection-start="528" selection-end="528" vertical-scroll-proportion="0.52747256">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSBaseChungTu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="20" selection-start="2606" selection-end="2606" vertical-scroll-proportion="0.34923664">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonBanHang/_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="10" selection-start="1381" selection-end="1381" vertical-scroll-proportion="1.5776893">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/chitiet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="10" selection-start="2978" selection-end="2978" vertical-scroll-proportion="3.1382766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybaocao/controllers/BaoCaoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="62" selection-start="3922" selection-end="3951" vertical-scroll-proportion="0.23076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonBanHangController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="21" selection-start="11458" selection-end="11458" vertical-scroll-proportion="0.44337812">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/HoaDonBanHang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="91" selection-start="6606" selection-end="6689" vertical-scroll-proportion="0.57389635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/controllers/HoaDonTraHangController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="14" selection-start="5695" selection-end="5695" vertical-scroll-proportion="-4.0961537">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/HoaDonTraHang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="35" selection-start="4800" selection-end="4800" vertical-scroll-proportion="-4.826923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="190" selection-end="190" vertical-scroll-proportion="-3.3333333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlybanhang/views/hoaDonTraHang/danhsach.php">
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="53" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.53846157">
+        <state line="106" column="40" selection-start="4183" selection-end="4186" vertical-scroll-proportion="-7.3333335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/models/RightsWeight.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="2599" selection-end="2599" vertical-scroll-proportion="-12.814815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="177" column="0" selection-start="7235" selection-end="7235" vertical-scroll-proportion="-8.326923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AssignmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/components/Helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="27" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.053113554">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/roles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="50" selection-start="2995" selection-end="2995" vertical-scroll-proportion="-8.888889">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="362" column="60" selection-start="13276" selection-end="13276" vertical-scroll-proportion="0.2284069">
           <folding />
         </state>
       </provider>

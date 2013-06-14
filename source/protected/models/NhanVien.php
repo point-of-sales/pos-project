@@ -172,6 +172,10 @@ class NhanVien extends BaseNhanVien
     {
         $relation = $this->kiemTraQuanHe($this->id);
         if (!$relation) {
+            $roles = Rights::getAssignedRoles($this->id);
+            if(empty($roles))
+                return $this->delete();
+
             if (Yii::app()->user->id != $this->id && RightsWeight::getRoleWeight($this->id) < 999) { // kiem tra nguoi dung hien hanh
                 // kiem tra user xoa co thuoc chi nhanh minh quan ly hay khong. Neu khong thi khong duoc xoa
                 if (RightsWeight::getRoleWeight(Yii::app()->user->id) == 999) // kiem tra co phai la quan tri he thong khong

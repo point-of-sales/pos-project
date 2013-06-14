@@ -47,8 +47,9 @@
 
 
 </style>
-<?php $nhanVienHienHanh = NhanVien::model()->findByPk(Yii::app()->user->id); ?>
-<?php if (!Yii::app()->user->isGuest) : ?>
+<?php $nhanVienHienHanh = NhanVien::model()->findByPk(Yii::app()->user->id);
+     $roles = Rights::getAssignedRoles(Yii::app()->user->id); ?>
+<?php if (!Yii::app()->user->isGuest && !empty($roles)) : ?>
     <span id="current-time"><?php echo Yii::t('viLib', 'Current time') . ' : ' ?></span><span id="clock"></span> |
     <span id="current-user"><?php echo Yii::t('viLib', 'Current user') . ' : ' ?></span>
     <span id="user-title"><a href="#"><?php echo $nhanVienHienHanh->ho_ten; ?></a></span> |

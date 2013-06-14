@@ -126,12 +126,18 @@ class LoaiNhanVien extends BaseLoaiNhanVien
 
             $nhanVien = NhanVien::model()->findByPk($currentUserId);
             $loaiNhanVien = $nhanVien->loaiNhanVien;
-            if ($loaiNhanVien->lop == 1) { // manager
+            $criteria = new CDbCriteria();
+            $criteria->addCondition("id!=$loaiNhanVien->id AND id!=6 " );
+            $danhSachLoaiNhanVien = LoaiNhanVien::model()->findAll($criteria);
+            return $danhSachLoaiNhanVien;
+
+
+            /*if ($loaiNhanVien->lop == 1) { // manager
                 $criteria = new CDbCriteria();
                 $criteria->addCondition("lop<$loaiNhanVien->lop");;
                 $danhSachLoaiNhanVien = LoaiNhanVien::model()->findAll($criteria);
                 return $danhSachLoaiNhanVien;
-            }
+            }*/
         }
     }
 

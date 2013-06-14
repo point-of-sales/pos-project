@@ -12,6 +12,11 @@
     </div>
 
     <div class="row cus-row">
+        <?php echo $form->label($model->getBaseModel(), 'chi_nhanh_id'); ?>
+        <?php echo $form->dropDownList($model->getBaseModel(), 'chi_nhanh_id',GxHtml::listDataEx(ChiNhanh::model()->findAll('id>1'),null,"ten_chi_nhanh"),array('prompt' => Yii::t('viLib', 'All'))); ?>
+    </div>
+
+    <div class="row cus-row">
         Ngày bắt đầu
         <?php $form->widget('zii.widgets.jui.CJuiDatePicker', array(
             'model' => $model->getBaseModel(),

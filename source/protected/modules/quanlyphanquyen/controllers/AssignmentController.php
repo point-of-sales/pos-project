@@ -87,6 +87,8 @@ class AssignmentController extends RController
 
         if (Yii::app()->user->checkAccess('Quanlyphanquyen.Assignment.PhanQuyen')) {
             // Create the user model and attach the required behavior
+
+
             $userClass = $this->module->userClass;
             $model = CActiveRecord::model($userClass)->findByPk($_GET['id']);
             $this->_authorizer->attachUserBehavior($model);
@@ -123,7 +125,6 @@ class AssignmentController extends RController
             $dataProvider = new RAuthItemDataProvider('assignments', array(
                 'userId' => $model->getId(),
             ));
-
             // Render the view
             $this->render('phanquyen', array(
                 'model' => $model,
@@ -142,22 +143,32 @@ class AssignmentController extends RController
     {
         if (Yii::app()->user->checkAccess('Quanlyphanquyen.Assignment.Revoke')) {
             // We only allow deletion via POST request
+
             if (Yii::app()->request->isPostRequest === true) {
+
                 $itemName = $this->getItemName();
+                if (RightsWeight::getRoleWeightFromItemname($itemName) == 999) // super user
+                { // can not rewoke super user
+                    // Set flash message for revoking the item
+                    echo 'override-error';
+                    Yii::app()->end();
 
-                // Revoke the item from the user and load it
-                $this->_authorizer->authManager->revoke($itemName, $_GET['id']);
-                $item = $this->_authorizer->authManager->getAuthItem($itemName);
-                $item = $this->_authorizer->attachAuthItemBehavior($item);
+                } else {
+                    // Revoke the item from the user and load it
+                    $this->_authorizer->authManager->revoke($itemName, $_GET['id']);
+                    $item = $this->_authorizer->authManager->getAuthItem($itemName);
+                    $item = $this->_authorizer->attachAuthItemBehavior($item);
 
-                // Set flash message for revoking the item
-                Yii::app()->user->setFlash($this->module->flashSuccessKey,
-                    Rights::t('core', 'Permission :name revoked.', array(':name' => $item->getNameText()))
-                );
-
+                    // Set flash message for revoking the item
+                    Yii::app()->user->setFlash($this->module->flashSuccessKey,
+                        Rights::t('core', 'Permission :name revoked.', array(':name' => $item->getNameText()))
+                    );
+                }
                 // if AJAX request, we should not redirect the browser
-                if (isset($_POST['ajax']) === false)
+                if (isset($_POST['ajax']) === false) {
                     $this->redirect(array('assignment/phanquyen', 'id' => $_GET['id']));
+                }
+
             } else
                 throw new CHttpException(400, Rights::t('core', 'Invalid request. Please do not repeat this request again.'));
         } else

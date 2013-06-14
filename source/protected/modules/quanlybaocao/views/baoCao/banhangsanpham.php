@@ -13,10 +13,10 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.NhapXuatTon')),
-    array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangChiNhanh')),
-    array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangTop')),
-    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham'),'visible'=>Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangSanPham')),
+    array('label' => Yii::t('viLib', 'Import and Export Report'), 'url' => array('baoCao/nhapxuatton'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.NhapXuatTon')),
+    array('label' => Yii::t('viLib', 'Branch Sales Report'), 'url' => array('baoCao/banhangchinhanh'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangChiNhanh')),
+    array('label' => Yii::t('viLib', 'Top Sales Report'), 'url' => array('baoCao/banhangtop'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangTop')),
+    array('label' => Yii::t('viLib', 'Product Sales Report'), 'url' => array('baoCao/banhangsanpham'), 'visible' => Yii::app()->user->checkAccess('Quanlybaocao.BaoCao.BanHangSanPham')),
 );
 ?>
 
@@ -57,48 +57,49 @@ $this->menu = array(
         echo '</div>';
 
         $danhSachSanPham = $sanPham->getData();
-        $sp = $danhSachSanPham[0];
-        if (count($chiNhanh->getData()) > 1) {
-            // doanh so san pham tren tat ca cac chi nhanh
-            // Xem tong quat bang Chart
-            $series_data = $sp->layDanhSachDoanhSo();
-            $categories = $sp->layDanhSachThoiGian();
-            $this->widget('ext.highcharts.HighchartsWidget', array(
-                'options' => array(
-                    'title' => array('text' => Yii::t('viLib', 'Product Sales Report on All Branchs')),
-                    'xAxis' => array(
-                        'categories' => $categories,
-                    ),
-                    'yAxis' => array(
-                        'title' => array('text' => Yii::t('viLib', 'Sales')),
-                    ),
-                    'series' => array(array('name' => Yii::t('viLib', 'Sales status'),
-                        'data' => $series_data,)
-                    ),
-                    'credits' => array('enabled' => false),
-                )
-            ));
-        } else {
-            // doanh so san pham tren 1 chi nhanh
-            $series_data = $sp->layDanhSachDoanhSo();
-            $categories = $sp->layDanhSachThoiGian();
-            $this->widget('ext.highcharts.HighchartsWidget', array(
-                'options' => array(
-                    'title' => array('text' => Yii::t('viLib', 'Product Sales Report on Branchs ')),
-                    'xAxis' => array(
-                        'categories' => $categories,
-                    ),
-                    'yAxis' => array(
-                        'title' => array('text' => Yii::t('viLib', 'Sales')),
-                    ),
-                    'series' => array(array('name' => Yii::t('viLib', 'Sales status'),
-                        'data' => $series_data,)
-                    ),
-                    'credits' => array('enabled' => false),
-                )
-            ));
+        if (!empty($danhSachSanPham)) {
+            $sp = $danhSachSanPham[0];
+            if (count($chiNhanh->getData()) > 1) {
+                // doanh so san pham tren tat ca cac chi nhanh
+                // Xem tong quat bang Chart
+                $series_data = $sp->layDanhSachDoanhSo();
+                $categories = $sp->layDanhSachThoiGian();
+                $this->widget('ext.highcharts.HighchartsWidget', array(
+                    'options' => array(
+                        'title' => array('text' => Yii::t('viLib', 'Product Sales Report on All Branchs')),
+                        'xAxis' => array(
+                            'categories' => $categories,
+                        ),
+                        'yAxis' => array(
+                            'title' => array('text' => Yii::t('viLib', 'Sales')),
+                        ),
+                        'series' => array(array('name' => Yii::t('viLib', 'Sales status'),
+                            'data' => $series_data,)
+                        ),
+                        'credits' => array('enabled' => false),
+                    )
+                ));
+            } else {
+                // doanh so san pham tren 1 chi nhanh
+                $series_data = $sp->layDanhSachDoanhSo();
+                $categories = $sp->layDanhSachThoiGian();
+                $this->widget('ext.highcharts.HighchartsWidget', array(
+                    'options' => array(
+                        'title' => array('text' => Yii::t('viLib', 'Product Sales Report on Branchs ')),
+                        'xAxis' => array(
+                            'categories' => $categories,
+                        ),
+                        'yAxis' => array(
+                            'title' => array('text' => Yii::t('viLib', 'Sales')),
+                        ),
+                        'series' => array(array('name' => Yii::t('viLib', 'Sales status'),
+                            'data' => $series_data,)
+                        ),
+                        'credits' => array('enabled' => false),
+                    )
+                ));
+            }
         }
-
     }
 
     ?>

@@ -43,7 +43,7 @@
     <!-- row -->
 
     <div class="row cus-row">
-        <?php echo $form->labelEx($model->quyen, 'itemname'); ?>
+        <label><?php echo Yii::t('viLib','Assign permission');?></label>
         <?php echo $form->dropDownList($model->quyen, 'itemname',RightsWeight::layDanhSachQuyen()); ?>
         <?php echo $form->error($model->quyen, 'itemname'); ?>
     </div>
