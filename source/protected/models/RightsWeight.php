@@ -98,6 +98,7 @@ class RightsWeight extends BaseRightsWeight
             ->from('Rights')
             ->where('itemname=:itemname')
             ->queryScalar(array(':itemname' => $roleName));
+
     }
 
     public static function getRoleWeightFromItemname($itemname)
