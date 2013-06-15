@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2013 at 10:08 AM
+-- Generation Time: Jun 15, 2013 at 02:13 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -489,22 +489,64 @@ CREATE TABLE IF NOT EXISTS `tbl_chitiethoadonban` (
 --
 
 INSERT INTO `tbl_chitiethoadonban` (`san_pham_id`, `hoa_don_ban_id`, `so_luong`, `don_gia`) VALUES
+(6, 56782, 2, 33500),
+(6, 56786, 2, 33500),
+(6, 56790, 10, 33500),
+(6, 56791, 2, 33500),
+(6, 56793, 6, 33500),
+(6, 56795, 20, 33500),
+(6, 56796, 2, 33500),
+(6, 56801, 1, 33500),
+(6, 56802, 1, 33500),
+(6, 56807, 1, 33500),
+(6, 56808, 1, 33500),
+(6, 56811, 100, 33500),
 (8, 56775, 5, 54000),
 (8, 56777, 4, 54000),
 (8, 56778, 2, 54000),
+(8, 56782, 5, 60000),
+(8, 56786, 10, 60000),
+(8, 56791, 10, 33600),
+(8, 56792, 2, 33600),
+(8, 56793, 5, 33600),
+(8, 56796, 4, 33600),
+(8, 56803, 1, 33600),
+(8, 56804, 1, 33600),
+(8, 56805, 1, 33600),
+(8, 56806, 1, 33600),
+(8, 56807, 20, 33600),
+(8, 56809, 30, 33600),
 (9, 56777, 2, 120000),
 (9, 56778, 10, 120000),
+(9, 56782, 10, 120000),
+(9, 56786, 1, 120000),
+(9, 56792, 5, 120000),
+(9, 56793, 3, 120000),
+(9, 56796, 5, 120000),
 (10, 56727, 2, 48000),
 (10, 56728, 3, 48000),
 (10, 56755, 5, 48000),
-(10, 56759, 6, 48000),
 (10, 56777, 5, 48000),
+(10, 56782, 2, 48000),
+(10, 56786, 9, 48000),
+(10, 56792, 3, 48000),
+(10, 56793, 2, 48000),
+(10, 56796, 1, 48000),
 (17, 56731, 8, 80000),
 (17, 56777, 2, 80000),
 (17, 56778, 2, 80000),
+(17, 56782, 5, 80000),
+(17, 56793, 4, 80000),
+(17, 56794, 10, 80000),
+(17, 56796, 3, 80000),
 (18, 56731, 1, 54000),
 (18, 56777, 7, 54000),
-(20, 56777, 2, 600000);
+(18, 56782, 3, 54000),
+(18, 56793, 2, 54000),
+(18, 56794, 20, 54000),
+(20, 56777, 2, 600000),
+(20, 56782, 2, 600000),
+(20, 56794, 10, 600000);
 
 -- --------------------------------------------------------
 
@@ -527,7 +569,15 @@ CREATE TABLE IF NOT EXISTS `tbl_chitiethoadontang` (
 
 INSERT INTO `tbl_chitiethoadontang` (`san_pham_tang_id`, `hoa_don_ban_id`, `so_luong`) VALUES
 (1, 56755, 1),
-(1, 56759, 1);
+(1, 56786, 9),
+(1, 56790, 1),
+(1, 56793, 1),
+(3, 56786, 1),
+(3, 56790, 1),
+(3, 56793, 2),
+(4, 56790, 1),
+(4, 56793, 3),
+(4, 56796, 2);
 
 -- --------------------------------------------------------
 
@@ -550,15 +600,22 @@ CREATE TABLE IF NOT EXISTS `tbl_chitiethoadontra` (
 --
 
 INSERT INTO `tbl_chitiethoadontra` (`san_pham_id`, `hoa_don_tra_id`, `so_luong`, `don_gia`) VALUES
+(6, 56797, 20, 33500),
 (8, 56776, 3, 54000),
 (8, 56779, 4, 54000),
+(8, 56810, 10, 33600),
 (9, 56779, 2, 120000),
 (9, 56780, 10, 120000),
-(10, 56765, 6, 48000),
+(9, 56785, 5, 120000),
 (10, 56779, 5, 48000),
+(10, 56784, 2, 48000),
 (17, 56779, 2, 80000),
+(17, 56784, 5, 80000),
 (18, 56779, 7, 54000),
-(20, 56779, 2, 600000);
+(18, 56784, 3, 54000),
+(20, 56779, 2, 600000),
+(20, 56783, 2, 600000),
+(20, 56798, 10, 600000);
 
 -- --------------------------------------------------------
 
@@ -582,9 +639,12 @@ CREATE TABLE IF NOT EXISTS `tbl_chitietphieunhap` (
 
 INSERT INTO `tbl_chitietphieunhap` (`san_pham_id`, `phieu_nhap_id`, `so_luong`, `gia_nhap`) VALUES
 (6, 56729, 2000, 230000),
+(6, 56788, 20, 230000),
 (7, 56763, 450, 6800000),
+(7, 56787, 200, 6800000),
 (8, 56719, 250, 390000),
 (8, 56726, 300, 390000),
+(8, 56787, 100, 390000),
 (9, 56726, 50, 200000),
 (9, 56769, 100, 200000),
 (9, 56772, 100, 200000),
@@ -628,8 +688,15 @@ INSERT INTO `tbl_chitietphieunhapsanphamtang` (`san_pham_tang_id`, `phieu_nhap_i
 (1, 56720, 100),
 (1, 56770, 120),
 (1, 56774, 220),
+(2, 56799, 100),
 (3, 56767, 1000),
-(4, 56767, 1000);
+(4, 56767, 1000),
+(5, 56800, 100),
+(6, 56800, 1000),
+(7, 56800, 200),
+(8, 56800, 100),
+(9, 56800, 100),
+(10, 56800, 50);
 
 -- --------------------------------------------------------
 
@@ -652,7 +719,9 @@ CREATE TABLE IF NOT EXISTS `tbl_chitietphieuxuat` (
 --
 
 INSERT INTO `tbl_chitietphieuxuat` (`san_pham_id`, `phieu_xuat_id`, `so_luong`, `gia_xuat`) VALUES
-(10, 56724, 230, 45000);
+(6, 56789, 200, 230000),
+(10, 56724, 230, 45000),
+(10, 56789, 100, 45000);
 
 -- --------------------------------------------------------
 
@@ -694,7 +763,7 @@ CREATE TABLE IF NOT EXISTS `tbl_chungtu` (
   UNIQUE KEY `ma_chung_tu` (`ma_chung_tu`),
   KEY `FKtbl_ChungT392230` (`nhan_vien_id`),
   KEY `FKtbl_ChungT837946` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56782 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56812 ;
 
 --
 -- Dumping data for table `tbl_chungtu`
@@ -707,19 +776,17 @@ INSERT INTO `tbl_chungtu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`
 (56724, 'PX0435453', '2013-05-13 00:00:00', 10350000, NULL, 2, 10),
 (56725, 'PN434535', '2013-05-13 00:00:00', 10350000, NULL, 2, 26),
 (56726, 'PN3234234', '2013-05-13 00:00:00', 127000000, NULL, 6, 10),
-(56727, 'BH00000000001', '2013-05-15 00:00:00', 96000, NULL, 2, 10),
-(56728, 'BH00000000002', '2013-05-15 00:00:00', 144000, NULL, 2, 10),
+(56727, 'BH00000000001', '2013-01-15 00:00:00', 96000, NULL, 2, 10),
+(56728, 'BH00000000002', '2013-01-15 00:00:00', 144000, NULL, 2, 10),
 (56729, 'PN432454', '2013-05-17 00:00:00', 460000000, NULL, 6, 10),
 (56730, 'PN005439', '2013-05-17 00:00:00', 18296500000, NULL, 6, 10),
-(56731, 'BH00000000003', '2013-05-17 00:00:00', 694000, NULL, 2, 10),
-(56755, 'BH00000000004', '2013-05-20 00:00:00', 240000, NULL, 2, 10),
-(56759, 'BH00000000005', '2013-05-20 00:00:00', 288000, NULL, 2, 10),
+(56731, 'BH00000000003', '2013-02-17 00:00:00', 694000, NULL, 2, 10),
+(56755, 'BH00000000004', '2013-02-20 00:00:00', 240000, NULL, 2, 10),
 (56760, 'PN432428', '2013-05-20 00:00:00', 128000000, NULL, 6, 29),
 (56761, 'PN949484', '2013-05-20 00:00:00', 90000000, NULL, 6, 10),
 (56762, 'PN00000949485', '2013-05-22 00:00:00', 10760000, NULL, 5, 26),
 (56763, 'PN00000949486', '2013-05-22 00:00:00', 3060000000, NULL, 5, 26),
 (56764, 'PN00000949487', '2013-05-31 12:00:00', 5400000, NULL, 1, 10),
-(56765, 'TH00000000001', '2013-05-31 01:51:30', 0, NULL, 1, 10),
 (56766, 'PN00000949488', '2013-05-31 12:00:00', 1680000, NULL, 1, 10),
 (56767, 'PN00000949489', '2013-06-05 12:00:00', 0, NULL, 1, 10),
 (56768, 'PX00000435454', '2013-06-05 12:00:00', 14000000, NULL, 1, 10),
@@ -728,13 +795,43 @@ INSERT INTO `tbl_chungtu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`
 (56772, 'PN00000949492', '2013-06-06 12:00:00', 20000000, NULL, 1, 10),
 (56773, 'PN00000949493', '2013-06-06 12:00:00', 40000000, NULL, 1, 10),
 (56774, 'PN00000949494', '2013-06-06 12:00:00', 0, NULL, 1, 10),
-(56775, 'BH00000000006', '2013-06-07 07:18:36', 270000, NULL, 1, 10),
+(56775, 'BH00000000006', '2013-03-07 07:18:36', 270000, NULL, 1, 10),
 (56776, 'TH00000000002', '2013-06-07 07:18:56', 162000, NULL, 1, 10),
-(56777, 'BH00000000007', '2013-06-07 07:22:05', 2434000, NULL, 1, 10),
-(56778, 'BH00000000008', '2013-06-07 07:23:09', 1423960, NULL, 1, 10),
+(56777, 'BH00000000007', '2013-04-07 07:22:05', 2434000, NULL, 1, 10),
+(56778, 'BH00000000008', '2013-05-07 07:23:09', 1423960, NULL, 1, 10),
 (56779, 'TH00000000003', '2013-06-07 07:51:09', 2434000, NULL, 1, 10),
 (56780, 'TH00000000004', '2013-06-07 07:52:18', 1164000, NULL, 1, 10),
-(56781, 'PN00000949495', '2013-06-09 12:00:00', 20000000, NULL, 1, 10);
+(56781, 'PN00000949495', '2013-06-09 12:00:00', 20000000, NULL, 1, 10),
+(56782, 'BH00000000009', '2013-06-10 09:49:57', 2911250, NULL, 1, 10),
+(56783, 'TH00000000005', '2013-06-10 09:54:50', 1020000, NULL, 1, 10),
+(56784, 'TH00000000006', '2013-06-10 09:55:21', 559300, NULL, 1, 10),
+(56785, 'TH00000000007', '2013-06-10 09:55:49', 510000, NULL, 1, 10),
+(56786, 'BH00000000010', '2013-06-10 01:50:36', 1182430, NULL, 1, 10),
+(56787, 'PN00000949496', '2013-06-10 12:00:00', 1399000000, '- nhập số lượng lớn\r\n- ...', 1, 10),
+(56788, 'PN00000949497', '2013-06-10 12:00:00', 4600000, NULL, 1, 10),
+(56789, 'PX00000435455', '2013-06-10 12:00:00', 50500000, '...', 1, 10),
+(56790, 'BH00000000011', '2013-06-12 04:55:02', 335000, NULL, 1, 10),
+(56791, 'BH00000000012', '2013-06-14 04:48:37', 403000, NULL, 1, 10),
+(56792, 'BH00000000013', '2013-06-14 04:49:45', 811200, NULL, 1, 10),
+(56793, 'BH00000000014', '2013-06-14 04:51:44', 1253000, NULL, 1, 10),
+(56794, 'BH00000000015', '2013-06-14 04:52:45', 7643600, NULL, 1, 10),
+(56795, 'BH00000000016', '2013-06-14 04:54:51', 649900, NULL, 1, 10),
+(56796, 'BH00000000017', '2013-06-14 04:57:37', 1089400, NULL, 1, 10),
+(56797, 'TH00000000008', '2013-06-14 05:08:03', 649900, NULL, 1, 10),
+(56798, 'TH00000000009', '2013-06-14 05:09:00', 5820000, NULL, 1, 10),
+(56799, 'PN00000949498', '2013-06-14 12:00:00', 0, NULL, 1, 10),
+(56800, 'PN00000949499', '2013-06-14 12:00:00', 0, NULL, 1, 10),
+(56801, 'BH00000000018', '2013-06-14 07:40:28', 33500, NULL, 1, 10),
+(56802, 'BH00000000019', '2013-06-14 07:45:03', 33500, NULL, 1, 10),
+(56803, 'BH00000000020', '2013-06-14 07:49:04', 33600, NULL, 1, 10),
+(56804, 'BH00000000021', '2013-06-14 07:55:52', 33600, NULL, 1, 10),
+(56805, 'BH00000000022', '2013-06-14 07:57:11', 33600, NULL, 1, 10),
+(56806, 'BH00000000023', '2013-06-14 07:58:04', 33600, NULL, 1, 10),
+(56807, 'BH00000000024', '2013-06-14 07:59:44', 705500, NULL, 1, 10),
+(56808, 'BH00000000025', '2013-06-15 02:08:45', 33500, NULL, 1, 10),
+(56809, 'BH00000000026', '2013-06-15 02:09:26', 1008000, NULL, 1, 10),
+(56810, 'TH00000000010', '2013-06-15 02:09:56', 336000, NULL, 1, 10),
+(56811, 'BH00000000027', '2013-06-15 02:12:11', 3350000, NULL, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -760,10 +857,28 @@ INSERT INTO `tbl_hoadonbanhang` (`id`, `chiet_khau`, `khach_hang_id`, `trang_tha
 (56728, 0, 2, 0),
 (56731, 0, 2, 0),
 (56755, 0, 2, 0),
-(56759, 0, 2, 0),
 (56775, 0, 2, 1),
 (56777, 0, 1, 1),
-(56778, 3, 1, 1);
+(56778, 3, 1, 1),
+(56782, 15, 1, 1),
+(56786, 3, 1, 0),
+(56790, 0, 2, 0),
+(56791, 0, 3, 0),
+(56792, 0, 4, 0),
+(56793, 0, 5, 0),
+(56794, 3, 5, 1),
+(56795, 3, 5, 1),
+(56796, 0, 7, 0),
+(56801, 0, 3, 0),
+(56802, 0, 3, 0),
+(56803, 0, 3, 0),
+(56804, 0, 3, 0),
+(56805, 0, 3, 0),
+(56806, 0, 3, 0),
+(56807, 0, 3, 0),
+(56808, 0, 2, 0),
+(56809, 0, 2, 1),
+(56811, 0, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -785,10 +900,15 @@ CREATE TABLE IF NOT EXISTS `tbl_hoadontrahang` (
 --
 
 INSERT INTO `tbl_hoadontrahang` (`id`, `ly_do_tra_hang`, `hoa_don_ban_id`) VALUES
-(56765, 'adsad', 56759),
 (56776, 'abc', 56775),
 (56779, 'a', 56777),
-(56780, 'a', 56778);
+(56780, 'a', 56778),
+(56783, 'Hàng bị lỗi', 56782),
+(56784, 'Hàng bị lỗi', 56782),
+(56785, 'Hàng bị lỗi', 56782),
+(56797, 'hàng bị hỏng', 56795),
+(56798, 'hàng bị hỏng', 56794),
+(56810, 'hàng hết hạn', 56809);
 
 -- --------------------------------------------------------
 
@@ -811,15 +931,20 @@ CREATE TABLE IF NOT EXISTS `tbl_khachhang` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_khach_hang` (`ma_khach_hang`),
   KEY `FKtbl_KhachH518685` (`loai_khach_hang_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tbl_khachhang`
 --
 
 INSERT INTO `tbl_khachhang` (`id`, `ma_khach_hang`, `ho_ten`, `ngay_sinh`, `dia_chi`, `thanh_pho`, `dien_thoai`, `email`, `mo_ta`, `diem_tich_luy`, `loai_khach_hang_id`) VALUES
-(1, 'KH00423', 'Lê Thanh Bình', '1970-01-06', '8/4 Bà Hạt - Q10', 'TP Hồ Chí Minh', '0904343243', NULL, NULL, 310960, 2),
-(2, 'KHBT', 'Khách hàng mua lẻ', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 7);
+(1, 'KH00423', 'Lê Thanh Bình ', '1970-01-06', '8/4 Bà Hạt - Q5', 'TP Hồ Chí Minh', '0904343243', NULL, NULL, 2315340, 4),
+(2, 'KHBT', 'Khách hàng mua lẻ', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 7),
+(3, 'KH00000001', 'Lê Cao Trí', '1991-10-02', 'KDC Bình Hưng, Bình Chánh,', 'Hồ Chí Minh', '+843667354453', 'tri@mail.com', NULL, 1209100, 4),
+(4, 'KH00000002', 'Lê Bảo Triết', '2013-06-01', 'Q4', 'Hồ Chí Minh', '+843667312312', 'triet@mail.com', NULL, 811200, 7),
+(5, 'KH00000003', 'Đăng Thế Điệp', '2013-01-01', '5, Bình Thạnh', 'Hồ Chí Minh', '+8436673321', 'diep@Mail.com', NULL, 3076600, 4),
+(6, 'KH00000004', 'Dương Như', '1991-04-04', '5, Nhị Thiên Đường', 'Hồ Chí Minh', '+84366731233', 'nhuduong@mail.com', NULL, 3350000, 4),
+(7, 'KH00000005', 'Tạ Hà Trung', '1991-01-05', '1, Nguyễn Trãi', 'Hồ Chí Minh', '+8436673567', 'hatrung@Mail.com', NULL, 1089400, 4);
 
 -- --------------------------------------------------------
 
@@ -938,19 +1063,19 @@ CREATE TABLE IF NOT EXISTS `tbl_loaikhachhang` (
   `giam_gia` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_loai_khach_hang` (`ma_loai_khach_hang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tbl_loaikhachhang`
 --
 
 INSERT INTO `tbl_loaikhachhang` (`id`, `ma_loai_khach_hang`, `ten_loai`, `doanh_so`, `giam_gia`) VALUES
-(2, 'LKH001', 'Khách hàng loại 1', 30000000, 15),
-(3, 'L002', 'Khách hàng loại 2', 15000000, 5),
-(4, 'L003', 'Khách hàng loại 3', 1000000, 3),
+(2, 'KH01', 'Khách hàng loại 1', 30000000, 15),
+(3, 'KH02', 'Khách hàng loại 2', 9000000, 5),
+(4, 'KH03', 'Khách hàng loại 3', 1000000, 3),
 (5, 'VIP001', 'Khách VIP1', 100000000, 20),
 (6, 'VIP002', 'Khách VIP2', 80000000, 17),
-(7, 'KHBT', 'Khách lẻ', 0, 0);
+(7, 'KHBT', 'Khách hàng bình thường', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1048,7 +1173,7 @@ CREATE TABLE IF NOT EXISTS `tbl_mocgia` (
   `san_pham_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `san_pham_id` (`san_pham_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `tbl_mocgia`
@@ -1062,7 +1187,11 @@ INSERT INTO `tbl_mocgia` (`id`, `thoi_gian_bat_dau`, `gia_ban`, `san_pham_id`) V
 (5, '2013-05-17', 80000, 17),
 (6, '2013-05-17', 54000, 18),
 (7, '2013-05-17', 600000, 20),
-(8, '2013-06-09', 50000, 6);
+(8, '2013-06-09', 50000, 6),
+(9, '2013-06-10', 60000, 8),
+(10, '2013-06-30', 70000, 8),
+(11, '2013-07-31', 75000, 8),
+(12, '2013-09-04', 80000, 8);
 
 -- --------------------------------------------------------
 
@@ -1131,8 +1260,8 @@ CREATE TABLE IF NOT EXISTS `tbl_nhanvien` (
 --
 
 INSERT INTO `tbl_nhanvien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai`, `dia_chi`, `gioi_tinh`, `ngay_sinh`, `trinh_do`, `luong_co_ban`, `chuyen_mon`, `trang_thai`, `mat_khau`, `ngay_vao_lam`, `lan_dang_nhap_cuoi`, `loai_nhan_vien_id`, `chi_nhanh_id`) VALUES
-(1, 'QTHT0001', 'Lê Đình Long', NULL, NULL, NULL, 0, '1984-05-08', NULL, NULL, NULL, 1, '7815696ecbf1c96e6894b779456d330e', '1970-01-01', '1970-01-01 00:00:00', 6, 10),
-(2, 'BH001', 'Trần Thụy Diễm My ', NULL, '0974354980', '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3200000, 'Bán hàng', 1, '202cb962ac59075b964b07152d234b70', '2010-08-11', '1970-01-01 00:00:00', 4, 26),
+(1, 'QTHT0001', 'Lê Đình Long', NULL, NULL, NULL, 0, '1984-05-08', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '1970-01-01', '2013-06-15 02:04:12', 6, 10),
+(2, 'BH001', 'Trần Thụy Diễm My ', NULL, '0974354980', '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3200000, 'Bán hàng', 1, '202cb962ac59075b964b07152d234b70', '2010-08-11', '2013-06-10 09:39:34', 4, 26),
 (5, 'KT00322', 'Lê Quốc Nam', 'quocnam@hcm.vnn.vn', '4432432', '78/3/2 Thích Quảng Đức - Gò Vấp', 0, '0000-00-00', 'Cao đẳng', 5000000, 'Kế toán kho', 1, '202cb962ac59075b964b07152d234b70', '0000-00-00', '0000-00-00 00:00:00', 1, 26),
 (6, 'TK03123', 'Nguyễn Thành Trung', NULL, NULL, '675/3 Trần Xuân Soạn - Q7', 0, '1982-05-21', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '2013-05-23', '1970-01-01 00:00:00', 5, 10),
 (8, 'QLCN001', 'Mai Thanh An', NULL, NULL, NULL, 1, '1984-11-16', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '2009-01-10', '1970-01-01 00:00:00', 3, 10),
@@ -1181,7 +1310,11 @@ INSERT INTO `tbl_phieunhap` (`id`, `loai_nhap_vao`, `chi_nhanh_xuat_id`, `nha_cu
 (56772, 1, 29, NULL),
 (56773, 1, 1, 5),
 (56774, 4, 29, NULL),
-(56781, 1, 29, NULL);
+(56781, 1, 29, NULL),
+(56787, 1, 29, NULL),
+(56788, 1, 1, 6),
+(56799, 4, 29, NULL),
+(56800, 4, 29, NULL);
 
 -- --------------------------------------------------------
 
@@ -1206,7 +1339,8 @@ CREATE TABLE IF NOT EXISTS `tbl_phieuxuat` (
 
 INSERT INTO `tbl_phieuxuat` (`id`, `ly_do_xuat`, `loai_xuat_ra`, `chi_nhanh_nhap_id`) VALUES
 (56724, 'Mượn để bán', 7, 26),
-(56768, 'Xuất cho chi nhánh tặng dịp 1/6 ', 9, 29);
+(56768, 'Xuất cho chi nhánh tặng dịp 1/6 ', 9, 29),
+(56789, 'Hàng tồn kho quá nhiều', 6, 25);
 
 -- --------------------------------------------------------
 
@@ -1243,7 +1377,7 @@ CREATE TABLE IF NOT EXISTS `tbl_sanpham` (
 INSERT INTO `tbl_sanpham` (`id`, `ma_vach`, `ten_san_pham`, `ten_tieng_viet`, `han_dung`, `don_vi_tinh`, `ton_toi_thieu`, `huong_dan_su_dung`, `mo_ta`, `gia_goc`, `trang_thai`, `nha_cung_cap_id`, `loai_san_pham_id`, `khuyen_mai_id`) VALUES
 (6, '040284', 'Bộ bình trà 16 món - Moriitalia ', 'Bộ bình trà 16 món - Moriitalia ', 0, 'Bộ', 50, NULL, '* Bộ bình trà Moriitalia 16 món.\r\n- Bộ gồm 16 món.\r\n   + 01 Bình trà.\r\n   + 06 Tách trà.\r\n   + 06 Cốc.\r\n   + 01 Hũ đựng đường.\r\n- Thành phần: Sứ cao cấp sản xuất theo tiêu chuẩn của Moriitalia.\r\n- Có thể sử dụng làm quà tặng, rất có ý nghĩa.\r\n- Nhãn hiệu: Morriitalia - Moriitalia chuyên cung cấp đa dạng các sản phẩm hàng gia dụng, đồ dùng nhà bếp, điện gia dụng, quà tặng, đồ trang trí , sản phẩm dùng cho du lịch, dã ngoại ….nổi tiếng thế giới với mức giá cạnh tranh nhất.\r\n- Xuất xứ: Trung Quốc - Sản phẩm được thiết kế và sản xuất theo công nghệ của Italia.', 230000, 1, 6, 6, 4),
 (7, '040207', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 'Máy xay sinh tố BL619 - Hiệu Osaka ', 24, 'Cái', 13, NULL, '* Máy xay sinh tố  Osaka BL619.\r\n- Công suất: 300W.\r\n- Dung tích: 1.5 lít.\r\n- Mô tả:\r\n    + Cối được làm bằng hợp chất không bể, không trầy xước.\r\n    + 03 tốc độ.\r\n    + Lọc bằng inox.\r\n    + Motor thế hệ mới vận hành êm.\r\n    + Tự động tắt máy khi quá tải.\r\n    + Xay nhuyễn được đá.\r\n    + Cối nhỏ xay khô.\r\n    + Vỏ nhựa tổng hợp, bền chắc và dễ lau chùi.\r\n- Tính năng: Xay sinh tố. Có cối nhỏ xay khô, có lọc làm sữa đậu nành.\r\n- Sử dụng dễ dàng và nhanh chóng, thời gian thực hiện chỉ tính bằng giây.\r\n- Màu sắc: Màu trắng.\r\n- Bảo hành: 12 tháng.\r\n- Nhãn hiệu: Osaka. Công ty Osaka là công ty chuyên sản xuất các sản phẩm điện gia dụng cao cấp.\r\n- Sản xuất tại Trung Quốc - Sản phẩm được sản xuất theo tiêu chuẩn CE (Châu Âu), và GS (Mỹ).', 6800000, 1, 7, 1, NULL),
-(8, '040176', 'Bia Heineken ', 'Bia Heineken ', 12, 'Thùng', 127, NULL, '- Bia Heineken\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Cách thức chế biến: Lên men tự nhiên\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Heineken\r\n- Xuất xứ: Việt Nam', 390000, 1, 5, 5, NULL),
+(8, '040176', 'Bia Heineken ', 'Bia Heineken ', 12, 'Thùng', 127, NULL, '- Bia Heineken\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Cách thức chế biến: Lên men tự nhiên\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Heineken\r\n- Xuất xứ: Việt Nam', 390000, 1, 5, 5, 5),
 (9, '900053', 'Bia Sài Gòn 333', 'Bia Sài Gòn 333', 12, 'Thùng', 127, NULL, '- Bia Sài Gòn 333\r\n- Thể tích: 330ml\r\n- Quy cách: 24 lon/thùng\r\n- Dạng thành phẩm: Đóng lon\r\n- Thương hiệu: Bia Sài Gòn 333\r\n- Xuất xứ: Việt Nam', 200000, 1, 5, 5, 6),
 (10, '813378', 'Cà phê hòa tan 3 trong 1 Vinacafé', 'Cà phê hòa tan 3 trong 1 Vinacafé', 12, 'Bịch', 50, NULL, '- Cà phê hòa tan 3 trong 1 Vinacafé\r\n- Trọng lượng: 20gr/gói\r\n- Quy cách: 24 gói x 20gr\r\n- Thành phần: Đường, bột kem, cà phê hòa tan (14%)\r\n- Dạng thành phẩm: Gói\r\n- Cách bảo quản: bảo quản nơi khô ráo, thoáng mát\r\n- Sản phẩm đạt chất lượng vệ sinh an toàn thực phẩm, không chứa melamine\r\n- Sản phẩm của Cty Cổ Phần Vinacafé Biên Hòa\r\n- Xuất xứ: Việt Nam', 45000, 1, 4, 3, NULL),
 (11, '010302', 'Cà phê Chồn Robusta 51gr-Hộp quà màu đỏ', 'Cà phê Chồn Robusta 51gr-Hộp quà màu đỏ', 12, 'Hộp', 127, '- Cách dùng: \r\n        + Cho khoảng 20g cà phê bột – tương đương khoảng 1.5 muỗng ăn đầy vào buồng phin và san phẳng bằng nắp gài.\r\n        + Đặt phin lên đĩa phin, dùng nắp gài nén thật chặt trước khi châm vào khoảng 40ml nước sôi. Khoảng 3-4 phút, phin sẽ chảy hết.\r\n        + Đặt phin vào trong nồi hấp đang sôi khoảng 5 phút để hơi nước làm bột cà phê trương nở đều trong phin\r\n        + Lót giấy lọc trong lòng phin sạch, đổ cà phê đã pha vào để lọc hết cặn và bụi than trước khi thưởng thức.\r\n        + Bạn sẽ có tách cà phê Chồn hoàn hảo, đủ sánh đặc, nóng và thơm lừng, đủ để đem đến cho bạn những giây phút thưởng thức không thể quên.\r\n- Lưu ý: \r\n        + Túi nhôm khi đã mở, thì nên dùng hết cà phê trong vòng 2 tuần với hạt và 1 tuần với bột. \r\n        + Túi đang dùng nên được gói kín, không để hơi ẩm lọt vào và cần được cất giữ ở nơi mát mẻ, có độ ẩm thấp.\r\n        + Có thể bảo quản trong ngăn mát tủ lạnh.\r\n', '* Hộp quà màu đỏ - Cà phê Chồn Robusta\r\n- Trọng lượng: 17gr / gói\r\n- Quy cách: 3 gói / hộp\r\n- Mô tả:\r\n        + Cà phê Robusta Chồn được làm từ trái cà phê ở vùng Buôn Mê Thuột vốn nổi tiếng vì nước đặc sánh và vị đậm đà.\r\n        + Cà phê Robusta Chồn vẫn giữ lại các đặc tính ấy của cà phê thường, nhưng lại có thêm vị ngọt thanh cộng thêm vị chua trái cây không hề thấy ở loại cà phê Robusta thường, đồng thời có mùi hương thơm hơn hẳn.\r\n- Nhãn hiệu: Legend Revived\r\n- Xuất xứ: Việt Nam\r\n', 430000, 1, 4, 3, 4),
@@ -1274,14 +1408,15 @@ CREATE TABLE IF NOT EXISTS `tbl_sanphamchinhanh` (
 --
 
 INSERT INTO `tbl_sanphamchinhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `trang_thai`) VALUES
-(10, 6, 2000, 1),
+(10, 6, 1652, 1),
+(10, 7, 200, 1),
 (10, 8, 532, 1),
-(10, 9, 526, 1),
-(10, 10, 463, 1),
+(10, 9, 497, 1),
+(10, 10, 344, 1),
 (10, 12, 600, 1),
-(10, 17, 3716, 1),
-(10, 18, 2985, 1),
-(10, 20, 34546, 1),
+(10, 17, 3689, 1),
+(10, 18, 2957, 1),
+(10, 20, 34522, 1),
 (10, 21, 112, 1),
 (26, 7, 450, 1),
 (26, 10, 230, 0),
@@ -1309,17 +1444,23 @@ CREATE TABLE IF NOT EXISTS `tbl_sanphamtang` (
   `trang_thai` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ma_vach` (`ma_vach`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `tbl_sanphamtang`
 --
 
 INSERT INTO `tbl_sanphamtang` (`id`, `ma_vach`, `ten_san_pham`, `gia_tang`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `mo_ta`, `trang_thai`) VALUES
-(1, 'TA98423', 'Gấu Panda HUAHUA', 150000, '2013-05-15', '2013-07-31', NULL, 1),
-(2, '75348543', 'Poster T-ara', 300000, '2013-06-04', '2013-06-30', NULL, 1),
-(3, '324343', 'Thú mỏ vịt Luna', 150000, '2013-06-04', '2013-07-25', NULL, 1),
-(4, '8786666', 'Sổ tay CK5', 280000, '2013-06-04', '2013-06-23', NULL, 1);
+(1, 'TA0000000000006', 'Gấu Panda HUAHUA', 150000, '2013-05-15', '2013-07-31', NULL, 1),
+(2, 'TA0000000000005', 'Poster T-ara', 300000, '2013-06-04', '2013-06-30', NULL, 1),
+(3, 'TA0000000000004', 'Thú mỏ vịt Luna', 150000, '2013-06-04', '2013-07-25', NULL, 1),
+(4, 'TA0000000000003', 'Sổ tay CK5', 280000, '2013-06-04', '2013-06-23', NULL, 1),
+(5, 'TA0000000000001', 'bộ tẩy trang mini +Pocket Tissue Sunguard', 500000, '2013-06-15', '2013-06-30', 'HÓA ĐƠN 1000k KH được tặng bộ tẩy trang mini + túi khăn giấy Pocket Tissue Sunguard', 1),
+(6, 'TA0000000000002', 'lọ sữa tắm Sweet Appleade Body Wash', 1000000, '2013-06-15', '2013-06-30', 'HÓA ĐƠN 350k KH được tặng bộ đôi khăn mặt + lọ sữa tắm Sweet Appleade Body Wash  ', 1),
+(7, 'TA0000000000007', 'bộ dưỡng da mini Aqua Sherbet', 700000, '2013-06-15', '2013-06-30', 'HÓA ĐƠN 750k KH được tặng bộ dưỡng da mini Aqua Sherbet  \r\n', 1),
+(8, 'TA0000000000008', 'móc chìa khóa kem nền Precious Mineral BB Cream', 200000, '2013-06-15', '2013-06-30', 'móc chìa khóa kem nền Precious Mineral BB Cream', 1),
+(9, 'TA0000000000009', 'VIP GIRL EYE SECRET Yellow purple LP', 1000000, '2013-06-15', '2013-06-30', 'VIP GIRL EYE SECRET Yellow purple LP', 1),
+(10, 'TA0000000000010', 'JUICY POP TUBE #01', 400000, '2013-06-15', '2013-06-30', 'JUICY POP TUBE #01', 1);
 
 -- --------------------------------------------------------
 
@@ -1341,9 +1482,16 @@ CREATE TABLE IF NOT EXISTS `tbl_sanphamtangchinhanh` (
 --
 
 INSERT INTO `tbl_sanphamtangchinhanh` (`san_pham_tang_id`, `chi_nhanh_id`, `so_ton`) VALUES
-(1, 10, 439),
-(3, 10, 1000),
-(4, 10, 950);
+(1, 10, 428),
+(2, 10, 100),
+(3, 10, 996),
+(4, 10, 944),
+(5, 10, 100),
+(6, 10, 1000),
+(7, 10, 200),
+(8, 10, 100),
+(9, 10, 100),
+(10, 10, 50);
 
 -- --------------------------------------------------------
 
