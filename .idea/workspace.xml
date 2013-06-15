@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="39d7da02-e886-479a-8938-f9dbc955d447" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/bao_cao_luan_van_pos.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/pos_quan_ly_ban_hang_bk3.vpp~19" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bao_cao/pos_quan_ly_ban_hang_bk3.vpp~20" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/testting/~$bang_test_loi.xlsx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/luan_van_2007.docx" afterPath="$PROJECT_DIR$/bao_cao/luan_van_2007.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php" afterPath="$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bao_cao/pos_quan_ly_ban_hang_bk3.vpp" afterPath="$PROJECT_DIR$/bao_cao/pos_quan_ly_ban_hang_bk3.vpp" />
     </list>
     <ignored path="pos-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +29,7 @@
     <file path="/CauHinh.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369670148218" ignored="false" />
     <file path="/main.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371121053554" ignored="false" />
     <file path="/RequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1369099830330" ignored="false" />
-    <file path="/a.dummy" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370049739546" ignored="false" />
+    <file path="/a.dummy" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371189562612" ignored="false" />
     <file path="/CPOSRequireLogin.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1370627207666" ignored="false" />
     <file path="/_main_account_info.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371142708228" ignored="false" />
     <file path="/UserIdentity.php" changelist="39d7da02-e886-479a-8938-f9dbc955d447" time="1371036676998" ignored="false" />
@@ -146,80 +148,7 @@
     <favorites_list name="pos-project" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="UserIdentity.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/components/UserIdentity.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="17" selection-start="581" selection-end="581" vertical-scroll-proportion="-0.6666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CPOSRequireLogin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/components/CPOSRequireLogin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NhanVienController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlynhanvien/controllers/NhanVienController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="40" selection-start="4183" selection-end="4186" vertical-scroll-proportion="-7.3333335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NhanVien.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="0" selection-start="7235" selection-end="7235" vertical-scroll-proportion="-8.326923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AssignmentController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AssignmentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthItemController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="362" column="60" selection-start="13276" selection-end="13276" vertical-scroll-proportion="0.2284069">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="roles.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/roles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="50" selection-start="2995" selection-end="2995" vertical-scroll-proportion="-8.888889">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RightsWeight.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/protected/models/RightsWeight.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="0" selection-start="2599" selection-end="2599" vertical-scroll-proportion="-12.814815">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -978,11 +907,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="messages" />
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos-project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vi" />
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eexcelview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1151,7 +1102,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="778" extended-state="2" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1159,7 +1110,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28246754" sideWeight="0.7433071" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28246754" sideWeight="0.7433071" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32385466" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1292,21 +1243,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/models/RightsWeight.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="2599" selection-end="2599" vertical-scroll-proportion="-12.814815">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="0" selection-start="7235" selection-end="7235" vertical-scroll-proportion="-8.326923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AssignmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="100" column="0" selection-start="2599" selection-end="2599" vertical-scroll-proportion="0.59552497">
           <folding />
         </state>
       </provider>
@@ -1320,7 +1257,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/views/authItem/roles.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="50" selection-start="2995" selection-end="2995" vertical-scroll-proportion="-8.888889">
+        <state line="63" column="50" selection-start="2995" selection-end="2995" vertical-scroll-proportion="0.46126762">
           <folding />
         </state>
       </provider>
@@ -1328,6 +1265,20 @@
     <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AuthItemController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="362" column="60" selection-start="13276" selection-end="13276" vertical-scroll-proportion="0.2284069">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/modules/quanlyphanquyen/controllers/AssignmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/protected/models/NhanVien.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="177" column="0" selection-start="7235" selection-end="7235" vertical-scroll-proportion="0.79742175">
           <folding />
         </state>
       </provider>
