@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2013 at 08:06 PM
+-- Generation Time: Jun 15, 2013 at 02:13 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -499,6 +499,8 @@ INSERT INTO `tbl_chitiethoadonban` (`san_pham_id`, `hoa_don_ban_id`, `so_luong`,
 (6, 56801, 1, 33500),
 (6, 56802, 1, 33500),
 (6, 56807, 1, 33500),
+(6, 56808, 1, 33500),
+(6, 56811, 100, 33500),
 (8, 56775, 5, 54000),
 (8, 56777, 4, 54000),
 (8, 56778, 2, 54000),
@@ -513,6 +515,7 @@ INSERT INTO `tbl_chitiethoadonban` (`san_pham_id`, `hoa_don_ban_id`, `so_luong`,
 (8, 56805, 1, 33600),
 (8, 56806, 1, 33600),
 (8, 56807, 20, 33600),
+(8, 56809, 30, 33600),
 (9, 56777, 2, 120000),
 (9, 56778, 10, 120000),
 (9, 56782, 10, 120000),
@@ -600,6 +603,7 @@ INSERT INTO `tbl_chitiethoadontra` (`san_pham_id`, `hoa_don_tra_id`, `so_luong`,
 (6, 56797, 20, 33500),
 (8, 56776, 3, 54000),
 (8, 56779, 4, 54000),
+(8, 56810, 10, 33600),
 (9, 56779, 2, 120000),
 (9, 56780, 10, 120000),
 (9, 56785, 5, 120000),
@@ -759,7 +763,7 @@ CREATE TABLE IF NOT EXISTS `tbl_chungtu` (
   UNIQUE KEY `ma_chung_tu` (`ma_chung_tu`),
   KEY `FKtbl_ChungT392230` (`nhan_vien_id`),
   KEY `FKtbl_ChungT837946` (`chi_nhanh_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56808 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56812 ;
 
 --
 -- Dumping data for table `tbl_chungtu`
@@ -823,7 +827,11 @@ INSERT INTO `tbl_chungtu` (`id`, `ma_chung_tu`, `ngay_lap`, `tri_gia`, `ghi_chu`
 (56804, 'BH00000000021', '2013-06-14 07:55:52', 33600, NULL, 1, 10),
 (56805, 'BH00000000022', '2013-06-14 07:57:11', 33600, NULL, 1, 10),
 (56806, 'BH00000000023', '2013-06-14 07:58:04', 33600, NULL, 1, 10),
-(56807, 'BH00000000024', '2013-06-14 07:59:44', 705500, NULL, 1, 10);
+(56807, 'BH00000000024', '2013-06-14 07:59:44', 705500, NULL, 1, 10),
+(56808, 'BH00000000025', '2013-06-15 02:08:45', 33500, NULL, 1, 10),
+(56809, 'BH00000000026', '2013-06-15 02:09:26', 1008000, NULL, 1, 10),
+(56810, 'TH00000000010', '2013-06-15 02:09:56', 336000, NULL, 1, 10),
+(56811, 'BH00000000027', '2013-06-15 02:12:11', 3350000, NULL, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -867,7 +875,10 @@ INSERT INTO `tbl_hoadonbanhang` (`id`, `chiet_khau`, `khach_hang_id`, `trang_tha
 (56804, 0, 3, 0),
 (56805, 0, 3, 0),
 (56806, 0, 3, 0),
-(56807, 0, 3, 0);
+(56807, 0, 3, 0),
+(56808, 0, 2, 0),
+(56809, 0, 2, 1),
+(56811, 0, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -896,7 +907,8 @@ INSERT INTO `tbl_hoadontrahang` (`id`, `ly_do_tra_hang`, `hoa_don_ban_id`) VALUE
 (56784, 'Hàng bị lỗi', 56782),
 (56785, 'Hàng bị lỗi', 56782),
 (56797, 'hàng bị hỏng', 56795),
-(56798, 'hàng bị hỏng', 56794);
+(56798, 'hàng bị hỏng', 56794),
+(56810, 'hàng hết hạn', 56809);
 
 -- --------------------------------------------------------
 
@@ -927,11 +939,11 @@ CREATE TABLE IF NOT EXISTS `tbl_khachhang` (
 
 INSERT INTO `tbl_khachhang` (`id`, `ma_khach_hang`, `ho_ten`, `ngay_sinh`, `dia_chi`, `thanh_pho`, `dien_thoai`, `email`, `mo_ta`, `diem_tich_luy`, `loai_khach_hang_id`) VALUES
 (1, 'KH00423', 'Lê Thanh Bình ', '1970-01-06', '8/4 Bà Hạt - Q5', 'TP Hồ Chí Minh', '0904343243', NULL, NULL, 2315340, 4),
-(2, 'KHBT', 'Khách hàng mua lẻ', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 8),
+(2, 'KHBT', 'Khách hàng mua lẻ', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 7),
 (3, 'KH00000001', 'Lê Cao Trí', '1991-10-02', 'KDC Bình Hưng, Bình Chánh,', 'Hồ Chí Minh', '+843667354453', 'tri@mail.com', NULL, 1209100, 4),
-(4, 'KH00000002', 'Lê Bảo Triết', '2013-06-01', 'Q4', 'Hồ Chí Minh', '+843667312312', 'triet@mail.com', NULL, 811200, 8),
+(4, 'KH00000002', 'Lê Bảo Triết', '2013-06-01', 'Q4', 'Hồ Chí Minh', '+843667312312', 'triet@mail.com', NULL, 811200, 7),
 (5, 'KH00000003', 'Đăng Thế Điệp', '2013-01-01', '5, Bình Thạnh', 'Hồ Chí Minh', '+8436673321', 'diep@Mail.com', NULL, 3076600, 4),
-(6, 'KH00000004', 'Dương Như', '1991-04-04', '5, Nhị Thiên Đường', 'Hồ Chí Minh', '+84366731233', 'nhuduong@mail.com', NULL, NULL, 8),
+(6, 'KH00000004', 'Dương Như', '1991-04-04', '5, Nhị Thiên Đường', 'Hồ Chí Minh', '+84366731233', 'nhuduong@mail.com', NULL, 3350000, 4),
 (7, 'KH00000005', 'Tạ Hà Trung', '1991-01-05', '1, Nguyễn Trãi', 'Hồ Chí Minh', '+8436673567', 'hatrung@Mail.com', NULL, 1089400, 4);
 
 -- --------------------------------------------------------
@@ -1063,8 +1075,7 @@ INSERT INTO `tbl_loaikhachhang` (`id`, `ma_loai_khach_hang`, `ten_loai`, `doanh_
 (4, 'KH03', 'Khách hàng loại 3', 1000000, 3),
 (5, 'VIP001', 'Khách VIP1', 100000000, 20),
 (6, 'VIP002', 'Khách VIP2', 80000000, 17),
-(7, 'KHBT', 'Khách lẻ', 0, 0),
-(8, 'KH00', 'Khách hàng bình thường', 0, 0);
+(7, 'KHBT', 'Khách hàng bình thường', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1249,7 +1260,7 @@ CREATE TABLE IF NOT EXISTS `tbl_nhanvien` (
 --
 
 INSERT INTO `tbl_nhanvien` (`id`, `ma_nhan_vien`, `ho_ten`, `email`, `dien_thoai`, `dia_chi`, `gioi_tinh`, `ngay_sinh`, `trinh_do`, `luong_co_ban`, `chuyen_mon`, `trang_thai`, `mat_khau`, `ngay_vao_lam`, `lan_dang_nhap_cuoi`, `loai_nhan_vien_id`, `chi_nhanh_id`) VALUES
-(1, 'QTHT0001', 'Lê Đình Long', NULL, NULL, NULL, 0, '1984-05-08', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '1970-01-01', '2013-06-14 04:23:10', 6, 10),
+(1, 'QTHT0001', 'Lê Đình Long', NULL, NULL, NULL, 0, '1984-05-08', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '1970-01-01', '2013-06-15 02:04:12', 6, 10),
 (2, 'BH001', 'Trần Thụy Diễm My ', NULL, '0974354980', '45/3 Lê Lai - Quận 1 - TPHCM', 1, '1987-01-07', 'Cao Đẳng ', 3200000, 'Bán hàng', 1, '202cb962ac59075b964b07152d234b70', '2010-08-11', '2013-06-10 09:39:34', 4, 26),
 (5, 'KT00322', 'Lê Quốc Nam', 'quocnam@hcm.vnn.vn', '4432432', '78/3/2 Thích Quảng Đức - Gò Vấp', 0, '0000-00-00', 'Cao đẳng', 5000000, 'Kế toán kho', 1, '202cb962ac59075b964b07152d234b70', '0000-00-00', '0000-00-00 00:00:00', 1, 26),
 (6, 'TK03123', 'Nguyễn Thành Trung', NULL, NULL, '675/3 Trần Xuân Soạn - Q7', 0, '1982-05-21', NULL, NULL, NULL, 1, '202cb962ac59075b964b07152d234b70', '2013-05-23', '1970-01-01 00:00:00', 5, 10),
@@ -1397,9 +1408,9 @@ CREATE TABLE IF NOT EXISTS `tbl_sanphamchinhanh` (
 --
 
 INSERT INTO `tbl_sanphamchinhanh` (`chi_nhanh_id`, `san_pham_id`, `so_ton`, `trang_thai`) VALUES
-(10, 6, 1753, 1),
+(10, 6, 1652, 1),
 (10, 7, 200, 1),
-(10, 8, 572, 1),
+(10, 8, 532, 1),
 (10, 9, 497, 1),
 (10, 10, 344, 1),
 (10, 12, 600, 1),
