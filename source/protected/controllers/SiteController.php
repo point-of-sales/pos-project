@@ -125,6 +125,7 @@ class SiteController extends Controller
                 }
 
                 $currentUserModuleList = Rights::getCurrentUserModuleList();
+
                 $menuItems = array();
                 $currentRoleWeight = RightsWeight::getRoleWeight(Yii::app()->user->id);
 

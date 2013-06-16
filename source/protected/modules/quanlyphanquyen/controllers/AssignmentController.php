@@ -98,6 +98,8 @@ class AssignmentController extends RController
 
             // Make sure we have items to be selected
             $assignSelectOptions = Rights::getAuthItemSelectValueOptions(null, $assignments);
+            unset($assignSelectOptions['Roles']);
+
             if ($assignSelectOptions !== array()) {
                 $formModel = new AssignmentForm();
 
@@ -148,21 +150,30 @@ class AssignmentController extends RController
 
                 $itemName = $this->getItemName();
                 if (RightsWeight::getRoleWeightFromItemname($itemName) == 999) // super user
-                { // can not rewoke super user
+                { // can not revoke super user
                     // Set flash message for revoking the item
                     echo 'override-error';
                     Yii::app()->end();
 
                 } else {
+                    // we only allow revoke task, operation. Role can not be revoke
+
+                    if(AuthItem::getItemType($itemName)!=2) {
+
                     // Revoke the item from the user and load it
                     $this->_authorizer->authManager->revoke($itemName, $_GET['id']);
                     $item = $this->_authorizer->authManager->getAuthItem($itemName);
                     $item = $this->_authorizer->attachAuthItemBehavior($item);
 
-                    // Set flash message for revoking the item
-                    Yii::app()->user->setFlash($this->module->flashSuccessKey,
-                        Rights::t('core', 'Permission :name revoked.', array(':name' => $item->getNameText()))
-                    );
+                        // Set flash message for revoking the item
+                        Yii::app()->user->setFlash($this->module->flashSuccessKey,
+                            Rights::t('core', 'Permission :name revoked.', array(':name' => $item->getNameText()))
+                        );
+                    } else {
+
+                        echo 'one-role-error';
+                        Yii::app()->end();
+                    }
                 }
                 // if AJAX request, we should not redirect the browser
                 if (isset($_POST['ajax']) === false) {

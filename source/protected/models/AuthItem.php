@@ -82,5 +82,13 @@ class AuthItem extends BaseAuthItem
         ));
     }
 
+    public static function getItemType($itemName) {
+        return Yii::app()->db->createCommand()
+            ->select('type')
+            ->from('AuthItem')
+            ->where('name=:itemname')
+            ->queryScalar(array(':itemname'=>$itemName));
+
+    }
 
 }

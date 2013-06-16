@@ -375,9 +375,25 @@ class Rights
     }
 
     public static function getCurrentUserModuleList() {
+
         $role = RightsWeight::getRole(Yii::app()->user->id);
-        $permissions = Rights::getPermissionsArray($role);
-        $operations = $permissions['operations'];
+        $tasks = RightsWeight::getTasks(Yii::app()->user->id);
+        $permissionsOnRole = Rights::getPermissionsArray($role);
+        $permissionsOnOperations = RightsWeight::getOperations(Yii::app()->user->id);
+        $permissionsOnTasks = array();
+        if(!empty($tasks)) {
+            foreach($tasks as $task) {
+                $tmp = Rights::getPermissionsArray($task);
+                $permissionsOnTasks  = array_merge($permissionsOnTasks,$tmp['operations']);
+            }
+        }
+        $operations = $permissionsOnRole['operations'];
+
+        if(!empty($permissionsOnTasks))
+            $operations = array_merge($operations,$permissionsOnTasks);
+        if(!empty($permissionsOnOperations))
+            $operations = array_merge($operations,$permissionsOnOperations);
+
         $ModuleList  = array();
         foreach($operations as $key=>$value) {
             $firstDotPos = strpos($key,'.');

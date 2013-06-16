@@ -80,14 +80,53 @@ class RightsWeight extends BaseRightsWeight
         ));
     }
 
-    public static function getRole($id)
+    public static function getRole($id)   // 1 role
     {
-        return Yii::app()->db->createCommand()
+
+        $assignedItems =  Yii::app()->db->createCommand()
             ->select('itemname')
             ->from('AuthAssignment')
             ->where('userid=:nhan_vien_id')
-            ->queryScalar(array(':nhan_vien_id' => $id));
+            ->queryAll(true,array(':nhan_vien_id' => $id));
+        foreach($assignedItems as $item) {
+            if(AuthItem::getItemType($item['itemname'])==2)
+                return $item['itemname'];
+        }
 
+    }
+
+    public static function getTasks($id)  // 1 more task
+    {
+        $tasks = array();
+
+        $assignedItems =  Yii::app()->db->createCommand()
+            ->select('itemname')
+            ->from('AuthAssignment')
+            ->where('userid=:nhan_vien_id')
+            ->queryAll(true,array(':nhan_vien_id' => $id));
+        foreach($assignedItems as $item) {
+            if(AuthItem::getItemType($item['itemname'])==1)
+                $tasks[] = $item['itemname'];
+        }
+
+        return $tasks;
+    }
+
+    public static function getOperations($id)  // 1 more task
+    {
+        $operations = array();
+
+        $assignedItems =  Yii::app()->db->createCommand()
+            ->select('itemname')
+            ->from('AuthAssignment')
+            ->where('userid=:nhan_vien_id')
+            ->queryAll(true,array(':nhan_vien_id' => $id));
+
+        foreach($assignedItems as $item) {
+            if(AuthItem::getItemType($item['itemname'])==0)
+                $operations[ $item['itemname']] = '';
+        }
+        return $operations;
     }
 
     public static function getRoleWeight($id)

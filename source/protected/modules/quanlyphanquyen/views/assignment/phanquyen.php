@@ -89,18 +89,25 @@ $this->menu = array(
                             'label' => Yii::t('viLib', 'delete'),
 
                         ),
-
                     ),
                     'afterDelete' => 'function(link,success,data){
 
-                                if(data=="override-error") {
-                                    $(".search-form").after(
-                                    "<div class=error>Không thể xóa vai trò của Quản Lý Hệ Thống</div>");
+                                switch(data) {
+                                    case "override-error":  {
+                                     $(".search-form").after(
+                                     "<div class=error>Không thể xóa vai trò của Quản Lý Hệ Thống</div>");
+                                     break;
+                                    }
+                                    case "one-role-error": {
+                                     $(".search-form").after(
+                                     "<div class=error>Đây là vai trò duy nhất của người dùng không thể xóa</div>");
+                                    break;
+                                    }
+                                }
                             $(".error").addClass("response-msg");
                             $(".error").addClass("ui-corner-all");
                             $(".error").fadeOut(8000);
 
-                            }
 
 
                     ; }',
