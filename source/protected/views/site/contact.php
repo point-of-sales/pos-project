@@ -13,7 +13,7 @@
         <p><b>Name : </b>Le Cao Tri</p>
         <p><b>Student ID :</b> 50903135</p>
         <p><b>Class name : </b>09050302</p>
-        <p><b>Email : </b>snowfox0210@yahoo.com</p>
+        <p><b>Email : </b>lecaotri.tdt@gmail.com</p>
     </div>
     <div class="member">
         <p><b>Name : </b>Le Bao Triet</p>
